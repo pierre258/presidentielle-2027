@@ -4,7 +4,7 @@
   "use strict";
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  let A, Q, sb, user = null, profile = null;
+  let A, Q, sb, user = null, profile = null, deleting = false;
   const PENDING = "fun_pending_code";
   const store = {
     get: (k) => { try { return localStorage.getItem(k); } catch { return null; } },
@@ -199,11 +199,11 @@
     }));
   }
 
-  // Onglets : avant le portrait, « Mon portrait » d'abord ; après, « Sondage MDS 2027 » d'abord
+  // Onglets : avant le portrait, « Mon portrait » d'abord ; après, « Le vote des participants » d'abord
   // « Je sonde mes proches » : bouton à part, tout à gauche ; puis les résultats
   function tabsHTML() {
     return `<button type="button" class="sonde-btn" data-p="f-groups">🔗 Je sonde mes proches<small>anonymement</small></button>
-      <div class="seg big fun-tabs"><button data-p="f-all" class="on">📊 Sondage MDS 2027</button><button data-p="f-joined">👥 Mes groupes</button></div>`;
+      <div class="seg big fun-tabs"><button data-p="f-all" class="on">📊 Le vote des participants</button><button data-p="f-joined">👥 Mes groupes</button></div>`;
   }
 
   function portraitLoggedOut() {
@@ -245,8 +245,8 @@
     stepper.chosen = profile.chosen_candidate || "";
     stepper.i = 0;
     el().innerHTML = `${notice}
-      <div class="fun-head"><div>Connecté en tant que <strong>${esc(profile.pseudo)}</strong></div><button type="button" id="logout" class="ghost">Se déconnecter</button></div>
-      ${done ? "" : `<div class="fun-card port-todo"><div><strong>Première étape : votre portrait</strong><p class="muted small">Répondez aux affirmations et choisissez votre candidat : votre vote comptera dans vos groupes et dans le Sondage MDS 2027.</p></div>${toPortrait}</div>`}
+      <div class="fun-head"><div>Connecté en tant que <strong>${esc(profile.pseudo)}</strong></div><div class="fun-head-btns"><button type="button" id="logout" class="ghost">Se déconnecter</button><button type="button" id="del-account" class="ghost danger">Supprimer mon compte</button></div></div>
+      ${done ? "" : `<div class="fun-card port-todo"><div><strong>Première étape : votre portrait</strong><p class="muted small">Répondez aux affirmations et choisissez votre candidat : votre vote comptera dans vos groupes et dans « Le vote des participants ».</p></div>${toPortrait}</div>`}
       <div class="fun-tabbar" id="fun-tabs">${tabsHTML()}</div>
       <div class="fun-pane" id="f-groups" hidden>
         <div class="fun-card"><form id="grp-form" class="fun-form inline">
@@ -259,6 +259,7 @@
       <div class="fun-pane" id="f-all"><div id="all-results"></div></div>`;
     pel().innerHTML = `<div class="fun-head"><div>Connecté en tant que <strong>${esc(profile.pseudo)}</strong></div></div><div id="f-portrait">${portraitPane()}</div><div id="port-msg"></div>`;
     $("#logout").onclick = () => sb.auth.signOut();
+    $("#del-account").onclick = confirmDelete;
     $("#fun-tabs").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
       if (!b.dataset.p) return;
@@ -271,6 +272,36 @@
     $("#grp-form").addEventListener("submit", createGroup);
     bindPortrait();
     renderAll();
+  }
+
+  /* ---------- Supprimer mon compte (droit à l'effacement) ---------- */
+  function confirmDelete() {
+    el().innerHTML = `<div class="fun-card del-card">
+        <h3>🗑️ Supprimer mon compte</h3>
+        <p>Cette action est <strong>définitive</strong> et immédiate. Seront effacés :</p>
+        <ul><li>votre compte et votre adresse e-mail ;</li><li>votre pseudo, votre portrait et votre choix de candidat ;</li>
+        <li>votre participation à tous les groupes ;</li><li>les groupes que vous avez créés, avec leurs résultats (leurs membres n'y auront plus accès).</li></ul>
+        <label class="fun-form">Pour confirmer, tapez <strong>SUPPRIMER</strong><input id="del-word" autocomplete="off" spellcheck="false"></label>
+        <div class="mail-actions"><button type="button" class="ghost" id="del-cancel">Annuler</button><button type="button" class="cta danger-cta" id="del-go" disabled>Supprimer définitivement</button></div>
+        <div id="del-msg"></div></div>`;
+    const go = $("#del-go");
+    $("#del-word").oninput = (e) => (go.disabled = e.target.value.trim().toUpperCase() !== "SUPPRIMER");
+    $("#del-cancel").onclick = () => renderApp();
+    go.onclick = async () => {
+      go.disabled = true;
+      $("#del-msg").innerHTML = msg("Suppression en cours…");
+      const { error } = await sb.rpc("delete_my_account");
+      if (error) { go.disabled = false; return ($("#del-msg").innerHTML = msg("Suppression impossible : " + esc(error.message) + ". Réessayez ou écrivez à contact@moyennedessondages2027.fr.", "err")); }
+      store.del(PENDING);
+      deleting = true; // l'écran de confirmation ne doit pas être remplacé par le formulaire de connexion
+      await sb.auth.signOut({ scope: "local" }).catch(() => {});
+      user = null; profile = null;
+      portraitLoggedOut();
+      el().innerHTML = `<div class="fun-card mailbox"><div class="mail-ico">✅</div><h3>Votre compte a été supprimé</h3>
+        <p>Toutes vos données ont été effacées. Merci d'avoir participé !</p>
+        <button type="button" class="ghost" id="del-back">Revenir à l'accueil du Petit vote</button></div>`;
+      $("#del-back").onclick = () => { deleting = false; renderAuth(); };
+    };
   }
 
   function bindPortrait() {
@@ -293,7 +324,7 @@
     if (error) return (out.innerHTML = msg("Enregistrement impossible : " + esc(error.message), "err"));
     Object.assign(profile, row);
     stepper.editing = false;
-    // portrait validé : direction « Petit vote entre amis », onglet « Sondage MDS 2027 »
+    // portrait validé : direction « Petit vote entre amis », onglet « Le vote des participants »
     await renderApp(msg("✓ Portrait enregistré ! Découvrez ci-dessous les résultats de tous les participants, puis ceux de vos groupes.", "ok"));
     location.hash = "#fun";
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -311,7 +342,7 @@
 
   /* ---------- Tableau de bord du créateur ---------- */
   function dashboard(rows, opt = {}) {
-    const G = !!opt.global; // vue « Sondage MDS 2027 » : anonyme, sans pseudos
+    const G = !!opt.global; // vue « Le vote des participants » : anonyme, sans pseudos
     const done = rows.filter((r) => r.completed);
     if (!rows.length) return `<p class="muted">${G ? "Aucun portrait validé pour l'instant." : "Personne n'a encore utilisé ce lien."}</p>`;
     if (!done.length) return `<p class="muted">${rows.length} membre(s), aucun portrait validé pour l'instant.</p>`;
@@ -420,7 +451,7 @@
     const { data, error } = await sb.rpc("global_results");
     if (error) return (box.innerHTML = msg(esc(error.message), "err"));
     const rows = (data || []).map((r) => ({ ...r, completed: true }));
-    box.innerHTML = `<div class="fun-card wide"><h3>📊 Sondage MDS 2027 — tous les participants</h3>
+    box.innerHTML = `<div class="fun-card wide"><h3>📊 Le vote des participants — tous groupes confondus</h3>
       <p class="muted small">Tous les portraits validés avec un candidat choisi, tous groupes confondus. Échantillon non représentatif de la population : ce n'est pas un sondage.</p>
       ${dashboard(rows, { global: true, groups: data?.[0]?.groups })}</div>`;
   }
@@ -455,6 +486,7 @@
     let last;
     sb.auth.onAuthStateChange((_e, session) => {
       const id = session?.user?.id || null;
+      if (deleting) { last = id; return; }
       if (id === last) return; // évite les rafraîchissements inutiles (rafraîchissement du jeton…)
       last = id;
       refresh(session);

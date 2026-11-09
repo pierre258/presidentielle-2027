@@ -507,3 +507,13 @@ a.brand:hover .brand-mark { filter: brightness(1.1); }
 .fun-form label.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; font-weight: 400; }
 .fun-form label.consent input { width: auto; margin-top: 3px; flex: none; }
 .fun-form label.consent a { color: var(--text); }
+
+/* --- Supprimer mon compte --- */
+.fun-head-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.ghost.danger { color: #ff8a8a; border-color: rgba(255,90,90,.45); }
+.ghost.danger:hover { background: rgba(255,90,90,.12); }
+.del-card { max-width: 620px; border-color: rgba(255,90,90,.45); }
+.del-card ul { padding-left: 20px; line-height: 1.6; }
+.del-card input { margin-top: 6px; max-width: 260px; }
+.danger-cta { background: #dc2626; }
+.danger-cta:disabled { opacity: .45; cursor: not-allowed; }
