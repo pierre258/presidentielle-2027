@@ -153,6 +153,44 @@ def tiktok_item(v):
             "date": (v.get("createTimeISO") or "")[:10]}
 
 
+# Comptes Instagram « alliés » dont les publications concernent un candidat (co-publications, mouvement)
+IG_ALLIES = {"franceinsoumise": "melenchon", "nouv_energie": "lisnard", "nordavecroussel": "roussel"}
+IG_SKIP = re.compile(r"#(bion3|tdy)\b|lien en bio →|code promo|partenariat", re.I)
+
+
+def instagram_all(cands, since):
+    """Reels et posts Instagram de la semaine des comptes officiels des candidats (Apify, un seul passage)."""
+    handles = {c["social"].get("instagram"): cid for cid, c in cands.items() if c.get("social", {}).get("instagram")}
+    if not handles:
+        return {}
+    items = apify("apify~instagram-scraper", {"directUrls": [f"https://www.instagram.com/{h}/" for h in handles],
+                                                "resultsType": "posts", "resultsLimit": 6,
+                                                "onlyPostsNewerThan": "7 days", "addParentData": False})
+    out = {}
+    for p in items:
+        owner = (p.get("ownerUsername") or "").lower()
+        m = re.search(r"instagram\.com/([^/]+)/", p.get("inputUrl") or "")
+        cid = handles.get(owner) or IG_ALLIES.get(owner) or (m and handles.get(m.group(1)))
+        if not cid or not p.get("shortCode") or p.get("paidPartnership") or IG_SKIP.search(p.get("caption") or ""):
+            continue
+        if (p.get("timestamp") or "")[:10] < since.isoformat():
+            continue
+        out.setdefault(cid, []).append(instagram_item(p))
+    for cid in out:
+        out[cid] = sorted(out[cid], key=lambda i: -(i.get("views") or i.get("likes") or 0))[:3]
+    return out
+
+
+def instagram_item(p):
+    reel = p.get("productType") == "clips" or p.get("type") == "Video"
+    cap = (p.get("caption") or "").strip().split("\n")[0][:200]
+    return {"type": "post", "platform": "instagram", "title": cap or ("Reel Instagram" if reel else "Publication Instagram"),
+            "source": "@" + (p.get("ownerUsername") or "?"), "url": p.get("url") or f"https://www.instagram.com/p/{p['shortCode']}/",
+            "instagram_code": p["shortCode"], "instagram_kind": "reel" if reel else "p",
+            "views": int(p.get("videoPlayCount") or p.get("videoViewCount") or 0), "likes": max(0, int(p.get("likesCount") or 0)),
+            "date": (p.get("timestamp") or "")[:10], "context": "Publication du compte Instagram officiel" if not reel else "Reel du compte Instagram officiel"}
+
+
 def heuristic(item):
     t = item["title"].lower()
     n = sum(k in t for k in NEG)
@@ -206,6 +244,11 @@ def main():
               "classifier": "claude" if os.environ.get("ANTHROPIC_API_KEY") else "mots-clés",
               "candidates": {}}
     raw = {}
+    try:
+        insta = instagram_all({k: cands[k] for k in MAIN}, since)
+    except Exception as e:  # noqa: BLE001
+        print("instagram", e)
+        insta = {}
     for cid in MAIN:
         c = cands[cid]
         items = []
@@ -226,6 +269,7 @@ def main():
                 items += fn()
             except Exception as e:  # noqa: BLE001
                 print(label, cid, e)
+        items += insta.get(cid, [])
         raw[cid] = items
         labels = classify_with_claude(c["name"], items) or [heuristic(i) for i in items]
         neg, pos = [], []

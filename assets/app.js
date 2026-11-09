@@ -476,15 +476,15 @@
   // Plateformes : article, YouTube, Dailymotion, TikTok, X
   const PLAT = {
     article: ["📰 Article", "#9aa4b2"], youtube: ["▶ YouTube", "#ff0033"], dailymotion: ["▶ Dailymotion", "#0d65f2"],
-    tiktok: ["♪ TikTok", "#25d8e8"], x: ["𝕏 Post X", "#e7e9ea"],
+    tiktok: ["♪ TikTok", "#25d8e8"], x: ["𝕏 Post X", "#e7e9ea"], instagram: ["◎ Instagram", "#e1306c"],
   };
   const platformOf = (it) => it.platform || (it.youtube_id ? "youtube" : it.type === "video" ? "youtube" : "article");
   const KINDS = { "": "Toutes les sources", article: "Articles", video: "Vidéos TV & web", social: "Réseaux sociaux" };
-  const kindOf = (it) => { const p = platformOf(it); return p === "article" ? "article" : p === "tiktok" || p === "x" ? "social" : "video"; };
+  const kindOf = (it) => { const p = platformOf(it); return p === "article" ? "article" : p === "tiktok" || p === "x" || p === "instagram" ? "social" : "video"; };
   function initBuzz() {
     const ids = Object.keys(BUZZ.candidates).filter((id) => C[id]);
     const st = { id: "", kind: "" };
-    $("#buzz-meta").textContent = `Du ${fmtDate(BUZZ.since, { day: "numeric", month: "long" })} à aujourd'hui · articles de presse, séquences TV (YouTube, Dailymotion), TikTok et X · ${BUZZ.classifier}`;
+    $("#buzz-meta").textContent = `Du ${fmtDate(BUZZ.since, { day: "numeric", month: "long" })} à aujourd'hui · articles de presse, séquences TV (YouTube, Dailymotion), TikTok, Instagram et X · ${BUZZ.classifier}`;
     $("#buzz-filter").innerHTML = `<button class="chip all on" data-id="">Tous</button>` + ids.map((id) => `<button class="chip" data-id="${id}">${avatar(id, 26)}${esc(C[id].short)}</button>`).join("");
     $("#buzz-kind").innerHTML = Object.entries(KINDS).map(([k, v]) => `<button data-k="${k}" class="${k === "" ? "on" : ""}">${v}</button>`).join("");
     const media = (it) => {
@@ -497,6 +497,8 @@
           : `<a class="yt" href="https://www.dailymotion.com/video/${esc(it.dailymotion_id)}" target="_blank" rel="noopener" aria-label="Voir la vidéo sur Dailymotion"><img src="https://www.dailymotion.com/thumbnail/video/${esc(it.dailymotion_id)}" alt="" loading="lazy"></a>`;
       if (pf === "tiktok" && it.tiktok_id)
         return `<div class="tt" data-tt="${esc(it.tiktok_id)}"><span class="tt-ph">♪ TikTok</span></div>`;
+      if (pf === "instagram" && it.instagram_code)
+        return `<div class="ig"><iframe src="https://www.instagram.com/${it.instagram_kind === "p" ? "p" : "reel"}/${esc(it.instagram_code)}/embed/" loading="lazy" scrolling="no" allowtransparency="true" allow="encrypted-media; fullscreen" title="Publication Instagram"></iframe></div>`;
       if (pf === "x" && it.x_id)
         return `<button class="xload" data-src="https://platform.twitter.com/embed/Tweet.html?id=${esc(it.x_id)}&lang=fr&theme=dark&dnt=true">Afficher le post</button>`;
       return "";

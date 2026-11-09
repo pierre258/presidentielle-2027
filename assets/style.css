@@ -810,3 +810,7 @@ h2 { margin: 44px 0 18px; }
 }
 
 @media (min-width: 761px) { .top-right .mini-live { order: 2; } }
+
+/* --- Instagram (Buzz) : format compact --- */
+.ig { margin-top: 8px; height: 420px; border-radius: 10px; overflow: hidden; display: flex; justify-content: center; background: linear-gradient(135deg, rgba(254,218,117,.25), rgba(214,41,118,.3), rgba(79,91,213,.3)); }
+.ig iframe { width: 100%; max-width: 340px; height: 100%; border: 0; background: #fff; }
