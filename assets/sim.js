@@ -275,40 +275,56 @@
     $("#sim-ent-out").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  /* ------------ Portrait idéologique ------------ */
-  function renderQuiz() {
-    $("#quiz").innerHTML = S.quiz.map((q, i) => `<fieldset class="qz"><legend>${i + 1}. ${A.esc(q.q)}</legend>
-      ${[["-2", "Pas du tout"], ["-1", "Plutôt pas"], ["0", "Sans avis"], ["1", "Plutôt"], ["2", "Tout à fait"]].map(([v, l]) => `<label><input type="radio" name="${q.id}" value="${v}"${v === "0" ? " checked" : ""}><span>${l}</span></label>`).join("")}
+  /* ------------ Portrait idéologique (réutilisé par la rubrique Fun) ------------ */
+  const CHOICES = [["-2", "Pas du tout"], ["-1", "Plutôt pas"], ["0", "Sans avis"], ["1", "Plutôt"], ["2", "Tout à fait"]];
+  function quizHTML(prefix = "", values = {}) {
+    return S.quiz.map((q, i) => `<fieldset class="qz"><legend>${i + 1}. ${A.esc(q.q)}</legend>
+      ${CHOICES.map(([v, l]) => `<label><input type="radio" name="${prefix}${q.id}" value="${v}"${String(values[q.id] ?? 0) === v ? " checked" : ""}><span>${l}</span></label>`).join("")}
     </fieldset>`).join("");
   }
-  function portrait() {
+  function readAnswers(prefix = "", root = document) {
     const ans = {};
-    S.quiz.forEach((q) => (ans[q.id] = +($(`input[name=${q.id}]:checked`)?.value || 0)));
+    S.quiz.forEach((q) => (ans[q.id] = +(root.querySelector(`input[name="${prefix}${q.id}"]:checked`)?.value || 0)));
+    return ans;
+  }
+  // position sur chaque axe, de -1 (libellé de gauche) à +1 (libellé de droite)
+  function axisPos(st) {
+    const out = {};
+    Object.keys(S.axes).forEach((ax) => {
+      const qs = S.quiz.filter((q) => q.axe === ax);
+      out[ax] = qs.reduce((a, q) => a + (q.inv ? -1 : 1) * (st[q.id] ?? 0), 0) / (qs.length * 2);
+    });
+    return out;
+  }
+  function compute(ans) {
     const answered = S.quiz.filter((q) => ans[q.id] !== 0);
     const ids = Object.keys(S.stances).filter((id) => A.C[id]);
+    const qs = answered.length ? answered : S.quiz;
     const prox = ids.map((id) => {
       const st = S.stances[id];
-      const qs = answered.length ? answered : S.quiz;
       const d = qs.reduce((a, q) => a + Math.abs(ans[q.id] - (st[q.id] ?? 0)), 0) / qs.length;
       return { id, pct: Math.round((1 - d / 4) * 100) };
     }).sort((a, b) => b.pct - a.pct);
-    const axisPos = (st) => {
-      const out = {};
-      Object.keys(S.axes).forEach((ax) => {
-        const qs = S.quiz.filter((q) => q.axe === ax);
-        out[ax] = qs.reduce((a, q) => a + (q.inv ? -1 : 1) * (st[q.id] ?? 0), 0) / (qs.length * 2); // -1..1
-      });
-      return out;
-    };
-    const me = axisPos(ans), top = prox.slice(0, 3);
-    $("#quiz-out").innerHTML = `<h3>🧭 Votre portrait idéologique</h3>
-      ${answered.length < 5 ? `<p class="warn">Répondez à au moins 5 affirmations pour un portrait fiable (${answered.length} réponse(s) pour l'instant).</p>` : ""}
-      <div class="axes">${Object.entries(S.axes).map(([ax, [l, r]]) => `<div class="axe"><div class="axe-l"><span>${l}</span><span>${r}</span></div>
-        <div class="axe-track">${top.map((t) => `<span class="axe-dot" title="${A.esc(A.C[t.id].short)}" style="left:${(axisPos(S.stances[t.id])[ax] + 1) * 50}%">${A.avatar(t.id, 24)}</span>`).join("")}
-        <span class="axe-me" style="left:${(me[ax] + 1) * 50}%">VOUS</span></div></div>`).join("")}</div>
-      <h3>Candidats les plus proches de vos réponses</h3>
-      <div class="prox">${prox.map((p) => `<div class="prox-r">${A.avatar(p.id, 28)}<span>${A.esc(A.C[p.id].name)}</span><span class="prox-b"><i style="width:${p.pct}%;background:${A.C[p.id].color === "#404040" ? "#8a8f98" : A.C[p.id].color}"></i></span><strong>${p.pct} %</strong></div>`).join("")}</div>
+    return { prox, axes: axisPos(ans), answered: answered.length };
+  }
+  // dots = [{label, pos:{axe:val}, cls}] supplémentaires (ex. moyenne d'un groupe)
+  function axesHTML(me, top, meLabel = "VOUS", extra = []) {
+    return `<div class="axes">${Object.entries(S.axes).map(([ax, [l, r]]) => `<div class="axe"><div class="axe-l"><span>${l}</span><span>${r}</span></div>
+      <div class="axe-track">${top.map((t) => `<span class="axe-dot" title="${A.esc(A.C[t.id].short)}" style="left:${(axisPos(S.stances[t.id])[ax] + 1) * 50}%">${A.avatar(t.id, 24)}</span>`).join("")}
+      ${extra.map((e) => `<span class="axe-me ${e.cls || ""}" style="left:${(e.pos[ax] + 1) * 50}%">${A.esc(e.label)}</span>`).join("")}
+      ${me ? `<span class="axe-me" style="left:${(me[ax] + 1) * 50}%">${A.esc(meLabel)}</span>` : ""}</div></div>`).join("")}</div>`;
+  }
+  const proxHTML = (prox) => `<div class="prox">${prox.map((p) => `<div class="prox-r">${A.avatar(p.id, 28)}<span>${A.esc(A.C[p.id].name)}</span><span class="prox-b"><i style="width:${p.pct}%;background:${A.C[p.id].color === "#404040" ? "#8a8f98" : A.C[p.id].color}"></i></span><strong>${p.pct} %</strong></div>`).join("")}</div>`;
+  function portraitHTML(res, title = "🧭 Votre portrait idéologique") {
+    return `<h3>${title}</h3>
+      ${res.answered < 5 ? `<p class="warn">Répondez à au moins 5 affirmations pour un portrait fiable (${res.answered} réponse(s) pour l'instant).</p>` : ""}
+      ${axesHTML(res.axes, res.prox.slice(0, 3))}
+      <h3>Candidats les plus proches de vos réponses</h3>${proxHTML(res.prox)}
       <p class="muted small">Proximité = écart moyen entre vos réponses et notre lecture des positions publiques de chaque candidat. Indicatif : ce n'est pas une consigne de vote.</p>`;
+  }
+  function renderQuiz() { $("#quiz").innerHTML = quizHTML(""); }
+  function portrait() {
+    $("#quiz-out").innerHTML = portraitHTML(compute(readAnswers("")));
     $("#quiz-out").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -326,5 +342,8 @@
     renderQuiz();
     $("#quiz-btn").addEventListener("click", portrait);
   }
-  window.Simulateur = { init };
+  window.Simulateur = {
+    init,
+    quiz: { quizHTML, readAnswers, compute, axesHTML, proxHTML, portraitHTML, axisPos, get questions() { return S.quiz; }, get axes() { return S.axes; } },
+  };
 })();

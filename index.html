@@ -25,6 +25,7 @@
         <a href="#buzz" data-tab="buzz" class="tab">Buzz</a>
         <a href="#programmes" data-tab="programmes" class="tab">Programmes</a>
         <a href="#simulateur" data-tab="simulateur" class="tab">Mon impact</a>
+        <a href="#fun" data-tab="fun" class="tab">Fun 🎉</a>
       </nav>
     </div>
   </header>
@@ -240,6 +241,17 @@
       </div>
       <p class="muted small">Méthode : impôt sur le revenu calculé au barème 2025 (quotient familial, décote), IS à 15 %/25 %. Les mesures des candidats sont chiffrées quand c'est possible, avec l'hypothèse affichée sous chaque ligne. Estimations indicatives, sans valeur de conseil fiscal.</p>
     </section>
+
+    <!-- 6. FUN -->
+    <section id="fun" class="panel" hidden>
+      <div class="panel-head">
+        <div>
+          <h1>Entre amis : qui pense quoi ?</h1>
+          <p class="muted">Créez un compte en 20 secondes, faites votre portrait idéologique, puis partagez un lien : vous verrez les tendances de votre groupe (pseudos uniquement).</p>
+        </div>
+      </div>
+      <div id="fun-app"></div>
+    </section>
   </main>
 
   <footer class="wrap foot">
@@ -247,7 +259,10 @@
     <p class="muted small">Site d'information indépendant, sans lien avec les candidats ni les instituts de sondage.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="assets/config.js"></script>
   <script src="assets/sim.js"></script>
+  <script src="assets/fun.js"></script>
   <script src="assets/app.js"></script>
 </body>
 </html>

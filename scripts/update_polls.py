@@ -154,7 +154,7 @@ def main():
 
     today = dt.date.today()
     year, prev_month = today.year, today.month
-    polls = []
+    polls, by_key = [], {}
     for grid in tables:
         if len(grid) < 4 or len(grid[1]) < 9 or grid[1][0]["text"] != "Sondeur":
             continue  # on ne garde que les tableaux de 1er tour
@@ -163,6 +163,10 @@ def main():
         cur = None
         for row in grid[3:]:
             if len(row) < len(header) or not row[0]["text"]:
+                continue
+            # Lignes d'événement (« X officialise sa candidature… ») : une seule cellule sur
+            # toute la largeur, sans échantillon chiffré → ce ne sont pas des sondages
+            if row[0] is row[1] or row[1] is row[2] or not re.fullmatch(r"[\d\s \xa0.]+", row[2]["text"] or "x"):
                 continue
             ed = parse_end_date(row[1]["text"])
             if not ed:
@@ -181,11 +185,16 @@ def main():
             if end < HISTORY_START:
                 stop = True
                 break
-            key = (row[0]["text"], row[1]["text"], end)
-            if cur is None or cur["_key"] != key:
-                cur = {"_key": key, "pollster": row[0]["text"], "fieldwork": row[1]["text"],
-                       "end": end.isoformat(), "sample": re.sub(r"\D", "", row[2]["text"]),
-                       "hyp": []}
+            sample = re.sub(r"\D", "", row[2]["text"])
+            # même sondage (institut, fin de terrain, échantillon), éventuellement présent dans
+            # deux tableaux : on fusionne ses hypothèses au lieu de créer un doublon
+            key = (norm(row[0]["text"]), end, sample)
+            cur = by_key.get(key)
+            if cur is None:
+                cur = {"_key": key, "pollster": row[0]["text"],
+                       "fieldwork": re.sub(r"\s*20\d\d\s*$", "", row[1]["text"]),
+                       "end": end.isoformat(), "sample": sample, "hyp": [], "_sig": set()}
+                by_key[key] = cur
                 polls.append(cur)
             hyp, seen, fam = {}, set(), {}
             for i in range(3, len(header)):
@@ -213,8 +222,11 @@ def main():
                 f = family_of(pm.group(1) if pm else "", colname)
                 if f and v is not None:
                     fam[f] = fam.get(f, 0) + v
-            if hyp:
-                cur["hyp"].append(hyp)
+            sig = tuple(sorted(hyp.items()))
+            if not hyp or sig in cur["_sig"]:
+                continue  # hypothèse vide ou déjà vue (même sondage dans deux tableaux)
+            cur["_sig"].add(sig)
+            cur["hyp"].append(hyp)
             tot = sum(fam.values())
             if tot >= 80:  # hypothèse assez complète : normalisée à 100
                 cur.setdefault("fam", []).append({k: v * 100 / tot for k, v in fam.items()})

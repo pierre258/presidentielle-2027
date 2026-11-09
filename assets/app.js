@@ -36,7 +36,8 @@
   /* ---------------- Onglets ---------------- */
   const shown = new Set();
   function showTab(id) {
-    if (!$("#" + id)) id = "sondages";
+    id = (id || "").split("?")[0];
+    if (!/^[a-z]+$/.test(id) || !$("#" + id)) id = "sondages";
     $$(".panel").forEach((p) => (p.hidden = p.id !== id));
     $$(".tab").forEach((t) => t.classList.toggle("on", t.dataset.tab === id));
     if (id === "reseaux" && !shown.has(id)) setTimeout(() => Social.play(), 250);
@@ -596,6 +597,8 @@
     });
     Social.init(); initBuzz(); initProg();
     if (window.Simulateur) window.Simulateur.init({ C, avatar, esc, fmtN, socialLinks }, SIM);
+    window.APP = { C, avatar, esc, fmtN, socialLinks };
+    if (window.Fun) window.Fun.init(window.APP);
     showTab(location.hash.slice(1) || "sondages");
   }
   main();
