@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T12:33+00:00",
+ "updated": "2026-11-09T21:22+00:00",
  "source": "Wikipédia — Liste de sondages sur l'élection présidentielle française de 2027",
  "source_url": "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027",
  "window_days": 15,
@@ -21,7 +21,7 @@
  },
  "previous_average": {
   "arthaud": 0.6,
-  "melenchon": 16.5,
+  "melenchon": 16.6,
   "roussel": 1.9,
   "tondelier": 2.6,
   "glucksmann": 13.7,
@@ -151,7 +151,7 @@
    },
    "previous": {
     "arthaud": 0.6,
-    "melenchon": 16.5,
+    "melenchon": 16.6,
     "roussel": 1.9,
     "tondelier": 2.6,
     "glucksmann": 13.7,
@@ -1193,7 +1193,7 @@
    "date": "2026-10-07",
    "scores": {
     "arthaud": 0.8,
-    "melenchon": 17.1,
+    "melenchon": 17.2,
     "roussel": 2.4,
     "tondelier": 3.8,
     "glucksmann": 10.4,
