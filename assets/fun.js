@@ -1,4 +1,4 @@
-/* Rubrique « Fun » : compte express, portrait idéologique, lien de groupe à partager et
+/* Rubrique « Petit vote entre amis » : compte express, portrait idéologique, lien de groupe à partager et
    tableau de bord du créateur du lien. Backend : Supabase (Auth + Postgres avec RLS). */
 (() => {
   "use strict";

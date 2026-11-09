@@ -341,3 +341,10 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .avgq-r { grid-template-columns: 1fr 40px; }
   .avgq-b { grid-column: 1 / -1; }
 }
+
+/* --- Raccourci « Petit vote entre amis » (page Sondages) --- */
+.vote-btn { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; font-weight: 700; font-size: 14px;
+  padding: 9px 16px; border-radius: 999px; background: linear-gradient(90deg, #ffb020, #ff2d55); color: #fff;
+  box-shadow: 0 4px 14px rgba(255, 45, 85, .35); white-space: nowrap; }
+.vote-btn:hover { filter: brightness(1.08); }
+.poll-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
