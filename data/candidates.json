@@ -1,0 +1,259 @@
+{
+ "_doc": "Fichier maître édité à la main. 'poll_keys' = libellés reconnus dans les tableaux de sondages Wikipédia. 'social' = identifiants publics (vérifiés le 9/11/2026 ; vide = compte officiel introuvable). 'wiki' = titre de la page fr.wikipedia (photo).",
+ "candidates": [
+  {
+   "id": "lepen",
+   "name": "Marine Le Pen",
+   "short": "Le Pen",
+   "party": "RN",
+   "color": "#0D378A",
+   "wiki": "Marine_Le_Pen",
+   "poll_keys": [
+    "Le Pen",
+    "Candidat RN"
+   ],
+   "social": {
+    "x": "MLP_officiel",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "@MarineLePenOfficiel",
+    "facebook": "MarineLePen"
+   }
+  },
+  {
+   "id": "bardella",
+   "name": "Jordan Bardella",
+   "short": "Bardella",
+   "party": "RN",
+   "color": "#1F4FB5",
+   "wiki": "Jordan_Bardella",
+   "poll_keys": [
+    "Bardella"
+   ],
+   "social": {
+    "x": "J_Bardella",
+    "instagram": "jordanbardella",
+    "tiktok": "jordanbardella",
+    "youtube": "@J_Bardella",
+    "facebook": "jordanbardella"
+   }
+  },
+  {
+   "id": "melenchon",
+   "name": "Jean-Luc Mélenchon",
+   "short": "Mélenchon",
+   "party": "LFI",
+   "color": "#CC2443",
+   "wiki": "Jean-Luc_Mélenchon",
+   "poll_keys": [
+    "Mélenchon"
+   ],
+   "social": {
+    "x": "JLMelenchon",
+    "instagram": "jlmelenchon",
+    "tiktok": "jlmelenchon",
+    "youtube": "@JLMelenchon",
+    "facebook": "JLMelenchon"
+   }
+  },
+  {
+   "id": "philippe",
+   "name": "Édouard Philippe",
+   "short": "Philippe",
+   "party": "Horizons",
+   "color": "#0001B8",
+   "wiki": "Édouard_Philippe",
+   "poll_keys": [
+    "Philippe"
+   ],
+   "social": {
+    "x": "EPhilippe_LH",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "@EdouardPhilippe",
+    "facebook": "EdouardPhilippeLH"
+   }
+  },
+  {
+   "id": "glucksmann",
+   "name": "Raphaël Glucksmann",
+   "short": "Glucksmann",
+   "party": "Place publique",
+   "color": "#E8858F",
+   "wiki": "Raphaël_Glucksmann",
+   "poll_keys": [
+    "Glucksmann"
+   ],
+   "social": {
+    "x": "rglucks1",
+    "instagram": "raphaelglucksmann",
+    "tiktok": "",
+    "youtube": "@RaphaelGlucksmann1",
+    "facebook": "raphaelglucksmann"
+   }
+  },
+  {
+   "id": "attal",
+   "name": "Gabriel Attal",
+   "short": "Attal",
+   "party": "Renaissance",
+   "color": "#E6C200",
+   "wiki": "Gabriel_Attal",
+   "poll_keys": [
+    "Attal"
+   ],
+   "social": {
+    "x": "GabrielAttal",
+    "instagram": "gabrielattal",
+    "tiktok": "",
+    "youtube": "@gabriel_attal",
+    "facebook": "GabrielAttal"
+   }
+  },
+  {
+   "id": "lisnard",
+   "name": "David Lisnard",
+   "short": "Lisnard",
+   "party": "Nouvelle Énergie",
+   "color": "#7F9CF5",
+   "wiki": "David_Lisnard",
+   "poll_keys": [
+    "Lisnard"
+   ],
+   "social": {
+    "x": "davidlisnard",
+    "instagram": "davidlisnard",
+    "tiktok": "",
+    "youtube": "@david_lisnard",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "retailleau",
+   "name": "Bruno Retailleau",
+   "short": "Retailleau",
+   "party": "LR",
+   "color": "#0066CC",
+   "wiki": "Bruno_Retailleau",
+   "poll_keys": [
+    "Retailleau",
+    "Candidat LR"
+   ],
+   "social": {
+    "x": "BrunoRetailleau",
+    "instagram": "bruno_retailleau",
+    "tiktok": "",
+    "youtube": "@Bruno_Retailleau",
+    "facebook": "BrunoRetailleau"
+   }
+  },
+  {
+   "id": "zemmour",
+   "name": "Éric Zemmour",
+   "short": "Zemmour",
+   "party": "Reconquête",
+   "color": "#404040",
+   "wiki": "Éric_Zemmour",
+   "poll_keys": [
+    "Zemmour"
+   ],
+   "social": {
+    "x": "ZemmourEric",
+    "instagram": "ericzemmour_",
+    "tiktok": "zemmour_eric",
+    "youtube": "@EricZemmourOff",
+    "facebook": "ZemmourEric"
+   }
+  },
+  {
+   "id": "tondelier",
+   "name": "Marine Tondelier",
+   "short": "Tondelier",
+   "party": "Les Écologistes",
+   "color": "#00A651",
+   "wiki": "Marine_Tondelier",
+   "poll_keys": [
+    "Tondelier"
+   ],
+   "social": {
+    "x": "marinetondelier",
+    "instagram": "marinetondelier",
+    "tiktok": "marinetondelier",
+    "youtube": "@Marine.Tondelier",
+    "facebook": "marinetondelier"
+   }
+  },
+  {
+   "id": "roussel",
+   "name": "Fabien Roussel",
+   "short": "Roussel",
+   "party": "PCF",
+   "color": "#DD0000",
+   "wiki": "Fabien_Roussel",
+   "poll_keys": [
+    "Roussel"
+   ],
+   "social": {
+    "x": "Fabien_Roussel",
+    "instagram": "fabien_roussel",
+    "tiktok": "fabien_roussel",
+    "youtube": "@fabienroussel9212",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "villepin",
+   "name": "Dominique de Villepin",
+   "short": "Villepin",
+   "party": "La France humaniste",
+   "color": "#8E6CC4",
+   "wiki": "Dominique_de_Villepin",
+   "poll_keys": [
+    "Villepin"
+   ],
+   "social": {
+    "x": "Villepin",
+    "instagram": "",
+    "tiktok": "dominiquedevillepin",
+    "youtube": "@dominiquedevillepin",
+    "facebook": "dominiquedevillepin"
+   }
+  },
+  {
+   "id": "dupontaignan",
+   "name": "Nicolas Dupont-Aignan",
+   "short": "Dupont-Aignan",
+   "party": "DLF",
+   "color": "#0082C4",
+   "wiki": "Nicolas_Dupont-Aignan",
+   "poll_keys": [
+    "Dupont-Aignan"
+   ],
+   "social": {
+    "x": "dupontaignan",
+    "instagram": "dupontaignan",
+    "tiktok": "",
+    "youtube": "@dupontaignannicolas",
+    "facebook": "nicolasdupontaignan"
+   }
+  },
+  {
+   "id": "arthaud",
+   "name": "Nathalie Arthaud",
+   "short": "Arthaud",
+   "party": "LO",
+   "color": "#BB0000",
+   "wiki": "Nathalie_Arthaud",
+   "poll_keys": [
+    "Arthaud"
+   ],
+   "social": {
+    "x": "n_arthaud",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  }
+ ]
+}

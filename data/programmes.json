@@ -1,0 +1,235 @@
+{
+  "updated": "2026-11-09",
+  "disclaimer": "Synthèse indicative des positions publiques des candidats (déclarations, programmes 2022, propositions relayées par la presse jusqu'au 9 novembre 2026). La plupart des programmes officiels 2027 ne sont pas encore publiés : chaque fiche doit être relue et mise à jour au fil de la campagne.",
+  "topics": [
+    {"id": "pouvoir_achat", "label": "Pouvoir d'achat & salaires", "icon": "💶"},
+    {"id": "fiscalite", "label": "Fiscalité & dette", "icon": "🏦"},
+    {"id": "retraites", "label": "Retraites & travail", "icon": "⏳"},
+    {"id": "immigration", "label": "Immigration & intégration", "icon": "🛂"},
+    {"id": "securite", "label": "Sécurité & justice", "icon": "🛡️"},
+    {"id": "ecologie", "label": "Écologie & énergie", "icon": "🌱"},
+    {"id": "europe", "label": "Europe & international", "icon": "🇪🇺"},
+    {"id": "education", "label": "Éducation & jeunesse", "icon": "🎓"},
+    {"id": "sante", "label": "Santé", "icon": "🏥"},
+    {"id": "institutions", "label": "Institutions & démocratie", "icon": "🏛️"}
+  ],
+  "candidates": {
+    "lepen": {
+      "status": "Programme en cours d'élaboration",
+      "pitch": "Souveraineté nationale, « priorité nationale », protection du pouvoir d'achat et fermeté migratoire.",
+      "key": ["Baisse de la TVA sur l'énergie (carburants, électricité, gaz)", "Référendum sur l'immigration et inscription de la priorité nationale", "Retour partiel à la retraite à 62 ans, départ anticipé pour carrières longues", "Référendum contre les « idéologies totalitaires », dont l'islamisme"],
+      "positions": {
+        "pouvoir_achat": "Baisse de la TVA sur les produits énergétiques ; refuse d'imposer une hausse du SMIC aux entreprises, préfère des exonérations sur les hausses de salaires.",
+        "fiscalite": "Baisse des impôts de production, économies sur l'immigration et la contribution à l'UE ; pas de choc d'austérité affiché.",
+        "retraites": "Abrogation de la réforme de 2023, départ à 60 ans pour les carrières commencées tôt, 62 ans comme repère.",
+        "immigration": "Référendum pour réviser la Constitution : priorité nationale (logement, emploi, aides), fin du regroupement familial automatique, expulsion des étrangers délinquants.",
+        "securite": "Peines planchers, présomption de légitime défense pour les policiers, places de prison supplémentaires.",
+        "ecologie": "Relance massive du nucléaire, moratoire sur l'éolien, sortie du marché européen de l'électricité.",
+        "europe": "« Europe des nations » : primauté du droit national, baisse de la contribution française, sortie du commandement intégré de l'OTAN évoquée.",
+        "education": "Uniforme, retour de l'autorité du maître, priorité aux fondamentaux, revalorisation des enseignants.",
+        "sante": "Fin des ARS, recrutement de soignants, lutte contre les déserts médicaux par des incitations.",
+        "institutions": "Recours au référendum (y compris d'initiative citoyenne), proportionnelle intégrale, mandat présidentiel unique de 7 ans."
+      }
+    },
+    "melenchon": {
+      "status": "Programme publié : « L'Avenir en commun » (7 novembre 2026)",
+      "pitch": "« Il faut tout changer » : rupture sociale et écologique, VIe République.",
+      "key": ["SMIC à 1 700 € net", "Retraite à 60 ans", "Passage à la VIe République par une Assemblée constituante", "Planification écologique et règle verte"],
+      "positions": {
+        "pouvoir_achat": "SMIC porté à 1 700 € net, blocage des prix des produits de première nécessité, indexation des salaires sur l'inflation.",
+        "fiscalite": "Impôt sur le revenu à 14 tranches, rétablissement de l'ISF avec volet climatique, taxation des superprofits et des héritages élevés.",
+        "retraites": "Retour de la retraite à 60 ans avec 40 annuités, minimum vieillesse au niveau du seuil de pauvreté.",
+        "immigration": "Régularisation des travailleurs sans papiers, accueil digne des réfugiés, lutte contre les causes des migrations.",
+        "securite": "Police de proximité, refonte de l'IGPN, désarmement partiel des unités de maintien de l'ordre, priorité à la prévention.",
+        "ecologie": "Planification écologique, « règle verte » (ne pas prélever plus que ce que la nature peut reconstituer), 100 % renouvelables et sortie du nucléaire.",
+        "europe": "Désobéissance aux traités européens jugés libéraux, non-alignement, sortie de l'OTAN à terme, positions critiquées sur l'Ukraine.",
+        "education": "Gratuité réelle de l'école, recrutement massif d'enseignants, allocation d'autonomie pour les étudiants.",
+        "sante": "100 % Sécu (remboursement intégral), pôle public du médicament, réouverture de services hospitaliers.",
+        "institutions": "Assemblée constituante pour une VIe République, référendum d'initiative citoyenne, révocation des élus."
+      }
+    },
+    "philippe": {
+      "status": "Candidat déclaré — projet en cours d'élaboration",
+      "pitch": "Réforme de l'État, rigueur budgétaire et « dire la vérité » sur la situation financière.",
+      "key": ["Refus d'une hausse généralisée du SMIC : « travailler plus »", "Rétablissement des comptes publics", "Fermeté sur l'intégration", "Débat proposé à Mélenchon sur l'immigration"],
+      "positions": {
+        "pouvoir_achat": "Pas de hausse du SMIC décrétée ; gains de pouvoir d'achat par le travail, le temps de travail et la baisse des charges.",
+        "fiscalite": "« La crise financière a commencé » : baisse de la dépense publique, simplification de l'État, pas de hausse générale d'impôts.",
+        "retraites": "Allongement de la durée de travail, introduction d'une part de capitalisation.",
+        "immigration": "« Il y a un problème d'intégration » : contrôle renforcé des flux, conditions d'accès aux prestations ; ses propos sur les pillages du 17 octobre ont suscité une polémique.",
+        "securite": "Autorité de l'État, refus du blocage des services publics, sanctions plus rapides.",
+        "ecologie": "Nucléaire et renouvelables, écologie « des solutions » sans décroissance.",
+        "europe": "Pro-européen, renforcement de la défense européenne, soutien à l'Ukraine.",
+        "education": "Autonomie des établissements, exigence sur les savoirs fondamentaux.",
+        "sante": "Décentralisation de l'organisation des soins, réforme de la gouvernance hospitalière.",
+        "institutions": "Réforme de l'État et décentralisation ; hostile à une primaire de la droite et du centre."
+      }
+    },
+    "glucksmann": {
+      "status": "Candidat déclaré — premier meeting prévu le 6 décembre",
+      "pitch": "Social-démocratie pro-européenne, écologie et fermeté face aux régimes autoritaires.",
+      "key": ["Taxe minimale sur les ultra-riches (type « taxe Zucman »)", "Défense européenne et soutien à l'Ukraine", "Investissement massif dans la transition écologique", "Se présente comme seul capable de battre l'extrême droite"],
+      "positions": {
+        "pouvoir_achat": "Revalorisation des bas salaires négociée, égalité salariale, soutien au logement.",
+        "fiscalite": "Impôt plancher de 2 % sur les très hauts patrimoines, lutte contre l'évasion fiscale.",
+        "retraites": "Revenir sur le report de l'âge légal à 64 ans, prise en compte de la pénibilité.",
+        "immigration": "Politique d'asile européenne commune, intégration par le travail et la langue.",
+        "securite": "Moyens pour la justice et la police de proximité, lutte contre le narcotrafic.",
+        "ecologie": "Plan d'investissement européen pour le climat, taxe carbone aux frontières, rénovation thermique.",
+        "europe": "Fédéralisme européen assumé, défense commune, soutien militaire à l'Ukraine, fermeté face à la Russie.",
+        "education": "Revalorisation des enseignants, mixité sociale à l'école.",
+        "sante": "Lutte contre les déserts médicaux, investissement dans l'hôpital public.",
+        "institutions": "Dose de proportionnelle, renforcement du Parlement."
+      }
+    },
+    "lisnard": {
+      "status": "Candidat (Nouvelle Énergie) — premier grand meeting à Lyon le 13 décembre",
+      "pitch": "Libéralisme assumé : moins d'État, plus de liberté, « rendre l'argent du travail ».",
+      "key": ["Jusqu'à +400 € net par mois pour un salaire de 2 200 € via la baisse des cotisations", "Forte baisse de la dépense publique", "Liberté scolaire et autonomie des établissements", "Décentralisation radicale"],
+      "positions": {
+        "pouvoir_achat": "Transfert de cotisations sociales vers le salaire net : jusqu'à 400 € de plus par mois pour 2 200 € net.",
+        "fiscalite": "Réduction drastique des dépenses et du nombre d'agences, baisse des prélèvements obligatoires.",
+        "retraites": "Recul de l'âge de départ et introduction de la capitalisation.",
+        "immigration": "Maîtrise stricte des flux, conditionnement des prestations sociales.",
+        "securite": "Pouvoirs de police accrus pour les maires, exécution effective des peines.",
+        "ecologie": "Nucléaire, innovation technologique, rejet de l'écologie punitive.",
+        "europe": "Europe du marché et de la subsidiarité, allègement des normes.",
+        "education": "« Réinventer l'école » : liberté pédagogique, autonomie des chefs d'établissement, chèque éducation.",
+        "sante": "Liberté d'installation conservée, simplification administrative de l'hôpital.",
+        "institutions": "Décentralisation et pouvoir accru des collectivités ; favorable à une primaire de la droite et du centre."
+      }
+    },
+    "attal": {
+      "status": "Candidat potentiel (Renaissance) — défend une primaire",
+      "pitch": "Héritage macroniste renouvelé : travail, laïcité, autorité.",
+      "key": ["Primaire ouverte de la droite et du centre", "Revaloriser le travail par rapport à l'assistance", "Autorité à l'école", "Refus de « trier » les Français"],
+      "positions": {
+        "pouvoir_achat": "Baisse des cotisations sur les salaires moyens ; son camp juge le SMIC à 1 700 € « irréaliste ».",
+        "fiscalite": "Stabilité fiscale, maîtrise de la dépense.",
+        "retraites": "Maintien de la réforme de 2023, ouverture vers un système à points.",
+        "immigration": "Application de la loi immigration, accélération des expulsions, intégration républicaine.",
+        "securite": "Justice des mineurs plus rapide, comparution immédiate élargie.",
+        "ecologie": "Nucléaire et renouvelables, planification écologique « à la française ».",
+        "europe": "Pro-européen, autonomie stratégique, soutien à l'Ukraine.",
+        "education": "Groupes de niveau, uniforme expérimental, interdiction des téléphones à l'école.",
+        "sante": "Lutte contre les déserts médicaux, réforme de la formation des médecins.",
+        "institutions": "Primaire pour désigner un candidat unique du centre et de la droite."
+      }
+    },
+    "retailleau": {
+      "status": "Candidat (LR) — favorable à une primaire en début d'année",
+      "pitch": "Droite de l'ordre et du travail : autorité, frontières, valeur travail.",
+      "key": ["37 h 30 : 30 minutes de plus par jour pour un 13e, voire 14e mois", "Pas de hausse du SMIC, aides sociales plafonnées", "Création d'un « délit de pillage »", "Référendum sur l'immigration"],
+      "positions": {
+        "pouvoir_achat": "Travailler 30 minutes de plus par jour (37 h 30) pour financer un 13e voire 14e mois ; pas de hausse du SMIC.",
+        "fiscalite": "Plafonnement des aides sociales, baisse de la dépense publique, allègement des charges.",
+        "retraites": "Retraite à 65 ans à terme, convergence public/privé.",
+        "immigration": "Référendum, réduction drastique des titres de séjour, fin de l'AME au profit d'une aide d'urgence.",
+        "securite": "Délit de pillage, peines minimales, fermeté face aux violences urbaines ; a proposé de dissoudre LFI.",
+        "ecologie": "Nucléaire, opposition aux normes jugées punitives (ZFE, ZAN).",
+        "europe": "Europe des coopérations, primauté du droit national sur l'immigration.",
+        "education": "Autorité, examens exigeants, transmission des savoirs.",
+        "sante": "Simplification, lutte contre la fraude sociale.",
+        "institutions": "Élargir le champ du référendum ; exclut Bardella à Matignon."
+      }
+    },
+    "zemmour": {
+      "status": "Candidat (Reconquête)",
+      "pitch": "Défense de l'identité française, « remigration » et libéralisme économique.",
+      "key": ["Ministère de la remigration", "Fin du regroupement familial et du droit du sol", "Baisse massive des impôts de production", "Primauté du droit français"],
+      "positions": {
+        "pouvoir_achat": "Baisse des charges, prime zéro charge, allocations réservées aux Français.",
+        "fiscalite": "Suppression des impôts de production et des droits de succession pour la classe moyenne.",
+        "retraites": "Retraite à 64 ans, avec des aménagements pour les carrières longues et les mères de famille.",
+        "immigration": "« Remigration », fin du droit du sol, suppression du regroupement familial ; l'Arcom a saisi la justice après ses propos d'octobre.",
+        "securite": "Expulsion des délinquants étrangers, peines planchers, légitime défense élargie.",
+        "ecologie": "Nucléaire, opposition à l'éolien.",
+        "europe": "Primauté du droit national, « Europe des nations ».",
+        "education": "Retour aux fondamentaux, lutte contre le « wokisme », histoire nationale.",
+        "sante": "Recrutement de soignants, suppression d'échelons administratifs.",
+        "institutions": "Référendums sur l'immigration et les institutions."
+      }
+    },
+    "tondelier": {
+      "status": "Candidate (Les Écologistes)",
+      "pitch": "Écologie sociale et union de la gauche : « personne ne gagnera seul ».",
+      "key": ["Indexation du point d'indice des fonctionnaires sur l'inflation", "Plan massif de rénovation et de transports", "Soutien à l'élargissement de la PMA", "Union de la gauche"],
+      "positions": {
+        "pouvoir_achat": "Indexation du point d'indice sur l'inflation, revalorisation des bas salaires, chèque énergie renforcé.",
+        "fiscalite": "ISF climatique, taxation des superprofits et des très hauts patrimoines.",
+        "retraites": "Abrogation du passage à 64 ans.",
+        "immigration": "Accueil digne, voies légales de migration, régularisation des travailleurs.",
+        "securite": "Police de proximité, prévention et moyens pour la justice.",
+        "ecologie": "Sortie progressive du nucléaire, 100 % renouvelables, fin des subventions aux énergies fossiles.",
+        "europe": "Europe fédérale verte, défense européenne.",
+        "education": "Effectifs réduits par classe, éducation à l'environnement.",
+        "sante": "Santé environnementale, lutte contre les pesticides, déserts médicaux.",
+        "institutions": "Proportionnelle, référendum d'initiative citoyenne."
+      }
+    },
+    "roussel": {
+      "status": "Candidat (PCF) — maintient sa candidature malgré des ralliements à Mélenchon",
+      "pitch": "Gauche du travail : salaires, industrie, nucléaire.",
+      "key": ["Hausse des salaires et du SMIC", "Réindustrialisation et nucléaire", "Retraite à 60 ans", "Services publics de proximité"],
+      "positions": {
+        "pouvoir_achat": "Hausse générale des salaires, SMIC revalorisé, baisse des prix de l'énergie.",
+        "fiscalite": "Taxation du capital et des dividendes, lutte contre l'évasion fiscale.",
+        "retraites": "Retour à la retraite à 60 ans.",
+        "immigration": "Lutte contre les causes des migrations, régularisation des travailleurs.",
+        "securite": "Police républicaine de proximité.",
+        "ecologie": "Mix nucléaire + renouvelables, pôle public de l'énergie.",
+        "europe": "Critique des traités budgétaires, coopération entre nations.",
+        "education": "Recrutement d'enseignants, revalorisation de l'enseignement professionnel.",
+        "sante": "Recrutement massif à l'hôpital, centres de santé publics.",
+        "institutions": "Proportionnelle, renforcement du Parlement."
+      }
+    },
+    "villepin": {
+      "status": "Candidature quasi certaine (La France humaniste) — annonce non encore faite",
+      "pitch": "Gaullisme social, diplomatie d'indépendance et partage de la valeur.",
+      "key": ["1 500 € par an pour chaque salarié, financés sur les dividendes", "Diplomatie indépendante et multilatérale", "Critique frontale des discours anti-immigrés", "Rejet du SMIC à 1 700 € jugé « illusoire »"],
+      "positions": {
+        "pouvoir_achat": "Prime de 1 500 € par an pour chaque salarié, prélevée sur les dividendes ; juge le SMIC à 1 700 € « illusoire ».",
+        "fiscalite": "Contribution des actionnaires et des très hauts revenus, rigueur sur la dépense.",
+        "retraites": null,
+        "immigration": "Dénonce les propos d'Édouard Philippe comme une « incitation au racisme » ; priorité à l'intégration.",
+        "securite": null,
+        "ecologie": null,
+        "europe": "Diplomatie gaullienne : indépendance vis-à-vis des États-Unis, multilatéralisme, voix de la France au Proche-Orient.",
+        "education": null,
+        "sante": null,
+        "institutions": "Rassemblement au-delà des partis ; estime que « le pays a dérivé vers la droite »."
+      }
+    },
+    "dupontaignan": {
+      "status": "Candidat (Debout la France)",
+      "pitch": "Souverainisme gaulliste.",
+      "key": ["Sortie des traités européens contraignants", "Baisse des prix de l'énergie", "Référendum sur l'immigration"],
+      "positions": {
+        "pouvoir_achat": "Baisse des taxes sur l'énergie, hausse des petites retraites.",
+        "fiscalite": null,
+        "retraites": "Retraite à 62 ans.",
+        "immigration": "Référendum, fin du droit du sol.",
+        "securite": "Peines planchers, construction de prisons.",
+        "ecologie": "Nucléaire.",
+        "europe": "Sortie des traités européens contraignants, souveraineté monétaire.",
+        "education": null, "sante": null,
+        "institutions": "Référendum d'initiative citoyenne."
+      }
+    },
+    "arthaud": {
+      "status": "Candidate (Lutte ouvrière)",
+      "pitch": "« Faire entendre le camp des travailleurs ».",
+      "key": ["SMIC à 2 000 € net", "Interdiction des licenciements", "Contrôle ouvrier des entreprises"],
+      "positions": {
+        "pouvoir_achat": "SMIC et minimum de 2 000 € net, indexation des salaires sur les prix.",
+        "fiscalite": "Expropriation des grands groupes.",
+        "retraites": "Retraite à 60 ans à taux plein.",
+        "immigration": "Liberté de circulation et d'installation.",
+        "securite": null, "ecologie": null,
+        "europe": "Internationalisme ouvrier.",
+        "education": null, "sante": null, "institutions": null
+      }
+    }
+  }
+}

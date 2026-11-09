@@ -1,0 +1,49 @@
+name: Mise à jour des données
+
+on:
+  schedule:
+    - cron: "0 5 * * *"      # chaque jour 6h/7h Paris : tout (dont réseaux sociaux)
+    - cron: "0 11,17,22 * * *" # 3 fois de plus par jour : sondages + buzz
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sondages (moyenne 7 jours)
+        run: python scripts/update_polls.py
+
+      - name: Photos des candidats
+        run: python scripts/update_photos.py
+
+      - name: Buzz des 7 derniers jours
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/update_buzz.py
+
+      - name: Réseaux sociaux (1 fois par jour)
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 5 * * *'
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: python scripts/update_social.py
+
+      - name: Publier les nouvelles données
+        run: |
+          git config user.name "data-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "Données du $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git push

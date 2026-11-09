@@ -1,0 +1,1978 @@
+{
+ "updated": "2026-11-09T08:55+00:00",
+ "source": "Wikipédia — Liste de sondages sur l'élection présidentielle française de 2027",
+ "source_url": "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027",
+ "window_days": 7,
+ "window_extended": false,
+ "average": {
+  "lepen": 35.4,
+  "melenchon": 18.8,
+  "philippe": 12.3,
+  "glucksmann": 11.8,
+  "lisnard": 9.0,
+  "attal": 8.3,
+  "retailleau": 7.2,
+  "zemmour": 3.6,
+  "tondelier": 2.2,
+  "villepin": 2.0,
+  "roussel": 1.6,
+  "dupontaignan": 1.6,
+  "arthaud": 1.0
+ },
+ "previous_average": {
+  "arthaud": 0.6,
+  "melenchon": 17.6,
+  "roussel": 1.9,
+  "tondelier": 3.1,
+  "glucksmann": 11.4,
+  "attal": 7.0,
+  "philippe": 13.2,
+  "lisnard": 7.8,
+  "retailleau": 5.3,
+  "dupontaignan": 1.9,
+  "lepen": 36.0,
+  "zemmour": 4.2
+ },
+ "polls_in_window": [
+  {
+   "pollster": "Harris Interactive",
+   "fieldwork": "3-5 novembre",
+   "end": "2026-11-05",
+   "sample": "2101",
+   "hypotheses": 5,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 18.8,
+    "roussel": 1.6,
+    "tondelier": 2.2,
+    "glucksmann": 11.8,
+    "philippe": 12.33,
+    "lisnard": 9.0,
+    "retailleau": 7.2,
+    "dupontaignan": 1.6,
+    "lepen": 35.4,
+    "zemmour": 3.6,
+    "villepin": 2.0,
+    "attal": 8.33
+   }
+  }
+ ],
+ "windows": {
+  "7": {
+   "polls": 1,
+   "average": {
+    "arthaud": 1.0,
+    "melenchon": 18.8,
+    "roussel": 1.6,
+    "tondelier": 2.2,
+    "glucksmann": 11.8,
+    "philippe": 12.3,
+    "lisnard": 9.0,
+    "retailleau": 7.2,
+    "dupontaignan": 1.6,
+    "lepen": 35.4,
+    "zemmour": 3.6,
+    "villepin": 2.0,
+    "attal": 8.3
+   },
+   "previous": {
+    "arthaud": 0.6,
+    "melenchon": 17.6,
+    "roussel": 1.9,
+    "tondelier": 3.1,
+    "glucksmann": 11.4,
+    "attal": 7.0,
+    "philippe": 13.2,
+    "lisnard": 7.8,
+    "retailleau": 5.3,
+    "dupontaignan": 1.9,
+    "lepen": 36.0,
+    "zemmour": 4.2
+   }
+  },
+  "14": {
+   "polls": 2,
+   "average": {
+    "arthaud": 0.8,
+    "melenchon": 18.2,
+    "roussel": 1.7,
+    "tondelier": 2.7,
+    "glucksmann": 11.6,
+    "philippe": 12.8,
+    "lisnard": 8.4,
+    "retailleau": 6.3,
+    "dupontaignan": 1.7,
+    "lepen": 35.7,
+    "zemmour": 3.9,
+    "villepin": 2.0,
+    "attal": 7.7
+   },
+   "previous": {
+    "arthaud": 0.6,
+    "melenchon": 16.7,
+    "roussel": 2.0,
+    "tondelier": 2.7,
+    "glucksmann": 13.7,
+    "attal": 8.6,
+    "philippe": 14.4,
+    "retailleau": 7.6,
+    "dupontaignan": 2.1,
+    "lepen": 34.4,
+    "zemmour": 3.9,
+    "lisnard": 6.6,
+    "villepin": 3.5
+   }
+  },
+  "30": {
+   "polls": 13,
+   "average": {
+    "arthaud": 0.6,
+    "melenchon": 17.0,
+    "roussel": 2.0,
+    "tondelier": 2.7,
+    "glucksmann": 13.4,
+    "philippe": 14.1,
+    "lisnard": 6.9,
+    "retailleau": 7.4,
+    "dupontaignan": 2.0,
+    "lepen": 34.6,
+    "zemmour": 3.9,
+    "villepin": 3.2,
+    "attal": 8.5
+   },
+   "previous": {
+    "arthaud": 0.8,
+    "melenchon": 17.5,
+    "roussel": 2.3,
+    "tondelier": 3.5,
+    "attal": 10.4,
+    "retailleau": 8.0,
+    "dupontaignan": 2.1,
+    "lepen": 34.8,
+    "zemmour": 4.4,
+    "philippe": 16.4,
+    "glucksmann": 10.2,
+    "lisnard": 4.2,
+    "villepin": 2.0
+   }
+  }
+ },
+ "series": [
+  {
+   "date": "2025-10-01",
+   "scores": {
+    "arthaud": 1.2,
+    "melenchon": 14.8,
+    "roussel": 3.5,
+    "philippe": 18.0,
+    "retailleau": 12.9,
+    "dupontaignan": 3.9,
+    "bardella": 30.3,
+    "zemmour": 5.5,
+    "tondelier": 7.5,
+    "glucksmann": 15.0,
+    "attal": 12.0
+   }
+  },
+  {
+   "date": "2025-10-08",
+   "scores": {
+    "arthaud": 1.1,
+    "melenchon": 14.4,
+    "roussel": 3.2,
+    "tondelier": 5.2,
+    "glucksmann": 14.0,
+    "philippe": 16.8,
+    "retailleau": 11.7,
+    "dupontaignan": 2.6,
+    "bardella": 32.7,
+    "zemmour": 5.8,
+    "attal": 12.0
+   }
+  },
+  {
+   "date": "2025-10-15",
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 14.0,
+    "roussel": 3.0,
+    "tondelier": 3.0,
+    "glucksmann": 13.0,
+    "philippe": 15.5,
+    "retailleau": 10.5,
+    "dupontaignan": 1.2,
+    "bardella": 35.0,
+    "zemmour": 6.0,
+    "attal": 12.0
+   }
+  },
+  {
+   "date": "2025-10-22",
+   "scores": {}
+  },
+  {
+   "date": "2025-10-29",
+   "scores": {}
+  },
+  {
+   "date": "2025-11-05",
+   "scores": {
+    "arthaud": 1.2,
+    "melenchon": 12.3,
+    "roussel": 3.3,
+    "tondelier": 5.0,
+    "philippe": 18.0,
+    "villepin": 4.0,
+    "dupontaignan": 2.2,
+    "bardella": 36.0,
+    "zemmour": 5.2,
+    "glucksmann": 12.0,
+    "retailleau": 8.2,
+    "attal": 12.5
+   }
+  },
+  {
+   "date": "2025-11-12",
+   "scores": {
+    "arthaud": 1.2,
+    "melenchon": 12.3,
+    "roussel": 3.3,
+    "tondelier": 5.0,
+    "philippe": 18.0,
+    "villepin": 4.0,
+    "dupontaignan": 2.2,
+    "bardella": 36.0,
+    "zemmour": 5.2,
+    "glucksmann": 12.0,
+    "retailleau": 8.2,
+    "attal": 12.5
+   }
+  },
+  {
+   "date": "2025-11-19",
+   "scores": {}
+  },
+  {
+   "date": "2025-11-26",
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 11.8,
+    "roussel": 3.0,
+    "tondelier": 5.6,
+    "glucksmann": 13.5,
+    "attal": 11.0,
+    "retailleau": 8.2,
+    "dupontaignan": 2.2,
+    "bardella": 36.0,
+    "zemmour": 3.6,
+    "philippe": 17.0
+   }
+  },
+  {
+   "date": "2025-12-03",
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 11.8,
+    "roussel": 3.0,
+    "tondelier": 5.6,
+    "glucksmann": 13.5,
+    "attal": 11.0,
+    "retailleau": 8.2,
+    "dupontaignan": 2.2,
+    "bardella": 36.0,
+    "zemmour": 3.6,
+    "philippe": 17.0
+   }
+  },
+  {
+   "date": "2026-03-04",
+   "scores": {
+    "arthaud": 1.8,
+    "melenchon": 10.8,
+    "roussel": 2.6,
+    "tondelier": 4.5,
+    "glucksmann": 12.2,
+    "philippe": 18.4,
+    "villepin": 4.5,
+    "retailleau": 12.2,
+    "dupontaignan": 2.6,
+    "bardella": 36.6,
+    "zemmour": 4.0,
+    "attal": 10.5
+   }
+  },
+  {
+   "date": "2026-03-11",
+   "scores": {
+    "arthaud": 1.8,
+    "melenchon": 10.8,
+    "roussel": 2.6,
+    "tondelier": 4.5,
+    "glucksmann": 12.2,
+    "philippe": 18.4,
+    "villepin": 4.5,
+    "retailleau": 12.2,
+    "dupontaignan": 2.6,
+    "bardella": 36.6,
+    "zemmour": 4.0,
+    "attal": 10.5
+   }
+  },
+  {
+   "date": "2026-03-25",
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 11.0,
+    "roussel": 3.0,
+    "tondelier": 4.5,
+    "glucksmann": 14.0,
+    "philippe": 18.0,
+    "retailleau": 8.5,
+    "dupontaignan": 2.0,
+    "bardella": 35.5,
+    "zemmour": 5.0,
+    "attal": 13.0
+   }
+  },
+  {
+   "date": "2026-04-01",
+   "scores": {
+    "arthaud": 0.9,
+    "melenchon": 11.7,
+    "roussel": 2.7,
+    "tondelier": 4.5,
+    "glucksmann": 11.7,
+    "philippe": 21.2,
+    "villepin": 4.2,
+    "retailleau": 8.4,
+    "dupontaignan": 2.2,
+    "bardella": 36.2,
+    "zemmour": 4.2,
+    "attal": 12.2
+   }
+  },
+  {
+   "date": "2026-04-08",
+   "scores": {
+    "arthaud": 0.9,
+    "melenchon": 12.1,
+    "roussel": 2.6,
+    "tondelier": 4.5,
+    "glucksmann": 10.6,
+    "philippe": 22.8,
+    "villepin": 4.2,
+    "retailleau": 8.3,
+    "dupontaignan": 2.3,
+    "bardella": 36.6,
+    "zemmour": 3.3,
+    "attal": 11.5
+   }
+  },
+  {
+   "date": "2026-04-22",
+   "scores": {}
+  },
+  {
+   "date": "2026-04-29",
+   "scores": {}
+  },
+  {
+   "date": "2026-05-06",
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 12.2,
+    "roussel": 3.8,
+    "tondelier": 4.0,
+    "glucksmann": 11.5,
+    "philippe": 19.0,
+    "retailleau": 11.0,
+    "dupontaignan": 1.2,
+    "bardella": 34.5,
+    "zemmour": 5.2,
+    "attal": 14.0
+   }
+  },
+  {
+   "date": "2026-05-13",
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 12.2,
+    "roussel": 3.8,
+    "tondelier": 4.0,
+    "glucksmann": 11.5,
+    "philippe": 19.0,
+    "retailleau": 11.0,
+    "dupontaignan": 1.2,
+    "bardella": 34.5,
+    "zemmour": 5.2,
+    "attal": 14.0
+   }
+  },
+  {
+   "date": "2026-05-27",
+   "scores": {
+    "arthaud": 0.8,
+    "melenchon": 15.3,
+    "roussel": 3.0,
+    "tondelier": 3.5,
+    "glucksmann": 10.8,
+    "philippe": 16.7,
+    "retailleau": 9.3,
+    "dupontaignan": 2.0,
+    "bardella": 32.7,
+    "zemmour": 5.9,
+    "attal": 12.7
+   }
+  },
+  {
+   "date": "2026-06-03",
+   "scores": {
+    "arthaud": 0.8,
+    "melenchon": 14.3,
+    "roussel": 3.2,
+    "tondelier": 3.9,
+    "glucksmann": 11.1,
+    "attal": 13.0,
+    "philippe": 17.0,
+    "retailleau": 9.2,
+    "dupontaignan": 1.9,
+    "bardella": 33.5,
+    "zemmour": 4.9,
+    "villepin": 2.6
+   }
+  },
+  {
+   "date": "2026-06-10",
+   "scores": {
+    "arthaud": 0.8,
+    "melenchon": 13.4,
+    "roussel": 3.5,
+    "tondelier": 4.2,
+    "glucksmann": 11.4,
+    "attal": 13.1,
+    "philippe": 17.4,
+    "retailleau": 9.2,
+    "dupontaignan": 1.8,
+    "bardella": 34.4,
+    "zemmour": 3.9,
+    "villepin": 2.6
+   }
+  },
+  {
+   "date": "2026-06-17",
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 14.0,
+    "glucksmann": 14.3,
+    "philippe": 19.0,
+    "retailleau": 8.7,
+    "dupontaignan": 2.0,
+    "bardella": 34.0,
+    "zemmour": 3.3,
+    "roussel": 3.5,
+    "tondelier": 4.5,
+    "attal": 14.0
+   }
+  },
+  {
+   "date": "2026-06-24",
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 13.6,
+    "roussel": 3.2,
+    "tondelier": 3.9,
+    "glucksmann": 12.1,
+    "attal": 13.3,
+    "philippe": 18.9,
+    "retailleau": 9.5,
+    "dupontaignan": 2.2,
+    "bardella": 35.1,
+    "zemmour": 3.9,
+    "lisnard": 2.0
+   }
+  },
+  {
+   "date": "2026-07-01",
+   "scores": {
+    "arthaud": 0.9,
+    "melenchon": 13.2,
+    "roussel": 2.8,
+    "tondelier": 3.3,
+    "glucksmann": 9.9,
+    "attal": 12.7,
+    "philippe": 18.8,
+    "retailleau": 10.4,
+    "dupontaignan": 2.4,
+    "bardella": 36.2,
+    "zemmour": 4.4,
+    "lisnard": 2.0
+   }
+  },
+  {
+   "date": "2026-07-08",
+   "scores": {
+    "arthaud": 0.8,
+    "melenchon": 15.5,
+    "roussel": 2.5,
+    "tondelier": 3.6,
+    "glucksmann": 10.6,
+    "attal": 14.2,
+    "retailleau": 8.5,
+    "dupontaignan": 1.6,
+    "lepen": 35.6,
+    "zemmour": 4.0,
+    "philippe": 18.5
+   }
+  },
+  {
+   "date": "2026-07-15",
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 15.1,
+    "roussel": 2.3,
+    "tondelier": 3.9,
+    "glucksmann": 10.3,
+    "philippe": 18.2,
+    "retailleau": 8.6,
+    "dupontaignan": 1.6,
+    "lepen": 35.6,
+    "zemmour": 3.5,
+    "villepin": 3.0,
+    "attal": 12.0
+   }
+  },
+  {
+   "date": "2026-07-22",
+   "scores": {
+    "arthaud": 1.2,
+    "melenchon": 14.8,
+    "roussel": 2.2,
+    "tondelier": 4.2,
+    "glucksmann": 10.1,
+    "philippe": 18.0,
+    "retailleau": 8.6,
+    "dupontaignan": 1.5,
+    "lepen": 35.6,
+    "zemmour": 3.1,
+    "villepin": 3.0,
+    "attal": 10.6
+   }
+  },
+  {
+   "date": "2026-07-29",
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 18.0,
+    "roussel": 2.0,
+    "tondelier": 3.0,
+    "glucksmann": 10.0,
+    "philippe": 18.0,
+    "retailleau": 9.0,
+    "dupontaignan": 3.5,
+    "lepen": 30.0,
+    "zemmour": 4.0,
+    "villepin": 3.5,
+    "attal": 14.0
+   }
+  },
+  {
+   "date": "2026-08-05",
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 18.0,
+    "roussel": 2.0,
+    "tondelier": 3.0,
+    "glucksmann": 10.0,
+    "philippe": 18.0,
+    "retailleau": 9.0,
+    "dupontaignan": 3.5,
+    "lepen": 30.0,
+    "zemmour": 4.0,
+    "villepin": 3.5,
+    "attal": 14.0
+   }
+  },
+  {
+   "date": "2026-08-19",
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 16.8,
+    "roussel": 2.6,
+    "tondelier": 3.4,
+    "attal": 12.3,
+    "retailleau": 7.6,
+    "dupontaignan": 2.2,
+    "lepen": 36.0,
+    "zemmour": 3.6,
+    "philippe": 16.7,
+    "glucksmann": 10.3
+   }
+  },
+  {
+   "date": "2026-08-26",
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 17.1,
+    "roussel": 2.8,
+    "tondelier": 3.2,
+    "glucksmann": 12.5,
+    "attal": 12.3,
+    "philippe": 17.4,
+    "retailleau": 8.1,
+    "dupontaignan": 2.0,
+    "lepen": 34.9,
+    "zemmour": 3.4
+   }
+  },
+  {
+   "date": "2026-09-02",
+   "scores": {
+    "arthaud": 1.1,
+    "melenchon": 16.3,
+    "roussel": 2.9,
+    "tondelier": 3.3,
+    "glucksmann": 12.8,
+    "attal": 11.9,
+    "philippe": 17.9,
+    "retailleau": 7.9,
+    "dupontaignan": 2.3,
+    "lepen": 33.3,
+    "zemmour": 3.5,
+    "villepin": 3.0,
+    "lisnard": 3.6
+   }
+  },
+  {
+   "date": "2026-09-09",
+   "scores": {
+    "melenchon": 15.9,
+    "roussel": 2.5,
+    "tondelier": 3.6,
+    "glucksmann": 11.9,
+    "attal": 10.5,
+    "philippe": 17.2,
+    "retailleau": 8.1,
+    "dupontaignan": 2.4,
+    "lepen": 33.6,
+    "zemmour": 3.5,
+    "arthaud": 1.0,
+    "villepin": 3.0,
+    "lisnard": 3.6
+   }
+  },
+  {
+   "date": "2026-09-16",
+   "scores": {
+    "arthaud": 0.8,
+    "melenchon": 16.7,
+    "roussel": 2.4,
+    "tondelier": 3.4,
+    "glucksmann": 11.0,
+    "philippe": 16.5,
+    "retailleau": 8.0,
+    "dupontaignan": 2.4,
+    "lepen": 33.6,
+    "zemmour": 3.6,
+    "attal": 9.9,
+    "lisnard": 5.0
+   }
+  },
+  {
+   "date": "2026-09-23",
+   "scores": {
+    "arthaud": 0.8,
+    "melenchon": 17.3,
+    "roussel": 2.5,
+    "tondelier": 3.1,
+    "glucksmann": 9.8,
+    "attal": 10.1,
+    "philippe": 15.7,
+    "retailleau": 7.6,
+    "dupontaignan": 2.4,
+    "lepen": 33.5,
+    "zemmour": 4.0,
+    "lisnard": 5.0
+   }
+  },
+  {
+   "date": "2026-09-30",
+   "scores": {
+    "arthaud": 0.9,
+    "melenchon": 16.6,
+    "roussel": 2.5,
+    "tondelier": 4.0,
+    "glucksmann": 9.7,
+    "attal": 10.6,
+    "philippe": 16.2,
+    "retailleau": 8.4,
+    "dupontaignan": 1.8,
+    "lepen": 34.7,
+    "zemmour": 4.8,
+    "lisnard": 3.5,
+    "villepin": 2.0
+   }
+  },
+  {
+   "date": "2026-10-07",
+   "scores": {
+    "arthaud": 0.8,
+    "melenchon": 17.1,
+    "roussel": 2.4,
+    "tondelier": 3.8,
+    "glucksmann": 10.4,
+    "philippe": 17.6,
+    "retailleau": 8.2,
+    "dupontaignan": 1.8,
+    "lepen": 35.6,
+    "zemmour": 4.5,
+    "attal": 10.9,
+    "lisnard": 3.5,
+    "villepin": 2.0
+   }
+  },
+  {
+   "date": "2026-10-14",
+   "scores": {
+    "arthaud": 0.8,
+    "melenchon": 16.9,
+    "roussel": 2.2,
+    "tondelier": 2.9,
+    "glucksmann": 12.1,
+    "attal": 9.1,
+    "philippe": 15.2,
+    "lisnard": 5.0,
+    "retailleau": 7.5,
+    "dupontaignan": 1.9,
+    "lepen": 35.8,
+    "zemmour": 4.1,
+    "villepin": 5.0
+   }
+  },
+  {
+   "date": "2026-10-21",
+   "scores": {
+    "arthaud": 0.7,
+    "melenchon": 16.6,
+    "roussel": 2.1,
+    "tondelier": 2.9,
+    "glucksmann": 13.4,
+    "philippe": 14.7,
+    "lisnard": 6.5,
+    "retailleau": 7.7,
+    "dupontaignan": 2.1,
+    "lepen": 34.9,
+    "zemmour": 4.0,
+    "villepin": 3.5,
+    "attal": 9.1
+   }
+  },
+  {
+   "date": "2026-10-28",
+   "scores": {
+    "arthaud": 0.6,
+    "melenchon": 17.0,
+    "roussel": 1.9,
+    "tondelier": 2.7,
+    "glucksmann": 13.7,
+    "attal": 8.8,
+    "philippe": 14.5,
+    "retailleau": 7.7,
+    "dupontaignan": 2.2,
+    "lepen": 34.3,
+    "zemmour": 4.0,
+    "lisnard": 7.0,
+    "villepin": 3.0
+   }
+  },
+  {
+   "date": "2026-11-04",
+   "scores": {
+    "arthaud": 0.5,
+    "melenchon": 17.4,
+    "roussel": 1.8,
+    "tondelier": 2.4,
+    "glucksmann": 12.9,
+    "attal": 7.4,
+    "philippe": 13.9,
+    "lisnard": 7.1,
+    "retailleau": 6.9,
+    "dupontaignan": 1.9,
+    "lepen": 34.3,
+    "zemmour": 4.1
+   }
+  }
+ ],
+ "polls": [
+  {
+   "pollster": "Harris Interactive",
+   "fieldwork": "3-5 novembre",
+   "end": "2026-11-05",
+   "sample": "2101",
+   "hypotheses": 5,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 18.8,
+    "roussel": 1.6,
+    "tondelier": 2.2,
+    "glucksmann": 11.8,
+    "philippe": 12.33,
+    "lisnard": 9.0,
+    "retailleau": 7.2,
+    "dupontaignan": 1.6,
+    "lepen": 35.4,
+    "zemmour": 3.6,
+    "villepin": 2.0,
+    "attal": 8.33
+   }
+  },
+  {
+   "pollster": "Ifop",
+   "fieldwork": "27-29 octobre",
+   "end": "2026-10-29",
+   "sample": "1501",
+   "hypotheses": 4,
+   "scores": {
+    "arthaud": 0.62,
+    "melenchon": 17.62,
+    "roussel": 1.88,
+    "tondelier": 3.12,
+    "glucksmann": 11.38,
+    "attal": 7.0,
+    "philippe": 13.17,
+    "lisnard": 7.83,
+    "retailleau": 5.33,
+    "dupontaignan": 1.88,
+    "lepen": 36.0,
+    "zemmour": 4.25
+   }
+  },
+  {
+   "pollster": "Ipsos",
+   "fieldwork": "21-22 octobre",
+   "end": "2026-10-22",
+   "sample": "1500",
+   "hypotheses": 4,
+   "scores": {
+    "arthaud": 0.5,
+    "melenchon": 17.0,
+    "roussel": 2.25,
+    "tondelier": 3.5,
+    "glucksmann": 13.88,
+    "attal": 6.75,
+    "philippe": 14.0,
+    "retailleau": 8.12,
+    "dupontaignan": 1.75,
+    "lepen": 33.12,
+    "zemmour": 4.38,
+    "lisnard": 6.5
+   }
+  },
+  {
+   "pollster": "OpinionWay",
+   "fieldwork": "21-22 octobre",
+   "end": "2026-10-22",
+   "sample": "973",
+   "hypotheses": 1,
+   "scores": {
+    "melenchon": 16.0,
+    "roussel": 1.0,
+    "tondelier": 1.0,
+    "glucksmann": 13.0,
+    "attal": 4.0,
+    "philippe": 12.0,
+    "lisnard": 6.0,
+    "retailleau": 6.0,
+    "dupontaignan": 1.0,
+    "lepen": 36.0,
+    "zemmour": 4.0
+   }
+  },
+  {
+   "pollster": "Cluster17",
+   "fieldwork": "19-22 octobre",
+   "end": "2026-10-22",
+   "sample": "2817",
+   "hypotheses": 3,
+   "scores": {
+    "arthaud": 0.5,
+    "melenchon": 19.17,
+    "roussel": 2.0,
+    "tondelier": 2.17,
+    "glucksmann": 13.5,
+    "philippe": 16.5,
+    "retailleau": 8.33,
+    "dupontaignan": 3.17,
+    "lepen": 32.0,
+    "zemmour": 3.83,
+    "attal": 12.0,
+    "lisnard": 8.0
+   }
+  },
+  {
+   "pollster": "Harris",
+   "fieldwork": "19-21 octobre",
+   "end": "2026-10-21",
+   "sample": "2094",
+   "hypotheses": 5,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 17.4,
+    "roussel": 1.8,
+    "tondelier": 2.0,
+    "glucksmann": 12.8,
+    "philippe": 14.67,
+    "lisnard": 7.5,
+    "retailleau": 6.2,
+    "dupontaignan": 1.6,
+    "lepen": 34.2,
+    "zemmour": 5.4,
+    "villepin": 1.5,
+    "attal": 8.67
+   }
+  },
+  {
+   "pollster": "Ifop",
+   "fieldwork": "17-19 octobre",
+   "end": "2026-10-19",
+   "sample": "1928",
+   "hypotheses": 8,
+   "scores": {
+    "arthaud": 0.44,
+    "melenchon": 16.56,
+    "roussel": 2.25,
+    "tondelier": 2.92,
+    "glucksmann": 13.79,
+    "attal": 6.58,
+    "philippe": 13.43,
+    "retailleau": 6.21,
+    "dupontaignan": 1.88,
+    "lepen": 36.25,
+    "zemmour": 3.25,
+    "lisnard": 6.25,
+    "villepin": 5.0
+   }
+  },
+  {
+   "pollster": "Elabe",
+   "fieldwork": "14-16 octobre",
+   "end": "2026-10-16",
+   "sample": "1701",
+   "hypotheses": 6,
+   "scores": {
+    "arthaud": 0.75,
+    "melenchon": 15.5,
+    "roussel": 1.5,
+    "tondelier": 2.6,
+    "glucksmann": 15.83,
+    "philippe": 15.5,
+    "retailleau": 7.83,
+    "dupontaignan": 2.58,
+    "lepen": 32.42,
+    "zemmour": 3.33,
+    "villepin": 2.5,
+    "attal": 8.17,
+    "lisnard": 6.0
+   }
+  },
+  {
+   "pollster": "Cluster17",
+   "fieldwork": "14-15 octobre",
+   "end": "2026-10-15",
+   "sample": "1263",
+   "hypotheses": 5,
+   "scores": {
+    "arthaud": 0.8,
+    "melenchon": 19.7,
+    "roussel": 1.9,
+    "tondelier": 2.0,
+    "glucksmann": 13.7,
+    "philippe": 18.5,
+    "lisnard": 12.0,
+    "retailleau": 12.25,
+    "dupontaignan": 2.7,
+    "lepen": 34.4,
+    "zemmour": 4.3,
+    "attal": 17.0
+   }
+  },
+  {
+   "pollster": "YouGov",
+   "fieldwork": "12-15 octobre",
+   "end": "2026-10-15",
+   "sample": "1094",
+   "hypotheses": 5,
+   "scores": {
+    "arthaud": 0.2,
+    "melenchon": 14.8,
+    "roussel": 2.8,
+    "tondelier": 5.8,
+    "glucksmann": 12.75,
+    "attal": 7.33,
+    "philippe": 11.5,
+    "retailleau": 6.8,
+    "dupontaignan": 2.8,
+    "lepen": 36.2,
+    "zemmour": 3.6,
+    "lisnard": 4.0
+   }
+  },
+  {
+   "pollster": "OpinionWay",
+   "fieldwork": "13-14 octobre",
+   "end": "2026-10-14",
+   "sample": "1043",
+   "hypotheses": 4,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 14.75,
+    "roussel": 2.0,
+    "tondelier": 2.75,
+    "glucksmann": 14.25,
+    "attal": 7.67,
+    "philippe": 13.0,
+    "lisnard": 4.0,
+    "retailleau": 7.5,
+    "dupontaignan": 1.75,
+    "lepen": 35.5,
+    "zemmour": 4.25
+   }
+  },
+  {
+   "pollster": "Ifop",
+   "fieldwork": "12-14 octobre",
+   "end": "2026-10-14",
+   "sample": "1390",
+   "hypotheses": 4,
+   "scores": {
+    "arthaud": 0.25,
+    "melenchon": 16.25,
+    "roussel": 2.5,
+    "tondelier": 2.12,
+    "glucksmann": 13.75,
+    "attal": 8.0,
+    "philippe": 15.0,
+    "lisnard": 6.0,
+    "retailleau": 6.5,
+    "dupontaignan": 1.75,
+    "lepen": 34.25,
+    "zemmour": 3.0,
+    "villepin": 5.0
+   }
+  },
+  {
+   "pollster": "Raphaël Glucksmann, président de Place publique (PP), remporte la primaire socialiste (11 octobre 2026).",
+   "fieldwork": "Raphaël Glucksmann, président de Place publique (PP), remporte la primaire socialiste (11 octobre 2026).",
+   "end": "2026-10-11",
+   "sample": "112026",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Harris",
+   "fieldwork": "5-8 octobre",
+   "end": "2026-10-08",
+   "sample": "2004",
+   "hypotheses": 5,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 18.2,
+    "roussel": 2.2,
+    "tondelier": 3.4,
+    "attal": 9.67,
+    "retailleau": 8.4,
+    "dupontaignan": 2.0,
+    "lepen": 36.0,
+    "zemmour": 4.6,
+    "philippe": 15.67,
+    "glucksmann": 10.33
+   }
+  },
+  {
+   "pollster": "Odoxa",
+   "fieldwork": "24 septembre - 7 octobre",
+   "end": "2026-10-07",
+   "sample": "12005",
+   "hypotheses": 2,
+   "scores": {
+    "arthaud": 0.75,
+    "melenchon": 18.25,
+    "roussel": 2.0,
+    "tondelier": 3.25,
+    "glucksmann": 10.0,
+    "philippe": 17.0,
+    "retailleau": 7.75,
+    "dupontaignan": 2.0,
+    "lepen": 37.5,
+    "zemmour": 4.5,
+    "attal": 11.0
+   }
+  },
+  {
+   "pollster": "Ifop",
+   "fieldwork": "25-29 septembre",
+   "end": "2026-09-29",
+   "sample": "1527",
+   "hypotheses": 10,
+   "scores": {
+    "arthaud": 0.75,
+    "melenchon": 15.8,
+    "roussel": 2.85,
+    "tondelier": 4.6,
+    "glucksmann": 11.0,
+    "attal": 11.75,
+    "philippe": 20.88,
+    "retailleau": 8.1,
+    "dupontaignan": 1.3,
+    "lepen": 34.0,
+    "zemmour": 3.75,
+    "lisnard": 3.5,
+    "villepin": 2.0
+   }
+  },
+  {
+   "pollster": "Harris",
+   "fieldwork": "22-24 septembre",
+   "end": "2026-09-24",
+   "sample": "1974",
+   "hypotheses": 5,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 17.4,
+    "roussel": 2.4,
+    "tondelier": 3.6,
+    "attal": 10.0,
+    "retailleau": 8.8,
+    "dupontaignan": 2.0,
+    "lepen": 35.4,
+    "zemmour": 5.2,
+    "philippe": 15.0,
+    "glucksmann": 10.33
+   }
+  },
+  {
+   "pollster": "YouGov",
+   "fieldwork": "17-21 septembre",
+   "end": "2026-09-21",
+   "sample": "1103",
+   "hypotheses": 6,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 16.67,
+    "roussel": 2.17,
+    "tondelier": 3.67,
+    "glucksmann": 7.75,
+    "attal": 10.0,
+    "philippe": 12.8,
+    "retailleau": 8.17,
+    "dupontaignan": 2.0,
+    "lepen": 34.83,
+    "zemmour": 5.5
+   }
+  },
+  {
+   "pollster": "Nicolas Dupont-Aignan, président de Debout la France (DLF), officialise sa candidature (19 septembre 2026).",
+   "fieldwork": "Nicolas Dupont-Aignan, président de Debout la France (DLF), officialise sa candidature (19 septembre 2026).",
+   "end": "2026-09-19",
+   "sample": "192026",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Éric Zemmour, président de Reconquête (REC), officialise sa candidature (17 septembre 2026).",
+   "fieldwork": "Éric Zemmour, président de Reconquête (REC), officialise sa candidature (17 septembre 2026).",
+   "end": "2026-09-17",
+   "sample": "172026",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Cluster17",
+   "fieldwork": "15-16 septembre",
+   "end": "2026-09-16",
+   "sample": "1943",
+   "hypotheses": 3,
+   "scores": {
+    "arthaud": 0.67,
+    "melenchon": 19.5,
+    "roussel": 2.5,
+    "tondelier": 2.67,
+    "glucksmann": 13.0,
+    "philippe": 19.25,
+    "retailleau": 8.17,
+    "dupontaignan": 3.33,
+    "lepen": 30.67,
+    "zemmour": 3.5,
+    "attal": 13.5,
+    "lisnard": 5.0
+   }
+  },
+  {
+   "pollster": "Ifop",
+   "fieldwork": "9-11 septembre",
+   "end": "2026-09-11",
+   "sample": "1548",
+   "hypotheses": 1,
+   "scores": {
+    "arthaud": 0.5,
+    "melenchon": 17.0,
+    "roussel": 2.0,
+    "tondelier": 3.0,
+    "glucksmann": 9.0,
+    "attal": 7.0,
+    "philippe": 14.0,
+    "retailleau": 6.5,
+    "dupontaignan": 2.0,
+    "lepen": 35.0,
+    "zemmour": 4.0
+   }
+  },
+  {
+   "pollster": "OpinionWay",
+   "fieldwork": "9-10 septembre",
+   "end": "2026-09-10",
+   "sample": "1001",
+   "hypotheses": 3,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 16.67,
+    "roussel": 3.0,
+    "tondelier": 3.0,
+    "attal": 7.67,
+    "philippe": 15.67,
+    "retailleau": 7.0,
+    "dupontaignan": 2.33,
+    "lepen": 33.0,
+    "zemmour": 2.0,
+    "glucksmann": 9.0
+   }
+  },
+  {
+   "pollster": "Harris",
+   "fieldwork": "8-10 septembre",
+   "end": "2026-09-10",
+   "sample": "2052",
+   "hypotheses": 5,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 16.8,
+    "roussel": 2.6,
+    "tondelier": 3.4,
+    "attal": 12.33,
+    "retailleau": 8.4,
+    "dupontaignan": 2.2,
+    "lepen": 34.2,
+    "zemmour": 5.0,
+    "philippe": 16.67,
+    "glucksmann": 10.33
+   }
+  },
+  {
+   "pollster": "OpinionWay",
+   "fieldwork": "8-9 septembre",
+   "end": "2026-09-09",
+   "sample": "1001",
+   "hypotheses": 3,
+   "scores": {
+    "melenchon": 15.0,
+    "roussel": 1.67,
+    "tondelier": 3.33,
+    "glucksmann": 10.33,
+    "attal": 11.0,
+    "philippe": 17.0,
+    "retailleau": 10.0,
+    "dupontaignan": 2.33,
+    "lepen": 34.0,
+    "zemmour": 4.0,
+    "arthaud": 1.0
+   }
+  },
+  {
+   "pollster": "Fabien Roussel, secrétaire général du Parti communiste français (PCF), officialise sa candidature (6 septembre 2026).",
+   "fieldwork": "Fabien Roussel, secrétaire général du Parti communiste français (PCF), officialise sa candidature (6 septembre 2026).",
+   "end": "2026-09-06",
+   "sample": "62026",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Ipsos",
+   "fieldwork": "3-9 septembre",
+   "end": "2026-09-09",
+   "sample": "13060",
+   "hypotheses": 6,
+   "scores": {
+    "arthaud": 0.5,
+    "melenchon": 16.08,
+    "roussel": 2.92,
+    "tondelier": 4.75,
+    "glucksmann": 12.5,
+    "attal": 10.5,
+    "philippe": 17.12,
+    "retailleau": 8.33,
+    "dupontaignan": 2.08,
+    "lepen": 34.0,
+    "zemmour": 4.17
+   }
+  },
+  {
+   "pollster": "OpinionWay",
+   "fieldwork": "2-4 septembre",
+   "end": "2026-09-04",
+   "sample": "1034",
+   "hypotheses": 1,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 16.0,
+    "roussel": 2.0,
+    "tondelier": 3.0,
+    "glucksmann": 12.0,
+    "attal": 7.0,
+    "philippe": 15.0,
+    "retailleau": 7.0,
+    "lepen": 34.0,
+    "zemmour": 3.0
+   }
+  },
+  {
+   "pollster": "OpinionWay",
+   "fieldwork": "2-3 septembre",
+   "end": "2026-09-03",
+   "sample": "1003",
+   "hypotheses": 3,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 16.67,
+    "roussel": 2.67,
+    "tondelier": 3.67,
+    "glucksmann": 12.0,
+    "attal": 10.0,
+    "retailleau": 8.67,
+    "lepen": 34.0,
+    "zemmour": 3.0,
+    "philippe": 17.5
+   }
+  },
+  {
+   "pollster": "Ipsos",
+   "fieldwork": "31 août - 2 septembre",
+   "end": "2026-09-02",
+   "sample": "1500",
+   "hypotheses": 6,
+   "scores": {
+    "arthaud": 0.75,
+    "melenchon": 15.75,
+    "roussel": 2.92,
+    "tondelier": 4.5,
+    "glucksmann": 12.5,
+    "attal": 11.38,
+    "philippe": 18.12,
+    "retailleau": 7.75,
+    "dupontaignan": 2.17,
+    "lepen": 34.75,
+    "zemmour": 3.08
+   }
+  },
+  {
+   "pollster": "Cluster17",
+   "fieldwork": "31 août - 1 septembre",
+   "end": "2026-09-01",
+   "sample": "1711",
+   "hypotheses": 3,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 17.67,
+    "roussel": 2.0,
+    "tondelier": 2.25,
+    "glucksmann": 11.33,
+    "philippe": 17.5,
+    "retailleau": 7.67,
+    "dupontaignan": 2.67,
+    "lepen": 30.17,
+    "zemmour": 3.5,
+    "villepin": 3.67,
+    "attal": 13.5,
+    "lisnard": 4.0
+   }
+  },
+  {
+   "pollster": "Elabe",
+   "fieldwork": "26-28 août",
+   "end": "2026-08-28",
+   "sample": "1501",
+   "hypotheses": 6,
+   "scores": {
+    "arthaud": 1.58,
+    "melenchon": 14.17,
+    "roussel": 3.5,
+    "tondelier": 3.62,
+    "glucksmann": 12.67,
+    "philippe": 17.88,
+    "retailleau": 7.5,
+    "dupontaignan": 2.5,
+    "lepen": 34.42,
+    "zemmour": 4.08,
+    "villepin": 2.33,
+    "attal": 10.33,
+    "lisnard": 3.25
+   }
+  },
+  {
+   "pollster": "Premier débat présidentiel rassemblant 7 candidats : Attal, Glucksmann, Le Pen, Mélenchon, Philippe, Retailleau et Tondelier (27 août 2026).",
+   "fieldwork": "Premier débat présidentiel rassemblant 7 candidats : Attal, Glucksmann, Le Pen, Mélenchon, Philippe, Retailleau et Tondelier (27 août 2026).",
+   "end": "2026-08-27",
+   "sample": "7272026",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Ifop",
+   "fieldwork": "24-25 août",
+   "end": "2026-08-25",
+   "sample": "1598",
+   "hypotheses": 7,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 17.5,
+    "roussel": 3.0,
+    "tondelier": 3.0,
+    "glucksmann": 14.67,
+    "attal": 12.33,
+    "philippe": 18.12,
+    "retailleau": 8.57,
+    "dupontaignan": 1.86,
+    "lepen": 33.71,
+    "zemmour": 3.14
+   }
+  },
+  {
+   "pollster": "Raphaël Glucksmann, président de Place publique (PP), officialise sa candidature et annonce sa participation à la primaire socialiste organisée en octobre (23 août 2026).",
+   "fieldwork": "Raphaël Glucksmann, président de Place publique (PP), officialise sa candidature et annonce sa participation à la primaire socialiste organisée en octobre (23 août 2026).",
+   "end": "2026-08-23",
+   "sample": "232026",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Harris",
+   "fieldwork": "18-19 août",
+   "end": "2026-08-19",
+   "sample": "1764",
+   "hypotheses": 5,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 16.8,
+    "roussel": 2.6,
+    "tondelier": 3.4,
+    "attal": 12.33,
+    "retailleau": 7.6,
+    "dupontaignan": 2.2,
+    "lepen": 36.0,
+    "zemmour": 3.6,
+    "philippe": 16.67,
+    "glucksmann": 10.33
+   }
+  },
+  {
+   "pollster": "Cluster17",
+   "fieldwork": "22-24 juillet",
+   "end": "2026-07-24",
+   "sample": "1506",
+   "hypotheses": 2,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 18.0,
+    "roussel": 2.0,
+    "tondelier": 3.0,
+    "glucksmann": 10.0,
+    "philippe": 18.0,
+    "retailleau": 9.0,
+    "dupontaignan": 3.5,
+    "lepen": 30.0,
+    "zemmour": 4.0,
+    "villepin": 3.5,
+    "attal": 14.0
+   }
+  },
+  {
+   "pollster": "Elabe",
+   "fieldwork": "9-10 juillet",
+   "end": "2026-07-10",
+   "sample": "1503",
+   "hypotheses": 6,
+   "scores": {
+    "arthaud": 1.42,
+    "melenchon": 14.92,
+    "roussel": 2.5,
+    "tondelier": 3.75,
+    "glucksmann": 10.0,
+    "philippe": 16.88,
+    "retailleau": 9.25,
+    "dupontaignan": 1.5,
+    "lepen": 34.83,
+    "zemmour": 3.08,
+    "villepin": 3.0,
+    "attal": 12.17
+   }
+  },
+  {
+   "pollster": "Verian",
+   "fieldwork": "8-10 juillet",
+   "end": "2026-07-10",
+   "sample": "1047",
+   "hypotheses": 1,
+   "scores": {
+    "melenchon": 15.0,
+    "roussel": 2.0,
+    "glucksmann": 11.0,
+    "attal": 8.0,
+    "philippe": 17.0,
+    "retailleau": 7.0,
+    "lepen": 37.0,
+    "zemmour": 3.0
+   }
+  },
+  {
+   "pollster": "OpinionWay",
+   "fieldwork": "8-9 juillet",
+   "end": "2026-07-09",
+   "sample": "963",
+   "hypotheses": 3,
+   "scores": {
+    "melenchon": 14.33,
+    "roussel": 2.0,
+    "tondelier": 4.67,
+    "glucksmann": 9.33,
+    "attal": 11.5,
+    "philippe": 20.0,
+    "retailleau": 9.67,
+    "lepen": 35.0,
+    "zemmour": 3.33,
+    "arthaud": 1.0
+   }
+  },
+  {
+   "pollster": "Ifop",
+   "fieldwork": "7-8 juillet",
+   "end": "2026-07-08",
+   "sample": "984",
+   "hypotheses": 2,
+   "scores": {
+    "arthaud": 0.5,
+    "melenchon": 15.0,
+    "roussel": 2.5,
+    "tondelier": 3.75,
+    "glucksmann": 10.5,
+    "attal": 15.0,
+    "retailleau": 9.0,
+    "dupontaignan": 2.0,
+    "lepen": 36.0,
+    "zemmour": 3.75,
+    "philippe": 19.0
+   }
+  },
+  {
+   "pollster": "Harris",
+   "fieldwork": "7-8 juillet",
+   "end": "2026-07-08",
+   "sample": "1592",
+   "hypotheses": 5,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 16.0,
+    "roussel": 2.6,
+    "tondelier": 3.4,
+    "attal": 13.33,
+    "retailleau": 8.0,
+    "dupontaignan": 1.2,
+    "lepen": 35.2,
+    "zemmour": 4.2,
+    "philippe": 18.0,
+    "glucksmann": 10.67
+   }
+  },
+  {
+   "pollster": "Marine Le Pen, cheffe de file du Rassemblement national (RN), officialise sa candidature à la suite de la réduction de sa période d'inéligibilité en appel dans l'affaire des assistants parlementaires (7 juillet 2026).",
+   "fieldwork": "Marine Le Pen, cheffe de file du Rassemblement national (RN), officialise sa candidature à la suite de la réduction de sa période d'inéligibilité en appel dans l'affaire des assistants parlementaires (7 juillet 2026).",
+   "end": "2026-07-07",
+   "sample": "72026",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Ifop",
+   "fieldwork": "22-24 juin",
+   "end": "2026-06-24",
+   "sample": "1415",
+   "hypotheses": 8,
+   "scores": {
+    "arthaud": 0.94,
+    "melenchon": 13.25,
+    "roussel": 2.83,
+    "tondelier": 3.33,
+    "glucksmann": 9.86,
+    "attal": 12.67,
+    "philippe": 18.83,
+    "retailleau": 10.38,
+    "dupontaignan": 2.38,
+    "bardella": 36.17,
+    "zemmour": 4.44,
+    "lisnard": 2.0
+   }
+  },
+  {
+   "pollster": "OpinionWay",
+   "fieldwork": "10-11 juin",
+   "end": "2026-06-11",
+   "sample": "1001",
+   "hypotheses": 3,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 14.0,
+    "glucksmann": 14.33,
+    "philippe": 19.0,
+    "retailleau": 8.67,
+    "dupontaignan": 2.0,
+    "bardella": 34.0,
+    "zemmour": 3.33,
+    "roussel": 3.5,
+    "tondelier": 4.5,
+    "attal": 14.0
+   }
+  },
+  {
+   "pollster": "Ipsos",
+   "fieldwork": "27-28 mai",
+   "end": "2026-05-28",
+   "sample": "1500",
+   "hypotheses": 8,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 13.25,
+    "roussel": 3.44,
+    "tondelier": 4.25,
+    "glucksmann": 12.25,
+    "attal": 11.33,
+    "philippe": 15.25,
+    "retailleau": 8.81,
+    "dupontaignan": 1.5,
+    "bardella": 34.67,
+    "zemmour": 4.12
+   }
+  },
+  {
+   "pollster": "Ifop",
+   "fieldwork": "26-28 mai",
+   "end": "2026-05-28",
+   "sample": "1501",
+   "hypotheses": 11,
+   "scores": {
+    "arthaud": 0.68,
+    "melenchon": 13.5,
+    "roussel": 3.5,
+    "tondelier": 4.17,
+    "glucksmann": 10.5,
+    "attal": 14.88,
+    "philippe": 19.5,
+    "retailleau": 9.59,
+    "dupontaignan": 2.14,
+    "bardella": 34.11,
+    "zemmour": 3.68,
+    "villepin": 2.62
+   }
+  },
+  {
+   "pollster": "Harris",
+   "fieldwork": "25-27 mai",
+   "end": "2026-05-27",
+   "sample": "1744",
+   "hypotheses": 5,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 14.6,
+    "roussel": 3.4,
+    "tondelier": 3.0,
+    "glucksmann": 10.6,
+    "philippe": 16.33,
+    "retailleau": 9.6,
+    "dupontaignan": 2.0,
+    "bardella": 33.33,
+    "zemmour": 5.8,
+    "attal": 12.67
+   }
+  },
+  {
+   "pollster": "Gabriel Attal, secrétaire général de Renaissance (RE), se déclare candidat (22 mai 2026).",
+   "fieldwork": "Gabriel Attal, secrétaire général de Renaissance (RE), se déclare candidat (22 mai 2026).",
+   "end": "2026-05-22",
+   "sample": "222026",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Odoxa",
+   "fieldwork": "20-21 mai",
+   "end": "2026-05-21",
+   "sample": "1005",
+   "hypotheses": 1,
+   "scores": {
+    "arthaud": 0.5,
+    "melenchon": 16.0,
+    "roussel": 2.5,
+    "tondelier": 4.0,
+    "glucksmann": 11.0,
+    "philippe": 17.0,
+    "retailleau": 9.0,
+    "dupontaignan": 2.0,
+    "bardella": 32.0,
+    "zemmour": 6.0
+   }
+  },
+  {
+   "pollster": "Jean-Luc Mélenchon est désigné candidat de la France insoumise (LFI) par les élus du mouvement (3 mai 2026).",
+   "fieldwork": "Jean-Luc Mélenchon est désigné candidat de la France insoumise (LFI) par les élus du mouvement (3 mai 2026).",
+   "end": "2026-05-03",
+   "sample": "32026",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Harris",
+   "fieldwork": "28-30 avril",
+   "end": "2026-04-30",
+   "sample": "1725",
+   "hypotheses": 4,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 12.25,
+    "roussel": 3.75,
+    "tondelier": 4.0,
+    "glucksmann": 11.5,
+    "philippe": 19.0,
+    "retailleau": 11.0,
+    "dupontaignan": 1.25,
+    "bardella": 34.5,
+    "zemmour": 5.25,
+    "attal": 14.0
+   }
+  },
+  {
+   "pollster": "Bruno Retailleau est désigné candidat des Républicains (LR) par les adhérents du parti (19 avril 2026).",
+   "fieldwork": "Bruno Retailleau est désigné candidat des Républicains (LR) par les adhérents du parti (19 avril 2026).",
+   "end": "2026-04-19",
+   "sample": "192026",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Elabe",
+   "fieldwork": "25-27 mars",
+   "end": "2026-03-27",
+   "sample": "1504",
+   "hypotheses": 6,
+   "scores": {
+    "arthaud": 0.75,
+    "melenchon": 11.67,
+    "roussel": 3.17,
+    "tondelier": 4.6,
+    "glucksmann": 11.2,
+    "philippe": 22.67,
+    "villepin": 4.17,
+    "retailleau": 8.7,
+    "dupontaignan": 2.58,
+    "bardella": 37.25,
+    "zemmour": 3.33,
+    "attal": 11.5
+   }
+  },
+  {
+   "pollster": "Odoxa",
+   "fieldwork": "25-26 mars",
+   "end": "2026-03-26",
+   "sample": "1299",
+   "hypotheses": 2,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 12.5,
+    "roussel": 2.0,
+    "tondelier": 4.5,
+    "glucksmann": 10.0,
+    "philippe": 23.0,
+    "retailleau": 8.0,
+    "dupontaignan": 2.0,
+    "bardella": 36.0
+   }
+  },
+  {
+   "pollster": "Harris",
+   "fieldwork": "22 mars",
+   "end": "2026-03-22",
+   "sample": "1062",
+   "hypotheses": 2,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 11.0,
+    "roussel": 3.0,
+    "tondelier": 4.5,
+    "glucksmann": 14.0,
+    "philippe": 18.0,
+    "retailleau": 8.5,
+    "dupontaignan": 2.0,
+    "bardella": 35.5,
+    "zemmour": 5.0,
+    "attal": 13.0
+   }
+  },
+  {
+   "pollster": "Ifop",
+   "fieldwork": "26-27 février",
+   "end": "2026-02-27",
+   "sample": "1393",
+   "hypotheses": 10,
+   "scores": {
+    "arthaud": 1.75,
+    "melenchon": 10.8,
+    "roussel": 2.65,
+    "tondelier": 4.45,
+    "glucksmann": 12.25,
+    "philippe": 18.4,
+    "villepin": 4.5,
+    "retailleau": 12.22,
+    "dupontaignan": 2.65,
+    "bardella": 36.62,
+    "zemmour": 4.0,
+    "attal": 10.5
+   }
+  },
+  {
+   "pollster": "Odoxa",
+   "fieldwork": "19-20 novembre",
+   "end": "2025-11-20",
+   "sample": "1300",
+   "hypotheses": 2,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 11.5,
+    "roussel": 3.0,
+    "tondelier": 6.25,
+    "glucksmann": 14.0,
+    "attal": 11.0,
+    "retailleau": 9.0,
+    "dupontaignan": 2.5,
+    "bardella": 35.5,
+    "zemmour": 3.25,
+    "philippe": 17.0
+   }
+  },
+  {
+   "pollster": "Verian",
+   "fieldwork": "18-20 novembre",
+   "end": "2025-11-20",
+   "sample": "938",
+   "hypotheses": 1,
+   "scores": {
+    "melenchon": 12.0,
+    "roussel": 3.0,
+    "tondelier": 5.0,
+    "glucksmann": 13.0,
+    "philippe": 17.0,
+    "retailleau": 7.5,
+    "dupontaignan": 2.0,
+    "bardella": 36.5,
+    "zemmour": 4.0
+   }
+  },
+  {
+   "pollster": "Le Front Populaire 2027 annonce l'organisation d'une primaire prévue le 11 octobre 2026 (15 novembre 2025).",
+   "fieldwork": "Le Front Populaire 2027 annonce l'organisation d'une primaire prévue le 11 octobre 2026 (15 novembre 2025).",
+   "end": "2025-11-15",
+   "sample": "2027112026152025",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Elabe",
+   "fieldwork": "30-31 octobre",
+   "end": "2025-10-31",
+   "sample": "1396",
+   "hypotheses": 5,
+   "scores": {
+    "arthaud": 1.2,
+    "melenchon": 12.3,
+    "roussel": 3.3,
+    "tondelier": 5.0,
+    "philippe": 18.0,
+    "villepin": 4.0,
+    "dupontaignan": 2.2,
+    "bardella": 36.0,
+    "zemmour": 5.25,
+    "glucksmann": 12.0,
+    "retailleau": 8.17,
+    "attal": 12.5
+   }
+  },
+  {
+   "pollster": "Marine Tondelier annonce sa candidature à l'élection présidentielle de 2027 dans le cadre d'une primaire à gauche (22 octobre 2025).",
+   "fieldwork": "Marine Tondelier annonce sa candidature à l'élection présidentielle de 2027 dans le cadre d'une primaire à gauche (22 octobre 2025).",
+   "end": "2025-10-22",
+   "sample": "2027222025",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Sébastien Lecornu est à nouveau nommé Premier ministre (10 octobre 2025).",
+   "fieldwork": "Sébastien Lecornu est à nouveau nommé Premier ministre (10 octobre 2025).",
+   "end": "2025-10-10",
+   "sample": "102025",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Harris",
+   "fieldwork": "7 octobre",
+   "end": "2025-10-07",
+   "sample": "1289",
+   "hypotheses": 4,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 14.0,
+    "roussel": 3.0,
+    "tondelier": 3.0,
+    "glucksmann": 13.0,
+    "philippe": 15.5,
+    "retailleau": 10.5,
+    "dupontaignan": 1.25,
+    "bardella": 35.0,
+    "zemmour": 6.0,
+    "attal": 12.0
+   }
+  },
+  {
+   "pollster": "Sébastien Lecornu remet sa démission à Emmanuel Macron qui l'accepte (6 octobre 2025).",
+   "fieldwork": "Sébastien Lecornu remet sa démission à Emmanuel Macron qui l'accepte (6 octobre 2025).",
+   "end": "2025-10-06",
+   "sample": "62025",
+   "hypotheses": 0,
+   "scores": {}
+  },
+  {
+   "pollster": "Cluster17",
+   "fieldwork": "30 septembre - 1 octobre",
+   "end": "2025-10-01",
+   "sample": "1531",
+   "hypotheses": 4,
+   "scores": {
+    "arthaud": 1.25,
+    "melenchon": 14.75,
+    "roussel": 3.5,
+    "philippe": 18.0,
+    "retailleau": 12.88,
+    "dupontaignan": 3.88,
+    "bardella": 30.33,
+    "zemmour": 5.5,
+    "tondelier": 7.5,
+    "glucksmann": 15.0,
+    "attal": 12.0
+   }
+  }
+ ]
+}

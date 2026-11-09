@@ -1,0 +1,72 @@
+{
+ "lepen": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Marine_Le_Pen_2025_%28cropped%29.jpg/330px-Marine_Le_Pen_2025_%28cropped%29.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Marine_Le_Pen",
+  "credit": "Wikimedia Commons"
+ },
+ "bardella": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/MEP_Jordan_Bardella.jpg/330px-MEP_Jordan_Bardella.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Jordan_Bardella",
+  "credit": "Wikimedia Commons"
+ },
+ "melenchon": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Jean_Luc_M%C3%A9lenchon_en_mai_2026-_55261894422_%28cropped%29.jpg/330px-Jean_Luc_M%C3%A9lenchon_en_mai_2026-_55261894422_%28cropped%29.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Jean-Luc_M%C3%A9lenchon",
+  "credit": "Wikimedia Commons"
+ },
+ "philippe": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Edouard_Philippe_3x4_crop.jpg/330px-Edouard_Philippe_3x4_crop.jpg",
+  "page": "https://fr.wikipedia.org/wiki/%C3%89douard_Philippe",
+  "credit": "Wikimedia Commons"
+ },
+ "glucksmann": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/1720448398743_20240708_GLUCKSMANN_Raphael_FR_006.jpg/330px-1720448398743_20240708_GLUCKSMANN_Raphael_FR_006.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Rapha%C3%ABl_Glucksmann",
+  "credit": "Wikimedia Commons"
+ },
+ "attal": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Gabriel_Attal_2025_%28close_crop%29.jpg/330px-Gabriel_Attal_2025_%28close_crop%29.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Gabriel_Attal",
+  "credit": "Wikimedia Commons"
+ },
+ "lisnard": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/David_Lisnard_en_2026.jpg/330px-David_Lisnard_en_2026.jpg",
+  "page": "https://fr.wikipedia.org/wiki/David_Lisnard",
+  "credit": "Wikimedia Commons"
+ },
+ "retailleau": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Bruno_Retailleau_-_Ministre_de_l%27Int%C3%A9rieur_fran%C3%A7ais_%28cropped%29.jpg/330px-Bruno_Retailleau_-_Ministre_de_l%27Int%C3%A9rieur_fran%C3%A7ais_%28cropped%29.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Bruno_Retailleau",
+  "credit": "Wikimedia Commons"
+ },
+ "zemmour": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Portrait_d%27%C3%89ric_Zemmour%2C_avril_2022.jpg/330px-Portrait_d%27%C3%89ric_Zemmour%2C_avril_2022.jpg",
+  "page": "https://fr.wikipedia.org/wiki/%C3%89ric_Zemmour",
+  "credit": "Wikimedia Commons"
+ },
+ "tondelier": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Huma2023MarineTondelier_%28cropped%29.jpg/330px-Huma2023MarineTondelier_%28cropped%29.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Marine_Tondelier",
+  "credit": "Wikimedia Commons"
+ },
+ "roussel": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Roussel_Fabien_1.jpg/330px-Roussel_Fabien_1.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Fabien_Roussel",
+  "credit": "Wikimedia Commons"
+ },
+ "villepin": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg/330px-Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Dominique_de_Villepin",
+  "credit": "Wikimedia Commons"
+ },
+ "dupontaignan": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Nicolas_Dupont-Aignan%2C_homme_politique_fran%C3%A7ais.jpg/330px-Nicolas_Dupont-Aignan%2C_homme_politique_fran%C3%A7ais.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Nicolas_Dupont-Aignan",
+  "credit": "Wikimedia Commons"
+ },
+ "arthaud": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Nathalie_Arthaud_%28LO%29_19-05-2024.jpg/330px-Nathalie_Arthaud_%28LO%29_19-05-2024.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Nathalie_Arthaud",
+  "credit": "Wikimedia Commons"
+ }
+}
