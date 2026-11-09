@@ -33,6 +33,23 @@
     return `<span class="av av-init" style="--c:${c.color};width:${size}px;height:${size}px;background:${c.color};font-size:${size / 2.6}px">${esc(ini)}</span>`;
   };
 
+  /* ---------------- Compte à rebours jusqu'au vote ---------------- */
+  // Dates annoncées en Conseil des ministres le 1er juillet 2026 (décret attendu avant le 7 février 2027)
+  const TOURS = [{ label: "1er tour", date: new Date(2027, 3, 18) }, { label: "2nd tour", date: new Date(2027, 4, 2) }];
+  function countdown() {
+    const box = $("#countdown");
+    if (!box) return;
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const next = TOURS.find((t) => t.date >= today);
+    if (!next) { box.innerHTML = `<span class="cd-l">Élection présidentielle 2027</span><strong class="cd-n">Terminée</strong>`; return; }
+    const days = Math.round((next.date - today) / DAY);
+    const when = next.date.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+    box.innerHTML = `<span class="cd-l">${next.label} · <span class="cd-d">${when}</span></span>
+      <strong class="cd-n">${days === 0 ? "Aujourd'hui !" : `J-${days}`}</strong>${days ? `<span class="cd-s">${days} jour${days > 1 ? "s" : ""} restant${days > 1 ? "s" : ""}</span>` : ""}`;
+  }
+  countdown();
+  setInterval(countdown, 60 * 1000); // passe au jour suivant à minuit sans recharger
+
   /* ---------------- Onglets ---------------- */
   const shown = new Set();
   function showTab(id) {

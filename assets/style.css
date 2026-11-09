@@ -348,3 +348,22 @@ button { font: inherit; color: inherit; cursor: pointer; }
   box-shadow: 0 4px 14px rgba(255, 45, 85, .35); white-space: nowrap; }
 .vote-btn:hover { filter: brightness(1.08); }
 .poll-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+/* --- Pseudos des votants sous chaque candidat --- */
+.gbar .voters { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 4px; margin: -2px 0 6px; }
+.voter { font-size: 12px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--vc); background: color-mix(in srgb, var(--vc) 18%, transparent); }
+.fun-card.wide { max-width: none; }
+@media (max-width: 760px) { .gbar .voters { grid-column: 1 / -1; } }
+
+/* --- Compte à rebours --- */
+.countdown { display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto; column-gap: 10px; align-items: center;
+  background: rgba(255,255,255,.07); border: 1px solid var(--line); border-radius: 12px; padding: 5px 12px; }
+.countdown .cd-l { grid-column: 1; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+.countdown .cd-d { text-transform: none; color: var(--text); font-weight: 600; letter-spacing: 0; }
+.countdown .cd-n { grid-column: 2; grid-row: 1 / span 2; font: 800 30px/1 var(--head); color: #fff; background: var(--accent); padding: 4px 10px; border-radius: 8px; }
+.countdown .cd-s { grid-column: 1; grid-row: 2; font-size: 12px; font-weight: 600; }
+@media (max-width: 760px) {
+  .countdown { order: 2; width: 100%; grid-template-columns: 1fr auto; }
+  .countdown .cd-n { font-size: 24px; }
+  .tabs { order: 3; width: 100%; }
+}

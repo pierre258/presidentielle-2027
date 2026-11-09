@@ -124,7 +124,7 @@
     const cands = Object.values(A.C).filter((c) => c.id !== "bardella");
     el().innerHTML = `${notice}
       <div class="fun-head"><div>Connecté en tant que <strong>${esc(profile.pseudo)}</strong></div><button type="button" id="logout" class="ghost">Se déconnecter</button></div>
-      <div class="seg big" id="fun-tabs"><button data-p="f-portrait" class="on">🧭 Mon portrait</button><button data-p="f-groups">🔗 Mes liens de partage</button><button data-p="f-joined">👥 Mes groupes</button></div>
+      <div class="seg big" id="fun-tabs"><button data-p="f-portrait" class="on">🧭 Mon portrait</button><button data-p="f-groups">🔗 Mes liens de partage</button><button data-p="f-joined">👥 Mes groupes</button><button data-p="f-all">🌍 Tous les groupes</button></div>
       <div class="fun-pane" id="f-portrait">
         ${profile.completed_at ? msg(`Portrait validé le ${new Date(profile.completed_at).toLocaleDateString("fr-FR")}. Vous pouvez le modifier à tout moment.`, "ok") : ""}
         <div id="fun-quiz">${Q.quizHTML("f_", profile.answers || {})}</div>
@@ -142,7 +142,8 @@
           <p class="muted small">Partagez le lien : chaque personne qui crée son compte et valide son portrait apparaît dans les résultats (pseudo uniquement). Les membres voient eux aussi les résultats du groupe, une fois leur portrait validé.</p></div>
         <div id="grp-list"></div>
       </div>
-      <div class="fun-pane" id="f-joined" hidden><div id="joined-list"></div></div>`;
+      <div class="fun-pane" id="f-joined" hidden><div id="joined-list"></div></div>
+      <div class="fun-pane" id="f-all" hidden><div id="all-results"></div></div>`;
     if (!profile.chosen_candidate) $("#fun-choice").value = "";
     $("#logout").onclick = () => sb.auth.signOut();
     $("#fun-tabs").addEventListener("click", (e) => {
@@ -151,6 +152,7 @@
       $$(".fun-pane").forEach((p) => (p.hidden = p.id !== b.dataset.p));
       if (b.dataset.p === "f-groups") renderGroups();
       if (b.dataset.p === "f-joined") renderJoined();
+      if (b.dataset.p === "f-all") renderAll();
     });
     $("#fun-save").onclick = savePortrait;
     $("#grp-form").addEventListener("submit", createGroup);
@@ -184,10 +186,12 @@
   }
 
   /* ---------- Tableau de bord du créateur ---------- */
-  function dashboard(rows) {
+  function dashboard(rows, opt = {}) {
+    const G = !!opt.global; // vue « Tous les groupes » : anonyme, sans pseudos
     const done = rows.filter((r) => r.completed);
-    if (!rows.length) return `<p class="muted">Personne n'a encore utilisé ce lien.</p>`;
+    if (!rows.length) return `<p class="muted">${G ? "Aucun portrait validé pour l'instant." : "Personne n'a encore utilisé ce lien."}</p>`;
     if (!done.length) return `<p class="muted">${rows.length} membre(s), aucun portrait validé pour l'instant.</p>`;
+    const who = G ? "l'ensemble des utilisateurs" : "le groupe";
     const count = (key) => {
       const c = {};
       done.forEach((r) => (c[r[key]] = (c[r[key]] || 0) + 1));
@@ -195,7 +199,9 @@
     };
     const label = (id) => (A.C[id] ? A.C[id].short : id === "indecis" ? "Indécis" : id === "blanc" ? "Blanc / abst." : id || "—");
     const color = (id) => (A.C[id] ? (A.C[id].color === "#404040" ? "#8a8f98" : A.C[id].color) : "#6b7280");
-    const bars = (list) => `<div class="gbars">${list.map(([id, n]) => `<div class="gbar">${A.C[id] ? A.avatar(id, 24) : "<span class='av-ph'></span>"}<span>${esc(label(id))}</span><span class="prox-b"><i style="width:${(n / done.length) * 100}%;background:${color(id)}"></i></span><strong>${Math.round((n / done.length) * 100)} %</strong><small>${n}</small></div>`).join("")}</div>`;
+    // key = champ du candidat ; names = afficher les pseudos des votants sous chaque barre
+    const bars = (list, key, names) => `<div class="gbars">${list.map(([id, n]) => `<div class="gbar">${A.C[id] ? A.avatar(id, 24) : "<span class='av-ph'></span>"}<span>${esc(label(id))}</span><span class="prox-b"><i style="width:${(n / done.length) * 100}%;background:${color(id)}"></i></span><strong>${Math.round((n / done.length) * 100)} %</strong><small>${n}</small>
+      ${names ? `<div class="voters">${done.filter((r) => String(r[key]) === id).map((r) => `<span class="voter" style="--vc:${color(id)}">${esc(r.pseudo)}</span>`).join("")}</div>` : ""}</div>`).join("")}</div>`;
     // moyenne des positions sur les axes et des réponses
     const avgAxes = {};
     Object.keys(Q.axes).forEach((ax) => (avgAxes[ax] = done.reduce((a, r) => a + (r.axes?.[ax] || 0), 0) / done.length));
@@ -204,20 +210,22 @@
     const groupRes = Q.compute(avgAns);
     const coherent = done.filter((r) => r.chosen_candidate === r.top_candidate).length;
     return `<div class="sim-sum">
-        <div><small>Membres du groupe</small><strong>${rows.length}</strong><small>${done.length} portrait(s) validé(s)</small></div>
+        ${G ? `<div><small>Utilisateurs ayant voté</small><strong>${done.length}</strong><small>dans ${opt.groups ?? "?"} groupe(s) créés</small></div>`
+          : `<div><small>Membres du groupe</small><strong>${rows.length}</strong><small>${done.length} portrait(s) validé(s)</small></div>`}
         <div><small>Candidat le plus choisi</small><strong>${esc(label(count("chosen_candidate")[0][0]))}</strong><small>${count("chosen_candidate")[0][1]} sur ${done.length}</small></div>
         <div><small>Choix = résultat du quiz</small><strong>${Math.round((coherent / done.length) * 100)} %</strong><small>cohérence vote / idées</small></div>
       </div>
-      <h4>🗳️ Candidats choisis par le groupe</h4>${bars(count("chosen_candidate"))}
-      <h4>🧭 Candidats les plus proches selon le quiz</h4>${bars(count("top_candidate"))}
-      <h4>📍 Position moyenne du groupe</h4>${Q.axesHTML(null, groupRes.prox.slice(0, 3), "", [{ label: "GROUPE", pos: avgAxes, cls: "grp" }])}
-      <h4>🤝 Proximité du « portrait moyen » du groupe avec chaque candidat</h4>${Q.proxHTML(groupRes.prox.slice(0, 6))}
+      <h4>🗳️ Candidats choisis par ${who}${G ? "" : " — et qui a voté quoi"}</h4>${bars(count("chosen_candidate"), "chosen_candidate", !G)}
+      <h4>🧭 Candidats les plus proches selon le quiz</h4>${bars(count("top_candidate"), "top_candidate", !G)}
+      <h4>📍 Position moyenne de ${who}</h4>${Q.axesHTML(null, groupRes.prox.slice(0, 3), "", [{ label: G ? "TOUS" : "GROUPE", pos: avgAxes, cls: "grp" }])}
+      <h4>🤝 Proximité du « portrait moyen » de ${who} avec chaque candidat</h4>${Q.proxHTML(groupRes.prox.slice(0, 6))}
       <h4>📊 Réponses moyennes</h4><div class="avgq">${Q.questions.map((q) => { const v = avgAns[q.id]; return `<div class="avgq-r"><span>${esc(q.q)}</span><span class="avgq-b"><b style="left:${(v + 2) * 25}%"></b></span><strong>${v > 0 ? "+" : ""}${v.toFixed(1)}</strong></div>`; }).join("")}</div>
       <p class="muted small">Échelle des réponses : −2 pas du tout d'accord … +2 tout à fait d'accord.</p>
+      ${G ? `<p class="muted small">Résultats anonymes : aucun pseudo n'est affiché pour l'ensemble des utilisateurs. Tous les comptes ayant validé leur portrait et choisi un candidat sont comptés, qu'ils soient dans un groupe ou non.</p>` : `
       <h4>👤 Participants (pseudos)</h4>
       <div class="table-scroll"><table class="tbl"><thead><tr><th>Pseudo</th><th>Candidat choisi</th><th>Plus proche selon le quiz</th><th>Inscrit le</th></tr></thead><tbody>
         ${rows.map((r) => `<tr><td>${esc(r.pseudo)}</td><td>${r.completed ? esc(label(r.chosen_candidate)) : "<span class='muted'>portrait non validé</span>"}</td><td>${r.completed ? `${esc(label(r.top_candidate))} (${r.top_pct} %)` : "—"}</td><td>${new Date(r.joined_at).toLocaleDateString("fr-FR")}</td></tr>`).join("")}
-      </tbody></table></div>`;
+      </tbody></table></div>`}`;
   }
 
   async function renderGroups() {
@@ -269,6 +277,18 @@
       await sb.from("group_members").delete().eq("group_id", b.dataset.leave).eq("user_id", user.id);
       renderJoined();
     }));
+  }
+
+  async function renderAll() {
+    const box = $("#all-results");
+    if (!profile.completed_at) return (box.innerHTML = msg("🔒 Validez votre portrait (onglet « Mon portrait ») pour découvrir les résultats de tous les utilisateurs.", "err"));
+    box.innerHTML = msg("Chargement…");
+    const { data, error } = await sb.rpc("global_results");
+    if (error) return (box.innerHTML = msg(esc(error.message), "err"));
+    const rows = (data || []).map((r) => ({ ...r, completed: true }));
+    box.innerHTML = `<div class="fun-card wide"><h3>🌍 Tous les utilisateurs</h3>
+      <p class="muted small">Tous les portraits validés avec un candidat choisi, tous groupes confondus. Échantillon non représentatif de la population : ce n'est pas un sondage.</p>
+      ${dashboard(rows, { global: true, groups: data?.[0]?.groups })}</div>`;
   }
 
   /* ---------- Démarrage ---------- */
