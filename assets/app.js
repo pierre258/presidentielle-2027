@@ -494,7 +494,7 @@
       if (pf === "dailymotion" && it.dailymotion_id)
         return `<button class="yt" data-src="https://geo.dailymotion.com/player.html?video=${esc(it.dailymotion_id)}&autoplay=1" aria-label="Lire la vidéo Dailymotion"><img src="https://www.dailymotion.com/thumbnail/video/${esc(it.dailymotion_id)}" alt="" loading="lazy"></button>`;
       if (pf === "tiktok" && it.tiktok_id)
-        return `<button class="yt tall" data-src="https://www.tiktok.com/embed/v2/${esc(it.tiktok_id)}" aria-label="Lire la vidéo TikTok"><span class="tt-ph">♪ Lire la vidéo TikTok</span></button>`;
+        return `<div class="tt" data-tt="${esc(it.tiktok_id)}"><span class="tt-ph">♪ TikTok</span></div>`;
       if (pf === "x" && it.x_id)
         return `<button class="xload" data-src="https://platform.twitter.com/embed/Tweet.html?id=${esc(it.x_id)}&lang=fr&theme=dark&dnt=true">Afficher le post</button>`;
       return "";
@@ -517,7 +517,26 @@
       const neg = pick("negative"), pos = pick("positive");
       $("#buzz-neg").innerHTML = neg.map(([it, id]) => card(it, id, "neg")).join("") || `<div class="empty">Aucun bad buzz détecté pour ce filtre.</div>`;
       $("#buzz-pos").innerHTML = pos.map(([it, id]) => card(it, id, "pos")).join("") || `<div class="empty">Aucune séquence favorable détectée pour ce filtre.</div>`;
+      $$("#buzz .tt").forEach((t) => ttObs.observe(t));
     };
+    // TikTok : lecteur officiel chargé quand la vidéo arrive à l'écran, lecture automatique sans le son
+    const ttPost = (f, type) => f?.contentWindow?.postMessage({ type, "x-tiktok-player": true }, "*");
+    const ttObs = new IntersectionObserver((entries) => entries.forEach((en) => {
+      const box = en.target; let f = box.querySelector("iframe");
+      if (en.isIntersecting) {
+        if (!f) {
+          box.innerHTML = `<iframe src="https://www.tiktok.com/player/v1/${box.dataset.tt}?autoplay=1&loop=1&music_info=0&description=0&rel=0&controls=1&progress_bar=1&volume_control=1&fullscreen_button=1&play_button=1&timestamp=0" allow="autoplay; fullscreen; encrypted-media" title="Vidéo TikTok"></iframe>`;
+          f = box.querySelector("iframe");
+          f.addEventListener("load", () => { ttPost(f, "mute"); ttPost(f, "play"); });
+        } else { ttPost(f, "mute"); ttPost(f, "play"); }
+      } else if (f) ttPost(f, "pause");
+    }), { threshold: 0.6 });
+    window.addEventListener("message", (e) => {
+      let host = ""; try { host = new URL(e.origin).hostname; } catch { return; }
+      if (!/(^|\.)tiktok\.com$/.test(host)) return;
+      const d = typeof e.data === "string" ? (() => { try { return JSON.parse(e.data); } catch { return {}; } })() : e.data || {};
+      if (d["x-tiktok-player"] && d.type === "onPlayerReady") { const f = $$("#buzz .tt iframe").find((x) => x.contentWindow === e.source); ttPost(f, "mute"); ttPost(f, "play"); }
+    });
     $("#buzz-filter").addEventListener("click", (e) => {
       const b = e.target.closest(".chip"); if (!b) return;
       $$("#buzz-filter .chip").forEach((x) => x.classList.toggle("on", x === b));

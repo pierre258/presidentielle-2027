@@ -717,3 +717,66 @@ a.countdown:hover { border-color: rgba(255,255,255,.4); }
 .hero-cands { background: radial-gradient(ellipse at center, #1a2150 0%, #0a0f2c 75%); }
 .hero-cands img { width: auto; max-width: 100%; max-height: 440px; object-fit: contain; }
 .parl-section { scroll-margin-top: 150px; }
+
+/* --- Accueil : bandeau photo prolongé par le drapeau (bleu à gauche, rouge à droite) --- */
+.hero-cands {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(4,6,20,.55) 100%),
+    linear-gradient(90deg, #04165a 0%, #051b62 50%, #b20c17 50%, #a50b15 100%);
+}
+.hero-cands img {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 3.5%, #000 96.5%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 3.5%, #000 96.5%, transparent 100%);
+}
+
+/* --- TikTok : lecteur compact (moitié de la hauteur), lecture automatique sans le son --- */
+.tt { position: relative; height: 290px; margin-top: 8px; border-radius: 10px; overflow: hidden; display: flex; justify-content: center;
+  background: linear-gradient(160deg, rgba(37,216,232,.35) 0%, #05070f 45%, rgba(254,44,85,.35) 100%); }
+.tt iframe { height: 100%; aspect-ratio: 9 / 16; width: auto; border: 0; display: block; background: #000; }
+.tt .tt-ph { align-self: center; font-weight: 700; color: #fff; opacity: .8; }
+
+/* --- Aération verticale de toutes les pages --- */
+.panel { padding: 40px 0 16px; }
+.panel-head { margin-bottom: 30px; row-gap: 20px; }
+.panel-head h1 { margin-bottom: 4px; }
+.panel-head p { margin: 12px 0 0; line-height: 1.6; max-width: 900px; }
+h2 { margin: 44px 0 18px; }
+.hint { margin: 4px 0 16px; }
+.seg, .seg.big { margin-bottom: 22px; }
+.poll-actions, .prog-actions { margin-bottom: 26px; }
+.avatar-filter { margin-bottom: 22px; }
+.avatar-grid { margin-bottom: 30px; }
+.hero-cands { margin-bottom: 34px; }
+.poll-card { margin-bottom: 30px; }
+.poll-card-title { margin-bottom: 24px; }
+.duels { gap: 16px; }
+.sheet { padding: 26px; }
+.sheet-head { margin-bottom: 20px; }
+.pitch { margin: 12px 0 20px; line-height: 1.55; }
+.keys { margin-bottom: 26px; gap: 12px; }
+.topic { padding: 18px 0; }
+.buzz-cols { gap: 28px; }
+.buzz-list { display: grid; gap: 14px; }
+.bcard { padding: 14px 16px; }
+.bcard .bhead { margin-bottom: 8px; }
+.bcard .bctx { margin-top: 6px; }
+.privacy { margin: 0 0 20px; }
+.sim-form { gap: 20px; }
+.fun-card { margin: 18px 0; padding: 22px; }
+.fun-card h3 { margin-bottom: 10px; }
+.fun-tabbar { margin: 22px 0; }
+.pat { margin-top: 34px; padding-top: 24px; }
+.pat-tiles { margin-bottom: 20px; }
+.parl-stats { margin: 20px 0 10px; }
+.parl-list { gap: 16px; }
+.jv-top, .jv-grid { margin-bottom: 24px; }
+.jv-card h3 { margin-bottom: 16px; }
+.jv-timeline { gap: 16px; }
+.parr-rules { margin-bottom: 30px; }
+.parr-bars { gap: 12px; }
+.tp-head { margin-bottom: 20px; }
+.tp-list { gap: 14px; }
+.legal h2 { margin: 34px 0 10px; }
+.legal p, .legal ul { margin: 0 0 14px; }
+.site-foot { margin-top: 64px; }
+@media (max-width: 760px) { .panel { padding-top: 28px; } .panel-head { margin-bottom: 22px; } h2 { margin-top: 34px; } }
