@@ -688,15 +688,6 @@
     window.APP = { C, avatar, esc, fmtN, socialLinks };
     if (window.Fun) window.Fun.init(window.APP);
     if (window.JeVote) window.JeVote.init(window.APP);
-    // Direct Public Sénat : intégré si un lecteur Dailymotion est configuré, sinon lien vers publicsenat.fr
-    const live = $("#ps-live");
-    if (live && window.DM_PLAYER) {
-      const b = document.createElement("button");
-      b.className = live.className; b.innerHTML = live.innerHTML.replace("sur publicsenat.fr", "");
-      b.dataset.src = `https://geo.dailymotion.com/player/${window.DM_PLAYER}.html?video=xkxbzc&autoplay=1`;
-      b.setAttribute("aria-label", "Regarder Public Sénat en direct");
-      live.replaceWith(b);
-    }
     const fromMail = /access_token=|error_description=|type=signup/.test(location.hash);
     showTab(fromMail ? "fun" : location.hash.slice(1) || "sondages");
   }
