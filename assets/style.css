@@ -39,7 +39,9 @@ button { font: inherit; color: inherit; cursor: pointer; }
   background: rgba(11, 16, 48, .78); border-bottom: 1px solid var(--line); }
 .top-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap; }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand-mark { font: 800 22px var(--head); background: var(--accent); padding: 4px 10px; border-radius: 8px; }
+.brand-mark { display: inline-flex; flex-direction: column; align-items: center; background: var(--accent); padding: 5px 10px 4px; border-radius: 8px; line-height: 1; }
+.brand-mark b { font: 800 22px/1 var(--head); white-space: nowrap; }
+.brand-mark small { font-size: 9px; font-weight: 600; letter-spacing: .02em; margin-top: 3px; opacity: .9; }
 .brand-title { font: 700 20px var(--head); text-transform: uppercase; }
 .brand-sub { font-size: 12px; color: var(--muted); }
 .tabs { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
@@ -356,14 +358,15 @@ button { font: inherit; color: inherit; cursor: pointer; }
 @media (max-width: 760px) { .gbar .voters { grid-column: 1 / -1; } }
 
 /* --- Compte à rebours --- */
-.countdown { display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto; column-gap: 10px; align-items: center;
+.countdown { display: flex; column-gap: 10px; align-items: center;
   background: rgba(255,255,255,.07); border: 1px solid var(--line); border-radius: 12px; padding: 5px 12px; }
 .countdown .cd-l { grid-column: 1; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
 .countdown .cd-d { text-transform: none; color: var(--text); font-weight: 600; letter-spacing: 0; }
-.countdown .cd-n { grid-column: 2; grid-row: 1 / span 2; font: 800 30px/1 var(--head); color: #fff; background: var(--accent); padding: 4px 10px; border-radius: 8px; }
+.countdown .cd-n { font: 800 30px/1 var(--head); color: #fff; background: var(--accent); padding: 4px 10px; border-radius: 8px; }
 .countdown .cd-s { grid-column: 1; grid-row: 2; font-size: 12px; font-weight: 600; }
 @media (max-width: 760px) {
-  .countdown { order: 2; width: 100%; grid-template-columns: 1fr auto; }
+  .countdown { order: 2; width: 100%; justify-content: space-between; }
+  .countdown .cd-l { white-space: normal; }
   .countdown .cd-n { font-size: 24px; }
   .tabs { order: 3; width: 100%; }
 }
