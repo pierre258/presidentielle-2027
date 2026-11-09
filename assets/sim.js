@@ -405,24 +405,11 @@
     $("#sim-ent").addEventListener("submit", (e) => { e.preventDefault(); simEntreprise(); });
     $("#siret-btn").addEventListener("click", lookupSiret);
     if ($("#quiz")) renderQuiz();
-    $("#prog-impact").addEventListener("click", open);
     wizard($("#sim-part"));
     wizard($("#sim-ent"));
   }
-  // « Les impacts sur ma vie » : s'affiche à la place des programmes, dans la rubrique Candidats
-  function open() {
-    $("#prog-block").hidden = true;
-    $("#impact-block").hidden = false;
-    $("#prog-impact").classList.add("on");
-    $$("#prog-mode button").forEach((x) => x.classList.remove("on"));
-  }
-  function close() {
-    $("#prog-block").hidden = false;
-    $("#impact-block").hidden = true;
-    $("#prog-impact").classList.remove("on");
-  }
   window.Simulateur = {
-    init, open, close,
+    init,
     quiz: { quizHTML, readAnswers, compute, axesHTML, proxHTML, portraitHTML, axisPos, get questions() { return S.quiz; }, get axes() { return S.axes; } },
   };
 })();

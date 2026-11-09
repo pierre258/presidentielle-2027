@@ -12,8 +12,8 @@
     del: (k) => { try { localStorage.removeItem(k); } catch { /* idem */ } },
   };
   const el = () => $("#fun-app");
-  const pel = () => $("#portrait-app"); // rubrique « Mon portrait » (menu du haut)
-  const toPortrait = `<a class="cta small" href="#portrait">🧭 Faire mon portrait →</a>`;
+  const pel = () => $("#portrait-app"); // volet « Trouver le candidat de mes convictions » de la page Candidats
+  const toPortrait = `<a class="cta small" href="#portrait">🧭 Trouver le candidat de mes convictions →</a>`;
   const esc = (s) => A.esc(s);
   const msg = (t, kind = "") => `<p class="fun-msg ${kind}">${t}</p>`;
 
@@ -199,7 +199,7 @@
     }));
   }
 
-  // Onglets : avant le portrait, « Mon portrait » d'abord ; après, « Le vote des participants » d'abord
+  // Barre d'onglets du Petit vote : « Je sonde mes proches » à gauche, puis les résultats
   // « Je sonde mes proches » : bouton à part, tout à gauche ; puis les résultats
   function tabsHTML() {
     return `<button type="button" class="sonde-btn" data-p="f-groups">🔗 Je sonde mes proches<small>anonymement</small></button>
@@ -423,7 +423,7 @@
     if (error) return (box.innerHTML = msg(esc(error.message), "err"));
     if (!data?.length) return (box.innerHTML = `<p class="muted">Vous n'avez encore rejoint aucun groupe. Créez un lien avec « Je sonde mes proches » ou demandez-en un à un ami !</p>`);
     const done = !!profile.completed_at;
-    box.innerHTML = (done ? "" : msg("Validez votre portrait (rubrique <a href=\"#portrait\">Mon portrait</a>) pour découvrir les résultats de vos groupes.", "err"))
+    box.innerHTML = (done ? "" : msg("Validez votre portrait (<a href=\"#portrait\">Trouver le candidat de mes convictions</a>, page Candidats) pour découvrir les résultats de vos groupes.", "err"))
       + data.map((g) => `<details class="grp" data-id="${g.group_id}"><summary><strong>${esc(g.name)}</strong>
           <span class="muted small">${g.is_owner ? "créé par vous" : `créé par ${esc(g.owner_pseudo)}`} · ${g.members} membre${g.members > 1 ? "s" : ""}</span></summary>
           <div class="grp-in"><div class="grp-dash">${done ? msg("Chargement des résultats…") : `<p class="muted">🔒 Résultats visibles après validation de votre portrait.</p>`}</div>
@@ -446,7 +446,7 @@
 
   async function renderAll() {
     const box = $("#all-results");
-    if (!profile.completed_at) return (box.innerHTML = msg("🔒 Validez votre portrait (rubrique <a href=\"#portrait\">Mon portrait</a>) pour découvrir les résultats de tous les participants.", "err"));
+    if (!profile.completed_at) return (box.innerHTML = msg("🔒 Validez votre portrait (<a href=\"#portrait\">Trouver le candidat de mes convictions</a>, page Candidats) pour découvrir les résultats de tous les participants.", "err"));
     box.innerHTML = msg("Chargement…");
     const { data, error } = await sb.rpc("global_results");
     if (error) return (box.innerHTML = msg(esc(error.message), "err"));

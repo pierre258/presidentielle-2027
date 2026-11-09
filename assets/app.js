@@ -54,7 +54,9 @@
   const shown = new Set();
   function showTab(id) {
     id = (id || "").split("?")[0];
-    if (id === "simulateur") { id = "programmes"; setTimeout(() => window.Simulateur?.open(), 0); } // ancienne rubrique « Mon impact »
+    // anciennes rubriques devenues des volets de « Candidats »
+    const sub = { simulateur: "impact", portrait: "conv" }[id];
+    if (sub) { id = "programmes"; setTimeout(() => window.ProgView?.(sub), 0); }
     if (!/^[a-z]+$/.test(id) || !$("#" + id)) id = "sondages";
     $$(".panel").forEach((p) => (p.hidden = p.id !== id));
     $$(".tab").forEach((t) => t.classList.toggle("on", t.dataset.tab === id));
@@ -616,14 +618,21 @@
       else { st.b = id; }
       view();
     });
-    $("#prog-mode").addEventListener("click", (e) => {
-      const b = e.target.closest("button"); if (!b) return;
-      window.Simulateur?.close();
-      $$("#prog-mode button").forEach((x) => x.classList.toggle("on", x === b));
-      st.mode = b.dataset.m;
-      if (st.mode === "compare" && !st.b) st.b = ids.find((i) => i !== st.a);
-      view();
-    });
+    // Volets : un candidat, comparaison, impacts sur ma vie, candidat de mes convictions
+    function setView(v) {
+      $$("#prog-actions .pv").forEach((x) => x.classList.toggle("on", x.dataset.v === v));
+      const prog = v === "one" || v === "compare";
+      $("#prog-block").hidden = !prog;
+      $("#impact-block").hidden = v !== "impact";
+      $("#conv-block").hidden = v !== "conv";
+      if (prog) {
+        st.mode = v;
+        if (st.mode === "compare" && !st.b) st.b = ids.find((i) => i !== st.a);
+        view();
+      }
+    }
+    window.ProgView = setView;
+    $("#prog-actions").addEventListener("click", (e) => { const b = e.target.closest(".pv"); if (b) setView(b.dataset.v); });
     view();
   }
 

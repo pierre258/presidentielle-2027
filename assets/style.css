@@ -517,3 +517,22 @@ a.brand:hover .brand-mark { filter: brightness(1.1); }
 .del-card input { margin-top: 6px; max-width: 260px; }
 .danger-cta { background: #dc2626; }
 .danger-cta:disabled { opacity: .45; cursor: not-allowed; }
+
+/* --- Candidats : 4 boutons bien distincts --- */
+.prog-actions { display: flex; gap: 14px; flex-wrap: wrap; margin: 4px 0 18px; }
+.pv-group { display: flex; gap: 10px; flex-wrap: wrap; }
+.pv-group + .pv-group { padding-left: 14px; border-left: 1px solid var(--line); }
+.pv { display: inline-flex; align-items: center; gap: 10px; text-align: left; min-width: 200px; padding: 10px 16px 10px 12px; border-radius: 14px; border: 1.5px solid var(--line); background: var(--card); color: var(--text); cursor: pointer; transition: border-color .15s, background .15s, transform .15s; }
+.pv:hover { border-color: rgba(255,255,255,.45); transform: translateY(-1px); }
+.pv .pv-ico { font-size: 22px; line-height: 1; }
+.pv b { display: block; font-size: 15px; }
+.pv small { display: block; font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 2px; }
+.pv.on { background: #fff; border-color: #fff; color: var(--bg); }
+.pv.on small { color: #475569; }
+.pv.tool.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pv.tool.on small { color: rgba(255,255,255,.85); }
+@media (max-width: 760px) {
+  .pv-group + .pv-group { padding-left: 0; border-left: 0; }
+  .pv-group { width: 100%; }
+  .pv { flex: 1 1 100%; min-width: 0; }
+}
