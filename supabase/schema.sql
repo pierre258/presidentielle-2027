@@ -1,8 +1,8 @@
 -- Rubrique « Fun » : comptes, portraits idéologiques et groupes partagés par lien.
 -- À exécuter une fois dans Supabase → SQL Editor → New query → Run.
--- Confidentialité : un utilisateur ne voit que son propre profil ; le créateur d'un lien
--- ne voit, pour son groupe, que les pseudos, le candidat choisi et les réponses au quiz
--- (jamais les e-mails).
+-- Confidentialité : un utilisateur ne voit que son propre profil ; le créateur d'un lien et
+-- les membres ayant validé leur portrait voient, pour leur groupe, les pseudos, le candidat
+-- choisi et les réponses au quiz (jamais les e-mails).
 
 -- 1. Profils (un par compte)
 create table if not exists public.profiles (
@@ -82,23 +82,30 @@ begin
   return g.name;
 end $$;
 
--- Groupes rejoints par l'utilisateur connecté
-create or replace function public.my_joined_groups()
-returns table (name text, owner_pseudo text, joined_at timestamptz)
+-- Groupes rejoints : on renvoie aussi l'identifiant et le rôle
+drop function if exists public.my_joined_groups();
+create function public.my_joined_groups()
+returns table (group_id uuid, name text, owner_pseudo text, is_owner boolean, members int, joined_at timestamptz)
 language sql security definer set search_path = public stable as $$
-  select g.name, coalesce(p.pseudo, '?'), m.joined_at
+  select g.id, g.name, coalesce(p.pseudo, '?'), g.owner = auth.uid(),
+         (select count(*)::int from group_members x where x.group_id = g.id), m.joined_at
   from group_members m join groups g on g.id = m.group_id left join profiles p on p.id = g.owner
   where m.user_id = auth.uid() order by m.joined_at desc;
 $$;
 
--- Résultats d'un groupe : réservé à son créateur ; pseudos uniquement, jamais d'e-mail
+-- Résultats : créateur, ou membre ayant validé son portrait ; jamais d'e-mail
 create or replace function public.group_results(p_group uuid)
 returns table (pseudo text, chosen_candidate text, top_candidate text, top_pct int, axes jsonb, answers jsonb,
                completed boolean, joined_at timestamptz)
 language plpgsql security definer set search_path = public stable as $$
 begin
   if not exists (select 1 from groups where id = p_group and owner = auth.uid()) then
-    raise exception 'accès réservé au créateur du lien';
+    if not exists (select 1 from group_members where group_id = p_group and user_id = auth.uid()) then
+      raise exception 'accès réservé aux membres du groupe';
+    end if;
+    if not exists (select 1 from profiles where id = auth.uid() and completed_at is not null) then
+      raise exception 'portrait requis';
+    end if;
   end if;
   return query
     select p.pseudo, p.chosen_candidate, p.top_candidate, p.top_pct, p.axes, p.answers,

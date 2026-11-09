@@ -116,7 +116,7 @@
     store.del(PENDING);
     if (location.hash.includes("?g=")) history.replaceState(null, "", "#fun");
     return error ? msg("Impossible de rejoindre ce groupe : lien invalide.", "err")
-      : msg(`✓ Vous avez rejoint « <strong>${esc(data)}</strong> ». Remplissez votre portrait ci-dessous pour apparaître dans les résultats du groupe.`, "ok");
+      : msg(`✓ Vous avez rejoint « <strong>${esc(data)}</strong> ». Remplissez votre portrait ci-dessous : vous découvrirez ensuite les résultats du groupe.`, "ok");
   }
 
   async function renderApp(notice = "") {
@@ -124,7 +124,7 @@
     const cands = Object.values(A.C).filter((c) => c.id !== "bardella");
     el().innerHTML = `${notice}
       <div class="fun-head"><div>Connecté en tant que <strong>${esc(profile.pseudo)}</strong></div><button type="button" id="logout" class="ghost">Se déconnecter</button></div>
-      <div class="seg big" id="fun-tabs"><button data-p="f-portrait" class="on">🧭 Mon portrait</button><button data-p="f-groups">🔗 Mes liens de partage</button><button data-p="f-joined">👥 Groupes rejoints</button></div>
+      <div class="seg big" id="fun-tabs"><button data-p="f-portrait" class="on">🧭 Mon portrait</button><button data-p="f-groups">🔗 Mes liens de partage</button><button data-p="f-joined">👥 Mes groupes</button></div>
       <div class="fun-pane" id="f-portrait">
         ${profile.completed_at ? msg(`Portrait validé le ${new Date(profile.completed_at).toLocaleDateString("fr-FR")}. Vous pouvez le modifier à tout moment.`, "ok") : ""}
         <div id="fun-quiz">${Q.quizHTML("f_", profile.answers || {})}</div>
@@ -139,7 +139,7 @@
         <div class="fun-card"><form id="grp-form" class="fun-form inline">
           <label>Nom de votre groupe<input name="name" required minlength="2" maxlength="60" placeholder="ex. Les copains du foot"></label>
           <button class="cta" type="submit">Générer un lien</button></form>
-          <p class="muted small">Partagez le lien : chaque personne qui crée son compte et valide son portrait apparaît ici (pseudo uniquement), avec les tendances du groupe.</p></div>
+          <p class="muted small">Partagez le lien : chaque personne qui crée son compte et valide son portrait apparaît dans les résultats (pseudo uniquement). Les membres voient eux aussi les résultats du groupe, une fois leur portrait validé.</p></div>
         <div id="grp-list"></div>
       </div>
       <div class="fun-pane" id="f-joined" hidden><div id="joined-list"></div></div>`;
@@ -167,15 +167,18 @@
     const { error } = await sb.from("profiles").update(row).eq("id", user.id);
     if (error) return (out.innerHTML = msg("Enregistrement impossible : " + esc(error.message), "err"));
     Object.assign(profile, row);
-    out.innerHTML = msg("✓ Portrait enregistré. Il apparaît désormais dans les groupes que vous avez rejoints.", "ok");
+    out.innerHTML = msg("✓ Portrait enregistré. Il apparaît dans vos groupes, dont vous pouvez maintenant voir les résultats.", "ok")
+      + `<button type="button" class="cta" id="see-groups">Voir les résultats de mes groupes →</button>`;
+    $("#see-groups").onclick = () => $('#fun-tabs [data-p="f-joined"]').click();
     $("#fun-result").innerHTML = Q.portraitHTML(res);
   }
 
   async function createGroup(e) {
     e.preventDefault();
     const name = e.target.name.value.trim();
-    const { error } = await sb.from("groups").insert({ name });
+    const { data: g, error } = await sb.from("groups").insert({ name }).select().single();
     if (error) return alert("Création impossible : " + error.message);
+    await sb.rpc("join_group", { p_code: g.code }); // le créateur compte aussi dans les résultats
     e.target.reset();
     renderGroups();
   }
@@ -184,7 +187,7 @@
   function dashboard(rows) {
     const done = rows.filter((r) => r.completed);
     if (!rows.length) return `<p class="muted">Personne n'a encore utilisé ce lien.</p>`;
-    if (!done.length) return `<p class="muted">${rows.length} personne(s) inscrite(s), aucun portrait validé pour l'instant.</p>`;
+    if (!done.length) return `<p class="muted">${rows.length} membre(s), aucun portrait validé pour l'instant.</p>`;
     const count = (key) => {
       const c = {};
       done.forEach((r) => (c[r[key]] = (c[r[key]] || 0) + 1));
@@ -201,7 +204,7 @@
     const groupRes = Q.compute(avgAns);
     const coherent = done.filter((r) => r.chosen_candidate === r.top_candidate).length;
     return `<div class="sim-sum">
-        <div><small>Inscrits via le lien</small><strong>${rows.length}</strong><small>${done.length} portrait(s) validé(s)</small></div>
+        <div><small>Membres du groupe</small><strong>${rows.length}</strong><small>${done.length} portrait(s) validé(s)</small></div>
         <div><small>Candidat le plus choisi</small><strong>${esc(label(count("chosen_candidate")[0][0]))}</strong><small>${count("chosen_candidate")[0][1]} sur ${done.length}</small></div>
         <div><small>Choix = résultat du quiz</small><strong>${Math.round((coherent / done.length) * 100)} %</strong><small>cohérence vote / idées</small></div>
       </div>
@@ -242,11 +245,30 @@
 
   async function renderJoined() {
     const box = $("#joined-list");
-    const { data } = await sb.rpc("my_joined_groups");
-    box.innerHTML = data?.length
-      ? `<ul class="joined">${data.map((g) => `<li><strong>${esc(g.name)}</strong> — créé par ${esc(g.owner_pseudo)} <span class="muted small">(rejoint le ${new Date(g.joined_at).toLocaleDateString("fr-FR")})</span></li>`).join("")}</ul>
-         <p class="muted small">Le créateur de chaque groupe voit votre pseudo, votre candidat choisi et vos réponses au quiz — jamais votre e-mail.</p>`
-      : `<p class="muted">Vous n'avez rejoint aucun groupe. Demandez un lien à un ami !</p>`;
+    box.innerHTML = msg("Chargement…");
+    const { data, error } = await sb.rpc("my_joined_groups");
+    if (error) return (box.innerHTML = msg(esc(error.message), "err"));
+    if (!data?.length) return (box.innerHTML = `<p class="muted">Vous n'avez encore rejoint aucun groupe. Créez un lien dans « Mes liens de partage » ou demandez-en un à un ami !</p>`);
+    const done = !!profile.completed_at;
+    box.innerHTML = (done ? "" : msg("Validez votre portrait (onglet « Mon portrait ») pour découvrir les résultats de vos groupes.", "err"))
+      + data.map((g) => `<details class="grp" data-id="${g.group_id}"><summary><strong>${esc(g.name)}</strong>
+          <span class="muted small">${g.is_owner ? "créé par vous" : `créé par ${esc(g.owner_pseudo)}`} · ${g.members} membre${g.members > 1 ? "s" : ""}</span></summary>
+          <div class="grp-in"><div class="grp-dash">${done ? msg("Chargement des résultats…") : `<p class="muted">🔒 Résultats visibles après validation de votre portrait.</p>`}</div>
+          ${g.is_owner ? "" : `<button type="button" class="ghost danger" data-leave="${g.group_id}">Quitter ce groupe</button>`}</div></details>`).join("")
+      + `<p class="muted small">Dans chaque groupe, les membres voient les pseudos, le candidat choisi et les tendances — jamais les e-mails.</p>`;
+    if (done) {
+      $$(".grp", box).forEach((d) => d.addEventListener("toggle", async () => {
+        if (!d.open) return;
+        const { data: rows, error: err } = await sb.rpc("group_results", { p_group: d.dataset.id });
+        $(".grp-dash", d).innerHTML = err ? msg(esc(err.message), "err") : dashboard(rows || []);
+      }));
+      $(".grp", box).open = true;
+    }
+    $$("[data-leave]", box).forEach((b) => (b.onclick = async () => {
+      if (!confirm("Quitter ce groupe ? Votre portrait n'y sera plus comptabilisé.")) return;
+      await sb.from("group_members").delete().eq("group_id", b.dataset.leave).eq("user_id", user.id);
+      renderJoined();
+    }));
   }
 
   /* ---------- Démarrage ---------- */
@@ -254,7 +276,8 @@
     user = session?.user || null;
     if (!user) return renderAuth();
     const notice = await joinPending();
-    renderApp(notice);
+    await renderApp(notice);
+    if (notice.includes("ok") && profile?.completed_at) $('#fun-tabs [data-p="f-joined"]').click();
   }
 
   function init(app) {
