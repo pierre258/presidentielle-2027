@@ -195,9 +195,9 @@
     }));
   }
 
-  // Onglets : avant le portrait, « Mon portrait » d'abord ; après, « Tous les groupes » d'abord
+  // Onglets : avant le portrait, « Mon portrait » d'abord ; après, « Sondage MDS 2027 » d'abord
   function tabsHTML(done) {
-    const T = { all: ["f-all", "🌍 Tous les groupes"], portrait: ["f-portrait", "🧭 Mon portrait"], joined: ["f-joined", "👥 Mes groupes"], links: ["f-groups", "🔗 Mes liens de partage"] };
+    const T = { all: ["f-all", "📊 Sondage MDS 2027"], portrait: ["f-portrait", "🧭 Mon portrait"], joined: ["f-joined", "👥 Mes groupes"], links: ["f-groups", "🔗 Mes liens de partage"] };
     const order = done ? ["all", "portrait", "joined", "links"] : ["portrait", "all", "joined", "links"];
     return order.map((k, i) => `<button data-p="${T[k][0]}" class="${i === 0 ? "on" : ""}">${T[k][1]}</button>`).join("");
   }
@@ -280,7 +280,7 @@
     if (error) return (out.innerHTML = msg("Enregistrement impossible : " + esc(error.message), "err"));
     Object.assign(profile, row);
     stepper.editing = false;
-    // portrait validé : « Tous les groupes » passe en premier et s'ouvre
+    // portrait validé : « Sondage MDS 2027 » passe en premier et s'ouvre
     await renderApp(msg("✓ Portrait enregistré ! Découvrez ci-dessous les résultats de tous les utilisateurs, puis ceux de vos groupes.", "ok"));
   }
 
@@ -296,7 +296,7 @@
 
   /* ---------- Tableau de bord du créateur ---------- */
   function dashboard(rows, opt = {}) {
-    const G = !!opt.global; // vue « Tous les groupes » : anonyme, sans pseudos
+    const G = !!opt.global; // vue « Sondage MDS 2027 » : anonyme, sans pseudos
     const done = rows.filter((r) => r.completed);
     if (!rows.length) return `<p class="muted">${G ? "Aucun portrait validé pour l'instant." : "Personne n'a encore utilisé ce lien."}</p>`;
     if (!done.length) return `<p class="muted">${rows.length} membre(s), aucun portrait validé pour l'instant.</p>`;
@@ -405,7 +405,7 @@
     const { data, error } = await sb.rpc("global_results");
     if (error) return (box.innerHTML = msg(esc(error.message), "err"));
     const rows = (data || []).map((r) => ({ ...r, completed: true }));
-    box.innerHTML = `<div class="fun-card wide"><h3>🌍 Tous les utilisateurs</h3>
+    box.innerHTML = `<div class="fun-card wide"><h3>📊 Sondage MDS 2027 — tous les participants</h3>
       <p class="muted small">Tous les portraits validés avec un candidat choisi, tous groupes confondus. Échantillon non représentatif de la population : ce n'est pas un sondage.</p>
       ${dashboard(rows, { global: true, groups: data?.[0]?.groups })}</div>`;
   }
