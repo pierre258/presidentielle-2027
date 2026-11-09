@@ -12,6 +12,8 @@
     del: (k) => { try { localStorage.removeItem(k); } catch { /* idem */ } },
   };
   const el = () => $("#fun-app");
+  const pel = () => $("#portrait-app"); // rubrique « Mon portrait » (menu du haut)
+  const toPortrait = `<a class="cta small" href="#portrait">🧭 Faire mon portrait →</a>`;
   const esc = (s) => A.esc(s);
   const msg = (t, kind = "") => `<p class="fun-msg ${kind}">${t}</p>`;
 
@@ -196,10 +198,17 @@
   }
 
   // Onglets : avant le portrait, « Mon portrait » d'abord ; après, « Sondage MDS 2027 » d'abord
-  function tabsHTML(done) {
-    const T = { all: ["f-all", "📊 Sondage MDS 2027"], portrait: ["f-portrait", "🧭 Mon portrait"], joined: ["f-joined", "👥 Mes groupes"], links: ["f-groups", "🔗 Mes liens de partage"] };
-    const order = done ? ["all", "portrait", "joined", "links"] : ["portrait", "all", "joined", "links"];
-    return order.map((k, i) => `<button data-p="${T[k][0]}" class="${i === 0 ? "on" : ""}">${T[k][1]}</button>`).join("");
+  // « Je sonde mes proches » : bouton à part, tout à gauche ; puis les résultats
+  function tabsHTML() {
+    return `<button type="button" class="sonde-btn" data-p="f-groups">🔗 Je sonde mes proches<small>anonymement</small></button>
+      <div class="seg big fun-tabs"><button data-p="f-all" class="on">📊 Sondage MDS 2027</button><button data-p="f-joined">👥 Mes groupes</button></div>`;
+  }
+
+  function portraitLoggedOut() {
+    if (!pel()) return;
+    pel().innerHTML = `<div class="fun-card"><h3>🧭 Votre portrait en 14 affirmations</h3>
+      <p class="muted">Pour enregistrer votre portrait et votre choix de candidat, créez d'abord un compte (20 secondes). Il vous sert aussi pour le « Petit vote entre amis ».</p>
+      <a class="cta" href="#fun">Créer un compte ou me connecter →</a></div>`;
   }
 
   function portraitPane() {
@@ -235,8 +244,8 @@
     stepper.i = 0;
     el().innerHTML = `${notice}
       <div class="fun-head"><div>Connecté en tant que <strong>${esc(profile.pseudo)}</strong></div><button type="button" id="logout" class="ghost">Se déconnecter</button></div>
-      <div class="seg big fun-tabs" id="fun-tabs">${tabsHTML(done)}</div>
-      <div class="fun-pane" id="f-portrait" ${done ? "hidden" : ""}>${portraitPane()}</div>
+      ${done ? "" : `<div class="fun-card port-todo"><div><strong>Première étape : votre portrait</strong><p class="muted small">Répondez aux affirmations et choisissez votre candidat : votre vote comptera dans vos groupes et dans le Sondage MDS 2027.</p></div>${toPortrait}</div>`}
+      <div class="fun-tabbar" id="fun-tabs">${tabsHTML()}</div>
       <div class="fun-pane" id="f-groups" hidden>
         <div class="fun-card"><form id="grp-form" class="fun-form inline">
           <label>Nom de votre groupe<input name="name" required minlength="2" maxlength="60" placeholder="ex. Les copains du foot"></label>
@@ -245,10 +254,12 @@
         <div id="grp-list"></div>
       </div>
       <div class="fun-pane" id="f-joined" hidden><div id="joined-list"></div></div>
-      <div class="fun-pane" id="f-all" ${done ? "" : "hidden"}><div id="all-results"></div></div>`;
+      <div class="fun-pane" id="f-all"><div id="all-results"></div></div>`;
+    pel().innerHTML = `<div class="fun-head"><div>Connecté en tant que <strong>${esc(profile.pseudo)}</strong></div></div><div id="f-portrait">${portraitPane()}</div><div id="port-msg"></div>`;
     $("#logout").onclick = () => sb.auth.signOut();
     $("#fun-tabs").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
+      if (!b.dataset.p) return;
       $$("#fun-tabs button").forEach((x) => x.classList.toggle("on", x === b));
       $$(".fun-pane").forEach((p) => (p.hidden = p.id !== b.dataset.p));
       if (b.dataset.p === "f-groups") renderGroups();
@@ -257,7 +268,7 @@
     });
     $("#grp-form").addEventListener("submit", createGroup);
     bindPortrait();
-    if (done) renderAll();
+    renderAll();
   }
 
   function bindPortrait() {
@@ -280,8 +291,10 @@
     if (error) return (out.innerHTML = msg("Enregistrement impossible : " + esc(error.message), "err"));
     Object.assign(profile, row);
     stepper.editing = false;
-    // portrait validé : « Sondage MDS 2027 » passe en premier et s'ouvre
-    await renderApp(msg("✓ Portrait enregistré ! Découvrez ci-dessous les résultats de tous les utilisateurs, puis ceux de vos groupes.", "ok"));
+    // portrait validé : direction « Petit vote entre amis », onglet « Sondage MDS 2027 »
+    await renderApp(msg("✓ Portrait enregistré ! Découvrez ci-dessous les résultats de tous les participants, puis ceux de vos groupes.", "ok"));
+    location.hash = "#fun";
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   async function createGroup(e) {
@@ -375,9 +388,9 @@
     box.innerHTML = msg("Chargement…");
     const { data, error } = await sb.rpc("my_joined_groups");
     if (error) return (box.innerHTML = msg(esc(error.message), "err"));
-    if (!data?.length) return (box.innerHTML = `<p class="muted">Vous n'avez encore rejoint aucun groupe. Créez un lien dans « Mes liens de partage » ou demandez-en un à un ami !</p>`);
+    if (!data?.length) return (box.innerHTML = `<p class="muted">Vous n'avez encore rejoint aucun groupe. Créez un lien avec « Je sonde mes proches » ou demandez-en un à un ami !</p>`);
     const done = !!profile.completed_at;
-    box.innerHTML = (done ? "" : msg("Validez votre portrait (onglet « Mon portrait ») pour découvrir les résultats de vos groupes.", "err"))
+    box.innerHTML = (done ? "" : msg("Validez votre portrait (rubrique <a href=\"#portrait\">Mon portrait</a>) pour découvrir les résultats de vos groupes.", "err"))
       + data.map((g) => `<details class="grp" data-id="${g.group_id}"><summary><strong>${esc(g.name)}</strong>
           <span class="muted small">${g.is_owner ? "créé par vous" : `créé par ${esc(g.owner_pseudo)}`} · ${g.members} membre${g.members > 1 ? "s" : ""}</span></summary>
           <div class="grp-in"><div class="grp-dash">${done ? msg("Chargement des résultats…") : `<p class="muted">🔒 Résultats visibles après validation de votre portrait.</p>`}</div>
@@ -400,7 +413,7 @@
 
   async function renderAll() {
     const box = $("#all-results");
-    if (!profile.completed_at) return (box.innerHTML = msg("🔒 Validez votre portrait (onglet « Mon portrait ») pour découvrir les résultats de tous les utilisateurs.", "err"));
+    if (!profile.completed_at) return (box.innerHTML = msg("🔒 Validez votre portrait (rubrique <a href=\"#portrait\">Mon portrait</a>) pour découvrir les résultats de tous les participants.", "err"));
     box.innerHTML = msg("Chargement…");
     const { data, error } = await sb.rpc("global_results");
     if (error) return (box.innerHTML = msg(esc(error.message), "err"));
@@ -413,7 +426,7 @@
   /* ---------- Démarrage ---------- */
   async function refresh(session) {
     user = session?.user || null;
-    if (!user) return renderAuth();
+    if (!user) { portraitLoggedOut(); return renderAuth(); }
     const notice = await joinPending();
     await renderApp(notice);
     if (notice.includes("ok") && profile?.completed_at) $('#fun-tabs [data-p="f-joined"]').click();
@@ -425,7 +438,8 @@
     if (code) store.set(PENDING, code);
     const cfg = window.FUN_CONFIG || {};
     if (!cfg.supabaseUrl || !cfg.supabaseAnonKey || !window.supabase) {
-      el().innerHTML = `<div class="fun-card"><h3>🚧 Bientôt disponible</h3><p class="muted">Cette rubrique sera activée très prochainement. En attendant, vous pouvez faire votre portrait idéologique dans la rubrique « Mon impact ».</p></div>`;
+      el().innerHTML = `<div class="fun-card"><h3>🚧 Bientôt disponible</h3><p class="muted">Cette rubrique sera activée très prochainement. En attendant, vous pouvez estimer l'impact des programmes sur votre vie dans la rubrique « Candidats ».</p></div>`;
+      if (pel()) pel().innerHTML = el().innerHTML;
       return;
     }
     const fromMail = /access_token=|error_description=|type=signup/.test(location.hash);

@@ -7,7 +7,7 @@
   <meta name="description" content="Moyenne des sondages, réseaux sociaux, buzz et programmes des candidats à la présidentielle 2027, mis à jour chaque jour.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=202611092100">
+  <link rel="stylesheet" href="assets/style.css?v=202611092200">
 </head>
 <body>
   <header class="top">
@@ -25,7 +25,7 @@
         <a href="#reseaux" data-tab="reseaux" class="tab">Réseaux sociaux</a>
         <a href="#buzz" data-tab="buzz" class="tab">Buzz</a>
         <a href="#programmes" data-tab="programmes" class="tab">Candidats</a>
-        <a href="#simulateur" data-tab="simulateur" class="tab">Mon impact</a>
+        <a href="#portrait" data-tab="portrait" class="tab">Mon portrait</a>
         <a href="#fun" data-tab="fun" class="tab">Petit vote entre amis</a>
       </nav>
     </div>
@@ -142,28 +142,25 @@
           <h1>Les candidats et leurs programmes</h1>
           <p class="muted" id="prog-disclaimer"></p>
         </div>
-        <div class="seg" id="prog-mode">
-          <button data-m="one" class="on">Un candidat</button>
-          <button data-m="compare">Comparer 2 candidats</button>
+        <div class="prog-actions">
+          <div class="seg" id="prog-mode">
+            <button data-m="one" class="on">Un candidat</button>
+            <button data-m="compare">Comparer 2 candidats</button>
+          </div>
+          <button type="button" class="impact-btn" id="prog-impact">📊 Les impacts sur ma vie</button>
         </div>
       </div>
-      <p class="hint" id="prog-hint"></p>
-      <div class="avatar-grid" id="prog-grid"></div>
-      <div id="prog-view"></div>
-    </section>
-
-    <!-- 5. SIMULATEUR -->
-    <section id="simulateur" class="panel" hidden>
-      <div class="panel-head">
-        <div>
-          <h1>Quel impact sur mon quotidien ?</h1>
-          <p class="muted">Renseignez votre situation : nous estimons l'effet des principales mesures de chaque candidat sur votre budget, vos impôts, votre retraite ou votre entreprise.</p>
-        </div>
+      <div id="prog-block">
+        <p class="hint" id="prog-hint"></p>
+        <div class="avatar-grid" id="prog-grid"></div>
+        <div id="prog-view"></div>
       </div>
+      <div id="impact-block" hidden>
+        <h2 class="impact-title">Quel impact sur mon quotidien ?</h2>
+        <p class="muted">Renseignez votre situation : nous estimons l'effet des principales mesures de chaque candidat sur votre budget, vos impôts, votre retraite ou votre entreprise.</p>
       <p class="privacy">🔒 Vos réponses restent dans votre navigateur : rien n'est enregistré ni envoyé (seul le SIRET est interrogé sur l'annuaire public des entreprises).</p>
       <div class="seg big" id="sim-tabs">
         <button data-p="pane-part" class="on">👤 Particulier</button>
-        <button data-p="pane-quiz">🧭 Portrait idéologique</button>
         <button data-p="pane-ent">🏢 Entreprise</button>
       </div>
 
@@ -212,13 +209,6 @@
         <div id="sim-part-out" class="sim-out"></div>
       </div>
 
-      <div class="sim-pane" id="pane-quiz" hidden>
-        <p class="muted">Indiquez votre degré d'accord avec chaque affirmation. Nous situons vos réponses sur 5 grands axes et les comparons aux positions des candidats.</p>
-        <div id="quiz"></div>
-        <button class="cta" type="button" id="quiz-btn">Voir mon portrait →</button>
-        <div id="quiz-out" class="sim-out"></div>
-      </div>
-
       <div class="sim-pane" id="pane-ent" hidden>
         <form id="sim-ent" class="sim-form">
           <fieldset><legend>Identification</legend>
@@ -245,9 +235,21 @@
         <div id="sim-ent-out" class="sim-out"></div>
       </div>
       <p class="muted small">Méthode : impôt sur le revenu calculé au barème 2025 (quotient familial, décote), IS à 15 %/25 %. Les mesures des candidats sont chiffrées quand c'est possible, avec l'hypothèse affichée sous chaque ligne. Estimations indicatives, sans valeur de conseil fiscal.</p>
+      </div>
     </section>
 
-    <!-- 6. FUN -->
+    <!-- 5. MON PORTRAIT -->
+    <section id="portrait" class="panel" hidden>
+      <div class="panel-head">
+        <div>
+          <h1>Mon portrait idéologique</h1>
+          <p class="muted">Indiquez votre degré d'accord avec chaque affirmation : nous situons vos réponses sur 5 grands axes et les comparons aux positions des candidats. Votre portrait et votre choix de candidat comptent ensuite dans le « Petit vote entre amis ».</p>
+        </div>
+      </div>
+      <div id="portrait-app"></div>
+    </section>
+
+    <!-- 6. PETIT VOTE ENTRE AMIS -->
     <section id="fun" class="panel" hidden>
       <div class="panel-head">
         <div>
@@ -265,9 +267,9 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
-  <script src="assets/config.js?v=202611092100"></script>
-  <script src="assets/sim.js?v=202611092100"></script>
-  <script src="assets/fun.js?v=202611092100"></script>
-  <script src="assets/app.js?v=202611092100"></script>
+  <script src="assets/config.js?v=202611092200"></script>
+  <script src="assets/sim.js?v=202611092200"></script>
+  <script src="assets/fun.js?v=202611092200"></script>
+  <script src="assets/app.js?v=202611092200"></script>
 </body>
 </html>

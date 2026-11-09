@@ -458,3 +458,20 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .wz-nav .cta { margin: 0; }
 #pane-quiz #quiz { max-width: 760px; }
 @media (max-width: 760px) { .wz-step span { display: none; } .wz-step { padding: 5px; } }
+
+/* --- Candidats : bouton « Les impacts sur ma vie » --- */
+.prog-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.impact-btn { border: 1px solid var(--line); background: rgba(255,255,255,.06); color: var(--text); border-radius: 999px; padding: 8px 16px; font-weight: 700; cursor: pointer; }
+.impact-btn:hover { background: rgba(255,255,255,.12); }
+.impact-btn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.impact-title { margin: 4px 0 6px; font: 700 22px var(--head); text-transform: uppercase; }
+#impact-block .seg.big { margin: 14px 0; }
+
+/* --- Petit vote : « Je sonde mes proches » à part, tout à gauche --- */
+.fun-tabbar { display: flex; gap: 12px; align-items: stretch; flex-wrap: wrap; margin: 14px 0; }
+.fun-tabbar .seg { margin: 0; }
+.sonde-btn { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.15; border: 0; border-radius: 14px; padding: 8px 18px; font-weight: 800; font-size: 15px; color: #fff; cursor: pointer; background: linear-gradient(135deg, #f59e0b, var(--accent)); box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+.sonde-btn small { font-style: italic; font-weight: 500; font-size: 11px; opacity: .9; }
+.sonde-btn.on { outline: 2px solid #fff; outline-offset: 2px; }
+.port-todo { display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; max-width: none; }
+.port-todo p { margin: 4px 0 0; }

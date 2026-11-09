@@ -54,6 +54,7 @@
   const shown = new Set();
   function showTab(id) {
     id = (id || "").split("?")[0];
+    if (id === "simulateur") { id = "programmes"; setTimeout(() => window.Simulateur?.open(), 0); } // ancienne rubrique « Mon impact »
     if (!/^[a-z]+$/.test(id) || !$("#" + id)) id = "sondages";
     $$(".panel").forEach((p) => (p.hidden = p.id !== id));
     $$(".tab").forEach((t) => t.classList.toggle("on", t.dataset.tab === id));
@@ -616,6 +617,7 @@
     });
     $("#prog-mode").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
+      window.Simulateur?.close();
       $$("#prog-mode button").forEach((x) => x.classList.toggle("on", x === b));
       st.mode = b.dataset.m;
       if (st.mode === "compare" && !st.b) st.b = ids.find((i) => i !== st.a);
