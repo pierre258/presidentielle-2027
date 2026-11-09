@@ -20,20 +20,6 @@
      "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN. Coût pour le seul régime de retraite, hors effets sur l'activité. Les modalités annoncées pour 2027 (62 ans comme repère) peuvent différer."
     },
     {
-     "topic": "retraites",
-     "mesure": "Retour de l'âge légal de départ à 62 ans (abrogation du report à 64 ans)",
-     "montant_md": 10.4,
-     "min_md": null,
-     "max_md": null,
-     "sens": "cout",
-     "horizon": "en 2035 (hausse du déficit du système de retraite)",
-     "source": "Cour des comptes",
-     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
-     "date": "2025-02-20",
-     "annee": 2025,
-     "note": "Estimation de la Cour des comptes présentée par son premier président Pierre Moscovici au Sénat (rapportée par Public Sénat le 5 mars 2025 : https://www.publicsenat.fr/actualites/emploi/retraites-si-vous-abrogez-la-reforme-de-2023-cest-10-milliards-deuros-de-plus-quil-faut-trouver-souligne-pierre-moscovici). Chiffrage d'un levier générique, non d'un programme de candidat ; porte sur le seul système de retraite. Ne couvre pas le volet « carrières longues » du RN."
-    },
-    {
      "topic": "pouvoir_achat",
      "mesure": "Baisse de la TVA de 20 % à 5,5 % sur les carburants, l'électricité, le gaz et le fioul",
      "montant_md": 11.3,
@@ -191,20 +177,6 @@
      "date": "2024-07-03",
      "annee": 2024,
      "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN. Coût pour le seul régime de retraite, hors effets sur l'activité. Les modalités annoncées pour 2027 (62 ans comme repère) peuvent différer."
-    },
-    {
-     "topic": "retraites",
-     "mesure": "Retour de l'âge légal de départ à 62 ans (abrogation du report à 64 ans)",
-     "montant_md": 10.4,
-     "min_md": null,
-     "max_md": null,
-     "sens": "cout",
-     "horizon": "en 2035 (hausse du déficit du système de retraite)",
-     "source": "Cour des comptes",
-     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
-     "date": "2025-02-20",
-     "annee": 2025,
-     "note": "Estimation de la Cour des comptes présentée par son premier président Pierre Moscovici au Sénat (rapportée par Public Sénat le 5 mars 2025 : https://www.publicsenat.fr/actualites/emploi/retraites-si-vous-abrogez-la-reforme-de-2023-cest-10-milliards-deuros-de-plus-quil-faut-trouver-souligne-pierre-moscovici). Chiffrage d'un levier générique, non d'un programme de candidat ; porte sur le seul système de retraite. Ne couvre pas le volet « carrières longues » du RN."
     },
     {
      "topic": "pouvoir_achat",
@@ -467,41 +439,11 @@
   },
   "philippe": {
    "total": null,
-   "mesures": [
-    {
-     "topic": "retraites",
-     "mesure": "Report de l'âge légal de départ à 65 ans",
-     "montant_md": 8.4,
-     "min_md": null,
-     "max_md": null,
-     "sens": "economie",
-     "horizon": "en 2035, pour le système de retraite (jusqu'à 17,7 Md€ pour l'ensemble des finances publiques)",
-     "source": "Cour des comptes",
-     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
-     "date": "2025-02-20",
-     "annee": 2025,
-     "note": "Scénario de la Cour des comptes (recul d'un an, 65 ans au lieu de 64, à partir de la génération 1968), non d'un programme de candidat. Le programme d'Édouard Philippe y ajoute une durée de cotisation portée à 45 ans, non incluse."
-    }
-   ]
+   "mesures": []
   },
   "glucksmann": {
    "total": null,
-   "mesures": [
-    {
-     "topic": "retraites",
-     "mesure": "Retour de l'âge légal de départ à 62 ans (abrogation du report à 64 ans)",
-     "montant_md": 10.4,
-     "min_md": null,
-     "max_md": null,
-     "sens": "cout",
-     "horizon": "en 2035 (hausse du déficit du système de retraite)",
-     "source": "Cour des comptes",
-     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
-     "date": "2025-02-20",
-     "annee": 2025,
-     "note": "Estimation de la Cour des comptes présentée par son premier président Pierre Moscovici au Sénat (rapportée par Public Sénat le 5 mars 2025 : https://www.publicsenat.fr/actualites/emploi/retraites-si-vous-abrogez-la-reforme-de-2023-cest-10-milliards-deuros-de-plus-quil-faut-trouver-souligne-pierre-moscovici). Chiffrage d'un levier générique, non d'un programme de candidat ; porte sur le seul système de retraite. Le candidat prévoit aussi une prise en compte de la pénibilité, non chiffrée."
-    }
-   ]
+   "mesures": []
   },
   "attal": {
    "total": null,
@@ -513,22 +455,7 @@
   },
   "retailleau": {
    "total": null,
-   "mesures": [
-    {
-     "topic": "retraites",
-     "mesure": "Report de l'âge légal de départ à 65 ans",
-     "montant_md": 8.4,
-     "min_md": null,
-     "max_md": null,
-     "sens": "economie",
-     "horizon": "en 2035, pour le système de retraite (jusqu'à 17,7 Md€ pour l'ensemble des finances publiques)",
-     "source": "Cour des comptes",
-     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
-     "date": "2025-02-20",
-     "annee": 2025,
-     "note": "Scénario de la Cour des comptes (recul d'un an, 65 ans au lieu de 64, à partir de la génération 1968), non d'un programme de candidat. Les modalités précises du candidat (calendrier, décote) peuvent différer."
-    }
-   ]
+   "mesures": []
   },
   "zemmour": {
    "total": null,
@@ -580,20 +507,6 @@
   "tondelier": {
    "total": null,
    "mesures": [
-    {
-     "topic": "retraites",
-     "mesure": "Retour de l'âge légal de départ à 62 ans (abrogation du report à 64 ans)",
-     "montant_md": 10.4,
-     "min_md": null,
-     "max_md": null,
-     "sens": "cout",
-     "horizon": "en 2035 (hausse du déficit du système de retraite)",
-     "source": "Cour des comptes",
-     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
-     "date": "2025-02-20",
-     "annee": 2025,
-     "note": "Estimation de la Cour des comptes présentée par son premier président Pierre Moscovici au Sénat (rapportée par Public Sénat le 5 mars 2025 : https://www.publicsenat.fr/actualites/emploi/retraites-si-vous-abrogez-la-reforme-de-2023-cest-10-milliards-deuros-de-plus-quil-faut-trouver-souligne-pierre-moscovici). Chiffrage d'un levier générique, non d'un programme de candidat ; porte sur le seul système de retraite."
-    },
     {
      "topic": "fiscalite",
      "mesure": "ISF avec composante climatique",
@@ -653,22 +566,7 @@
   },
   "dupontaignan": {
    "total": null,
-   "mesures": [
-    {
-     "topic": "retraites",
-     "mesure": "Retour de l'âge légal de départ à 62 ans (abrogation du report à 64 ans)",
-     "montant_md": 10.4,
-     "min_md": null,
-     "max_md": null,
-     "sens": "cout",
-     "horizon": "en 2035 (hausse du déficit du système de retraite)",
-     "source": "Cour des comptes",
-     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
-     "date": "2025-02-20",
-     "annee": 2025,
-     "note": "Estimation de la Cour des comptes présentée par son premier président Pierre Moscovici au Sénat (rapportée par Public Sénat le 5 mars 2025 : https://www.publicsenat.fr/actualites/emploi/retraites-si-vous-abrogez-la-reforme-de-2023-cest-10-milliards-deuros-de-plus-quil-faut-trouver-souligne-pierre-moscovici). Chiffrage d'un levier générique, non d'un programme de candidat ; porte sur le seul système de retraite."
-    }
-   ]
+   "mesures": []
   },
   "arthaud": {
    "total": null,
