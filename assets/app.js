@@ -492,7 +492,9 @@
       if (pf === "youtube" && it.youtube_id)
         return `<button class="yt" data-src="https://www.youtube-nocookie.com/embed/${esc(it.youtube_id)}?autoplay=1" aria-label="Lire la vidéo YouTube"><img src="https://i.ytimg.com/vi/${esc(it.youtube_id)}/hqdefault.jpg" alt="" loading="lazy"></button>`;
       if (pf === "dailymotion" && it.dailymotion_id)
-        return `<button class="yt" data-src="https://geo.dailymotion.com/player.html?video=${esc(it.dailymotion_id)}&autoplay=1" aria-label="Lire la vidéo Dailymotion"><img src="https://www.dailymotion.com/thumbnail/video/${esc(it.dailymotion_id)}" alt="" loading="lazy"></button>`;
+        return window.DM_PLAYER
+          ? `<button class="yt" data-src="https://geo.dailymotion.com/player/${esc(window.DM_PLAYER)}.html?video=${esc(it.dailymotion_id)}&autoplay=1" aria-label="Lire la vidéo Dailymotion"><img src="https://www.dailymotion.com/thumbnail/video/${esc(it.dailymotion_id)}" alt="" loading="lazy"></button>`
+          : `<a class="yt" href="https://www.dailymotion.com/video/${esc(it.dailymotion_id)}" target="_blank" rel="noopener" aria-label="Voir la vidéo sur Dailymotion"><img src="https://www.dailymotion.com/thumbnail/video/${esc(it.dailymotion_id)}" alt="" loading="lazy"></a>`;
       if (pf === "tiktok" && it.tiktok_id)
         return `<div class="tt" data-tt="${esc(it.tiktok_id)}"><span class="tt-ph">♪ TikTok</span></div>`;
       if (pf === "x" && it.x_id)
@@ -686,6 +688,15 @@
     window.APP = { C, avatar, esc, fmtN, socialLinks };
     if (window.Fun) window.Fun.init(window.APP);
     if (window.JeVote) window.JeVote.init(window.APP);
+    // Direct Public Sénat : intégré si un lecteur Dailymotion est configuré, sinon lien vers publicsenat.fr
+    const live = $("#ps-live");
+    if (live && window.DM_PLAYER) {
+      const b = document.createElement("button");
+      b.className = live.className; b.innerHTML = live.innerHTML.replace("sur publicsenat.fr", "");
+      b.dataset.src = `https://geo.dailymotion.com/player/${window.DM_PLAYER}.html?video=xkxbzc&autoplay=1`;
+      b.setAttribute("aria-label", "Regarder Public Sénat en direct");
+      live.replaceWith(b);
+    }
     const fromMail = /access_token=|error_description=|type=signup/.test(location.hash);
     showTab(fromMail ? "fun" : location.hash.slice(1) || "sondages");
   }
