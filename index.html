@@ -41,15 +41,19 @@
           <button data-w="7">7 jours</button>
           <button data-w="15" class="on">15 jours</button>
           <button data-w="30">30 jours</button>
-          <button data-w="evo" class="evo-btn">📈 Évolution des intentions de vote depuis 2022</button>
+          <button data-w="evo" class="evo-btn">📈 Évolution depuis 2002</button>
         </div>
       </div>
       <div class="poll-card">
         <div class="poll-card-title"><span>Présidentielle 2027 :</span> moyenne des sondages</div>
         <div id="poll-bars"></div>
         <div id="poll-evo" hidden>
-          <div class="evo-top"><button class="play" id="evo-play">▶ Rejouer</button><div class="race-date" id="evo-date"></div></div>
+          <div class="evo-top">
+            <div class="evo-ctl"><button class="play" id="evo-play">▶ Rejouer</button>
+              <div class="seg" id="evo-mode"><button data-m="fam" class="on">Familles politiques · 2002-2027</button><button data-m="cand">Candidats · 2022-2027</button></div></div>
+            <div class="race-date" id="evo-date"></div></div>
           <div id="evo-chart"></div>
+          <div class="evo-legend" id="evo-legend"></div>
           <input type="range" id="evo-scrub" min="0" max="1000" value="1000" aria-label="Position dans le temps">
         </div>
         <div class="poll-card-foot" id="poll-sources"></div>

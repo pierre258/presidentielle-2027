@@ -294,3 +294,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .evo-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
 #evo-chart svg { width: 100%; height: auto; display: block; }
 #evo-scrub { width: 100%; accent-color: var(--accent); margin-top: 6px; }
+.evo-ctl { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.evo-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); margin-top: 8px; }
+.evo-legend i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 5px; border-radius: 2px; }

@@ -1,0 +1,41 @@
+{
+  "_doc": "Résultats officiels du 1er tour des présidentielles (% des suffrages exprimés, Conseil constitutionnel), regroupés par famille politique. Les regroupements sont un choix éditorial, indiqué pour chaque candidat.",
+  "families": [
+    {"id": "eg", "label": "Extrême gauche", "color": "#8B0000"},
+    {"id": "gr", "label": "Gauche radicale", "color": "#CC2443"},
+    {"id": "sd", "label": "Gauche socialiste", "color": "#E8858F"},
+    {"id": "eco", "label": "Écologistes", "color": "#00A651"},
+    {"id": "ce", "label": "Centre", "color": "#E6C200"},
+    {"id": "dr", "label": "Droite", "color": "#3B82F6"},
+    {"id": "sv", "label": "Souverainistes", "color": "#8E6CC4"},
+    {"id": "ed", "label": "Extrême droite", "color": "#1E3A8A"}
+  ],
+  "elections": [
+    {"year": 2002, "date": "2002-04-21", "candidates": [
+      ["Jacques Chirac", "dr", 19.88], ["Jean-Marie Le Pen", "ed", 16.86], ["Lionel Jospin", "sd", 16.18], ["François Bayrou", "ce", 6.84],
+      ["Arlette Laguiller", "eg", 5.72], ["Jean-Pierre Chevènement", "sd", 5.33], ["Noël Mamère", "eco", 5.25], ["Olivier Besancenot", "eg", 4.25],
+      ["Jean Saint-Josse", "dr", 4.23], ["Alain Madelin", "dr", 3.91], ["Robert Hue", "gr", 3.37], ["Bruno Mégret", "ed", 2.34],
+      ["Christiane Taubira", "sd", 2.32], ["Corinne Lepage", "eco", 1.88], ["Christine Boutin", "dr", 1.19], ["Daniel Gluckstein", "eg", 0.47]]},
+    {"year": 2007, "date": "2007-04-22", "candidates": [
+      ["Nicolas Sarkozy", "dr", 31.18], ["Ségolène Royal", "sd", 25.87], ["François Bayrou", "ce", 18.57], ["Jean-Marie Le Pen", "ed", 10.44],
+      ["Olivier Besancenot", "eg", 4.08], ["Philippe de Villiers", "sv", 2.23], ["Marie-George Buffet", "gr", 1.93], ["Dominique Voynet", "eco", 1.57],
+      ["Arlette Laguiller", "eg", 1.33], ["José Bové", "eg", 1.32], ["Frédéric Nihous", "dr", 1.15], ["Gérard Schivardi", "eg", 0.34]]},
+    {"year": 2012, "date": "2012-04-22", "candidates": [
+      ["François Hollande", "sd", 28.63], ["Nicolas Sarkozy", "dr", 27.18], ["Marine Le Pen", "ed", 17.90], ["Jean-Luc Mélenchon", "gr", 11.10],
+      ["François Bayrou", "ce", 9.13], ["Eva Joly", "eco", 2.31], ["Nicolas Dupont-Aignan", "sv", 1.79], ["Philippe Poutou", "eg", 1.15],
+      ["Nathalie Arthaud", "eg", 0.56], ["Jacques Cheminade", "sv", 0.25]]},
+    {"year": 2017, "date": "2017-04-23", "candidates": [
+      ["Emmanuel Macron", "ce", 24.01], ["Marine Le Pen", "ed", 21.30], ["François Fillon", "dr", 20.01], ["Jean-Luc Mélenchon", "gr", 19.58],
+      ["Benoît Hamon", "sd", 6.36], ["Nicolas Dupont-Aignan", "sv", 4.70], ["Jean Lassalle", "sv", 1.21], ["Philippe Poutou", "eg", 1.09],
+      ["François Asselineau", "sv", 0.92], ["Nathalie Arthaud", "eg", 0.64], ["Jacques Cheminade", "sv", 0.18]]},
+    {"year": 2022, "date": "2022-04-10", "candidates": [
+      ["Emmanuel Macron", "ce", 27.85], ["Marine Le Pen", "ed", 23.15], ["Jean-Luc Mélenchon", "gr", 21.95], ["Éric Zemmour", "ed", 7.07],
+      ["Valérie Pécresse", "dr", 4.78], ["Yannick Jadot", "eco", 4.63], ["Jean Lassalle", "sv", 3.13], ["Fabien Roussel", "gr", 2.28],
+      ["Nicolas Dupont-Aignan", "sv", 2.06], ["Anne Hidalgo", "sd", 1.75], ["Philippe Poutou", "eg", 0.77], ["Nathalie Arthaud", "eg", 0.56]]}
+  ],
+  "family_2027": {
+    "arthaud": "eg", "melenchon": "gr", "roussel": "gr", "glucksmann": "sd", "tondelier": "eco",
+    "attal": "ce", "philippe": "ce", "villepin": "ce", "lisnard": "dr", "retailleau": "dr",
+    "dupontaignan": "sv", "lepen": "ed", "bardella": "ed", "zemmour": "ed"
+  }
+}

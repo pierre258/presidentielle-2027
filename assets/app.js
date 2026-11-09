@@ -10,7 +10,7 @@
   const fmtDate = (d, opt = { day: "numeric", month: "long", year: "numeric" }) => new Date(d).toLocaleDateString("fr-FR", opt);
   const DAY = 864e5;
 
-  let C = {}, POLLS, SOCIAL, BUZZ, PROG, PDET, SIM;
+  let C = {}, POLLS, SOCIAL, BUZZ, PROG, PDET, SIM, HIST;
 
   /* Pictos réseaux sociaux (formes simplifiées, liens vers les comptes officiels) */
   const SOC = {
@@ -105,76 +105,153 @@
     }
   }
 
-  /* Évolution animée mois par mois jusqu'à la tendance des 7 derniers jours (20 s) */
+  /* Évolution animée (20 s) : familles politiques 2002-2027 ou candidats 2022-2027 */
   const Evo = (() => {
     const DUR = 20000;
-    let raf = 0, built = false, series, t0ms, t1ms, W = 980, H = 440, L = 40, R = 150, T = 16, B = 30, ymax;
-    const x = (ms) => L + ((ms - t0ms) / (t1ms - t0ms)) * (W - L - R);
-    const y = (v) => T + (1 - v / ymax) * (H - T - B);
-    const col = (id) => (C[id].color === "#404040" ? "#9aa0a6" : C[id].color);
-    function build() {
+    let raf = 0, mode = "fam", ready = false, M, x, y, ymax;
+    const W = 980, H = 440, L = 40, R = 165, T = 16, B = 30;
+    const colC = (id) => (C[id].color === "#404040" ? "#9aa0a6" : C[id].color);
+
+    // Modèle : séries [{key,label,color,p:[[ms,v]]}], bornes de temps, marqueurs d'élection
+    function model(m) {
       const E = POLLS.evolution;
-      const pts = E.monthly.map((m) => ({ ms: +new Date(m.month + "-15"), s: m.scores }));
-      pts.push({ ms: +new Date(E.current.date), s: E.current.scores });
-      t0ms = pts[0].ms; t1ms = pts[pts.length - 1].ms;
-      const finalTop = Object.entries(E.current.scores).filter(([id]) => C[id]).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([id]) => id);
-      series = finalTop.map((id) => ({ id, p: pts.filter((q) => q.s[id] != null).map((q) => [q.ms, q.s[id]]) })).filter((s) => s.p.length);
-      ymax = Math.ceil(Math.max(...series.flatMap((s) => s.p.map((q) => q[1]))) / 5) * 5 + 5;
+      const polls = E.monthly.map((q) => ({ ms: +new Date(q.month + "-15"), q }));
+      const nowMs = +new Date(E.current.date);
+      if (m === "cand") {
+        const top = Object.entries(E.current.scores).filter(([id]) => C[id]).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([id]) => id);
+        const series = top.map((id) => ({
+          key: id, label: C[id].short, color: colC(id),
+          p: [...polls.filter((o) => o.q.scores[id] != null).map((o) => [o.ms, o.q.scores[id]]), [nowMs, E.current.scores[id]]].filter((o) => o[1] != null),
+        })).filter((s) => s.p.length);
+        return { series, t0: polls[0].ms, t1: nowMs, markers: [], warp: null, dash: 0 };
+      }
+      const elec = HIST.elections.map((e) => {
+        const f = {};
+        e.candidates.forEach(([, k, v]) => (f[k] = (f[k] || 0) + v));
+        return { ms: +new Date(e.date), year: e.year, f };
+      });
+      const last = elec[elec.length - 1];
+      // lissage : moyenne pondérée (nombre de sondages) du mois et des deux mois voisins
+      const fp = polls.filter((o) => Object.keys(o.q.families || {}).length);
+      const smooth = fp.map((o, i) => {
+        const win = fp.slice(Math.max(0, i - 1), i + 2);
+        const w = win.reduce((a, b) => a + b.q.n, 0);
+        const f = {};
+        HIST.families.forEach((fa) => (f[fa.id] = win.reduce((a, b) => a + (b.q.families[fa.id] || 0) * b.q.n, 0) / w));
+        return { ms: o.ms, f };
+      });
+      const series = HIST.families.map((fa) => ({
+        key: fa.id, label: fa.label, color: fa.color,
+        p: [...elec.map((e) => [e.ms, e.f[fa.id] || 0]),
+          ...smooth.map((o) => [o.ms, o.f[fa.id]]),
+          [nowMs, (E.current.families || {})[fa.id] || 0]],
+      }));
+      // 55 % de la durée et de la largeur pour 2002-2022, 45 % pour la campagne 2027
+      return { series, t0: elec[0].ms, t1: nowMs, markers: elec, warp: { split: last.ms, at: 0.55 }, dash: last.ms };
+    }
+    const tToMs = (t) => {
+      const w = M.warp;
+      if (!w) return M.t0 + (M.t1 - M.t0) * t;
+      return t < w.at ? M.t0 + (w.split - M.t0) * (t / w.at) : w.split + (M.t1 - w.split) * ((t - w.at) / (1 - w.at));
+    };
+
+    function build() {
+      M = model(mode);
+      ymax = Math.ceil(Math.max(...M.series.flatMap((s) => s.p.map((q) => q[1]))) / 5) * 5 + 5;
+      const span = W - L - R;
+      x = M.warp
+        ? (ms) => (ms <= M.warp.split ? L + ((ms - M.t0) / (M.warp.split - M.t0)) * span * M.warp.at
+          : L + span * M.warp.at + ((ms - M.warp.split) / (M.t1 - M.warp.split)) * span * (1 - M.warp.at))
+        : (ms) => L + ((ms - M.t0) / (M.t1 - M.t0)) * span;
+      y = (v) => T + (1 - v / ymax) * (H - T - B);
       let g = "";
       for (let v = 0; v <= ymax; v += 5) g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(255,255,255,.07)"/><text x="${L - 8}" y="${y(v) + 4}" fill="#a5addb" font-size="11" text-anchor="end">${v}%</text>`;
-      for (let yr = new Date(t0ms).getFullYear() + 1; yr <= new Date(t1ms).getFullYear(); yr++) {
-        const ms = +new Date(yr + "-01-01");
-        g += `<line x1="${x(ms)}" x2="${x(ms)}" y1="${T}" y2="${H - B}" stroke="rgba(255,255,255,.12)" stroke-dasharray="3 5"/><text x="${x(ms) + 4}" y="${H - 10}" fill="#a5addb" font-size="12" font-weight="600">${yr}</text>`;
+      if (M.markers.length) {
+        M.markers.forEach((e) => { g += `<line x1="${x(e.ms)}" x2="${x(e.ms)}" y1="${T}" y2="${H - B}" stroke="rgba(255,255,255,.18)"/><text x="${x(e.ms)}" y="${H - 10}" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">${e.year}</text>`; });
+        for (let yr = 2023; yr <= new Date(M.t1).getFullYear(); yr++) { const ms = +new Date(yr + "-01-01"); g += `<line x1="${x(ms)}" x2="${x(ms)}" y1="${T}" y2="${H - B}" stroke="rgba(255,255,255,.08)" stroke-dasharray="3 5"/><text x="${x(ms)}" y="${H - 10}" fill="#a5addb" font-size="11" text-anchor="middle">${yr}</text>`; }
+        g += `<rect x="${x(M.warp.split)}" y="${T}" width="${x(M.t1) - x(M.warp.split)}" height="${H - T - B}" fill="rgba(255,45,85,.05)"/><text x="${(x(M.warp.split) + x(M.t1)) / 2}" y="${T + 14}" fill="#ff8fa6" font-size="12" font-weight="700" text-anchor="middle">Campagne 2027 (échelle élargie)</text>`;
+      } else {
+        for (let yr = new Date(M.t0).getFullYear() + 1; yr <= new Date(M.t1).getFullYear(); yr++) {
+          const ms = +new Date(yr + "-01-01");
+          g += `<line x1="${x(ms)}" x2="${x(ms)}" y1="${T}" y2="${H - B}" stroke="rgba(255,255,255,.12)" stroke-dasharray="3 5"/><text x="${x(ms) + 4}" y="${H - 10}" fill="#a5addb" font-size="12" font-weight="600">${yr}</text>`;
+        }
       }
-      const lines = series.map((s) => `<polyline fill="none" stroke="${col(s.id)}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" points="${s.p.map((q) => x(q[0]) + "," + y(q[1])).join(" ")}"/>`).join("");
-      const heads = series.map((s) => `<g class="evo-head" data-id="${s.id}"><circle r="6" fill="${col(s.id)}" stroke="#0b1030" stroke-width="2"/><text x="12" y="4" fill="#fff" font-size="13" font-weight="700"></text></g>`).join("");
-      $("#evo-chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Évolution des intentions de vote depuis ${new Date(t0ms).getFullYear()}">
-        <defs><clipPath id="evo-clip"><rect id="evo-clip-r" x="${L}" y="0" height="${H}" width="0"/></clipPath></defs>${g}<g clip-path="url(#evo-clip)">${lines}</g>${heads}</svg>`;
-      built = true;
+      const pts = (arr) => `points="${arr.map((q) => x(q[0]) + "," + y(q[1])).join(" ")}"`;
+      const lines = M.series.map((s) => {
+        if (!M.dash) return `<polyline fill="none" stroke="${s.color}" stroke-width="3" stroke-linejoin="round" ${pts(s.p)}/>`;
+        const a = s.p.filter((q) => q[0] <= M.dash), b = s.p.filter((q) => q[0] >= M.dash);
+        const dots = a.map((q) => `<circle cx="${x(q[0])}" cy="${y(q[1])}" r="4.5" fill="${s.color}"/>`).join("");
+        return `<polyline fill="none" stroke="${s.color}" stroke-width="2" stroke-dasharray="5 5" opacity=".75" ${pts(a)}/>${dots}<polyline fill="none" stroke="${s.color}" stroke-width="3" stroke-linejoin="round" ${pts(b)}/>`;
+      }).join("");
+      const heads = M.series.map((s) => `<g class="evo-head" data-k="${s.key}"><circle r="6" fill="${s.color}" stroke="#0b1030" stroke-width="2"/><text x="12" y="4" fill="#fff" font-size="13" font-weight="700"></text></g>`).join("");
+      $("#evo-chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Évolution des intentions de vote">
+        <defs><clipPath id="evo-clip"><rect id="evo-clip-r" x="${L - 6}" y="0" height="${H}" width="0"/></clipPath></defs>${g}<g clip-path="url(#evo-clip)">${lines}</g>${heads}</svg>`;
+      $("#evo-legend").innerHTML = mode === "fam"
+        ? `<span><i style="background:repeating-linear-gradient(90deg,#fff 0 5px,transparent 5px 10px)"></i>Résultats officiels (points), reliés d'une élection à l'autre</span><span><i style="background:#fff"></i>Sondages 2027 (moyenne mensuelle lissée sur 3 mois)</span>`
+          + HIST.families.map((f) => `<span><i style="background:${f.color}"></i>${esc(f.label)}</span>`).join("")
+        : "";
+      const E = POLLS.evolution, n = E.monthly.reduce((a, q) => a + q.n, 0);
+      $(".poll-card-title").innerHTML = mode === "fam"
+        ? "<span>Présidentielles 2002-2027 :</span> 1er tour par famille politique"
+        : "<span>Présidentielle 2027 :</span> intentions de vote depuis 2022";
+      $("#poll-meta").innerHTML = mode === "fam"
+        ? `Résultats officiels du 1<sup>er</sup> tour de 2002, 2007, 2012, 2017 et 2022, puis moyenne mensuelle de <strong>${n} sondages</strong> pour 2027, regroupés par famille politique, jusqu'à la tendance des ${E.current.window} derniers jours. Le classement des candidats par famille est un choix éditorial (ex. Macron et Bayrou au centre, Zemmour à l'extrême droite, Dupont-Aignan et Lassalle chez les souverainistes).`
+        : `Moyenne mensuelle de <strong>${n} sondages</strong> depuis ${fmtDate(M.t0, { month: "long", year: "numeric" })}, jusqu'à la tendance des ${E.current.window} derniers jours (${E.current.n} sondage${E.current.n > 1 ? "s" : ""}). Avant 2026, les hypothèses de candidats testées varient d'un sondage à l'autre.`;
+      $("#poll-sources").textContent = mode === "fam"
+        ? "Sources : Conseil constitutionnel (résultats 2002-2022) · Wikipédia, liste des sondages 2027"
+        : "Source : " + POLLS.source.split(" — ")[0];
     }
+
     function valAt(s, ms) {
       const p = s.p;
       if (ms < p[0][0]) return null;
       if (ms >= p[p.length - 1][0]) return p[p.length - 1][1];
-      for (let i = 1; i < p.length; i++) if (p[i][0] >= ms) { const k = (ms - p[i - 1][0]) / (p[i][0] - p[i - 1][0]); return p[i - 1][1] + (p[i][1] - p[i - 1][1]) * k; }
+      for (let i = 1; i < p.length; i++) {
+        if (p[i][0] >= ms) { const k = (ms - p[i - 1][0]) / (p[i][0] - p[i - 1][0] || 1); return p[i - 1][1] + (p[i][1] - p[i - 1][1]) * k; }
+      }
       return null;
     }
     function frame(t) {
-      const ms = t0ms + (t1ms - t0ms) * t;
-      $("#evo-clip-r").setAttribute("width", Math.max(0, x(ms) - L));
-      const heads = series.map((s) => ({ s, v: valAt(s, ms) }));
+      const ms = tToMs(t);
+      $("#evo-clip-r").setAttribute("width", Math.max(0, x(ms) - L + 8));
+      const heads = M.series.map((s) => ({ s, v: valAt(s, ms) }));
       const placed = heads.filter((h) => h.v != null).map((h) => ({ ...h, ly: y(h.v) })).sort((a, b) => a.ly - b.ly);
       placed.forEach((h, i) => { if (i && h.ly - placed[i - 1].ly < 16) h.ly = placed[i - 1].ly + 16; });
       heads.forEach((h) => {
-        const g = $(`#evo-chart .evo-head[data-id="${h.s.id}"]`);
+        const g = $(`#evo-chart .evo-head[data-k="${h.s.key}"]`);
         if (h.v == null) { g.style.display = "none"; return; }
         g.style.display = "";
         const pl = placed.find((p) => p.s === h.s);
         g.setAttribute("transform", `translate(${x(ms)},${y(h.v)})`);
         const tx = g.querySelector("text");
         tx.setAttribute("y", pl.ly - y(h.v) + 4);
-        tx.textContent = `${C[h.s.id].short} ${fmtPct(Math.round(h.v * 10) / 10)} %`;
+        tx.textContent = `${h.s.label} ${fmtPct(Math.round(h.v * 10) / 10)} %`;
       });
-      const last = t >= 0.999;
-      $("#evo-date").textContent = last ? `Tendance ${POLLS.evolution.current.window} derniers jours` : fmtDate(ms, { month: "long", year: "numeric" });
+      const elecNow = M.markers.find((e) => Math.abs(e.ms - ms) < 120 * DAY);
+      $("#evo-date").textContent = t >= 0.999 ? `2027 · tendance ${POLLS.evolution.current.window} derniers jours`
+        : elecNow ? `Présidentielle ${elecNow.year}`
+        : fmtDate(ms, mode === "fam" && ms < M.dash ? { year: "numeric" } : { month: "long", year: "numeric" });
       $("#evo-scrub").value = Math.round(t * 1000);
     }
     function play() {
       cancelAnimationFrame(raf);
       const start = performance.now();
       const step = (now) => { const k = Math.min(1, (now - start) / DUR); frame(k); if (k < 1) raf = requestAnimationFrame(step); };
-      frame(0); raf = requestAnimationFrame(step);
+      frame(0);
+      raf = requestAnimationFrame(step);
     }
     function show() {
-      if (!built) {
-        build();
+      if (!ready) {
+        ready = true;
         $("#evo-play").addEventListener("click", play);
         $("#evo-scrub").addEventListener("input", (e) => { cancelAnimationFrame(raf); frame(e.target.value / 1000); });
+        $("#evo-mode").addEventListener("click", (e) => {
+          const b = e.target.closest("button"); if (!b) return;
+          $$("#evo-mode button").forEach((q) => q.classList.toggle("on", q === b));
+          mode = b.dataset.m; build(); play();
+        });
       }
-      const E = POLLS.evolution, n = E.monthly.reduce((a, m) => a + m.n, 0);
-      $(".poll-card-title").innerHTML = `<span>Présidentielle 2027 :</span> intentions de vote depuis ${new Date(t0ms).getFullYear()}`;
-      $("#poll-meta").innerHTML = `Moyenne mensuelle de <strong>${n} sondages</strong> depuis ${fmtDate(t0ms, { month: "long", year: "numeric" })}, jusqu'à la tendance des ${E.current.window} derniers jours (${E.current.n} sondage${E.current.n > 1 ? "s" : ""}). Avant 2026, les hypothèses de candidats testées varient d'un sondage à l'autre.`;
-      $("#poll-sources").textContent = "Source : " + POLLS.source.split(" — ")[0] + " — instituts Ifop, Harris, Elabe, Ipsos, OpinionWay, Odoxa, Cluster17, YouGov…";
+      build();
       play();
     }
     return { show, stop: () => cancelAnimationFrame(raf) };
@@ -503,9 +580,9 @@
   async function main() {
     const get = (f) => fetch(`data/${f}.json?v=${Math.floor(Date.now() / 36e5)}`).then((r) => { if (!r.ok) throw new Error(f); return r.json(); });
     try {
-      const [cands, photos, polls, social, buzz, prog, pdet, sim] = await Promise.all(["candidates", "photos", "polls", "social", "buzz", "programmes", "programmes_details", "simulateur"].map(get));
+      const [cands, photos, polls, social, buzz, prog, pdet, sim, hist] = await Promise.all(["candidates", "photos", "polls", "social", "buzz", "programmes", "programmes_details", "simulateur", "historique"].map(get));
       cands.candidates.forEach((c) => (C[c.id] = { ...c, photo: photos[c.id]?.url }));
-      POLLS = polls; SOCIAL = social; BUZZ = buzz; PROG = prog; PDET = pdet; SIM = sim;
+      POLLS = polls; SOCIAL = social; BUZZ = buzz; PROG = prog; PDET = pdet; SIM = sim; HIST = hist;
     } catch (e) {
       document.querySelector("main").innerHTML = `<p class="warn">Impossible de charger les données (${esc(e.message)}). Ouvrez le site via un serveur web (voir README).</p>`;
       return;

@@ -34,6 +34,49 @@ MONTHS = {"janv": 1, "févr": 2, "fevr": 2, "mars": 3, "avr": 4, "mai": 5, "juin
 HISTORY_START = dt.date(2022, 6, 1)   # début de l'historique (évolution animée)
 SERIES_START = dt.date(2025, 10, 1)   # début de la courbe glissante 14 j
 DEFAULT_WINDOW = 15
+# Famille politique selon le parti indiqué dans l'en-tête de colonne ou la cellule
+PARTY_FAMILY = {"LO": "eg", "NPA": "eg", "NPA-A": "eg", "NPA-R": "eg", "POI": "eg",
+                "LFI": "gr", "PCF": "gr", "GRS": "gr", "D!": "gr", "FI": "gr",
+                "PS": "sd", "PP": "sd", "PRG": "sd", "LFH": "ce",
+                "LE": "eco", "EELV": "eco", "EÉLV": "eco",
+                "RE": "ce", "REN": "ce", "HOR": "ce", "MoDem": "ce", "MODEM": "ce", "EPR": "ce", "ENS": "ce", "UDI": "ce",
+                "LR": "dr", "NE": "dr", "DVD": "dr",
+                "DLF": "sv", "RES": "sv", "UPR": "sv",
+                "RN": "ed", "REC": "ed", "UDR": "ed"}
+NAME_FAMILY = {"villepin": "ce", "lisnard": "dr", "ruffin": "gr", "knafo": "ed", "marechal": "ed", "lagarde": "ce",
+               "hollande": "sd", "faure": "sd", "royal": "sd", "cazeneuve": "sd", "delga": "sd", "guedj": "sd",
+               "bertrand": "dr", "wauquiez": "dr", "darmanin": "ce", "bayrou": "ce", "lassalle": "sv", "poutou": "eg",
+               "maurel": "gr", "autain": "gr", "jadot": "eco", "bardella": "ed"}
+
+
+NAME_FAMILY.update({"lemaire": "ce", "maire": "ce", "sejourne": "ce", "borne": "ce", "castex": "ce", "fillon": "dr",
+                    "pecresse": "dr", "ciotti": "ed", "marion": "ed", "hidalgo": "sd", "panot": "gr", "bompard": "gr",
+                    "rousseau": "eco", "tondelier": "eco", "arthaud": "eg", "melenchon": "gr", "roussel": "gr"})
+_CAND_FAMILY = {}
+
+
+def cand_family():
+    """Familles des candidats suivis (data/historique.json), indexées par nom normalisé."""
+    if not _CAND_FAMILY:
+        fam = json.loads((ROOT / "data/historique.json").read_text())["family_2027"]
+        for c in json.loads((ROOT / "data/candidates.json").read_text())["candidates"]:
+            if c["id"] in fam:
+                _CAND_FAMILY[norm(c["short"])] = fam[c["id"]]
+                _CAND_FAMILY[norm(c["short"].split("-")[-1])] = fam[c["id"]]
+    return _CAND_FAMILY
+
+
+def family_of(party, name=""):
+    party = (party or "").strip()
+    if party in PARTY_FAMILY:
+        return PARTY_FAMILY[party]
+    m = re.match(r"Candidat\s+(\S+)", name)
+    if m and m.group(1) in PARTY_FAMILY:
+        return PARTY_FAMILY[m.group(1)]
+    if not name:
+        return None
+    last = norm(name.split()[-1])
+    return NAME_FAMILY.get(last) or cand_family().get(last)
 WINDOWS = (7, 15, 30)
 
 
@@ -144,7 +187,7 @@ def main():
                        "end": end.isoformat(), "sample": re.sub(r"\D", "", row[2]["text"]),
                        "hyp": []}
                 polls.append(cur)
-            hyp, seen = {}, set()
+            hyp, seen, fam = {}, set(), {}
             for i in range(3, len(header)):
                 cell = row[i]
                 if id(cell) in seen:
@@ -153,17 +196,28 @@ def main():
                 colname = re.sub(r"\(.*?\)", "", header[i]["text"]).strip()
                 txt = cell["text"]
                 if colname == "Autres" or re.match(r"^\d+(?:,\d+)?\s+[A-ZÉ]", txt):
-                    for v, name in re.findall(r"(\d+(?:,\d+)?)\s+((?:de\s)?[A-ZÉ][\w'éèëïôç-]+)", txt):
+                    for v, name, party in re.findall(r"(\d+(?:,\d+)?)\s+((?:de\s)?[A-ZÉ][\w'éèëïôç-]+)(?:\s*\(([^)]*)\))?", txt):
+                        val = float(v.replace(",", "."))
                         cid = key2id.get(norm(name.replace("de ", "")))
                         if cid:
-                            hyp[cid] = float(v.replace(",", "."))
+                            hyp[cid] = val
+                        f = family_of(party, name.replace("de ", ""))
+                        if f:
+                            fam[f] = fam.get(f, 0) + val
                     continue
                 cid = key2id.get(norm(colname))
                 v = num(txt)
                 if cid and v is not None and not colname.startswith("Candidat"):
                     hyp[cid] = v
+                pm = re.search(r"\(([^)]*)\)", header[i]["text"])
+                f = family_of(pm.group(1) if pm else "", colname)
+                if f and v is not None:
+                    fam[f] = fam.get(f, 0) + v
             if hyp:
                 cur["hyp"].append(hyp)
+            tot = sum(fam.values())
+            if tot >= 80:  # hypothèse assez complète : normalisée à 100
+                cur.setdefault("fam", []).append({k: v * 100 / tot for k, v in fam.items()})
         if stop:
             break
 
@@ -174,9 +228,15 @@ def main():
         for h in p["hyp"]:
             for cid, v in h.items():
                 acc.setdefault(cid, []).append(v)
+        facc = {}
+        for h in p.get("fam", []):
+            for k, v in h.items():
+                facc.setdefault(k, []).append(v)
+        nh = len(p.get("fam", [])) or 1
         out_polls.append({k: p[k] for k in ("pollster", "fieldwork", "end", "sample")} |
                          {"hypotheses": len(p["hyp"]),
-                          "scores": {c: round(sum(v) / len(v), 2) for c, v in acc.items()}})
+                          "scores": {c: round(sum(v) / len(v), 2) for c, v in acc.items()},
+                          "families": {k: round(sum(v) / nh, 2) for k, v in facc.items()}})
 
     def window_avg(ref, days):
         sel = [p for p in out_polls
@@ -212,15 +272,28 @@ def main():
         for p in by_month[m]:
             for c, v in p["scores"].items():
                 acc.setdefault(c, []).append(v)
+        facc = {}
+        fp = [p for p in by_month[m] if p["families"]]
+        for p in fp:
+            for k, v in p["families"].items():
+                facc[k] = facc.get(k, 0) + v
         monthly.append({"month": m, "n": len(by_month[m]),
-                        "scores": {c: round(sum(v) / len(v), 1) for c, v in acc.items()}})
+                        "scores": {c: round(sum(v) / len(v), 1) for c, v in acc.items()},
+                        "families": {k: round(v / len(fp), 1) for k, v in facc.items()} if fp else {}})
     cur_sel, cur_avg = window_avg(today, 7)
     cur_w = 7
     if not cur_sel:
         cur_sel, cur_avg = window_avg(today, DEFAULT_WINDOW)
         cur_w = DEFAULT_WINDOW
+    cur_fam = {}
+    fsel = [p for p in cur_sel if p["families"]]
+    for p in fsel:
+        for k, v in p["families"].items():
+            cur_fam[k] = cur_fam.get(k, 0) + v
+    cur_fam = {k: round(v / len(fsel), 1) for k, v in cur_fam.items()} if fsel else {}
     evolution = {"start": monthly[0]["month"] if monthly else None, "monthly": monthly,
-                 "current": {"date": today.isoformat(), "window": cur_w, "n": len(cur_sel), "scores": cur_avg}}
+                 "current": {"date": today.isoformat(), "window": cur_w, "n": len(cur_sel), "scores": cur_avg,
+                             "families": cur_fam}}
 
     result = {
         "updated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"),
