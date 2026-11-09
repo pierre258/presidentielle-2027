@@ -379,13 +379,7 @@
           return `<tr><td><div class="who">${avatar(r.id, 26)}${esc(C[r.id].name)}${socialLinks(r.id, 15)}</div></td><td><strong>${fmtN(r.now)}</strong></td><td style="color:${g >= 0 ? "var(--pos)" : "var(--neg)"}">${g >= 0 ? "+" : ""}${fmtN(g)}</td><td>${pct >= 0 ? "+" : ""}${pct.toLocaleString("fr-FR", { maximumFractionDigits: 1 })} %</td>${plats.map((p) => `<td>${last.values[r.id]?.[p] ? fmtN(last.values[r.id][p]) : "—"}</td>`).join("")}</tr>`;
         }).join("") + "</tbody>";
       const [ra, rb] = range();
-      const est = H.some((h) => h.estimated && h.ms >= ra && h.ms <= rb);
-      const w = $("#social-warning");
-      w.hidden = !est;
-      const firstReal = H.find((h) => !h.estimated);
-      w.innerHTML = firstReal
-        ? `⚠️ <strong>Chiffres réels depuis le ${fmtDate(firstReal.ms, { day: "numeric", month: "long" })}</strong> (relevés quotidiens). Avant cette date, la courbe est une <strong>reconstitution estimée</strong>, calée sur le premier relevé réel. Les comptes officiels introuvables ne sont pas comptés (—).`
-        : "⚠️ <strong>Historique estimé.</strong> Les relevés quotidiens réels démarrent à la mise en ligne ; la série depuis janvier 2026 est une reconstitution approximative.";
+      $("#social-warning").hidden = true; // bandeau d'avertissement retiré à la demande de l'éditeur
     }
     // Somme d'une plateforme pour tous les candidats à l'instant ms
     function platTotal(p, ms) {
