@@ -31,7 +31,8 @@ URL = ("https://fr.wikipedia.org/wiki/"
 UA = "Presidentielle2027Tracker/1.0 (site d'information ; contact via le dépôt du projet)"
 MONTHS = {"janv": 1, "févr": 2, "fevr": 2, "mars": 3, "avr": 4, "mai": 5, "juin": 6, "juil": 7,
           "août": 8, "aout": 8, "sept": 9, "oct": 10, "nov": 11, "déc": 12, "dec": 12}
-HISTORY_START = dt.date(2025, 10, 1)
+HISTORY_START = dt.date(2022, 6, 1)   # début de l'historique (évolution animée)
+SERIES_START = dt.date(2025, 10, 1)   # début de la courbe glissante 14 j
 DEFAULT_WINDOW = 15
 WINDOWS = (7, 15, 30)
 
@@ -124,7 +125,10 @@ def main():
             if not ed:
                 continue
             day, month = ed
-            if month > prev_month + 1:  # on remonte le temps : passage à l'année précédente
+            explicit = re.findall(r"(20\d\d)", row[1]["text"])
+            if explicit:  # année écrite dans la date : elle fait foi
+                year = int(explicit[-1])
+            elif month > prev_month + 1:  # on remonte le temps : passage à l'année précédente
                 year -= 1
             prev_month = month
             try:
@@ -191,12 +195,32 @@ def main():
     _, prev = window_avg(today - dt.timedelta(days=window), window)
 
     # Série hebdomadaire (moyenne glissante 14 j) pour les courbes d'évolution
-    series, d = [], HISTORY_START
+    series, d = [], SERIES_START
     while d <= today:
         s, a = window_avg(d, 14)
         if s:
             series.append({"date": d.isoformat(), "scores": a})
         d += dt.timedelta(days=7)
+
+    # Série mensuelle (moyenne des sondages du mois) + point final = tendance des 7 derniers jours
+    by_month = {}
+    for p in out_polls:
+        by_month.setdefault(p["end"][:7], []).append(p)
+    monthly = []
+    for m in sorted(by_month):
+        acc = {}
+        for p in by_month[m]:
+            for c, v in p["scores"].items():
+                acc.setdefault(c, []).append(v)
+        monthly.append({"month": m, "n": len(by_month[m]),
+                        "scores": {c: round(sum(v) / len(v), 1) for c, v in acc.items()}})
+    cur_sel, cur_avg = window_avg(today, 7)
+    cur_w = 7
+    if not cur_sel:
+        cur_sel, cur_avg = window_avg(today, DEFAULT_WINDOW)
+        cur_w = DEFAULT_WINDOW
+    evolution = {"start": monthly[0]["month"] if monthly else None, "monthly": monthly,
+                 "current": {"date": today.isoformat(), "window": cur_w, "n": len(cur_sel), "scores": cur_avg}}
 
     result = {
         "updated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"),
@@ -214,6 +238,7 @@ def main():
         "default_window": DEFAULT_WINDOW,
         "second_round": second_round(tables, key2id, today),
         "series": series,
+        "evolution": evolution,
         "polls": out_polls,
     }
     (ROOT / "data/polls.json").write_text(json.dumps(result, ensure_ascii=False, indent=1))

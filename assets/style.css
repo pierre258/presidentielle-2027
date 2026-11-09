@@ -286,3 +286,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .modal-bar { display: none; }
   .status, .muted { color: #444 !important; }
 }
+
+/* --- Évolution animée des sondages --- */
+.seg .evo-btn { color: #ffd0da; }
+.seg .evo-btn.on { background: var(--accent); color: #fff; }
+.poll-card.evo { max-width: none; }
+.evo-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+#evo-chart svg { width: 100%; height: auto; display: block; }
+#evo-scrub { width: 100%; accent-color: var(--accent); margin-top: 6px; }

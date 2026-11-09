@@ -46,6 +46,12 @@
 
   /* ---------------- 1. Sondages ---------------- */
   function renderPolls(w = "15") {
+    const isEvo = w === "evo";
+    $("#poll-bars").hidden = isEvo; $("#poll-evo").hidden = !isEvo;
+    $(".poll-card").classList.toggle("evo", isEvo);
+    if (isEvo) return Evo.show();
+    Evo.stop();
+    $(".poll-card-title").innerHTML = "<span>Présidentielle 2027 :</span> moyenne des sondages";
     const win = POLLS.windows[w];
     const rows = Object.entries(win.average).filter(([id]) => C[id]).sort((a, b) => b[1] - a[1]);
     const max = rows.length ? rows[0][1] : 1;
@@ -98,6 +104,81 @@
       $("#duels").after(btn);
     }
   }
+
+  /* Évolution animée mois par mois jusqu'à la tendance des 7 derniers jours (20 s) */
+  const Evo = (() => {
+    const DUR = 20000;
+    let raf = 0, built = false, series, t0ms, t1ms, W = 980, H = 440, L = 40, R = 150, T = 16, B = 30, ymax;
+    const x = (ms) => L + ((ms - t0ms) / (t1ms - t0ms)) * (W - L - R);
+    const y = (v) => T + (1 - v / ymax) * (H - T - B);
+    const col = (id) => (C[id].color === "#404040" ? "#9aa0a6" : C[id].color);
+    function build() {
+      const E = POLLS.evolution;
+      const pts = E.monthly.map((m) => ({ ms: +new Date(m.month + "-15"), s: m.scores }));
+      pts.push({ ms: +new Date(E.current.date), s: E.current.scores });
+      t0ms = pts[0].ms; t1ms = pts[pts.length - 1].ms;
+      const finalTop = Object.entries(E.current.scores).filter(([id]) => C[id]).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([id]) => id);
+      series = finalTop.map((id) => ({ id, p: pts.filter((q) => q.s[id] != null).map((q) => [q.ms, q.s[id]]) })).filter((s) => s.p.length);
+      ymax = Math.ceil(Math.max(...series.flatMap((s) => s.p.map((q) => q[1]))) / 5) * 5 + 5;
+      let g = "";
+      for (let v = 0; v <= ymax; v += 5) g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(255,255,255,.07)"/><text x="${L - 8}" y="${y(v) + 4}" fill="#a5addb" font-size="11" text-anchor="end">${v}%</text>`;
+      for (let yr = new Date(t0ms).getFullYear() + 1; yr <= new Date(t1ms).getFullYear(); yr++) {
+        const ms = +new Date(yr + "-01-01");
+        g += `<line x1="${x(ms)}" x2="${x(ms)}" y1="${T}" y2="${H - B}" stroke="rgba(255,255,255,.12)" stroke-dasharray="3 5"/><text x="${x(ms) + 4}" y="${H - 10}" fill="#a5addb" font-size="12" font-weight="600">${yr}</text>`;
+      }
+      const lines = series.map((s) => `<polyline fill="none" stroke="${col(s.id)}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" points="${s.p.map((q) => x(q[0]) + "," + y(q[1])).join(" ")}"/>`).join("");
+      const heads = series.map((s) => `<g class="evo-head" data-id="${s.id}"><circle r="6" fill="${col(s.id)}" stroke="#0b1030" stroke-width="2"/><text x="12" y="4" fill="#fff" font-size="13" font-weight="700"></text></g>`).join("");
+      $("#evo-chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Évolution des intentions de vote depuis ${new Date(t0ms).getFullYear()}">
+        <defs><clipPath id="evo-clip"><rect id="evo-clip-r" x="${L}" y="0" height="${H}" width="0"/></clipPath></defs>${g}<g clip-path="url(#evo-clip)">${lines}</g>${heads}</svg>`;
+      built = true;
+    }
+    function valAt(s, ms) {
+      const p = s.p;
+      if (ms < p[0][0]) return null;
+      if (ms >= p[p.length - 1][0]) return p[p.length - 1][1];
+      for (let i = 1; i < p.length; i++) if (p[i][0] >= ms) { const k = (ms - p[i - 1][0]) / (p[i][0] - p[i - 1][0]); return p[i - 1][1] + (p[i][1] - p[i - 1][1]) * k; }
+      return null;
+    }
+    function frame(t) {
+      const ms = t0ms + (t1ms - t0ms) * t;
+      $("#evo-clip-r").setAttribute("width", Math.max(0, x(ms) - L));
+      const heads = series.map((s) => ({ s, v: valAt(s, ms) }));
+      const placed = heads.filter((h) => h.v != null).map((h) => ({ ...h, ly: y(h.v) })).sort((a, b) => a.ly - b.ly);
+      placed.forEach((h, i) => { if (i && h.ly - placed[i - 1].ly < 16) h.ly = placed[i - 1].ly + 16; });
+      heads.forEach((h) => {
+        const g = $(`#evo-chart .evo-head[data-id="${h.s.id}"]`);
+        if (h.v == null) { g.style.display = "none"; return; }
+        g.style.display = "";
+        const pl = placed.find((p) => p.s === h.s);
+        g.setAttribute("transform", `translate(${x(ms)},${y(h.v)})`);
+        const tx = g.querySelector("text");
+        tx.setAttribute("y", pl.ly - y(h.v) + 4);
+        tx.textContent = `${C[h.s.id].short} ${fmtPct(Math.round(h.v * 10) / 10)} %`;
+      });
+      const last = t >= 0.999;
+      $("#evo-date").textContent = last ? `Tendance ${POLLS.evolution.current.window} derniers jours` : fmtDate(ms, { month: "long", year: "numeric" });
+      $("#evo-scrub").value = Math.round(t * 1000);
+    }
+    function play() {
+      cancelAnimationFrame(raf);
+      const start = performance.now();
+      const step = (now) => { const k = Math.min(1, (now - start) / DUR); frame(k); if (k < 1) raf = requestAnimationFrame(step); };
+      frame(0); raf = requestAnimationFrame(step);
+    }
+    function show() {
+      if (!built) {
+        build();
+        $("#evo-play").addEventListener("click", play);
+        $("#evo-scrub").addEventListener("input", (e) => { cancelAnimationFrame(raf); frame(e.target.value / 1000); });
+      }
+      const E = POLLS.evolution, n = E.monthly.reduce((a, m) => a + m.n, 0);
+      $(".poll-card-title").innerHTML = `<span>Présidentielle 2027 :</span> intentions de vote depuis ${new Date(t0ms).getFullYear()}`;
+      $("#poll-meta").innerHTML = `Moyenne mensuelle de <strong>${n} sondages</strong> depuis ${fmtDate(t0ms, { month: "long", year: "numeric" })}, jusqu'à la tendance des ${E.current.window} derniers jours (${E.current.n} sondage${E.current.n > 1 ? "s" : ""}). Avant 2026, les hypothèses de candidats testées varient d'un sondage à l'autre.`;
+      $("#poll-sources").textContent = "Source : " + POLLS.source.split(" — ")[0] + " — instituts Ifop, Harris, Elabe, Ipsos, OpinionWay, Odoxa, Cluster17, YouGov…";
+      play();
+    }
+    return { show, stop: () => cancelAnimationFrame(raf) };
+  })();
 
   function renderTrend() {
     const S = POLLS.series;
