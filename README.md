@@ -1,5 +1,7 @@
 # Présidentielle 2027 — Le Tracker
 
+🌐 En ligne : https://moyennedessondages2027.fr
+
 Site statique (HTML/CSS/JS, sans build) + scripts Python (bibliothèque standard uniquement)
 qui régénèrent les données plusieurs fois par jour via GitHub Actions.
 
