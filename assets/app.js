@@ -45,7 +45,7 @@
     const days = Math.round((next.date - today) / DAY);
     const when = next.date.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
     box.innerHTML = `<span class="cd-l">${next.label} · <span class="cd-d">${when}</span></span>
-      <strong class="cd-n">${days === 0 ? "Aujourd'hui !" : `J-${days}`}</strong>${days ? `<span class="cd-s">${days} jour${days > 1 ? "s" : ""} restant${days > 1 ? "s" : ""}</span>` : ""}`;
+      <strong class="cd-n">${days === 0 ? "Aujourd'hui !" : `J-${days}`}</strong>`;
   }
   countdown();
   setInterval(countdown, 60 * 1000); // passe au jour suivant à minuit sans recharger

@@ -119,22 +119,85 @@
       : msg(`✓ Vous avez rejoint « <strong>${esc(data)}</strong> ». Remplissez votre portrait ci-dessous : vous découvrirez ensuite les résultats du groupe.`, "ok");
   }
 
+  /* Questionnaire pas à pas : une affirmation par écran, flèches précédent / suivant */
+  const CHOICES = [["-2", "Pas du tout d'accord"], ["-1", "Plutôt pas d'accord"], ["0", "Sans avis"], ["1", "Plutôt d'accord"], ["2", "Tout à fait d'accord"]];
+  const stepper = { i: 0, ans: {}, chosen: "" };
+  function renderStep() {
+    const qs = Q.questions, n = qs.length, box = $("#stepper");
+    const answered = qs.filter((q) => stepper.ans[q.id] !== undefined).length;
+    const prog = `<div class="st-prog"><i style="width:${(Math.min(stepper.i, n) / n) * 100}%"></i></div>
+      <div class="st-dots">${qs.map((q, k) => `<button type="button" class="st-dot ${k === stepper.i ? "cur" : ""} ${stepper.ans[q.id] !== undefined ? "done" : ""}" data-go="${k}" aria-label="Question ${k + 1}"></button>`).join("")}<button type="button" class="st-dot last ${stepper.i === n ? "cur" : ""}" data-go="${n}" aria-label="Choix du candidat">🗳</button></div>`;
+    if (stepper.i < n) {
+      const q = qs[stepper.i], cur = stepper.ans[q.id];
+      box.innerHTML = `${prog}
+        <div class="st-card">
+          <div class="st-num">Question ${stepper.i + 1} / ${n}</div>
+          <p class="st-q">${esc(q.q)}</p>
+          <div class="st-choices">${CHOICES.map(([v, l]) => `<button type="button" class="st-ch ${String(cur) === v ? "on" : ""}" data-v="${v}" data-k="${v}">${l}</button>`).join("")}</div>
+        </div>
+        <div class="st-nav"><button type="button" class="ghost" id="st-prev" ${stepper.i === 0 ? "disabled" : ""}>← Précédent</button>
+          <span class="muted small">${answered} réponse${answered > 1 ? "s" : ""} sur ${n}</span>
+          <button type="button" class="cta small" id="st-next">${cur === undefined ? "Passer →" : "Suivant →"}</button></div>`;
+    } else {
+      const cands = Object.values(A.C).filter((c) => c.id !== "bardella");
+      box.innerHTML = `${prog}
+        <div class="st-card">
+          <div class="st-num">Dernière étape</div>
+          <p class="st-q">Et finalement, pour qui pensez-vous voter, quel que soit le résultat du quiz ?</p>
+          <select id="fun-choice" class="st-select"><option value="">— Choisir —</option><option value="indecis">Je ne sais pas encore</option>
+            ${cands.map((c) => `<option value="${c.id}">${esc(c.name)} (${esc(c.party)})</option>`).join("")}
+            <option value="blanc">Vote blanc / abstention</option></select>
+          <p class="muted small">${answered} affirmation${answered > 1 ? "s" : ""} renseignée${answered > 1 ? "s" : ""} sur ${n}${answered < 5 ? " — il en faut au moins 5 pour valider." : "."}</p>
+        </div>
+        <div class="st-nav"><button type="button" class="ghost" id="st-prev">← Précédent</button><span></span>
+          <button type="button" class="cta" id="fun-save">Valider mon portrait ✓</button></div><div id="fun-save-msg"></div>`;
+      $("#fun-choice").value = stepper.chosen || "";
+      $("#fun-choice").onchange = (e) => (stepper.chosen = e.target.value);
+      $("#fun-save").onclick = savePortrait;
+    }
+    $$("[data-go]", box).forEach((d) => (d.onclick = () => { stepper.i = +d.dataset.go; renderStep(); }));
+    $("#st-prev").onclick = () => { if (stepper.i > 0) { stepper.i--; renderStep(); } };
+    const next = $("#st-next");
+    if (next) next.onclick = () => { stepper.i++; renderStep(); };
+    $$(".st-ch", box).forEach((c) => (c.onclick = () => {
+      stepper.ans[Q.questions[stepper.i].id] = +c.dataset.v;
+      $$(".st-ch", box).forEach((x) => x.classList.toggle("on", x === c));
+      setTimeout(() => { stepper.i++; renderStep(); }, 220); // passe tout seul à la question suivante
+    }));
+  }
+
+  // Onglets : avant le portrait, « Mon portrait » d'abord ; après, « Tous les groupes » d'abord
+  function tabsHTML(done) {
+    const T = { all: ["f-all", "🌍 Tous les groupes"], portrait: ["f-portrait", "🧭 Mon portrait"], joined: ["f-joined", "👥 Mes groupes"], links: ["f-groups", "🔗 Mes liens de partage"] };
+    const order = done ? ["all", "portrait", "joined", "links"] : ["portrait", "all", "joined", "links"];
+    return order.map((k, i) => `<button data-p="${T[k][0]}" class="${i === 0 ? "on" : ""}">${T[k][1]}</button>`).join("");
+  }
+
+  function portraitPane() {
+    const done = !!profile.completed_at;
+    if (done && !stepper.editing) {
+      const res = Q.compute(profile.answers || {});
+      const ch = profile.chosen_candidate;
+      const chLabel = A.C[ch] ? A.C[ch].name : ch === "indecis" ? "Je ne sais pas encore" : ch === "blanc" ? "Vote blanc / abstention" : "—";
+      return `<div class="fun-card wide port-sum">
+          <div><small class="muted">Mon choix</small><div class="port-ch">${A.C[ch] ? A.avatar(ch, 44) : ""}<strong>${esc(chLabel)}</strong></div></div>
+          <div><small class="muted">Le plus proche selon le quiz</small><div class="port-ch">${A.avatar(res.prox[0].id, 44)}<strong>${esc(A.C[res.prox[0].id].name)} · ${res.prox[0].pct} %</strong></div></div>
+          <button type="button" class="ghost" id="edit-portrait">✏️ Modifier mon portrait</button></div>
+        <div class="sim-out">${Q.portraitHTML(res)}</div>`;
+    }
+    return `<div id="stepper" class="stepper"></div><div id="fun-result" class="sim-out"></div>`;
+  }
+
   async function renderApp(notice = "") {
     profile = await ensureProfile();
-    const cands = Object.values(A.C).filter((c) => c.id !== "bardella");
+    const done = !!profile.completed_at;
+    stepper.ans = { ...(profile.answers || {}) };
+    stepper.chosen = profile.chosen_candidate || "";
+    stepper.i = 0;
     el().innerHTML = `${notice}
       <div class="fun-head"><div>Connecté en tant que <strong>${esc(profile.pseudo)}</strong></div><button type="button" id="logout" class="ghost">Se déconnecter</button></div>
-      <div class="seg big" id="fun-tabs"><button data-p="f-portrait" class="on">🧭 Mon portrait</button><button data-p="f-groups">🔗 Mes liens de partage</button><button data-p="f-joined">👥 Mes groupes</button><button data-p="f-all">🌍 Tous les groupes</button></div>
-      <div class="fun-pane" id="f-portrait">
-        ${profile.completed_at ? msg(`Portrait validé le ${new Date(profile.completed_at).toLocaleDateString("fr-FR")}. Vous pouvez le modifier à tout moment.`, "ok") : ""}
-        <div id="fun-quiz">${Q.quizHTML("f_", profile.answers || {})}</div>
-        <div class="fun-card"><label class="choose">Et finalement, pour qui pensez-vous voter, quel que soit le résultat du quiz ?
-          <select id="fun-choice"><option value="">— Choisir —</option><option value="indecis">Je ne sais pas encore</option>
-          ${cands.map((c) => `<option value="${c.id}"${profile.chosen_candidate === c.id ? " selected" : ""}>${esc(c.name)} (${esc(c.party)})</option>`).join("")}
-          <option value="blanc"${profile.chosen_candidate === "blanc" ? " selected" : ""}>Vote blanc / abstention</option></select></label>
-          <button class="cta" type="button" id="fun-save">Valider mon portrait →</button><div id="fun-save-msg"></div></div>
-        <div id="fun-result" class="sim-out">${profile.answers ? Q.portraitHTML(Q.compute(profile.answers)) : ""}</div>
-      </div>
+      <div class="seg big fun-tabs" id="fun-tabs">${tabsHTML(done)}</div>
+      <div class="fun-pane" id="f-portrait" ${done ? "hidden" : ""}>${portraitPane()}</div>
       <div class="fun-pane" id="f-groups" hidden>
         <div class="fun-card"><form id="grp-form" class="fun-form inline">
           <label>Nom de votre groupe<input name="name" required minlength="2" maxlength="60" placeholder="ex. Les copains du foot"></label>
@@ -143,8 +206,7 @@
         <div id="grp-list"></div>
       </div>
       <div class="fun-pane" id="f-joined" hidden><div id="joined-list"></div></div>
-      <div class="fun-pane" id="f-all" hidden><div id="all-results"></div></div>`;
-    if (!profile.chosen_candidate) $("#fun-choice").value = "";
+      <div class="fun-pane" id="f-all" ${done ? "" : "hidden"}><div id="all-results"></div></div>`;
     $("#logout").onclick = () => sb.auth.signOut();
     $("#fun-tabs").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
@@ -154,25 +216,33 @@
       if (b.dataset.p === "f-joined") renderJoined();
       if (b.dataset.p === "f-all") renderAll();
     });
-    $("#fun-save").onclick = savePortrait;
     $("#grp-form").addEventListener("submit", createGroup);
+    bindPortrait();
+    if (done) renderAll();
+  }
+
+  function bindPortrait() {
+    if ($("#stepper")) renderStep();
+    const ed = $("#edit-portrait");
+    if (ed) ed.onclick = () => { stepper.editing = true; $("#f-portrait").innerHTML = portraitPane(); bindPortrait(); };
   }
 
   async function savePortrait() {
-    const ans = Q.readAnswers("f_", $("#fun-quiz"));
+    const ans = {};
+    Q.questions.forEach((q) => (ans[q.id] = stepper.ans[q.id] ?? 0));
     const res = Q.compute(ans);
     const out = $("#fun-save-msg");
-    if (res.answered < 5) return (out.innerHTML = msg("Répondez à au moins 5 affirmations pour valider votre portrait.", "err"));
+    const filled = Q.questions.filter((q) => stepper.ans[q.id] !== undefined).length;
+    if (filled < 5) return (out.innerHTML = msg("Répondez à au moins 5 affirmations pour valider votre portrait.", "err"));
     const chosen = $("#fun-choice").value;
     if (!chosen) return (out.innerHTML = msg("Indiquez votre choix de candidat (ou « Je ne sais pas encore »).", "err"));
     const row = { answers: ans, axes: res.axes, top_candidate: res.prox[0].id, top_pct: res.prox[0].pct, chosen_candidate: chosen, completed_at: new Date().toISOString() };
     const { error } = await sb.from("profiles").update(row).eq("id", user.id);
     if (error) return (out.innerHTML = msg("Enregistrement impossible : " + esc(error.message), "err"));
     Object.assign(profile, row);
-    out.innerHTML = msg("✓ Portrait enregistré. Il apparaît dans vos groupes, dont vous pouvez maintenant voir les résultats.", "ok")
-      + `<button type="button" class="cta" id="see-groups">Voir les résultats de mes groupes →</button>`;
-    $("#see-groups").onclick = () => $('#fun-tabs [data-p="f-joined"]').click();
-    $("#fun-result").innerHTML = Q.portraitHTML(res);
+    stepper.editing = false;
+    // portrait validé : « Tous les groupes » passe en premier et s'ouvre
+    await renderApp(msg("✓ Portrait enregistré ! Découvrez ci-dessous les résultats de tous les utilisateurs, puis ceux de vos groupes.", "ok"));
   }
 
   async function createGroup(e) {
@@ -199,33 +269,43 @@
     };
     const label = (id) => (A.C[id] ? A.C[id].short : id === "indecis" ? "Indécis" : id === "blanc" ? "Blanc / abst." : id || "—");
     const color = (id) => (A.C[id] ? (A.C[id].color === "#404040" ? "#8a8f98" : A.C[id].color) : "#6b7280");
-    // key = champ du candidat ; names = afficher les pseudos des votants sous chaque barre
-    const bars = (list, key, names) => `<div class="gbars">${list.map(([id, n]) => `<div class="gbar">${A.C[id] ? A.avatar(id, 24) : "<span class='av-ph'></span>"}<span>${esc(label(id))}</span><span class="prox-b"><i style="width:${(n / done.length) * 100}%;background:${color(id)}"></i></span><strong>${Math.round((n / done.length) * 100)} %</strong><small>${n}</small>
-      ${names ? `<div class="voters">${done.filter((r) => String(r[key]) === id).map((r) => `<span class="voter" style="--vc:${color(id)}">${esc(r.pseudo)}</span>`).join("")}</div>` : ""}</div>`).join("")}</div>`;
-    // moyenne des positions sur les axes et des réponses
+    const pct = (n) => Math.round((n / done.length) * 100);
+    // une ligne par candidat : avatar, nom, barre, %, et les pseudos de ses votants
+    const bars = (list, key, names) => `<div class="dbars">${list.map(([id, n]) => `<div class="dbar">
+        <div class="dbar-h">${A.C[id] ? A.avatar(id, 34) : "<span class='av-ph'></span>"}<span class="dbar-n">${esc(label(id))}</span><strong>${pct(n)} %</strong></div>
+        <div class="dbar-t"><i style="width:${pct(n)}%;background:${color(id)}"></i></div>
+        ${names ? `<div class="voters">${done.filter((r) => String(r[key]) === id).map((r) => `<span class="voter" style="--vc:${color(id)}">${esc(r.pseudo)}</span>`).join("")}</div>`
+          : `<small class="muted">${n} vote${n > 1 ? "s" : ""}</small>`}
+      </div>`).join("")}</div>`;
     const avgAxes = {};
     Object.keys(Q.axes).forEach((ax) => (avgAxes[ax] = done.reduce((a, r) => a + (r.axes?.[ax] || 0), 0) / done.length));
     const avgAns = {};
     Q.questions.forEach((q) => (avgAns[q.id] = done.reduce((a, r) => a + (r.answers?.[q.id] || 0), 0) / done.length));
     const groupRes = Q.compute(avgAns);
     const coherent = done.filter((r) => r.chosen_candidate === r.top_candidate).length;
-    return `<div class="sim-sum">
-        ${G ? `<div><small>Utilisateurs ayant voté</small><strong>${done.length}</strong><small>dans ${opt.groups ?? "?"} groupe(s) créés</small></div>`
-          : `<div><small>Membres du groupe</small><strong>${rows.length}</strong><small>${done.length} portrait(s) validé(s)</small></div>`}
-        <div><small>Candidat le plus choisi</small><strong>${esc(label(count("chosen_candidate")[0][0]))}</strong><small>${count("chosen_candidate")[0][1]} sur ${done.length}</small></div>
-        <div><small>Choix = résultat du quiz</small><strong>${Math.round((coherent / done.length) * 100)} %</strong><small>cohérence vote / idées</small></div>
+    const chosen = count("chosen_candidate"), top = groupRes.prox[0];
+    return `<div class="dash">
+      <div class="kpis">
+        <div class="kpi"><span class="kpi-v">${G ? done.length : rows.length}</span><span class="kpi-l">${G ? "votants" : "membres"}</span><small>${G ? `${opt.groups ?? "?"} groupe(s) créés` : `${done.length} portrait(s) validé(s)`}</small></div>
+        <div class="kpi lead">${A.C[chosen[0][0]] ? A.avatar(chosen[0][0], 46) : ""}<div><span class="kpi-l">En tête des votes</span><span class="kpi-v sm">${esc(label(chosen[0][0]))}</span><small>${pct(chosen[0][1])} % · ${chosen[0][1]} sur ${done.length}</small></div></div>
+        <div class="kpi lead">${A.avatar(top.id, 46)}<div><span class="kpi-l">Idées les plus proches</span><span class="kpi-v sm">${esc(label(top.id))}</span><small>${top.pct} % de proximité moyenne</small></div></div>
+        <div class="kpi"><span class="kpi-v">${pct(coherent)} %</span><span class="kpi-l">votent comme leurs idées</span><small>choix = résultat du quiz</small></div>
       </div>
-      <h4>🗳️ Candidats choisis par ${who}${G ? "" : " — et qui a voté quoi"}</h4>${bars(count("chosen_candidate"), "chosen_candidate", !G)}
-      <h4>🧭 Candidats les plus proches selon le quiz</h4>${bars(count("top_candidate"), "top_candidate", !G)}
-      <h4>📍 Position moyenne de ${who}</h4>${Q.axesHTML(null, groupRes.prox.slice(0, 3), "", [{ label: G ? "TOUS" : "GROUPE", pos: avgAxes, cls: "grp" }])}
-      <h4>🤝 Proximité du « portrait moyen » de ${who} avec chaque candidat</h4>${Q.proxHTML(groupRes.prox.slice(0, 6))}
-      <h4>📊 Réponses moyennes</h4><div class="avgq">${Q.questions.map((q) => { const v = avgAns[q.id]; return `<div class="avgq-r"><span>${esc(q.q)}</span><span class="avgq-b"><b style="left:${(v + 2) * 25}%"></b></span><strong>${v > 0 ? "+" : ""}${v.toFixed(1)}</strong></div>`; }).join("")}</div>
-      <p class="muted small">Échelle des réponses : −2 pas du tout d'accord … +2 tout à fait d'accord.</p>
-      ${G ? `<p class="muted small">Résultats anonymes : aucun pseudo n'est affiché pour l'ensemble des utilisateurs. Tous les comptes ayant validé leur portrait et choisi un candidat sont comptés, qu'ils soient dans un groupe ou non.</p>` : `
-      <h4>👤 Participants (pseudos)</h4>
-      <div class="table-scroll"><table class="tbl"><thead><tr><th>Pseudo</th><th>Candidat choisi</th><th>Plus proche selon le quiz</th><th>Inscrit le</th></tr></thead><tbody>
-        ${rows.map((r) => `<tr><td>${esc(r.pseudo)}</td><td>${r.completed ? esc(label(r.chosen_candidate)) : "<span class='muted'>portrait non validé</span>"}</td><td>${r.completed ? `${esc(label(r.top_candidate))} (${r.top_pct} %)` : "—"}</td><td>${new Date(r.joined_at).toLocaleDateString("fr-FR")}</td></tr>`).join("")}
-      </tbody></table></div>`}`;
+      <div class="dash-grid">
+        <section class="dcard"><h4>🗳️ Qui vote pour qui</h4><p class="muted small">Candidat choisi par ${who}${G ? "" : ", avec les pseudos"}.</p>${bars(chosen, "chosen_candidate", !G)}</section>
+        <section class="dcard"><h4>🧭 Ce que disent les idées</h4><p class="muted small">Candidat le plus proche des réponses de chacun au quiz.</p>${bars(count("top_candidate"), "top_candidate", !G)}</section>
+      </div>
+      <section class="dcard"><h4>📍 Où se situe ${who}</h4><p class="muted small">Position moyenne sur les 5 grands axes, comparée aux 3 candidats les plus proches.</p>
+        ${Q.axesHTML(null, groupRes.prox.slice(0, 3), "", [{ label: G ? "TOUS" : "GROUPE", pos: avgAxes, cls: "grp" }])}</section>
+      <details class="dcard more-d"><summary>🤝 Proximité avec chaque candidat et 📊 réponses moyennes aux ${Q.questions.length} affirmations</summary>
+        ${Q.proxHTML(groupRes.prox.slice(0, 8))}
+        <div class="avgq">${Q.questions.map((q) => { const v = avgAns[q.id]; return `<div class="avgq-r"><span>${esc(q.q)}</span><span class="avgq-b"><b style="left:${(v + 2) * 25}%"></b></span><strong>${v > 0 ? "+" : ""}${v.toFixed(1)}</strong></div>`; }).join("")}</div>
+        <p class="muted small">Échelle : −2 pas du tout d'accord … +2 tout à fait d'accord.</p></details>
+      ${G ? `<p class="muted small">Résultats anonymes : aucun pseudo n'est affiché pour l'ensemble des utilisateurs. Tous les comptes ayant validé leur portrait et choisi un candidat sont comptés.</p>` : `
+      <section class="dcard"><h4>👤 Les membres</h4><div class="members">${rows.map((r) => `<div class="member">
+          ${r.completed && A.C[r.chosen_candidate] ? A.avatar(r.chosen_candidate, 30) : "<span class='av-ph'></span>"}
+          <div><strong>${esc(r.pseudo)}</strong><small>${r.completed ? `vote ${esc(label(r.chosen_candidate))} · idées proches de ${esc(label(r.top_candidate))}` : "portrait pas encore validé"}</small></div></div>`).join("")}</div></section>`}
+    </div>`;
   }
 
   async function renderGroups() {
