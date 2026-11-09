@@ -1,0 +1,12 @@
+{
+  "name": "MDS 2027 — La moyenne des sondages de la présidentielle",
+  "short_name": "MDS 2027",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1030",
+  "theme_color": "#0b1030",
+  "icons": [
+    { "src": "/assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
