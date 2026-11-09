@@ -60,6 +60,7 @@
     $$(".tab").forEach((t) => t.classList.toggle("on", t.dataset.tab === id));
     if (id === "reseaux" && !shown.has(id)) setTimeout(() => Social.play(), 250);
     shown.add(id);
+    if ($("#" + id).classList.contains("legal") || document.activeElement?.closest?.(".site-foot")) window.scrollTo(0, 0);
   }
   window.addEventListener("hashchange", () => showTab(location.hash.slice(1)));
 

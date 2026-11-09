@@ -7,18 +7,18 @@
   <meta name="description" content="Moyenne des sondages, réseaux sociaux, buzz et programmes des candidats à la présidentielle 2027, mis à jour chaque jour.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=202611092200">
+  <link rel="stylesheet" href="assets/style.css?v=202611092300">
 </head>
 <body>
   <header class="top">
     <div class="wrap top-inner">
-      <div class="brand">
+      <a href="#sondages" class="brand" aria-label="Accueil — MDS 2027">
         <span class="brand-mark"><b>MDS 2027</b><small>moyennedessondages2027</small></span>
         <div>
           <div class="brand-title">Présidentielle 2027</div>
           <div class="brand-sub" id="updated">Chargement…</div>
         </div>
-      </div>
+      </a>
       <div class="countdown" id="countdown" title="Date annoncée par le Gouvernement le 1er juillet 2026 (décret de convocation attendu au plus tard le 7 février 2027)"></div>
       <nav class="tabs" role="tablist">
         <a href="#sondages" data-tab="sondages" class="tab">Sondages</a>
@@ -259,17 +259,120 @@
       </div>
       <div id="fun-app"></div>
     </section>
+
+    <!-- 7. PAGES LÉGALES -->
+    <section id="mentions" class="panel legal" hidden>
+      <h1>Mentions légales</h1>
+      <p class="muted small">Dernière mise à jour : 9 novembre 2026</p>
+      <h2>Éditeur du site</h2>
+      <p>Le site <strong>moyennedessondages2027.fr</strong> (« MDS 2027 ») est édité par :</p>
+      <p><strong>Garo &amp; Filles</strong>, EURL (SARL unipersonnelle) au capital de 300 000 €<br>
+Siège social : 10 rue de Penthièvre, 75008 Paris<br>
+RCS Paris 853 096 113 · SIRET 853 096 113 00032 · TVA intracommunautaire FR96853096113<br>
+Contact : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a></p>
+      <h2>Directeur de la publication</h2>
+      <p>Pierre Garonnaire, gérant de Garo &amp; Filles.</p>
+      <h2>Hébergement</h2>
+      <p><strong>Site :</strong> GitHub, Inc. (GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — <a href="https://github.com" target="_blank" rel="noopener">github.com</a>.<br>
+      <strong>Comptes et votes du « Petit vote entre amis » :</strong> Supabase, Inc. (États-Unis) ; données hébergées dans l'Union européenne (région Francfort, Allemagne) — <a href="https://supabase.com" target="_blank" rel="noopener">supabase.com</a>.<br>
+      <strong>Envoi des e-mails :</strong> Brevo (Sendinblue SAS), 106 boulevard Haussmann, 75008 Paris — <a href="https://www.brevo.com" target="_blank" rel="noopener">brevo.com</a>.</p>
+      <h2>Nature du site</h2>
+      <p>MDS 2027 est un site d'information indépendant et gratuit, sans publicité et sans rien à vendre. Il n'a aucun lien avec les candidats, les partis politiques ou les instituts de sondage, et ne reçoit aucun financement de leur part.</p>
+      <h2>Sondages publiés</h2>
+      <p>La rubrique « Sondages » présente des <strong>moyennes calculées par le site</strong> à partir de sondages réalisés et publiés par des instituts (liste publique Wikipédia des sondages pour l'élection présidentielle de 2027). Pour chaque sondage, la notice détaillée (commanditaire, échantillon, dates, méthode, marge d'erreur) est consultable auprès de l'institut concerné et de la <a href="https://www.commission-des-sondages.fr" target="_blank" rel="noopener">Commission des sondages</a>. Conformément à la loi n° 77-808 du 19 juillet 1977, aucun sondage ni aucune moyenne de sondages ne sera publié ou mis à jour la veille et le jour de chaque tour de scrutin.</p>
+      <p>Le « Petit vote entre amis » et ses résultats ne sont <strong>pas un sondage</strong> : les participants se désignent eux-mêmes, l'échantillon n'est pas représentatif de la population et les résultats ne permettent aucune prévision.</p>
+      <h2>Propriété intellectuelle</h2>
+      <p>Les textes, calculs, graphiques et la mise en forme du site appartiennent à Garo &amp; Filles, sauf mention contraire. Les photographies proviennent de Wikimedia Commons (licences libres, auteurs crédités sur Commons). Les vidéos et publications intégrées (YouTube, Dailymotion, TikTok, X…) restent la propriété de leurs auteurs et ne sont chargées que si vous cliquez dessus. Les marques et logos cités appartiennent à leurs titulaires.</p>
+      <h2>Responsabilité</h2>
+      <p>Les synthèses de programmes, les simulations d'impact et les moyennes sont indicatives et peuvent comporter des erreurs ou des approximations ; elles ne constituent ni un conseil fiscal, juridique ou financier, ni une consigne de vote. Pour signaler une erreur ou demander un droit de réponse : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a>.</p>
+    </section>
+
+    <section id="cgu" class="panel legal" hidden>
+      <h1>Conditions générales d'utilisation</h1>
+      <p class="muted small">Dernière mise à jour : 9 novembre 2026</p>
+      <h2>1. Objet</h2>
+      <p>Les présentes conditions encadrent l'utilisation du site moyennedessondages2027.fr, édité par Garo &amp; Filles (voir les <a href="#mentions">mentions légales</a>). Utiliser le site vaut acceptation de ces conditions ; la création d'un compte nécessite de les accepter expressément.</p>
+      <h2>2. Accès au site</h2>
+      <p>Le site est gratuit et accessible sans inscription. Seul le « Petit vote entre amis » (portrait idéologique, choix de candidat, groupes) nécessite un compte. L'éditeur peut suspendre ou faire évoluer tout ou partie du site, notamment pour maintenance ou pour respecter la période de réserve électorale.</p>
+      <h2>3. Compte utilisateur</h2>
+      <ul>
+        <li>Le compte est personnel et gratuit. Il faut avoir au moins 15 ans et fournir une adresse e-mail valide, que vous devez confirmer ; les adresses temporaires sont refusées.</li>
+        <li>Un seul compte par personne. Vous êtes responsable de la confidentialité de votre mot de passe.</li>
+        <li>Seuls les comptes à l'adresse confirmée sont pris en compte dans les résultats.</li>
+        <li>Vous pouvez supprimer votre compte à tout moment (voir la <a href="#confidentialite">politique de confidentialité</a>).</li>
+      </ul>
+      <h2>4. Règles de conduite</h2>
+      <p>Il est interdit de : créer des comptes multiples ou automatisés pour fausser les résultats ; choisir un pseudo injurieux, discriminatoire, trompeur ou usurpant l'identité d'autrui (y compris d'un candidat) ; tenter d'accéder aux données d'autres utilisateurs ou de perturber le fonctionnement du site. L'éditeur peut supprimer, sans préavis, tout compte ou groupe qui ne respecte pas ces règles.</p>
+      <h2>5. Groupes et liens de partage</h2>
+      <p>Le créateur d'un groupe et ses membres voient les résultats du groupe et les <strong>pseudos</strong> des participants, jamais leurs adresses e-mail. En rejoignant un groupe, vous acceptez que votre pseudo, votre choix de candidat et votre portrait y soient visibles. Ne partagez votre lien qu'avec des personnes de confiance.</p>
+      <h2>6. Nature des résultats</h2>
+      <p>Les résultats du « Petit vote entre amis » (groupes et ensemble des participants) ne sont pas un sondage au sens de la loi du 19 juillet 1977 : ils reflètent uniquement les réponses de personnes volontaires, sans représentativité. Ils ne doivent pas être présentés comme un sondage.</p>
+      <h2>7. Responsabilité</h2>
+      <p>Les informations sont fournies à titre indicatif (voir les <a href="#mentions">mentions légales</a>). L'éditeur ne saurait être tenu responsable d'une décision prise sur la base des contenus du site, ni des contenus des sites tiers vers lesquels il renvoie.</p>
+      <h2>8. Modification et droit applicable</h2>
+      <p>Ces conditions peuvent évoluer ; la version en ligne fait foi. Elles sont soumises au droit français. En cas de litige, une solution amiable sera recherchée avant toute action devant les tribunaux compétents.</p>
+    </section>
+
+    <section id="confidentialite" class="panel legal" hidden>
+      <h1>Confidentialité et cookies</h1>
+      <p class="muted small">Dernière mise à jour : 9 novembre 2026</p>
+      <p class="legal-key">🔒 <strong>Vos données ne sont ni vendues, ni louées, ni cédées</strong> à qui que ce soit, et ne servent à aucune publicité ni à aucun ciblage politique. Le site n'utilise aucun traceur publicitaire ni outil de mesure d'audience.</p>
+      <h2>Responsable du traitement</h2>
+      <p><strong>Garo &amp; Filles</strong>, EURL (SARL unipersonnelle) au capital de 300 000 €<br>
+Siège social : 10 rue de Penthièvre, 75008 Paris<br>
+RCS Paris 853 096 113 · SIRET 853 096 113 00032 · TVA intracommunautaire FR96853096113<br>
+Contact : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a></p>
+      <h2>Sans compte : ce que le site ne collecte pas</h2>
+      <p>La consultation des sondages, réseaux sociaux, buzz, programmes et du simulateur « Les impacts sur ma vie » ne nécessite aucune donnée personnelle. Les informations saisies dans le simulateur (revenus, situation familiale, entreprise…) <strong>restent dans votre navigateur</strong> : elles ne sont ni envoyées ni enregistrées. Seul le numéro SIRET, si vous le saisissez, est transmis à l'annuaire public des entreprises (recherche-entreprises.api.gouv.fr, service de l'État) pour remplir le formulaire.</p>
+      <h2>Avec un compte « Petit vote entre amis »</h2>
+      <table class="legal-table">
+        <tr><th>Données</th><th>Pourquoi</th><th>Qui les voit</th></tr>
+        <tr><td>Adresse e-mail, mot de passe (chiffré)</td><td>Connexion, confirmation du compte, lutte contre les faux comptes</td><td>Personne d'autre que vous ; jamais affichée</td></tr>
+        <tr><td>Pseudo</td><td>Vous identifier dans vos groupes</td><td>Les membres de vos groupes</td></tr>
+        <tr><td>Réponses au portrait, axes calculés, choix de candidat</td><td>Votre portrait, les résultats des groupes et de l'ensemble des participants</td><td>Vos groupes (avec votre pseudo) ; résultats globaux uniquement agrégés et anonymes</td></tr>
+        <tr><td>Groupes créés ou rejoints</td><td>Faire fonctionner les liens de partage</td><td>Les membres du groupe</td></tr>
+      </table>
+      <p><strong>Base légale :</strong> vos réponses et votre choix de candidat révèlent des opinions politiques, qui sont des données sensibles (article 9 du RGPD). Elles ne sont traitées qu'avec votre <strong>consentement explicite</strong>, donné à l'inscription, que vous pouvez retirer à tout moment en supprimant votre compte. Les données de connexion sont traitées pour exécuter le service que vous demandez.</p>
+      <h2>Sécurité</h2>
+      <p>Les échanges sont chiffrés (HTTPS) ; les mots de passe sont stockés sous forme hachée ; la base de données est protégée par des règles d'accès strictes qui empêchent un utilisateur de lire les données d'un autre. Les adresses e-mail ne sont jamais exposées aux autres utilisateurs.</p>
+      <h2>Destinataires et sous-traitants</h2>
+      <p>Seul l'éditeur a accès aux données, via ses sous-traitants techniques : Supabase (hébergement de la base, dans l'Union européenne, à Francfort), Brevo (envoi des e-mails de confirmation, en France) et GitHub (hébergement des pages du site). Ces prestataires agissent sur instruction de l'éditeur et sont tenus par des engagements conformes au RGPD.</p>
+      <h2>Durée de conservation</h2>
+      <p>Vos données sont conservées tant que votre compte existe, et au plus tard jusqu'au <strong>31 décembre 2027</strong>, date à laquelle tous les comptes et votes seront supprimés. Un compte jamais confirmé peut être supprimé au bout de 30 jours.</p>
+      <h2>Vos droits</h2>
+      <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données, ainsi que du droit de retirer votre consentement. Pour supprimer votre compte ou exercer vos droits, écrivez depuis l'adresse de votre compte à <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a> : nous répondons sous un mois. Vous pouvez aussi adresser une réclamation à la <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener">CNIL</a>.</p>
+      <h2>Cookies et stockage local</h2>
+      <p>Le site ne dépose <strong>aucun cookie publicitaire ou de mesure d'audience</strong>, c'est pourquoi aucun bandeau de consentement n'est affiché. Il utilise uniquement le stockage local de votre navigateur, strictement nécessaire au service : maintien de votre connexion au « Petit vote entre amis » et mémorisation d'un lien de groupe en attente d'inscription.</p>
+      <p><strong>Contenus tiers :</strong> les polices de caractères sont chargées depuis Google Fonts, qui reçoit à cette occasion votre adresse IP. Les vidéos et publications (YouTube, Dailymotion, TikTok, X) ne sont chargées que si vous cliquez dessus ; ces plateformes peuvent alors déposer leurs propres cookies, selon leurs politiques.</p>
+    </section>
   </main>
 
-  <footer class="wrap foot">
-    <p><strong>Méthode.</strong> Sondages : liste Wikipédia des sondages 2027 ; pour chaque sondage, moyenne des hypothèses où le candidat est testé, puis moyenne simple des sondages dont le terrain s'achève dans la fenêtre choisie. Photos : Wikimedia Commons. Buzz : Google Actualités et YouTube. Données régénérées chaque jour.</p>
-    <p class="muted small">Site d'information indépendant, sans lien avec les candidats ni les instituts de sondage.</p>
+  <footer class="site-foot">
+    <div class="wrap foot-grid">
+      <div class="foot-about">
+        <a href="#sondages" class="brand foot-brand"><span class="brand-mark"><b>MDS 2027</b><small>moyennedessondages2027</small></span></a>
+        <p>Site d'information indépendant et gratuit sur l'élection présidentielle 2027. Sans publicité, sans lien avec les candidats, les partis ou les instituts de sondage.</p>
+        <p class="foot-pledge">🔒 Aucune donnée n'est vendue, louée ni cédée.</p>
+      </div>
+      <div>
+        <h4>Rubriques</h4>
+        <a href="#sondages">Sondages</a><a href="#reseaux">Réseaux sociaux</a><a href="#buzz">Buzz</a><a href="#programmes">Candidats</a><a href="#portrait">Mon portrait</a><a href="#fun">Petit vote entre amis</a>
+      </div>
+      <div>
+        <h4>Informations</h4>
+        <a href="#mentions">Mentions légales</a><a href="#cgu">Conditions d'utilisation</a><a href="#confidentialite">Confidentialité et cookies</a><a href="mailto:contact@moyennedessondages2027.fr">Contact</a>
+      </div>
+    </div>
+    <div class="wrap foot-method">
+      <p><strong>Méthode.</strong> Sondages : liste Wikipédia des sondages 2027 ; pour chaque sondage, moyenne des hypothèses où le candidat est testé, puis moyenne simple des sondages dont le terrain s'achève dans la fenêtre choisie. Notices détaillées auprès des instituts et de la <a href="https://www.commission-des-sondages.fr" target="_blank" rel="noopener">Commission des sondages</a>. Photos : Wikimedia Commons. Buzz : Google Actualités, YouTube, Dailymotion, TikTok, X. Données régénérées plusieurs fois par jour. Le « Petit vote entre amis » n'est pas un sondage.</p>
+      <p class="muted small">© 2026 Garo &amp; Filles — moyennedessondages2027.fr</p>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
-  <script src="assets/config.js?v=202611092200"></script>
-  <script src="assets/sim.js?v=202611092200"></script>
-  <script src="assets/fun.js?v=202611092200"></script>
-  <script src="assets/app.js?v=202611092200"></script>
+  <script src="assets/config.js?v=202611092300"></script>
+  <script src="assets/sim.js?v=202611092300"></script>
+  <script src="assets/fun.js?v=202611092300"></script>
+  <script src="assets/app.js?v=202611092300"></script>
 </body>
 </html>

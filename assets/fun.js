@@ -91,6 +91,7 @@
           <label class="f-up">Pseudo (visible par les membres de vos groupes)<input name="pseudo" required minlength="2" maxlength="30" autocomplete="nickname"><small>Évitez votre nom complet si vous souhaitez rester discret.</small></label>
           <label>E-mail<input name="email" type="email" required autocomplete="email" value="${esc(prefill)}"><small class="f-up">Un e-mail de confirmation vous sera envoyé. Les adresses temporaires ne sont pas acceptées.</small></label>
           <label>Mot de passe<input name="password" type="password" required minlength="8" autocomplete="new-password"><small class="f-up">8 caractères minimum.</small></label>
+          <label class="f-up consent"><input type="checkbox" name="consent" required> <span>J'accepte les <a href="#cgu" target="_blank">conditions d'utilisation</a> et je consens au traitement de mon portrait et de mon choix de candidat (opinions politiques) pour le « Petit vote entre amis », selon la <a href="#confidentialite" target="_blank">politique de confidentialité</a>. Mes données ne sont jamais vendues.</span></label>
           <button class="cta" type="submit">Créer mon compte →</button>
           <div id="auth-msg"></div>
         </form>
@@ -103,6 +104,7 @@
       $$("#auth-tabs button").forEach((x) => x.classList.toggle("on", x.dataset.t === m));
       $$(".f-up", f).forEach((x) => (x.hidden = m !== "up"));
       f.pseudo.required = m === "up";
+      f.consent.required = m === "up";
       f.password.autocomplete = m === "up" ? "new-password" : "current-password";
       f.password.minLength = m === "up" ? 8 : 1;
       $("button[type=submit]", f).textContent = m === "up" ? "Créer mon compte →" : "Me connecter →";
@@ -118,7 +120,7 @@
       if (mode === "up") {
         const pending = codeFromUrl() || store.get(PENDING) || undefined;
         const { data, error } = await sb.auth.signUp({ email, password,
-          options: { emailRedirectTo: redirectUrl(), data: { pseudo: f.pseudo.value.trim(), pending_group: pending } } });
+          options: { emailRedirectTo: redirectUrl(), data: { pseudo: f.pseudo.value.trim(), pending_group: pending, consent_at: new Date().toISOString() } } });
         if (error) return (out.innerHTML = msg(/rate limit/i.test(error.message) ? "Trop d'inscriptions en ce moment : réessayez dans quelques minutes." : esc(error.message), "err"));
         if (data.user && !data.user.identities?.length) return (out.innerHTML = msg("Un compte existe déjà avec cette adresse : connectez-vous.", "err"));
         if (!data.session) return checkEmailScreen(email);
