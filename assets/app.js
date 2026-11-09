@@ -688,6 +688,11 @@
     window.APP = { C, avatar, esc, fmtN, socialLinks };
     if (window.Fun) window.Fun.init(window.APP);
     if (window.JeVote) window.JeVote.init(window.APP);
+    // Mini-lecteur du direct Public Sénat (en-tête) : sur grand écran uniquement, lecture auto sans le son
+    const ml = $("#ml-player");
+    if (ml && matchMedia("(min-width: 761px)").matches) {
+      ml.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCTa1bPArjpvNMgSHAb_pflA&autoplay=1&mute=1&playsinline=1&controls=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="Public Sénat en direct"></iframe>`;
+    }
     const fromMail = /access_token=|error_description=|type=signup/.test(location.hash);
     showTab(fromMail ? "fun" : location.hash.slice(1) || "sondages");
   }
