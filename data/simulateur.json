@@ -1,0 +1,72 @@
+{
+  "_doc": "Paramètres du simulateur. Les positions des candidats (-2 = pas du tout d'accord … +2 = tout à fait d'accord) sont une lecture de leurs déclarations publiques : à relire au fil de la campagne.",
+  "updated": "2026-11-09",
+  "params": {
+    "smic_net_mensuel": 1443,
+    "net_vers_brut": 0.78,
+    "charges_patronales_smic": 1.30,
+    "bareme_ir": [[11497, 0], [29315, 0.11], [83823, 0.30], [180294, 0.41], [null, 0.45]],
+    "plafond_demi_part": 1791,
+    "decote": {"seul": [1965, 889], "couple": [3249, 1470]},
+    "tva_normale": 0.20,
+    "tva_reduite": 0.055,
+    "is_taux_reduit": 0.15,
+    "is_seuil_reduit": 42500,
+    "is_taux_normal": 0.25,
+    "isf_ancien_seuil": 1300000,
+    "inflation_hyp": 0.02
+  },
+  "retraite": {
+    "actuel": {"age": 64, "annees": 43, "label": "Réforme 2023 (à terme)"},
+    "lepen": {"age": 62, "annees": 42, "longue": {"debut_avant": 20, "age": 60, "annees": 40}},
+    "melenchon": {"age": 60, "annees": 40},
+    "philippe": {"age": 65, "annees": 43, "hyp": true},
+    "glucksmann": {"age": 62, "annees": 43},
+    "lisnard": {"age": 65, "annees": 43, "hyp": true},
+    "attal": {"age": 64, "annees": 43},
+    "retailleau": {"age": 65, "annees": 43},
+    "zemmour": {"age": 64, "annees": 43, "longue": {"debut_avant": 20, "age": 62, "annees": 42}},
+    "tondelier": {"age": 62, "annees": 42},
+    "roussel": {"age": 60, "annees": 40},
+    "dupontaignan": {"age": 62, "annees": 42},
+    "arthaud": {"age": 60, "annees": 37.5}
+  },
+  "quiz": [
+    {"id": "smic", "axe": "eco", "q": "Il faut augmenter fortement le SMIC, même si cela pèse sur les entreprises."},
+    {"id": "depenses", "axe": "eco", "q": "Il faut baisser fortement les dépenses publiques et le nombre de fonctionnaires.", "inv": true},
+    {"id": "riches", "axe": "eco", "q": "Les plus riches doivent payer nettement plus d'impôts (ISF, taxe sur les très hauts patrimoines)."},
+    {"id": "retraite", "axe": "eco", "q": "L'âge de départ à la retraite doit revenir à 60 ou 62 ans."},
+    {"id": "liberte_eco", "axe": "eco", "q": "Les entreprises doivent être plus libres : moins de normes, droit du travail assoupli.", "inv": true},
+    {"id": "immigration", "axe": "identite", "q": "Il faut réduire fortement l'immigration, y compris par référendum."},
+    {"id": "priorite", "axe": "identite", "q": "Les aides sociales devraient être réservées en priorité aux Français."},
+    {"id": "peines", "axe": "identite", "q": "Il faut durcir les peines : peines planchers, plus de places de prison."},
+    {"id": "europe", "axe": "europe", "q": "La France doit renforcer l'intégration européenne (défense commune, budget commun)."},
+    {"id": "souverainete", "axe": "europe", "q": "Le droit national doit primer sur le droit européen.", "inv": true},
+    {"id": "ukraine", "axe": "europe", "q": "Il faut continuer à soutenir militairement l'Ukraine face à la Russie."},
+    {"id": "nucleaire", "axe": "ecologie", "q": "Il faut relancer massivement le nucléaire.", "inv": true},
+    {"id": "transition", "axe": "ecologie", "q": "La transition écologique justifie des contraintes (taxes, normes) sur les ménages et les entreprises."},
+    {"id": "referendum", "axe": "institutions", "q": "Il faut changer de République ou renforcer fortement le référendum et la démocratie directe."}
+  ],
+  "axes": {
+    "eco": ["Économie libérale", "Économie redistributive"],
+    "identite": ["Ouverture", "Fermeté migratoire et sécuritaire"],
+    "europe": ["Souverainisme", "Fédéralisme européen"],
+    "ecologie": ["Productivisme / nucléaire", "Écologie contraignante"],
+    "institutions": ["Statu quo institutionnel", "Démocratie directe"]
+  },
+  "stances": {
+    "lepen":        {"smic": -1, "depenses": 0, "riches": 0, "retraite": 1, "liberte_eco": 0, "immigration": 2, "priorite": 2, "peines": 2, "europe": -2, "souverainete": 2, "ukraine": -1, "nucleaire": 2, "transition": -1, "referendum": 2},
+    "melenchon":    {"smic": 2, "depenses": -2, "riches": 2, "retraite": 2, "liberte_eco": -2, "immigration": -2, "priorite": -2, "peines": -1, "europe": -1, "souverainete": 1, "ukraine": -1, "nucleaire": -2, "transition": 2, "referendum": 2},
+    "philippe":     {"smic": -2, "depenses": 2, "riches": -1, "retraite": -2, "liberte_eco": 1, "immigration": 1, "priorite": -1, "peines": 1, "europe": 2, "souverainete": -1, "ukraine": 2, "nucleaire": 2, "transition": 0, "referendum": -1},
+    "glucksmann":   {"smic": 1, "depenses": -1, "riches": 2, "retraite": 1, "liberte_eco": -1, "immigration": -1, "priorite": -2, "peines": 0, "europe": 2, "souverainete": -2, "ukraine": 2, "nucleaire": 0, "transition": 1, "referendum": 0},
+    "lisnard":      {"smic": -2, "depenses": 2, "riches": -2, "retraite": -2, "liberte_eco": 2, "immigration": 1, "priorite": 0, "peines": 1, "europe": 0, "souverainete": 0, "ukraine": 1, "nucleaire": 2, "transition": -2, "referendum": -1},
+    "attal":        {"smic": -1, "depenses": 1, "riches": -1, "retraite": -2, "liberte_eco": 1, "immigration": 1, "priorite": -1, "peines": 1, "europe": 2, "souverainete": -1, "ukraine": 2, "nucleaire": 2, "transition": 0, "referendum": -1},
+    "retailleau":   {"smic": -2, "depenses": 2, "riches": -2, "retraite": -2, "liberte_eco": 1, "immigration": 2, "priorite": 1, "peines": 2, "europe": -1, "souverainete": 2, "ukraine": 1, "nucleaire": 2, "transition": -2, "referendum": 1},
+    "zemmour":      {"smic": -1, "depenses": 1, "riches": -2, "retraite": -1, "liberte_eco": 1, "immigration": 2, "priorite": 2, "peines": 2, "europe": -2, "souverainete": 2, "ukraine": -1, "nucleaire": 2, "transition": -2, "referendum": 1},
+    "tondelier":    {"smic": 2, "depenses": -2, "riches": 2, "retraite": 2, "liberte_eco": -2, "immigration": -2, "priorite": -2, "peines": -1, "europe": 2, "souverainete": -2, "ukraine": 2, "nucleaire": -2, "transition": 2, "referendum": 1},
+    "roussel":      {"smic": 2, "depenses": -2, "riches": 2, "retraite": 2, "liberte_eco": -2, "immigration": -1, "priorite": -2, "peines": 0, "europe": -1, "souverainete": 1, "ukraine": 0, "nucleaire": 2, "transition": 0, "referendum": 1},
+    "villepin":     {"smic": -1, "depenses": 0, "riches": 1, "retraite": 0, "liberte_eco": 0, "immigration": -1, "priorite": -2, "peines": 0, "europe": 1, "souverainete": 0, "ukraine": 0, "nucleaire": 1, "transition": 0, "referendum": 0},
+    "dupontaignan": {"smic": 0, "depenses": 0, "riches": -1, "retraite": 1, "liberte_eco": 0, "immigration": 2, "priorite": 1, "peines": 2, "europe": -2, "souverainete": 2, "ukraine": -1, "nucleaire": 2, "transition": -1, "referendum": 2},
+    "arthaud":      {"smic": 2, "depenses": -2, "riches": 2, "retraite": 2, "liberte_eco": -2, "immigration": -2, "priorite": -2, "peines": -2, "europe": -1, "souverainete": 0, "ukraine": -1, "nucleaire": 0, "transition": 0, "referendum": 0}
+  }
+}

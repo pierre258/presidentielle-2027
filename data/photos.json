@@ -53,5 +53,20 @@
   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Roussel_Fabien_1.jpg/330px-Roussel_Fabien_1.jpg",
   "page": "https://fr.wikipedia.org/wiki/Fabien_Roussel",
   "credit": "Wikimedia Commons"
+ },
+ "villepin": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg/330px-Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Dominique_de_Villepin",
+  "credit": "Wikimedia Commons"
+ },
+ "dupontaignan": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Nicolas_Dupont-Aignan%2C_homme_politique_fran%C3%A7ais.jpg/330px-Nicolas_Dupont-Aignan%2C_homme_politique_fran%C3%A7ais.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Nicolas_Dupont-Aignan",
+  "credit": "Wikimedia Commons"
+ },
+ "arthaud": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Nathalie_Arthaud_%28LO%29_19-05-2024.jpg/330px-Nathalie_Arthaud_%28LO%29_19-05-2024.jpg",
+  "page": "https://fr.wikipedia.org/wiki/Nathalie_Arthaud",
+  "credit": "Wikimedia Commons"
  }
 }

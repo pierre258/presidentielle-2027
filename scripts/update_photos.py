@@ -2,6 +2,7 @@
 """Récupère la photo de chaque candidat via l'API REST de Wikipédia (images Wikimedia
 Commons, licences libres) et écrit data/photos.json : {id: {url, page, credit}}."""
 import json
+import time
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -12,8 +13,10 @@ UA = "Presidentielle2027Tracker/1.0"
 
 def main():
     cands = json.loads((ROOT / "data/candidates.json").read_text())["candidates"]
-    out = {}
+    path = ROOT / "data/photos.json"
+    out = json.loads(path.read_text()) if path.exists() else {}  # on garde l'existant si une requête échoue
     for c in cands:
+        time.sleep(0.5)
         url = "https://fr.wikipedia.org/api/rest_v1/page/summary/" + urllib.parse.quote(c["wiki"])
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA})
@@ -24,7 +27,7 @@ def main():
                                 "credit": "Wikimedia Commons"}
         except Exception as e:  # noqa: BLE001
             print("photo", c["id"], e)
-    (ROOT / "data/photos.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
+    path.write_text(json.dumps(out, ensure_ascii=False, indent=1))
     print(len(out), "photos")
 
 

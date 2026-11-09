@@ -10,7 +10,21 @@
   const fmtDate = (d, opt = { day: "numeric", month: "long", year: "numeric" }) => new Date(d).toLocaleDateString("fr-FR", opt);
   const DAY = 864e5;
 
-  let C = {}, POLLS, SOCIAL, BUZZ, PROG;
+  let C = {}, POLLS, SOCIAL, BUZZ, PROG, PDET, SIM;
+
+  /* Pictos réseaux sociaux (formes simplifiées, liens vers les comptes officiels) */
+  const SOC = {
+    x: ["X", (h) => `https://x.com/${h}`, '<path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>'],
+    instagram: ["Instagram", (h) => `https://www.instagram.com/${h}/`, '<rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.3" fill="currentColor"/>'],
+    tiktok: ["TikTok", (h) => `https://www.tiktok.com/@${h}`, '<path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M14 3c.6 3 2.6 4.7 5.5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>'],
+    youtube: ["YouTube", (h) => `https://www.youtube.com/${h}`, '<rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="currentColor"/><path d="M10 9l5 3-5 3z" fill="#0b1030"/>'],
+    facebook: ["Facebook", (h) => `https://www.facebook.com/${h}`, '<path d="M14.5 21v-7.5H17l.5-3h-3V8.7c0-.9.3-1.5 1.6-1.5h1.5V4.5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.2H9v3h2.5V21z" fill="currentColor"/>'],
+  };
+  const socialLinks = (id, size = 18) => {
+    const s = C[id]?.social || {};
+    return `<span class="soc">${Object.entries(SOC).filter(([k]) => s[k]).map(([k, [label, url, svg]]) =>
+      `<a href="${esc(url(s[k]))}" target="_blank" rel="noopener" title="${esc(C[id].name)} sur ${label}" aria-label="${esc(C[id].name)} sur ${label}" class="soc-${k}"><svg viewBox="0 0 24 24" width="${size}" height="${size}" aria-hidden="true">${svg}</svg></a>`).join("")}</span>`;
+  };
 
   const avatar = (id, size = 44) => {
     const c = C[id] || { name: id, color: "#888" };
@@ -181,7 +195,7 @@
       $("#soc-table").innerHTML = `<thead><tr><th>Candidat</th><th>${esc(PL[st.platform])}</th><th>Gain</th><th>Croissance</th>${plats.map((p) => `<th>${PL[p]}</th>`).join("")}</tr></thead><tbody>`
         + rows.map((r) => {
           const g = r.now - r.start, pct = r.start ? (g / r.start) * 100 : 0;
-          return `<tr><td><div class="who">${avatar(r.id, 26)}${esc(C[r.id].name)}</div></td><td><strong>${fmtN(r.now)}</strong></td><td style="color:${g >= 0 ? "var(--pos)" : "var(--neg)"}">${g >= 0 ? "+" : ""}${fmtN(g)}</td><td>${pct >= 0 ? "+" : ""}${pct.toLocaleString("fr-FR", { maximumFractionDigits: 1 })} %</td>${plats.map((p) => `<td>${last.values[r.id]?.[p] ? fmtN(last.values[r.id][p]) : "—"}</td>`).join("")}</tr>`;
+          return `<tr><td><div class="who">${avatar(r.id, 26)}${esc(C[r.id].name)}${socialLinks(r.id, 15)}</div></td><td><strong>${fmtN(r.now)}</strong></td><td style="color:${g >= 0 ? "var(--pos)" : "var(--neg)"}">${g >= 0 ? "+" : ""}${fmtN(g)}</td><td>${pct >= 0 ? "+" : ""}${pct.toLocaleString("fr-FR", { maximumFractionDigits: 1 })} %</td>${plats.map((p) => `<td>${last.values[r.id]?.[p] ? fmtN(last.values[r.id][p]) : "—"}</td>`).join("")}</tr>`;
         }).join("") + "</tbody>";
       const [ra, rb] = range();
       const est = H.some((h) => h.estimated && h.ms >= ra && h.ms <= rb);
@@ -333,20 +347,47 @@
         return `<button class="pick ${cls}" data-id="${id}">${avatar(id, 64)}${esc(C[id].short)}${tag}</button>`;
       }).join("");
     };
+    const detailOf = (id) => (PDET.candidates[id] || { details: {} });
     const one = (id) => {
-      const p = PROG.candidates[id], c = C[id];
+      const p = PROG.candidates[id], c = C[id], d = detailOf(id);
       return `<div class="sheet" style="--c:${c.color}">
-        <div class="sheet-head">${avatar(id, 84)}<div><h3>${esc(c.name)}</h3><span class="status">${esc(c.party)} · ${esc(p.status)}</span></div></div>
+        <div class="sheet-head">${avatar(id, 84)}<div><h3>${esc(c.name)}</h3><span class="status">${esc(c.party)} · ${esc(p.status)}</span>
+          <div class="sheet-links">${socialLinks(id, 20)}${d.site ? `<a class="site" href="${esc(d.site)}" target="_blank" rel="noopener">🌐 ${esc(d.site_label || "Site officiel")}</a>` : ""}
+          <button class="full-btn" data-full="${id}">📄 Programme complet</button></div></div></div>
         <p class="pitch">${esc(p.pitch)}</p>
         <ul class="keys">${p.key.map((k) => `<li>${esc(k)}</li>`).join("")}</ul>
-        ${PROG.topics.map((t) => `<div class="topic"><div class="tl">${t.icon} ${esc(t.label)}</div><div class="${p.positions[t.id] ? "" : "na"}">${esc(p.positions[t.id] || "Pas de position détaillée connue à ce stade.")}</div></div>`).join("")}
+        ${PROG.topics.map((t) => {
+          const det = d.details?.[t.id];
+          return `<div class="topic"><div class="tl">${t.icon} ${esc(t.label)}</div><div><div class="${p.positions[t.id] ? "" : "na"}">${esc(p.positions[t.id] || "Pas de position détaillée connue à ce stade.")}</div>
+            ${det?.length ? `<details class="more"><summary>Voir le détail (${det.length} point${det.length > 1 ? "s" : ""})</summary><ul>${det.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></details>` : ""}</div></div>`;
+        }).join("")}
       </div>`;
     };
+    const full = (id) => {
+      const p = PROG.candidates[id], c = C[id], d = detailOf(id);
+      const box = document.createElement("div");
+      box.className = "modal"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true");
+      box.innerHTML = `<div class="modal-in" style="--c:${c.color}">
+        <div class="modal-bar"><button class="print-btn">🖨️ Imprimer / PDF</button><button class="close-btn" aria-label="Fermer">✕</button></div>
+        <div class="sheet-head">${avatar(id, 72)}<div><h3>Programme de ${esc(c.name)}</h3><span class="status">${esc(c.party)} · ${esc(p.status)}</span></div></div>
+        ${d.programme_label ? `<p class="status">${esc(d.programme_label)}</p>` : ""}
+        <p class="pitch">${esc(p.pitch)}</p>
+        <h4>Propositions phares</h4><ul>${p.key.map((k) => `<li>${esc(k)}</li>`).join("")}</ul>
+        ${PROG.topics.map((t) => `<h4>${t.icon} ${esc(t.label)}</h4><p>${esc(p.positions[t.id] || "Pas de position détaillée connue à ce stade.")}</p>${(d.details?.[t.id] || []).length ? `<ul>${d.details[t.id].map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}`).join("")}
+        <p class="muted small">${esc(PROG.disclaimer)}${d.site ? ` Source officielle : <a href="${esc(d.site)}" target="_blank" rel="noopener">${esc(d.site)}</a>.` : ""}</p>
+      </div>`;
+      const close = () => { box.remove(); document.body.classList.remove("noscroll"); };
+      box.addEventListener("click", (e) => { if (e.target === box || e.target.closest(".close-btn")) close(); if (e.target.closest(".print-btn")) window.print(); });
+      document.addEventListener("keydown", function esc_(e) { if (e.key === "Escape") { close(); document.removeEventListener("keydown", esc_); } });
+      document.body.appendChild(box); document.body.classList.add("noscroll");
+      $(".close-btn", box).focus();
+    };
+    $("#prog-view").addEventListener("click", (e) => { const b = e.target.closest("[data-full]"); if (b) full(b.dataset.full); });
     const compare = (a, b) => {
       const A = PROG.candidates[a], B = PROG.candidates[b];
       const common = PROG.topics.filter((t) => A.positions[t.id] && B.positions[t.id]);
       return `<div class="cmp">
-        <div class="ch corner"></div><div class="ch a">${avatar(a, 40)}${esc(C[a].short)}</div><div class="ch b">${avatar(b, 40)}${esc(C[b].short)}</div>
+        <div class="ch corner"></div><div class="ch a">${avatar(a, 40)}${esc(C[a].short)}${socialLinks(a, 15)}</div><div class="ch b">${avatar(b, 40)}${esc(C[b].short)}${socialLinks(b, 15)}</div>
         <div class="tl">🎯 En une phrase</div><div>${esc(A.pitch)}</div><div>${esc(B.pitch)}</div>
         ${common.map((t) => `<div class="tl">${t.icon} ${esc(t.label)}</div><div>${esc(A.positions[t.id])}</div><div>${esc(B.positions[t.id])}</div>`).join("")}
       </div><p class="muted small">${common.length} thème(s) abordé(s) par les deux candidats sur ${PROG.topics.length}.</p>`;
@@ -381,9 +422,9 @@
   async function main() {
     const get = (f) => fetch(`data/${f}.json?v=${Math.floor(Date.now() / 36e5)}`).then((r) => { if (!r.ok) throw new Error(f); return r.json(); });
     try {
-      const [cands, photos, polls, social, buzz, prog] = await Promise.all(["candidates", "photos", "polls", "social", "buzz", "programmes"].map(get));
+      const [cands, photos, polls, social, buzz, prog, pdet, sim] = await Promise.all(["candidates", "photos", "polls", "social", "buzz", "programmes", "programmes_details", "simulateur"].map(get));
       cands.candidates.forEach((c) => (C[c.id] = { ...c, photo: photos[c.id]?.url }));
-      POLLS = polls; SOCIAL = social; BUZZ = buzz; PROG = prog;
+      POLLS = polls; SOCIAL = social; BUZZ = buzz; PROG = prog; PDET = pdet; SIM = sim;
     } catch (e) {
       document.querySelector("main").innerHTML = `<p class="warn">Impossible de charger les données (${esc(e.message)}). Ouvrez le site via un serveur web (voir README).</p>`;
       return;
@@ -396,6 +437,7 @@
       renderPolls(b.dataset.w);
     });
     Social.init(); initBuzz(); initProg();
+    if (window.Simulateur) window.Simulateur.init({ C, avatar, esc, fmtN, socialLinks }, SIM);
     showTab(location.hash.slice(1) || "sondages");
   }
   main();

@@ -24,6 +24,7 @@
         <a href="#reseaux" data-tab="reseaux" class="tab">Réseaux sociaux</a>
         <a href="#buzz" data-tab="buzz" class="tab">Buzz</a>
         <a href="#programmes" data-tab="programmes" class="tab">Programmes</a>
+        <a href="#simulateur" data-tab="simulateur" class="tab">Mon impact</a>
       </nav>
     </div>
   </header>
@@ -134,6 +135,101 @@
       <div class="avatar-grid" id="prog-grid"></div>
       <div id="prog-view"></div>
     </section>
+
+    <!-- 5. SIMULATEUR -->
+    <section id="simulateur" class="panel" hidden>
+      <div class="panel-head">
+        <div>
+          <h1>Quel impact sur mon quotidien ?</h1>
+          <p class="muted">Renseignez votre situation : nous estimons l'effet des principales mesures de chaque candidat sur votre budget, vos impôts, votre retraite ou votre entreprise.</p>
+        </div>
+      </div>
+      <p class="privacy">🔒 Vos réponses restent dans votre navigateur : rien n'est enregistré ni envoyé (seul le SIRET est interrogé sur l'annuaire public des entreprises).</p>
+      <div class="seg big" id="sim-tabs">
+        <button data-p="pane-part" class="on">👤 Particulier</button>
+        <button data-p="pane-quiz">🧭 Portrait idéologique</button>
+        <button data-p="pane-ent">🏢 Entreprise</button>
+      </div>
+
+      <div class="sim-pane" id="pane-part">
+        <form id="sim-part" class="sim-form">
+          <fieldset><legend>Vous et votre foyer</legend>
+            <label>Âge<input type="number" name="age" min="16" max="100" value="35" required></label>
+            <label>Situation familiale<select name="situation">
+              <option value="celibataire">Célibataire</option><option value="marie">Marié(e) ou pacsé(e)</option>
+              <option value="concubin">En concubinage</option><option value="divorce">Divorcé(e) / séparé(e)</option><option value="veuf">Veuf / veuve</option></select></label>
+            <label>Enfants à charge<input type="number" name="enfants" min="0" max="12" value="0"></label>
+            <label>Nationalité<select name="nationalite"><option value="francaise">Française</option><option value="ue">Autre pays de l'UE</option><option value="hors_ue">Hors UE</option><option value="">Je préfère ne pas répondre</option></select><small>Utilisé uniquement pour les mesures de « priorité nationale ».</small></label>
+            <label>Lieu de vie<select name="zone"><option value="urbain">Grande ville</option><option value="periurbain">Périurbain</option><option value="rural">Rural</option></select></label>
+          </fieldset>
+          <fieldset><legend>Travail et revenus</legend>
+            <label>Situation professionnelle<select name="statut">
+              <option value="salarie_prive">Salarié(e) du privé</option><option value="fonctionnaire">Fonctionnaire / agent public</option>
+              <option value="independant">Indépendant / chef d'entreprise</option><option value="chomage">Demandeur d'emploi</option>
+              <option value="etudiant">Étudiant(e)</option><option value="retraite">Retraité(e)</option><option value="sans">Sans activité</option></select></label>
+            <label>Salaire net mensuel (€)<input type="number" name="net" min="0" step="10" value="2000"></label>
+            <label>Revenu net imposable du foyer (€/an)<input type="number" name="revenu" min="0" step="100" value="26000"><small>Ligne « revenu net imposable » de votre avis d'impôt.</small></label>
+            <label>Âge de début de carrière<input type="number" name="debut" min="14" max="40" value="22"></label>
+            <label>Années déjà cotisées pour la retraite<input type="number" name="annees" min="0" max="50" value="0"><small>Laisser 0 pour un calcul depuis le début de carrière.</small></label>
+          </fieldset>
+          <fieldset><legend>Logement, aides et dépenses</legend>
+            <label>Logement<select name="logement"><option value="locataire">Locataire</option><option value="proprietaire">Propriétaire</option><option value="accedant">Propriétaire avec crédit</option><option value="heberge">Hébergé(e)</option></select></label>
+            <div class="checks"><span>Aides perçues</span>
+              <label><input type="checkbox" name="aides" value="apl"> APL / aide au logement</label>
+              <label><input type="checkbox" name="aides" value="rsa"> RSA</label>
+              <label><input type="checkbox" name="aides" value="prime"> Prime d'activité</label>
+              <label><input type="checkbox" name="aides" value="af"> Allocations familiales</label>
+              <label><input type="checkbox" name="aides" value="css"> Complémentaire santé solidaire (ex-CMU)</label>
+              <label><input type="checkbox" name="aides" value="aah"> AAH</label>
+              <label><input type="checkbox" name="aides" value="bourse"> Bourse étudiante</label>
+            </div>
+            <label>Montant total des aides (€/mois)<input type="number" name="aides_montant" min="0" step="10" value="0"></label>
+            <label>Carburant + électricité + gaz (€/mois)<input type="number" name="energie" min="0" step="10" value="250"></label>
+            <label>Cotisation mutuelle santé (€/mois)<input type="number" name="mutuelle" min="0" step="5" value="60"></label>
+          </fieldset>
+          <fieldset><legend>Patrimoine</legend>
+            <label>Patrimoine net total (€)<input type="number" name="patrimoine" min="0" step="1000" value="50000"><small>Immobilier + placements − dettes.</small></label>
+            <label>Héritage ou donation attendu (€)<input type="number" name="heritage" min="0" step="1000" value="0"></label>
+          </fieldset>
+          <button class="cta" type="submit">Calculer mon impact →</button>
+        </form>
+        <div id="sim-part-out" class="sim-out"></div>
+      </div>
+
+      <div class="sim-pane" id="pane-quiz" hidden>
+        <p class="muted">Indiquez votre degré d'accord avec chaque affirmation. Nous situons vos réponses sur 5 grands axes et les comparons aux positions des candidats.</p>
+        <div id="quiz"></div>
+        <button class="cta" type="button" id="quiz-btn">Voir mon portrait →</button>
+        <div id="quiz-out" class="sim-out"></div>
+      </div>
+
+      <div class="sim-pane" id="pane-ent" hidden>
+        <form id="sim-ent" class="sim-form">
+          <fieldset><legend>Identification</legend>
+            <label class="wide">SIRET ou SIREN<span class="row"><input type="text" name="siret" inputmode="numeric" placeholder="ex. 552 032 534 00646"><button type="button" id="siret-btn">Rechercher</button></span><small id="siret-msg">Remplit automatiquement le nom, la forme juridique, l'effectif et les derniers comptes publiés.</small></label>
+            <label>Raison sociale<input type="text" name="nom"></label>
+            <label>Forme juridique<select name="forme">
+              <option value="micro">Micro-entreprise (auto-entrepreneur)</option><option value="ei">Entreprise individuelle (réel)</option>
+              <option value="eurl_sarl">EURL / SARL</option><option value="sas_sasu" selected>SAS / SASU</option><option value="sa">SA</option>
+              <option value="asso">Association</option><option value="autre">Autre</option></select></label>
+            <label>Code activité (NAF)<input type="text" name="secteur" placeholder="ex. 62.01Z"></label>
+          </fieldset>
+          <fieldset><legend>Chiffres clés (dernier exercice)</legend>
+            <label>Chiffre d'affaires (€)<input type="number" name="ca" min="0" step="1000" value="500000"></label>
+            <label>Résultat net (€)<input type="number" name="resultat" step="1000" value="40000"></label>
+            <label>Dividendes versés (€)<input type="number" name="dividendes" min="0" step="1000" value="0"></label>
+            <label>Nombre de salariés<input type="number" name="effectif" min="0" value="5"></label>
+            <label>dont payés au SMIC (ou proche)<input type="number" name="nb_smic" min="0" value="1"></label>
+            <label>Facture d'énergie (€ HT/an)<input type="number" name="energie" min="0" step="100" value="8000"></label>
+            <label>Achats annuels (€ HT)<input type="number" name="achats" min="0" step="1000" value="150000"></label>
+            <label>Part des achats hors UE (%)<input type="number" name="import_hors_ue" min="0" max="100" value="0"></label>
+          </fieldset>
+          <button class="cta" type="submit">Calculer l'impact →</button>
+        </form>
+        <div id="sim-ent-out" class="sim-out"></div>
+      </div>
+      <p class="muted small">Méthode : impôt sur le revenu calculé au barème 2025 (quotient familial, décote), IS à 15 %/25 %. Les mesures des candidats sont chiffrées quand c'est possible, avec l'hypothèse affichée sous chaque ligne. Estimations indicatives, sans valeur de conseil fiscal.</p>
+    </section>
   </main>
 
   <footer class="wrap foot">
@@ -141,6 +237,7 @@
     <p class="muted small">Site d'information indépendant, sans lien avec les candidats ni les instituts de sondage.</p>
   </footer>
 
+  <script src="assets/sim.js"></script>
   <script src="assets/app.js"></script>
 </body>
 </html>
