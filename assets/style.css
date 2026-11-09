@@ -425,3 +425,13 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .grp-in { padding: 0 20px 20px; }
 @media (max-width: 900px) { .kpis { grid-template-columns: 1fr 1fr; } .dash-grid { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .kpis { grid-template-columns: 1fr; } .dcard { padding: 16px; } }
+
+/* --- Buzz multi-sources --- */
+.plat-tag { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 999px; color: var(--pc); border: 1px solid color-mix(in srgb, var(--pc) 60%, transparent); }
+.bcard .bhead { flex-wrap: wrap; }
+.yt.tall { aspect-ratio: 9/16; max-width: 325px; max-height: 580px; }
+.yt.tall::after { display: none; }
+.yt.tall .tt-ph { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; background: linear-gradient(160deg, #25d8e8 0%, #000 45%, #fe2c55 100%); color: #fff; }
+.xtext { margin: 4px 0 0; padding: 8px 12px; border-left: 3px solid #e7e9ea; background: rgba(255,255,255,.04); border-radius: 0 8px 8px 0; font-weight: 500; white-space: pre-line; }
+.xload { margin-top: 8px; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; color: var(--muted); font-size: 13px; }
+.xframe iframe { width: 100%; min-height: 420px; border: 0; border-radius: 10px; margin-top: 8px; background: #000; }

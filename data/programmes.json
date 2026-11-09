@@ -2,22 +2,67 @@
   "updated": "2026-11-09",
   "disclaimer": "Synthèse indicative des positions publiques des candidats (déclarations, programmes 2022, propositions relayées par la presse jusqu'au 9 novembre 2026). La plupart des programmes officiels 2027 ne sont pas encore publiés : chaque fiche doit être relue et mise à jour au fil de la campagne.",
   "topics": [
-    {"id": "pouvoir_achat", "label": "Pouvoir d'achat & salaires", "icon": "💶"},
-    {"id": "fiscalite", "label": "Fiscalité & dette", "icon": "🏦"},
-    {"id": "retraites", "label": "Retraites & travail", "icon": "⏳"},
-    {"id": "immigration", "label": "Immigration & intégration", "icon": "🛂"},
-    {"id": "securite", "label": "Sécurité & justice", "icon": "🛡️"},
-    {"id": "ecologie", "label": "Écologie & énergie", "icon": "🌱"},
-    {"id": "europe", "label": "Europe & international", "icon": "🇪🇺"},
-    {"id": "education", "label": "Éducation & jeunesse", "icon": "🎓"},
-    {"id": "sante", "label": "Santé", "icon": "🏥"},
-    {"id": "institutions", "label": "Institutions & démocratie", "icon": "🏛️"}
+    {
+      "id": "pouvoir_achat",
+      "label": "Pouvoir d'achat & salaires",
+      "icon": "💶"
+    },
+    {
+      "id": "fiscalite",
+      "label": "Fiscalité & dette",
+      "icon": "🏦"
+    },
+    {
+      "id": "retraites",
+      "label": "Retraites & travail",
+      "icon": "⏳"
+    },
+    {
+      "id": "immigration",
+      "label": "Immigration & intégration",
+      "icon": "🛂"
+    },
+    {
+      "id": "securite",
+      "label": "Sécurité & justice",
+      "icon": "🛡️"
+    },
+    {
+      "id": "ecologie",
+      "label": "Écologie & énergie",
+      "icon": "🌱"
+    },
+    {
+      "id": "europe",
+      "label": "Europe & international",
+      "icon": "🇪🇺"
+    },
+    {
+      "id": "education",
+      "label": "Éducation & jeunesse",
+      "icon": "🎓"
+    },
+    {
+      "id": "sante",
+      "label": "Santé",
+      "icon": "🏥"
+    },
+    {
+      "id": "institutions",
+      "label": "Institutions & démocratie",
+      "icon": "🏛️"
+    }
   ],
   "candidates": {
     "lepen": {
       "status": "Programme en cours d'élaboration",
       "pitch": "Souveraineté nationale, « priorité nationale », protection du pouvoir d'achat et fermeté migratoire.",
-      "key": ["Baisse de la TVA sur l'énergie (carburants, électricité, gaz)", "Référendum sur l'immigration et inscription de la priorité nationale", "Retour partiel à la retraite à 62 ans, départ anticipé pour carrières longues", "Référendum contre les « idéologies totalitaires », dont l'islamisme"],
+      "key": [
+        "Baisse de la TVA sur l'énergie (carburants, électricité, gaz)",
+        "Référendum sur l'immigration et inscription de la priorité nationale",
+        "Retour partiel à la retraite à 62 ans, départ anticipé pour carrières longues",
+        "Référendum contre les « idéologies totalitaires », dont l'islamisme"
+      ],
       "positions": {
         "pouvoir_achat": "Baisse de la TVA sur les produits énergétiques ; refuse d'imposer une hausse du SMIC aux entreprises, préfère des exonérations sur les hausses de salaires.",
         "fiscalite": "Baisse des impôts de production, économies sur l'immigration et la contribution à l'UE ; pas de choc d'austérité affiché.",
@@ -34,7 +79,12 @@
     "melenchon": {
       "status": "Programme publié : « L'Avenir en commun » (7 novembre 2026)",
       "pitch": "« Il faut tout changer » : rupture sociale et écologique, VIe République.",
-      "key": ["SMIC à 1 700 € net", "Retraite à 60 ans", "Passage à la VIe République par une Assemblée constituante", "Planification écologique et règle verte"],
+      "key": [
+        "SMIC à 1 700 € net",
+        "Retraite à 60 ans",
+        "Passage à la VIe République par une Assemblée constituante",
+        "Planification écologique et règle verte"
+      ],
       "positions": {
         "pouvoir_achat": "SMIC porté à 1 700 € net, blocage des prix des produits de première nécessité, indexation des salaires sur l'inflation.",
         "fiscalite": "Impôt sur le revenu à 14 tranches, rétablissement de l'ISF avec volet climatique, taxation des superprofits et des héritages élevés.",
@@ -51,11 +101,16 @@
     "philippe": {
       "status": "Candidat déclaré — projet en cours d'élaboration",
       "pitch": "Réforme de l'État, rigueur budgétaire et « dire la vérité » sur la situation financière.",
-      "key": ["Refus d'une hausse généralisée du SMIC : « travailler plus »", "Rétablissement des comptes publics", "Fermeté sur l'intégration", "Débat proposé à Mélenchon sur l'immigration"],
+      "key": [
+        "Refus d'une hausse généralisée du SMIC : « travailler plus »",
+        "Rétablissement des comptes publics",
+        "Fermeté sur l'intégration",
+        "Débat proposé à Mélenchon sur l'immigration"
+      ],
       "positions": {
         "pouvoir_achat": "Pas de hausse du SMIC décrétée ; gains de pouvoir d'achat par le travail, le temps de travail et la baisse des charges.",
         "fiscalite": "« La crise financière a commencé » : baisse de la dépense publique, simplification de l'État, pas de hausse générale d'impôts.",
-        "retraites": "Allongement de la durée de travail, introduction d'une part de capitalisation.",
+        "retraites": "Âge de départ porté progressivement à 65 ans et durée de cotisation à 45 ans (annonce du 29 septembre, réaffirmée le 7 novembre 2026), carrières longues maintenues ; part de capitalisation.",
         "immigration": "« Il y a un problème d'intégration » : contrôle renforcé des flux, conditions d'accès aux prestations ; ses propos sur les pillages du 17 octobre ont suscité une polémique.",
         "securite": "Autorité de l'État, refus du blocage des services publics, sanctions plus rapides.",
         "ecologie": "Nucléaire et renouvelables, écologie « des solutions » sans décroissance.",
@@ -68,7 +123,12 @@
     "glucksmann": {
       "status": "Candidat déclaré — premier meeting prévu le 6 décembre",
       "pitch": "Social-démocratie pro-européenne, écologie et fermeté face aux régimes autoritaires.",
-      "key": ["Taxe minimale sur les ultra-riches (type « taxe Zucman »)", "Défense européenne et soutien à l'Ukraine", "Investissement massif dans la transition écologique", "Se présente comme seul capable de battre l'extrême droite"],
+      "key": [
+        "Taxe minimale sur les ultra-riches (type « taxe Zucman »)",
+        "Défense européenne et soutien à l'Ukraine",
+        "Investissement massif dans la transition écologique",
+        "Se présente comme seul capable de battre l'extrême droite"
+      ],
       "positions": {
         "pouvoir_achat": "Revalorisation des bas salaires négociée, égalité salariale, soutien au logement.",
         "fiscalite": "Impôt plancher de 2 % sur les très hauts patrimoines, lutte contre l'évasion fiscale.",
@@ -85,7 +145,12 @@
     "lisnard": {
       "status": "Candidat (Nouvelle Énergie) — premier grand meeting à Lyon le 13 décembre",
       "pitch": "Libéralisme assumé : moins d'État, plus de liberté, « rendre l'argent du travail ».",
-      "key": ["Jusqu'à +400 € net par mois pour un salaire de 2 200 € via la baisse des cotisations", "Forte baisse de la dépense publique", "Liberté scolaire et autonomie des établissements", "Décentralisation radicale"],
+      "key": [
+        "Jusqu'à +400 € net par mois pour un salaire de 2 200 € via la baisse des cotisations",
+        "Forte baisse de la dépense publique",
+        "Liberté scolaire et autonomie des établissements",
+        "Décentralisation radicale"
+      ],
       "positions": {
         "pouvoir_achat": "Transfert de cotisations sociales vers le salaire net : jusqu'à 400 € de plus par mois pour 2 200 € net.",
         "fiscalite": "Réduction drastique des dépenses et du nombre d'agences, baisse des prélèvements obligatoires.",
@@ -102,7 +167,12 @@
     "attal": {
       "status": "Candidat potentiel (Renaissance) — défend une primaire",
       "pitch": "Héritage macroniste renouvelé : travail, laïcité, autorité.",
-      "key": ["Primaire ouverte de la droite et du centre", "Revaloriser le travail par rapport à l'assistance", "Autorité à l'école", "Refus de « trier » les Français"],
+      "key": [
+        "Primaire ouverte de la droite et du centre",
+        "Revaloriser le travail par rapport à l'assistance",
+        "Autorité à l'école",
+        "Refus de « trier » les Français"
+      ],
       "positions": {
         "pouvoir_achat": "Baisse des cotisations sur les salaires moyens ; son camp juge le SMIC à 1 700 € « irréaliste ».",
         "fiscalite": "Stabilité fiscale, maîtrise de la dépense.",
@@ -119,7 +189,12 @@
     "retailleau": {
       "status": "Candidat (LR) — favorable à une primaire en début d'année",
       "pitch": "Droite de l'ordre et du travail : autorité, frontières, valeur travail.",
-      "key": ["37 h 30 : 30 minutes de plus par jour pour un 13e, voire 14e mois", "Pas de hausse du SMIC, aides sociales plafonnées", "Création d'un « délit de pillage »", "Référendum sur l'immigration"],
+      "key": [
+        "37 h 30 : 30 minutes de plus par jour pour un 13e, voire 14e mois",
+        "Pas de hausse du SMIC, aides sociales plafonnées",
+        "Création d'un « délit de pillage »",
+        "Référendum sur l'immigration"
+      ],
       "positions": {
         "pouvoir_achat": "Travailler 30 minutes de plus par jour (37 h 30) pour financer un 13e voire 14e mois ; pas de hausse du SMIC.",
         "fiscalite": "Plafonnement des aides sociales, baisse de la dépense publique, allègement des charges.",
@@ -136,7 +211,12 @@
     "zemmour": {
       "status": "Candidat (Reconquête)",
       "pitch": "Défense de l'identité française, « remigration » et libéralisme économique.",
-      "key": ["Ministère de la remigration", "Fin du regroupement familial et du droit du sol", "Baisse massive des impôts de production", "Primauté du droit français"],
+      "key": [
+        "Ministère de la remigration",
+        "Fin du regroupement familial et du droit du sol",
+        "Baisse massive des impôts de production",
+        "Primauté du droit français"
+      ],
       "positions": {
         "pouvoir_achat": "Baisse des charges, prime zéro charge, allocations réservées aux Français.",
         "fiscalite": "Suppression des impôts de production et des droits de succession pour la classe moyenne.",
@@ -153,7 +233,12 @@
     "tondelier": {
       "status": "Candidate (Les Écologistes)",
       "pitch": "Écologie sociale et union de la gauche : « personne ne gagnera seul ».",
-      "key": ["Indexation du point d'indice des fonctionnaires sur l'inflation", "Plan massif de rénovation et de transports", "Soutien à l'élargissement de la PMA", "Union de la gauche"],
+      "key": [
+        "Indexation du point d'indice des fonctionnaires sur l'inflation",
+        "Plan massif de rénovation et de transports",
+        "Soutien à l'élargissement de la PMA",
+        "Union de la gauche"
+      ],
       "positions": {
         "pouvoir_achat": "Indexation du point d'indice sur l'inflation, revalorisation des bas salaires, chèque énergie renforcé.",
         "fiscalite": "ISF climatique, taxation des superprofits et des très hauts patrimoines.",
@@ -170,7 +255,12 @@
     "roussel": {
       "status": "Candidat (PCF) — maintient sa candidature malgré des ralliements à Mélenchon",
       "pitch": "Gauche du travail : salaires, industrie, nucléaire.",
-      "key": ["Hausse des salaires et du SMIC", "Réindustrialisation et nucléaire", "Retraite à 60 ans", "Services publics de proximité"],
+      "key": [
+        "Hausse des salaires et du SMIC",
+        "Réindustrialisation et nucléaire",
+        "Retraite à 60 ans",
+        "Services publics de proximité"
+      ],
       "positions": {
         "pouvoir_achat": "Hausse générale des salaires, SMIC revalorisé, baisse des prix de l'énergie.",
         "fiscalite": "Taxation du capital et des dividendes, lutte contre l'évasion fiscale.",
@@ -187,7 +277,12 @@
     "villepin": {
       "status": "Candidature quasi certaine (La France humaniste) — annonce non encore faite",
       "pitch": "Gaullisme social, diplomatie d'indépendance et partage de la valeur.",
-      "key": ["1 500 € par an pour chaque salarié, financés sur les dividendes", "Diplomatie indépendante et multilatérale", "Critique frontale des discours anti-immigrés", "Rejet du SMIC à 1 700 € jugé « illusoire »"],
+      "key": [
+        "1 500 € par an pour chaque salarié, financés sur les dividendes",
+        "Diplomatie indépendante et multilatérale",
+        "Critique frontale des discours anti-immigrés",
+        "Rejet du SMIC à 1 700 € jugé « illusoire »"
+      ],
       "positions": {
         "pouvoir_achat": "Prime de 1 500 € par an pour chaque salarié, prélevée sur les dividendes ; juge le SMIC à 1 700 € « illusoire ».",
         "fiscalite": "Contribution des actionnaires et des très hauts revenus, rigueur sur la dépense.",
@@ -204,7 +299,11 @@
     "dupontaignan": {
       "status": "Candidat (Debout la France)",
       "pitch": "Souverainisme gaulliste.",
-      "key": ["Sortie des traités européens contraignants", "Baisse des prix de l'énergie", "Référendum sur l'immigration"],
+      "key": [
+        "Sortie des traités européens contraignants",
+        "Baisse des prix de l'énergie",
+        "Référendum sur l'immigration"
+      ],
       "positions": {
         "pouvoir_achat": "Baisse des taxes sur l'énergie, hausse des petites retraites.",
         "fiscalite": null,
@@ -213,22 +312,51 @@
         "securite": "Peines planchers, construction de prisons.",
         "ecologie": "Nucléaire.",
         "europe": "Sortie des traités européens contraignants, souveraineté monétaire.",
-        "education": null, "sante": null,
+        "education": null,
+        "sante": null,
         "institutions": "Référendum d'initiative citoyenne."
       }
     },
     "arthaud": {
       "status": "Candidate (Lutte ouvrière)",
       "pitch": "« Faire entendre le camp des travailleurs ».",
-      "key": ["SMIC à 2 000 € net", "Interdiction des licenciements", "Contrôle ouvrier des entreprises"],
+      "key": [
+        "SMIC à 2 000 € net",
+        "Interdiction des licenciements",
+        "Contrôle ouvrier des entreprises"
+      ],
       "positions": {
         "pouvoir_achat": "SMIC et minimum de 2 000 € net, indexation des salaires sur les prix.",
         "fiscalite": "Expropriation des grands groupes.",
         "retraites": "Retraite à 60 ans à taux plein.",
         "immigration": "Liberté de circulation et d'installation.",
-        "securite": null, "ecologie": null,
+        "securite": null,
+        "ecologie": null,
         "europe": "Internationalisme ouvrier.",
-        "education": null, "sante": null, "institutions": null
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "riner": {
+      "status": "Candidat déclaré le 9 novembre 2026 — programme à venir",
+      "pitch": "« Ni de droite, ni de gauche » : quintuple champion olympique de judo, il dit vouloir « relever la France » et « fédérer » les Français face à la colère sociale.",
+      "key": [
+        "Candidature annoncée le 9 novembre 2026",
+        "Positionnement « ni de droite, ni de gauche »",
+        "Mots d'ordre : « fédérer », « la résignation n'est pas une option »"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
       }
     }
   }

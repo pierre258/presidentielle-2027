@@ -1,11 +1,41 @@
 {
  "updated": "2026-11-09T08:57+00:00",
  "since": "2026-11-02",
- "classifier": "sélection éditoriale (version initiale)",
+ "classifier": "sélection éditoriale — articles, YouTube, Dailymotion, TikTok, X",
  "candidates": {
   "lepen": {
    "volume": 51,
    "negative": [
+    {
+     "type": "post",
+     "platform": "x",
+     "title": "Après l'attentat raciste, Marine Le Pen explique à la télévision américaine qu'il n'y a pas de discrimination en France. « Ignoble. »",
+     "source": "@mbompard",
+     "url": "https://x.com/mbompard/status/2119699169636155892",
+     "x_id": "2119699169636155892",
+     "views": 185224,
+     "date": "2026-11-09"
+    },
+    {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "« Il n'y a pas de discriminations en France », affirme Marine Le Pen lors d'une interview accordée au média américain CBS",
+     "source": "Le Parisien",
+     "url": "https://www.dailymotion.com/video/xbv54im",
+     "dailymotion_id": "xbv54im",
+     "views": 13293,
+     "date": "2026-11-09"
+    },
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Les propos de Marine Le Pen sur la « mexicanisation » de la France suscitent l'indignation au Mexique",
+     "source": "@bfmtv",
+     "url": "https://www.tiktok.com/@bfmtv/video/7703962251073457430",
+     "tiktok_id": "7703962251073457430",
+     "views": 121933,
+     "date": "2026-11-03"
+    },
     {
      "type": "article",
      "title": "Les propos de Marine Le Pen sur la \"mexicanisation\" de la France suscitent l’indignation au Mexique",
@@ -24,6 +54,26 @@
     }
    ],
    "positive": [
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "« J'ai une détestation absolue de la discrimination »",
+     "source": "@mlp.officiel",
+     "url": "https://www.tiktok.com/@mlp.officiel/video/7703990652849163552",
+     "tiktok_id": "7703990652849163552",
+     "views": 522296,
+     "date": "2026-11-03"
+    },
+    {
+     "type": "post",
+     "platform": "x",
+     "title": "Marine Le Pen ridiculise Emmanuel Macron : « zéro voix sur un budget à l'Assemblée »",
+     "source": "@Gn_bleu_marine1",
+     "url": "https://x.com/Gn_bleu_marine1/status/2118379820077764949",
+     "x_id": "2118379820077764949",
+     "views": 157295,
+     "date": "2026-11-05"
+    },
     {
      "type": "video",
      "title": "Ça fait 6 ans que nous réclamons la baisse de la TVA sur les produits énergétiques | Marine Le Pen",
@@ -64,6 +114,16 @@
    "volume": 55,
    "negative": [
     {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "Prisca Thevenot : «Tous ceux qui ne pensent pas comme Jean-Luc Mélenchon sont des ennemis à abattre»",
+     "source": "CNEWS",
+     "url": "https://www.dailymotion.com/video/xbt7nvy",
+     "dailymotion_id": "xbt7nvy",
+     "views": 16534,
+     "date": "2026-11-03"
+    },
+    {
      "type": "article",
      "title": "Présidentielle 2027 : Jean-Luc Mélenchon dit annuler sa venue au « 20 heures » de TF1, qu’il accuse d’avoir laissé Edouard Philippe dérouler un « discours dégoûtant » sur l’immigration",
      "source": "Le Monde.fr",
@@ -79,6 +139,26 @@
     }
    ],
    "positive": [
+    {
+     "type": "post",
+     "platform": "x",
+     "title": "Mélenchon répond à Marine Le Pen sur l'Avenir en commun : « Le RN c'est presque du Édouard Philippe. »",
+     "source": "@JLMelenchon",
+     "url": "https://x.com/JLMelenchon/status/2119005696721055840",
+     "x_id": "2119005696721055840",
+     "views": 1189251,
+     "date": "2026-11-07"
+    },
+    {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "Programme de Mélenchon : ce que retiennent les militants LFI",
+     "source": "Le Parisien",
+     "url": "https://www.dailymotion.com/video/xbuo4pe",
+     "dailymotion_id": "xbuo4pe",
+     "views": 19038,
+     "date": "2026-11-07"
+    },
     {
      "type": "article",
      "title": "\"Nous allons gagner\" : au Bourget, Jean-Luc Mélenchon dévoile son programme pour 2027 et poursuit sa démonstration de force",
@@ -105,6 +185,36 @@
   "philippe": {
    "volume": 55,
    "negative": [
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "10 jours après l'attentat raciste de Trappes, Édouard Philippe relie pillages et immigration au 20h de TF1",
+     "source": "@ajplusfrancais",
+     "url": "https://www.tiktok.com/@ajplusfrancais/video/7703990145736903956",
+     "tiktok_id": "7703990145736903956",
+     "views": 25453,
+     "date": "2026-11-03"
+    },
+    {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "L'édito de Pascal Praud : «Édouard Philippe préfère perdre que de rivaliser avec ses concurrents»",
+     "source": "CNEWS",
+     "url": "https://www.dailymotion.com/video/xbttsh2",
+     "dailymotion_id": "xbttsh2",
+     "views": 52422,
+     "date": "2026-11-05"
+    },
+    {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "\"Vous avez ruiné le pays\": Jean-Luc Mélenchon accuse Édouard Philippe de \"clientélisme racialiste\" après ses propos sur Trappes",
+     "source": "BFM",
+     "url": "https://www.dailymotion.com/video/xbsxfwe",
+     "dailymotion_id": "xbsxfwe",
+     "views": 9159,
+     "date": "2026-11-02"
+    },
     {
      "type": "video",
      "title": "Édouard Philippe s'inscrit dans les pas de Jean-Marie Le Pen.",
@@ -148,6 +258,16 @@
    "positive": [
     {
      "type": "video",
+     "platform": "tiktok",
+     "title": "Le Grand Tour est lancé : première étape à La Ciotat",
+     "source": "@avec_edouard",
+     "url": "https://www.tiktok.com/@avec_edouard/video/7705814073828592928",
+     "tiktok_id": "7705814073828592928",
+     "views": 3508,
+     "date": "2026-11-08"
+    },
+    {
+     "type": "video",
      "title": "Édouard Philippe : \"Bloquer un service public, ce n'est pas acceptable\"",
      "source": "franceinfo",
      "url": "https://www.youtube.com/watch?v=2lNlcuA9Oos",
@@ -167,6 +287,36 @@
   "glucksmann": {
    "volume": 55,
    "negative": [
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Raphaël Glucksmann quitte le cortège parisien après avoir été hué",
+     "source": "@franceinfo",
+     "url": "https://www.tiktok.com/@franceinfo/video/7704729012752649494",
+     "tiktok_id": "7704729012752649494",
+     "views": 376093,
+     "date": "2026-11-05"
+    },
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Le clip de campagne de Glucksmann utilise une chanson… qui se moque de lui",
+     "source": "@quotidienofficiel",
+     "url": "https://www.tiktok.com/@quotidienofficiel/video/7705111248949562646",
+     "tiktok_id": "7705111248949562646",
+     "views": 335107,
+     "date": "2026-11-07"
+    },
+    {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "Mobilisation du 5 novembre à Paris : Raphaël Glucksmann hué, quitte le cortège",
+     "source": "Le Parisien",
+     "url": "https://www.dailymotion.com/video/xbtylvm",
+     "dailymotion_id": "xbtylvm",
+     "views": 44239,
+     "date": "2026-11-05"
+    },
     {
      "type": "video",
      "title": "Hué par des manifestants, Raphaël Glucksmann quitte le cortège",
@@ -203,6 +353,26 @@
    "positive": [
     {
      "type": "video",
+     "platform": "tiktok",
+     "title": "Glucksmann : « Nous allons refonder la gauche démocratique », Mélenchon « fait trop peur »",
+     "source": "@bfmtv",
+     "url": "https://www.tiktok.com/@bfmtv/video/7705874871124806934",
+     "tiktok_id": "7705874871124806934",
+     "views": 278595,
+     "date": "2026-11-08"
+    },
+    {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "Pascal Praud : «Il est courageux Raphaël Glucksmann, j'ai une forme d'admiration»",
+     "source": "CNEWS",
+     "url": "https://www.dailymotion.com/video/xbu69oi",
+     "dailymotion_id": "xbu69oi",
+     "views": 6861,
+     "date": "2026-11-06"
+    },
+    {
+     "type": "video",
      "title": "Pascal Praud : «Il est courageux Raphaël Glucksmann, j'ai une forme d'admiration»",
      "source": "CNEWS",
      "url": "https://www.youtube.com/watch?v=h6yVr-XhLOI",
@@ -235,6 +405,16 @@
    "negative": [
     {
      "type": "video",
+     "platform": "tiktok",
+     "title": "Poudre de perlimpinpin ou bon budget ? Le chiffrage de Lisnard passé au crible",
+     "source": "@bonneanalyse",
+     "url": "https://www.tiktok.com/@bonneanalyse/video/7705540032563514646",
+     "tiktok_id": "7705540032563514646",
+     "views": 83715,
+     "date": "2026-11-08"
+    },
+    {
+     "type": "video",
      "title": "🇫🇷 DAVID LISNARD EST UNE GIGA FRAUDE : VOICI LES PREUVES (encore...)",
      "source": "JUNGO",
      "url": "https://www.youtube.com/watch?v=mio8DGIJX9c",
@@ -244,6 +424,26 @@
     }
    ],
    "positive": [
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "« D. Lisnard au 2nd tour » : un auditeur sur RMC",
+     "source": "@rmc_off",
+     "url": "https://www.tiktok.com/@rmc_off/video/7704348167273319702",
+     "tiktok_id": "7704348167273319702",
+     "views": 240867,
+     "date": "2026-11-04"
+    },
+    {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "David Lisnard : « Il faut moins d’impôts nationaux et un impôt universel local »",
+     "source": "Public Sénat",
+     "url": "https://www.dailymotion.com/video/xbtkoc2",
+     "dailymotion_id": "xbtkoc2",
+     "views": 1398,
+     "date": "2026-11-04"
+    },
     {
      "type": "video",
      "title": "\"Lisnard va être le candidat du bloc central et au 2e tour vous voterez pour lui pour faire barrage\"",
@@ -325,6 +525,16 @@
    ],
    "positive": [
     {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Gabriel Attal chez Gavottes : « Immense respect aux salariés »",
+     "source": "@gabriel_attal",
+     "url": "https://www.tiktok.com/@gabriel_attal/video/7703639981746572576",
+     "tiktok_id": "7703639981746572576",
+     "views": 778105,
+     "date": "2026-11-02"
+    },
+    {
      "type": "article",
      "title": "Présidentielle 2027 : Gabriel Attal répond à Édouard Philippe et refuse de « trier » les Français",
      "source": "Sud Ouest",
@@ -336,6 +546,16 @@
   "retailleau": {
    "volume": 55,
    "negative": [
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Retailleau revient sur son opposition au mariage pour tous",
+     "source": "@tf1info",
+     "url": "https://www.tiktok.com/@tf1info/video/7704027684069854497",
+     "tiktok_id": "7704027684069854497",
+     "views": 304461,
+     "date": "2026-11-03"
+    },
     {
      "type": "video",
      "title": "Retailleau cuisiné sur Zemmour : le malaise en direct",
@@ -354,6 +574,16 @@
     }
    ],
    "positive": [
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Retailleau : « Madame Le Pen, c'est une démagogue. Sur le plan économique, elle est à gauche »",
+     "source": "@tf1info",
+     "url": "https://www.tiktok.com/@tf1info/video/7703631826736139552",
+     "tiktok_id": "7703631826736139552",
+     "views": 49268,
+     "date": "2026-11-02"
+    },
     {
      "type": "video",
      "title": "Duel d’éloquence ou bain de sang (Retailleau face à LFI)",
@@ -383,6 +613,26 @@
    "volume": 54,
    "negative": [
     {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "\"Son combat est d'éviter la guerre civile\": Sarah Knafo défend les multiples condamnations pour incitation à la haine raciale d'Éric Zemmour",
+     "source": "BFM",
+     "url": "https://www.dailymotion.com/video/xbv3juu",
+     "dailymotion_id": "xbv3juu",
+     "views": 4811,
+     "date": "2026-11-09"
+    },
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Louise Montangon s'affiche avec Éric Zemmour, plusieurs fois condamné",
+     "source": "@darebirah",
+     "url": "https://www.tiktok.com/@darebirah/video/7706093042129800480",
+     "tiktok_id": "7706093042129800480",
+     "views": 23146,
+     "date": "2026-11-09"
+    },
+    {
      "type": "article",
      "title": "« Des racailles arabo-musulmanes » : l'Arcom saisit la justice pour des propos d'Éric Zemmour",
      "source": "Le Dauphiné Libéré",
@@ -409,6 +659,16 @@
    "positive": [
     {
      "type": "video",
+     "platform": "tiktok",
+     "title": "Sarah Knafo : « Quand Édouard Philippe le dit, ça suscite un débat ; quand c'est Zemmour, un procès »",
+     "source": "@sarah_knafo",
+     "url": "https://www.tiktok.com/@sarah_knafo/video/7706125264362818849",
+     "tiktok_id": "7706125264362818849",
+     "views": 10984,
+     "date": "2026-11-09"
+    },
+    {
+     "type": "video",
      "title": "Eric Zemmour l'avait prévenu..Éric Naulleau a mis du temps a comprendre.. mais c'est fait !",
      "source": "SeriActu",
      "url": "https://www.youtube.com/watch?v=ljLDGSENNFA",
@@ -421,6 +681,36 @@
   "bardella": {
    "volume": 55,
    "negative": [
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Dans les cortèges, un slogan anti-Bardella devient l'hymne anti-RN",
+     "source": "@quotidienofficiel",
+     "url": "https://www.tiktok.com/@quotidienofficiel/video/7704351751549226262",
+     "tiktok_id": "7704351751549226262",
+     "views": 650157,
+     "date": "2026-11-04"
+    },
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Lancement de « Gouverner » salle Wagram : la soirée vire à la polémique",
+     "source": "@quotidienofficiel",
+     "url": "https://www.tiktok.com/@quotidienofficiel/video/7706168994750795030",
+     "tiktok_id": "7706168994750795030",
+     "views": 35456,
+     "date": "2026-11-09"
+    },
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Bardella sur l'immigration en Corse… qui vient surtout du continent",
+     "source": "@etenne4",
+     "url": "https://www.tiktok.com/@etenne4/video/7706142988577033505",
+     "tiktok_id": "7706142988577033505",
+     "views": 8164,
+     "date": "2026-11-09"
+    },
     {
      "type": "video",
      "title": "JORDAN BARDELLA se PERD DANS SES NOTES et se RIDICULISE en direct sur CNEWS !",
@@ -455,6 +745,26 @@
     }
    ],
    "positive": [
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Vidéo de Jordan Bardella (1 million de vues)",
+     "source": "@jordanbardella",
+     "url": "https://www.tiktok.com/@jordanbardella/video/7705752793243602209",
+     "tiktok_id": "7705752793243602209",
+     "views": 1071197,
+     "date": "2026-11-08"
+    },
+    {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "Jordan Bardella : «Cette élection présidentielle est la plus importante de la Ve République»",
+     "source": "CNEWS",
+     "url": "https://www.dailymotion.com/video/xbuc16a",
+     "dailymotion_id": "xbuc16a",
+     "views": 13304,
+     "date": "2026-11-06"
+    },
     {
      "type": "video",
      "title": "Jordan Bardella sur TF1 : « Le pouvoir d'achat des Français sera notre priorité absolue ! »",
@@ -537,6 +847,16 @@
    "negative": [
     {
      "type": "video",
+     "platform": "tiktok",
+     "title": "La réponse de Fabien Roussel aux députés PCF qui soutiennent Mélenchon",
+     "source": "@bfmtv",
+     "url": "https://www.tiktok.com/@bfmtv/video/7705559555975023894",
+     "tiktok_id": "7705559555975023894",
+     "views": 96558,
+     "date": "2026-11-07"
+    },
+    {
+     "type": "video",
      "title": "2027 : la majorité des députés communistes lâche Fabien Roussel",
      "source": "franceinfo",
      "url": "https://www.youtube.com/watch?v=3b5Tj4Rk6uI",
@@ -553,6 +873,26 @@
     }
    ],
    "positive": [
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Fabien Roussel : « Nous demandons de porter le Smic à 2 200 euros brut »",
+     "source": "@bfmtv",
+     "url": "https://www.tiktok.com/@bfmtv/video/7705558087855328534",
+     "tiktok_id": "7705558087855328534",
+     "views": 66583,
+     "date": "2026-11-07"
+    },
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "« J'irai chercher Emmanuel Macron, je vais le secouer et l'argent va tomber ! »",
+     "source": "@fabien_roussel",
+     "url": "https://www.tiktok.com/@fabien_roussel/video/7703994034594876704",
+     "tiktok_id": "7703994034594876704",
+     "views": 47929,
+     "date": "2026-11-03"
+    },
     {
      "type": "article",
      "title": "Présidentielle 2027 : Fabien Roussel ira « jusqu’au bout », malgré le ralliement de députés communistes à Mélenchon",
@@ -571,8 +911,29 @@
   },
   "villepin": {
    "volume": 52,
-   "negative": [],
+   "negative": [
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Les Grandes Gueules se moquent de Charles Consigny qui loue Villepin",
+     "source": "@lesgrandesgueulesrmc",
+     "url": "https://www.tiktok.com/@lesgrandesgueulesrmc/video/7703589145720966422",
+     "tiktok_id": "7703589145720966422",
+     "views": 81853,
+     "date": "2026-11-02"
+    }
+   ],
    "positive": [
+    {
+     "type": "video",
+     "platform": "tiktok",
+     "title": "Villepin : « Une IA souveraine, sûre et sobre »",
+     "source": "@dominiquedevillepin",
+     "url": "https://www.tiktok.com/@dominiquedevillepin/video/7705854951116918049",
+     "tiktok_id": "7705854951116918049",
+     "views": 11362,
+     "date": "2026-11-08"
+    },
     {
      "type": "video",
      "title": "Dominique de Villepin : \"Les propos qu’Édouard Philippe tient sont une incitation au racisme\"",
@@ -608,6 +969,47 @@
      "date": "2026-11-05"
     }
    ]
+  },
+  "riner": {
+   "negative": [],
+   "positive": [
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : « Je suis candidat pour dire qu’on peut relever la France », Teddy Riner se lance dans la compétition",
+     "source": "Le Parisien",
+     "url": "https://news.google.com/rss/articles/CBMisgJBVV95cUxNU3hFV0VoUkdKVnRwX2E0M3d4LW1ON2ZuQWFiZmw3SHZOUmlLMlBNbDgwTkFKMkRjcHZLMW9UNUhsemw0M2NQUXpjaktIWEs2NmN2Xzk5YU5sNTR1ZE85MTBaSjhmZl9oRG8wQ1I4NGtNY2xlQXloNExLRlBOTENkMDNUWVVJZVZ4ZjFfX0ptTUYycmo1QkZuUW5YTnNqNTAxb2NxdktyY0tEYTlrUXRxZ0tNaWp0RGJQWFFtcUhPOXlSVzNFcUpGZkZlOVFjS2hYTVprQXdDN0ZGMXB1czZ4akY3cnJyb3dXajNBeG1TQ2F4STdCclVKaXVOS3B0MURKTktaeUNzcmtQYWJVRm1nbzJFNmdTa2cycUJraU9hbkYyYXpRT3ZsX3drM1gtb1o5QlE?oc=5",
+     "date": "2026-11-09"
+    },
+    {
+     "type": "article",
+     "title": "Teddy Riner annonce être candidat à l’élection présidentielle de 2027, poussé par la « colère » sociale et l’envie de « fédérer » les Français",
+     "source": "Le Monde.fr",
+     "url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxQTnU0SHBpVURUWHVLdjhDemxWbHE3emRCTS1DcGU3UWw3cVVNT3l6YkJLTlhGNFItQXlMQkxVc0R5enV0a3ctUEJHUWtpcFpDdHVYTlNONXc4LXJhdE1DQTQzRS10WXZlYlR2dzZ6TzBJRllNSFgwNW44WnE3LUwtZXNnSUdjTWIxNWJZM1FMQ1NsdDNURG05UEZ2RHZFSmhYVG9WZ0lqNVJjSlBWenB6azJ3dnJOV0I0Qmg2UzFITWd0TWw0NWZGWEItVFdYX3BzaTd4WVlhTzk3ZmxIWU9ZcS1na2hmS0F5X3V3cDBteWIxMkVjbnVnSFdWSmdBS2E1UmtUS0dOcnlCZUs1aldaZ1gtX2V1eGw4ODhMYXNhVjFIdEk?oc=5",
+     "date": "2026-11-09"
+    },
+    {
+     "type": "article",
+     "title": "Le judoka Teddy Riner annonce sa candidature à l'élection présidentielle de 2027",
+     "source": "LCP-Assemblée nationale",
+     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPY1d5U0ZNX2ViTVh5dExzUUoydmN6MW1EUXVabVo0TWZCamZnODk5NXFWczhMUXJ2VjR1OFZUQmk0WWFFWHVtQkdkVWpUWmdiX0w0MmFaR0I0alBDQUdMdWFEdEtRRkctYWpBX3hRR3ktMFlxSklzdDBESVJmaDVBU2V2UzlhRFkzY2ZsNzZhVUNlTXB5ZFp0UzJ4STZlV1NLNzlGVDdIeDYtTXhncmY2c1hKQQ?oc=5",
+     "date": "2026-11-09"
+    },
+    {
+     "type": "article",
+     "title": "\"La résignation n'est pas une option\" : Teddy Riner annonce sa candidature à l'élection présidentielle 2027",
+     "source": "franceinfo",
+     "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxOYWY0am9zNVhkN2doRGRCRk9HR2s5ODdJWjZYVmdNaXZrckpCUnZQNDJEcW5WMml1a0Q1Y05SSnRnckltS09kUVktVWJ6dmgwVUpOSElCeDJxU0JBVXJNVkRvdE9DR2RMbTRMY0MxemM5bjZ1V0hnUDBVRUJreFNaTmJzV29KNUdLVTdyeWpOX0dVeFVScUJUZ1NrNFR6T1ZMbDAxRjF2QXA5ME8yYTBxLXlOU2NGcFVGa0JINWJ3VWFIU1dZNE84UldhRTB5czZoRG9nQUtZeFlkaDk0bWZOZEprbTYtTkszODNsblR2YUNoOUZub2FBeFp4NA?oc=5",
+     "date": "2026-11-09"
+    },
+    {
+     "type": "article",
+     "title": "Teddy Riner se porte candidat à l'élection présidentielle de 2027 : «Le combat a toujours fait partie de moi»",
+     "source": "L'Équipe",
+     "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPeUpFRE1RUkY1Q3Q2ZHNVT3VOeExoOXZ6OGUyUF9KaDU4dG51VzRuS2VhalhrZDU2TVJFNVlwS3RKZXNhVlQtaU9JaE9rdF9RcTU4VGREWmVfeWVOTEx6bWVrdEFQb21femtsLVlidHdzQ0UyUWktYkhZUlRvMWxVU3U2MXIteEVBdlZlTGtpaUtQWm11eGVWcnhva2I2Z0RUNFZZMXhXYWo3X2xLZHEzek9GQ2VHX0Q1WXhKQllMUUNPTHlIZTBLM2lORFRfRV9QeHJyamVQeHNDa3IwNXdydW53SlNsT0U?oc=5",
+     "date": "2026-11-09"
+    }
+   ],
+   "volume": 0
   }
  }
 }

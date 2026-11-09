@@ -202,6 +202,24 @@
    }
   },
   {
+   "id": "riner",
+   "name": "Teddy Riner",
+   "short": "Riner",
+   "party": "Sans étiquette",
+   "color": "#14B8A6",
+   "wiki": "Teddy_Riner",
+   "poll_keys": [
+    "Riner"
+   ],
+   "social": {
+    "x": "TeddyRiner",
+    "instagram": "teddyriner",
+    "tiktok": "teddyriner",
+    "youtube": "@TeddyRiner",
+    "facebook": ""
+   }
+  },
+  {
    "id": "villepin",
    "name": "Dominique de Villepin",
    "short": "Villepin",

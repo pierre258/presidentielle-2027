@@ -5,6 +5,10 @@ bad buzz / bon buzz. Écrit data/buzz.json.
 Sources (sans clé) :
   - Google News RSS (articles, passages TV commentés, polémiques)
   - Recherche YouTube « cette semaine » (vidéos intégrables)
+  - Dailymotion (séquences des chaînes et médias : BFMTV, franceinfo, LCI, Le Parisien…)
+Sources avec APIFY_TOKEN (quelques centimes par jour) :
+  - X : publications les plus partagées citant le candidat
+  - TikTok : vidéos de la semaine citant le candidat
 Classement :
   - si ANTHROPIC_API_KEY est défini : Claude classe chaque élément (négatif / positif /
     neutre) et rédige une phrase de contexte ;
@@ -24,7 +28,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36"
-MAIN = ["lepen", "melenchon", "philippe", "glucksmann", "lisnard", "attal", "retailleau",
+MAIN = ["lepen", "melenchon", "philippe", "glucksmann", "lisnard", "attal", "retailleau", "riner",
         "zemmour", "bardella", "tondelier", "roussel", "villepin"]
 
 NEG = ["polémique", "tollé", "bad buzz", "critiqu", "dérapage", "fustig", "recadr", "scandale",
@@ -89,6 +93,64 @@ def youtube(query):
 
     walk(json.loads(m.group(1)))
     return out
+
+
+def dailymotion(name, short, since):
+    """Vidéos Dailymotion de la semaine (API publique, sans clé)."""
+    q = urllib.parse.urlencode({
+        "search": name, "created_after": int(dt.datetime.combine(since, dt.time()).timestamp()),
+        "sort": "visited", "limit": 20, "language": "fr",
+        "fields": "id,title,owner.screenname,views_total,created_time,allow_embed,url"})
+    d = json.loads(get("https://api.dailymotion.com/videos?" + q))
+    out = []
+    for v in d.get("list", []):
+        if not v.get("allow_embed") or short.lower().split("-")[0] not in v["title"].lower():
+            continue
+        out.append({"type": "video", "platform": "dailymotion", "title": v["title"],
+                    "source": v.get("owner.screenname", ""), "url": v.get("url") or f"https://www.dailymotion.com/video/{v['id']}",
+                    "dailymotion_id": v["id"], "views": int(v.get("views_total") or 0),
+                    "date": dt.date.fromtimestamp(v["created_time"]).isoformat()})
+    return out
+
+
+def apify(actor, payload):
+    token = os.environ.get("APIFY_TOKEN")
+    if not token:
+        return []
+    url = f"https://api.apify.com/v2/acts/{actor}/run-sync-get-dataset-items?" + urllib.parse.urlencode({"token": token})
+    req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=300) as r:
+        return json.load(r)
+
+
+def x_posts(name, since):
+    """Publications X les plus partagées de la semaine citant le candidat (Apify)."""
+    items = apify("apidojo~tweet-scraper", {"searchTerms": [f'"{name}" min_faves:300'], "sort": "Top",
+                                             "tweetLanguage": "fr", "start": since.isoformat(), "maxItems": 10})
+    return [x_item(t) for t in items if t.get("id") and t.get("text")]
+
+
+def x_item(t):
+    a = t.get("author") or {}
+    return {"type": "post", "platform": "x", "title": (t.get("text") or "")[:280], "source": "@" + (a.get("userName") or "?"),
+            "url": t.get("url") or t.get("twitterUrl"), "x_id": str(t["id"]),
+            "views": int(t.get("viewCount") or 0), "likes": int(t.get("likeCount") or 0),
+            "date": (t.get("createdAt") and dt.datetime.strptime(t["createdAt"], "%a %b %d %H:%M:%S %z %Y").date().isoformat()) or ""}
+
+
+def tiktok(name):
+    """Vidéos TikTok de la semaine citant le candidat (Apify)."""
+    items = apify("clockworks~tiktok-scraper", {"searchQueries": [name], "searchSection": "/video",
+                                                 "videoSearchDateFilter": "PAST_WEEK", "resultsPerPage": 8})
+    return [tiktok_item(v) for v in items if v.get("id") and v.get("webVideoUrl")]
+
+
+def tiktok_item(v):
+    a = v.get("authorMeta") or {}
+    return {"type": "video", "platform": "tiktok", "title": (v.get("text") or "")[:200] or "Vidéo TikTok",
+            "source": "@" + (a.get("name") or "?"), "url": v["webVideoUrl"], "tiktok_id": str(v["id"]),
+            "views": int(v.get("playCount") or 0), "likes": int(v.get("diggCount") or 0),
+            "date": (v.get("createTimeISO") or "")[:10]}
 
 
 def heuristic(item):
@@ -157,6 +219,13 @@ def main():
             items += vids
         except Exception as e:  # noqa: BLE001
             print("youtube", cid, e)
+        for label, fn in (("dailymotion", lambda: dailymotion(c["name"], c["short"], since)[:10]),
+                          ("x", lambda: x_posts(c["name"], since)),
+                          ("tiktok", lambda: tiktok(c["name"]))):
+            try:
+                items += fn()
+            except Exception as e:  # noqa: BLE001
+                print(label, cid, e)
         raw[cid] = items
         labels = classify_with_claude(c["name"], items) or [heuristic(i) for i in items]
         neg, pos = [], []
@@ -165,14 +234,15 @@ def main():
                 it["context"] = why
             (neg if lab == "negative" else pos if lab == "positive" else []).append(it)
 
-        def rank(lst):  # vidéos les plus vues d'abord, puis articles les plus récents
-            return sorted(lst, key=lambda i: (i["type"] != "video", -i.get("views", 0), i.get("date", "")),
-                          reverse=False)[:6]
+        def rank(lst):  # contenus les plus vus d'abord, puis articles les plus récents
+            return sorted(lst, key=lambda i: (i["type"] == "article", -i.get("views", 0), i.get("date", "")),
+                          reverse=False)[:8]
         result["candidates"][cid] = {"negative": rank(neg), "positive": rank(pos),
                                      "volume": len(items)}
         print(cid, len(items), "éléments →", len(neg), "neg /", len(pos), "pos")
         time.sleep(1)
-    (ROOT / "data/buzz.json").write_text(json.dumps(result, ensure_ascii=False, indent=1))
+    (Path(os.environ["BUZZ_OUT"]) if os.environ.get("BUZZ_OUT") else ROOT / "data/buzz.json").write_text(
+        json.dumps(result, ensure_ascii=False, indent=1))
     if os.environ.get("BUZZ_RAW"):
         Path(os.environ["BUZZ_RAW"]).write_text(json.dumps(raw, ensure_ascii=False, indent=1))
 

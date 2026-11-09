@@ -5,16 +5,55 @@
       "site": "https://rassemblementnational.fr",
       "site_label": "Rassemblement national",
       "details": {
-        "pouvoir_achat": ["TVA ramenée de 20 % à 5,5 % sur les carburants, l'électricité, le gaz et le fioul.", "Exonération de cotisations patronales pour les entreprises qui augmentent les salaires de 10 %.", "Refus d'une hausse du SMIC imposée par la loi, jugée dangereuse pour les petites entreprises."],
-        "fiscalite": ["Baisse des impôts de production pour les PME et les entreprises industrielles.", "Économies attendues sur la fraude sociale, l'immigration et la contribution française au budget européen.", "En 2022 : exonération d'impôt sur le revenu pour les moins de 30 ans (reconduction à confirmer)."],
-        "retraites": ["Abrogation de la réforme de 2023.", "Départ à 60 ans avec 40 annuités pour les carrières commencées avant 20 ans.", "Âge de référence à 62 ans pour les autres, avec 42 annuités."],
-        "immigration": ["Référendum pour réviser la Constitution sur l'immigration.", "Priorité nationale pour l'accès au logement social, à l'emploi et à certaines prestations.", "Fin du regroupement familial automatique et expulsion des étrangers délinquants ou criminels."],
-        "securite": ["Peines planchers et suppression des remises de peine automatiques.", "Présomption de légitime défense pour les forces de l'ordre.", "Construction de places de prison supplémentaires."],
-        "ecologie": ["Relance du nucléaire avec de nouveaux réacteurs.", "Moratoire sur les nouveaux projets éoliens.", "Sortie du marché européen de l'électricité pour retrouver des prix fondés sur les coûts français."],
-        "europe": ["Primauté du droit national sur le droit européen.", "Baisse de la contribution française au budget de l'UE.", "Prudence sur le soutien militaire à l'Ukraine."],
-        "education": ["Uniforme à l'école et rétablissement de l'autorité des enseignants.", "Priorité aux savoirs fondamentaux (français, mathématiques, histoire).", "Revalorisation des salaires des enseignants."],
-        "sante": ["Suppression des agences régionales de santé (ARS).", "Recrutement de soignants et lutte contre les déserts médicaux par des incitations."],
-        "institutions": ["Référendum d'initiative citoyenne.", "Proportionnelle pour les élections législatives.", "Mandat présidentiel unique de 7 ans."]
+        "pouvoir_achat": [
+          "TVA ramenée de 20 % à 5,5 % sur les carburants, l'électricité, le gaz et le fioul.",
+          "Exonération de cotisations patronales pour les entreprises qui augmentent les salaires de 10 %.",
+          "Refus d'une hausse du SMIC imposée par la loi, jugée dangereuse pour les petites entreprises."
+        ],
+        "fiscalite": [
+          "Baisse des impôts de production pour les PME et les entreprises industrielles.",
+          "Économies attendues sur la fraude sociale, l'immigration et la contribution française au budget européen.",
+          "En 2022 : exonération d'impôt sur le revenu pour les moins de 30 ans (reconduction à confirmer)."
+        ],
+        "retraites": [
+          "Abrogation de la réforme de 2023.",
+          "Départ à 60 ans avec 40 annuités pour les carrières commencées avant 20 ans.",
+          "Âge de référence à 62 ans pour les autres, avec 42 annuités."
+        ],
+        "immigration": [
+          "Référendum pour réviser la Constitution sur l'immigration.",
+          "Priorité nationale pour l'accès au logement social, à l'emploi et à certaines prestations.",
+          "Fin du regroupement familial automatique et expulsion des étrangers délinquants ou criminels."
+        ],
+        "securite": [
+          "Peines planchers et suppression des remises de peine automatiques.",
+          "Présomption de légitime défense pour les forces de l'ordre.",
+          "Construction de places de prison supplémentaires."
+        ],
+        "ecologie": [
+          "Relance du nucléaire avec de nouveaux réacteurs.",
+          "Moratoire sur les nouveaux projets éoliens.",
+          "Sortie du marché européen de l'électricité pour retrouver des prix fondés sur les coûts français."
+        ],
+        "europe": [
+          "Primauté du droit national sur le droit européen.",
+          "Baisse de la contribution française au budget de l'UE.",
+          "Prudence sur le soutien militaire à l'Ukraine."
+        ],
+        "education": [
+          "Uniforme à l'école et rétablissement de l'autorité des enseignants.",
+          "Priorité aux savoirs fondamentaux (français, mathématiques, histoire).",
+          "Revalorisation des salaires des enseignants."
+        ],
+        "sante": [
+          "Suppression des agences régionales de santé (ARS).",
+          "Recrutement de soignants et lutte contre les déserts médicaux par des incitations."
+        ],
+        "institutions": [
+          "Référendum d'initiative citoyenne.",
+          "Proportionnelle pour les élections législatives.",
+          "Mandat présidentiel unique de 7 ans."
+        ]
       }
     },
     "melenchon": {
@@ -22,143 +61,387 @@
       "site_label": "La France insoumise — « L'Avenir en commun »",
       "programme_label": "Programme officiel publié le 7 novembre 2026",
       "details": {
-        "pouvoir_achat": ["SMIC porté à 1 700 € net par mois.", "Blocage des prix des produits de première nécessité (alimentation, énergie).", "Indexation des salaires sur l'inflation."],
-        "fiscalite": ["Impôt sur le revenu à 14 tranches, plus progressif.", "Rétablissement de l'ISF avec un volet climatique.", "Taxation des superprofits et des très hauts héritages."],
-        "retraites": ["Retour à la retraite à 60 ans avec 40 annuités.", "Minimum vieillesse porté au niveau du seuil de pauvreté."],
-        "immigration": ["Régularisation des travailleurs sans papiers.", "Accueil digne des réfugiés et lutte contre les causes des migrations."],
-        "securite": ["Police de proximité et refonte de l'inspection de la police (IGPN).", "Priorité à la prévention et aux moyens de la justice."],
-        "ecologie": ["Planification écologique et « règle verte » : ne pas prélever plus que ce que la nature peut reconstituer.", "Objectif 100 % renouvelables et sortie du nucléaire."],
-        "europe": ["Désobéissance aux règles européennes jugées contraires au programme.", "Non-alignement diplomatique et sortie de l'OTAN à terme."],
-        "education": ["Gratuité réelle de l'école (cantine, fournitures, transports).", "Recrutement massif d'enseignants.", "Allocation d'autonomie pour les étudiants."],
-        "sante": ["« 100 % Sécu » : remboursement intégral des soins prescrits.", "Pôle public du médicament.", "Réouverture de services hospitaliers et de lits."],
-        "institutions": ["Assemblée constituante pour une VIe République.", "Référendum d'initiative citoyenne, y compris révocatoire."]
+        "pouvoir_achat": [
+          "SMIC porté à 1 700 € net par mois.",
+          "Blocage des prix des produits de première nécessité (alimentation, énergie).",
+          "Indexation des salaires sur l'inflation."
+        ],
+        "fiscalite": [
+          "Impôt sur le revenu à 14 tranches, plus progressif.",
+          "Rétablissement de l'ISF avec un volet climatique.",
+          "Taxation des superprofits et des très hauts héritages."
+        ],
+        "retraites": [
+          "Retour à la retraite à 60 ans avec 40 annuités.",
+          "Minimum vieillesse porté au niveau du seuil de pauvreté."
+        ],
+        "immigration": [
+          "Régularisation des travailleurs sans papiers.",
+          "Accueil digne des réfugiés et lutte contre les causes des migrations."
+        ],
+        "securite": [
+          "Police de proximité et refonte de l'inspection de la police (IGPN).",
+          "Priorité à la prévention et aux moyens de la justice."
+        ],
+        "ecologie": [
+          "Planification écologique et « règle verte » : ne pas prélever plus que ce que la nature peut reconstituer.",
+          "Objectif 100 % renouvelables et sortie du nucléaire."
+        ],
+        "europe": [
+          "Désobéissance aux règles européennes jugées contraires au programme.",
+          "Non-alignement diplomatique et sortie de l'OTAN à terme."
+        ],
+        "education": [
+          "Gratuité réelle de l'école (cantine, fournitures, transports).",
+          "Recrutement massif d'enseignants.",
+          "Allocation d'autonomie pour les étudiants."
+        ],
+        "sante": [
+          "« 100 % Sécu » : remboursement intégral des soins prescrits.",
+          "Pôle public du médicament.",
+          "Réouverture de services hospitaliers et de lits."
+        ],
+        "institutions": [
+          "Assemblée constituante pour une VIe République.",
+          "Référendum d'initiative citoyenne, y compris révocatoire."
+        ]
       }
     },
     "philippe": {
       "site": "https://horizonsleparti.fr",
       "site_label": "Horizons",
       "details": {
-        "pouvoir_achat": ["Pas de hausse générale du SMIC décrétée.", "Gains de pouvoir d'achat par le travail : temps de travail, baisse des charges."],
-        "fiscalite": ["Rétablissement des comptes publics : « la crise financière a commencé ».", "Baisse de la dépense publique et réforme de l'État, sans hausse générale d'impôts."],
-        "retraites": ["Allongement de la durée de travail.", "Introduction d'une part de retraite par capitalisation."],
-        "immigration": ["Reconnaît « un problème d'intégration » ; contrôle renforcé des flux.", "Propose un débat public à Jean-Luc Mélenchon sur l'immigration."],
-        "securite": ["Refus du blocage des services publics.", "Réponse pénale plus rapide."],
-        "ecologie": ["Mix nucléaire + renouvelables.", "Écologie « des solutions », sans décroissance."],
-        "europe": ["Défense européenne renforcée.", "Soutien à l'Ukraine."],
-        "education": ["Autonomie des établissements.", "Exigence sur les savoirs fondamentaux."],
-        "sante": ["Décentralisation de l'organisation des soins."],
-        "institutions": ["Décentralisation et réforme de l'État.", "Opposé à une primaire de la droite et du centre."]
+        "pouvoir_achat": [
+          "Pas de hausse générale du SMIC décrétée.",
+          "Gains de pouvoir d'achat par le travail : temps de travail, baisse des charges."
+        ],
+        "fiscalite": [
+          "Rétablissement des comptes publics : « la crise financière a commencé ».",
+          "Baisse de la dépense publique et réforme de l'État, sans hausse générale d'impôts."
+        ],
+        "retraites": [
+          "Âge de départ porté progressivement à 65 ans.",
+          "Durée de cotisation portée à 45 ans.",
+          "Maintien d'un dispositif carrières longues (règles non précisées).",
+          "Introduction d'une part de capitalisation."
+        ],
+        "immigration": [
+          "Reconnaît « un problème d'intégration » ; contrôle renforcé des flux.",
+          "Propose un débat public à Jean-Luc Mélenchon sur l'immigration."
+        ],
+        "securite": [
+          "Refus du blocage des services publics.",
+          "Réponse pénale plus rapide."
+        ],
+        "ecologie": [
+          "Mix nucléaire + renouvelables.",
+          "Écologie « des solutions », sans décroissance."
+        ],
+        "europe": [
+          "Défense européenne renforcée.",
+          "Soutien à l'Ukraine."
+        ],
+        "education": [
+          "Autonomie des établissements.",
+          "Exigence sur les savoirs fondamentaux."
+        ],
+        "sante": [
+          "Décentralisation de l'organisation des soins."
+        ],
+        "institutions": [
+          "Décentralisation et réforme de l'État.",
+          "Opposé à une primaire de la droite et du centre."
+        ]
       }
     },
     "glucksmann": {
       "site": "https://place-publique.eu",
       "site_label": "Place publique",
       "details": {
-        "pouvoir_achat": ["Revalorisation négociée des bas salaires.", "Égalité salariale femmes-hommes.", "Effort sur le logement abordable."],
-        "fiscalite": ["Impôt plancher de 2 % sur les patrimoines de plus de 100 M€ (« taxe Zucman »).", "Lutte renforcée contre l'évasion fiscale."],
-        "retraites": ["Revenir sur le report de l'âge légal à 64 ans.", "Meilleure prise en compte de la pénibilité."],
-        "immigration": ["Politique d'asile européenne commune.", "Intégration par le travail et la langue."],
-        "securite": ["Moyens pour la justice et la police de proximité.", "Lutte contre le narcotrafic."],
-        "ecologie": ["Plan d'investissement européen pour le climat.", "Taxe carbone aux frontières de l'UE.", "Rénovation thermique des logements."],
-        "europe": ["Fédéralisme européen assumé et défense commune.", "Soutien militaire à l'Ukraine et fermeté face à la Russie."],
-        "education": ["Revalorisation des enseignants.", "Mixité sociale à l'école."],
-        "sante": ["Lutte contre les déserts médicaux.", "Investissement dans l'hôpital public."],
-        "institutions": ["Dose de proportionnelle.", "Renforcement du Parlement."]
+        "pouvoir_achat": [
+          "Revalorisation négociée des bas salaires.",
+          "Égalité salariale femmes-hommes.",
+          "Effort sur le logement abordable."
+        ],
+        "fiscalite": [
+          "Impôt plancher de 2 % sur les patrimoines de plus de 100 M€ (« taxe Zucman »).",
+          "Lutte renforcée contre l'évasion fiscale."
+        ],
+        "retraites": [
+          "Revenir sur le report de l'âge légal à 64 ans.",
+          "Meilleure prise en compte de la pénibilité."
+        ],
+        "immigration": [
+          "Politique d'asile européenne commune.",
+          "Intégration par le travail et la langue."
+        ],
+        "securite": [
+          "Moyens pour la justice et la police de proximité.",
+          "Lutte contre le narcotrafic."
+        ],
+        "ecologie": [
+          "Plan d'investissement européen pour le climat.",
+          "Taxe carbone aux frontières de l'UE.",
+          "Rénovation thermique des logements."
+        ],
+        "europe": [
+          "Fédéralisme européen assumé et défense commune.",
+          "Soutien militaire à l'Ukraine et fermeté face à la Russie."
+        ],
+        "education": [
+          "Revalorisation des enseignants.",
+          "Mixité sociale à l'école."
+        ],
+        "sante": [
+          "Lutte contre les déserts médicaux.",
+          "Investissement dans l'hôpital public."
+        ],
+        "institutions": [
+          "Dose de proportionnelle.",
+          "Renforcement du Parlement."
+        ]
       }
     },
     "lisnard": {
       "site": "https://www.nouvelle-energie.fr",
       "site_label": "Nouvelle Énergie",
       "details": {
-        "pouvoir_achat": ["Transfert de cotisations sociales vers le salaire net : jusqu'à 400 € de plus par mois pour 2 200 € net.", "Valorisation du travail par rapport à l'assistance."],
-        "fiscalite": ["Baisse forte de la dépense publique et suppression d'agences.", "Baisse des prélèvements obligatoires."],
-        "retraites": ["Recul de l'âge de départ.", "Introduction de la capitalisation."],
-        "immigration": ["Maîtrise stricte des flux migratoires.", "Prestations sociales soumises à conditions."],
-        "securite": ["Pouvoirs de police accrus pour les maires.", "Exécution effective des peines."],
-        "ecologie": ["Nucléaire et innovation technologique.", "Rejet de l'« écologie punitive »."],
-        "europe": ["Europe du marché et de la subsidiarité.", "Allègement des normes européennes."],
-        "education": ["« Réinventer l'école » : liberté pédagogique.", "Autonomie des chefs d'établissement.", "Chèque éducation évoqué."],
-        "sante": ["Simplification administrative de l'hôpital."],
-        "institutions": ["Décentralisation radicale.", "Favorable à une primaire de la droite et du centre."]
+        "pouvoir_achat": [
+          "Transfert de cotisations sociales vers le salaire net : jusqu'à 400 € de plus par mois pour 2 200 € net.",
+          "Valorisation du travail par rapport à l'assistance."
+        ],
+        "fiscalite": [
+          "Baisse forte de la dépense publique et suppression d'agences.",
+          "Baisse des prélèvements obligatoires."
+        ],
+        "retraites": [
+          "Recul de l'âge de départ.",
+          "Introduction de la capitalisation."
+        ],
+        "immigration": [
+          "Maîtrise stricte des flux migratoires.",
+          "Prestations sociales soumises à conditions."
+        ],
+        "securite": [
+          "Pouvoirs de police accrus pour les maires.",
+          "Exécution effective des peines."
+        ],
+        "ecologie": [
+          "Nucléaire et innovation technologique.",
+          "Rejet de l'« écologie punitive »."
+        ],
+        "europe": [
+          "Europe du marché et de la subsidiarité.",
+          "Allègement des normes européennes."
+        ],
+        "education": [
+          "« Réinventer l'école » : liberté pédagogique.",
+          "Autonomie des chefs d'établissement.",
+          "Chèque éducation évoqué."
+        ],
+        "sante": [
+          "Simplification administrative de l'hôpital."
+        ],
+        "institutions": [
+          "Décentralisation radicale.",
+          "Favorable à une primaire de la droite et du centre."
+        ]
       }
     },
     "attal": {
       "site": "https://parti-renaissance.fr",
       "site_label": "Renaissance",
       "details": {
-        "pouvoir_achat": ["Baisse des cotisations sur les salaires moyens.", "Son camp juge le SMIC à 1 700 € net irréaliste."],
-        "fiscalite": ["Stabilité fiscale et maîtrise de la dépense."],
-        "retraites": ["Maintien de la réforme de 2023.", "Ouverture vers un système à points."],
-        "immigration": ["Application de la loi immigration et accélération des expulsions."],
-        "securite": ["Justice des mineurs plus rapide.", "Comparution immédiate élargie."],
-        "ecologie": ["Nucléaire et renouvelables : planification écologique « à la française »."],
-        "europe": ["Autonomie stratégique européenne et soutien à l'Ukraine."],
-        "education": ["Groupes de niveau au collège.", "Expérimentation de l'uniforme.", "Interdiction des téléphones à l'école."],
-        "sante": ["Lutte contre les déserts médicaux et réforme de la formation des médecins."],
-        "institutions": ["Primaire pour désigner un candidat unique du centre et de la droite."]
+        "pouvoir_achat": [
+          "Baisse des cotisations sur les salaires moyens.",
+          "Son camp juge le SMIC à 1 700 € net irréaliste."
+        ],
+        "fiscalite": [
+          "Stabilité fiscale et maîtrise de la dépense."
+        ],
+        "retraites": [
+          "Maintien de la réforme de 2023.",
+          "Ouverture vers un système à points."
+        ],
+        "immigration": [
+          "Application de la loi immigration et accélération des expulsions."
+        ],
+        "securite": [
+          "Justice des mineurs plus rapide.",
+          "Comparution immédiate élargie."
+        ],
+        "ecologie": [
+          "Nucléaire et renouvelables : planification écologique « à la française »."
+        ],
+        "europe": [
+          "Autonomie stratégique européenne et soutien à l'Ukraine."
+        ],
+        "education": [
+          "Groupes de niveau au collège.",
+          "Expérimentation de l'uniforme.",
+          "Interdiction des téléphones à l'école."
+        ],
+        "sante": [
+          "Lutte contre les déserts médicaux et réforme de la formation des médecins."
+        ],
+        "institutions": [
+          "Primaire pour désigner un candidat unique du centre et de la droite."
+        ]
       }
     },
     "retailleau": {
       "site": "https://republicains.fr",
       "site_label": "Les Républicains",
       "details": {
-        "pouvoir_achat": ["Semaine de 37 h 30 : 30 minutes de plus par jour pour financer un 13e, voire un 14e mois.", "Pas de hausse du SMIC.", "Plafonnement du cumul des aides sociales."],
-        "fiscalite": ["Baisse de la dépense publique.", "Allègement des charges sur le travail."],
-        "retraites": ["Retraite à 65 ans à terme.", "Convergence des régimes public et privé."],
-        "immigration": ["Référendum sur l'immigration.", "Réduction drastique des titres de séjour.", "Remplacement de l'AME par une aide d'urgence."],
-        "securite": ["Création d'un « délit de pillage ».", "Peines minimales.", "A proposé de dissoudre La France insoumise."],
-        "ecologie": ["Nucléaire.", "Opposition aux zones à faibles émissions (ZFE) et à l'objectif zéro artificialisation nette (ZAN)."],
-        "europe": ["Europe des coopérations.", "Primauté du droit national sur l'immigration."],
-        "education": ["Autorité et examens exigeants.", "Transmission des savoirs."],
-        "sante": ["Simplification et lutte contre la fraude sociale."],
-        "institutions": ["Élargir le champ du référendum.", "Primaire souhaitée en début d'année ; exclut Bardella à Matignon."]
+        "pouvoir_achat": [
+          "Semaine de 37 h 30 : 30 minutes de plus par jour pour financer un 13e, voire un 14e mois.",
+          "Pas de hausse du SMIC.",
+          "Plafonnement du cumul des aides sociales."
+        ],
+        "fiscalite": [
+          "Baisse de la dépense publique.",
+          "Allègement des charges sur le travail."
+        ],
+        "retraites": [
+          "Retraite à 65 ans à terme.",
+          "Convergence des régimes public et privé."
+        ],
+        "immigration": [
+          "Référendum sur l'immigration.",
+          "Réduction drastique des titres de séjour.",
+          "Remplacement de l'AME par une aide d'urgence."
+        ],
+        "securite": [
+          "Création d'un « délit de pillage ».",
+          "Peines minimales.",
+          "A proposé de dissoudre La France insoumise."
+        ],
+        "ecologie": [
+          "Nucléaire.",
+          "Opposition aux zones à faibles émissions (ZFE) et à l'objectif zéro artificialisation nette (ZAN)."
+        ],
+        "europe": [
+          "Europe des coopérations.",
+          "Primauté du droit national sur l'immigration."
+        ],
+        "education": [
+          "Autorité et examens exigeants.",
+          "Transmission des savoirs."
+        ],
+        "sante": [
+          "Simplification et lutte contre la fraude sociale."
+        ],
+        "institutions": [
+          "Élargir le champ du référendum.",
+          "Primaire souhaitée en début d'année ; exclut Bardella à Matignon."
+        ]
       }
     },
     "zemmour": {
       "site": "https://www.parti-reconquete.fr",
       "site_label": "Reconquête",
       "details": {
-        "pouvoir_achat": ["« Prime zéro charge » versée par l'employeur.", "Allocations familiales réservées aux Français."],
-        "fiscalite": ["Suppression des impôts de production.", "Suppression des droits de succession pour la classe moyenne."],
-        "retraites": ["Retraite à 64 ans, avec des aménagements pour les carrières longues et les mères de famille."],
-        "immigration": ["Ministère de la « remigration ».", "Fin du droit du sol et du regroupement familial."],
-        "securite": ["Expulsion des délinquants étrangers.", "Peines planchers et légitime défense élargie."],
-        "ecologie": ["Nucléaire ; opposition à l'éolien."],
-        "europe": ["Primauté du droit national et « Europe des nations »."],
-        "education": ["Retour aux fondamentaux et à l'histoire nationale."],
-        "sante": ["Recrutement de soignants et suppression d'échelons administratifs."],
-        "institutions": ["Référendums sur l'immigration et les institutions."]
+        "pouvoir_achat": [
+          "« Prime zéro charge » versée par l'employeur.",
+          "Allocations familiales réservées aux Français."
+        ],
+        "fiscalite": [
+          "Suppression des impôts de production.",
+          "Suppression des droits de succession pour la classe moyenne."
+        ],
+        "retraites": [
+          "Retraite à 64 ans, avec des aménagements pour les carrières longues et les mères de famille."
+        ],
+        "immigration": [
+          "Ministère de la « remigration ».",
+          "Fin du droit du sol et du regroupement familial."
+        ],
+        "securite": [
+          "Expulsion des délinquants étrangers.",
+          "Peines planchers et légitime défense élargie."
+        ],
+        "ecologie": [
+          "Nucléaire ; opposition à l'éolien."
+        ],
+        "europe": [
+          "Primauté du droit national et « Europe des nations »."
+        ],
+        "education": [
+          "Retour aux fondamentaux et à l'histoire nationale."
+        ],
+        "sante": [
+          "Recrutement de soignants et suppression d'échelons administratifs."
+        ],
+        "institutions": [
+          "Référendums sur l'immigration et les institutions."
+        ]
       }
     },
     "tondelier": {
       "site": "https://lesecologistes.fr",
       "site_label": "Les Écologistes",
       "details": {
-        "pouvoir_achat": ["Indexation du point d'indice des fonctionnaires sur l'inflation.", "Revalorisation des bas salaires et chèque énergie renforcé."],
-        "fiscalite": ["ISF climatique.", "Taxation des superprofits et des très hauts patrimoines."],
-        "retraites": ["Abrogation du passage à 64 ans."],
-        "ecologie": ["Sortie progressive du nucléaire et objectif 100 % renouvelables.", "Fin des subventions aux énergies fossiles."],
-        "europe": ["Europe fédérale et verte, défense européenne."],
-        "institutions": ["Proportionnelle et référendum d'initiative citoyenne.", "Union de la gauche : « personne ne gagnera seul »."]
+        "pouvoir_achat": [
+          "Indexation du point d'indice des fonctionnaires sur l'inflation.",
+          "Revalorisation des bas salaires et chèque énergie renforcé."
+        ],
+        "fiscalite": [
+          "ISF climatique.",
+          "Taxation des superprofits et des très hauts patrimoines."
+        ],
+        "retraites": [
+          "Abrogation du passage à 64 ans."
+        ],
+        "ecologie": [
+          "Sortie progressive du nucléaire et objectif 100 % renouvelables.",
+          "Fin des subventions aux énergies fossiles."
+        ],
+        "europe": [
+          "Europe fédérale et verte, défense européenne."
+        ],
+        "institutions": [
+          "Proportionnelle et référendum d'initiative citoyenne.",
+          "Union de la gauche : « personne ne gagnera seul »."
+        ]
       }
     },
     "roussel": {
       "site": "https://www.pcf.fr",
       "site_label": "Parti communiste français",
       "details": {
-        "pouvoir_achat": ["Hausse générale des salaires et du SMIC.", "Baisse des prix de l'énergie."],
-        "retraites": ["Retour de la retraite à 60 ans."],
-        "ecologie": ["Mix nucléaire + renouvelables et pôle public de l'énergie."]
+        "pouvoir_achat": [
+          "Hausse générale des salaires et du SMIC.",
+          "Baisse des prix de l'énergie."
+        ],
+        "retraites": [
+          "Retour de la retraite à 60 ans."
+        ],
+        "ecologie": [
+          "Mix nucléaire + renouvelables et pôle public de l'énergie."
+        ]
       }
     },
     "villepin": {
       "site_label": "La France humaniste",
       "details": {
-        "pouvoir_achat": ["Prime de 1 500 € par an pour chaque salarié, prélevée sur les dividendes.", "Juge « illusoire » le SMIC à 1 700 € net."],
-        "europe": ["Diplomatie d'indépendance, multilatéralisme, voix de la France au Proche-Orient."]
+        "pouvoir_achat": [
+          "Prime de 1 500 € par an pour chaque salarié, prélevée sur les dividendes.",
+          "Juge « illusoire » le SMIC à 1 700 € net."
+        ],
+        "europe": [
+          "Diplomatie d'indépendance, multilatéralisme, voix de la France au Proche-Orient."
+        ]
       }
     },
-    "dupontaignan": {"site": "https://www.debout-la-france.fr", "site_label": "Debout la France", "details": {}},
-    "arthaud": {"site": "https://www.lutte-ouvriere.org", "site_label": "Lutte ouvrière", "details": {}}
+    "dupontaignan": {
+      "site": "https://www.debout-la-france.fr",
+      "site_label": "Debout la France",
+      "details": {}
+    },
+    "arthaud": {
+      "site": "https://www.lutte-ouvriere.org",
+      "site_label": "Lutte ouvrière",
+      "details": {}
+    }
   }
 }

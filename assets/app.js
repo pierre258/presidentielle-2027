@@ -474,39 +474,69 @@
   })();
 
   /* ---------------- 3. Buzz ---------------- */
+  // Plateformes : article, YouTube, Dailymotion, TikTok, X
+  const PLAT = {
+    article: ["📰 Article", "#9aa4b2"], youtube: ["▶ YouTube", "#ff0033"], dailymotion: ["▶ Dailymotion", "#0d65f2"],
+    tiktok: ["♪ TikTok", "#25d8e8"], x: ["𝕏 Post X", "#e7e9ea"],
+  };
+  const platformOf = (it) => it.platform || (it.youtube_id ? "youtube" : it.type === "video" ? "youtube" : "article");
+  const KINDS = { "": "Toutes les sources", article: "Articles", video: "Vidéos TV & web", social: "Réseaux sociaux" };
+  const kindOf = (it) => { const p = platformOf(it); return p === "article" ? "article" : p === "tiktok" || p === "x" ? "social" : "video"; };
   function initBuzz() {
     const ids = Object.keys(BUZZ.candidates).filter((id) => C[id]);
-    $("#buzz-meta").textContent = `Du ${fmtDate(BUZZ.since, { day: "numeric", month: "long" })} à aujourd'hui · articles, passages TV et vidéos les plus vus · classement : ${BUZZ.classifier}`;
+    const st = { id: "", kind: "" };
+    $("#buzz-meta").textContent = `Du ${fmtDate(BUZZ.since, { day: "numeric", month: "long" })} à aujourd'hui · articles de presse, séquences TV (YouTube, Dailymotion), TikTok et X · ${BUZZ.classifier}`;
     $("#buzz-filter").innerHTML = `<button class="chip all on" data-id="">Tous</button>` + ids.map((id) => `<button class="chip" data-id="${id}">${avatar(id, 26)}${esc(C[id].short)}</button>`).join("");
-    const card = (it, id, tone) => {
-      const video = it.youtube_id
-        ? `<button class="yt" data-yt="${esc(it.youtube_id)}" aria-label="Lire la vidéo"><img src="https://i.ytimg.com/vi/${esc(it.youtube_id)}/hqdefault.jpg" alt="" loading="lazy"></button>` : "";
-      const when = it.date ? fmtDate(it.date, { day: "numeric", month: "short" }) : it.published || "";
-      const meta = [it.type === "video" ? "▶ Vidéo" : "📰 Article", esc(it.source), when, it.views ? fmtN(it.views) + " vues" : ""].filter(Boolean).join(" · ");
-      return `<article class="bcard" style="--edge:${tone === "neg" ? "var(--neg)" : "var(--pos)"}">
-        <div class="bhead">${avatar(id, 22)}<strong style="color:var(--text)">${esc(C[id].short)}</strong> · ${meta}</div>
-        <a class="btitle" href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a>
-        ${it.context ? `<div class="bctx">${esc(it.context)}</div>` : ""}${video}</article>`;
+    $("#buzz-kind").innerHTML = Object.entries(KINDS).map(([k, v]) => `<button data-k="${k}" class="${k === "" ? "on" : ""}">${v}</button>`).join("");
+    const media = (it) => {
+      const pf = platformOf(it);
+      if (pf === "youtube" && it.youtube_id)
+        return `<button class="yt" data-src="https://www.youtube-nocookie.com/embed/${esc(it.youtube_id)}?autoplay=1" aria-label="Lire la vidéo YouTube"><img src="https://i.ytimg.com/vi/${esc(it.youtube_id)}/hqdefault.jpg" alt="" loading="lazy"></button>`;
+      if (pf === "dailymotion" && it.dailymotion_id)
+        return `<button class="yt" data-src="https://geo.dailymotion.com/player.html?video=${esc(it.dailymotion_id)}&autoplay=1" aria-label="Lire la vidéo Dailymotion"><img src="https://www.dailymotion.com/thumbnail/video/${esc(it.dailymotion_id)}" alt="" loading="lazy"></button>`;
+      if (pf === "tiktok" && it.tiktok_id)
+        return `<button class="yt tall" data-src="https://www.tiktok.com/embed/v2/${esc(it.tiktok_id)}" aria-label="Lire la vidéo TikTok"><span class="tt-ph">♪ Lire la vidéo TikTok</span></button>`;
+      if (pf === "x" && it.x_id)
+        return `<button class="xload" data-src="https://platform.twitter.com/embed/Tweet.html?id=${esc(it.x_id)}&lang=fr&theme=dark&dnt=true">Afficher le post</button>`;
+      return "";
     };
-    const render = (sel) => {
-      const list = sel ? [sel] : ids;
-      const pick = (k) => list.flatMap((id) => (BUZZ.candidates[id][k] || []).slice(0, sel ? 10 : 2).map((it) => [it, id]))
+    const card = (it, id, tone) => {
+      const pf = platformOf(it), [plab, pcol] = PLAT[pf] || PLAT.article;
+      const when = it.date ? fmtDate(it.date, { day: "numeric", month: "short" }) : it.published || "";
+      const meta = [esc(it.source), when, it.views ? fmtN(it.views) + " vues" : it.likes ? fmtN(it.likes) + " j'aime" : ""].filter(Boolean).join(" · ");
+      const title = pf === "x" ? `<blockquote class="xtext">${esc(it.title)}</blockquote>` : esc(it.title);
+      return `<article class="bcard" style="--edge:${tone === "neg" ? "var(--neg)" : "var(--pos)"}">
+        <div class="bhead">${avatar(id, 22)}<strong style="color:var(--text)">${esc(C[id].short)}</strong><span class="plat-tag" style="--pc:${pcol}">${plab}</span>${meta}</div>
+        <a class="btitle" href="${esc(it.url)}" target="_blank" rel="noopener">${title}</a>
+        ${it.context ? `<div class="bctx">${esc(it.context)}</div>` : ""}${media(it)}</article>`;
+    };
+    const render = () => {
+      const list = st.id ? [st.id] : ids;
+      const pick = (k) => list.flatMap((id) => (BUZZ.candidates[id][k] || []).filter((it) => !st.kind || kindOf(it) === st.kind)
+        .slice(0, st.id ? 12 : st.kind ? 3 : 2).map((it) => [it, id]))
         .sort((a, b) => (b[0].views || 0) - (a[0].views || 0));
       const neg = pick("negative"), pos = pick("positive");
-      $("#buzz-neg").innerHTML = neg.map(([it, id]) => card(it, id, "neg")).join("") || `<div class="empty">Aucun bad buzz détecté sur la période.</div>`;
-      $("#buzz-pos").innerHTML = pos.map(([it, id]) => card(it, id, "pos")).join("") || `<div class="empty">Aucune séquence favorable détectée sur la période.</div>`;
+      $("#buzz-neg").innerHTML = neg.map(([it, id]) => card(it, id, "neg")).join("") || `<div class="empty">Aucun bad buzz détecté pour ce filtre.</div>`;
+      $("#buzz-pos").innerHTML = pos.map(([it, id]) => card(it, id, "pos")).join("") || `<div class="empty">Aucune séquence favorable détectée pour ce filtre.</div>`;
     };
     $("#buzz-filter").addEventListener("click", (e) => {
       const b = e.target.closest(".chip"); if (!b) return;
       $$("#buzz-filter .chip").forEach((x) => x.classList.toggle("on", x === b));
-      render(b.dataset.id);
+      st.id = b.dataset.id; render();
     });
+    $("#buzz-kind").addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      $$("#buzz-kind button").forEach((x) => x.classList.toggle("on", x === b));
+      st.kind = b.dataset.k; render();
+    });
+    // lecteurs chargés seulement au clic (page légère, pas de traceurs avant interaction)
     document.addEventListener("click", (e) => {
-      const y = e.target.closest(".yt:not(.loaded)"); if (!y) return;
-      y.classList.add("loaded");
-      y.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${y.dataset.yt}?autoplay=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Vidéo YouTube"></iframe>`;
+      const y = e.target.closest(".yt:not(.loaded), .xload"); if (!y) return;
+      const frame = `<iframe src="${y.dataset.src}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy" title="Contenu intégré"></iframe>`;
+      if (y.classList.contains("xload")) { y.outerHTML = `<div class="xframe">${frame}</div>`; return; }
+      y.classList.add("loaded"); y.innerHTML = frame;
     });
-    render("");
+    render();
   }
 
   /* ---------------- 4. Programmes ---------------- */
@@ -596,7 +626,8 @@
 
   /* ---------------- Chargement ---------------- */
   async function main() {
-    const get = (f) => fetch(`data/${f}.json?v=${Math.floor(Date.now() / 36e5)}`).then((r) => { if (!r.ok) throw new Error(f); return r.json(); });
+    // no-cache : le navigateur revalide à chaque visite (données mises à jour plusieurs fois par jour)
+    const get = (f) => fetch(`data/${f}.json`, { cache: "no-cache" }).then((r) => { if (!r.ok) throw new Error(f); return r.json(); });
     try {
       const [cands, photos, polls, social, buzz, prog, pdet, sim, hist] = await Promise.all(["candidates", "photos", "polls", "social", "buzz", "programmes", "programmes_details", "simulateur", "historique"].map(get));
       cands.candidates.forEach((c) => (C[c.id] = { ...c, photo: photos[c.id]?.url }));
