@@ -322,10 +322,75 @@
       <h3>Candidats les plus proches de vos réponses</h3>${proxHTML(res.prox)}
       <p class="muted small">Proximité = écart moyen entre vos réponses et notre lecture des positions publiques de chaque candidat. Indicatif : ce n'est pas une consigne de vote.</p>`;
   }
-  function renderQuiz() { $("#quiz").innerHTML = quizHTML(""); }
+  /* Portrait du simulateur : une affirmation par écran (précédent / suivant) */
+  const QZ = { i: 0, ans: {} };
+  function renderQuiz() {
+    const qs = S.quiz, n = qs.length, box = $("#quiz");
+    const done = qs.filter((q) => QZ.ans[q.id] !== undefined).length;
+    const dots = `<div class="st-prog"><i style="width:${(Math.min(QZ.i, n) / n) * 100}%"></i></div>
+      <div class="st-dots">${qs.map((q, k) => `<button type="button" class="st-dot ${k === QZ.i ? "cur" : ""} ${QZ.ans[q.id] !== undefined ? "done" : ""}" data-go="${k}" aria-label="Question ${k + 1}"></button>`).join("")}</div>`;
+    if (QZ.i < n) {
+      const q = qs[QZ.i], cur = QZ.ans[q.id];
+      box.innerHTML = `${dots}<div class="st-card"><div class="st-num">Question ${QZ.i + 1} / ${n}</div><p class="st-q">${A.esc(q.q)}</p>
+        <div class="st-choices">${CHOICES.map(([v, l]) => `<button type="button" class="st-ch ${String(cur) === v ? "on" : ""}" data-v="${v}">${l === "Plutôt" ? "Plutôt d'accord" : l === "Plutôt pas" ? "Plutôt pas d'accord" : l === "Pas du tout" ? "Pas du tout d'accord" : l === "Tout à fait" ? "Tout à fait d'accord" : l}</button>`).join("")}</div></div>
+        <div class="st-nav"><button type="button" class="ghost" id="qz-prev" ${QZ.i === 0 ? "disabled" : ""}>← Précédent</button>
+          <span class="muted small">${done} réponse${done > 1 ? "s" : ""} sur ${n}</span>
+          <button type="button" class="cta small" id="qz-next">${QZ.i === n - 1 ? "Voir mon portrait →" : cur === undefined ? "Passer →" : "Suivant →"}</button></div>`;
+    } else {
+      box.innerHTML = `${dots}<div class="st-nav"><button type="button" class="ghost" id="qz-prev">← Modifier mes réponses</button><span></span>
+        <button type="button" class="ghost" id="qz-restart">Recommencer</button></div>`;
+    }
+    $$("[data-go]", box).forEach((d) => (d.onclick = () => { QZ.i = +d.dataset.go; renderQuiz(); }));
+    $("#qz-prev").onclick = () => { QZ.i = Math.max(0, Math.min(QZ.i, n) - 1); $("#quiz-out").innerHTML = ""; renderQuiz(); };
+    const next = $("#qz-next");
+    if (next) next.onclick = () => { QZ.i++; QZ.i >= n ? portrait() : renderQuiz(); };
+    const rs = $("#qz-restart");
+    if (rs) rs.onclick = () => { QZ.i = 0; QZ.ans = {}; $("#quiz-out").innerHTML = ""; renderQuiz(); };
+    $$(".st-ch", box).forEach((c) => (c.onclick = () => {
+      QZ.ans[qs[QZ.i].id] = +c.dataset.v;
+      $$(".st-ch", box).forEach((x) => x.classList.toggle("on", x === c));
+      setTimeout(() => { QZ.i++; QZ.i >= n ? portrait() : renderQuiz(); }, 220);
+    }));
+  }
   function portrait() {
-    $("#quiz-out").innerHTML = portraitHTML(compute(readAnswers("")));
+    QZ.i = S.quiz.length;
+    renderQuiz();
+    const ans = {};
+    S.quiz.forEach((q) => (ans[q.id] = QZ.ans[q.id] ?? 0));
+    $("#quiz-out").innerHTML = portraitHTML(compute(ans));
     $("#quiz-out").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  /* Formulaires en étapes : un bloc (fieldset) par écran */
+  function wizard(form) {
+    const steps = $$("fieldset", form), submit = $("button[type=submit]", form);
+    if (steps.length < 2) return;
+    let i = 0;
+    const bar = document.createElement("div");
+    bar.className = "wz-head";
+    form.prepend(bar);
+    const nav = document.createElement("div");
+    nav.className = "st-nav wz-nav";
+    nav.innerHTML = `<button type="button" class="ghost wz-prev">← Précédent</button><span class="muted small wz-count"></span><button type="button" class="cta small wz-next">Suivant →</button>`;
+    submit.before(nav);
+    nav.append(submit);
+    const show = () => {
+      steps.forEach((f, k) => (f.hidden = k !== i));
+      bar.innerHTML = `<div class="st-prog"><i style="width:${((i + 1) / steps.length) * 100}%"></i></div>
+        <div class="wz-steps">${steps.map((f, k) => `<button type="button" class="wz-step ${k === i ? "cur" : k < i ? "done" : ""}" data-k="${k}"><b>${k + 1}</b><span>${A.esc(f.querySelector("legend")?.textContent || "")}</span></button>`).join("")}</div>`;
+      $(".wz-prev", nav).disabled = i === 0;
+      $(".wz-next", nav).hidden = i === steps.length - 1;
+      submit.hidden = i !== steps.length - 1;
+      $(".wz-count", nav).textContent = `Étape ${i + 1} / ${steps.length}`;
+      $$(".wz-step", bar).forEach((b) => (b.onclick = () => { if (+b.dataset.k <= i || valid()) { i = +b.dataset.k; show(); } }));
+    };
+    const valid = () => [...steps[i].querySelectorAll("input, select")].every((el) => el.reportValidity());
+    $(".wz-prev", nav).onclick = () => { if (i > 0) { i--; show(); } };
+    $(".wz-next", nav).onclick = () => { if (valid() && i < steps.length - 1) { i++; show(); bar.scrollIntoView({ behavior: "smooth", block: "nearest" }); } };
+    form.addEventListener("keydown", (e) => {   // Entrée = étape suivante tant qu'on n'est pas à la fin
+      if (e.key === "Enter" && e.target.tagName === "INPUT" && i < steps.length - 1) { e.preventDefault(); $(".wz-next", nav).click(); }
+    });
+    show();
   }
 
   /* ------------ Initialisation ------------ */
@@ -340,7 +405,9 @@
     $("#sim-ent").addEventListener("submit", (e) => { e.preventDefault(); simEntreprise(); });
     $("#siret-btn").addEventListener("click", lookupSiret);
     renderQuiz();
-    $("#quiz-btn").addEventListener("click", portrait);
+    $("#quiz-btn").hidden = true; // remplacé par la navigation question par question
+    wizard($("#sim-part"));
+    wizard($("#sim-ent"));
   }
   window.Simulateur = {
     init,

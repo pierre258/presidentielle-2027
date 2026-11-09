@@ -441,3 +441,17 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .mail-ico { font-size: 52px; }
 .mailbox h3 { margin-top: 6px; }
 .mail-actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+
+/* --- Formulaires en étapes (simulateur) --- */
+.wz-head { margin-bottom: 4px; }
+.wz-steps { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.wz-step { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: rgba(255,255,255,.04); border-radius: 999px; padding: 5px 14px 5px 5px; font-size: 13px; color: var(--muted); }
+.wz-step b { width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,.1); color: var(--text); font-size: 12px; }
+.wz-step.cur { color: var(--text); border-color: #fff; }
+.wz-step.cur b { background: var(--accent); }
+.wz-step.done b { background: rgba(61,220,151,.5); }
+.sim-form fieldset { padding: 22px; gap: 16px 20px; }
+.wz-nav { max-width: none; }
+.wz-nav .cta { margin: 0; }
+#pane-quiz #quiz { max-width: 760px; }
+@media (max-width: 760px) { .wz-step span { display: none; } .wz-step { padding: 5px; } }

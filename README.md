@@ -44,3 +44,6 @@ Le workflow tourne à 5 h, 11 h, 17 h et 22 h UTC (réseaux sociaux une fois par
   candidats n'ont pas de compte sur toutes les plateformes).
 - **Programmes** : synthèse indicative, à relire et mettre à jour à mesure que les programmes
   officiels sont publiés.
+
+## Nom de domaine
+Guide pas à pas pour publier le site sur `moyennedessondages2027.fr` : [docs/MISE-EN-LIGNE-DOMAINE.md](docs/MISE-EN-LIGNE-DOMAINE.md).
