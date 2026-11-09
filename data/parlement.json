@@ -1,0 +1,577 @@
+{
+ "updated": "2026-11-09",
+ "methode": "Les votes nominatifs proviennent des sites officiels : scrutins publics de l'Assemblée nationale (assemblee-nationale.fr) et du Sénat (senat.fr), interrogés via la base Pappers Politique puis vérifiés sur les pages officielles ; pour le Parlement européen, données de HowTheyVote.eu, issues des procès-verbaux officiels de vote par appel nominal du Parlement européen. Statistiques : pour les députés, taux de participation aux votes solennels et taux de vote conforme à la majorité du groupe publiés par Datan.fr (17e législature) ; pour les eurodéputés, calcul sur les 715 votes principaux (votes finaux) recensés par HowTheyVote.eu entre le 17 juillet 2024 et le 22 octobre 2026 (participation = votes exprimés pour, contre ou abstention ; loyauté = part des votes identiques à la position majoritaire du groupe). Au Sénat, les votes sont généralement exprimés par groupe : aucun taux de participation individuel n'est donc calculé. Les promesses sont résumées à partir des programmes et déclarations publiques recensés sur ce site ; « absent » signifie que l'élu ne figure pas dans la liste des votants du scrutin. Un verdict « nuance » signale qu'un vote ne recouvre que partiellement l'engagement ou qu'il peut s'expliquer par d'autres éléments du texte. Ces comparaisons sont indicatives et ne résument pas l'ensemble de l'activité parlementaire.",
+ "candidates": {
+  "lepen": {
+   "mandat": "Députée du Pas-de-Calais (11e circonscription)",
+   "assemblee": "an",
+   "depuis": "2017-06",
+   "stats": {
+    "periode": "17e législature (depuis juillet 2024) – votes solennels",
+    "scrutins": null,
+    "participation_pct": 96,
+    "pour": null,
+    "contre": null,
+    "abstention": null,
+    "loyaute_groupe_pct": 100
+   },
+   "source_stats": {
+    "label": "Datan – fiche de Marine Le Pen (participation aux votes solennels, proximité avec le groupe RN)",
+    "url": "https://datan.fr/deputes/pas-de-calais-62/depute_marine-lepen"
+   },
+   "comparaisons": [
+    {
+     "theme": "Retraites",
+     "promesse": "Abroger la réforme de 2023 ; âge de référence à 62 ans, départ à 60 ans pour les carrières longues.",
+     "source_promesse": {
+      "label": "Rassemblement national – programme et positions publiques",
+      "url": "https://rassemblementnational.fr"
+     },
+     "vote": {
+      "titre": "Ensemble de la proposition de loi visant à restaurer un système de retraite plus juste en annulant les dernières réformes portant sur l'âge de départ et le nombre d'annuités (première lecture)",
+      "date": "2024-10-31",
+      "position": "pour",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/217"
+     },
+     "verdict": "coherent",
+     "explication": "Marine Le Pen a voté pour ce texte présenté par le groupe RN, qui visait à revenir sur le report de l'âge légal ; il a été rejeté."
+    },
+    {
+     "theme": "Immigration",
+     "promesse": "Réviser la politique migratoire par référendum, mettre fin au regroupement familial automatique et expulser les étrangers délinquants.",
+     "source_promesse": {
+      "label": "Rassemblement national – programme et positions publiques",
+      "url": "https://rassemblementnational.fr"
+     },
+     "vote": {
+      "titre": "Proposition de résolution visant à dénoncer les accords franco-algériens du 27 décembre 1968 (article 34-1 de la Constitution)",
+      "date": "2025-10-30",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/3260"
+     },
+     "verdict": "coherent",
+     "explication": "Le vote en faveur de cette résolution du groupe RN, adoptée par 185 voix contre 184, va dans le sens d'un durcissement des règles d'entrée et de séjour défendu dans son programme. La résolution n'a pas de portée contraignante."
+    },
+    {
+     "theme": "Sécurité",
+     "promesse": "Renforcer la fermeté pénale (peines planchers) et expulser les étrangers délinquants ou criminels.",
+     "source_promesse": {
+      "label": "Rassemblement national – programme et positions publiques",
+      "url": "https://rassemblementnational.fr"
+     },
+     "vote": {
+      "titre": "Ensemble de la proposition de loi visant à renforcer la sécurité, la rétention administrative et la prévention des risques d'attentat (texte de la commission mixte paritaire)",
+      "date": "2026-06-16",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/7405"
+     },
+     "verdict": "coherent",
+     "explication": "Marine Le Pen a voté pour ce texte qui renforce notamment la rétention administrative, en cohérence avec ses propositions sur la sécurité et l'éloignement des étrangers."
+    },
+    {
+     "theme": "Europe / Ukraine",
+     "promesse": "Europe des nations et prudence sur le soutien militaire à l'Ukraine.",
+     "source_promesse": {
+      "label": "Rassemblement national – programme et positions publiques",
+      "url": "https://rassemblementnational.fr"
+     },
+     "vote": {
+      "titre": "Article unique de la proposition de résolution européenne appelant au renforcement du soutien à l'Ukraine",
+      "date": "2025-03-12",
+      "position": "abstention",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/988"
+     },
+     "verdict": "coherent",
+     "explication": "Son abstention sur cette résolution appelant à renforcer le soutien à l'Ukraine correspond à la position de prudence affichée dans son programme."
+    },
+    {
+     "theme": "Fiscalité",
+     "promesse": "Baisser les impôts de production et financer les mesures par des économies, sans hausse générale de la fiscalité.",
+     "source_promesse": {
+      "label": "Rassemblement national – programme et positions publiques",
+      "url": "https://rassemblementnational.fr"
+     },
+     "vote": {
+      "titre": "Amendement n° 2359 de M. Vallaud et amendements identiques après l'article 3 du projet de loi de finances pour 2026 (impôt plancher de 2 % sur les patrimoines de plus de 100 M€, dit « taxe Zucman »)",
+      "date": "2025-10-31",
+      "position": "contre",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/3300"
+     },
+     "verdict": "coherent",
+     "explication": "Marine Le Pen a voté contre cet impôt minimal sur les très hauts patrimoines, qui ne figure pas dans son programme centré sur la baisse des prélèvements sur les entreprises."
+    },
+    {
+     "theme": "Écologie / énergie",
+     "promesse": "Moratoire sur les nouveaux projets éoliens et relance du nucléaire.",
+     "source_promesse": {
+      "label": "Rassemblement national – programme et positions publiques",
+      "url": "https://rassemblementnational.fr"
+     },
+     "vote": {
+      "titre": "Amendement n° 486 de M. Nury après l'article 5 de la proposition de loi portant programmation nationale énergie et climat (moratoire sur les nouvelles installations éoliennes et photovoltaïques, première lecture)",
+      "date": "2025-06-19",
+      "position": "absent",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2580"
+     },
+     "verdict": "nuance",
+     "explication": "L'amendement instaurant un moratoire, conforme à sa proposition, a été adopté avec 57 voix du groupe RN, mais Marine Le Pen ne figure pas parmi les votants de ce scrutin."
+    }
+   ]
+  },
+  "attal": {
+   "mandat": "Député des Hauts-de-Seine (10e circonscription)",
+   "assemblee": "an",
+   "depuis": "2024-07",
+   "stats": {
+    "periode": "17e législature (depuis juillet 2024) – votes solennels",
+    "scrutins": null,
+    "participation_pct": 96,
+    "pour": null,
+    "contre": null,
+    "abstention": null,
+    "loyaute_groupe_pct": 99
+   },
+   "source_stats": {
+    "label": "Datan – fiche de Gabriel Attal (participation aux votes solennels, proximité avec le groupe EPR)",
+    "url": "https://datan.fr/deputes/hauts-de-seine-92/depute_gabriel-attal"
+   },
+   "comparaisons": [
+    {
+     "theme": "Retraites",
+     "promesse": "Maintenir la réforme de 2023, avec une ouverture vers un système à points.",
+     "source_promesse": {
+      "label": "Renaissance – positions publiques de Gabriel Attal",
+      "url": "https://parti-renaissance.fr"
+     },
+     "vote": {
+      "titre": "Article 45 bis (examen prioritaire) du projet de loi de financement de la sécurité sociale pour 2026 (suspension de la réforme des retraites, première lecture)",
+      "date": "2025-11-12",
+      "position": "abstention",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/3684"
+     },
+     "verdict": "nuance",
+     "explication": "Gabriel Attal, qui défend la réforme de 2023, s'est abstenu sur l'article suspendant cette réforme, comme 67 députés de son groupe ; il ne s'y est donc ni opposé ni rallié."
+    },
+    {
+     "theme": "Immigration",
+     "promesse": "Appliquer la loi immigration et accélérer les expulsions ; avait appelé en janvier 2025 à « avoir le courage de dénoncer » l'accord franco-algérien de 1968.",
+     "source_promesse": {
+      "label": "Public Sénat – rappel de la déclaration de Gabriel Attal (janvier 2025)",
+      "url": "https://www.publicsenat.fr/actualites/politique/denonciation-de-laccord-franco-algerien-le-socle-commun-se-fracture-sur-une-resolution-rn"
+     },
+     "vote": {
+      "titre": "Proposition de résolution visant à dénoncer les accords franco-algériens du 27 décembre 1968 (article 34-1 de la Constitution)",
+      "date": "2025-10-30",
+      "position": "absent",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/3260"
+     },
+     "verdict": "nuance",
+     "explication": "Gabriel Attal ne figure pas parmi les votants de cette résolution, adoptée à une voix près, alors qu'il avait publiquement plaidé pour la dénonciation de l'accord ; la résolution était présentée par le groupe RN."
+    },
+    {
+     "theme": "Fiscalité",
+     "promesse": "Stabilité fiscale et maîtrise de la dépense.",
+     "source_promesse": {
+      "label": "Renaissance – positions publiques de Gabriel Attal",
+      "url": "https://parti-renaissance.fr"
+     },
+     "vote": {
+      "titre": "Amendement n° 2359 de M. Vallaud et amendements identiques après l'article 3 du projet de loi de finances pour 2026 (impôt plancher de 2 % sur les patrimoines de plus de 100 M€, dit « taxe Zucman »)",
+      "date": "2025-10-31",
+      "position": "contre",
+      "resultat": "rejeté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/3300"
+     },
+     "verdict": "coherent",
+     "explication": "Il a voté contre la création de cet impôt minimal sur les très hauts patrimoines, conformément à son engagement de stabilité fiscale."
+    },
+    {
+     "theme": "Sécurité",
+     "promesse": "Une justice des mineurs plus rapide et plus ferme.",
+     "source_promesse": {
+      "label": "Renaissance – positions publiques de Gabriel Attal",
+      "url": "https://parti-renaissance.fr"
+     },
+     "vote": {
+      "titre": "Ensemble de la proposition de loi visant à renforcer l'autorité de la justice à l'égard des mineurs délinquants et de leurs parents (texte de la commission mixte paritaire)",
+      "date": "2025-05-13",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/1624"
+     },
+     "verdict": "coherent",
+     "explication": "Gabriel Attal a voté pour ce texte, dont il était l'initiateur, qui accélère et durcit la réponse pénale à l'égard des mineurs."
+    },
+    {
+     "theme": "Immigration / sécurité",
+     "promesse": "Accélérer les expulsions d'étrangers représentant une menace.",
+     "source_promesse": {
+      "label": "Renaissance – positions publiques de Gabriel Attal",
+      "url": "https://parti-renaissance.fr"
+     },
+     "vote": {
+      "titre": "Ensemble de la proposition de loi visant à renforcer la sécurité, la rétention administrative et la prévention des risques d'attentat (texte de la commission mixte paritaire)",
+      "date": "2026-06-16",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/7405"
+     },
+     "verdict": "coherent",
+     "explication": "Son vote pour ce texte qui renforce la rétention administrative correspond à son objectif affiché d'accélérer les éloignements."
+    },
+    {
+     "theme": "Europe / Ukraine",
+     "promesse": "Autonomie stratégique européenne et soutien à l'Ukraine.",
+     "source_promesse": {
+      "label": "Renaissance – positions publiques de Gabriel Attal",
+      "url": "https://parti-renaissance.fr"
+     },
+     "vote": {
+      "titre": "Article unique de la proposition de résolution européenne appelant au renforcement du soutien à l'Ukraine",
+      "date": "2025-03-12",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/988"
+     },
+     "verdict": "coherent",
+     "explication": "Il a voté pour cette résolution appelant à renforcer le soutien à l'Ukraine, en ligne avec son programme."
+    }
+   ]
+  },
+  "retailleau": {
+   "mandat": "Sénateur de la Vendée",
+   "assemblee": "senat",
+   "depuis": "2025-11",
+   "stats": {
+    "periode": "depuis son retour au Sénat (novembre 2025), après ses fonctions de ministre de l'Intérieur (sept. 2024 – oct. 2025) ; sénateur depuis 2004",
+    "scrutins": null,
+    "participation_pct": null,
+    "pour": null,
+    "contre": null,
+    "abstention": null,
+    "loyaute_groupe_pct": null
+   },
+   "source_stats": {
+    "label": "Sénat – fiche de Bruno Retailleau (au Sénat, la plupart des scrutins publics sont exprimés par groupe)",
+    "url": "https://www.senat.fr/senateur/retailleau_bruno04033b.html"
+   },
+   "comparaisons": [
+    {
+     "theme": "Retraites",
+     "promesse": "Retraite à 65 ans à terme et convergence des régimes public et privé.",
+     "source_promesse": {
+      "label": "Les Républicains – positions publiques de Bruno Retailleau",
+      "url": "https://republicains.fr"
+     },
+     "vote": {
+      "titre": "Amendements identiques de suppression de l'article 45 bis du projet de loi de financement de la sécurité sociale pour 2026 (suspension de la réforme des retraites)",
+      "date": "2025-11-25",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://www.senat.fr/scrutin-public/2025/scr2025-59.html"
+     },
+     "verdict": "coherent",
+     "explication": "Bruno Retailleau a voté pour la suppression de l'article suspendant la réforme de 2023, ce qui correspond à sa volonté de relever l'âge de départ."
+    },
+    {
+     "theme": "Immigration",
+     "promesse": "Réduction drastique des titres de séjour et référendum sur l'immigration.",
+     "source_promesse": {
+      "label": "Les Républicains – positions publiques de Bruno Retailleau",
+      "url": "https://republicains.fr"
+     },
+     "vote": {
+      "titre": "Article 1er de la proposition de loi visant à faciliter l'emploi des étrangers dans les secteurs d'activités en tension",
+      "date": "2026-11-05",
+      "position": "contre",
+      "resultat": "rejeté",
+      "url": "https://www.senat.fr/scrutin-public/2026/scr2026-52.html"
+     },
+     "verdict": "coherent",
+     "explication": "Il a voté contre cet article qui visait à faciliter l'emploi et le séjour d'étrangers dans les métiers en tension, en cohérence avec son objectif de réduire les titres de séjour."
+    },
+    {
+     "theme": "Sécurité",
+     "promesse": "Peines minimales et fermeté face aux violences, création d'un « délit de pillage ».",
+     "source_promesse": {
+      "label": "Les Républicains – positions publiques de Bruno Retailleau",
+      "url": "https://republicains.fr"
+     },
+     "vote": {
+      "titre": "Ensemble du texte élaboré par la commission mixte paritaire sur la proposition de loi visant à renforcer la sécurité, la rétention administrative et la prévention des risques d'attentat",
+      "date": "2026-06-15",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://www.senat.fr/scrutin-public/2025/scr2025-308.html"
+     },
+     "verdict": "coherent",
+     "explication": "Son vote pour ce texte qui renforce la rétention administrative et la prévention du terrorisme correspond à ses positions sur la sécurité."
+    },
+    {
+     "theme": "Fraude sociale",
+     "promesse": "Lutte contre la fraude sociale et plafonnement des aides sociales.",
+     "source_promesse": {
+      "label": "Les Républicains – positions publiques de Bruno Retailleau",
+      "url": "https://republicains.fr"
+     },
+     "vote": {
+      "titre": "Projet de loi relatif à la lutte contre les fraudes sociales et fiscales (texte de la commission mixte paritaire)",
+      "date": "2026-05-11",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://www.senat.fr/scrutin-public/2025/scr2025-250.html"
+     },
+     "verdict": "coherent",
+     "explication": "Il a voté pour ce texte de lutte contre les fraudes sociales et fiscales, thème mis en avant dans son programme."
+    },
+    {
+     "theme": "Fiscalité / dépense publique",
+     "promesse": "Baisse de la dépense publique et allègement des charges sur le travail.",
+     "source_promesse": {
+      "label": "Les Républicains – positions publiques de Bruno Retailleau",
+      "url": "https://republicains.fr"
+     },
+     "vote": {
+      "titre": "Ensemble du projet de loi de finances pour 2026",
+      "date": "2025-12-15",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://www.senat.fr/scrutin-public/2025/scr2025-125.html"
+     },
+     "verdict": "nuance",
+     "explication": "Il a voté pour le budget 2026 dans sa version sénatoriale, issue de la majorité de droite et du centre ; ce vote d'ensemble ne permet pas à lui seul de mesurer l'engagement de baisse de la dépense publique."
+    }
+   ]
+  },
+  "bardella": {
+   "mandat": "Député européen (France), président du groupe Patriotes pour l'Europe",
+   "assemblee": "pe",
+   "depuis": "2019-07",
+   "stats": {
+    "periode": "10e législature européenne (17 juillet 2024 – 22 octobre 2026), votes principaux",
+    "scrutins": 715,
+    "participation_pct": 79.0,
+    "pour": 260,
+    "contre": 236,
+    "abstention": 69,
+    "loyaute_groupe_pct": 94.5
+   },
+   "source_stats": {
+    "label": "HowTheyVote.eu – votes de Jordan Bardella (données des procès-verbaux officiels du Parlement européen)",
+    "url": "https://howtheyvote.eu/members/131580"
+   },
+   "comparaisons": [
+    {
+     "theme": "Europe / Ukraine",
+     "promesse": "Prudence sur le soutien militaire et financier à l'Ukraine ; Europe des nations.",
+     "source_promesse": {
+      "label": "Rassemblement national – programme et positions publiques",
+      "url": "https://rassemblementnational.fr"
+     },
+     "vote": {
+      "titre": "Règlement mettant en œuvre une coopération renforcée pour l'établissement du prêt de soutien à l'Ukraine pour 2026 et 2027 (C10-0005/2026)",
+      "date": "2026-02-11",
+      "position": "contre",
+      "resultat": "adopté",
+      "url": "https://howtheyvote.eu/votes/184699"
+     },
+     "verdict": "coherent",
+     "explication": "Jordan Bardella a voté contre ce prêt européen à l'Ukraine, en cohérence avec la ligne de prudence de son parti sur ce soutien."
+    },
+    {
+     "theme": "Immigration",
+     "promesse": "Expulsion des étrangers en situation irrégulière ou délinquants.",
+     "source_promesse": {
+      "label": "Rassemblement national – programme et positions publiques",
+      "url": "https://rassemblementnational.fr"
+     },
+     "vote": {
+      "titre": "Système commun de retour des ressortissants de pays tiers en séjour irrégulier dans l'Union (règlement « retour », A10-0048/2026)",
+      "date": "2026-06-17",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://howtheyvote.eu/votes/194134"
+     },
+     "verdict": "coherent",
+     "explication": "Il a voté pour ce règlement qui vise à faciliter les retours de personnes en séjour irrégulier, conformément aux positions de son parti."
+    },
+    {
+     "theme": "Europe / budget",
+     "promesse": "Réduire la contribution de la France au budget de l'Union européenne.",
+     "source_promesse": {
+      "label": "Rassemblement national – programme et positions publiques",
+      "url": "https://rassemblementnational.fr"
+     },
+     "vote": {
+      "titre": "Budget général de l'Union européenne pour l'exercice 2027 – toutes sections (A10-0272/2026)",
+      "date": "2026-10-21",
+      "position": "contre",
+      "resultat": "adopté",
+      "url": "https://howtheyvote.eu/votes/198774"
+     },
+     "verdict": "coherent",
+     "explication": "Son vote contre le budget européen 2027 est cohérent avec l'objectif de baisse de la contribution française au budget de l'UE."
+    },
+    {
+     "theme": "Écologie / automobile",
+     "promesse": "Revenir sur les normes européennes jugées pénalisantes pour les automobilistes, dont la fin des moteurs thermiques en 2035.",
+     "source_promesse": {
+      "label": "Rassemblement national – programme et positions publiques",
+      "url": "https://rassemblementnational.fr"
+     },
+     "vote": {
+      "titre": "Normes de performance en matière d'émissions de CO2 des voitures particulières et véhicules utilitaires légers neufs pour 2025 à 2027 (assouplissement du calcul de conformité, C10-0062/2025)",
+      "date": "2025-05-08",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://howtheyvote.eu/votes/176302"
+     },
+     "verdict": "coherent",
+     "explication": "Il a voté pour cet assouplissement des objectifs d'émissions imposés aux constructeurs ; ce texte ne remet toutefois pas en cause l'échéance de 2035."
+    },
+    {
+     "theme": "Agriculture / commerce",
+     "promesse": "Opposition à l'accord de libre-échange entre l'UE et le Mercosur au nom de la protection des agriculteurs.",
+     "source_promesse": {
+      "label": "Rassemblement national – programme et positions publiques",
+      "url": "https://rassemblementnational.fr"
+     },
+     "vote": {
+      "titre": "Clause de sauvegarde bilatérale de l'accord de partenariat UE-Mercosur et de l'accord commercial intérimaire pour les produits agricoles (A10-0254/2025, accord provisoire)",
+      "date": "2026-02-10",
+      "position": "contre",
+      "resultat": "adopté",
+      "url": "https://howtheyvote.eu/votes/184191"
+     },
+     "verdict": "nuance",
+     "explication": "Opposé à l'accord, Jordan Bardella a voté contre ce règlement destiné à encadrer ses effets sur les produits agricoles ; le vote portait sur ce mécanisme de protection et non sur l'accord lui-même."
+    }
+   ]
+  },
+  "glucksmann": {
+   "mandat": "Député européen (France), groupe de l'Alliance progressiste des socialistes et démocrates",
+   "assemblee": "pe",
+   "depuis": "2019-07",
+   "stats": {
+    "periode": "10e législature européenne (17 juillet 2024 – 22 octobre 2026), votes principaux",
+    "scrutins": 715,
+    "participation_pct": 83.1,
+    "pour": 497,
+    "contre": 77,
+    "abstention": 20,
+    "loyaute_groupe_pct": 94.8
+   },
+   "source_stats": {
+    "label": "HowTheyVote.eu – votes de Raphaël Glucksmann (données des procès-verbaux officiels du Parlement européen)",
+    "url": "https://howtheyvote.eu/members/197694"
+   },
+   "comparaisons": [
+    {
+     "theme": "Europe / Ukraine",
+     "promesse": "Soutien militaire et financier à l'Ukraine, fermeté face à la Russie.",
+     "source_promesse": {
+      "label": "Place publique – programme et positions publiques",
+      "url": "https://place-publique.eu"
+     },
+     "vote": {
+      "titre": "Règlement mettant en œuvre une coopération renforcée pour l'établissement du prêt de soutien à l'Ukraine pour 2026 et 2027 (C10-0005/2026)",
+      "date": "2026-02-11",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://howtheyvote.eu/votes/184699"
+     },
+     "verdict": "coherent",
+     "explication": "Raphaël Glucksmann a voté pour ce prêt européen à l'Ukraine, conformément à son engagement de soutien à Kiev."
+    },
+    {
+     "theme": "Défense",
+     "promesse": "Défense européenne commune.",
+     "source_promesse": {
+      "label": "Place publique – programme et positions publiques",
+      "url": "https://place-publique.eu"
+     },
+     "vote": {
+      "titre": "Livre blanc sur l'avenir de la défense européenne (résolution RC-B10-0146/2025)",
+      "date": "2025-03-12",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://howtheyvote.eu/votes/172867"
+     },
+     "verdict": "coherent",
+     "explication": "Il a voté pour cette résolution en faveur d'un renforcement de la défense européenne, en ligne avec son programme."
+    },
+    {
+     "theme": "Immigration",
+     "promesse": "Politique d'asile européenne commune et intégration par le travail et la langue.",
+     "source_promesse": {
+      "label": "Place publique – programme et positions publiques",
+      "url": "https://place-publique.eu"
+     },
+     "vote": {
+      "titre": "Système commun de retour des ressortissants de pays tiers en séjour irrégulier dans l'Union (règlement « retour », A10-0048/2026)",
+      "date": "2026-06-17",
+      "position": "contre",
+      "resultat": "adopté",
+      "url": "https://howtheyvote.eu/votes/194134"
+     },
+     "verdict": "nuance",
+     "explication": "Il soutient une politique migratoire européenne commune mais a voté contre ce règlement européen sur les retours, comme la grande majorité de son groupe (106 voix contre sur 135 membres S&D) ; son programme ne précise pas sa position sur les procédures d'éloignement."
+    },
+    {
+     "theme": "Écologie",
+     "promesse": "Plan d'investissement européen pour le climat et maintien d'objectifs climatiques ambitieux.",
+     "source_promesse": {
+      "label": "Place publique – programme et positions publiques",
+      "url": "https://place-publique.eu"
+     },
+     "vote": {
+      "titre": "Cadre pour parvenir à la neutralité climatique – objectif climatique 2040 (A10-0223/2025, accord provisoire)",
+      "date": "2026-02-10",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://howtheyvote.eu/votes/184178"
+     },
+     "verdict": "coherent",
+     "explication": "Il a voté pour l'objectif climatique européen à l'horizon 2040, conformément à ses engagements en matière de climat."
+    },
+    {
+     "theme": "Écologie / commerce",
+     "promesse": "Taxe carbone aux frontières de l'Union européenne.",
+     "source_promesse": {
+      "label": "Place publique – programme et positions publiques",
+      "url": "https://place-publique.eu"
+     },
+     "vote": {
+      "titre": "Mécanisme d'ajustement carbone aux frontières : extension aux produits en aval et mesures anti-contournement (A10-0201/2026)",
+      "date": "2026-09-15",
+      "position": "pour",
+      "resultat": "adopté",
+      "url": "https://howtheyvote.eu/votes/196071"
+     },
+     "verdict": "coherent",
+     "explication": "Son vote pour l'extension du mécanisme d'ajustement carbone aux frontières correspond directement à une mesure de son programme."
+    }
+   ]
+  }
+ },
+ "non_parlementaires": [
+  "melenchon",
+  "philippe",
+  "lisnard",
+  "zemmour",
+  "tondelier",
+  "roussel",
+  "riner",
+  "villepin",
+  "dupontaignan",
+  "arthaud"
+ ]
+}

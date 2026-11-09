@@ -12,7 +12,7 @@
   <meta name="theme-color" content="#0b1030">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=202611100010">
+  <link rel="stylesheet" href="assets/style.css?v=202611100500">
 </head>
 <body>
   <header class="top">
@@ -24,13 +24,18 @@
           <div class="brand-sub" id="updated">Chargement…</div>
         </div>
       </a>
-      <div class="countdown" id="countdown" title="Date annoncée par le Gouvernement le 1er juillet 2026 (décret de convocation attendu au plus tard le 7 février 2027)"></div>
+      <div class="cd-wrap">
+        <a href="#jevote" class="countdown" id="countdown" title="Date annoncée par le Gouvernement le 1er juillet 2026 (décret de convocation attendu au plus tard le 7 février 2027) — cliquez pour préparer votre vote"></a>
+        <a href="#jevote" class="jv-badge" id="jv-badge">🗳️ Prêt à voter ?</a>
+      </div>
       <nav class="tabs" role="tablist">
         <a href="#sondages" data-tab="sondages" class="tab">Sondages</a>
         <a href="#reseaux" data-tab="reseaux" class="tab">Réseaux sociaux</a>
         <a href="#buzz" data-tab="buzz" class="tab">Buzz</a>
         <a href="#programmes" data-tab="programmes" class="tab">Candidats</a>
+        <a href="#parlement" data-tab="parlement" class="tab">Dit à la télé, voté au Parlement</a>
         <a href="#fun" data-tab="fun" class="tab">Petit vote entre amis</a>
+        <a href="#parrainages" data-tab="parrainages" class="tab">Les parrainages des 500 élus</a>
       </nav>
     </div>
   </header>
@@ -121,10 +126,16 @@
     <section id="buzz" class="panel" hidden>
       <div class="panel-head">
         <div>
-          <h1>Buzz des 7 derniers jours</h1>
+          <h1 id="buzz-title">Buzz des 7 derniers jours</h1>
           <p class="muted" id="buzz-meta"></p>
         </div>
       </div>
+      <div class="seg big" id="buzz-tabs" style="margin-bottom:16px">
+        <button data-b="buzz-main" class="on">🔥 Buzz des 7 derniers jours</button>
+        <button data-b="tp-app">🎙️ Temps de parole dans les médias</button>
+      </div>
+      <div id="tp-app" hidden></div>
+      <div id="buzz-main">
       <div class="avatar-filter" id="buzz-filter"></div>
       <div class="seg" id="buzz-kind" style="margin-bottom:16px"></div>
       <div class="buzz-cols">
@@ -137,6 +148,18 @@
           <div id="buzz-pos" class="buzz-list"></div>
         </div>
       </div>
+      </div>
+    </section>
+
+    <!-- DIT À LA TÉLÉ, VOTÉ AU PARLEMENT -->
+    <section id="parlement" class="panel" hidden>
+      <div class="panel-head">
+        <div>
+          <h1>Dit à la télé, voté au Parlement</h1>
+          <p class="muted">Pour les candidats qui siègent au Parlement : leurs votes réels et leur assiduité, comparés à leurs promesses. Chaque vote renvoie au scrutin officiel.</p>
+        </div>
+      </div>
+      <div id="parl-app"></div>
     </section>
 
     <!-- 4. PROGRAMMES -->
@@ -261,6 +284,28 @@
       <div id="fun-app"></div>
     </section>
 
+    <!-- PRÊT À VOTER ? -->
+    <section id="jevote" class="panel" hidden>
+      <div class="panel-head">
+        <div>
+          <h1>Prêt à voter ?</h1>
+          <p class="muted">Inscription sur les listes, bureau de vote, procuration et calendrier de la campagne : tout ce qu'il faut pour être prêt le dimanche 18 avril 2027.</p>
+        </div>
+      </div>
+      <div id="jv-app"></div>
+    </section>
+
+    <!-- PARRAINAGES -->
+    <section id="parrainages" class="panel" hidden>
+      <div class="panel-head">
+        <div>
+          <h1>Les parrainages des 500 élus</h1>
+          <p class="muted">Pour se présenter, chaque candidat doit réunir 500 parrainages d'élus. Le Conseil constitutionnel les publie au fil de l'eau : suivez qui franchit la barre, et quels élus de votre département ont parrainé qui.</p>
+        </div>
+      </div>
+      <div id="parr-app"></div>
+    </section>
+
     <!-- 7. PAGES LÉGALES -->
     <section id="mentions" class="panel legal" hidden>
       <h1>Mentions légales</h1>
@@ -343,7 +388,7 @@ Contact : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedess
       <h2>Vos droits</h2>
       <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données, ainsi que du droit de retirer votre consentement. <strong>Pour supprimer votre compte</strong>, connectez-vous au « Petit vote entre amis » et cliquez sur « Supprimer mon compte » : toutes vos données sont effacées immédiatement et définitivement. Pour exercer vos autres droits, écrivez depuis l'adresse de votre compte à <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a> : nous répondons sous un mois. Vous pouvez aussi adresser une réclamation à la <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener">CNIL</a>.</p>
       <h2>Cookies et stockage local</h2>
-      <p>Le site ne dépose <strong>aucun cookie publicitaire ou de mesure d'audience</strong>, c'est pourquoi aucun bandeau de consentement n'est affiché. Il utilise uniquement le stockage local de votre navigateur, strictement nécessaire au service : maintien de votre connexion au « Petit vote entre amis » et mémorisation d'un lien de groupe en attente d'inscription.</p>
+      <p>Le site ne dépose <strong>aucun cookie publicitaire ou de mesure d'audience</strong>, c'est pourquoi aucun bandeau de consentement n'est affiché. Il utilise uniquement le stockage local de votre navigateur, strictement nécessaire au service : maintien de votre connexion au « Petit vote entre amis » mémorisation d'un lien de groupe en attente d'inscription, et des cases cochées de « Prêt à voter ? » (elles ne quittent jamais votre appareil).</p>
       <p><strong>Contenus tiers :</strong> les polices de caractères sont chargées depuis Google Fonts, qui reçoit à cette occasion votre adresse IP. Les vidéos et publications (YouTube, Dailymotion, TikTok, X) ne sont chargées que si vous cliquez dessus ; ces plateformes peuvent alors déposer leurs propres cookies, selon leurs politiques.</p>
     </section>
   </main>
@@ -357,7 +402,7 @@ Contact : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedess
       </div>
       <div>
         <h4>Rubriques</h4>
-        <a href="#sondages">Sondages</a><a href="#reseaux">Réseaux sociaux</a><a href="#buzz">Buzz</a><a href="#programmes">Candidats</a><a href="#portrait">Trouver le candidat de mes convictions</a><a href="#fun">Petit vote entre amis</a>
+        <a href="#sondages">Sondages</a><a href="#reseaux">Réseaux sociaux</a><a href="#buzz">Buzz</a><a href="#programmes">Candidats</a><a href="#parlement">Dit à la télé, voté au Parlement</a><a href="#portrait">Trouver le candidat de mes convictions</a><a href="#fun">Petit vote entre amis</a><a href="#parrainages">Les parrainages des 500 élus</a><a href="#jevote">🗳️ Prêt à voter ?</a>
       </div>
       <div>
         <h4>Informations</h4>
@@ -371,9 +416,11 @@ Contact : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedess
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
-  <script src="assets/config.js?v=202611100010"></script>
-  <script src="assets/sim.js?v=202611100010"></script>
-  <script src="assets/fun.js?v=202611100010"></script>
-  <script src="assets/app.js?v=202611100010"></script>
+  <script src="assets/config.js?v=202611100100"></script>
+  <script src="assets/sim.js?v=202611100100"></script>
+  <script src="assets/fun.js?v=202611100100"></script>
+  <script src="assets/jevote.js?v=202611100300"></script>
+  <script src="assets/extras.js?v=202611100510"></script>
+  <script src="assets/app.js?v=202611100300"></script>
 </body>
 </html>

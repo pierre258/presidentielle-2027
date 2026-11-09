@@ -41,6 +41,17 @@ jobs:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
         run: python scripts/update_social.py
 
+      - name: Parrainages des 500 élus (à chaque passage, dès l'ouverture)
+        continue-on-error: true
+        run: python scripts/update_parrainages.py
+
+      - name: Temps de parole Arcom et déclarations HATVP (1 fois par jour)
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 5 * * *'
+        continue-on-error: true
+        run: |
+          python scripts/update_temps_parole.py
+          if [ -f scripts/update_patrimoine.py ]; then python scripts/update_patrimoine.py; fi
+
       - name: Publier les nouvelles données
         run: |
           git config user.name "data-bot"

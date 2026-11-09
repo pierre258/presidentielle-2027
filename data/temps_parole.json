@@ -1,0 +1,489 @@
+{
+ "updated": "2026-11-09",
+ "source": {
+  "label": "Arcom — Temps de parole des personnalités politiques (hors période électorale)",
+  "url": "https://www.arcom.fr/temps-parole/hors-elections/recherche/source/2026",
+  "fichier": "https://www.arcom.fr/sites/default/files/tphe/files/speaking_time_files/Export_web_Personnalites_avec_seuil_01-09-2026_30-09-2026.csv"
+ },
+ "periode": "Septembre 2026",
+ "unite": "minutes",
+ "candidates": {
+  "lepen": {
+   "total_min": 861.3,
+   "tv_min": 700.0,
+   "radio_min": 161.3,
+   "part_pct": 11.4
+  },
+  "bardella": {
+   "total_min": 845.9,
+   "tv_min": 739.3,
+   "radio_min": 106.6,
+   "part_pct": 11.2
+  },
+  "melenchon": {
+   "total_min": 1378.6,
+   "tv_min": 1118.8,
+   "radio_min": 259.7,
+   "part_pct": 18.2
+  },
+  "philippe": {
+   "total_min": 189.1,
+   "tv_min": 113.8,
+   "radio_min": 75.3,
+   "part_pct": 2.5
+  },
+  "glucksmann": {
+   "total_min": 250.3,
+   "tv_min": 165.6,
+   "radio_min": 84.7,
+   "part_pct": 3.3
+  },
+  "attal": {
+   "total_min": 1185.3,
+   "tv_min": 1008.6,
+   "radio_min": 176.7,
+   "part_pct": 15.7
+  },
+  "lisnard": {
+   "total_min": 103.5,
+   "tv_min": 81.9,
+   "radio_min": 21.5,
+   "part_pct": 1.4
+  },
+  "retailleau": {
+   "total_min": 991.6,
+   "tv_min": 852.7,
+   "radio_min": 139.0,
+   "part_pct": 13.1
+  },
+  "zemmour": {
+   "total_min": 183.6,
+   "tv_min": 169.5,
+   "radio_min": 14.2,
+   "part_pct": 2.4
+  },
+  "tondelier": {
+   "total_min": 543.2,
+   "tv_min": 416.8,
+   "radio_min": 126.5,
+   "part_pct": 7.2
+  },
+  "roussel": {
+   "total_min": 590.3,
+   "tv_min": 466.1,
+   "radio_min": 124.2,
+   "part_pct": 7.8
+  },
+  "riner": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "villepin": {
+   "total_min": 295.5,
+   "tv_min": 236.2,
+   "radio_min": 59.3,
+   "part_pct": 3.9
+  },
+  "dupontaignan": {
+   "total_min": 126.2,
+   "tv_min": 80.0,
+   "radio_min": 46.2,
+   "part_pct": 1.7
+  },
+  "arthaud": {
+   "total_min": 16.8,
+   "tv_min": 16.8,
+   "radio_min": 0.0,
+   "part_pct": 0.2
+  }
+ },
+ "historique": [
+  {
+   "mois": "2025-01",
+   "valeurs": {
+    "melenchon": 103.9,
+    "philippe": 154.4,
+    "lepen": 281.0,
+    "lisnard": 88.2,
+    "tondelier": 222.0,
+    "retailleau": 769.0,
+    "roussel": 135.1,
+    "bardella": 162.4,
+    "attal": 123.7,
+    "glucksmann": 182.0,
+    "dupontaignan": 38.1,
+    "zemmour": 24.2
+   }
+  },
+  {
+   "mois": "2025-02",
+   "valeurs": {
+    "melenchon": 127.8,
+    "lepen": 109.7,
+    "lisnard": 79.7,
+    "tondelier": 184.6,
+    "philippe": 64.7,
+    "roussel": 87.6,
+    "retailleau": 1194.0,
+    "attal": 94.4,
+    "bardella": 407.5,
+    "glucksmann": 60.9,
+    "dupontaignan": 2.7,
+    "zemmour": 39.1
+   }
+  },
+  {
+   "mois": "2025-03",
+   "valeurs": {
+    "melenchon": 357.8,
+    "lisnard": 153.5,
+    "lepen": 566.5,
+    "tondelier": 87.8,
+    "zemmour": 73.9,
+    "philippe": 172.4,
+    "roussel": 194.2,
+    "retailleau": 513.1,
+    "attal": 386.4,
+    "bardella": 639.7,
+    "glucksmann": 241.9,
+    "dupontaignan": 137.5
+   }
+  },
+  {
+   "mois": "2025-04",
+   "valeurs": {
+    "melenchon": 178.7,
+    "lepen": 564.6,
+    "lisnard": 98.2,
+    "tondelier": 248.0,
+    "zemmour": 1.0,
+    "retailleau": 1003.7,
+    "philippe": 12.0,
+    "roussel": 118.3,
+    "bardella": 516.5,
+    "attal": 285.4,
+    "glucksmann": 11.6,
+    "dupontaignan": 92.5
+   }
+  },
+  {
+   "mois": "2025-05",
+   "valeurs": {
+    "melenchon": 208.7,
+    "lisnard": 61.8,
+    "lepen": 489.9,
+    "zemmour": 109.3,
+    "tondelier": 106.3,
+    "philippe": 112.7,
+    "roussel": 97.0,
+    "retailleau": 1534.0,
+    "attal": 138.9,
+    "bardella": 232.7,
+    "arthaud": 23.2,
+    "glucksmann": 3.7,
+    "dupontaignan": 51.2
+   }
+  },
+  {
+   "mois": "2025-06",
+   "valeurs": {
+    "melenchon": 249.4,
+    "lepen": 361.9,
+    "lisnard": 36.3,
+    "tondelier": 262.7,
+    "zemmour": 109.9,
+    "retailleau": 895.8,
+    "philippe": 111.2,
+    "roussel": 287.3,
+    "bardella": 434.9,
+    "arthaud": 22.2,
+    "attal": 162.1,
+    "glucksmann": 64.9,
+    "villepin": 36.5,
+    "dupontaignan": 12.0
+   }
+  },
+  {
+   "mois": "2025-07",
+   "valeurs": {
+    "melenchon": 4.9,
+    "lepen": 60.5,
+    "lisnard": 44.7,
+    "tondelier": 61.2,
+    "zemmour": 11.3,
+    "philippe": 0.0,
+    "roussel": 15.7,
+    "retailleau": 656.2,
+    "bardella": 81.5,
+    "attal": 119.9,
+    "glucksmann": 35.9,
+    "villepin": 135.8,
+    "dupontaignan": 20.1
+   }
+  },
+  {
+   "mois": "2025-08",
+   "valeurs": {
+    "melenchon": 450.0,
+    "lepen": 2.9,
+    "lisnard": 40.5,
+    "tondelier": 214.3,
+    "zemmour": 32.5,
+    "retailleau": 195.5,
+    "philippe": 35.2,
+    "roussel": 30.2,
+    "bardella": 288.9,
+    "attal": 46.8,
+    "glucksmann": 14.1,
+    "dupontaignan": 0.0
+   }
+  },
+  {
+   "mois": "2025-09",
+   "valeurs": {
+    "melenchon": 677.8,
+    "lepen": 1227.1,
+    "lisnard": 96.5,
+    "tondelier": 505.1,
+    "zemmour": 136.4,
+    "retailleau": 1372.7,
+    "philippe": 36.3,
+    "roussel": 148.8,
+    "attal": 428.5,
+    "arthaud": 19.6,
+    "bardella": 453.7,
+    "glucksmann": 148.8,
+    "villepin": 156.9,
+    "dupontaignan": 136.3
+   }
+  },
+  {
+   "mois": "2025-10",
+   "valeurs": {
+    "melenchon": 405.4,
+    "lepen": 1060.9,
+    "lisnard": 87.4,
+    "tondelier": 637.8,
+    "zemmour": 207.1,
+    "retailleau": 276.2,
+    "philippe": 151.1,
+    "roussel": 181.9,
+    "bardella": 466.9,
+    "attal": 163.9,
+    "glucksmann": 77.6,
+    "villepin": 34.8,
+    "dupontaignan": 153.5
+   }
+  },
+  {
+   "mois": "2025-11",
+   "valeurs": {
+    "melenchon": 550.3,
+    "philippe": 17.5,
+    "lepen": 124.3,
+    "lisnard": 122.5,
+    "tondelier": 90.0,
+    "zemmour": 110.6,
+    "retailleau": 162.6,
+    "roussel": 110.5,
+    "bardella": 872.0,
+    "attal": 327.7,
+    "glucksmann": 187.2,
+    "dupontaignan": 45.7,
+    "villepin": 75.7
+   }
+  },
+  {
+   "mois": "2025-12",
+   "valeurs": {
+    "melenchon": 879.7,
+    "philippe": 177.3,
+    "lepen": 354.0,
+    "lisnard": 40.5,
+    "tondelier": 254.0,
+    "zemmour": 52.7,
+    "retailleau": 161.0,
+    "roussel": 92.8,
+    "attal": 62.8,
+    "bardella": 758.5,
+    "arthaud": 0.0,
+    "glucksmann": 15.9,
+    "villepin": 73.8,
+    "dupontaignan": 69.0
+   }
+  },
+  {
+   "mois": "2026-01",
+   "valeurs": {
+    "melenchon": 393.2,
+    "lepen": 228.0,
+    "lisnard": 48.7,
+    "tondelier": 70.4,
+    "zemmour": 50.5,
+    "retailleau": 115.5,
+    "philippe": 6.2,
+    "roussel": 106.8,
+    "bardella": 348.4,
+    "arthaud": 20.2,
+    "attal": 281.5,
+    "glucksmann": 158.9,
+    "villepin": 189.1,
+    "dupontaignan": 56.0
+   }
+  },
+  {
+   "mois": "2026-02",
+   "valeurs": {
+    "melenchon": 287.2,
+    "lepen": 135.5,
+    "lisnard": 0.0,
+    "tondelier": 137.1,
+    "zemmour": 34.2,
+    "philippe": 2.3,
+    "roussel": 3.4,
+    "retailleau": 208.6,
+    "villepin": 1.3,
+    "attal": 32.0,
+    "bardella": 507.5,
+    "arthaud": 12.9,
+    "glucksmann": 55.9,
+    "dupontaignan": 46.4
+   }
+  },
+  {
+   "mois": "2026-03",
+   "valeurs": {
+    "melenchon": 42.0,
+    "lisnard": 62.5,
+    "lepen": 391.8,
+    "tondelier": 103.3,
+    "philippe": 66.2,
+    "roussel": 34.9,
+    "retailleau": 135.4,
+    "attal": 330.2,
+    "bardella": 123.2,
+    "glucksmann": 34.0,
+    "villepin": 155.4,
+    "dupontaignan": 57.5,
+    "zemmour": 3.2
+   }
+  },
+  {
+   "mois": "2026-04",
+   "valeurs": {
+    "melenchon": 28.9,
+    "lepen": 62.8,
+    "lisnard": 158.5,
+    "tondelier": 99.7,
+    "zemmour": 42.5,
+    "retailleau": 172.4,
+    "philippe": 1.0,
+    "roussel": 151.5,
+    "attal": 211.2,
+    "arthaud": 14.2,
+    "bardella": 262.1,
+    "glucksmann": 7.5,
+    "villepin": 187.6,
+    "dupontaignan": 23.1
+   }
+  },
+  {
+   "mois": "2026-05",
+   "valeurs": {
+    "melenchon": 434.4,
+    "philippe": 218.9,
+    "lepen": 259.2,
+    "lisnard": 86.6,
+    "tondelier": 100.1,
+    "retailleau": 85.6,
+    "roussel": 20.7,
+    "arthaud": 30.7,
+    "attal": 677.0,
+    "bardella": 496.9,
+    "glucksmann": 54.5,
+    "dupontaignan": 128.6,
+    "villepin": 164.5,
+    "zemmour": 197.6
+   }
+  },
+  {
+   "mois": "2026-06",
+   "valeurs": {
+    "melenchon": 226.8,
+    "lepen": 209.5,
+    "lisnard": 42.0,
+    "zemmour": 121.4,
+    "tondelier": 314.7,
+    "philippe": 21.4,
+    "roussel": 128.9,
+    "retailleau": 392.4,
+    "attal": 354.4,
+    "bardella": 241.1,
+    "arthaud": 4.5,
+    "glucksmann": 91.6,
+    "villepin": 104.4,
+    "dupontaignan": 79.3
+   }
+  },
+  {
+   "mois": "2026-07",
+   "valeurs": {
+    "melenchon": 86.3,
+    "lepen": 547.0,
+    "lisnard": 110.4,
+    "tondelier": 48.5,
+    "zemmour": 14.0,
+    "retailleau": 175.4,
+    "philippe": 426.7,
+    "roussel": 1.7,
+    "arthaud": 0.0,
+    "attal": 103.9,
+    "bardella": 123.9,
+    "glucksmann": 51.9,
+    "villepin": 39.1,
+    "dupontaignan": 54.0
+   }
+  },
+  {
+   "mois": "2026-08",
+   "valeurs": {
+    "melenchon": 630.1,
+    "lepen": 101.2,
+    "lisnard": 67.2,
+    "tondelier": 148.8,
+    "retailleau": 154.4,
+    "philippe": 508.2,
+    "roussel": 9.2,
+    "arthaud": 24.9,
+    "attal": 370.2,
+    "bardella": 268.8,
+    "glucksmann": 278.0,
+    "villepin": 51.1,
+    "dupontaignan": 0.0,
+    "zemmour": 1.3
+   }
+  },
+  {
+   "mois": "2026-09",
+   "valeurs": {
+    "melenchon": 1378.6,
+    "lisnard": 103.5,
+    "lepen": 861.3,
+    "tondelier": 543.2,
+    "zemmour": 183.6,
+    "philippe": 189.1,
+    "roussel": 590.3,
+    "retailleau": 991.6,
+    "arthaud": 16.8,
+    "attal": 1185.3,
+    "bardella": 845.9,
+    "glucksmann": 250.3,
+    "villepin": 295.5,
+    "dupontaignan": 126.2
+   }
+  }
+ ],
+ "note": "Temps de parole personnel relevé par l'Arcom sur les principales chaînes de télévision (généralistes et d'information) et stations de radio, tous types d'émissions confondus (journaux, magazines, autres programmes). Il s'agit du temps où la personnalité s'exprime elle-même : le temps de son parti, de ses porte-parole ou soutiens n'est pas inclus (l'Arcom publie aussi un relevé par parti, non repris ici). Relevés mensuels hors période électorale, publiés avec plusieurs semaines de décalage ; l'Arcom n'y liste que les personnalités au-dessus d'un seuil (« avec seuil ») : une personnalité absente est notée null. Une absence de relevé ne signifie pas une absence d'antenne (ex. personnalité non classée comme politique). part_pct = part dans le total des candidats suivis."
+}

@@ -566,11 +566,14 @@
           <button class="full-btn" data-full="${id}">📄 Programme complet</button></div></div></div>
         <p class="pitch">${esc(p.pitch)}</p>
         <ul class="keys">${p.key.map((k) => `<li>${esc(k)}</li>`).join("")}</ul>
+        ${window.Extras ? window.Extras.coutTotal(id) : ""}
         ${PROG.topics.map((t) => {
           const det = d.details?.[t.id];
           return `<div class="topic"><div class="tl">${t.icon} ${esc(t.label)}</div><div><div class="${p.positions[t.id] ? "" : "na"}">${esc(p.positions[t.id] || "Pas de position détaillée connue à ce stade.")}</div>
+            ${window.Extras ? window.Extras.cout(id, t.id) : ""}
             ${det?.length ? `<details class="more"><summary>Voir le détail (${det.length} point${det.length > 1 ? "s" : ""})</summary><ul>${det.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></details>` : ""}</div></div>`;
         }).join("")}
+        ${window.Extras ? window.Extras.patrimoine(id) : ""}
       </div>`;
     };
     const full = (id) => {
@@ -599,7 +602,7 @@
       return `<div class="cmp">
         <div class="ch corner"></div><div class="ch a">${avatar(a, 40)}${esc(C[a].short)}${socialLinks(a, 15)}</div><div class="ch b">${avatar(b, 40)}${esc(C[b].short)}${socialLinks(b, 15)}</div>
         <div class="tl">🎯 En une phrase</div><div>${esc(A.pitch)}</div><div>${esc(B.pitch)}</div>
-        ${common.map((t) => `<div class="tl">${t.icon} ${esc(t.label)}</div><div>${esc(A.positions[t.id])}</div><div>${esc(B.positions[t.id])}</div>`).join("")}
+        ${common.map((t) => `<div class="tl">${t.icon} ${esc(t.label)}</div><div>${esc(A.positions[t.id])}${window.Extras ? window.Extras.cout(a, t.id) : ""}</div><div>${esc(B.positions[t.id])}${window.Extras ? window.Extras.cout(b, t.id) : ""}</div>`).join("")}
       </div><p class="muted small">${common.length} thème(s) abordé(s) par les deux candidats sur ${PROG.topics.length}.</p>`;
     };
     const view = () => {
@@ -655,10 +658,20 @@
       $$("#poll-window button").forEach((x) => x.classList.toggle("on", x === b));
       renderPolls(b.dataset.w);
     });
+    $("#buzz-tabs").addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      $$("#buzz-tabs button").forEach((x) => x.classList.toggle("on", x === b));
+      $("#buzz-main").hidden = b.dataset.b !== "buzz-main";
+      $("#tp-app").hidden = b.dataset.b !== "tp-app";
+      $("#buzz-title").textContent = b.dataset.b === "tp-app" ? "Temps de parole dans les médias" : "Buzz des 7 derniers jours";
+      $("#buzz-meta").hidden = b.dataset.b === "tp-app";
+    });
+    if (window.Extras) { await window.Extras.load(); window.Extras.init({ C, avatar, esc, fmtN, socialLinks }, POLLS); }
     Social.init(); initBuzz(); initProg();
     if (window.Simulateur) window.Simulateur.init({ C, avatar, esc, fmtN, socialLinks }, SIM);
     window.APP = { C, avatar, esc, fmtN, socialLinks };
     if (window.Fun) window.Fun.init(window.APP);
+    if (window.JeVote) window.JeVote.init(window.APP);
     const fromMail = /access_token=|error_description=|type=signup/.test(location.hash);
     showTab(fromMail ? "fun" : location.hash.slice(1) || "sondages");
   }

@@ -1,0 +1,876 @@
+{
+ "updated": "2026-11-09",
+ "note": "Données issues exclusivement des déclarations officielles déposées auprès de la HATVP. Les déclarations de situation patrimoniale ne sont publiées en ligne que pour les candidats à l'élection présidentielle (publiées le 8 mars 2022 pour le scrutin de 2022) et pour les membres du Gouvernement pendant leurs fonctions ; celles des parlementaires ne sont consultables qu'en préfecture et celles des élus locaux ne sont pas publiques. Les déclarations retirées du site de la HATVP sont citées via leur copie archivée (web.archive.org). Le patrimoine net est la somme des montants déclarés (actifs moins passif restant dû), à la date de la déclaration ; les déclarations de 2027 seront publiées après le dépôt des candidatures. Les revenus sont les montants annuels déclarés (nets sauf mention contraire).",
+ "candidates": {
+  "lepen": {
+   "status": "complet",
+   "patrimoine": {
+    "date": "2022-03-03",
+    "contexte": "Candidature à la présidentielle 2022 (biens détenus au 1er janvier 2022, déclaration publiée le 8 mars 2022)",
+    "net": -9480501.33,
+    "postes": [
+     {
+      "label": "Immobilier (quotes-parts indivises de deux maisons)",
+      "montant": 677684
+     },
+     {
+      "label": "Parts de SCI",
+      "montant": 617350
+     },
+     {
+      "label": "Assurance vie",
+      "montant": 41165.43
+     },
+     {
+      "label": "Comptes bancaires",
+      "montant": 52980.24
+     },
+     {
+      "label": "Passif : prêts bancaires personnels (restant dû)",
+      "montant": -177906
+     },
+     {
+      "label": "Passif : prêt MKB Bank pour le financement de la campagne présidentielle",
+      "montant": -10691775
+     }
+    ],
+    "url": "https://web.archive.org/web/20220308160634/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DSP-Le-Pen.pdf"
+   },
+   "revenus": [
+    {
+     "annee": 2025,
+     "label": "Conseiller départemental (net)",
+     "montant": 17486
+    },
+    {
+     "annee": 2024,
+     "label": "Député (net)",
+     "montant": 37278
+    },
+    {
+     "annee": 2024,
+     "label": "Membre du bureau exécutif (bureau du conseil d'administration du RN) et présidente de groupe à l'AN — Rassemblement National (net)",
+     "montant": 30999
+    },
+    {
+     "annee": 2024,
+     "label": "Conseiller départemental (net)",
+     "montant": 20307
+    },
+    {
+     "annee": 2024,
+     "label": "Élevage de chats — Marine Le Pen (net)",
+     "montant": 518
+    },
+    {
+     "annee": 2023,
+     "label": "Député (net)",
+     "montant": 73698
+    },
+    {
+     "annee": 2023,
+     "label": "Membre du bureau exécutif (bureau du conseil d'administration du RN) et présidente de groupe à l'AN — Rassemblement National (net)",
+     "montant": 60000
+    },
+    {
+     "annee": 2023,
+     "label": "Élevage de chats — Marine Le Pen (net)",
+     "montant": 5777
+    }
+   ],
+   "participations": [
+    {
+     "societe": "SCI (non publié)",
+     "valeur": 616800,
+     "detail": "550 parts ; 12 % du capital"
+    },
+    {
+     "societe": "SCI (non publié)",
+     "valeur": 46656,
+     "detail": "25 parts"
+    }
+   ],
+   "faits": [
+    "En 2022, a déclaré au passif un prêt de 10 691 775 € consenti par MKB Bank (Hongrie) pour le financement de sa campagne présidentielle.",
+    "En 2022, a déclaré des quotes-parts indivises dans deux maisons (départements 56 et 92) reçues par donation et 12,5 % des parts d'une SCI, valorisées selon les montants retenus par la HATVP en 2015 et réévalués.",
+    "Déclare depuis 2021 une activité d'élevage de chats, dont le bénéfice net déclaré est de 518 € en 2024."
+   ],
+   "sources": [
+    {
+     "label": "HATVP — déclaration d'intérêts et d'activités modificative (2026)",
+     "url": "https://www.hatvp.fr/livraison/dossiers/le-pen-marine-diam35065-depute-62.xml"
+    },
+    {
+     "label": "HATVP — déclaration de situation patrimoniale, présidentielle 2022 (archive)",
+     "url": "https://web.archive.org/web/20220308160634/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DSP-Le-Pen.pdf"
+    },
+    {
+     "label": "HATVP — déclaration d'intérêts et d'activités, présidentielle 2022 (archive)",
+     "url": "https://web.archive.org/web/20220308160639/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DIA-Le-Pen.pdf"
+    },
+    {
+     "label": "HATVP — fiche nominative",
+     "url": "https://www.hatvp.fr/fiche-nominative/?declarant=le-pen-marine"
+    }
+   ]
+  },
+  "bardella": {
+   "status": "interets",
+   "patrimoine": null,
+   "revenus": [
+    {
+     "annee": 2026,
+     "label": "Auteur — Fayard - Groupe Hachette (net)",
+     "montant": 306963
+    },
+    {
+     "annee": 2025,
+     "label": "Auteur — Fayard - Groupe Hachette (net)",
+     "montant": 640147
+    },
+    {
+     "annee": 2024,
+     "label": "Député au Parlement européen (net)",
+     "montant": 72792
+    }
+   ],
+   "participations": [],
+   "faits": [
+    "A déclaré des droits d'auteur versés par Fayard (groupe Hachette) au titre de deux livres : 640 147 € net en 2025 et 306 963 € net en 2026.",
+    "Sa déclaration de situation patrimoniale de député européen n'est consultable qu'en préfecture."
+   ],
+   "sources": [
+    {
+     "label": "HATVP — déclaration d'intérêts modificative (2026)",
+     "url": "https://www.hatvp.fr/livraison/dossiers/bardella-jordan-dim35962-europe.xml"
+    },
+    {
+     "label": "HATVP — fiche nominative",
+     "url": "https://www.hatvp.fr/fiche-nominative/?declarant=bardella-jordan-15999"
+    }
+   ]
+  },
+  "melenchon": {
+   "status": "complet",
+   "patrimoine": {
+    "date": "2022-03-03",
+    "contexte": "Candidature à la présidentielle 2022 (biens détenus au 1er janvier 2022, déclaration publiée le 8 mars 2022)",
+    "net": 1366091,
+    "postes": [
+     {
+      "label": "Immobilier (appartement et maison)",
+      "montant": 1370000
+     },
+     {
+      "label": "Comptes bancaires et épargne",
+      "montant": 95236
+     },
+     {
+      "label": "Passif : prêt immobilier (restant dû)",
+      "montant": -99145
+     }
+    ],
+    "url": "https://web.archive.org/web/20220308160657/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DSP-Melenchon.pdf"
+   },
+   "revenus": [
+    {
+     "annee": 2022,
+     "label": "Indemnité de député (montant indiqué comme évaluation)",
+     "montant": 34800
+    },
+    {
+     "annee": 2021,
+     "label": "Indemnité de député",
+     "montant": 71200
+    }
+   ],
+   "participations": [],
+   "faits": [
+    "En 2022, a déclaré un appartement de 110 m² à Paris (75), acquis en 2014, et une maison de 150 m² dans le département 45, acquise en 1996.",
+    "En 2022, a déclaré un prêt immobilier contracté en 2014 pour l'acquisition de sa résidence principale (99 145 € restant dus)."
+   ],
+   "sources": [
+    {
+     "label": "HATVP — déclaration de situation patrimoniale, présidentielle 2022 (archive)",
+     "url": "https://web.archive.org/web/20220308160657/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DSP-Melenchon.pdf"
+    },
+    {
+     "label": "HATVP — déclaration d'intérêts et d'activités, présidentielle 2022 (archive)",
+     "url": "https://web.archive.org/web/20220308160603/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DIA-Melenchon.pdf"
+    }
+   ]
+  },
+  "philippe": {
+   "status": "interets",
+   "patrimoine": null,
+   "revenus": [
+    {
+     "annee": 2023,
+     "label": "droits d'auteur — Divers éditeurs (net)",
+     "montant": 86978
+    },
+    {
+     "annee": 2023,
+     "label": "membre du conseil d'administration — Société Atos (net)",
+     "montant": 71500
+    },
+    {
+     "annee": 2023,
+     "label": "Maire du Havre (net)",
+     "montant": 47887
+    },
+    {
+     "annee": 2023,
+     "label": "Président de la Communauté Urbaine Le Havre Seine Métropole (net)",
+     "montant": 43288
+    },
+    {
+     "annee": 2022,
+     "label": "droits d'auteur — Divers éditeurs (net)",
+     "montant": 102571
+    },
+    {
+     "annee": 2022,
+     "label": "membre du conseil d'administration — Société Atos (net)",
+     "montant": 72000
+    },
+    {
+     "annee": 2022,
+     "label": "Maire du Havre (net)",
+     "montant": 56156
+    },
+    {
+     "annee": 2022,
+     "label": "Président de la Communauté Urbaine Le Havre Seine Métropole (net)",
+     "montant": 50788
+    }
+   ],
+   "participations": [
+    {
+     "societe": "Société Atos",
+     "valeur": 2605,
+     "detail": "501 parts ; 0 % du capital ; Aux termes des statuts d'Atos, chaque administrateur est tenu de détenir au moins 500 actions de l'entreprise. Ces 501 actions ont été acquises dans la semaine qui a suivi mon élection au conseil d'administration."
+    }
+   ],
+   "faits": [
+    "A déclaré avoir été membre du conseil d'administration d'Atos d'octobre 2020 à juin 2023.",
+    "A déclaré des droits d'auteur de 102 571 € en 2022 et de 86 978 € en 2023."
+   ],
+   "sources": [
+    {
+     "label": "HATVP — déclaration d'intérêts modificative, maire du Havre (2023, archive)",
+     "url": "https://web.archive.org/web/20250315104241/https://www.hatvp.fr/livraison/dossiers/philippe-edouard-dim27989-commune-le-havre.xml"
+    },
+    {
+     "label": "HATVP — fiche nominative",
+     "url": "https://www.hatvp.fr/fiche-nominative/?declarant=philippe-edouard"
+    }
+   ]
+  },
+  "glucksmann": {
+   "status": "interets",
+   "patrimoine": null,
+   "revenus": [
+    {
+     "annee": 2024,
+     "label": "Député — Parlement européen (net)",
+     "montant": 56635
+    },
+    {
+     "annee": 2024,
+     "label": "Ecrivain - droits d'auteur — Allary editions (net)",
+     "montant": 30510
+    },
+    {
+     "annee": 2023,
+     "label": "Député — Parlement européen (net)",
+     "montant": 120234
+    },
+    {
+     "annee": 2023,
+     "label": "Ecrivain - droits d'auteur — Allary editions (net)",
+     "montant": 59175
+    }
+   ],
+   "participations": [],
+   "faits": [
+    "A déclaré des droits d'auteur versés par Allary éditions chaque année depuis 2019.",
+    "Sa déclaration de situation patrimoniale de député européen n'est consultable qu'en préfecture."
+   ],
+   "sources": [
+    {
+     "label": "HATVP — déclaration d'intérêts (2024)",
+     "url": "https://www.hatvp.fr/livraison/dossiers/glucksmann-raphael-di33197-europe.xml"
+    },
+    {
+     "label": "HATVP — fiche nominative",
+     "url": "https://www.hatvp.fr/fiche-nominative/?declarant=glucksmann-raphael-16012"
+    }
+   ]
+  },
+  "attal": {
+   "status": "complet",
+   "patrimoine": {
+    "date": "2024-03-08",
+    "contexte": "Fin de fonctions au Gouvernement (déclaration de fin de mandat déposée le 8 mars 2024)",
+    "net": 1068251,
+    "postes": [
+     {
+      "label": "Parts de SCI (11 %)",
+      "montant": 129900
+     },
+     {
+      "label": "Instruments financiers (PEA)",
+      "montant": 100
+     },
+     {
+      "label": "Assurance vie",
+      "montant": 1514377
+     },
+     {
+      "label": "Comptes bancaires et épargne",
+      "montant": 42874
+     },
+     {
+      "label": "Véhicule",
+      "montant": 1000
+     },
+     {
+      "label": "Autres biens (prêt consenti)",
+      "montant": 50000
+     },
+     {
+      "label": "Passif : prêt « in fine » (restant dû)",
+      "montant": -670000
+     }
+    ],
+    "url": "https://web.archive.org/web/20240708074520/https://www.hatvp.fr/livraison/dossiers/attal-gabriel-dspfm29059-gouvernement.xml"
+   },
+   "revenus": [
+    {
+     "annee": 2024,
+     "label": "Premier ministre (net)",
+     "montant": 79599
+    },
+    {
+     "annee": 2024,
+     "label": "Ministre — Ministère de l'Education nationale et de la jeunesse (net)",
+     "montant": 2752
+    },
+    {
+     "annee": 2024,
+     "label": "Conseiller municipal (net)",
+     "montant": 600
+    },
+    {
+     "annee": 2023,
+     "label": "Ministre — Ministère des Comptes Publics (net)",
+     "montant": 63397
+    },
+    {
+     "annee": 2023,
+     "label": "Ministre — Ministère de l'Education nationale et de la jeunesse (net)",
+     "montant": 49248
+    },
+    {
+     "annee": 2023,
+     "label": "Conseiller municipal (net)",
+     "montant": 600
+    },
+    {
+     "annee": 2022,
+     "label": "Ministre — Ministère des Comptes Publics (net)",
+     "montant": 66199
+    },
+    {
+     "annee": 2022,
+     "label": "Secrétaire d'Etat Porte-parole du Gouvernement (net)",
+     "montant": 49536
+    }
+   ],
+   "participations": [
+    {
+     "societe": "SCI (non publié)",
+     "valeur": 130000,
+     "detail": "130000 parts ; 11 % du capital"
+    }
+   ],
+   "faits": [
+    "En 2024, a déclaré un contrat d'assurance vie d'une valeur de rachat de 1 514 377 € et un prêt « in fine » de 670 000 € souscrit en 2017.",
+    "Détient 11 % des parts d'une SCI propriétaire d'une maison dans le département 20 (Corse), acquise en 2022."
+   ],
+   "sources": [
+    {
+     "label": "HATVP — déclaration d'intérêts et d'activités modificative (2025)",
+     "url": "https://www.hatvp.fr/livraison/dossiers/attal-gabriel-diam30321-depute-92.xml"
+    },
+    {
+     "label": "HATVP — déclaration de situation patrimoniale de fin de mandat, Gouvernement (2024, archive)",
+     "url": "https://web.archive.org/web/20240708074520/https://www.hatvp.fr/livraison/dossiers/attal-gabriel-dspfm29059-gouvernement.xml"
+    },
+    {
+     "label": "HATVP — fiche nominative",
+     "url": "https://www.hatvp.fr/fiche-nominative/?declarant=attal-gabriel"
+    }
+   ]
+  },
+  "lisnard": {
+   "status": "interets",
+   "patrimoine": null,
+   "revenus": [
+    {
+     "annee": 2021,
+     "label": "Maire de Cannes (net)",
+     "montant": 23094
+    },
+    {
+     "annee": 2021,
+     "label": "Vice-Président du Conseil Départemental des Alpes-Maritimes (net)",
+     "montant": 16190
+    },
+    {
+     "annee": 2020,
+     "label": "Maire de Cannes (net)",
+     "montant": 55127
+    },
+    {
+     "annee": 2020,
+     "label": "Vice-Président du Conseil Départemental des Alpes-Maritimes (net)",
+     "montant": 35741
+    }
+   ],
+   "participations": [
+    {
+     "societe": "ET ACT France C 4D",
+     "valeur": 47857,
+     "detail": "2368 parts ; Valorisation au 31/12/2021"
+    },
+    {
+     "societe": "ETOIL EUR AC 03 29",
+     "valeur": 5022,
+     "detail": "49 parts ; Valorisation au 31/12/2021"
+    },
+    {
+     "societe": "SCI (non publié)",
+     "valeur": 990,
+     "detail": "99 parts ; 100 % du capital ; Monsieur Lisnard est nue propriétaire de 99 parts."
+    }
+   ],
+   "faits": [
+    "Les déclarations de situation patrimoniale des élus locaux ne sont pas rendues publiques.",
+    "Une nouvelle déclaration d'intérêts de maire de Cannes a été déposée en mai 2026 ; sa publication est annoncée à venir."
+   ],
+   "sources": [
+    {
+     "label": "HATVP — déclaration d'intérêts modificative (2024)",
+     "url": "https://www.hatvp.fr/livraison/dossiers/lisnard-david-dim29314-departement-06.xml"
+    },
+    {
+     "label": "HATVP — fiche nominative",
+     "url": "https://www.hatvp.fr/fiche-nominative/?declarant=lisnard-david"
+    }
+   ]
+  },
+  "retailleau": {
+   "status": "complet",
+   "patrimoine": {
+    "date": "2025-02-22",
+    "contexte": "Ministre de l'Intérieur (déclaration de situation patrimoniale modificative déposée le 22 février 2025)",
+    "net": 1133275,
+    "postes": [
+     {
+      "label": "Immobilier (trois maisons et un terrain)",
+      "montant": 580350
+     },
+     {
+      "label": "Instruments financiers",
+      "montant": 98
+     },
+     {
+      "label": "Assurances vie",
+      "montant": 173150
+     },
+     {
+      "label": "Comptes bancaires et épargne",
+      "montant": 336431
+     },
+     {
+      "label": "Biens mobiliers (bibliothèque, dressing, tableau)",
+      "montant": 35000
+     },
+     {
+      "label": "Véhicules",
+      "montant": 20006
+     },
+     {
+      "label": "Passif : prêt bancaire (restant dû)",
+      "montant": -11760
+     }
+    ],
+    "url": "https://web.archive.org/web/20250721194104/https://www.hatvp.fr/livraison/dossiers/retailleau-bruno-dsp32961-gouvernement.pdf"
+   },
+   "revenus": [
+    {
+     "annee": 2025,
+     "label": "Ministre — Ministère de l'Intérieur (net)",
+     "montant": 94046
+    },
+    {
+     "annee": 2025,
+     "label": "Conseiller régional des Pays-de-la-Loire (net)",
+     "montant": 17066
+    },
+    {
+     "annee": 2025,
+     "label": "Sénateur de la Vendée (net)",
+     "montant": 10144
+    },
+    {
+     "annee": 2024,
+     "label": "Sénateur de la Vendée/Président de groupe parlementaire (net)",
+     "montant": 71109
+    },
+    {
+     "annee": 2024,
+     "label": "Ministre — Ministère de l'Intérieur (net)",
+     "montant": 31355
+    },
+    {
+     "annee": 2024,
+     "label": "Conseiller régional des Pays-de-la-Loire (net)",
+     "montant": 22849
+    },
+    {
+     "annee": 2023,
+     "label": "Sénateur de la Vendée/Président de groupe parlementaire (net)",
+     "montant": 97530
+    }
+   ],
+   "participations": [
+    {
+     "societe": "Crédit agricole",
+     "valeur": 100,
+     "detail": "66 parts"
+    }
+   ],
+   "faits": [
+    "En 2025, a déclaré quatre biens immobiliers en Vendée (85), dont une maison reçue par donation en 1984.",
+    "En 2025, a déclaré un seul emprunt, avec 11 760 € restant dus."
+   ],
+   "sources": [
+    {
+     "label": "HATVP — déclaration d'intérêts et d'activités, sénateur (2026, archive)",
+     "url": "https://web.archive.org/web/20260514225931/https://www.hatvp.fr/livraison/dossiers/retailleau-bruno-dia34773-senateur-85.xml"
+    },
+    {
+     "label": "HATVP — déclaration de situation patrimoniale, Gouvernement (2025, archive)",
+     "url": "https://web.archive.org/web/20250721194104/https://www.hatvp.fr/livraison/dossiers/retailleau-bruno-dsp32961-gouvernement.pdf"
+    },
+    {
+     "label": "HATVP — déclaration de situation patrimoniale (XML), Gouvernement (2025, archive)",
+     "url": "https://web.archive.org/web/20250610224302/https://www.hatvp.fr/livraison/dossiers/retailleau-bruno-dspfm30766-gouvernement.xml"
+    }
+   ]
+  },
+  "zemmour": {
+   "status": "complet",
+   "patrimoine": {
+    "date": "2022-03-02",
+    "contexte": "Candidature à la présidentielle 2022 (biens détenus au 1er janvier 2022, déclaration publiée le 8 mars 2022)",
+    "net": 4241033.65,
+    "postes": [
+     {
+      "label": "Immobilier (cinq appartements, dont trois en usufruit indivis)",
+      "montant": 2886440
+     },
+     {
+      "label": "Valeurs non cotées (SARL Rubempré, 90 %)",
+      "montant": 1530000
+     },
+     {
+      "label": "Assurances vie",
+      "montant": 444336.27
+     },
+     {
+      "label": "Comptes bancaires et épargne",
+      "montant": 13587.82
+     },
+     {
+      "label": "Passif : quatre prêts immobiliers (restant dû)",
+      "montant": -633330.44
+     }
+    ],
+    "url": "https://web.archive.org/web/20220308160543/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DSP-Zemmour.pdf"
+   },
+   "revenus": [
+    {
+     "annee": 2021,
+     "label": "Gérant — société Rubempré (net)",
+     "montant": 180000
+    },
+    {
+     "annee": 2021,
+     "label": "Journaliste-grand reporter — Le Figaro (jusqu'au 31/08/2021)",
+     "montant": 62441
+    },
+    {
+     "annee": 2020,
+     "label": "Gérant — société Rubempré (net)",
+     "montant": 521700
+    },
+    {
+     "annee": 2020,
+     "label": "Écrivain (droits d'auteur) — société Rubempré (net)",
+     "montant": 111531
+    },
+    {
+     "annee": 2020,
+     "label": "Journaliste-grand reporter — Le Figaro (net)",
+     "montant": 66181
+    }
+   ],
+   "participations": [
+    {
+     "societe": "SARL Rubempré",
+     "valeur": 1530000,
+     "detail": "225 parts ; 90 % du capital ; évaluation selon le bilan au 31/12/2020 ; rémunération de gérance 180 000 € net"
+    }
+   ],
+   "faits": [
+    "En 2022, a déclaré 90 % des parts de la SARL Rubempré, valorisées 1 530 000 € selon le bilan au 31 décembre 2020.",
+    "A déclaré une activité de journaliste au Figaro jusqu'au 31 août 2021."
+   ],
+   "sources": [
+    {
+     "label": "HATVP — déclaration de situation patrimoniale, présidentielle 2022 (archive)",
+     "url": "https://web.archive.org/web/20220308160543/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DSP-Zemmour.pdf"
+    },
+    {
+     "label": "HATVP — déclaration d'intérêts et d'activités, présidentielle 2022 (archive)",
+     "url": "https://web.archive.org/web/20220308160630/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DIA-Zemmour.pdf"
+    }
+   ]
+  },
+  "tondelier": {
+   "status": "indisponible",
+   "patrimoine": null,
+   "revenus": [],
+   "participations": [],
+   "faits": [],
+   "sources": []
+  },
+  "roussel": {
+   "status": "complet",
+   "patrimoine": {
+    "date": "2022-02-20",
+    "contexte": "Candidature à la présidentielle 2022 (biens détenus au 1er janvier 2022, déclaration publiée le 8 mars 2022)",
+    "net": 219582.06,
+    "postes": [
+     {
+      "label": "Immobilier (deux maisons)",
+      "montant": 300000
+     },
+     {
+      "label": "Comptes bancaires et épargne",
+      "montant": 16484.32
+     },
+     {
+      "label": "Véhicule",
+      "montant": 2000
+     },
+     {
+      "label": "Passif : crédit immobilier et prêt à taux zéro (restant dû)",
+      "montant": -98902.26
+     }
+    ],
+    "url": "https://web.archive.org/web/20220308160610/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DSP-Roussel.pdf"
+   },
+   "revenus": [
+    {
+     "annee": null,
+     "label": "Indemnité de député (montant annuel imposable déclaré, année non précisée)",
+     "montant": 70676
+    },
+    {
+     "annee": null,
+     "label": "Délégué communautaire (net, année non précisée)",
+     "montant": 2176
+    },
+    {
+     "annee": null,
+     "label": "Conseiller municipal (net, année non précisée)",
+     "montant": 1314
+    }
+   ],
+   "participations": [],
+   "faits": [
+    "En 2022, a déclaré une maison détenue en propre et une quote-part de 60 % d'une maison indivise, toutes deux dans le Nord (59).",
+    "En 2022, a déclaré être en disponibilité de la Métropole européenne de Lille depuis le 1er janvier 2022."
+   ],
+   "sources": [
+    {
+     "label": "HATVP — déclaration de situation patrimoniale, présidentielle 2022 (archive)",
+     "url": "https://web.archive.org/web/20220308160610/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DSP-Roussel.pdf"
+    },
+    {
+     "label": "HATVP — déclaration d'intérêts et d'activités, présidentielle 2022 (archive)",
+     "url": "https://web.archive.org/web/20220308160606/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DIA-Roussel.pdf"
+    }
+   ]
+  },
+  "riner": {
+   "status": "indisponible",
+   "patrimoine": null,
+   "revenus": [],
+   "participations": [],
+   "faits": [],
+   "sources": []
+  },
+  "villepin": {
+   "status": "indisponible",
+   "patrimoine": null,
+   "revenus": [],
+   "participations": [],
+   "faits": [],
+   "sources": []
+  },
+  "dupontaignan": {
+   "status": "complet",
+   "patrimoine": {
+    "date": "2022-03-01",
+    "contexte": "Candidature à la présidentielle 2022 (biens détenus au 1er janvier 2022, déclaration publiée le 8 mars 2022)",
+    "net": 2034370,
+    "postes": [
+     {
+      "label": "Immobilier (deux appartements, une maison, un local commercial)",
+      "montant": 2165000
+     },
+     {
+      "label": "Valeurs non cotées (temps partagé, société Etincelle)",
+      "montant": 6100
+     },
+     {
+      "label": "Comptes bancaires et épargne",
+      "montant": 26813
+     },
+     {
+      "label": "Biens mobiliers (sculpture)",
+      "montant": 25000
+     },
+     {
+      "label": "Véhicule",
+      "montant": 5000
+     },
+     {
+      "label": "Passif : emprunt immobilier et prêt travaux (restant dû)",
+      "montant": -193543
+     }
+    ],
+    "url": "https://web.archive.org/web/20220308160608/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DSP-Dupont-Aignan.pdf"
+   },
+   "revenus": [
+    {
+     "annee": 2021,
+     "label": "Indemnité de député",
+     "montant": 69580
+    },
+    {
+     "annee": 2021,
+     "label": "Droits d'auteur — L'Archipel",
+     "montant": 3390.78
+    },
+    {
+     "annee": 2021,
+     "label": "Conseiller municipal d'Yerres",
+     "montant": 1445.64
+    },
+    {
+     "annee": 2021,
+     "label": "Conseiller communautaire Val d'Yerres Val de Seine",
+     "montant": 1211.16
+    },
+    {
+     "annee": 2020,
+     "label": "Indemnité de député",
+     "montant": 70786
+    }
+   ],
+   "participations": [
+    {
+     "societe": "Société Etincelle",
+     "valeur": 100,
+     "detail": "50 % du capital ; co-gérant"
+    },
+    {
+     "societe": "Société civile (nom non publié)",
+     "valeur": 6000,
+     "detail": "une semaine de temps partagé"
+    }
+   ],
+   "faits": [
+    "En 2022, a déclaré deux appartements et un local commercial à Paris (75) et une maison dans l'Essonne (91).",
+    "En 2022, a déclaré une sculpture de Denis Monfleur acquise en 2015, évaluée à 25 000 €."
+   ],
+   "sources": [
+    {
+     "label": "HATVP — déclaration de situation patrimoniale, présidentielle 2022 (archive)",
+     "url": "https://web.archive.org/web/20220308160608/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DSP-Dupont-Aignan.pdf"
+    },
+    {
+     "label": "HATVP — déclaration d'intérêts et d'activités, présidentielle 2022 (archive)",
+     "url": "https://web.archive.org/web/20220309012910/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DIA-Dupont-Aignan.pdf"
+    }
+   ]
+  },
+  "arthaud": {
+   "status": "complet",
+   "patrimoine": {
+    "date": "2022-02-21",
+    "contexte": "Candidature à la présidentielle 2022 (biens détenus au 1er janvier 2022, déclaration publiée le 8 mars 2022)",
+    "net": 218888,
+    "postes": [
+     {
+      "label": "Immobilier (quote-part de 50 % d'un appartement)",
+      "montant": 177600
+     },
+     {
+      "label": "Comptes bancaires et épargne",
+      "montant": 37788
+     },
+     {
+      "label": "Véhicule",
+      "montant": 3500
+     }
+    ],
+    "url": "https://web.archive.org/web/20220308160703/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DSP-Arthaud.pdf"
+   },
+   "revenus": [
+    {
+     "annee": 2021,
+     "label": "Professeure agrégée — Éducation nationale",
+     "montant": 21321
+    },
+    {
+     "annee": 2020,
+     "label": "Professeure agrégée — Éducation nationale",
+     "montant": 20510
+    }
+   ],
+   "participations": [],
+   "faits": [
+    "En 2022, a déclaré une quote-part de 50 % d'un appartement de 48 m² en Seine-Saint-Denis (93), acheté en 2009, et aucun emprunt.",
+    "A déclaré être membre de la direction de Lutte ouvrière à titre bénévole depuis 2009."
+   ],
+   "sources": [
+    {
+     "label": "HATVP — déclaration de situation patrimoniale, présidentielle 2022 (archive)",
+     "url": "https://web.archive.org/web/20220308160703/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DSP-Arthaud.pdf"
+    },
+    {
+     "label": "HATVP — déclaration d'intérêts et d'activités, présidentielle 2022 (archive)",
+     "url": "https://web.archive.org/web/20220308160644/https://www.hatvp.fr/wordpress/wp-content/uploads/2022/03/DIA-Arthaud.pdf"
+    }
+   ]
+  }
+ }
+}

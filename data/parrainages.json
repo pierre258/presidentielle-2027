@@ -1,0 +1,2766 @@
+{
+ "updated": "2026-11-09",
+ "status": "pas_ouvert",
+ "ouverture": null,
+ "cloture": "2027-03-12",
+ "seuil": 500,
+ "source": {
+  "label": "Conseil constitutionnel — parrainages présidentielle 2027",
+  "url": "https://presidentielle2027.conseil-constitutionnel.fr/les-parrainages/"
+ },
+ "calendrier": "Recueil ouvert à la publication du décret de convocation des électeurs (au plus tard le 7 février 2027) ; clôture le 12 mars 2027 à 18 h (6e vendredi avant le 1er tour du 18 avril 2027). Publication des parrainages au fil de l'eau par le Conseil constitutionnel.",
+ "candidates": {},
+ "parrains": [],
+ "archive_2022": {
+  "source": "https://presidentielle2022.conseil-constitutionnel.fr/telechargement/parrainagestotal.csv",
+  "parrainages": 13427,
+  "candidats": 64,
+  "premiere_publication": "2022-02-01",
+  "derniere_publication": "2022-03-07",
+  "top_par_departement": 5,
+  "totaux": [
+   {
+    "nom": "Valérie Pécresse",
+    "nom_source": "PÉCRESSE Valérie",
+    "total": 2636,
+    "departements": 107
+   },
+   {
+    "nom": "Emmanuel Macron",
+    "nom_source": "MACRON Emmanuel",
+    "total": 2098,
+    "departements": 107
+   },
+   {
+    "nom": "Anne Hidalgo",
+    "nom_source": "HIDALGO Anne",
+    "total": 1440,
+    "departements": 96
+   },
+   {
+    "nom": "Jean-Luc Mélenchon",
+    "nom_source": "MÉLENCHON Jean-Luc",
+    "total": 906,
+    "departements": 104
+   },
+   {
+    "nom": "Éric Zemmour",
+    "nom_source": "ZEMMOUR Éric",
+    "total": 741,
+    "departements": 95
+   },
+   {
+    "nom": "Yannick Jadot",
+    "nom_source": "JADOT Yannick",
+    "total": 712,
+    "departements": 98
+   },
+   {
+    "nom": "Jean Lassalle",
+    "nom_source": "LASSALLE Jean",
+    "total": 642,
+    "departements": 86
+   },
+   {
+    "nom": "Fabien Roussel",
+    "nom_source": "ROUSSEL Fabien",
+    "total": 626,
+    "departements": 95
+   },
+   {
+    "nom": "Marine Le Pen",
+    "nom_source": "LE PEN Marine",
+    "total": 622,
+    "departements": 101
+   },
+   {
+    "nom": "Nicolas Dupont-Aignan",
+    "nom_source": "DUPONT-AIGNAN Nicolas",
+    "total": 600,
+    "departements": 84
+   },
+   {
+    "nom": "Philippe Poutou",
+    "nom_source": "POUTOU Philippe",
+    "total": 596,
+    "departements": 91
+   },
+   {
+    "nom": "Nathalie Arthaud",
+    "nom_source": "ARTHAUD Nathalie",
+    "total": 576,
+    "departements": 75
+   },
+   {
+    "nom": "François Asselineau",
+    "nom_source": "ASSELINEAU François",
+    "total": 293,
+    "departements": 59
+   },
+   {
+    "nom": "Christiane Taubira",
+    "nom_source": "TAUBIRA Christiane",
+    "total": 274,
+    "departements": 80
+   },
+   {
+    "nom": "Anasse Kazib",
+    "nom_source": "KAZIB Anasse",
+    "total": 160,
+    "departements": 46
+   },
+   {
+    "nom": "Hélène Thouy",
+    "nom_source": "THOUY Hélène",
+    "total": 139,
+    "departements": 68
+   },
+   {
+    "nom": "Gaspard Koenig",
+    "nom_source": "KOENIG Gaspard",
+    "total": 107,
+    "departements": 53
+   },
+   {
+    "nom": "Georges Kuzmanovic",
+    "nom_source": "KUZMANOVIC Georges",
+    "total": 49,
+    "departements": 26
+   },
+   {
+    "nom": "Nicolas Miguet",
+    "nom_source": "MIGUET Nicolas",
+    "total": 40,
+    "departements": 29
+   },
+   {
+    "nom": "Clara Egger",
+    "nom_source": "EGGER Clara",
+    "total": 36,
+    "departements": 26
+   },
+   {
+    "nom": "Arnaud Chiche",
+    "nom_source": "CHICHE Arnaud",
+    "total": 21,
+    "departements": 16
+   },
+   {
+    "nom": "Antoine Martinez",
+    "nom_source": "MARTINEZ Antoine",
+    "total": 13,
+    "departements": 9
+   },
+   {
+    "nom": "Jean-Marc Fortané",
+    "nom_source": "FORTANÉ Jean-Marc",
+    "total": 12,
+    "departements": 11
+   },
+   {
+    "nom": "Rafik Smati",
+    "nom_source": "SMATI  Rafik",
+    "total": 10,
+    "departements": 7
+   },
+   {
+    "nom": "Martin Rocca",
+    "nom_source": "ROCCA Martin",
+    "total": 9,
+    "departements": 9
+   },
+   {
+    "nom": "Marie Cau",
+    "nom_source": "CAU Marie",
+    "total": 8,
+    "departements": 5
+   },
+   {
+    "nom": "Antoine Waechter",
+    "nom_source": "WAECHTER Antoine",
+    "total": 7,
+    "departements": 7
+   },
+   {
+    "nom": "Corinne Békaert",
+    "nom_source": "BÉKAERT Corinne",
+    "total": 6,
+    "departements": 6
+   },
+   {
+    "nom": "Guillaume Meurice",
+    "nom_source": "MEURICE Guillaume",
+    "total": 6,
+    "departements": 6
+   },
+   {
+    "nom": "Alexandre Juving-Brunet",
+    "nom_source": "JUVING-BRUNET Alexandre",
+    "total": 2,
+    "departements": 2
+   },
+   {
+    "nom": "Christian Laurut",
+    "nom_source": "LAURUT Christian",
+    "total": 2,
+    "departements": 2
+   },
+   {
+    "nom": "Eric Régis Fiorile",
+    "nom_source": "FIORILE Eric Régis",
+    "total": 2,
+    "departements": 2
+   },
+   {
+    "nom": "Gildas Vieira",
+    "nom_source": "VIEIRA Gildas",
+    "total": 2,
+    "departements": 1
+   },
+   {
+    "nom": "Michel Barnier",
+    "nom_source": "BARNIER Michel",
+    "total": 2,
+    "departements": 2
+   },
+   {
+    "nom": "Nicolas Lacroix",
+    "nom_source": "LACROIX  Nicolas",
+    "total": 2,
+    "departements": 1
+   },
+   {
+    "nom": "Stéphanie Rivoal",
+    "nom_source": "RIVOAL Stéphanie",
+    "total": 2,
+    "departements": 2
+   },
+   {
+    "nom": "Antoine Rocquemont",
+    "nom_source": "ROCQUEMONT Antoine",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Arnaud Montebourg",
+    "nom_source": "MONTEBOURG Arnaud",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Bernard Cazeneuve",
+    "nom_source": "CAZENEUVE  Bernard",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Bertrand Fessard de Foucault",
+    "nom_source": "FESSARD DE FOUCAULT Bertrand",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Carole Delga",
+    "nom_source": "DELGA Carole",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Christian-Jacques Arnal",
+    "nom_source": "ARNAL Christian-Jacques",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Christophe Blanchet",
+    "nom_source": "BLANCHET Christophe",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Cédric Herrou",
+    "nom_source": "HERROU Cédric",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Edouard Philippe",
+    "nom_source": "PHILIPPE Edouard",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Emmanuelle Ménard",
+    "nom_source": "MÉNARD Emmanuelle",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Florian Philippot",
+    "nom_source": "PHILIPPOT Florian",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "François Hollande",
+    "nom_source": "HOLLANDE François",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "François Ruffin",
+    "nom_source": "RUFFIN François",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Jean Baptiste Giffon",
+    "nom_source": "GIFFON Jean Baptiste",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Jean-Louis Borloo",
+    "nom_source": "BORLOO Jean-Louis",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Josef Schovanec",
+    "nom_source": "SCHOVANEC Josef",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Laetitia Saint-Paul",
+    "nom_source": "SAINT-PAUL Laetitia",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Michel Chaudot",
+    "nom_source": "CHAUDOT Michel",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Patrick Cojan",
+    "nom_source": "COJAN Patrick",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Paul Montserrat",
+    "nom_source": "MONTSERRAT Paul",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Philippe Célestin Marechal",
+    "nom_source": "MARECHAL Philippe Célestin",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Philippe Mazuel",
+    "nom_source": "MAZUEL Philippe",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Raphaël Glucksmann",
+    "nom_source": "GLUCKSMANN Raphaël",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Stéphane Wendlinger",
+    "nom_source": "WENDLINGER Stéphane",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Thierry Cahez",
+    "nom_source": "CAHEZ Thierry",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Thomas Pesquet",
+    "nom_source": "PESQUET Thomas",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Vincent Delaby",
+    "nom_source": "DELABY Vincent",
+    "total": 1,
+    "departements": 1
+   },
+   {
+    "nom": "Yaya Lam",
+    "nom_source": "LAM Yaya",
+    "total": 1,
+    "departements": 1
+   }
+  ],
+  "par_departement": {
+   "01": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 46
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 15
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 12
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 10
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 9
+    }
+   ],
+   "02": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 32
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 28
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 27
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 22
+    },
+    {
+     "nom": "François Asselineau",
+     "total": 22
+    }
+   ],
+   "03": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 19
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 17
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 8
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 5
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 4
+    }
+   ],
+   "04": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 21
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 12
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 7
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 6
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 5
+    }
+   ],
+   "05": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 16
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 12
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 10
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 9
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 6
+    }
+   ],
+   "06": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 89
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 21
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 10
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 3
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 3
+    }
+   ],
+   "07": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 19
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 18
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 13
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 8
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 5
+    }
+   ],
+   "08": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 28
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 21
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 18
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 17
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 12
+    }
+   ],
+   "09": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 57
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 22
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 10
+    },
+    {
+     "nom": "Anasse Kazib",
+     "total": 9
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 9
+    }
+   ],
+   "10": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 37
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 19
+    },
+    {
+     "nom": "François Asselineau",
+     "total": 15
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 14
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 11
+    }
+   ],
+   "11": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 58
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 17
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 11
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 10
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 9
+    }
+   ],
+   "12": [
+    {
+     "nom": "Philippe Poutou",
+     "total": 19
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 16
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 15
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 12
+    },
+    {
+     "nom": "François Asselineau",
+     "total": 6
+    }
+   ],
+   "13": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 43
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 34
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 17
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 14
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 11
+    }
+   ],
+   "14": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 40
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 30
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 28
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 15
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 14
+    }
+   ],
+   "15": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 19
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 17
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 4
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 4
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 4
+    }
+   ],
+   "16": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 28
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 12
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 12
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 11
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 9
+    }
+   ],
+   "17": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 28
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 15
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 13
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 12
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 11
+    }
+   ],
+   "18": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 17
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 12
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 10
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 7
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 4
+    }
+   ],
+   "19": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 41
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 10
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 9
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 8
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 8
+    }
+   ],
+   "21": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 55
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 32
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 32
+    },
+    {
+     "nom": "François Asselineau",
+     "total": 24
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 19
+    }
+   ],
+   "22": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 30
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 14
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 13
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 11
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 10
+    }
+   ],
+   "23": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 12
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 8
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 6
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 6
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 6
+    }
+   ],
+   "24": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 33
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 25
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 22
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 18
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 15
+    }
+   ],
+   "25": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 56
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 26
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 23
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 19
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 16
+    }
+   ],
+   "26": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 26
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 24
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 22
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 12
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 11
+    }
+   ],
+   "27": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 70
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 28
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 25
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 15
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 9
+    }
+   ],
+   "28": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 30
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 12
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 11
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 11
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 10
+    }
+   ],
+   "29": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 27
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 20
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 17
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 9
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 8
+    }
+   ],
+   "2A": [
+    {
+     "nom": "Jean Lassalle",
+     "total": 14
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 8
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 7
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 7
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 6
+    }
+   ],
+   "2B": [
+    {
+     "nom": "Jean Lassalle",
+     "total": 24
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 11
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 10
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 9
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 9
+    }
+   ],
+   "30": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 32
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 22
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 20
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 18
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 14
+    }
+   ],
+   "31": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 96
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 26
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 26
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 17
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 13
+    }
+   ],
+   "32": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 31
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 24
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 16
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 13
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 12
+    }
+   ],
+   "33": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 66
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 30
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 21
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 21
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 20
+    }
+   ],
+   "34": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 55
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 14
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 13
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 8
+    },
+    {
+     "nom": "François Asselineau",
+     "total": 7
+    }
+   ],
+   "35": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 31
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 19
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 17
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 9
+    },
+    {
+     "nom": "Christiane Taubira",
+     "total": 7
+    }
+   ],
+   "36": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 14
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 10
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 8
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 7
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 6
+    }
+   ],
+   "37": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 18
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 12
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 9
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 6
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 4
+    }
+   ],
+   "38": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 39
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 35
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 19
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 18
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 15
+    }
+   ],
+   "39": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 39
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 16
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 15
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 15
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 11
+    }
+   ],
+   "40": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 61
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 11
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 10
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 10
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 3
+    }
+   ],
+   "41": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 15
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 14
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 8
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 6
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 6
+    }
+   ],
+   "42": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 29
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 16
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 11
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 10
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 9
+    }
+   ],
+   "43": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 15
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 3
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 3
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 3
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 2
+    }
+   ],
+   "44": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 27
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 24
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 21
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 16
+    },
+    {
+     "nom": "Christiane Taubira",
+     "total": 7
+    }
+   ],
+   "45": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 24
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 15
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 12
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 10
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 8
+    }
+   ],
+   "46": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 31
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 12
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 11
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 8
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 7
+    }
+   ],
+   "47": [
+    {
+     "nom": "Jean Lassalle",
+     "total": 18
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 13
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 12
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 10
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 9
+    }
+   ],
+   "48": [
+    {
+     "nom": "Philippe Poutou",
+     "total": 12
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 5
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 5
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 4
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 4
+    }
+   ],
+   "49": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 22
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 19
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 10
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 7
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 5
+    }
+   ],
+   "50": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 26
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 25
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 17
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 15
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 10
+    }
+   ],
+   "51": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 38
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 35
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 20
+    },
+    {
+     "nom": "François Asselineau",
+     "total": 17
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 17
+    }
+   ],
+   "52": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 40
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 36
+    },
+    {
+     "nom": "François Asselineau",
+     "total": 33
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 29
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 20
+    }
+   ],
+   "53": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 19
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 7
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 6
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 5
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 5
+    }
+   ],
+   "54": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 50
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 30
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 27
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 22
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 15
+    }
+   ],
+   "55": [
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 44
+    },
+    {
+     "nom": "François Asselineau",
+     "total": 23
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 23
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 17
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 14
+    }
+   ],
+   "56": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 24
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 10
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 5
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 4
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 3
+    }
+   ],
+   "57": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 32
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 28
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 27
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 17
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 17
+    }
+   ],
+   "58": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 12
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 8
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 8
+    },
+    {
+     "nom": "Christiane Taubira",
+     "total": 8
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 7
+    }
+   ],
+   "59": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 59
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 52
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 40
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 32
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 14
+    }
+   ],
+   "60": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 29
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 20
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 18
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 14
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 13
+    }
+   ],
+   "61": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 37
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 11
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 10
+    },
+    {
+     "nom": "François Asselineau",
+     "total": 9
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 7
+    }
+   ],
+   "62": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 39
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 38
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 32
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 28
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 23
+    }
+   ],
+   "63": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 23
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 21
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 20
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 19
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 11
+    }
+   ],
+   "64": [
+    {
+     "nom": "Jean Lassalle",
+     "total": 50
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 23
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 20
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 16
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 13
+    }
+   ],
+   "65": [
+    {
+     "nom": "Jean Lassalle",
+     "total": 28
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 20
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 15
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 13
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 12
+    }
+   ],
+   "66": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 18
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 12
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 8
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 8
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 7
+    }
+   ],
+   "67": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 41
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 30
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 13
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 13
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 11
+    }
+   ],
+   "68": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 48
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 30
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 10
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 8
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 8
+    }
+   ],
+   "69": [
+    {
+     "nom": "Yannick Jadot",
+     "total": 70
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 50
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 36
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 19
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 15
+    }
+   ],
+   "70": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 25
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 22
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 21
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 14
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 12
+    }
+   ],
+   "71": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 22
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 19
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 15
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 15
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 14
+    }
+   ],
+   "72": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 32
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 18
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 11
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 6
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 6
+    }
+   ],
+   "73": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 30
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 7
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 7
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 6
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 6
+    }
+   ],
+   "74": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 21
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 19
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 14
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 9
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 7
+    }
+   ],
+   "75": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 63
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 58
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 33
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 21
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 16
+    }
+   ],
+   "76": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 34
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 33
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 27
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 24
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 17
+    }
+   ],
+   "77": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 105
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 34
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 13
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 13
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 9
+    }
+   ],
+   "78": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 103
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 31
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 8
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 6
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 6
+    }
+   ],
+   "79": [
+    {
+     "nom": "Yannick Jadot",
+     "total": 11
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 11
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 11
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 9
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 8
+    }
+   ],
+   "80": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 26
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 26
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 22
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 14
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 13
+    }
+   ],
+   "81": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 26
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 18
+    },
+    {
+     "nom": "Jean Lassalle",
+     "total": 12
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 10
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 7
+    }
+   ],
+   "82": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 9
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 6
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 5
+    },
+    {
+     "nom": "Anasse Kazib",
+     "total": 2
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 2
+    }
+   ],
+   "83": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 39
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 25
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 15
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 7
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 3
+    }
+   ],
+   "84": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 21
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 15
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 12
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 11
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 5
+    }
+   ],
+   "85": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 17
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 13
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 4
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 4
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 4
+    }
+   ],
+   "86": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 19
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 8
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 5
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 5
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 5
+    }
+   ],
+   "87": [
+    {
+     "nom": "Anne Hidalgo",
+     "total": 44
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 11
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 8
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 6
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 5
+    }
+   ],
+   "88": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 31
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 29
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 20
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 18
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 13
+    }
+   ],
+   "89": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 32
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 27
+    },
+    {
+     "nom": "François Asselineau",
+     "total": 12
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 9
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 9
+    }
+   ],
+   "90": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 29
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 3
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 3
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 2
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 2
+    }
+   ],
+   "91": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 53
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 19
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 14
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 6
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 5
+    }
+   ],
+   "92": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 53
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 16
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 8
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 6
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 4
+    }
+   ],
+   "93": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 31
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 15
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 13
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 11
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 7
+    }
+   ],
+   "94": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 50
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 17
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 13
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 8
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 8
+    }
+   ],
+   "95": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 64
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 16
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 15
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 8
+    },
+    {
+     "nom": "Nicolas Dupont-Aignan",
+     "total": 5
+    }
+   ],
+   "971": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 35
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 11
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 6
+    },
+    {
+     "nom": "Nathalie Arthaud",
+     "total": 1
+    },
+    {
+     "nom": "Christiane Taubira",
+     "total": 1
+    }
+   ],
+   "972": [
+    {
+     "nom": "Christiane Taubira",
+     "total": 10
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 9
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 8
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 7
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 6
+    }
+   ],
+   "973": [
+    {
+     "nom": "Christiane Taubira",
+     "total": 19
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 16
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 12
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 2
+    }
+   ],
+   "974": [
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 29
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 20
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 9
+    },
+    {
+     "nom": "Fabien Roussel",
+     "total": 6
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 5
+    }
+   ],
+   "975": [
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 4
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 2
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 1
+    },
+    {
+     "nom": "Christiane Taubira",
+     "total": 1
+    }
+   ],
+   "976": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 24
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 12
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 2
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 1
+    }
+   ],
+   "977": [
+    {
+     "nom": "Éric Zemmour",
+     "total": 2
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 1
+    }
+   ],
+   "977-978": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 1
+    }
+   ],
+   "978": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 4
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 3
+    }
+   ],
+   "986": [
+    {
+     "nom": "Valérie Pécresse",
+     "total": 1
+    },
+    {
+     "nom": "Emmanuel Macron",
+     "total": 1
+    }
+   ],
+   "987": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 110
+    },
+    {
+     "nom": "Éric Zemmour",
+     "total": 13
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 9
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 7
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 1
+    }
+   ],
+   "988": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 23
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 14
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 11
+    },
+    {
+     "nom": "Philippe Poutou",
+     "total": 3
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 1
+    }
+   ],
+   "PE": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 19
+    },
+    {
+     "nom": "Marine Le Pen",
+     "total": 19
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 10
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 6
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 6
+    }
+   ],
+   "ZZ": [
+    {
+     "nom": "Emmanuel Macron",
+     "total": 52
+    },
+    {
+     "nom": "Valérie Pécresse",
+     "total": 35
+    },
+    {
+     "nom": "Yannick Jadot",
+     "total": 27
+    },
+    {
+     "nom": "Jean-Luc Mélenchon",
+     "total": 18
+    },
+    {
+     "nom": "Anne Hidalgo",
+     "total": 13
+    }
+   ]
+  }
+ }
+}

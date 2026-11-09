@@ -1,0 +1,65 @@
+{
+ "updated": "2026-11-09",
+ "evenements": [
+  {
+   "date": "2026-11-11",
+   "heure": "16:30",
+   "type": "meeting",
+   "titre": "Discours pour la paix de Jean-Luc Mélenchon",
+   "candidats": [
+    "melenchon"
+   ],
+   "lieu": "La Souterraine (Centre culturel Yves Furet)",
+   "media": null,
+   "source": {
+    "label": "Mélenchon 2027 (agenda de campagne)",
+    "url": "https://melenchon2027.fr/agenda-de-campagne/"
+   }
+  },
+  {
+   "date": "2026-12-05",
+   "heure": "15:00",
+   "type": "meeting",
+   "titre": "Meeting de Jean-Luc Mélenchon au Havre",
+   "candidats": [
+    "melenchon"
+   ],
+   "lieu": "Le Havre (Docks Océane)",
+   "media": null,
+   "source": {
+    "label": "Mélenchon 2027 (agenda de campagne)",
+    "url": "https://melenchon2027.fr/agenda-de-campagne/"
+   }
+  },
+  {
+   "date": "2026-12-10",
+   "heure": null,
+   "type": "primaire",
+   "titre": "Vote des adhérents écologistes sur la candidature (10-13 décembre)",
+   "candidats": [
+    "tondelier"
+   ],
+   "lieu": null,
+   "media": null,
+   "source": {
+    "label": "Public Sénat",
+    "url": "https://www.publicsenat.fr/actualites/politique/presidentielle-2027-les-ecologistes-reportent-lheure-du-choix-a-decembre-marine-tondelier-toujours-en-lice"
+   }
+  },
+  {
+   "date": "2026-12-13",
+   "heure": "15:00",
+   "type": "meeting",
+   "titre": "Grand meeting de David Lisnard à Lyon",
+   "candidats": [
+    "lisnard"
+   ],
+   "lieu": "Lyon (Eurexpo)",
+   "media": null,
+   "source": {
+    "label": "Lyon Mag",
+    "url": "https://www.lyonmag.com/article/154666/presidentielle-2027-david-lisnard-prepare-un-grand-meeting-a-lyon"
+   }
+  }
+ ]
+}

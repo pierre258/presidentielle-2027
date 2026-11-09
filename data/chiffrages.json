@@ -1,0 +1,678 @@
+{
+ "updated": "2026-11-09",
+ "note": "Un chiffrage estime l'effet d'une mesure sur les finances publiques, exprimé ici en milliards d'euros (Md€) par an : coût (dépense nouvelle ou baisse d'impôt) ou économie (baisse de dépense ou recette supplémentaire). Seules figurent des estimations publiées par des organismes indépendants des candidats. Les résultats varient selon les instituts, les hypothèses et l'horizon retenus ; ils ne portent pas sur les effets économiques induits. À la date de mise à jour, aucun chiffrage complet des programmes 2027 n'a été publié (l'Institut Montaigne l'annonce pour le premier trimestre 2027) : les montants repris ici datent de 2022, 2024 ou 2025, pour des mesures identiques ou proches, ce qui est précisé à chaque ligne.",
+ "candidates": {
+  "lepen": {
+   "total": null,
+   "mesures": [
+    {
+     "topic": "retraites",
+     "mesure": "Abrogation de la réforme de 2023, départ à 60 ans avec 40 annuités pour les carrières commencées avant 20 ans",
+     "montant_md": 34.7,
+     "min_md": 31.5,
+     "max_md": 44.7,
+     "sens": "cout",
+     "horizon": "par an, à l'horizon 2027",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/abroger-la-reforme-des-retraites-et-pour-ceux-ayant-commence-a-travailler-avant-20-ans-partir-a-40-annuites-de-cotisations",
+     "date": "2024-07-03",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN. Coût pour le seul régime de retraite, hors effets sur l'activité. Les modalités annoncées pour 2027 (62 ans comme repère) peuvent différer."
+    },
+    {
+     "topic": "retraites",
+     "mesure": "Retour de l'âge légal de départ à 62 ans (abrogation du report à 64 ans)",
+     "montant_md": 10.4,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "en 2035 (hausse du déficit du système de retraite)",
+     "source": "Cour des comptes",
+     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
+     "date": "2025-02-20",
+     "annee": 2025,
+     "note": "Estimation de la Cour des comptes présentée par son premier président Pierre Moscovici au Sénat (rapportée par Public Sénat le 5 mars 2025 : https://www.publicsenat.fr/actualites/emploi/retraites-si-vous-abrogez-la-reforme-de-2023-cest-10-milliards-deuros-de-plus-quil-faut-trouver-souligne-pierre-moscovici). Chiffrage d'un levier générique, non d'un programme de candidat ; porte sur le seul système de retraite. Ne couvre pas le volet « carrières longues » du RN."
+    },
+    {
+     "topic": "pouvoir_achat",
+     "mesure": "Baisse de la TVA de 20 % à 5,5 % sur les carburants, l'électricité, le gaz et le fioul",
+     "montant_md": 11.3,
+     "min_md": 9.0,
+     "max_md": 13.6,
+     "sens": "cout",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisser-la-tva-de-20-a-55-pour-les-carburants-lelectricite-le-gaz-et-le-fioul-domestique",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN. Mesure déjà chiffrée à 10,3 Md€/an en 2022. Nécessite l'accord des instances européennes pour les carburants. Date : publication du chiffrage global."
+    },
+    {
+     "topic": "pouvoir_achat",
+     "mesure": "TVA à 0 % sur des produits de première nécessité en cas de forte inflation",
+     "montant_md": 6.7,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    },
+    {
+     "topic": "fiscalite",
+     "mesure": "Baisse des impôts de production (CVAE et C3S)",
+     "montant_md": 5.1,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    },
+    {
+     "topic": "fiscalite",
+     "mesure": "Part fiscale pleine dès le deuxième enfant",
+     "montant_md": 3.4,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-03",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    },
+    {
+     "topic": "fiscalite",
+     "mesure": "Exonération d'impôt sur le revenu des moins de 30 ans",
+     "montant_md": 3.7,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    },
+    {
+     "topic": "immigration",
+     "mesure": "Prestations familiales réservées aux foyers dont un parent est Français",
+     "montant_md": 3.8,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN. Conformité constitutionnelle et européenne incertaine."
+    },
+    {
+     "topic": "immigration",
+     "mesure": "RSA et prestations de solidarité réservés aux étrangers ayant au moins 5 ans de travail en France",
+     "montant_md": 2.6,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    },
+    {
+     "topic": "immigration",
+     "mesure": "Réforme de la politique d'asile",
+     "montant_md": 1.2,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    },
+    {
+     "topic": "immigration",
+     "mesure": "Remplacement de l'aide médicale d'État par une aide d'urgence vitale",
+     "montant_md": 0.7,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN. Le RN annonce en octobre 2026 des économies liées à l'immigration bien supérieures (15 Md€ en 2027), non chiffrées à ce jour par un institut indépendant."
+    },
+    {
+     "topic": "sante",
+     "mesure": "Suppression des ARS et réduction des postes administratifs à l'hôpital",
+     "montant_md": 3.6,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an, à l'horizon 2026",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    }
+   ]
+  },
+  "bardella": {
+   "total": null,
+   "mesures": [
+    {
+     "topic": "retraites",
+     "mesure": "Abrogation de la réforme de 2023, départ à 60 ans avec 40 annuités pour les carrières commencées avant 20 ans",
+     "montant_md": 34.7,
+     "min_md": 31.5,
+     "max_md": 44.7,
+     "sens": "cout",
+     "horizon": "par an, à l'horizon 2027",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/abroger-la-reforme-des-retraites-et-pour-ceux-ayant-commence-a-travailler-avant-20-ans-partir-a-40-annuites-de-cotisations",
+     "date": "2024-07-03",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN. Coût pour le seul régime de retraite, hors effets sur l'activité. Les modalités annoncées pour 2027 (62 ans comme repère) peuvent différer."
+    },
+    {
+     "topic": "retraites",
+     "mesure": "Retour de l'âge légal de départ à 62 ans (abrogation du report à 64 ans)",
+     "montant_md": 10.4,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "en 2035 (hausse du déficit du système de retraite)",
+     "source": "Cour des comptes",
+     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
+     "date": "2025-02-20",
+     "annee": 2025,
+     "note": "Estimation de la Cour des comptes présentée par son premier président Pierre Moscovici au Sénat (rapportée par Public Sénat le 5 mars 2025 : https://www.publicsenat.fr/actualites/emploi/retraites-si-vous-abrogez-la-reforme-de-2023-cest-10-milliards-deuros-de-plus-quil-faut-trouver-souligne-pierre-moscovici). Chiffrage d'un levier générique, non d'un programme de candidat ; porte sur le seul système de retraite. Ne couvre pas le volet « carrières longues » du RN."
+    },
+    {
+     "topic": "pouvoir_achat",
+     "mesure": "Baisse de la TVA de 20 % à 5,5 % sur les carburants, l'électricité, le gaz et le fioul",
+     "montant_md": 11.3,
+     "min_md": 9.0,
+     "max_md": 13.6,
+     "sens": "cout",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/baisser-la-tva-de-20-a-55-pour-les-carburants-lelectricite-le-gaz-et-le-fioul-domestique",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN. Mesure déjà chiffrée à 10,3 Md€/an en 2022. Nécessite l'accord des instances européennes pour les carburants. Date : publication du chiffrage global."
+    },
+    {
+     "topic": "pouvoir_achat",
+     "mesure": "TVA à 0 % sur des produits de première nécessité en cas de forte inflation",
+     "montant_md": 6.7,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    },
+    {
+     "topic": "fiscalite",
+     "mesure": "Baisse des impôts de production (CVAE et C3S)",
+     "montant_md": 5.1,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    },
+    {
+     "topic": "fiscalite",
+     "mesure": "Part fiscale pleine dès le deuxième enfant",
+     "montant_md": 3.4,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-03",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    },
+    {
+     "topic": "fiscalite",
+     "mesure": "Exonération d'impôt sur le revenu des moins de 30 ans",
+     "montant_md": 3.7,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    },
+    {
+     "topic": "immigration",
+     "mesure": "Prestations familiales réservées aux foyers dont un parent est Français",
+     "montant_md": 3.8,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN. Conformité constitutionnelle et européenne incertaine."
+    },
+    {
+     "topic": "immigration",
+     "mesure": "RSA et prestations de solidarité réservés aux étrangers ayant au moins 5 ans de travail en France",
+     "montant_md": 2.6,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    },
+    {
+     "topic": "immigration",
+     "mesure": "Réforme de la politique d'asile",
+     "montant_md": 1.2,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    },
+    {
+     "topic": "immigration",
+     "mesure": "Remplacement de l'aide médicale d'État par une aide d'urgence vitale",
+     "montant_md": 0.7,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN. Le RN annonce en octobre 2026 des économies liées à l'immigration bien supérieures (15 Md€ en 2027), non chiffrées à ce jour par un institut indépendant."
+    },
+    {
+     "topic": "sante",
+     "mesure": "Suppression des ARS et réduction des postes administratifs à l'hôpital",
+     "montant_md": 3.6,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an, à l'horizon 2026",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme du Rassemblement national aux élections législatives de 2024 (antérieur au programme présidentiel 2027) ; mesure reprise dans les propositions actuelles du RN."
+    }
+   ]
+  },
+  "melenchon": {
+   "total": null,
+   "mesures": [
+    {
+     "topic": "retraites",
+     "mesure": "Retraite à 60 ans avec 40 annuités",
+     "montant_md": 85.8,
+     "min_md": 36.0,
+     "max_md": 112.8,
+     "sens": "cout",
+     "horizon": "par an, à l'horizon 2027",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/retablir-la-retraite-a-60-ans-apres-40-ans-annees-de-cotisation/",
+     "date": "2022-04-07",
+     "annee": 2022,
+     "note": "Chiffrage du programme présidentiel 2022 (mesure identique) ; scénario médian incluant le calcul sur les dix meilleures années et le minimum de pension. L'équipe du candidat l'estimait alors à 71,5 Md€. Date : bilan final de l'Institut Montaigne."
+    },
+    {
+     "topic": "retraites",
+     "mesure": "Abrogation de la réforme et retour à 60 ans (programme NFP 2024, avec pénibilité, prise en compte du RSA, minimum contributif au SMIC)",
+     "montant_md": 58.0,
+     "min_md": 49.0,
+     "max_md": 67.0,
+     "sens": "cout",
+     "horizon": "par an, à l'horizon 2027",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/abroger-la-reforme-des-retraites-restaurer-la-retraite-a-60-ans-en-prenant-en-compte-le-rsa-en-portant-le-minimum-contributif-au-smic",
+     "date": "2024-07-03",
+     "annee": 2024,
+     "note": "Chiffrage du programme commun du Nouveau Front populaire (législatives 2024), coalition dont fait partie la formation du candidat ; mesure reprise dans les positions actuelles, chiffrage non actualisé pour 2027. Coût pour le seul régime de retraite."
+    },
+    {
+     "topic": "pouvoir_achat",
+     "mesure": "Blocage des prix des produits de première nécessité",
+     "montant_md": 9.0,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme commun du Nouveau Front populaire (législatives 2024), coalition dont fait partie la formation du candidat ; mesure reprise dans les positions actuelles, chiffrage non actualisé pour 2027."
+    },
+    {
+     "topic": "pouvoir_achat",
+     "mesure": "Indexation des salaires sur l'inflation",
+     "montant_md": 10.5,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "par an",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme commun du Nouveau Front populaire (législatives 2024), coalition dont fait partie la formation du candidat ; mesure reprise dans les positions actuelles, chiffrage non actualisé pour 2027."
+    },
+    {
+     "topic": "fiscalite",
+     "mesure": "Taxation des superprofits",
+     "montant_md": 15.0,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an (recette supplémentaire)",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme commun du Nouveau Front populaire (législatives 2024), coalition dont fait partie la formation du candidat ; mesure reprise dans les positions actuelles, chiffrage non actualisé pour 2027."
+    },
+    {
+     "topic": "fiscalite",
+     "mesure": "Impôt sur les successions élevées",
+     "montant_md": 9.0,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an (recette supplémentaire)",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme commun du Nouveau Front populaire (législatives 2024), coalition dont fait partie la formation du candidat ; mesure reprise dans les positions actuelles, chiffrage non actualisé pour 2027."
+    },
+    {
+     "topic": "fiscalite",
+     "mesure": "Impôt sur le revenu à 14 tranches",
+     "montant_md": 4.7,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an (recette supplémentaire)",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme commun du Nouveau Front populaire (législatives 2024), coalition dont fait partie la formation du candidat ; mesure reprise dans les positions actuelles, chiffrage non actualisé pour 2027."
+    },
+    {
+     "topic": "fiscalite",
+     "mesure": "Rétablissement de l'ISF avec volet climatique",
+     "montant_md": 3.5,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an (recette supplémentaire)",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme commun du Nouveau Front populaire (législatives 2024), coalition dont fait partie la formation du candidat ; mesure reprise dans les positions actuelles, chiffrage non actualisé pour 2027."
+    }
+   ]
+  },
+  "philippe": {
+   "total": null,
+   "mesures": [
+    {
+     "topic": "retraites",
+     "mesure": "Report de l'âge légal de départ à 65 ans",
+     "montant_md": 8.4,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "en 2035, pour le système de retraite (jusqu'à 17,7 Md€ pour l'ensemble des finances publiques)",
+     "source": "Cour des comptes",
+     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
+     "date": "2025-02-20",
+     "annee": 2025,
+     "note": "Scénario de la Cour des comptes (recul d'un an, 65 ans au lieu de 64, à partir de la génération 1968), non d'un programme de candidat. Le programme d'Édouard Philippe y ajoute une durée de cotisation portée à 45 ans, non incluse."
+    }
+   ]
+  },
+  "glucksmann": {
+   "total": null,
+   "mesures": [
+    {
+     "topic": "retraites",
+     "mesure": "Retour de l'âge légal de départ à 62 ans (abrogation du report à 64 ans)",
+     "montant_md": 10.4,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "en 2035 (hausse du déficit du système de retraite)",
+     "source": "Cour des comptes",
+     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
+     "date": "2025-02-20",
+     "annee": 2025,
+     "note": "Estimation de la Cour des comptes présentée par son premier président Pierre Moscovici au Sénat (rapportée par Public Sénat le 5 mars 2025 : https://www.publicsenat.fr/actualites/emploi/retraites-si-vous-abrogez-la-reforme-de-2023-cest-10-milliards-deuros-de-plus-quil-faut-trouver-souligne-pierre-moscovici). Chiffrage d'un levier générique, non d'un programme de candidat ; porte sur le seul système de retraite. Le candidat prévoit aussi une prise en compte de la pénibilité, non chiffrée."
+    }
+   ]
+  },
+  "attal": {
+   "total": null,
+   "mesures": []
+  },
+  "lisnard": {
+   "total": null,
+   "mesures": []
+  },
+  "retailleau": {
+   "total": null,
+   "mesures": [
+    {
+     "topic": "retraites",
+     "mesure": "Report de l'âge légal de départ à 65 ans",
+     "montant_md": 8.4,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "en 2035, pour le système de retraite (jusqu'à 17,7 Md€ pour l'ensemble des finances publiques)",
+     "source": "Cour des comptes",
+     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
+     "date": "2025-02-20",
+     "annee": 2025,
+     "note": "Scénario de la Cour des comptes (recul d'un an, 65 ans au lieu de 64, à partir de la génération 1968), non d'un programme de candidat. Les modalités précises du candidat (calendrier, décote) peuvent différer."
+    }
+   ]
+  },
+  "zemmour": {
+   "total": null,
+   "mesures": [
+    {
+     "topic": "pouvoir_achat",
+     "mesure": "Prime « zéro charge »",
+     "montant_md": 28.0,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "par an, à l'horizon 2027",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/synthese",
+     "date": "2022-04-07",
+     "annee": 2022,
+     "note": "Chiffrage du programme présidentiel d'Éric Zemmour de 2022 ; mesure comparable dans ses positions actuelles, chiffrage non actualisé pour 2027. Date : bilan final de l'Institut Montaigne (7 avril 2022)."
+    },
+    {
+     "topic": "fiscalite",
+     "mesure": "Baisse supplémentaire des impôts de production (30 Md€ annoncés)",
+     "montant_md": 25.2,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "par an, à l'horizon 2027",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/synthese",
+     "date": "2022-04-07",
+     "annee": 2022,
+     "note": "Chiffrage du programme présidentiel d'Éric Zemmour de 2022 ; mesure comparable dans ses positions actuelles, chiffrage non actualisé pour 2027. Date : bilan final de l'Institut Montaigne (7 avril 2022)."
+    },
+    {
+     "topic": "immigration",
+     "mesure": "Suppression des aides sociales non contributives pour les étrangers",
+     "montant_md": 6.7,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an, à l'horizon 2027",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/synthese",
+     "date": "2022-04-07",
+     "annee": 2022,
+     "note": "Chiffrage du programme présidentiel d'Éric Zemmour de 2022 ; mesure comparable dans ses positions actuelles, chiffrage non actualisé pour 2027. Date : bilan final de l'Institut Montaigne (7 avril 2022). Conformité constitutionnelle et européenne incertaine."
+    }
+   ]
+  },
+  "tondelier": {
+   "total": null,
+   "mesures": [
+    {
+     "topic": "retraites",
+     "mesure": "Retour de l'âge légal de départ à 62 ans (abrogation du report à 64 ans)",
+     "montant_md": 10.4,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "en 2035 (hausse du déficit du système de retraite)",
+     "source": "Cour des comptes",
+     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
+     "date": "2025-02-20",
+     "annee": 2025,
+     "note": "Estimation de la Cour des comptes présentée par son premier président Pierre Moscovici au Sénat (rapportée par Public Sénat le 5 mars 2025 : https://www.publicsenat.fr/actualites/emploi/retraites-si-vous-abrogez-la-reforme-de-2023-cest-10-milliards-deuros-de-plus-quil-faut-trouver-souligne-pierre-moscovici). Chiffrage d'un levier générique, non d'un programme de candidat ; porte sur le seul système de retraite."
+    },
+    {
+     "topic": "fiscalite",
+     "mesure": "ISF avec composante climatique",
+     "montant_md": 3.5,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an (recette supplémentaire)",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme commun du Nouveau Front populaire (législatives 2024), coalition dont fait partie la formation du candidat ; mesure reprise dans les positions actuelles, chiffrage non actualisé pour 2027."
+    },
+    {
+     "topic": "fiscalite",
+     "mesure": "Taxation des superprofits",
+     "montant_md": 15.0,
+     "min_md": null,
+     "max_md": null,
+     "sens": "economie",
+     "horizon": "par an (recette supplémentaire)",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/synthese",
+     "date": "2024-07-05",
+     "annee": 2024,
+     "note": "Chiffrage du programme commun du Nouveau Front populaire (législatives 2024), coalition dont fait partie la formation du candidat ; mesure reprise dans les positions actuelles, chiffrage non actualisé pour 2027."
+    }
+   ]
+  },
+  "roussel": {
+   "total": null,
+   "mesures": [
+    {
+     "topic": "retraites",
+     "mesure": "Retraite à 60 ans à taux plein (pension à 75 % du revenu net des dix meilleures années)",
+     "montant_md": 87.7,
+     "min_md": 54.8,
+     "max_md": 176.6,
+     "sens": "cout",
+     "horizon": "par an, à l'horizon 2027",
+     "source": "Institut Montaigne",
+     "url": "https://www.institutmontaigne.org/presidentielle-2022/fabien-roussel/restaurer-la-retraite-a-60-ans-a-taux-plein-porter-la-pension-a-75-du-revenu-net-des-dix-meilleures-annees-pour-le-public-et-le-prive/",
+     "date": "2022-03-21",
+     "annee": 2022,
+     "note": "Chiffrage du programme présidentiel 2022 ; le candidat l'estimait alors à 30-40 Md€. Les modalités du programme 2027 peuvent différer. Date : communiqué de l'Institut Montaigne sur les retraites (mars 2022)."
+    }
+   ]
+  },
+  "riner": {
+   "total": null,
+   "mesures": []
+  },
+  "villepin": {
+   "total": null,
+   "mesures": []
+  },
+  "dupontaignan": {
+   "total": null,
+   "mesures": [
+    {
+     "topic": "retraites",
+     "mesure": "Retour de l'âge légal de départ à 62 ans (abrogation du report à 64 ans)",
+     "montant_md": 10.4,
+     "min_md": null,
+     "max_md": null,
+     "sens": "cout",
+     "horizon": "en 2035 (hausse du déficit du système de retraite)",
+     "source": "Cour des comptes",
+     "url": "https://www.ccomptes.fr/fr/publications/situation-financiere-et-perspectives-du-systeme-de-retraites",
+     "date": "2025-02-20",
+     "annee": 2025,
+     "note": "Estimation de la Cour des comptes présentée par son premier président Pierre Moscovici au Sénat (rapportée par Public Sénat le 5 mars 2025 : https://www.publicsenat.fr/actualites/emploi/retraites-si-vous-abrogez-la-reforme-de-2023-cest-10-milliards-deuros-de-plus-quil-faut-trouver-souligne-pierre-moscovici). Chiffrage d'un levier générique, non d'un programme de candidat ; porte sur le seul système de retraite."
+    }
+   ]
+  },
+  "arthaud": {
+   "total": null,
+   "mesures": []
+  }
+ }
+}
