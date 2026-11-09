@@ -37,8 +37,8 @@
           <p class="muted" id="poll-meta"></p>
         </div>
         <div class="seg" id="poll-window">
-          <button data-w="7" class="on">7 jours</button>
-          <button data-w="14">14 jours</button>
+          <button data-w="7">7 jours</button>
+          <button data-w="15" class="on">15 jours</button>
           <button data-w="30">30 jours</button>
         </div>
       </div>
@@ -47,7 +47,10 @@
         <div id="poll-bars"></div>
         <div class="poll-card-foot" id="poll-sources"></div>
       </div>
-      <h2>Évolution depuis l'automne 2025 <span class="muted small">(moyenne glissante 14 jours)</span></h2>
+      <h2>Duels du 2<sup>nd</sup> tour</h2>
+      <p class="muted small" id="duel-meta"></p>
+      <div class="duels" id="duels"></div>
+      <h2>Évolution du 1<sup>er</sup> tour depuis l'automne 2025 <span class="muted small">(moyenne glissante 14 jours)</span></h2>
       <div class="chart-box" id="poll-trend"></div>
       <h2>Sondages pris en compte</h2>
       <div class="table-scroll"><table class="tbl" id="poll-table"></table></div>
@@ -58,17 +61,18 @@
       <div class="panel-head">
         <div>
           <h1>Communautés sur les réseaux sociaux</h1>
-          <p class="muted">Abonnés cumulés X, Instagram, TikTok, YouTube et Facebook.</p>
+          <p class="muted">Abonnés cumulés ou par réseau : choisissez une plateforme ci-dessous.</p>
         </div>
       </div>
       <div id="social-warning" class="warn" hidden></div>
+      <div class="plat-cards" id="soc-platform" role="tablist" aria-label="Choisir un réseau social"></div>
       <div class="controls">
-        <div class="seg" id="soc-platform"></div>
         <div class="seg" id="soc-period">
           <button data-p="7">7 j</button>
           <button data-p="30">30 j</button>
           <button data-p="90">3 mois</button>
-          <button data-p="ytd" class="on">Depuis janvier</button>
+          <button data-p="ytd">Depuis janvier</button>
+          <button data-p="365" class="on">12 mois</button>
           <button data-p="custom">Personnalisé</button>
         </div>
         <div class="custom-range" id="soc-custom" hidden>
@@ -87,6 +91,8 @@
         <div class="race" id="soc-race"></div>
         <input type="range" id="soc-scrub" min="0" max="1000" value="1000" aria-label="Position dans le temps">
       </div>
+      <h2 id="soc-curve-title">Évolution des communautés</h2>
+      <div class="chart-box" id="soc-curve"></div>
       <h2>Détail par candidat</h2>
       <div class="table-scroll"><table class="tbl" id="soc-table"></table></div>
     </section>

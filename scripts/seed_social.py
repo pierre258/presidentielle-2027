@@ -30,7 +30,7 @@ EST = {
 
 
 def main():
-    start, today = dt.date(2026, 1, 1), dt.date.today()
+    start, today = dt.date(2025, 11, 9), dt.date.today()
     span = (today - start).days
     dates = [start + dt.timedelta(days=d) for d in range(0, span, 7)] + [today]
     hist = []

@@ -7,9 +7,11 @@ Méthode :
   1. Chaque ligne d'un tableau = une hypothèse (liste de candidats testée).
   2. Pour un sondage (institut + dates), le score d'un candidat = moyenne de ses scores
      dans les hypothèses où il est testé.
-  3. Moyenne finale = moyenne simple des sondages dont la fin de terrain tombe dans les
-     7 derniers jours. S'il n'y en a aucun, la fenêtre est élargie (14, 21, 30 j) et
-     signalée dans le JSON.
+  3. Moyenne finale = moyenne simple de tous les instituts dont la fin de terrain tombe
+     dans les 15 derniers jours (fenêtres 7 et 30 j aussi calculées). S'il n'y en a
+     aucun, la fenêtre est élargie et signalée dans le JSON.
+  4. 2nd tour : pour chaque duel testé, moyenne des sondages des 15 derniers jours
+     (à défaut, les 3 derniers sondages du duel).
 Bibliothèque standard uniquement (exécutable tel quel dans GitHub Actions).
 """
 import datetime as dt
@@ -30,6 +32,8 @@ UA = "Presidentielle2027Tracker/1.0 (site d'information ; contact via le dépôt
 MONTHS = {"janv": 1, "févr": 2, "fevr": 2, "mars": 3, "avr": 4, "mai": 5, "juin": 6, "juil": 7,
           "août": 8, "aout": 8, "sept": 9, "oct": 10, "nov": 11, "déc": 12, "dec": 12}
 HISTORY_START = dt.date(2025, 10, 1)
+DEFAULT_WINDOW = 15
+WINDOWS = (7, 15, 30)
 
 
 def fetch(url):
@@ -56,6 +60,46 @@ def parse_end_date(txt):
             if mon.startswith(k):
                 return int(day), v
     return None
+
+
+def second_round(tables, key2id, today):
+    """Duels de 2nd tour : tableaux à 2 candidats (Sondeur | Dates | Échantillon | A | B)."""
+    duels = []
+    for grid in tables:
+        if len(grid) < 3 or len(grid[1]) != 5 or grid[1][0]["text"] != "Sondeur":
+            continue
+        names = [re.sub(r"\(.*?\)", "", grid[1][i]["text"]).strip() for i in (3, 4)]
+        ids = [key2id.get(norm(n)) for n in names]
+        if not all(ids):
+            continue
+        polls = []
+        for row in grid[2:]:
+            if len(row) < 5:
+                continue
+            a, b = num(row[3]["text"]), num(row[4]["text"])
+            y = re.search(r"(20\d\d)", row[1]["text"])
+            ed = parse_end_date(row[1]["text"])
+            if a is None or b is None or not y or not ed:
+                continue
+            try:
+                end = dt.date(int(y.group(1)), ed[1], ed[0])
+            except ValueError:
+                continue
+            polls.append({"pollster": row[0]["text"], "fieldwork": row[1]["text"],
+                          "end": end.isoformat(), "a": a, "b": b})
+        if not polls:
+            continue
+        polls.sort(key=lambda p: p["end"], reverse=True)
+        recent = [p for p in polls if (today - dt.date.fromisoformat(p["end"])).days <= DEFAULT_WINDOW]
+        used = recent or polls[:3]
+        duels.append({"a": ids[0], "b": ids[1], "last": polls[0]["end"],
+                      "window": "15 jours" if recent else "3 derniers sondages",
+                      "n": len(used),
+                      "avg_a": round(sum(p["a"] for p in used) / len(used), 1),
+                      "avg_b": round(sum(p["b"] for p in used) / len(used), 1),
+                      "polls": polls[:6]})
+    duels.sort(key=lambda d: d["last"], reverse=True)
+    return duels
 
 
 def main():
@@ -139,7 +183,7 @@ def main():
                 acc.setdefault(c, []).append(v)
         return sel, {c: round(sum(v) / len(v), 1) for c, v in acc.items()}
 
-    window = 7
+    window = DEFAULT_WINDOW
     sel, avg = window_avg(today, window)
     while not sel and window < 30:
         window += 7
@@ -159,14 +203,16 @@ def main():
         "source": "Wikipédia — Liste de sondages sur l'élection présidentielle française de 2027",
         "source_url": URL,
         "window_days": window,
-        "window_extended": window != 7,
+        "window_extended": window != DEFAULT_WINDOW,
         "average": dict(sorted(avg.items(), key=lambda kv: -kv[1])),
         "previous_average": prev,
         "polls_in_window": sel,
         "windows": {str(w): {"polls": len(window_avg(today, w)[0]),
                              "average": window_avg(today, w)[1],
                              "previous": window_avg(today - dt.timedelta(days=w), w)[1]}
-                    for w in (7, 14, 30)},
+                    for w in WINDOWS},
+        "default_window": DEFAULT_WINDOW,
+        "second_round": second_round(tables, key2id, today),
         "series": series,
         "polls": out_polls,
     }

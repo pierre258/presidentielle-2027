@@ -31,7 +31,7 @@
   window.addEventListener("hashchange", () => showTab(location.hash.slice(1)));
 
   /* ---------------- 1. Sondages ---------------- */
-  function renderPolls(w = "7") {
+  function renderPolls(w = "15") {
     const win = POLLS.windows[w];
     const rows = Object.entries(win.average).filter(([id]) => C[id]).sort((a, b) => b[1] - a[1]);
     const max = rows.length ? rows[0][1] : 1;
@@ -58,6 +58,31 @@
     $("#poll-table").innerHTML = `<thead><tr><th>Institut</th><th>Terrain</th><th>Échantillon</th><th>Hyp.</th>${rows.slice(0, 7).map(([id]) => `<th>${esc(C[id].short)}</th>`).join("")}</tr></thead><tbody>`
       + POLLS.polls.slice(0, 20).map((p) => `<tr style="${sel.includes(p) ? "" : "opacity:.55"}"><td>${esc(p.pollster)}</td><td>${esc(p.fieldwork)} ${new Date(p.end).getFullYear()}</td><td>${esc(Number(p.sample).toLocaleString("fr-FR"))}</td><td>${p.hypotheses}</td>${rows.slice(0, 7).map(([id]) => `<td>${p.scores[id] != null ? fmtPct(p.scores[id]) : "—"}</td>`).join("")}</tr>`).join("")
       + "</tbody>";
+  }
+
+  function renderDuels() {
+    const D = (POLLS.second_round || []).filter((d) => C[d.a] && C[d.b]);
+    const fresh = (d) => (Date.now() - new Date(d.last)) / DAY <= 45;
+    const card = (d) => {
+      const col = (id) => (C[id].color === "#404040" ? "#8a8f98" : C[id].color);
+      const winA = d.avg_a >= d.avg_b;
+      return `<div class="duel ${fresh(d) ? "" : "old"}">
+        <div class="duel-top"><div class="duel-side">${avatar(d.a, 40)}${esc(C[d.a].short)}</div><div class="duel-side r">${avatar(d.b, 40)}${esc(C[d.b].short)}</div></div>
+        <div class="duel-pct"><span style="${winA ? "" : "opacity:.7"}">${fmtPct(d.avg_a)} %</span><span style="${winA ? "opacity:.7" : ""}">${fmtPct(d.avg_b)} %</span></div>
+        <div class="duel-bar"><i style="width:${d.avg_a}%;background:${col(d.a)}"></i><i style="width:${d.avg_b}%;background:${col(d.b)}"></i></div>
+        <div class="duel-meta">${d.n} sondage${d.n > 1 ? "s" : ""} (${d.window === "15 jours" ? "15 derniers jours" : "derniers disponibles"}) · dernier : ${esc(d.polls[0].pollster)}, ${fmtDate(d.last, { day: "numeric", month: "short", year: "numeric" })}</div>
+      </div>`;
+    };
+    const recent = D.filter(fresh), old = D.filter((d) => !fresh(d));
+    $("#duel-meta").textContent = "Intentions de vote au second tour selon les duels testés par les instituts (moyenne des sondages des 15 derniers jours ; à défaut, des derniers disponibles).";
+    $("#duels").innerHTML = recent.map(card).join("") || `<div class="empty">Aucun duel testé récemment.</div>`;
+    if (old.length) {
+      const btn = document.createElement("button");
+      btn.className = "old-toggle";
+      btn.textContent = `Afficher ${old.length} duel(s) plus ancien(s) (hypothèse Bardella, etc.)`;
+      btn.onclick = () => { $("#duels").insertAdjacentHTML("beforeend", old.map(card).join("")); btn.remove(); };
+      $("#duels").after(btn);
+    }
   }
 
   function renderTrend() {
@@ -88,8 +113,9 @@
   /* ---------------- 2. Réseaux sociaux ---------------- */
   const Social = (() => {
     const PL = { all: "Tous réseaux", x: "X", instagram: "Instagram", tiktok: "TikTok", youtube: "YouTube", facebook: "Facebook" };
-    const st = { platform: "all", period: "ytd", mode: "total", from: 0, to: 0, t: 1, raf: 0 };
-    let H, ids, ROW = 44;
+    const PC = { all: "#ff2d55", x: "#9aa4b2", instagram: "#e1306c", tiktok: "#25d8e8", youtube: "#ff0033", facebook: "#1877f2" };
+    const st = { platform: "all", period: "365", mode: "total", from: 0, to: 0, t: 1, raf: 0 };
+    let H, ids, allIds, ROW = 44;
 
     const val = (pt, id, p) => {
       const v = pt.values[id] || {};
@@ -126,6 +152,10 @@
         el.val.textContent = (st.mode === "gain" && d.v > 0 ? "+" : "") + fmtN(d.v);
       });
       $("#soc-date").textContent = fmtDate(ms, { day: "numeric", month: "short", year: "numeric" });
+      const clip = $("#soc-clip-rect");
+      if (clip) clip.setAttribute("width", Math.max(0, t) * +clip.dataset.w);
+      const lab = $("#soc-curve-labels");
+      if (lab) lab.style.opacity = t > 0.97 ? 1 : 0;
       $("#soc-scrub").value = Math.round(t * 1000);
       st.t = t;
     }
@@ -162,6 +192,51 @@
         ? `⚠️ <strong>Chiffres réels depuis le ${fmtDate(firstReal.ms, { day: "numeric", month: "long" })}</strong> (relevés quotidiens). Avant cette date, la courbe est une <strong>reconstitution estimée</strong>, calée sur le premier relevé réel. Les comptes officiels introuvables ne sont pas comptés (—).`
         : "⚠️ <strong>Historique estimé.</strong> Les relevés quotidiens réels démarrent à la mise en ligne ; la série depuis janvier 2026 est une reconstitution approximative.";
     }
+    // Somme d'une plateforme pour tous les candidats à l'instant ms
+    function platTotal(p, ms) {
+      const keep = st.platform; st.platform = p;
+      const n = allIds.reduce((acc, id) => acc + at(id, ms), 0);
+      st.platform = keep; return n;
+    }
+    function cards() {
+      const [a, b] = range();
+      $("#soc-platform").innerHTML = Object.entries(PL).map(([k, v]) => {
+        const now = platTotal(k, b), g = now - platTotal(k, a);
+        return `<button role="tab" data-v="${k}" class="plat ${st.platform === k ? "on" : ""}" style="--pc:${PC[k]}">
+          <span class="pn"><span class="dot"></span>${v}</span><span class="pv">${fmtN(now)}</span><span class="pg">+${fmtN(Math.max(0, g))} sur la période</span></button>`;
+      }).join("");
+    }
+    function curve() {
+      const [a, b] = range();
+      const W = 900, Hh = 340, L = 54, R = 130, T = 14, B = 28;
+      const pts = [a, ...H.filter((h) => h.ms > a && h.ms < b).map((h) => h.ms), b];
+      const series = ids.map((id) => {
+        const base = at(id, a);
+        return { id, v: pts.map((ms) => at(id, ms) - (st.mode === "gain" ? base : 0)) };
+      }).sort((p, q) => q.v[q.v.length - 1] - p.v[p.v.length - 1]).slice(0, 8);
+      const ymax = Math.max(1, ...series.flatMap((s) => s.v)) * 1.05;
+      const x = (ms) => L + ((ms - a) / (b - a || 1)) * (W - L - R);
+      const y = (v) => T + (1 - v / ymax) * (Hh - T - B);
+      let g = "";
+      for (let i = 0; i <= 4; i++) { const v = (ymax / 4) * i; g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(255,255,255,.08)"/><text x="${L - 8}" y="${y(v) + 4}" fill="#a5addb" font-size="11" text-anchor="end">${fmtN(v)}</text>`; }
+      const seen = new Set();
+      for (let ms = a; ms <= b; ms += DAY) { const d = new Date(ms); const k = d.getFullYear() + "-" + d.getMonth(); if (!seen.has(k) && d.getDate() <= 7) { seen.add(k); g += `<text x="${x(ms)}" y="${Hh - 8}" fill="#a5addb" font-size="11">${fmtDate(ms, { month: "short" })}</text>`; } }
+      const firstReal = H.find((h) => !h.estimated);
+      if (firstReal && firstReal.ms > a && firstReal.ms <= b) g += `<line x1="${x(firstReal.ms)}" x2="${x(firstReal.ms)}" y1="${T}" y2="${Hh - B}" stroke="#ffe08a" stroke-dasharray="4 4"/><text x="${x(firstReal.ms) - 6}" y="${T + 10}" fill="#ffe08a" font-size="11" text-anchor="end">estimé ← | → réel</text>`;
+      let lines = "";
+      const ends = [];
+      series.forEach((s) => {
+        const col = C[s.id].color === "#404040" ? "#9aa0a6" : C[s.id].color;
+        lines += `<polyline fill="none" stroke="${col}" stroke-width="2.5" stroke-linejoin="round" points="${s.v.map((v, i) => x(pts[i]) + "," + y(v)).join(" ")}"/>`;
+        ends.push({ id: s.id, y: y(s.v[s.v.length - 1]), v: s.v[s.v.length - 1] });
+      });
+      ends.sort((p, q) => p.y - q.y).forEach((e, i, arr) => { if (i && e.y - arr[i - 1].y < 14) e.y = arr[i - 1].y + 14; });
+      let labels = "";
+      ends.forEach((e) => { labels += `<text x="${W - R + 8}" y="${e.y + 4}" fill="#fff" font-size="12" font-weight="600">${esc(C[e.id].short)} ${(st.mode === "gain" ? "+" : "") + fmtN(e.v)}</text>`; });
+      $("#soc-curve").innerHTML = `<svg viewBox="0 0 ${W} ${Hh}" role="img" aria-label="Évolution des abonnés"><defs><clipPath id="soc-clip"><rect id="soc-clip-rect" x="0" y="0" height="${Hh}" width="${W - R - L}" data-w="${W - R - L}" transform="translate(${L},0)"/></clipPath></defs>${g}<g clip-path="url(#soc-clip)">${lines}</g><g id="soc-curve-labels" style="transition:opacity .4s">${labels}</g></svg>`;
+      const lbl = { "7": "7 jours", "30": "30 jours", "90": "3 mois", "365": "12 mois", ytd: "depuis janvier", custom: "période choisie" }[st.period];
+      $("#soc-curve-title").textContent = `Évolution ${st.mode === "gain" ? "du gain d'abonnés" : "des communautés"} — ${PL[st.platform]} — ${lbl}`;
+    }
     function play() {
       cancelAnimationFrame(st.raf);
       const dur = 10000, t0 = performance.now();
@@ -173,18 +248,26 @@
       frame(0);
       st.raf = requestAnimationFrame(step);
     }
-    function refresh(animate = true) { table(); animate ? play() : frame(st.t); }
+    // candidats présents sur la plateforme choisie (compte trouvé)
+    function setActive() {
+      const lastPt = H[H.length - 1];
+      ids = allIds.filter((id) => val(lastPt, id, st.platform) > 0);
+    }
+    function refresh(animate = true) { setActive(); build(); table(); cards(); curve(); animate ? play() : frame(st.t); }
     function init() {
       H = SOCIAL.history.map((h) => ({ ...h, ms: +new Date(h.date) }));
       const last = H[H.length - 1];
-      ids = Object.keys(last.values).filter((id) => C[id]);
-      $("#soc-platform").innerHTML = Object.entries(PL).map(([k, v]) => `<button data-v="${k}" class="${k === "all" ? "on" : ""}">${v}</button>`).join("");
+      allIds = Object.keys(last.values).filter((id) => C[id]);
+      ids = allIds.slice();
       const seg = (sel, key, cb) => $(sel).addEventListener("click", (e) => {
         const btn = e.target.closest("button"); if (!btn) return;
         $$(sel + " button").forEach((b) => b.classList.toggle("on", b === btn));
         cb(btn.dataset[key]);
       });
-      seg("#soc-platform", "v", (v) => { st.platform = v; refresh(); });
+      $("#soc-platform").addEventListener("click", (e) => {
+        const btn = e.target.closest(".plat"); if (!btn) return;
+        st.platform = btn.dataset.v; refresh();
+      });
       seg("#soc-mode", "m", (v) => { st.mode = v; refresh(); });
       seg("#soc-period", "p", (v) => { st.period = v; $("#soc-custom").hidden = v !== "custom"; refresh(); });
       const iso = (ms) => new Date(ms).toISOString().slice(0, 10);
@@ -195,7 +278,7 @@
       $("#soc-from").addEventListener("change", onRange); $("#soc-to").addEventListener("change", onRange);
       $("#soc-play").addEventListener("click", play);
       $("#soc-scrub").addEventListener("input", (e) => { cancelAnimationFrame(st.raf); frame(e.target.value / 1000); });
-      build(); table(); frame(1);
+      build(); table(); cards(); curve(); frame(1);
     }
     return { init, play };
   })();
@@ -306,7 +389,7 @@
       return;
     }
     $("#updated").textContent = "Mis à jour le " + new Date(POLLS.updated).toLocaleString("fr-FR", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
-    renderPolls("7"); renderTrend();
+    renderPolls(String(POLLS.default_window || 15)); renderTrend(); renderDuels();
     $("#poll-window").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
       $$("#poll-window button").forEach((x) => x.classList.toggle("on", x === b));

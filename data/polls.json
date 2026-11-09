@@ -1,37 +1,38 @@
 {
- "updated": "2026-11-09T09:43+00:00",
+ "updated": "2026-11-09T10:12+00:00",
  "source": "Wikipédia — Liste de sondages sur l'élection présidentielle française de 2027",
  "source_url": "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027",
- "window_days": 7,
+ "window_days": 15,
  "window_extended": false,
  "average": {
-  "lepen": 35.4,
-  "melenchon": 18.8,
-  "philippe": 12.3,
-  "glucksmann": 11.8,
-  "lisnard": 9.0,
-  "attal": 8.3,
-  "retailleau": 7.2,
-  "zemmour": 3.6,
-  "tondelier": 2.2,
+  "lepen": 35.7,
+  "melenchon": 18.2,
+  "philippe": 12.8,
+  "glucksmann": 11.6,
+  "lisnard": 8.4,
+  "attal": 7.7,
+  "retailleau": 6.3,
+  "zemmour": 3.9,
+  "tondelier": 2.7,
   "villepin": 2.0,
-  "roussel": 1.6,
-  "dupontaignan": 1.6,
-  "arthaud": 1.0
+  "roussel": 1.7,
+  "dupontaignan": 1.7,
+  "arthaud": 0.8
  },
  "previous_average": {
   "arthaud": 0.6,
-  "melenchon": 17.6,
-  "roussel": 1.9,
-  "tondelier": 3.1,
-  "glucksmann": 11.4,
-  "attal": 7.0,
-  "philippe": 13.2,
-  "lisnard": 7.8,
-  "retailleau": 5.3,
-  "dupontaignan": 1.9,
-  "lepen": 36.0,
-  "zemmour": 4.2
+  "melenchon": 16.7,
+  "roussel": 2.0,
+  "tondelier": 2.7,
+  "glucksmann": 13.7,
+  "attal": 8.6,
+  "philippe": 14.4,
+  "retailleau": 7.6,
+  "dupontaignan": 2.1,
+  "lepen": 34.4,
+  "zemmour": 3.9,
+  "lisnard": 6.6,
+  "villepin": 3.5
  },
  "polls_in_window": [
   {
@@ -54,6 +55,27 @@
     "zemmour": 3.6,
     "villepin": 2.0,
     "attal": 8.33
+   }
+  },
+  {
+   "pollster": "Ifop",
+   "fieldwork": "27-29 octobre",
+   "end": "2026-10-29",
+   "sample": "1501",
+   "hypotheses": 4,
+   "scores": {
+    "arthaud": 0.62,
+    "melenchon": 17.62,
+    "roussel": 1.88,
+    "tondelier": 3.12,
+    "glucksmann": 11.38,
+    "attal": 7.0,
+    "philippe": 13.17,
+    "lisnard": 7.83,
+    "retailleau": 5.33,
+    "dupontaignan": 1.88,
+    "lepen": 36.0,
+    "zemmour": 4.25
    }
   }
  ],
@@ -90,7 +112,7 @@
     "zemmour": 4.2
    }
   },
-  "14": {
+  "15": {
    "polls": 2,
    "average": {
     "arthaud": 0.8,
@@ -157,6 +179,459 @@
    }
   }
  },
+ "default_window": 15,
+ "second_round": [
+  {
+   "a": "glucksmann",
+   "b": "lepen",
+   "last": "2026-11-05",
+   "window": "15 jours",
+   "n": 1,
+   "avg_a": 40.0,
+   "avg_b": 60.0,
+   "polls": [
+    {
+     "pollster": "Harris",
+     "fieldwork": "3-5 novembre 2026",
+     "end": "2026-11-05",
+     "a": 40.0,
+     "b": 60.0
+    },
+    {
+     "pollster": "OpinionWay",
+     "fieldwork": "21-22 octobre 2026",
+     "end": "2026-10-22",
+     "a": 44.0,
+     "b": 56.0
+    },
+    {
+     "pollster": "Harris",
+     "fieldwork": "19-21 octobre 2026",
+     "end": "2026-10-21",
+     "a": 41.0,
+     "b": 59.0
+    },
+    {
+     "pollster": "Ifop",
+     "fieldwork": "17-19 octobre 2026",
+     "end": "2026-10-19",
+     "a": 43.0,
+     "b": 57.0
+    },
+    {
+     "pollster": "Elabe",
+     "fieldwork": "14-16 octobre 2026",
+     "end": "2026-10-16",
+     "a": 46.5,
+     "b": 53.5
+    },
+    {
+     "pollster": "YouGov",
+     "fieldwork": "12-15 octobre 2026",
+     "end": "2026-10-15",
+     "a": 45.0,
+     "b": 55.0
+    }
+   ]
+  },
+  {
+   "a": "melenchon",
+   "b": "lepen",
+   "last": "2026-11-05",
+   "window": "15 jours",
+   "n": 1,
+   "avg_a": 32.0,
+   "avg_b": 68.0,
+   "polls": [
+    {
+     "pollster": "Harris",
+     "fieldwork": "3-5 novembre 2026",
+     "end": "2026-11-05",
+     "a": 32.0,
+     "b": 68.0
+    },
+    {
+     "pollster": "OpinionWay",
+     "fieldwork": "21-22 octobre 2026",
+     "end": "2026-10-22",
+     "a": 31.0,
+     "b": 69.0
+    },
+    {
+     "pollster": "Harris",
+     "fieldwork": "19-21 octobre 2026",
+     "end": "2026-10-21",
+     "a": 30.0,
+     "b": 70.0
+    },
+    {
+     "pollster": "Ifop",
+     "fieldwork": "17-19 octobre 2026",
+     "end": "2026-10-19",
+     "a": 32.0,
+     "b": 68.0
+    },
+    {
+     "pollster": "Elabe",
+     "fieldwork": "14-16 octobre 2026",
+     "end": "2026-10-16",
+     "a": 31.0,
+     "b": 69.0
+    },
+    {
+     "pollster": "YouGov",
+     "fieldwork": "12-15 octobre 2026",
+     "end": "2026-10-15",
+     "a": 32.0,
+     "b": 68.0
+    }
+   ]
+  },
+  {
+   "a": "philippe",
+   "b": "lepen",
+   "last": "2026-11-05",
+   "window": "15 jours",
+   "n": 1,
+   "avg_a": 42.0,
+   "avg_b": 58.0,
+   "polls": [
+    {
+     "pollster": "Harris",
+     "fieldwork": "3-5 novembre 2026",
+     "end": "2026-11-05",
+     "a": 42.0,
+     "b": 58.0
+    },
+    {
+     "pollster": "OpinionWay",
+     "fieldwork": "21-22 octobre 2026",
+     "end": "2026-10-22",
+     "a": 44.0,
+     "b": 56.0
+    },
+    {
+     "pollster": "Harris",
+     "fieldwork": "19-21 octobre 2026",
+     "end": "2026-10-21",
+     "a": 43.0,
+     "b": 57.0
+    },
+    {
+     "pollster": "Ifop",
+     "fieldwork": "17-19 octobre 2026",
+     "end": "2026-10-19",
+     "a": 44.0,
+     "b": 56.0
+    },
+    {
+     "pollster": "Elabe",
+     "fieldwork": "14-16 octobre 2026",
+     "end": "2026-10-16",
+     "a": 47.5,
+     "b": 52.5
+    },
+    {
+     "pollster": "YouGov",
+     "fieldwork": "12-15 octobre 2026",
+     "end": "2026-10-15",
+     "a": 48.0,
+     "b": 52.0
+    }
+   ]
+  },
+  {
+   "a": "attal",
+   "b": "lepen",
+   "last": "2026-10-19",
+   "window": "3 derniers sondages",
+   "n": 3,
+   "avg_a": 43.3,
+   "avg_b": 56.7,
+   "polls": [
+    {
+     "pollster": "Ifop",
+     "fieldwork": "17-19 octobre 2026",
+     "end": "2026-10-19",
+     "a": 42.0,
+     "b": 58.0
+    },
+    {
+     "pollster": "YouGov",
+     "fieldwork": "12-15 octobre 2026",
+     "end": "2026-10-15",
+     "a": 45.0,
+     "b": 55.0
+    },
+    {
+     "pollster": "YouGov",
+     "fieldwork": "17-21 septembre 2026",
+     "end": "2026-09-21",
+     "a": 43.0,
+     "b": 57.0
+    },
+    {
+     "pollster": "Harris",
+     "fieldwork": "8-10 septembre 2026",
+     "end": "2026-09-10",
+     "a": 44.0,
+     "b": 56.0
+    },
+    {
+     "pollster": "OpinionWay",
+     "fieldwork": "2-3 septembre 2026",
+     "end": "2026-09-03",
+     "a": 45.0,
+     "b": 55.0
+    },
+    {
+     "pollster": "Elabe",
+     "fieldwork": "26-28 août 2026",
+     "end": "2026-08-28",
+     "a": 43.0,
+     "b": 57.0
+    }
+   ]
+  },
+  {
+   "a": "melenchon",
+   "b": "philippe",
+   "last": "2026-10-15",
+   "window": "3 derniers sondages",
+   "n": 2,
+   "avg_a": 36.5,
+   "avg_b": 63.5,
+   "polls": [
+    {
+     "pollster": "YouGov",
+     "fieldwork": "12-15 octobre 2026",
+     "end": "2026-10-15",
+     "a": 34.0,
+     "b": 66.0
+    },
+    {
+     "pollster": "YouGov",
+     "fieldwork": "17-21 septembre 2026",
+     "end": "2026-09-21",
+     "a": 39.0,
+     "b": 61.0
+    }
+   ]
+  },
+  {
+   "a": "retailleau",
+   "b": "lepen",
+   "last": "2026-08-25",
+   "window": "3 derniers sondages",
+   "n": 3,
+   "avg_a": 43.0,
+   "avg_b": 57.0,
+   "polls": [
+    {
+     "pollster": "Ifop",
+     "fieldwork": "24-25 août 2026",
+     "end": "2026-08-25",
+     "a": 42.0,
+     "b": 58.0
+    },
+    {
+     "pollster": "Cluster17",
+     "fieldwork": "22-24 juillet 2026",
+     "end": "2026-07-24",
+     "a": 43.0,
+     "b": 57.0
+    },
+    {
+     "pollster": "Elabe",
+     "fieldwork": "9-10 juillet 2026",
+     "end": "2026-07-10",
+     "a": 44.0,
+     "b": 56.0
+    }
+   ]
+  },
+  {
+   "a": "attal",
+   "b": "bardella",
+   "last": "2026-05-27",
+   "window": "3 derniers sondages",
+   "n": 3,
+   "avg_a": 45.0,
+   "avg_b": 55.0,
+   "polls": [
+    {
+     "pollster": "Harris",
+     "fieldwork": "25-27 mai 2026",
+     "end": "2026-05-27",
+     "a": 43.0,
+     "b": 57.0
+    },
+    {
+     "pollster": "Odoxa",
+     "fieldwork": "19-20 novembre 2025",
+     "end": "2025-11-20",
+     "a": 44.0,
+     "b": 56.0
+    },
+    {
+     "pollster": "Ifop",
+     "fieldwork": "11-18 avril 2025",
+     "end": "2025-04-18",
+     "a": 48.0,
+     "b": 52.0
+    },
+    {
+     "pollster": "Ifop",
+     "fieldwork": "16-18 avril 2024",
+     "end": "2024-04-18",
+     "a": 49.0,
+     "b": 51.0
+    }
+   ]
+  },
+  {
+   "a": "melenchon",
+   "b": "bardella",
+   "last": "2026-05-27",
+   "window": "3 derniers sondages",
+   "n": 3,
+   "avg_a": 28.8,
+   "avg_b": 71.2,
+   "polls": [
+    {
+     "pollster": "Harris",
+     "fieldwork": "25-27 mai 2026",
+     "end": "2026-05-27",
+     "a": 32.0,
+     "b": 68.0
+    },
+    {
+     "pollster": "Elabe",
+     "fieldwork": "25-27 mars 2026",
+     "end": "2026-03-27",
+     "a": 28.5,
+     "b": 71.5
+    },
+    {
+     "pollster": "Odoxa",
+     "fieldwork": "19-20 novembre 2025",
+     "end": "2025-11-20",
+     "a": 26.0,
+     "b": 74.0
+    },
+    {
+     "pollster": "Ifop",
+     "fieldwork": "11-18 avril 2025",
+     "end": "2025-04-18",
+     "a": 33.0,
+     "b": 67.0
+    }
+   ]
+  },
+  {
+   "a": "philippe",
+   "b": "bardella",
+   "last": "2026-05-27",
+   "window": "3 derniers sondages",
+   "n": 3,
+   "avg_a": 48.5,
+   "avg_b": 51.5,
+   "polls": [
+    {
+     "pollster": "Harris",
+     "fieldwork": "25-27 mai 2026",
+     "end": "2026-05-27",
+     "a": 46.0,
+     "b": 54.0
+    },
+    {
+     "pollster": "Odoxa",
+     "fieldwork": "20-21 mai 2026",
+     "end": "2026-05-21",
+     "a": 48.0,
+     "b": 52.0
+    },
+    {
+     "pollster": "Elabe",
+     "fieldwork": "25-27 mars 2026",
+     "end": "2026-03-27",
+     "a": 51.5,
+     "b": 48.5
+    },
+    {
+     "pollster": "Odoxa",
+     "fieldwork": "25-26 mars 2026",
+     "end": "2026-03-26",
+     "a": 52.0,
+     "b": 48.0
+    },
+    {
+     "pollster": "Odoxa",
+     "fieldwork": "19-20 novembre 2025",
+     "end": "2025-11-20",
+     "a": 47.0,
+     "b": 53.0
+    },
+    {
+     "pollster": "Odoxa",
+     "fieldwork": "23-24 avril 2025",
+     "end": "2025-04-24",
+     "a": 54.0,
+     "b": 46.0
+    }
+   ]
+  },
+  {
+   "a": "glucksmann",
+   "b": "bardella",
+   "last": "2026-03-27",
+   "window": "3 derniers sondages",
+   "n": 2,
+   "avg_a": 41.8,
+   "avg_b": 58.2,
+   "polls": [
+    {
+     "pollster": "Elabe",
+     "fieldwork": "25-27 mars 2026",
+     "end": "2026-03-27",
+     "a": 41.5,
+     "b": 58.5
+    },
+    {
+     "pollster": "Odoxa",
+     "fieldwork": "19-20 novembre 2025",
+     "end": "2025-11-20",
+     "a": 42.0,
+     "b": 58.0
+    }
+   ]
+  },
+  {
+   "a": "retailleau",
+   "b": "bardella",
+   "last": "2026-03-27",
+   "window": "3 derniers sondages",
+   "n": 2,
+   "avg_a": 44.5,
+   "avg_b": 55.5,
+   "polls": [
+    {
+     "pollster": "Elabe",
+     "fieldwork": "25-27 mars 2026",
+     "end": "2026-03-27",
+     "a": 42.0,
+     "b": 58.0
+    },
+    {
+     "pollster": "Ifop",
+     "fieldwork": "11-18 avril 2025",
+     "end": "2025-04-18",
+     "a": 47.0,
+     "b": 53.0
+    }
+   ]
+  }
+ ],
  "series": [
   {
    "date": "2025-10-01",
@@ -716,7 +1191,7 @@
    "date": "2026-10-07",
    "scores": {
     "arthaud": 0.8,
-    "melenchon": 17.2,
+    "melenchon": 17.1,
     "roussel": 2.4,
     "tondelier": 3.8,
     "glucksmann": 10.4,

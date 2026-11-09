@@ -166,3 +166,26 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .cmp .tl { grid-column: 1 / -1; }
   .cmp .corner { display: none; }
 }
+
+/* --- Duels 2nd tour --- */
+.duels { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.duel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; }
+.duel.old { opacity: .55; }
+.duel-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.duel-side { display: flex; align-items: center; gap: 8px; font: 700 16px var(--head); text-transform: uppercase; }
+.duel-side.r { flex-direction: row-reverse; text-align: right; }
+.duel-pct { font: 800 34px/1 var(--head); margin: 10px 0 6px; display: flex; justify-content: space-between; }
+.duel-bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: rgba(255,255,255,.1); }
+.duel-bar i { display: block; height: 100%; transition: width 1s ease; }
+.duel-meta { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.old-toggle { margin-top: 10px; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; color: var(--muted); font-size: 13px; }
+
+/* --- Cartes de réseau --- */
+.plat-cards { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-bottom: 14px; }
+.plat { border: 2px solid var(--line); background: var(--card); border-radius: 12px; padding: 10px 12px; text-align: left; display: flex; flex-direction: column; gap: 2px; }
+.plat .pn { font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+.plat .pv { font: 800 22px var(--head); }
+.plat .pg { font-size: 12px; color: var(--pos); }
+.plat .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--pc); }
+.plat.on { border-color: var(--pc); background: color-mix(in srgb, var(--pc) 22%, transparent); }
+@media (max-width: 760px) { .plat-cards { grid-template-columns: repeat(3, 1fr); } .plat .pv { font-size: 18px; } }
