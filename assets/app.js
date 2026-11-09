@@ -647,7 +647,8 @@
     if (window.Simulateur) window.Simulateur.init({ C, avatar, esc, fmtN, socialLinks }, SIM);
     window.APP = { C, avatar, esc, fmtN, socialLinks };
     if (window.Fun) window.Fun.init(window.APP);
-    showTab(location.hash.slice(1) || "sondages");
+    const fromMail = /access_token=|error_description=|type=signup/.test(location.hash);
+    showTab(fromMail ? "fun" : location.hash.slice(1) || "sondages");
   }
   main();
 })();

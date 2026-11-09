@@ -435,3 +435,9 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .xtext { margin: 4px 0 0; padding: 8px 12px; border-left: 3px solid #e7e9ea; background: rgba(255,255,255,.04); border-radius: 0 8px 8px 0; font-weight: 500; white-space: pre-line; }
 .xload { margin-top: 8px; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; color: var(--muted); font-size: 13px; }
 .xframe iframe { width: 100%; min-height: 420px; border: 0; border-radius: 10px; margin-top: 8px; background: #000; }
+
+/* --- Écran « Vérifiez votre boîte mail » --- */
+.mailbox { text-align: center; padding: 30px 24px; }
+.mail-ico { font-size: 52px; }
+.mailbox h3 { margin-top: 6px; }
+.mail-actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; }

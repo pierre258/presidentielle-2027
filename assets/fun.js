@@ -61,41 +61,68 @@
       ${user ? "" : "Créez votre compte en 20 secondes, puis remplissez votre portrait idéologique."}</div>`;
   }
 
-  async function renderAuth() {
+  // Adresses jetables refusées dès l'inscription (la base les exclut aussi des résultats)
+  const DISPOSABLE = /@(yopmail\.(com|fr|net)|mailinator\.(com|net)|guerrillamail\.\w+|sharklasers\.com|grr\.la|10minutemail\.\w+|temp-?mail\.\w+|tempmailo?\.com|tempinbox\.com|tempr\.email|trashmail\.\w+|throwawaymail\.com|getnada\.com|nada\.email|maildrop\.cc|dispostable\.com|fakeinbox\.com|mytemp\.email|moakt\.com|mohmal\.com|burnermail\.io|mailnesia\.com|jetable\.org|mail-temporaire\.\w+|tmpmail\.\w+|minuteinbox\.com|emailfake\.com|discard\.email|mailsac\.com|dropmail\.me|33mail\.com|wegwerfmail\.de)$/i;
+  const redirectUrl = () => `${location.origin}${location.pathname}#fun`;
+
+  function checkEmailScreen(email, note = "") {
+    el().innerHTML = `<div class="fun-card mailbox">
+        <div class="mail-ico">📩</div>
+        <h3>Vérifiez votre boîte mail</h3>
+        <p>Un e-mail de confirmation vient d'être envoyé à <strong>${esc(email)}</strong>.<br>Cliquez sur le lien qu'il contient pour activer votre compte : <strong>votre vote ne sera compté qu'une fois votre adresse confirmée</strong>.</p>
+        ${note}
+        <p class="muted small">Pensez à regarder dans les courriers indésirables. Le lien vous ramènera directement ici.</p>
+        <div class="mail-actions"><button type="button" class="ghost" id="resend">Renvoyer l'e-mail</button><button type="button" class="ghost" id="back-login">J'ai confirmé : me connecter</button></div>
+        <div id="resend-msg"></div></div>`;
+    $("#resend").onclick = async () => {
+      const { error } = await sb.auth.resend({ type: "signup", email, options: { emailRedirectTo: redirectUrl() } });
+      $("#resend-msg").innerHTML = error ? msg("Envoi impossible pour le moment (limite d'envoi atteinte ?) : réessayez dans quelques minutes.", "err") : msg("✓ E-mail renvoyé.", "ok");
+    };
+    $("#back-login").onclick = () => renderAuth("in", email);
+  }
+
+  async function renderAuth(startMode = "up", prefill = "") {
     el().innerHTML = `${await inviteBanner()}
       <div class="fun-card">
         <div class="seg" id="auth-tabs"><button data-t="up" class="on">Créer un compte</button><button data-t="in">Se connecter</button></div>
         <form id="auth-form" class="fun-form">
-          <label class="f-up">Pseudo (visible par le créateur du lien)<input name="pseudo" required minlength="2" maxlength="30" autocomplete="nickname"></label>
-          <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
-          <label>Mot de passe<input name="password" type="password" required minlength="6" autocomplete="new-password"></label>
+          <label class="f-up">Pseudo (visible par les membres de vos groupes)<input name="pseudo" required minlength="2" maxlength="30" autocomplete="nickname"><small>Évitez votre nom complet si vous souhaitez rester discret.</small></label>
+          <label>E-mail<input name="email" type="email" required autocomplete="email" value="${esc(prefill)}"><small class="f-up">Un e-mail de confirmation vous sera envoyé. Les adresses temporaires ne sont pas acceptées.</small></label>
+          <label>Mot de passe<input name="password" type="password" required minlength="8" autocomplete="new-password"><small class="f-up">8 caractères minimum.</small></label>
           <button class="cta" type="submit">Créer mon compte →</button>
           <div id="auth-msg"></div>
         </form>
-        <p class="muted small">Votre e-mail sert uniquement à vous connecter : il n'est jamais montré aux autres utilisateurs.</p>
+        <p class="muted small">🔒 Votre e-mail sert uniquement à vous connecter : il n'est jamais montré aux autres utilisateurs, ni à l'auteur d'un lien. Seuls les comptes à l'adresse confirmée sont comptés dans les résultats.</p>
       </div>`;
     let mode = "up";
     const f = $("#auth-form");
-    $("#auth-tabs").addEventListener("click", (e) => {
-      const b = e.target.closest("button"); if (!b) return;
-      mode = b.dataset.t;
-      $$("#auth-tabs button").forEach((x) => x.classList.toggle("on", x === b));
-      $(".f-up", f).hidden = mode !== "up";
-      f.pseudo.required = mode === "up";
-      f.password.autocomplete = mode === "up" ? "new-password" : "current-password";
-      $("button[type=submit]", f).textContent = mode === "up" ? "Créer mon compte →" : "Me connecter →";
-    });
+    const setMode = (m) => {
+      mode = m;
+      $$("#auth-tabs button").forEach((x) => x.classList.toggle("on", x.dataset.t === m));
+      $$(".f-up", f).forEach((x) => (x.hidden = m !== "up"));
+      f.pseudo.required = m === "up";
+      f.password.autocomplete = m === "up" ? "new-password" : "current-password";
+      f.password.minLength = m === "up" ? 8 : 1;
+      $("button[type=submit]", f).textContent = m === "up" ? "Créer mon compte →" : "Me connecter →";
+    };
+    $("#auth-tabs").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) setMode(b.dataset.t); });
+    setMode(startMode);
     f.addEventListener("submit", async (e) => {
       e.preventDefault();
       const out = $("#auth-msg");
-      out.innerHTML = msg("Un instant…");
       const email = f.email.value.trim(), password = f.password.value;
+      if (mode === "up" && DISPOSABLE.test(email)) return (out.innerHTML = msg("Les adresses e-mail temporaires ne sont pas acceptées : utilisez votre adresse habituelle.", "err"));
+      out.innerHTML = msg("Un instant…");
       if (mode === "up") {
-        const { data, error } = await sb.auth.signUp({ email, password, options: { data: { pseudo: f.pseudo.value.trim() } } });
-        if (error) return (out.innerHTML = msg(esc(error.message), "err"));
-        if (!data.session) return (out.innerHTML = msg("Compte créé : confirmez votre adresse via l'e-mail reçu, puis connectez-vous.", "ok"));
+        const pending = codeFromUrl() || store.get(PENDING) || undefined;
+        const { data, error } = await sb.auth.signUp({ email, password,
+          options: { emailRedirectTo: redirectUrl(), data: { pseudo: f.pseudo.value.trim(), pending_group: pending } } });
+        if (error) return (out.innerHTML = msg(/rate limit/i.test(error.message) ? "Trop d'inscriptions en ce moment : réessayez dans quelques minutes." : esc(error.message), "err"));
+        if (data.user && !data.user.identities?.length) return (out.innerHTML = msg("Un compte existe déjà avec cette adresse : connectez-vous.", "err"));
+        if (!data.session) return checkEmailScreen(email);
       } else {
         const { error } = await sb.auth.signInWithPassword({ email, password });
+        if (error && /confirm/i.test(error.message)) return checkEmailScreen(email, msg("Votre adresse n'est pas encore confirmée.", "err"));
         if (error) return (out.innerHTML = msg("E-mail ou mot de passe incorrect.", "err"));
       }
     });
@@ -110,10 +137,12 @@
   }
 
   async function joinPending() {
-    const code = codeFromUrl() || store.get(PENDING);
+    const meta = user.user_metadata?.pending_group;
+    const code = codeFromUrl() || store.get(PENDING) || meta;
     if (!code) return "";
     const { data, error } = await sb.rpc("join_group", { p_code: code });
     store.del(PENDING);
+    if (meta) sb.auth.updateUser({ data: { pending_group: null } }); // code consommé
     if (location.hash.includes("?g=")) history.replaceState(null, "", "#fun");
     return error ? msg("Impossible de rejoindre ce groupe : lien invalide.", "err")
       : msg(`✓ Vous avez rejoint « <strong>${esc(data)}</strong> ». Remplissez votre portrait ci-dessous : vous découvrirez ensuite les résultats du groupe.`, "ok");
@@ -188,8 +217,18 @@
     return `<div id="stepper" class="stepper"></div><div id="fun-result" class="sim-out"></div>`;
   }
 
+  async function statusNote() {
+    const { data } = await sb.rpc("my_status");
+    const st = data?.[0];
+    if (!st || st.counted) return "";
+    if (!st.email_confirmed) return msg("⚠️ Votre adresse e-mail n'est pas confirmée : votre vote n'est pas comptabilisé.", "err");
+    if (st.disposable) return msg("⚠️ Les adresses e-mail temporaires ne sont pas comptabilisées dans les résultats.", "err");
+    return msg(`⏳ Par sécurité, les nouveaux comptes sont comptés à partir du ${new Date(st.counted_from).toLocaleDateString("fr-FR")}.`, "");
+  }
+
   async function renderApp(notice = "") {
     profile = await ensureProfile();
+    notice += await statusNote();
     const done = !!profile.completed_at;
     stepper.ans = { ...(profile.answers || {}) };
     stepper.chosen = profile.chosen_candidate || "";
@@ -301,7 +340,7 @@
         ${Q.proxHTML(groupRes.prox.slice(0, 8))}
         <div class="avgq">${Q.questions.map((q) => { const v = avgAns[q.id]; return `<div class="avgq-r"><span>${esc(q.q)}</span><span class="avgq-b"><b style="left:${(v + 2) * 25}%"></b></span><strong>${v > 0 ? "+" : ""}${v.toFixed(1)}</strong></div>`; }).join("")}</div>
         <p class="muted small">Échelle : −2 pas du tout d'accord … +2 tout à fait d'accord.</p></details>
-      ${G ? `<p class="muted small">Résultats anonymes : aucun pseudo n'est affiché pour l'ensemble des utilisateurs. Tous les comptes ayant validé leur portrait et choisi un candidat sont comptés.</p>` : `
+      ${G ? `<p class="muted small">Résultats anonymes : aucun pseudo n'est affiché pour l'ensemble des utilisateurs. Seuls les comptes à l'adresse e-mail confirmée (hors adresses temporaires) ayant validé leur portrait sont comptés.</p>` : `
       <section class="dcard"><h4>👤 Les membres</h4><div class="members">${rows.map((r) => `<div class="member">
           ${r.completed && A.C[r.chosen_candidate] ? A.avatar(r.chosen_candidate, 30) : "<span class='av-ph'></span>"}
           <div><strong>${esc(r.pseudo)}</strong><small>${r.completed ? `vote ${esc(label(r.chosen_candidate))} · idées proches de ${esc(label(r.top_candidate))}` : "portrait pas encore validé"}</small></div></div>`).join("")}</div></section>`}
@@ -389,7 +428,14 @@
       el().innerHTML = `<div class="fun-card"><h3>🚧 Bientôt disponible</h3><p class="muted">Cette rubrique sera activée très prochainement. En attendant, vous pouvez faire votre portrait idéologique dans la rubrique « Mon impact ».</p></div>`;
       return;
     }
-    sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey);
+    const fromMail = /access_token=|error_description=|type=signup/.test(location.hash);
+    const mailError = (location.hash.match(/error_description=([^&]+)/) || [])[1];
+    sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, { auth: { detectSessionInUrl: true, persistSession: true } });
+    if (fromMail) setTimeout(() => history.replaceState(null, "", location.pathname + "#fun"), 1500);
+    if (mailError) {
+      el().innerHTML = msg("Le lien de confirmation n'est plus valide (" + esc(decodeURIComponent(mailError.replace(/\+/g, " "))) + "). Connectez-vous pour en recevoir un nouveau.", "err");
+      setTimeout(() => renderAuth("in"), 2500);
+    }
     let last;
     sb.auth.onAuthStateChange((_e, session) => {
       const id = session?.user?.id || null;
