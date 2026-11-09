@@ -132,6 +132,11 @@ def classify_with_claude(name, items):
 
 
 def main():
+    if not os.environ.get("ANTHROPIC_API_KEY") and not os.environ.get("BUZZ_ALLOW_KEYWORDS"):
+        # Sans Claude, le tri par mots-clés est trop approximatif : on conserve la sélection
+        # existante (BUZZ_ALLOW_KEYWORDS=1 pour forcer le mode mots-clés).
+        print("ANTHROPIC_API_KEY absent : buzz.json conservé tel quel.")
+        return
     cands = {c["id"]: c for c in json.loads((ROOT / "data/candidates.json").read_text())["candidates"]}
     since = dt.date.today() - dt.timedelta(days=7)
     result = {"updated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"),
