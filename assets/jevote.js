@@ -139,7 +139,7 @@
     // compte à rebours vivant (seulement quand la rubrique est affichée)
     setInterval(() => { const box = $("#jv-app .jv-cd"); if (box && !$("#jevote").hidden) box.outerHTML = countdownHTML(); }, 1000);
     // badge dans l'en-tête : progression de la check-list
-    const badge = () => { const n = TASKS.filter(([k]) => load()[k]).length; const el = $("#jv-badge"); if (el) el.textContent = n === TASKS.length ? "✅ Prêt à voter" : `🗳️ Prêt à voter ? ${n}/${TASKS.length}`; };
+    const badge = () => { const n = TASKS.filter(([k]) => load()[k]).length; const el = $("#jv-badge"); if (el) el.textContent = n === TASKS.length ? "✅ Prêt à voter" : "🗳️ Prêt à voter ?"; };
     badge(); document.addEventListener("change", badge);
   }
   window.JeVote = { init };

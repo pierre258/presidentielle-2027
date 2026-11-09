@@ -2,3 +2,6 @@
 __pycache__/
 *.pyc
 .claude/
+
+# Mentions éditeur retirées provisoirement (non publiées)
+docs/_prive_mentions_editeur.html

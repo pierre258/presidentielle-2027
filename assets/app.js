@@ -57,6 +57,7 @@
     // anciennes rubriques devenues des volets de « Candidats »
     const sub = { simulateur: "impact", portrait: "conv" }[id];
     if (sub) { id = "programmes"; setTimeout(() => window.ProgView?.(sub), 0); }
+    if (id === "parlement") { id = "programmes"; setTimeout(() => $("#parl-section")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50); }
     if (!/^[a-z]+$/.test(id) || !$("#" + id)) id = "sondages";
     $$(".panel").forEach((p) => (p.hidden = p.id !== id));
     $$(".tab").forEach((t) => t.classList.toggle("on", t.dataset.tab === id));

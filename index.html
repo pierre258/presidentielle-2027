@@ -12,7 +12,7 @@
   <meta name="theme-color" content="#0b1030">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=202611100500">
+  <link rel="stylesheet" href="assets/style.css?v=202611100610">
 </head>
 <body>
   <header class="top">
@@ -33,7 +33,6 @@
         <a href="#reseaux" data-tab="reseaux" class="tab">Réseaux sociaux</a>
         <a href="#buzz" data-tab="buzz" class="tab">Buzz</a>
         <a href="#programmes" data-tab="programmes" class="tab">Candidats</a>
-        <a href="#parlement" data-tab="parlement" class="tab">Dit à la télé, voté au Parlement</a>
         <a href="#fun" data-tab="fun" class="tab">Petit vote entre amis</a>
         <a href="#parrainages" data-tab="parrainages" class="tab">Les parrainages des 500 élus</a>
       </nav>
@@ -43,6 +42,9 @@
   <main class="wrap">
     <!-- 1. SONDAGES -->
     <section id="sondages" class="panel">
+      <figure class="hero-cands">
+        <img src="assets/candidats-2027.jpg" srcset="assets/candidats-2027-800.jpg 800w, assets/candidats-2027.jpg 1572w" sizes="(max-width: 900px) 100vw, 1100px" alt="Les principaux candidats à l'élection présidentielle 2027" width="1572" height="1001">
+      </figure>
       <div class="panel-head">
         <div>
           <h1>Intentions de vote — 1<sup>er</sup> tour</h1>
@@ -151,16 +153,6 @@
       </div>
     </section>
 
-    <!-- DIT À LA TÉLÉ, VOTÉ AU PARLEMENT -->
-    <section id="parlement" class="panel" hidden>
-      <div class="panel-head">
-        <div>
-          <h1>Dit à la télé, voté au Parlement</h1>
-          <p class="muted">Pour les candidats qui siègent au Parlement : leurs votes réels et leur assiduité, comparés à leurs promesses. Chaque vote renvoie au scrutin officiel.</p>
-        </div>
-      </div>
-      <div id="parl-app"></div>
-    </section>
 
     <!-- 4. PROGRAMMES -->
     <section id="programmes" class="panel" hidden>
@@ -271,6 +263,16 @@
       </div>
       <p class="muted small">Méthode : impôt sur le revenu calculé au barème 2025 (quotient familial, décote), IS à 15 %/25 %. Les mesures des candidats sont chiffrées quand c'est possible, avec l'hypothèse affichée sous chaque ligne. Estimations indicatives, sans valeur de conseil fiscal.</p>
       </div>
+      <!-- Dit à la télé, voté au Parlement (bas de la page Candidats) -->
+      <div class="parl-section" id="parl-section">
+        <figure class="parl-hero">
+          <img src="assets/hemicycle.jpg" alt="L'hémicycle de l'Assemblée nationale, vu depuis les tribunes" loading="lazy" width="1400" height="788">
+          <figcaption><h2>📺 Dit à la télé, 🗳️ voté au Parlement</h2>
+            <p>Pour les candidats qui siègent au Parlement : leurs votes réels et leur assiduité, comparés à leurs promesses. Chaque vote renvoie au scrutin officiel.</p></figcaption>
+          <small class="credit">Photo : <a href="https://commons.wikimedia.org/wiki/File:Assembl%C3%A9e_nationale_(visite_septembre_2024)_41.jpg" target="_blank" rel="noopener">PanierAvide</a>, CC BY-SA 4.0, via Wikimedia Commons</small>
+        </figure>
+        <div id="parl-app"></div>
+      </div>
     </section>
 
     <!-- 6. PETIT VOTE ENTRE AMIS -->
@@ -310,14 +312,6 @@
     <section id="mentions" class="panel legal" hidden>
       <h1>Mentions légales</h1>
       <p class="muted small">Dernière mise à jour : 9 novembre 2026</p>
-      <h2>Éditeur du site</h2>
-      <p>Le site <strong>moyennedessondages2027.fr</strong> (« MDS 2027 ») est édité par :</p>
-      <p><strong>Garo &amp; Filles</strong>, EURL (SARL unipersonnelle) au capital de 300 000 €<br>
-Siège social : 10 rue de Penthièvre, 75008 Paris<br>
-RCS Paris 853 096 113 · SIRET 853 096 113 00032 · TVA intracommunautaire FR96853096113<br>
-Contact : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a></p>
-      <h2>Directeur de la publication</h2>
-      <p>Pierre Garonnaire, gérant de Garo &amp; Filles.</p>
       <h2>Hébergement</h2>
       <p><strong>Site :</strong> GitHub, Inc. (GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — <a href="https://github.com" target="_blank" rel="noopener">github.com</a>.<br>
       <strong>Comptes et votes du « Petit vote entre amis » :</strong> Supabase, Inc. (États-Unis) ; données hébergées dans l'Union européenne (région Francfort, Allemagne) — <a href="https://supabase.com" target="_blank" rel="noopener">supabase.com</a>.<br>
@@ -328,7 +322,7 @@ Contact : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedess
       <p>La rubrique « Sondages » présente des <strong>moyennes calculées par le site</strong> à partir de sondages réalisés et publiés par des instituts (liste publique Wikipédia des sondages pour l'élection présidentielle de 2027). Pour chaque sondage, la notice détaillée (commanditaire, échantillon, dates, méthode, marge d'erreur) est consultable auprès de l'institut concerné et de la <a href="https://www.commission-des-sondages.fr" target="_blank" rel="noopener">Commission des sondages</a>. Conformément à la loi n° 77-808 du 19 juillet 1977, aucun sondage ni aucune moyenne de sondages ne sera publié ou mis à jour la veille et le jour de chaque tour de scrutin.</p>
       <p>Le « Petit vote entre amis » et ses résultats ne sont <strong>pas un sondage</strong> : les participants se désignent eux-mêmes, l'échantillon n'est pas représentatif de la population et les résultats ne permettent aucune prévision.</p>
       <h2>Propriété intellectuelle</h2>
-      <p>Les textes, calculs, graphiques et la mise en forme du site appartiennent à Garo &amp; Filles, sauf mention contraire. Les photographies proviennent de Wikimedia Commons (licences libres, auteurs crédités sur Commons). Les vidéos et publications intégrées (YouTube, Dailymotion, TikTok, X…) restent la propriété de leurs auteurs et ne sont chargées que si vous cliquez dessus. Les marques et logos cités appartiennent à leurs titulaires.</p>
+      <p>Les textes, calculs, graphiques et la mise en forme du site appartiennent à l'éditeur du site, sauf mention contraire. Les photographies proviennent de Wikimedia Commons (licences libres, auteurs crédités sur Commons). Les vidéos et publications intégrées (YouTube, Dailymotion, TikTok, X…) restent la propriété de leurs auteurs et ne sont chargées que si vous cliquez dessus. Les marques et logos cités appartiennent à leurs titulaires.</p>
       <h2>Responsabilité</h2>
       <p>Les synthèses de programmes, les simulations d'impact et les moyennes sont indicatives et peuvent comporter des erreurs ou des approximations ; elles ne constituent ni un conseil fiscal, juridique ou financier, ni une consigne de vote. Pour signaler une erreur ou demander un droit de réponse : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a>.</p>
     </section>
@@ -337,7 +331,7 @@ Contact : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedess
       <h1>Conditions générales d'utilisation</h1>
       <p class="muted small">Dernière mise à jour : 9 novembre 2026</p>
       <h2>1. Objet</h2>
-      <p>Les présentes conditions encadrent l'utilisation du site moyennedessondages2027.fr, édité par Garo &amp; Filles (voir les <a href="#mentions">mentions légales</a>). Utiliser le site vaut acceptation de ces conditions ; la création d'un compte nécessite de les accepter expressément.</p>
+      <p>Les présentes conditions encadrent l'utilisation du site moyennedessondages2027.fr (voir les <a href="#mentions">mentions légales</a>). Utiliser le site vaut acceptation de ces conditions ; la création d'un compte nécessite de les accepter expressément.</p>
       <h2>2. Accès au site</h2>
       <p>Le site est gratuit et accessible sans inscription. Seul le « Petit vote entre amis » (portrait idéologique, choix de candidat, groupes) nécessite un compte. L'éditeur peut suspendre ou faire évoluer tout ou partie du site, notamment pour maintenance ou pour respecter la période de réserve électorale.</p>
       <h2>3. Compte utilisateur</h2>
@@ -364,10 +358,7 @@ Contact : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedess
       <p class="muted small">Dernière mise à jour : 9 novembre 2026</p>
       <p class="legal-key">🔒 <strong>Vos données ne sont ni vendues, ni louées, ni cédées</strong> à qui que ce soit, et ne servent à aucune publicité ni à aucun ciblage politique. Le site n'utilise aucun traceur publicitaire ni outil de mesure d'audience.</p>
       <h2>Responsable du traitement</h2>
-      <p><strong>Garo &amp; Filles</strong>, EURL (SARL unipersonnelle) au capital de 300 000 €<br>
-Siège social : 10 rue de Penthièvre, 75008 Paris<br>
-RCS Paris 853 096 113 · SIRET 853 096 113 00032 · TVA intracommunautaire FR96853096113<br>
-Contact : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a></p>
+      <p>L'éditeur du site, joignable à <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a>.</p>
       <h2>Sans compte : ce que le site ne collecte pas</h2>
       <p>La consultation des sondages, réseaux sociaux, buzz, programmes et du simulateur « Les impacts sur ma vie » ne nécessite aucune donnée personnelle. Les informations saisies dans le simulateur (revenus, situation familiale, entreprise…) <strong>restent dans votre navigateur</strong> : elles ne sont ni envoyées ni enregistrées. Seul le numéro SIRET, si vous le saisissez, est transmis à l'annuaire public des entreprises (recherche-entreprises.api.gouv.fr, service de l'État) pour remplir le formulaire.</p>
       <h2>Avec un compte « Petit vote entre amis »</h2>
@@ -411,7 +402,6 @@ Contact : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedess
     </div>
     <div class="wrap foot-method">
       <p><strong>Méthode.</strong> Sondages : liste Wikipédia des sondages 2027 ; pour chaque sondage, moyenne des hypothèses où le candidat est testé, puis moyenne simple des sondages dont le terrain s'achève dans la fenêtre choisie. Notices détaillées auprès des instituts et de la <a href="https://www.commission-des-sondages.fr" target="_blank" rel="noopener">Commission des sondages</a>. Photos : Wikimedia Commons. Buzz : Google Actualités, YouTube, Dailymotion, TikTok, X. Données régénérées plusieurs fois par jour. Le « Petit vote entre amis » n'est pas un sondage.</p>
-      <p class="muted small">© 2026 Garo &amp; Filles — moyennedessondages2027.fr</p>
     </div>
   </footer>
 
@@ -419,8 +409,8 @@ Contact : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedess
   <script src="assets/config.js?v=202611100100"></script>
   <script src="assets/sim.js?v=202611100100"></script>
   <script src="assets/fun.js?v=202611100100"></script>
-  <script src="assets/jevote.js?v=202611100300"></script>
+  <script src="assets/jevote.js?v=202611100600"></script>
   <script src="assets/extras.js?v=202611100510"></script>
-  <script src="assets/app.js?v=202611100300"></script>
+  <script src="assets/app.js?v=202611100600"></script>
 </body>
 </html>
