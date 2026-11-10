@@ -929,3 +929,4 @@ body.am-open { overflow: hidden; }
 .grp-top h3 small { font-size: 12px; font-weight: 500; }
 .quiz-title { margin: 22px 0 10px; font-size: 18px; }
 button.linkish { background: none; border: 0; padding: 0; color: #93c5fd; text-decoration: underline; font: inherit; cursor: pointer; }
+.forgot { justify-self: start; font-size: 13px; margin-top: -4px; }

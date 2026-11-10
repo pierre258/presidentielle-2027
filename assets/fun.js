@@ -118,6 +118,7 @@
           <label class="f-up">Pseudo (visible par les membres de vos groupes)<input name="pseudo" required minlength="2" maxlength="30" autocomplete="nickname"><small>Évitez votre nom complet si vous souhaitez rester discret.</small></label>
           <label>E-mail<input name="email" type="email" required autocomplete="email" value="${esc(prefill)}"><small class="f-up">Un e-mail de confirmation vous sera envoyé. Les adresses temporaires ne sont pas acceptées.</small></label>
           <label>Mot de passe<input name="password" type="password" required minlength="8" autocomplete="new-password"><small class="f-up">8 caractères minimum.</small></label>
+          <button type="button" class="linkish f-in forgot" id="forgot">Mot de passe oublié ?</button>
           <label class="f-up consent"><input type="checkbox" name="consent" required> <span>J'accepte les <a href="#cgu" target="_blank">conditions d'utilisation</a> et la <a href="#confidentialite" target="_blank">politique de confidentialité</a>.</span></label>
           <div id="captcha-box" class="captcha-box"></div>
           <button class="cta" type="submit">Créer mon compte →</button>
@@ -131,6 +132,7 @@
       mode = m;
       $$("#auth-tabs button").forEach((x) => x.classList.toggle("on", x.dataset.t === m));
       $$(".f-up", f).forEach((x) => (x.hidden = m !== "up"));
+      $$(".f-in", f).forEach((x) => (x.hidden = m !== "in"));
       f.pseudo.required = m === "up";
       f.consent.required = m === "up";
       f.password.autocomplete = m === "up" ? "new-password" : "current-password";
@@ -154,6 +156,16 @@
       setMode(b.dataset.t);
     });
     setMode(startMode);
+    // Mot de passe oublié : e-mail de réinitialisation (réponse identique que le compte existe ou non)
+    $("#forgot", box).onclick = async () => {
+      const out = $("#auth-msg", box), email = f.email.value.trim();
+      if (!f.email.checkValidity() || !email) { f.email.focus(); return (out.innerHTML = msg("Saisissez d'abord votre adresse e-mail ci-dessus.", "err")); }
+      if (window.TURNSTILE_SITE_KEY && !captchaToken) return (out.innerHTML = msg("Merci de valider la vérification anti-robot ci-dessus.", "err"));
+      out.innerHTML = msg("Un instant…");
+      const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: redirectUrl(), captchaToken: captchaToken || undefined });
+      if (error && /rate limit|seconds/i.test(error.message)) return (out.innerHTML = msg("Trop de demandes en ce moment : réessayez dans quelques minutes.", "err"));
+      out.innerHTML = msg(`📩 Si un compte existe pour <strong>${esc(email)}</strong>, un e-mail vient de vous être envoyé avec un lien pour choisir un nouveau mot de passe. Pensez à regarder dans les courriers indésirables.`, "ok");
+    };
     f.addEventListener("submit", async (e) => {
       e.preventDefault();
       const out = $("#auth-msg", box);
@@ -194,6 +206,26 @@
     });
     const ib = $(".invite [data-auth]", el());
     if (ib) ib.hidden = false;
+  }
+
+  function renderNewPassword() {
+    const box = modal();
+    box.innerHTML = `<div class="fun-card auth-card"><h3>🔑 Choisissez un nouveau mot de passe</h3>
+        <form id="pw-form" class="fun-form">
+          <label>Nouveau mot de passe<input name="pw" type="password" required minlength="8" autocomplete="new-password"><small>8 caractères minimum.</small></label>
+          <label>Confirmez-le<input name="pw2" type="password" required minlength="8" autocomplete="new-password"></label>
+          <button class="cta" type="submit">Enregistrer mon mot de passe →</button><div id="pw-msg"></div></form></div>`;
+    const f = $("#pw-form", box);
+    f.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const out = $("#pw-msg", box);
+      if (f.pw.value !== f.pw2.value) return (out.innerHTML = msg("Les deux mots de passe ne correspondent pas.", "err"));
+      out.innerHTML = msg("Un instant…");
+      const { error } = await sb.auth.updateUser({ password: f.pw.value });
+      if (error) return (out.innerHTML = msg(/different|same/i.test(error.message) ? "Choisissez un mot de passe différent de l'ancien." : /session|expired|missing/i.test(error.message) ? "Le lien a expiré : refaites une demande de « Mot de passe oublié »." : "Modification impossible : " + esc(error.message), "err"));
+      box.innerHTML = `<div class="fun-card mailbox"><div class="mail-ico">✅</div><h3>Mot de passe modifié</h3><p>Vous êtes connecté avec votre nouveau mot de passe.</p><button type="button" class="cta small" id="pw-ok">Continuer</button></div>`;
+      $("#pw-ok", box).onclick = closeModal;
+    });
   }
 
   async function ensureProfile() {
@@ -625,7 +657,7 @@
   async function refresh(session) {
     user = session?.user || null;
     if (!user) { profile = null; renderHeaderAcct(); portraitLoggedOut(); return renderLoggedOut(); }
-    closeModal();
+    if (!$("#pw-form")) closeModal();
     const notice = await joinPending();
     await renderApp(notice);
     renderHeaderAcct();
@@ -652,8 +684,10 @@
       setTimeout(() => renderAuth("in", "", { open: true, note: msg("Le lien de confirmation n'est plus valide (" + esc(decodeURIComponent(mailError.replace(/\+/g, " "))) + "). Connectez-vous pour en recevoir un nouveau.", "err") }), 600);
     }
     let last;
-    sb.auth.onAuthStateChange((_e, session) => {
+    let recovering = /type=recovery/.test(location.hash);
+    sb.auth.onAuthStateChange((ev, session) => {
       const id = session?.user?.id || null;
+      if (ev === "PASSWORD_RECOVERY" || (recovering && id)) { recovering = false; setTimeout(renderNewPassword, id === last ? 0 : 800); }
       if (deleting) { last = id; return; }
       if (id === last) return; // évite les rafraîchissements inutiles (rafraîchissement du jeton…)
       last = id;
