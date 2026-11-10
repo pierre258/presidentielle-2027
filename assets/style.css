@@ -937,3 +937,17 @@ button.linkish { background: none; border: 0; padding: 0; color: #93c5fd; text-d
 .am.lock .am-x { display: none; }
 .fun-form label.pw-show { display: flex; flex-direction: row; justify-content: flex-start; gap: 8px; align-items: center; font-size: 13px; font-weight: 500; color: var(--muted); }
 .fun-form label.pw-show input { width: auto; margin: 0; }
+.imp .fiab { opacity: .8; font-style: italic; }
+.imp .fiab a { color: inherit; text-decoration: underline; }
+/* Buzz mobile : deux boutons côte à côte au lieu de deux colonnes empilées */
+.buzz-side { display: none; }
+@media (max-width: 760px) {
+  .buzz-side { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 14px; }
+  .buzz-side button { white-space: nowrap; font-size: 13px; }
+  .buzz-cols h2 { display: none; }
+  .buzz-cols[data-s="neg"] > div:nth-child(2), .buzz-cols[data-s="pos"] > div:nth-child(1) { display: none; }
+  /* Direct LCP sur mobile : texte à gauche, petit lecteur à droite */
+  .top-right .mini-live:not(.ml-off) { display: grid; grid-template-columns: 1fr 150px; align-items: center; gap: 8px; flex-basis: 100%; }
+  .mini-live:not(.ml-off) .ml-player { display: block; width: 150px; }
+  .mini-live:not(.ml-off) .ml-l2 { display: block; white-space: normal; }
+}

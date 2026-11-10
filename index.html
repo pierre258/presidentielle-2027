@@ -12,7 +12,7 @@
   <meta name="theme-color" content="#0b1030">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=202611102120">
+  <link rel="stylesheet" href="assets/style.css?v=202611101530">
 </head>
 <body>
   <header class="top">
@@ -149,7 +149,8 @@
       <div id="buzz-main">
       <div class="avatar-filter" id="buzz-filter"></div>
       <div class="seg" id="buzz-kind" style="margin-bottom:16px"></div>
-      <div class="buzz-cols">
+      <div class="seg buzz-side" id="buzz-side"><button type="button" data-s="neg" class="on">🔻 Bad buzz</button><button type="button" data-s="pos">🔺 Séquences favorables</button></div>
+      <div class="buzz-cols" data-s="neg">
         <div>
           <h2 class="neg-title">🔻 Bad buzz</h2>
           <div id="buzz-neg" class="buzz-list"></div>
@@ -411,6 +412,6 @@
   <script src="assets/fun.js?v=202611102150"></script>
   <script src="assets/jevote.js?v=202611101700"></script>
   <script src="assets/extras.js?v=202611101700"></script>
-  <script src="assets/app.js?v=202611102140"></script>
+  <script src="assets/app.js?v=202611101530"></script>
 </body>
 </html>

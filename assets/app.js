@@ -759,6 +759,12 @@
     window.APP = { C, avatar, esc, fmtN, socialLinks };
     if (window.Fun) window.Fun.init(window.APP);
     if (window.JeVote) window.JeVote.init(window.APP);
+    // Buzz sur mobile : bascule Bad buzz / Séquences favorables
+    $("#buzz-side")?.addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-s]"); if (!b) return;
+      document.querySelectorAll("#buzz-side button").forEach((x) => x.classList.toggle("on", x === b));
+      document.querySelector(".buzz-cols").dataset.s = b.dataset.s;
+    });
     // Mini-lecteur du direct LCP (en-tête) : affiché seulement quand la chaîne est en direct
     initLiveLCP();
     const fromMail = /access_token=|error_description=|type=signup/.test(location.hash) || /[?&](reset|confirm)=1/.test(location.search);
@@ -770,12 +776,10 @@
   function initLiveLCP() {
     const box = $("#mini-live"), host = $("#ml-player");
     if (!box || !host) return;
-    const big = matchMedia("(min-width: 761px)").matches;
     let player = null, live = false;
     // Hors direct, le bloc reste chargé mais invisible (hors écran) pour pouvoir tester la lecture
     const show = (on) => {
       live = on; box.classList.toggle("ml-off", !on);
-      if (on && !big) { try { player.pauseVideo(); } catch { /* lecteur pas prêt */ } } // mobile : lien seul, pas de vidéo
     };
     const check = () => {
       const d = player?.getVideoData?.() || {};
@@ -793,7 +797,7 @@
         videoId: "live_stream", playerVars: { channel: LCP_CHANNEL, autoplay: 1, mute: 1, playsinline: 1, controls: 1, rel: 0 },
         events: {
           onReady: (e) => { e.target.mute(); e.target.playVideo(); setTimeout(check, 4000); },
-          onStateChange: (e) => { if (live && !big && e.data === 1) return; check(); },
+          onStateChange: check,
           onError: () => show(false),
         },
       });
