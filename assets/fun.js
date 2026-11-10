@@ -1,4 +1,4 @@
-/* Rubrique « Petit vote entre amis » : compte express, portrait idéologique, lien de groupe à partager et
+/* Rubrique « Que votent mes amis ? » : compte express, portrait idéologique, lien de groupe à partager et
    tableau de bord du créateur du lien. Backend : Supabase (Auth + Postgres avec RLS). */
 (() => {
   "use strict";
@@ -64,7 +64,7 @@
   }
 
   // Adresses jetables refusées dès l'inscription (la base les exclut aussi des résultats)
-  const DISPOSABLE = /@(yopmail\.(com|fr|net)|mailinator\.(com|net)|guerrillamail\.\w+|sharklasers\.com|grr\.la|10minutemail\.\w+|temp-?mail\.\w+|tempmailo?\.com|tempinbox\.com|tempr\.email|trashmail\.\w+|throwawaymail\.com|getnada\.com|nada\.email|maildrop\.cc|dispostable\.com|fakeinbox\.com|mytemp\.email|moakt\.com|mohmal\.com|burnermail\.io|mailnesia\.com|jetable\.org|mail-temporaire\.\w+|tmpmail\.\w+|minuteinbox\.com|emailfake\.com|discard\.email|mailsac\.com|dropmail\.me|33mail\.com|wegwerfmail\.de)$/i;
+  const DISPOSABLE = /@(yopmail\.(com|fr|net)|mailinator\.(com|net)|guerrillamail\.\w+|sharklasers\.com|grr\.la|10minutemail\.\w+|temp-?mail\.\w+|tempmailo?\.com|tempinbox\.com|tempr\.email|trashmail\.\w+|throwawaymail\.com|getnada\.com|nada\.email|maildrop\.cc|dispostable\.com|fakeinbox\.com|mytemp\.email|moakt\.com|mohmal\.com|burnermail\.io|mailnesia\.com|jetable\.org|mail-temporaire\.\w+|tmpmail\.\w+|minuteinbox\.com|emailfake\.com|discard\.email|mailsac\.com|dropmail\.me|33mail\.com|wegwerfmail\.de|simplelogin\.(com|fr)|aleeas\.com|slmail\.me|anonaddy\.(com|me)|addy\.io|duck\.com|mozmail\.com|relay\.firefox\.com|proton\.me|protonmail\.(com|ch)|pm\.me|mail\.tm|tuta\.io)$/i;
   const redirectUrl = () => `${location.origin}${location.pathname}#fun`;
 
   function checkEmailScreen(email, note = "") {
@@ -91,7 +91,8 @@
           <label class="f-up">Pseudo (visible par les membres de vos groupes)<input name="pseudo" required minlength="2" maxlength="30" autocomplete="nickname"><small>Évitez votre nom complet si vous souhaitez rester discret.</small></label>
           <label>E-mail<input name="email" type="email" required autocomplete="email" value="${esc(prefill)}"><small class="f-up">Un e-mail de confirmation vous sera envoyé. Les adresses temporaires ne sont pas acceptées.</small></label>
           <label>Mot de passe<input name="password" type="password" required minlength="8" autocomplete="new-password"><small class="f-up">8 caractères minimum.</small></label>
-          <label class="f-up consent"><input type="checkbox" name="consent" required> <span>J'accepte les <a href="#cgu" target="_blank">conditions d'utilisation</a> et je consens au traitement de mon portrait et de mon choix de candidat (opinions politiques) pour le « Petit vote entre amis », selon la <a href="#confidentialite" target="_blank">politique de confidentialité</a>. Mes données ne sont jamais vendues.</span></label>
+          <label class="f-up consent"><input type="checkbox" name="consent" required> <span>J'accepte les <a href="#cgu" target="_blank">conditions d'utilisation</a> et la <a href="#confidentialite" target="_blank">politique de confidentialité</a>.</span></label>
+          <div id="captcha-box" class="captcha-box"></div>
           <button class="cta" type="submit">Créer mon compte →</button>
           <div id="auth-msg"></div>
         </form>
@@ -109,23 +110,36 @@
       f.password.minLength = m === "up" ? 8 : 1;
       $("button[type=submit]", f).textContent = m === "up" ? "Créer mon compte →" : "Me connecter →";
     };
+    // CAPTCHA (si configuré) : jeton transmis à Supabase, qui le vérifie côté serveur
+    let captchaToken = null;
+    const loadCaptcha = () => {
+      if (!window.TURNSTILE_SITE_KEY) return;
+      const draw = () => window.turnstile.render("#captcha-box", { sitekey: window.TURNSTILE_SITE_KEY, language: "fr", theme: "dark",
+        callback: (t) => (captchaToken = t), "expired-callback": () => (captchaToken = null) });
+      if (window.turnstile) return draw();
+      const sc = document.createElement("script");
+      sc.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"; sc.async = true; sc.onload = draw;
+      document.head.appendChild(sc);
+    };
+    loadCaptcha();
     $("#auth-tabs").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) setMode(b.dataset.t); });
     setMode(startMode);
     f.addEventListener("submit", async (e) => {
       e.preventDefault();
       const out = $("#auth-msg");
       const email = f.email.value.trim(), password = f.password.value;
+      if (window.TURNSTILE_SITE_KEY && !captchaToken) return (out.innerHTML = msg("Merci de valider la vérification anti-robot ci-dessus.", "err"));
       if (mode === "up" && DISPOSABLE.test(email)) return (out.innerHTML = msg("Les adresses e-mail temporaires ne sont pas acceptées : utilisez votre adresse habituelle.", "err"));
       out.innerHTML = msg("Un instant…");
       if (mode === "up") {
         const pending = codeFromUrl() || store.get(PENDING) || undefined;
         const { data, error } = await sb.auth.signUp({ email, password,
-          options: { emailRedirectTo: redirectUrl(), data: { pseudo: f.pseudo.value.trim(), pending_group: pending, consent_at: new Date().toISOString() } } });
+          options: { captchaToken: captchaToken || undefined, emailRedirectTo: redirectUrl(), data: { pseudo: f.pseudo.value.trim(), pending_group: pending, cgu_at: new Date().toISOString() } } });
         if (error) return (out.innerHTML = msg(/rate limit/i.test(error.message) ? "Trop d'inscriptions en ce moment : réessayez dans quelques minutes." : esc(error.message), "err"));
         if (data.user && !data.user.identities?.length) return (out.innerHTML = msg("Un compte existe déjà avec cette adresse : connectez-vous.", "err"));
         if (!data.session) return checkEmailScreen(email);
       } else {
-        const { error } = await sb.auth.signInWithPassword({ email, password });
+        const { error } = await sb.auth.signInWithPassword({ email, password, options: { captchaToken: captchaToken || undefined } });
         if (error && /confirm/i.test(error.message)) return checkEmailScreen(email, msg("Votre adresse n'est pas encore confirmée.", "err"));
         if (error) return (out.innerHTML = msg("E-mail ou mot de passe incorrect.", "err"));
       }
@@ -133,11 +147,14 @@
   }
 
   async function ensureProfile() {
-    const { data } = await sb.from("profiles").select("*").eq("id", user.id).maybeSingle();
-    if (data) return data;
-    const pseudo = (user.user_metadata?.pseudo || user.email.split("@")[0]).slice(0, 30);
-    const { data: created } = await sb.from("profiles").insert({ id: user.id, pseudo }).select().single();
-    return created;
+    let { data } = await sb.from("profiles").select("id, pseudo, created_at").eq("id", user.id).maybeSingle();
+    if (!data) {
+      const pseudo = (user.user_metadata?.pseudo || user.email.split("@")[0]).slice(0, 30);
+      ({ data } = await sb.from("profiles").insert({ id: user.id, pseudo }).select("id, pseudo, created_at").single());
+    }
+    // le bulletin (réponses + vote) est stocké à part, relié au compte par une empreinte chiffrée
+    const { data: b } = await sb.rpc("my_ballot");
+    return { ...data, ...((b && b[0]) || {}) };
   }
 
   async function joinPending() {
@@ -172,7 +189,8 @@
           <span class="muted small">${answered} réponse${answered > 1 ? "s" : ""} sur ${n}</span>
           <button type="button" class="cta small" id="st-next">${cur === undefined ? "Passer →" : "Suivant →"}</button></div>`;
     } else {
-      const cands = Object.values(A.C).filter((c) => c.id !== "bardella");
+      const surname = (n) => n.replace(/^\S+\s+/, "").replace(/^(de|d'|du)\s+/i, "");
+      const cands = Object.values(A.C).filter((c) => c.id !== "bardella").sort((a, b) => surname(a.name).localeCompare(surname(b.name), "fr"));
       box.innerHTML = `${prog}
         <div class="st-card">
           <div class="st-num">Dernière étape</div>
@@ -181,6 +199,7 @@
             ${cands.map((c) => `<option value="${c.id}">${esc(c.name)} (${esc(c.party)})</option>`).join("")}
             <option value="blanc">Vote blanc / abstention</option></select>
           <p class="muted small">${answered} affirmation${answered > 1 ? "s" : ""} renseignée${answered > 1 ? "s" : ""} sur ${n}${answered < 5 ? " — il en faut au moins 5 pour valider." : "."}</p>
+          <label class="consent-vote"><input type="checkbox" id="vote-consent"> <span><b>Je consens au traitement de mon opinion politique</b> (mes réponses et mon choix de candidat) pour le « Que votent mes amis ? » et ses résultats. Ce consentement est distinct des conditions d'utilisation ; je peux le retirer à tout moment en un clic (« Retirer mon vote »). Mon vote est conservé à part de mon adresse e-mail et supprimé après l'élection.</span></label>
         </div>
         <div class="st-nav"><button type="button" class="ghost" id="st-prev">← Précédent</button><span></span>
           <button type="button" class="cta" id="fun-save">Valider mon portrait ✓</button></div><div id="fun-save-msg"></div>`;
@@ -209,7 +228,7 @@
   function portraitLoggedOut() {
     if (!pel()) return;
     pel().innerHTML = `<div class="fun-card"><h3>🧭 Votre portrait en 14 affirmations</h3>
-      <p class="muted">Pour enregistrer votre portrait et votre choix de candidat, créez d'abord un compte (20 secondes). Il vous sert aussi pour le « Petit vote entre amis ».</p>
+      <p class="muted">Pour enregistrer votre portrait et votre choix de candidat, créez d'abord un compte (20 secondes). Il vous sert aussi pour le « Que votent mes amis ? ».</p>
       <a class="cta" href="#fun">Créer un compte ou me connecter →</a></div>`;
   }
 
@@ -222,7 +241,8 @@
       return `<div class="fun-card wide port-sum">
           <div><small class="muted">Mon choix</small><div class="port-ch">${A.C[ch] ? A.avatar(ch, 44) : ""}<strong>${esc(chLabel)}</strong></div></div>
           <div><small class="muted">Le plus proche selon le quiz</small><div class="port-ch">${A.avatar(res.prox[0].id, 44)}<strong>${esc(A.C[res.prox[0].id].name)} · ${res.prox[0].pct} %</strong></div></div>
-          <button type="button" class="ghost" id="edit-portrait">✏️ Modifier mon portrait</button></div>
+          <div class="port-btns"><button type="button" class="ghost" id="edit-portrait">✏️ Modifier mon portrait</button>
+            <button type="button" class="ghost danger" id="withdraw-vote">↩︎ Retirer mon vote</button></div></div>
         <div class="sim-out">${Q.portraitHTML(res)}</div>`;
     }
     return `<div id="stepper" class="stepper"></div><div id="fun-result" class="sim-out"></div>`;
@@ -281,11 +301,9 @@
         <p>Cette action est <strong>définitive</strong> et immédiate. Seront effacés :</p>
         <ul><li>votre compte et votre adresse e-mail ;</li><li>votre pseudo, votre portrait et votre choix de candidat ;</li>
         <li>votre participation à tous les groupes ;</li><li>les groupes que vous avez créés, avec leurs résultats (leurs membres n'y auront plus accès).</li></ul>
-        <label class="fun-form">Pour confirmer, tapez <strong>SUPPRIMER</strong><input id="del-word" autocomplete="off" spellcheck="false"></label>
-        <div class="mail-actions"><button type="button" class="ghost" id="del-cancel">Annuler</button><button type="button" class="cta danger-cta" id="del-go" disabled>Supprimer définitivement</button></div>
+        <div class="mail-actions"><button type="button" class="ghost" id="del-cancel">Annuler</button><button type="button" class="cta danger-cta" id="del-go">Supprimer définitivement</button></div>
         <div id="del-msg"></div></div>`;
     const go = $("#del-go");
-    $("#del-word").oninput = (e) => (go.disabled = e.target.value.trim().toUpperCase() !== "SUPPRIMER");
     $("#del-cancel").onclick = () => renderApp();
     go.onclick = async () => {
       go.disabled = true;
@@ -308,6 +326,15 @@
     if ($("#stepper")) renderStep();
     const ed = $("#edit-portrait");
     if (ed) ed.onclick = () => { stepper.editing = true; $("#f-portrait").innerHTML = portraitPane(); bindPortrait(); };
+    const wd = $("#withdraw-vote");
+    if (wd) wd.onclick = async () => {
+      wd.disabled = true;
+      const { error } = await sb.rpc("delete_my_ballot");
+      if (error) { wd.disabled = false; return ($("#port-msg").innerHTML = msg("Impossible de retirer le vote : " + esc(error.message), "err")); }
+      ["answers", "axes", "top_candidate", "top_pct", "chosen_candidate", "completed_at", "consent_at"].forEach((k) => delete profile[k]);
+      stepper.ans = {}; stepper.chosen = ""; stepper.i = 0;
+      await renderApp(msg("✓ Votre vote et vos réponses ont été supprimés. Votre compte reste actif : vous pouvez revoter quand vous voulez.", "ok"));
+    };
   }
 
   async function savePortrait() {
@@ -319,12 +346,13 @@
     if (filled < 5) return (out.innerHTML = msg("Répondez à au moins 5 affirmations pour valider votre portrait.", "err"));
     const chosen = $("#fun-choice").value;
     if (!chosen) return (out.innerHTML = msg("Indiquez votre choix de candidat (ou « Je ne sais pas encore »).", "err"));
-    const row = { answers: ans, axes: res.axes, top_candidate: res.prox[0].id, top_pct: res.prox[0].pct, chosen_candidate: chosen, completed_at: new Date().toISOString() };
-    const { error } = await sb.from("profiles").update(row).eq("id", user.id);
-    if (error) return (out.innerHTML = msg("Enregistrement impossible : " + esc(error.message), "err"));
+    if (!$("#vote-consent")?.checked) return (out.innerHTML = msg("Cochez la case de consentement au traitement de votre opinion politique pour enregistrer votre vote.", "err"));
+    const row = { answers: ans, axes: res.axes, top_candidate: res.prox[0].id, top_pct: res.prox[0].pct, chosen_candidate: chosen, completed_at: new Date().toISOString(), consent_at: new Date().toISOString() };
+    const { error } = await sb.rpc("save_ballot", { p_answers: ans, p_axes: res.axes, p_top: res.prox[0].id, p_pct: res.prox[0].pct, p_chosen: chosen, p_consent: true });
+    if (error) return (out.innerHTML = msg(/réserve/.test(error.message) ? "🔒 Période de réserve électorale : les votes reprendront après la fermeture des bureaux (20 h)." : "Enregistrement impossible : " + esc(error.message), "err"));
     Object.assign(profile, row);
     stepper.editing = false;
-    // portrait validé : direction « Petit vote entre amis », onglet « Le vote des participants »
+    // portrait validé : direction « Que votent mes amis ? », onglet « Le vote des participants »
     await renderApp(msg("✓ Portrait enregistré ! Découvrez ci-dessous les résultats de tous les participants, puis ceux de vos groupes.", "ok"));
     location.hash = "#fun";
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -397,7 +425,7 @@
     const box = $("#grp-list");
     box.innerHTML = msg("Chargement…");
     const { data: groups, error } = await sb.from("groups").select("*").order("created_at", { ascending: false });
-    if (error) return (box.innerHTML = msg(esc(error.message), "err"));
+    if (error) return (box.innerHTML = msg(/réserve/.test(error.message) ? "🔒 Période de réserve électorale : les résultats sont masqués la veille et le jour du vote, jusqu'à 20 h." : esc(error.message), "err"));
     if (!groups.length) return (box.innerHTML = `<p class="muted">Vous n'avez pas encore créé de lien.</p>`);
     box.innerHTML = groups.map((g) => `<details class="grp" data-id="${g.id}"><summary><strong>${esc(g.name)}</strong><span class="muted small">créé le ${new Date(g.created_at).toLocaleDateString("fr-FR")}</span></summary>
       <div class="grp-in">${shareHTML(linkFor(g.code), `${profile.pseudo} vous invite à comparer vos idées pour la présidentielle 2027 (« ${g.name} »)`)}
@@ -420,7 +448,7 @@
     const box = $("#joined-list");
     box.innerHTML = msg("Chargement…");
     const { data, error } = await sb.rpc("my_joined_groups");
-    if (error) return (box.innerHTML = msg(esc(error.message), "err"));
+    if (error) return (box.innerHTML = msg(/réserve/.test(error.message) ? "🔒 Période de réserve électorale : les résultats sont masqués la veille et le jour du vote, jusqu'à 20 h." : esc(error.message), "err"));
     if (!data?.length) return (box.innerHTML = `<p class="muted">Vous n'avez encore rejoint aucun groupe. Créez un lien avec « Je sonde mes proches » ou demandez-en un à un ami !</p>`);
     const done = !!profile.completed_at;
     box.innerHTML = (done ? "" : msg("Validez votre portrait (<a href=\"#portrait\">Trouver le candidat de mes convictions</a>, page Candidats) pour découvrir les résultats de vos groupes.", "err"))
@@ -449,7 +477,7 @@
     if (!profile.completed_at) return (box.innerHTML = msg("🔒 Validez votre portrait (<a href=\"#portrait\">Trouver le candidat de mes convictions</a>, page Candidats) pour découvrir les résultats de tous les participants.", "err"));
     box.innerHTML = msg("Chargement…");
     const { data, error } = await sb.rpc("global_results");
-    if (error) return (box.innerHTML = msg(esc(error.message), "err"));
+    if (error) return (box.innerHTML = msg(/réserve/.test(error.message) ? "🔒 Période de réserve électorale : les résultats sont masqués la veille et le jour du vote, jusqu'à 20 h." : esc(error.message), "err"));
     const rows = (data || []).map((r) => ({ ...r, completed: true }));
     box.innerHTML = `<div class="fun-card wide"><h3>📊 Le vote des participants — tous groupes confondus</h3>
       <p class="muted small">Tous les portraits validés avec un candidat choisi, tous groupes confondus. Échantillon non représentatif de la population : ce n'est pas un sondage.</p>

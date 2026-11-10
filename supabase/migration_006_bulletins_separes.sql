@@ -275,3 +275,7 @@ grant execute on function public.group_results(uuid) to authenticated;
 grant execute on function public.global_results() to authenticated;
 grant execute on function public.join_group(text) to authenticated;
 grant execute on function public.delete_my_account() to authenticated;
+
+-- Purge planifiée (pg_cron), exécutée séparément le 10 novembre 2026 :
+-- create extension if not exists pg_cron with schema pg_catalog;
+-- select cron.schedule('purge-bulletins-2027', '0 3 9 5 *', $$select public.purge_ballots()$$);

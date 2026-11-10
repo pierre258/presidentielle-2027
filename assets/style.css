@@ -851,3 +851,24 @@ h2 { margin: 44px 0 18px; }
 details.imp.focus { border-color: #10b981; box-shadow: 0 0 0 2px rgba(16,185,129,.35); }
 
 @media (max-width: 760px) { .tabs { flex-wrap: wrap; row-gap: 6px; width: 100%; } .tab { padding: 7px 11px; font-size: 13.5px; } .tabs .nav-badge { margin-left: 0; } }
+
+/* --- Menu v3 : Sondages + « Que votent mes amis ? » + pictos --- */
+.friends-btn { color: #fff !important; background: linear-gradient(135deg, #f59e0b, #ff2d55); box-shadow: 0 6px 18px rgba(255,45,85,.28); font-weight: 800; }
+.friends-btn:hover { filter: brightness(1.08); }
+.friends-btn.on { outline: 2px solid #fff; outline-offset: 2px; background: linear-gradient(135deg, #f59e0b, #ff2d55) !important; }
+.nav-sep { width: 1px; height: 26px; background: var(--line); margin: 0 6px; }
+.nav-ico { display: inline-flex !important; flex-direction: column; align-items: center; gap: 1px; padding: 4px 10px !important; line-height: 1; }
+.nav-ico span { font-size: 19px; }
+.nav-ico small { font-size: 10.5px; font-weight: 600; }
+.nav-ico.on small { color: var(--bg); }
+.conv-jv { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin: 24px 0 6px; }
+.jv-badge.big { font-size: 15px; padding: 9px 18px; }
+/* --- Consentement dédié au vote --- */
+.consent-vote { display: flex; gap: 10px; align-items: flex-start; margin-top: 14px; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(245,158,11,.4); background: rgba(245,158,11,.08); font-size: 13px; text-align: left; }
+.consent-vote input { width: 18px; height: 18px; margin-top: 2px; flex: none; accent-color: #f59e0b; }
+.port-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.captcha-box { min-height: 0; margin: 6px 0; }
+/* --- Réserve électorale --- */
+.freeze-note { margin: 0 0 24px; padding: 16px 18px; border-radius: 14px; background: rgba(59,130,246,.12); border: 1px solid rgba(59,130,246,.4); line-height: 1.6; }
+.parl-in-sheet .parl-list { margin-top: 12px; }
+@media (max-width: 760px) { .nav-sep { display: none; } .nav-ico small { display: none; } .nav-ico span { font-size: 21px; } }

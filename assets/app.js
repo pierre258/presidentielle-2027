@@ -58,7 +58,7 @@
     const sub = { simulateur: "impact", portrait: "conv" }[id];
     if (sub) { id = "programmes"; setTimeout(() => window.ProgView?.(sub), 0); }
     const parlement = id === "parlement";
-    if (parlement) { id = "programmes"; setTimeout(() => $("#parl-section")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50); }
+    if (parlement) id = "programmes";
     if (!/^[a-z]+$/.test(id) || !$("#" + id)) id = "sondages";
     $$(".panel").forEach((p) => (p.hidden = p.id !== id));
     $$(".tab[data-tab]").forEach((t) => t.classList.toggle("on", t.dataset.tab === id));
@@ -583,8 +583,9 @@
 
   /* ---------------- 4. Programmes ---------------- */
   function initProg() {
-    const ids = Object.keys(PROG.candidates).filter((id) => C[id]);
-    const st = { mode: "one", a: ids[0], b: null };
+    const surname = (n) => n.replace(/^\S+\s+/, "").replace(/^(de|d'|du)\s+/i, "");
+    const ids = Object.keys(PROG.candidates).filter((id) => C[id]).sort((x, y) => surname(C[x].name).localeCompare(surname(C[y].name), "fr"));
+    const st = { mode: "one", a: null, b: null };
     $("#prog-disclaimer").textContent = PROG.disclaimer;
     const grid = () => {
       $("#prog-hint").textContent = st.mode === "one" ? "Sélectionnez un candidat pour afficher la synthèse de son programme."
@@ -613,6 +614,7 @@
             ${window.Extras ? window.Extras.cout(id, t.id) : ""}
             ${det?.length ? `<details class="more"><summary>Voir le détail (${det.length} point${det.length > 1 ? "s" : ""})</summary><ul>${det.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></details>` : ""}</div></div>`;
         }).join("")}
+        ${window.Extras ? window.Extras.parlement(id) : ""}
         ${window.Extras ? window.Extras.patrimoine(id) : ""}
       </div>`;
     };
@@ -674,7 +676,7 @@
       impactHome(); if (st.mode !== "impact") IB.hidden = true;
       $(".impact-title", IB).textContent = "Quel impact sur mon quotidien ?";
       grid();
-      if (st.mode === "one") $("#prog-view").innerHTML = one(st.a);
+      if (st.mode === "one") $("#prog-view").innerHTML = st.a ? one(st.a) : `<div class="empty">Sélectionnez un candidat ci-dessus pour afficher sa fiche. Les candidats sont présentés par ordre alphabétique.</div>`;
       else $("#prog-view").innerHTML = st.a && st.b ? compare(st.a, st.b) : `<div class="empty">Sélectionnez ${st.a ? "un second" : "deux"} candidat${st.a ? "" : "s"}.</div>`;
     };
     $("#prog-grid").addEventListener("click", (e) => {
@@ -698,7 +700,7 @@
       $("#conv-block").hidden = v !== "conv";
       if (prog) {
         st.mode = v;
-        if (st.mode === "compare" && !st.b) st.b = ids.find((i) => i !== st.a);
+        if (st.mode === "compare" && st.a && !st.b) st.b = null;
         view();
       }
     }
@@ -726,7 +728,14 @@
       return;
     }
     $("#updated").textContent = "Mis à jour le " + new Date(POLLS.updated).toLocaleString("fr-FR", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
-    renderPolls(String(POLLS.default_window || 15)); renderTrend(); renderDuels();
+    // Réserve électorale : veille et jour de chaque tour, jusqu'à 20 h (heure de Paris)
+    const paris = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" }));
+    const FREEZE = [["2027-04-17T00:00", "2027-04-18T20:00"], ["2027-05-01T00:00", "2027-05-02T20:00"]];
+    window.MDS_FREEZE = FREEZE.some(([a, b]) => paris >= new Date(a) && paris < new Date(b));
+    if (window.MDS_FREEZE) {
+      $("#freeze-note").hidden = false;
+      $$("#sondages > :not(.panel-head):not(.hero-cands):not(#freeze-note)").forEach((n) => (n.hidden = true));
+    } else { renderPolls(String(POLLS.default_window || 15)); renderTrend(); renderDuels(); }
     $("#poll-window").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
       $$("#poll-window button").forEach((x) => x.classList.toggle("on", x === b));

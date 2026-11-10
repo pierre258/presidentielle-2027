@@ -7,6 +7,10 @@
    s'ouvre sur publicsenat.fr et les vidéos Dailymotion de Buzz renvoient vers dailymotion.com. */
 window.DM_PLAYER = "";
 
+/* CAPTCHA Cloudflare Turnstile (clé de site PUBLIQUE, à créer sur dash.cloudflare.com → Turnstile).
+   La clé secrète se saisit uniquement dans Supabase → Authentication → Attack Protection. */
+window.TURNSTILE_SITE_KEY = "";
+
 window.FUN_CONFIG = {
   supabaseUrl: "https://arrldxzqslcmyobcrlzc.supabase.co",
   supabaseAnonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFycmxkeHpxc2xjbXlvYmNybHpjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQyMjYyOTYsImV4cCI6MjEwOTgwMjI5Nn0.lE9bJB5WwR5u72VYhPThqOCdrMtMkksp3dQQeybyboo",

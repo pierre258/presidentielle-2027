@@ -105,6 +105,32 @@
   const VERDICT = { coherent: ["✅", "Cohérent"], incoherent: ["❌", "En contradiction"], nuance: ["⚖️", "Nuancé"] };
   const POSITION = { pour: "👍 Pour", contre: "👎 Contre", abstention: "✋ Abstention", absent: "💤 Absent", "non-votant": "— Non-votant" };
   const ASSEMBLEE = { an: "Assemblée nationale", senat: "Sénat", pe: "Parlement européen" };
+  function parlement(id) {
+    const c = D.parl?.candidates?.[id];
+    if (!c) return "";
+    const s = c.stats || {}, cmp = c.comparaisons || [];
+    const score = { coherent: 0, incoherent: 0, nuance: 0 };
+    cmp.forEach((x) => (score[x.verdict] = (score[x.verdict] || 0) + 1));
+    const ring = (pct) => pct == null ? `<div class="ring na"><b>—</b></div>` : `<div class="ring" style="--p:${pct}"><b>${Math.round(pct)} %</b></div>`;
+    return `<div class="pat parl-in-sheet"><div class="pat-head"><h4>📺 Dit à la télé, 🗳️ voté au Parlement</h4><span class="muted small">${esc(c.mandat)} · ${esc(ASSEMBLEE[c.assemblee] || "")}</span></div>
+      <div class="parl-stats">
+        <div class="ps">${ring(s.participation_pct)}<small>Participation aux votes</small></div>
+        <div class="ps"><b class="num">${s.scrutins != null ? A.fmtN(s.scrutins) : "—"}</b><small>scrutins ${s.periode ? `(${esc(s.periode)})` : ""}</small></div>
+        <div class="ps"><b class="num">${s.loyaute_groupe_pct != null ? `${Math.round(s.loyaute_groupe_pct)} %` : "—"}</b><small>Votes alignés sur son groupe</small></div>
+      </div>
+      ${c.source_stats ? `<p class="muted small">Statistiques : ${src(c.source_stats)}</p>` : ""}
+      <div class="parl-score">${cmp.length ? `<span>Sur ${cmp.length} engagements comparés :</span> <b>✅ ${score.coherent} cohérent${score.coherent > 1 ? "s" : ""}</b> <b>⚖️ ${score.nuance} nuancé${score.nuance > 1 ? "s" : ""}</b> <b>❌ ${score.incoherent} en contradiction</b>` : "Aucune comparaison disponible pour l'instant."}</div>
+      <details class="more"><summary>Voir les ${cmp.length} comparaisons promesse / vote</summary><div class="parl-list">${cmp.map((x) => {
+        const [e, l] = VERDICT[x.verdict] || ["•", x.verdict];
+        return `<article class="pc v-${esc(x.verdict)}"><div class="pc-theme">${esc(x.theme)} <span class="verdict">${e} ${l}</span></div>
+          <div class="pc-cols"><div class="pc-said"><small>📺 Ce qu'il/elle dit</small><p>« ${esc(x.promesse)} »</p><span class="muted small">${src(x.source_promesse)}</span></div>
+          <div class="pc-vote"><small>🗳️ Ce qu'il/elle a voté</small><p><b>${esc(POSITION[x.vote?.position] || x.vote?.position || "")}</b> — ${esc(x.vote?.titre)}</p>
+          <span class="muted small">${fdate(x.vote?.date)}${x.vote?.resultat ? ` · texte ${esc(x.vote.resultat)}` : ""}${x.vote?.url ? ` · <a href="${esc(x.vote.url)}" target="_blank" rel="noopener">voir le scrutin</a>` : ""}</span></div></div>
+          ${x.explication ? `<p class="pc-why">${esc(x.explication)}</p>` : ""}</article>`;
+      }).join("")}</div></details>
+      ${D.parl.methode ? `<p class="muted small"><b>Méthode.</b> ${esc(D.parl.methode)}</p>` : ""}</div>`;
+  }
+
   function initParlement() {
     const box = $("#parl-app");
     if (!box) return;
@@ -240,5 +266,5 @@
     POLL = polls?.windows?.[String(polls.default_window)]?.average || polls?.average || {};
     initParlement(); tempsParole(); initParrainages();
   }
-  window.Extras = { load, init, patrimoine, cout, coutTotal };
+  window.Extras = { load, init, patrimoine, cout, coutTotal, parlement };
 })();

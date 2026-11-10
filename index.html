@@ -12,7 +12,7 @@
   <meta name="theme-color" content="#0b1030">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=202611101530">
+  <link rel="stylesheet" href="assets/style.css?v=202611101710">
 </head>
 <body>
   <header class="top">
@@ -37,19 +37,12 @@
       </div>
       <nav class="tabs" role="tablist">
         <a href="#sondages" data-tab="sondages" class="tab">📊 Sondages</a>
-        <a href="#fun" data-tab="fun" class="tab">🍻 Petit vote entre amis</a>
-        <div class="nav-more" id="nav-more">
-          <button type="button" class="tab more-btn" id="more-btn" aria-haspopup="true" aria-expanded="false"><span id="more-label">Toutes les rubriques</span> <span class="caret">▾</span></button>
-          <div class="more-menu" id="more-menu" role="menu" hidden>
-            <a href="#programmes" data-tab="programmes" role="menuitem"><span>👤</span><b>Candidats</b><small>Programmes, coût des mesures, patrimoine</small></a>
-            <a href="#parlement" data-tab="parlement" role="menuitem"><span>🗳️</span><b>Dit à la télé, voté au Parlement</b><small>Votes réels et assiduité</small></a>
-            <a href="#buzz" data-tab="buzz" role="menuitem"><span>🔥</span><b>Buzz</b><small>Bad buzz, séquences favorables, temps de parole</small></a>
-            <a href="#reseaux" data-tab="reseaux" role="menuitem"><span>📱</span><b>Réseaux sociaux</b><small>Abonnés et progression</small></a>
-            <a href="#parrainages" data-tab="parrainages" role="menuitem"><span>✍️</span><b>Les parrainages des 500 élus</b><small>Qui atteint la barre des 500</small></a>
-            <a href="#jevote" data-tab="jevote" role="menuitem"><span>✅</span><b>Prêt à voter ?</b><small>Inscription, procuration, calendrier</small></a>
-          </div>
-        </div>
-        <a href="#jevote" class="jv-badge nav-badge" id="jv-badge">🗳️ Prêt à voter ?</a>
+        <a href="#fun" data-tab="fun" class="tab friends-btn">💬 Que votent mes amis ?</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="#programmes" data-tab="programmes" class="tab nav-ico" title="Candidats" aria-label="Candidats"><span>👤</span><small>Candidats</small></a>
+        <a href="#buzz" data-tab="buzz" class="tab nav-ico" title="Buzz" aria-label="Buzz"><span>🔥</span><small>Buzz</small></a>
+        <a href="#reseaux" data-tab="reseaux" class="tab nav-ico" title="Réseaux sociaux" aria-label="Réseaux sociaux"><span>📱</span><small>Réseaux</small></a>
+        <a href="#parrainages" data-tab="parrainages" class="tab nav-ico" title="Les parrainages des 500 élus" aria-label="Les parrainages des 500 élus"><span>✍️</span><small>Parrainages</small></a>
       </nav>
     </div>
   </header>
@@ -57,6 +50,7 @@
   <main class="wrap">
     <!-- 1. SONDAGES -->
     <section id="sondages" class="panel">
+      <div class="freeze-note" id="freeze-note" hidden>🔒 <b>Période de réserve électorale.</b> Conformément à la loi, aucun sondage ni résultat n'est affiché la veille et le jour du scrutin, jusqu'à la fermeture des derniers bureaux de vote (20 h). Rendez-vous après 20 h.</div>
       <figure class="hero-cands">
         <img src="assets/candidats-2027.jpg" srcset="assets/candidats-2027-800.jpg 800w, assets/candidats-2027.jpg 1572w" sizes="(max-width: 900px) 100vw, 1100px" alt="Les principaux candidats à l'élection présidentielle 2027" width="1572" height="1001">
       </figure>
@@ -72,7 +66,7 @@
           <button data-w="30">30 jours</button>
           <button data-w="evo" class="evo-btn">📈 Évolution depuis 2002</button>
         </div>
-        <a href="#fun" class="vote-btn">🗳️ Petit vote entre amis</a>
+        <a href="#fun" class="vote-btn">💬 Que votent mes amis ?</a>
         </div>
       </div>
       <div class="poll-card">
@@ -196,6 +190,8 @@
         <h2 class="impact-title">Trouver le candidat de mes convictions</h2>
         <p class="muted">Indiquez votre degré d'accord avec chaque affirmation : nous situons vos réponses sur 5 grands axes et les comparons aux positions des candidats. Votre portrait et votre choix de candidat comptent ensuite dans le « Petit vote entre amis ».</p>
         <div id="portrait-app"></div>
+        <div class="conv-jv"><a href="#jevote" class="jv-badge nav-badge big" id="jv-badge">🗳️ Prêt à voter ?</a>
+          <span class="muted small">Inscription sur les listes, procuration, calendrier : préparez votre vote du 18 avril.</span></div>
       </div>
       <div id="impact-block" hidden>
         <h2 class="impact-title">Quel impact sur mon quotidien ?</h2>
@@ -278,23 +274,13 @@
       </div>
       <p class="muted small">Méthode : impôt sur le revenu calculé au barème 2025 (quotient familial, décote), IS à 15 %/25 %. Les mesures des candidats sont chiffrées quand c'est possible, avec l'hypothèse affichée sous chaque ligne. Estimations indicatives, sans valeur de conseil fiscal.</p>
       </div>
-      <!-- Dit à la télé, voté au Parlement (bas de la page Candidats) -->
-      <div class="parl-section" id="parl-section">
-        <figure class="parl-hero">
-          <img src="assets/hemicycle.jpg" alt="L'hémicycle de l'Assemblée nationale, vu depuis les tribunes" loading="lazy" width="1400" height="788">
-          <figcaption><h2>📺 Dit à la télé, 🗳️ voté au Parlement</h2>
-            <p>Pour les candidats qui siègent au Parlement : leurs votes réels et leur assiduité, comparés à leurs promesses. Chaque vote renvoie au scrutin officiel.</p></figcaption>
-          <small class="credit">Photo : <a href="https://commons.wikimedia.org/wiki/File:Assembl%C3%A9e_nationale_(visite_septembre_2024)_41.jpg" target="_blank" rel="noopener">PanierAvide</a>, CC BY-SA 4.0, via Wikimedia Commons</small>
-        </figure>
-        <div id="parl-app"></div>
-      </div>
     </section>
 
     <!-- 6. PETIT VOTE ENTRE AMIS -->
     <section id="fun" class="panel" hidden>
       <div class="panel-head">
         <div>
-          <h1>Petit vote entre amis</h1>
+          <h1>Que votent mes amis ?</h1>
           <p class="muted">Qui pense quoi dans votre entourage ? Créez un compte en 20 secondes, faites votre portrait idéologique, choisissez votre candidat, puis partagez un lien : chacun découvre les tendances du groupe (pseudos uniquement).</p>
         </div>
       </div>
@@ -353,7 +339,8 @@
       <ul>
         <li>Le compte est personnel et gratuit. Il faut avoir au moins 15 ans et fournir une adresse e-mail valide, que vous devez confirmer ; les adresses temporaires sont refusées.</li>
         <li>Un seul compte par personne. Vous êtes responsable de la confidentialité de votre mot de passe.</li>
-        <li>Seuls les comptes à l'adresse confirmée sont pris en compte dans les résultats.</li>
+        <li>Seuls les comptes à l'adresse confirmée sont pris en compte dans les résultats. Un seul vote par compte et par personne : les comptes créés en double (variantes d'une même adresse), les adresses jetables ou relais d'alias ne sont pas comptés ; les modifications de vote sont limitées.</li>
+        <li>Aucun vote ni résultat n'est enregistré ou affiché la veille et le jour de chaque tour, jusqu'à 20 h (période de réserve électorale).</li>
         <li>Vous pouvez supprimer votre compte à tout moment, en un clic, avec le bouton « Supprimer mon compte » du « Petit vote entre amis ».</li>
       </ul>
       <h2>4. Règles de conduite</h2>
@@ -384,13 +371,13 @@
         <tr><td>Réponses au portrait, axes calculés, choix de candidat</td><td>Votre portrait, les résultats des groupes et de l'ensemble des participants</td><td>Vos groupes (avec votre pseudo) ; résultats globaux uniquement agrégés et anonymes</td></tr>
         <tr><td>Groupes créés ou rejoints</td><td>Faire fonctionner les liens de partage</td><td>Les membres du groupe</td></tr>
       </table>
-      <p><strong>Base légale :</strong> vos réponses et votre choix de candidat révèlent des opinions politiques, qui sont des données sensibles (article 9 du RGPD). Elles ne sont traitées qu'avec votre <strong>consentement explicite</strong>, donné à l'inscription, que vous pouvez retirer à tout moment en supprimant votre compte (bouton « Supprimer mon compte »). Les données de connexion sont traitées pour exécuter le service que vous demandez.</p>
+      <p><strong>Base légale :</strong> vos réponses et votre choix de candidat révèlent des opinions politiques, qui sont des données sensibles (article 9 du RGPD). Elles ne sont traitées qu'avec votre <strong>consentement explicite et dédié</strong>, recueilli par une case à cocher distincte de l'acceptation des conditions d'utilisation, au moment où vous enregistrez votre vote. Vous pouvez le retirer à tout moment en un clic (« Retirer mon vote ») ou en supprimant votre compte. Les données de connexion sont traitées pour exécuter le service que vous demandez.</p>
       <h2>Sécurité</h2>
-      <p>Les échanges sont chiffrés (HTTPS) ; les mots de passe sont stockés sous forme hachée ; la base de données est protégée par des règles d'accès strictes qui empêchent un utilisateur de lire les données d'un autre. Les adresses e-mail ne sont jamais exposées aux autres utilisateurs.</p>
+      <p>Les échanges sont chiffrés (HTTPS) et les mots de passe stockés sous forme hachée. <strong>Votre vote est conservé à part de votre adresse e-mail</strong> : il figure dans une table distincte, reliée à votre compte uniquement par une empreinte cryptographique (HMAC-SHA256) calculée avec une clé secrète chiffrée ; ni votre e-mail ni l'identifiant de votre compte n'y apparaissent. Cette table n'est accessible à aucun utilisateur : les résultats ne sont produits que par des fonctions qui ne renvoient jamais d'adresse e-mail (pseudo dans vos groupes, lignes anonymes et mélangées pour l'ensemble des participants). Les adresses e-mail ne sont jamais exposées aux autres utilisateurs.</p>
       <h2>Destinataires et sous-traitants</h2>
       <p>Seul l'éditeur a accès aux données, via ses sous-traitants techniques : Supabase (hébergement de la base, dans l'Union européenne, à Francfort), Brevo (envoi des e-mails de confirmation, en France) et GitHub (hébergement des pages du site). Ces prestataires agissent sur instruction de l'éditeur et sont tenus par des engagements conformes au RGPD.</p>
       <h2>Durée de conservation</h2>
-      <p>Vos données sont conservées tant que votre compte existe, et au plus tard jusqu'au <strong>31 décembre 2027</strong>, date à laquelle tous les comptes et votes seront supprimés. Un compte jamais confirmé peut être supprimé au bout de 30 jours.</p>
+      <p>Votre <strong>vote et vos réponses</strong> sont supprimés automatiquement le <strong>9 mai 2027</strong>, une semaine après le second tour : seuls les totaux nationaux par candidat, anonymes, sont conservés. Vous pouvez aussi les retirer vous-même à tout moment, en un clic (« Retirer mon vote »). Votre compte (e-mail, pseudo, groupes) est conservé tant que vous ne le supprimez pas, et au plus tard jusqu'au 31 décembre 2027. Un compte jamais confirmé peut être supprimé au bout de 30 jours.</p>
       <h2>Vos droits</h2>
       <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données, ainsi que du droit de retirer votre consentement. <strong>Pour supprimer votre compte</strong>, connectez-vous au « Petit vote entre amis » et cliquez sur « Supprimer mon compte » : toutes vos données sont effacées immédiatement et définitivement. Pour exercer vos autres droits, écrivez depuis l'adresse de votre compte à <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a> : nous répondons sous un mois. Vous pouvez aussi adresser une réclamation à la <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener">CNIL</a>.</p>
       <h2>Cookies et stockage local</h2>
@@ -408,7 +395,7 @@
       </div>
       <div>
         <h4>Rubriques</h4>
-        <a href="#sondages">Sondages</a><a href="#reseaux">Réseaux sociaux</a><a href="#buzz">Buzz</a><a href="#programmes">Candidats</a><a href="#parlement">Dit à la télé, voté au Parlement</a><a href="#portrait">Trouver le candidat de mes convictions</a><a href="#fun">Petit vote entre amis</a><a href="#parrainages">Les parrainages des 500 élus</a><a href="#jevote">🗳️ Prêt à voter ?</a>
+        <a href="#sondages">Sondages</a><a href="#reseaux">Réseaux sociaux</a><a href="#buzz">Buzz</a><a href="#programmes">Candidats</a><a href="#portrait">Trouver le candidat de mes convictions</a><a href="#fun">Que votent mes amis ?</a><a href="#parrainages">Les parrainages des 500 élus</a><a href="#jevote">🗳️ Prêt à voter ?</a>
       </div>
       <div>
         <h4>Informations</h4>
@@ -421,11 +408,11 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
-  <script src="assets/config.js?v=202611101000"></script>
-  <script src="assets/sim.js?v=202611101500"></script>
-  <script src="assets/fun.js?v=202611100100"></script>
-  <script src="assets/jevote.js?v=202611100600"></script>
-  <script src="assets/extras.js?v=202611100510"></script>
-  <script src="assets/app.js?v=202611101520"></script>
+  <script src="assets/config.js?v=202611101700"></script>
+  <script src="assets/sim.js?v=202611101700"></script>
+  <script src="assets/fun.js?v=202611101700"></script>
+  <script src="assets/jevote.js?v=202611101700"></script>
+  <script src="assets/extras.js?v=202611101700"></script>
+  <script src="assets/app.js?v=202611101700"></script>
 </body>
 </html>
