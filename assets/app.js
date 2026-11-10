@@ -759,13 +759,53 @@
     window.APP = { C, avatar, esc, fmtN, socialLinks };
     if (window.Fun) window.Fun.init(window.APP);
     if (window.JeVote) window.JeVote.init(window.APP);
-    // Mini-lecteur du direct Public Sénat (en-tête) : sur grand écran uniquement, lecture auto sans le son
-    const ml = $("#ml-player");
-    if (ml && matchMedia("(min-width: 761px)").matches) {
-      ml.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCTa1bPArjpvNMgSHAb_pflA&autoplay=1&mute=1&playsinline=1&controls=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="Public Sénat en direct"></iframe>`;
-    }
+    // Mini-lecteur du direct LCP (en-tête) : affiché seulement quand la chaîne est en direct
+    initLiveLCP();
     const fromMail = /access_token=|error_description=|type=signup/.test(location.hash);
     showTab(fromMail ? "fun" : location.hash.slice(1) || "sondages");
+  }
+  /* Direct LCP : lecteur YouTube de la chaîne (live_stream), masqué s'il n'y a pas de direct en cours.
+     Vérifié au chargement puis toutes les 5 minutes. */
+  const LCP_CHANNEL = "UCHGFbA0KWBgf6gMbyUCZeCQ";
+  function initLiveLCP() {
+    const box = $("#mini-live"), host = $("#ml-player");
+    if (!box || !host) return;
+    const big = matchMedia("(min-width: 761px)").matches;
+    let player = null, live = false;
+    // Hors direct, le bloc reste chargé mais invisible (hors écran) pour pouvoir tester la lecture
+    const show = (on) => {
+      live = on; box.classList.toggle("ml-off", !on);
+      if (on && !big) { try { player.pauseVideo(); } catch { /* lecteur pas prêt */ } } // mobile : lien seul, pas de vidéo
+    };
+    const check = () => {
+      const d = player?.getVideoData?.() || {};
+      const st = player?.getPlayerState?.();
+      // en direct = vidéo live qui démarre réellement (lecture ou chargement) ; « à venir » ou terminé = masqué
+      if (!(d.isLive === true && !d.errorCode)) return show(false);
+      if (st === 1 || st === 3) return show(true);
+      if (st === 0) show(false);
+    };
+    const build = () => {
+      if (player) { try { player.destroy(); } catch { /* déjà détruit */ } player = null; }
+      host.innerHTML = '<div id="ml-yt"></div>';
+      player = new YT.Player("ml-yt", {
+        host: "https://www.youtube-nocookie.com", width: "100%", height: "100%",
+        videoId: "live_stream", playerVars: { channel: LCP_CHANNEL, autoplay: 1, mute: 1, playsinline: 1, controls: 1, rel: 0 },
+        events: {
+          onReady: (e) => { e.target.mute(); e.target.playVideo(); setTimeout(check, 4000); },
+          onStateChange: (e) => { if (live && !big && e.data === 1) return; check(); },
+          onError: () => show(false),
+        },
+      });
+    };
+    box.hidden = false; show(false);
+    const start = () => { build(); setInterval(() => { if (!live) build(); else check(); }, 5 * 60 * 1000); };
+    if (window.YT?.Player) return start();
+    const prev = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = () => { prev?.(); start(); };
+    const sc = document.createElement("script");
+    sc.src = "https://www.youtube.com/iframe_api"; sc.async = true;
+    document.head.appendChild(sc);
   }
   main();
 })();

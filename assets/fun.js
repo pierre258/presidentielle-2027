@@ -12,6 +12,7 @@
     del: (k) => { try { localStorage.removeItem(k); } catch { /* idem */ } },
   };
   const el = () => $("#fun-app");
+  const FROM_RESET = /[?&]reset=1/.test(location.search) || /type=recovery/.test(location.hash);
   const PENDING_GROUP = "mds_pending_group"; // nom de groupe saisi avant d'avoir un compte
   function modal() {
     let m = $("#auth-modal");
@@ -19,10 +20,10 @@
       document.body.insertAdjacentHTML("beforeend", `<div id="auth-modal" class="am" hidden><div class="am-box" role="dialog" aria-modal="true" aria-label="Mon compte">
         <button type="button" class="am-x" aria-label="Fermer">✕</button><div class="am-body"></div></div></div>`);
       m = $("#auth-modal");
-      m.addEventListener("click", (e) => { if (e.target === m || e.target.closest(".am-x")) closeModal(); });
-      document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !m.hidden) closeModal(); });
+      m.addEventListener("click", (e) => { if (!m.classList.contains("lock") && (e.target === m || e.target.closest(".am-x"))) closeModal(); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !m.hidden && !m.classList.contains("lock")) closeModal(); });
     }
-    m.hidden = false; document.body.classList.add("am-open");
+    m.hidden = false; m.classList.remove("lock"); document.body.classList.add("am-open");
     return $(".am-body", m);
   }
   function closeModal() { const m = $("#auth-modal"); if (m) m.hidden = true; document.body.classList.remove("am-open"); }
@@ -162,7 +163,7 @@
       if (!f.email.checkValidity() || !email) { f.email.focus(); return (out.innerHTML = msg("Saisissez d'abord votre adresse e-mail ci-dessus.", "err")); }
       if (window.TURNSTILE_SITE_KEY && !captchaToken) return (out.innerHTML = msg("Merci de valider la vérification anti-robot ci-dessus.", "err"));
       out.innerHTML = msg("Un instant…");
-      const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: redirectUrl(), captchaToken: captchaToken || undefined });
+      const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: `${location.origin}${location.pathname}?reset=1#fun`, captchaToken: captchaToken || undefined });
       if (error && /rate limit|seconds/i.test(error.message)) return (out.innerHTML = msg("Trop de demandes en ce moment : réessayez dans quelques minutes.", "err"));
       out.innerHTML = msg(`📩 Si un compte existe pour <strong>${esc(email)}</strong>, un e-mail vient de vous être envoyé avec un lien pour choisir un nouveau mot de passe. Pensez à regarder dans les courriers indésirables.`, "ok");
     };
@@ -209,13 +210,20 @@
   }
 
   function renderNewPassword() {
+    if ($("#pw-form")) return;
     const box = modal();
+    $("#auth-modal").classList.add("lock");
+    if (/[?&]reset=1/.test(location.search)) history.replaceState(null, "", location.pathname + "#fun");
     box.innerHTML = `<div class="fun-card auth-card"><h3>🔑 Choisissez un nouveau mot de passe</h3>
+        <p class="muted small">Saisissez-le deux fois pour éviter toute erreur de frappe. Vous serez ensuite connecté automatiquement.</p>
         <form id="pw-form" class="fun-form">
           <label>Nouveau mot de passe<input name="pw" type="password" required minlength="8" autocomplete="new-password"><small>8 caractères minimum.</small></label>
           <label>Confirmez-le<input name="pw2" type="password" required minlength="8" autocomplete="new-password"></label>
-          <button class="cta" type="submit">Enregistrer mon mot de passe →</button><div id="pw-msg"></div></form></div>`;
+          <label class="pw-show"><input type="checkbox" id="pw-see"> Afficher les mots de passe</label>
+          <button class="cta" type="submit">Valider mon nouveau mot de passe →</button><div id="pw-msg"></div></form></div>`;
     const f = $("#pw-form", box);
+    $("#pw-see", box).onchange = (e) => [f.pw, f.pw2].forEach((i) => (i.type = e.target.checked ? "text" : "password"));
+    f.pw.focus();
     f.addEventListener("submit", async (e) => {
       e.preventDefault();
       const out = $("#pw-msg", box);
@@ -223,8 +231,9 @@
       out.innerHTML = msg("Un instant…");
       const { error } = await sb.auth.updateUser({ password: f.pw.value });
       if (error) return (out.innerHTML = msg(/different|same/i.test(error.message) ? "Choisissez un mot de passe différent de l'ancien." : /session|expired|missing/i.test(error.message) ? "Le lien a expiré : refaites une demande de « Mot de passe oublié »." : "Modification impossible : " + esc(error.message), "err"));
-      box.innerHTML = `<div class="fun-card mailbox"><div class="mail-ico">✅</div><h3>Mot de passe modifié</h3><p>Vous êtes connecté avec votre nouveau mot de passe.</p><button type="button" class="cta small" id="pw-ok">Continuer</button></div>`;
-      $("#pw-ok", box).onclick = closeModal;
+      $("#auth-modal").classList.remove("lock");
+      box.innerHTML = `<div class="fun-card mailbox"><div class="mail-ico">✅</div><h3>Mot de passe modifié</h3><p>Vous êtes maintenant connecté avec votre nouveau mot de passe.</p></div>`;
+      setTimeout(() => { closeModal(); location.hash = "#fun"; }, 1800);
     });
   }
 
@@ -684,10 +693,10 @@
       setTimeout(() => renderAuth("in", "", { open: true, note: msg("Le lien de confirmation n'est plus valide (" + esc(decodeURIComponent(mailError.replace(/\+/g, " "))) + "). Connectez-vous pour en recevoir un nouveau.", "err") }), 600);
     }
     let last;
-    let recovering = /type=recovery/.test(location.hash);
+    let recovering = FROM_RESET;
     sb.auth.onAuthStateChange((ev, session) => {
       const id = session?.user?.id || null;
-      if (ev === "PASSWORD_RECOVERY" || (recovering && id)) { recovering = false; setTimeout(renderNewPassword, id === last ? 0 : 800); }
+      if (ev === "PASSWORD_RECOVERY" || (recovering && id)) { recovering = false; setTimeout(renderNewPassword, 900); }
       if (deleting) { last = id; return; }
       if (id === last) return; // évite les rafraîchissements inutiles (rafraîchissement du jeton…)
       last = id;
