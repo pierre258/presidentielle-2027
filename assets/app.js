@@ -41,12 +41,16 @@
     if (!box) return;
     const today = new Date(); today.setHours(0, 0, 0, 0);
     const next = TOURS.find((t) => t.date >= today);
-    if (!next) { box.innerHTML = `<span class="cd-l">Élection présidentielle 2027</span><strong class="cd-n">Terminée</strong>`; return; }
+    if (!next) { box.textContent = "Terminée"; return; }
     const days = Math.round((next.date - today) / DAY);
     const when = next.date.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
-    box.innerHTML = `<span class="cd-l">${next.label} · <span class="cd-d">${when}</span></span>
-      <strong class="cd-n">${days === 0 ? "Aujourd'hui !" : `J-${days}`}</strong>`;
+    box.textContent = days === 0 ? "Aujourd'hui !" : `J-${days}`;
+    box.title = `${next.label} : ${when} — cliquez pour préparer votre vote`;
   }
+  // le compte à rebours est dans le lien du logo : il ouvre « Prêt à voter ? » au lieu de l'accueil
+  const goVote = (e) => { if (e.target.closest("#countdown") && (e.type === "click" || e.key === "Enter")) { e.preventDefault(); e.stopPropagation(); location.hash = "#jevote"; } };
+  document.addEventListener("click", goVote, true);
+  document.addEventListener("keydown", goVote, true);
   countdown();
   setInterval(countdown, 60 * 1000); // passe au jour suivant à minuit sans recharger
 
@@ -61,6 +65,7 @@
     if (parlement) id = "programmes";
     if (!/^[a-z]+$/.test(id) || !$("#" + id)) id = "sondages";
     $$(".panel").forEach((p) => (p.hidden = p.id !== id));
+    document.body.dataset.tab = id;
     // le portrait (pictos + questionnaire) s'affiche dans « Que votent mes amis ? » ou dans le volet convictions
     const PA = $("#portrait-app");
     if (PA && id === "fun" && PA.parentNode !== $("#fun")) $("#fun-app").after(PA);
@@ -85,7 +90,7 @@
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMore(); });
 
   /* ---------------- 1. Sondages ---------------- */
-  function renderPolls(w = "15") {
+  function renderPolls(w = "30") {
     const isEvo = w === "evo";
     $("#poll-bars").hidden = isEvo; $("#poll-evo").hidden = !isEvo;
     $(".poll-card").classList.toggle("evo", isEvo);
@@ -644,10 +649,10 @@
     const compare = (a, b) => {
       const A = PROG.candidates[a], B = PROG.candidates[b];
       const common = PROG.topics.filter((t) => A.positions[t.id] && B.positions[t.id]);
-      return `<div class="cmp">
+      return `<div class="rotate-hint" aria-hidden="true"><span class="rh-phone">📱</span><span>Tournez votre téléphone pour voir le comparatif en plein écran</span></div><div class="cmp">
         <div class="ch corner"></div><div class="ch a">${avatar(a, 40)}${esc(C[a].short)}${socialLinks(a, 15)}</div><div class="ch b">${avatar(b, 40)}${esc(C[b].short)}${socialLinks(b, 15)}</div>
-        <div class="tl">🎯 En une phrase</div><div>${esc(A.pitch)}</div><div>${esc(B.pitch)}</div>
-        ${common.map((t) => `<div class="tl">${t.icon} ${esc(t.label)}</div><div>${esc(A.positions[t.id])}${window.Extras ? window.Extras.cout(a, t.id) : ""}</div><div>${esc(B.positions[t.id])}${window.Extras ? window.Extras.cout(b, t.id) : ""}</div>`).join("")}
+        <div class="tl">🎯 En une phrase</div><div class="ca" data-n="${esc(C[a].short)}">${esc(A.pitch)}</div><div class="cb" data-n="${esc(C[b].short)}">${esc(B.pitch)}</div>
+        ${common.map((t) => `<div class="tl">${t.icon} ${esc(t.label)}</div><div class="ca" data-n="${esc(C[a].short)}">${esc(A.positions[t.id])}${window.Extras ? window.Extras.cout(a, t.id) : ""}</div><div class="cb" data-n="${esc(C[b].short)}">${esc(B.positions[t.id])}${window.Extras ? window.Extras.cout(b, t.id) : ""}</div>`).join("")}
       </div><p class="muted small">${common.length} thème(s) abordé(s) par les deux candidats sur ${PROG.topics.length}.</p>`;
     };
     // Le simulateur (bloc unique) peut s'afficher dans la fiche d'un candidat ou dans le volet « Les impacts sur ma vie »
@@ -681,6 +686,7 @@
       grid();
       if (st.mode === "one") $("#prog-view").innerHTML = st.a ? one(st.a) : `<div class="empty">Sélectionnez un candidat ci-dessus pour afficher sa fiche. Les candidats sont présentés par ordre alphabétique.</div>`;
       else $("#prog-view").innerHTML = st.a && st.b ? compare(st.a, st.b) : `<div class="empty">Sélectionnez ${st.a ? "un second" : "deux"} candidat${st.a ? "" : "s"}.</div>`;
+      document.body.classList.toggle("cmp-on", st.mode === "compare" && !!(st.a && st.b));
     };
     $("#prog-grid").addEventListener("click", (e) => {
       const b = e.target.closest(".pick"); if (!b) return;
@@ -739,7 +745,7 @@
     if (window.MDS_FREEZE) {
       $("#freeze-note").hidden = false;
       $$("#sondages > :not(.panel-head):not(.hero-cands):not(#freeze-note)").forEach((n) => (n.hidden = true));
-    } else { renderPolls(String(POLLS.default_window || 15)); renderTrend(); renderDuels(); }
+    } else { renderPolls("30"); renderTrend(); renderDuels(); }
     $("#poll-window").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
       $$("#poll-window button").forEach((x) => x.classList.toggle("on", x === b));

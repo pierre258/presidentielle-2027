@@ -951,3 +951,52 @@ button.linkish { background: none; border: 0; padding: 0; color: #93c5fd; text-d
   .mini-live:not(.ml-off) .ml-player { display: block; width: 150px; }
   .mini-live:not(.ml-off) .ml-l2 { display: block; white-space: normal; }
 }
+
+/* --- Compte à rebours compact à droite du titre --- */
+.cd-mini { display: inline-block; vertical-align: middle; margin-left: 8px; font: 800 13px/1 var(--head); color: #fff; background: var(--accent); padding: 3px 7px; border-radius: 6px; cursor: pointer; letter-spacing: .02em; }
+.cd-mini:hover { filter: brightness(1.1); }
+
+/* --- « Que votent mes amis ? » : dégradé bleu / blanc / rouge, pleine largeur sur mobile --- */
+.friends-btn, .friends-btn.on { color: #0b1030 !important; background: linear-gradient(90deg, #0055a4 0%, #f4f6ff 38%, #f4f6ff 62%, #ef4135 100%) !important; box-shadow: 0 6px 18px rgba(0,85,164,.25); text-shadow: none; }
+@media (max-width: 760px) {
+  .tabs > .friends-btn { flex: 1 1 100% !important; padding: 12px 14px !important; font-size: 16px !important; text-align: center; }
+}
+
+/* --- Sondages, smartphone à l'horizontale : direct LCP en plein écran --- */
+@media (orientation: landscape) and (max-height: 520px) {
+  body[data-tab="sondages"] .top { backdrop-filter: none; }
+  body[data-tab="sondages"] .mini-live:not(.ml-off) { position: fixed; inset: 0; z-index: 200; width: 100vw; height: 100vh; display: block; background: #000; margin: 0; }
+  body[data-tab="sondages"] .mini-live:not(.ml-off) .ml-head { position: absolute; top: 6px; left: 10px; z-index: 2; pointer-events: auto; text-shadow: 0 1px 3px #000; }
+  body[data-tab="sondages"] .mini-live:not(.ml-off) .ml-l2 { display: none; }
+  body[data-tab="sondages"] .mini-live:not(.ml-off) .ml-player { display: block; width: 100vw; height: 100vh; aspect-ratio: auto; border: 0; border-radius: 0; }
+  body[data-tab="sondages"]:has(.mini-live:not(.ml-off)) { overflow: hidden; }
+}
+
+/* --- Comparatif de deux candidats sur mobile --- */
+.rotate-hint { display: none; }
+@media (max-width: 760px) and (orientation: portrait) {
+  .rotate-hint { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 10px; font-size: 13px; color: var(--muted); }
+  .rh-phone { font-size: 24px; display: inline-block; animation: rh-turn 2.4s ease-in-out infinite; }
+  .cmp { grid-template-columns: 1fr 1fr; font-size: 14px; line-height: 1.45; }
+  .cmp > div { padding: 10px 12px; }
+  .cmp .ch { font-size: 15px; gap: 6px; flex-wrap: wrap; }
+  .cmp .ch .social, .cmp .ch [class*="soc"] { display: none; }
+  .cmp .tl { grid-column: 1 / -1; font-size: 15px; background: rgba(255,255,255,.07); padding-top: 12px; }
+  .cmp .ca, .cmp .cb { grid-column: 1 / -1; border-left: 3px solid #fff; }
+  .cmp .cb { border-left-color: #ffb020; }
+  .cmp .ca::before, .cmp .cb::before { content: attr(data-n); display: block; font: 700 11px var(--head); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 3px; color: #fff; }
+  .cmp .cb::before { color: #ffb020; }
+}
+@keyframes rh-turn { 0%, 25% { transform: rotate(0); } 50%, 75% { transform: rotate(-90deg); } 100% { transform: rotate(0); } }
+@media (prefers-reduced-motion: reduce) { .rh-phone { animation: none; } }
+/* à l'horizontale : seul le comparatif occupe l'écran */
+@media (max-width: 1000px) and (orientation: landscape) and (max-height: 520px) {
+  body.cmp-on[data-tab="programmes"] .top, body.cmp-on[data-tab="programmes"] .site-foot { display: none; }
+  body.cmp-on[data-tab="programmes"] .cmp { position: fixed; inset: 0; z-index: 150; border-radius: 0; border: 0; overflow-y: auto; grid-template-columns: 130px 1fr 1fr; align-content: start; background: var(--bg); font-size: 13.5px; }
+  body.cmp-on[data-tab="programmes"] .cmp .ch { position: sticky; top: 0; z-index: 1; background: #141b45; font-size: 16px; }
+  body.cmp-on[data-tab="programmes"] .cmp .corner { display: block; }
+  body.cmp-on[data-tab="programmes"] .cmp .tl { grid-column: auto; }
+  body.cmp-on[data-tab="programmes"] { overflow: hidden; }
+}
+.brand-title { white-space: nowrap; }
+@media (max-width: 420px) { .brand-title { font-size: 17px; } .cd-mini { font-size: 12px; margin-left: 5px; padding: 3px 6px; } }

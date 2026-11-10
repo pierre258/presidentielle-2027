@@ -320,7 +320,7 @@ def main():
                              "average": window_avg(today, w)[1],
                              "previous": window_avg(today - dt.timedelta(days=w), w)[1]}
                     for w in WINDOWS},
-        "default_window": DEFAULT_WINDOW,
+        "default_window": 30,  # fenêtre affichée par défaut sur le site
         "second_round": second_round(tables, key2id, today),
         "series": series,
         "evolution": evolution,
