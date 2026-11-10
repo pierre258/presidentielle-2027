@@ -323,9 +323,21 @@ def main():
                 it["context"] = why
             (neg if lab == "negative" else pos if lab == "positive" else []).append(it)
 
-        def rank(lst):  # contenus les plus vus d'abord, puis articles les plus récents
-            return sorted(lst, key=lambda i: (i["type"] == "article", -i.get("views", 0), i.get("date", "")),
-                          reverse=False)[:8]
+        def rank(lst):  # les plus vus d'abord, au plus 3 contenus par source pour varier (presse, YouTube, X, TikTok…)
+            ordered = sorted(lst, key=lambda i: (i["type"] == "article", -(i.get("views") or i.get("likes") or 0), i.get("date", "")))
+            src = lambda i: i.get("platform") or ("youtube" if i.get("youtube_id") else "article")
+            pick, count = [], {}
+            for it in ordered:
+                if count.get(src(it), 0) < 3:
+                    pick.append(it); count[src(it)] = count.get(src(it), 0) + 1
+                if len(pick) == 8:
+                    break
+            for it in ordered:  # compléter si une seule source domine
+                if len(pick) == 8:
+                    break
+                if it not in pick:
+                    pick.append(it)
+            return pick
         result["candidates"][cid] = {"negative": rank(neg), "positive": rank(pos),
                                      "volume": len(items)}
         print(cid, len(items), "éléments →", len(neg), "neg /", len(pos), "pos")
