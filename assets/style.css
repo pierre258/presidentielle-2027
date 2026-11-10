@@ -1000,3 +1000,6 @@ button.linkish { background: none; border: 0; padding: 0; color: #93c5fd; text-d
 }
 .brand-title { white-space: nowrap; }
 @media (max-width: 420px) { .brand-title { font-size: 17px; } .cd-mini { font-size: 12px; margin-left: 5px; padding: 3px 6px; } }
+
+/* Mobile : l en-tete defile avec la page (il prenait ~40 % de l ecran) */
+@media (max-width: 760px) { .top { position: relative; } }
