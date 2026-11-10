@@ -13,7 +13,7 @@
   };
   const el = () => $("#fun-app");
   const pel = () => $("#portrait-app"); // volet « Trouver le candidat de mes convictions » de la page Candidats
-  const toPortrait = `<a class="cta small" href="#portrait">🧭 Trouver le candidat de mes convictions →</a>`;
+  const toPortrait = `<button type="button" class="cta small" onclick="document.getElementById('portrait-app').scrollIntoView({behavior:'smooth'})">🧭 Répondre au questionnaire ↓</button>`;
   const esc = (s) => A.esc(s);
   const msg = (t, kind = "") => `<p class="fun-msg ${kind}">${t}</p>`;
 
@@ -83,11 +83,13 @@
     $("#back-login").onclick = () => renderAuth("in", email);
   }
 
-  async function renderAuth(startMode = "up", prefill = "") {
+  async function renderAuth(startMode = "up", prefill = "", opts = {}) {
+    const open = !!(opts.open || prefill);
     el().innerHTML = `${await inviteBanner()}
-      <div class="fun-card">
-        <div class="seg" id="auth-tabs"><button data-t="up" class="on">Créer un compte</button><button data-t="in">Se connecter</button></div>
-        <form id="auth-form" class="fun-form">
+      <div class="fun-card auth-card ${open ? "" : "closed"}">
+        <div class="auth-bar"><div class="seg" id="auth-tabs"><button data-t="up" class="on">Créer un compte</button><button data-t="in">Se connecter</button></div>
+          <span class="muted small">${open ? "" : "Répondez d'abord au questionnaire ci-dessous : le compte n'est demandé qu'à la fin, pour enregistrer votre vote."}</span></div>
+        <form id="auth-form" class="fun-form" ${open ? "" : "hidden"}>
           <label class="f-up">Pseudo (visible par les membres de vos groupes)<input name="pseudo" required minlength="2" maxlength="30" autocomplete="nickname"><small>Évitez votre nom complet si vous souhaitez rester discret.</small></label>
           <label>E-mail<input name="email" type="email" required autocomplete="email" value="${esc(prefill)}"><small class="f-up">Un e-mail de confirmation vous sera envoyé. Les adresses temporaires ne sont pas acceptées.</small></label>
           <label>Mot de passe<input name="password" type="password" required minlength="8" autocomplete="new-password"><small class="f-up">8 caractères minimum.</small></label>
@@ -96,7 +98,7 @@
           <button class="cta" type="submit">Créer mon compte →</button>
           <div id="auth-msg"></div>
         </form>
-        <p class="muted small">🔒 Votre e-mail sert uniquement à vous connecter : il n'est jamais montré aux autres utilisateurs, ni à l'auteur d'un lien. Seuls les comptes à l'adresse confirmée sont comptés dans les résultats.</p>
+        <p class="muted small auth-note" ${open ? "" : "hidden"}>🔒 Votre e-mail sert uniquement à vous connecter : il n'est jamais montré aux autres utilisateurs, ni à l'auteur d'un lien. Seuls les comptes à l'adresse confirmée sont comptés dans les résultats.</p>
       </div>`;
     let mode = "up";
     const f = $("#auth-form");
@@ -122,7 +124,11 @@
       document.head.appendChild(sc);
     };
     loadCaptcha();
-    $("#auth-tabs").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) setMode(b.dataset.t); });
+    $("#auth-tabs").addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      setMode(b.dataset.t);
+      f.hidden = false; $(".auth-card", el()).classList.remove("closed"); $(".auth-note", el()).hidden = false; $(".auth-bar .muted", el()).textContent = "";
+    });
     setMode(startMode);
     f.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -192,6 +198,34 @@
     return { ...base, prox, answered: base.answered + EXT.questions.filter((q) => ans[q.id]).length, extended: true };
   }
 
+  /* Choix du vote : pictos de tous les candidats, ordre alphabétique (neutralité) */
+  const surname = (n) => n.replace(/^\S+\s+/, "").replace(/^(de|d'|du)\s+/i, "");
+  const candList = () => Object.values(A.C).filter((c) => c.id !== "bardella").sort((a, b) => surname(a.name).localeCompare(surname(b.name), "fr"));
+  const choiceLabel = (ch) => A.C[ch] ? A.C[ch].name : ch === "indecis" ? "Je ne sais pas encore" : ch === "blanc" ? "Vote blanc / abstention" : "";
+  function voteGridHTML() {
+    return `<div class="vote-pick"><h3>🗳️ Pour qui voulez-vous voter ?</h3>
+      <p class="muted small">Touchez un candidat (présentés par ordre alphabétique). Vous pouvez changer d'avis à tout moment.</p>
+      <div class="avatar-grid vp-grid">${candList().map((c) => `<button type="button" class="pick ${stepper.chosen === c.id ? "on" : ""}" data-vote="${c.id}">${A.avatar(c.id, 56)}${esc(c.short)}</button>`).join("")}
+        <button type="button" class="pick vp-other ${stepper.chosen === "indecis" ? "on" : ""}" data-vote="indecis"><span class="vp-ico">🤔</span>Je ne sais pas encore</button>
+        <button type="button" class="pick vp-other ${stepper.chosen === "blanc" ? "on" : ""}" data-vote="blanc"><span class="vp-ico">⚪</span>Vote blanc</button></div></div>`;
+  }
+  function bindVoteGrid() {
+    $$("#portrait-app [data-vote]").forEach((b) => (b.onclick = () => {
+      stepper.chosen = b.dataset.vote;
+      savePendingDraft();
+      $$("#portrait-app [data-vote]").forEach((x) => x.classList.toggle("on", x === b));
+      if ($("#stepper") && stepper.i >= (stepper.ext ? Q.questions.length + EXT.questions.length : Q.questions.length)) renderStep();
+    }));
+  }
+
+  /* Vote préparé sans compte : gardé sur l'appareil jusqu'à la création du compte */
+  const PENDING_VOTE = "mds_pending_ballot";
+  const pendingVote = () => { try { return JSON.parse(store.get(PENDING_VOTE) || "null"); } catch { return null; } };
+  function savePendingDraft(extra = {}) {
+    if (user) return;
+    store.set(PENDING_VOTE, JSON.stringify({ ...(pendingVote() || {}), ans: stepper.ans, chosen: stepper.chosen, ext: !!stepper.ext, ...extra }));
+  }
+
   /* Questionnaire pas à pas : une affirmation par écran, flèches précédent / suivant */
   const CHOICES = [["-2", "Pas du tout d'accord"], ["-1", "Plutôt pas d'accord"], ["0", "Sans avis"], ["1", "Plutôt d'accord"], ["2", "Tout à fait d'accord"]];
   const stepper = { i: 0, ans: {}, chosen: "" };
@@ -237,17 +271,14 @@
           ${EXT && !stepper.ext ? `<div class="ext-offer"><div><b>🔎 Envie d'un résultat plus précis ?</b><span class="muted small">Facultatif : ${EXT.questions.length} affirmations de plus sur ${EXT.themes.length} grands sujets de société (santé, sécurité, pouvoir d'achat, logement…), comparées aux programmes. Environ 6 minutes.</span></div><button type="button" class="ghost" id="ext-go">Approfondir mon portrait →</button></div>` : ""}
           ${stepper.ext ? `<p class="muted small">✓ Questionnaire approfondi : ${EXT.questions.filter((q) => stepper.ans[q.id] !== undefined).length} affirmation(s) renseignée(s)${(stepper.ans._prio || []).length ? `, priorités : ${stepper.ans._prio.map((t) => (EXT.themes.find((x) => x.id === t) || {}).label).join(", ")}` : ""}.</p>` : ""}
           <div class="st-num">Dernière étape</div>
-          <p class="st-q">Et finalement, pour qui pensez-vous voter, quel que soit le résultat du quiz ?</p>
-          <select id="fun-choice" class="st-select"><option value="">— Choisir —</option><option value="indecis">Je ne sais pas encore</option>
-            ${cands.map((c) => `<option value="${c.id}">${esc(c.name)} (${esc(c.party)})</option>`).join("")}
-            <option value="blanc">Vote blanc / abstention</option></select>
+          <p class="st-q">Votre vote</p>
+          ${stepper.chosen ? `<div class="vp-recap">${A.C[stepper.chosen] ? A.avatar(stepper.chosen, 44) : ""}<b>${esc(choiceLabel(stepper.chosen))}</b><span class="muted small">(modifiable dans la grille ci-dessus)</span></div>`
+            : `<p class="warn">⬆️ Choisissez votre candidat dans la grille ci-dessus.</p>`}
           <p class="muted small">${answered} affirmation${answered > 1 ? "s" : ""} renseignée${answered > 1 ? "s" : ""} sur ${n}${answered < 5 ? " — il en faut au moins 5 pour valider." : "."}</p>
           <label class="consent-vote"><input type="checkbox" id="vote-consent"> <span><b>Je consens au traitement de mon opinion politique</b> (mes réponses et mon choix de candidat) pour le « Que votent mes amis ? » et ses résultats. Ce consentement est distinct des conditions d'utilisation ; je peux le retirer à tout moment en un clic (« Retirer mon vote »). Mon vote est conservé à part de mon adresse e-mail et supprimé après l'élection.</span></label>
         </div>
         <div class="st-nav"><button type="button" class="ghost" id="st-prev">← Précédent</button><span></span>
-          <button type="button" class="cta" id="fun-save">Valider mon portrait ✓</button></div><div id="fun-save-msg"></div>`;
-      $("#fun-choice").value = stepper.chosen || "";
-      $("#fun-choice").onchange = (e) => (stepper.chosen = e.target.value);
+          <button type="button" class="cta" id="fun-save">${user ? "Valider mon vote ✓" : "Valider et créer mon compte →"}</button></div><div id="fun-save-msg"></div>`;
       $("#fun-save").onclick = savePortrait;
       const eg = $("#ext-go");
       if (eg) eg.onclick = () => { stepper.ext = true; stepper.prio = true; renderStep(); };
@@ -258,6 +289,7 @@
     if (next) next.onclick = () => { stepper.i++; renderStep(); };
     $$(".st-ch", box).forEach((c) => (c.onclick = () => {
       stepper.ans[qs[stepper.i].id] = +c.dataset.v;
+      savePendingDraft();
       $$(".st-ch", box).forEach((x) => x.classList.toggle("on", x === c));
       setTimeout(() => { stepper.i++; renderStep(); }, 220); // passe tout seul à la question suivante
     }));
@@ -272,13 +304,15 @@
 
   function portraitLoggedOut() {
     if (!pel()) return;
-    pel().innerHTML = `<div class="fun-card"><h3>🧭 Votre portrait en 14 affirmations</h3>
-      <p class="muted">Pour enregistrer votre portrait et votre choix de candidat, créez d'abord un compte (20 secondes). Il vous sert aussi pour le « Que votent mes amis ? ».</p>
-      <a class="cta" href="#fun">Créer un compte ou me connecter →</a></div>`;
+    profile = {};
+    const pv = pendingVote();
+    stepper.ans = { ...(pv?.ans || {}) }; stepper.chosen = pv?.chosen || ""; stepper.ext = !!(pv?.ext && EXT); stepper.prio = false; stepper.i = 0; stepper.editing = false;
+    pel().innerHTML = `${voteGridHTML()}<div id="f-portrait">${portraitPane()}</div><div id="port-msg"></div>`;
+    bindVoteGrid(); bindPortrait();
   }
 
   function portraitPane() {
-    const done = !!profile.completed_at;
+    const done = !!profile?.completed_at;
     if (done && !stepper.editing) {
       const res = computeFull(profile.answers || {});
       const ch = profile.chosen_candidate;
@@ -304,6 +338,15 @@
 
   async function renderApp(notice = "") {
     profile = await ensureProfile();
+    const pv = pendingVote();
+    if (pv?.ready && pv.full && pv.chosen) {
+      if (!profile.completed_at) {
+        const res = computeFull(pv.full);
+        const { error } = await sb.rpc("save_ballot", { p_answers: pv.full, p_axes: res.axes, p_top: res.prox[0].id, p_pct: res.prox[0].pct, p_chosen: pv.chosen, p_consent: !!pv.consent });
+        if (!error) { Object.assign(profile, { answers: pv.full, axes: res.axes, top_candidate: res.prox[0].id, top_pct: res.prox[0].pct, chosen_candidate: pv.chosen, completed_at: new Date().toISOString() }); notice += msg("✓ Votre vote préparé avant l'inscription a bien été enregistré.", "ok"); }
+      }
+      store.del(PENDING_VOTE);
+    } else if (pv) store.del(PENDING_VOTE);
     notice += await statusNote();
     const done = !!profile.completed_at;
     stepper.ans = { ...(profile.answers || {}) };
@@ -323,7 +366,8 @@
       </div>
       <div class="fun-pane" id="f-joined" hidden><div id="joined-list"></div></div>
       <div class="fun-pane" id="f-all"><div id="all-results"></div></div>`;
-    pel().innerHTML = `<div class="fun-head"><div>Connecté en tant que <strong>${esc(profile.pseudo)}</strong></div></div><div id="f-portrait">${portraitPane()}</div><div id="port-msg"></div>`;
+    pel().innerHTML = `${profile.completed_at && !stepper.editing ? "" : voteGridHTML()}<div id="f-portrait">${portraitPane()}</div><div id="port-msg"></div>`;
+    bindVoteGrid();
     $("#logout").onclick = () => sb.auth.signOut();
     $("#del-account").onclick = confirmDelete;
     $("#fun-tabs").addEventListener("click", (e) => {
@@ -371,7 +415,7 @@
   function bindPortrait() {
     if ($("#stepper")) renderStep();
     const ed = $("#edit-portrait");
-    if (ed) ed.onclick = () => { stepper.editing = true; $("#f-portrait").innerHTML = portraitPane(); bindPortrait(); };
+    if (ed) ed.onclick = () => { stepper.editing = true; $("#f-portrait").insertAdjacentHTML("beforebegin", voteGridHTML()); $("#f-portrait").innerHTML = portraitPane(); bindVoteGrid(); bindPortrait(); };
     const wd = $("#withdraw-vote");
     if (wd) wd.onclick = async () => {
       wd.disabled = true;
@@ -391,9 +435,16 @@
     const out = $("#fun-save-msg");
     const filled = Q.questions.filter((q) => stepper.ans[q.id] !== undefined).length;
     if (filled < 5) return (out.innerHTML = msg("Répondez à au moins 5 affirmations pour valider votre portrait.", "err"));
-    const chosen = $("#fun-choice").value;
+    const chosen = stepper.chosen;
     if (!chosen) return (out.innerHTML = msg("Indiquez votre choix de candidat (ou « Je ne sais pas encore »).", "err"));
     if (!$("#vote-consent")?.checked) return (out.innerHTML = msg("Cochez la case de consentement au traitement de votre opinion politique pour enregistrer votre vote.", "err"));
+    if (!user) {
+      savePendingDraft({ ready: true, consent: true, at: new Date().toISOString(), full: ans });
+      out.innerHTML = msg("✓ Vos réponses sont gardées sur cet appareil. Dernière étape : créez votre compte (ou connectez-vous) ci-dessus. Votre vote sera enregistré dès votre adresse e-mail confirmée.", "ok");
+      await renderAuth("up", "", { open: true });
+      el().scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
     const row = { answers: ans, axes: res.axes, top_candidate: res.prox[0].id, top_pct: res.prox[0].pct, chosen_candidate: chosen, completed_at: new Date().toISOString(), consent_at: new Date().toISOString() };
     const { error } = await sb.rpc("save_ballot", { p_answers: ans, p_axes: res.axes, p_top: res.prox[0].id, p_pct: res.prox[0].pct, p_chosen: chosen, p_consent: true });
     if (error) return (out.innerHTML = msg(/réserve/.test(error.message) ? "🔒 Période de réserve électorale : les votes reprendront après la fermeture des bureaux (20 h)." : "Enregistrement impossible : " + esc(error.message), "err"));

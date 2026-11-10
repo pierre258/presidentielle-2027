@@ -61,6 +61,9 @@
     if (parlement) id = "programmes";
     if (!/^[a-z]+$/.test(id) || !$("#" + id)) id = "sondages";
     $$(".panel").forEach((p) => (p.hidden = p.id !== id));
+    // le portrait (pictos + questionnaire) s'affiche dans « Que votent mes amis ? » ou dans le volet convictions
+    const PA = $("#portrait-app");
+    if (PA && id === "fun" && PA.parentNode !== $("#fun")) $("#fun-app").after(PA);
     $$(".tab[data-tab]").forEach((t) => t.classList.toggle("on", t.dataset.tab === id));
     // liste déroulante : la rubrique affichée devient le libellé du bouton
     const sel = $(`#more-menu a[data-tab="${parlement ? "parlement" : id}"]`);
@@ -698,6 +701,7 @@
       $("#prog-block").hidden = !prog;
       $("#impact-block").hidden = v !== "impact";
       $("#conv-block").hidden = v !== "conv";
+      if (v === "conv" && $("#portrait-app") && !$("#conv-block").contains($("#portrait-app"))) $("#conv-block .conv-jv").before($("#portrait-app"));
       if (prog) {
         st.mode = v;
         if (st.mode === "compare" && st.a && !st.b) st.b = null;
