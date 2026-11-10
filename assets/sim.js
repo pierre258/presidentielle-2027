@@ -355,10 +355,10 @@
       ${me ? `<span class="axe-me" style="left:${(me[ax] + 1) * 50}%">${A.esc(meLabel)}</span>` : ""}</div></div>`).join("")}</div>`;
   }
   const proxHTML = (prox) => `<div class="prox">${prox.map((p) => `<div class="prox-r">${A.avatar(p.id, 28)}<span>${A.esc(A.C[p.id].name)}</span><span class="prox-b"><i style="width:${p.pct}%;background:${A.C[p.id].color === "#404040" ? "#8a8f98" : A.C[p.id].color}"></i></span><strong>${p.pct} %</strong>${p.partial ? `<small class="muted" title="Positions trop peu connues sur le questionnaire approfondi : comparé sur le questionnaire de base">*</small>` : ""}</div>`).join("")}${prox.some((p) => p.partial) ? `<p class="muted small">* Comparé sur le questionnaire de base seulement : positions publiques encore trop peu connues sur les sujets approfondis.</p>` : ""}</div>`;
-  function portraitHTML(res, title = "🧭 Votre portrait idéologique") {
-    return `<h3>${title}</h3>
+  function portraitHTML(res, title = "🧭 Votre portrait idéologique", withAxes = true) {
+    return `${withAxes ? `<h3>${title}</h3>
       ${res.answered < 5 ? `<p class="warn">Répondez à au moins 5 affirmations pour un portrait fiable (${res.answered} réponse(s) pour l'instant).</p>` : ""}
-      ${axesHTML(res.axes, res.prox.slice(0, 3))}
+      ${axesHTML(res.axes, res.prox.slice(0, 3))}` : ""}
       <h3>Candidats les plus proches de vos réponses</h3>${proxHTML(res.prox)}
       <p class="muted small">Proximité = écart moyen entre vos réponses et notre lecture des positions publiques de chaque candidat. Indicatif : ce n'est pas une consigne de vote.</p>`;
   }

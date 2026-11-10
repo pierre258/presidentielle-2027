@@ -408,7 +408,7 @@
           <div><small class="muted">Le plus proche selon le quiz</small><div class="port-ch">${A.avatar(res.prox[0].id, 44)}<strong>${esc(A.C[res.prox[0].id].name)} · ${res.prox[0].pct} %</strong></div></div>
           <div class="port-btns"><button type="button" class="ghost" id="edit-portrait">✏️ Modifier mon portrait</button>
             <button type="button" class="ghost danger" id="withdraw-vote">↩︎ Retirer mon vote</button></div></div>
-        <div class="sim-out">${Q.portraitHTML(res)}</div>`;
+        <div class="sim-out">${Q.portraitHTML(res, "", false)}</div>`;
     }
     return `<h3 class="quiz-title">🧭 Vérifiez si vos idées correspondent au programme du candidat que vous soutenez</h3>
       <div id="stepper" class="stepper"></div><div id="fun-result" class="sim-out"></div>`;
