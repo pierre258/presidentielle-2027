@@ -12,6 +12,31 @@
     del: (k) => { try { localStorage.removeItem(k); } catch { /* idem */ } },
   };
   const el = () => $("#fun-app");
+  const PENDING_GROUP = "mds_pending_group"; // nom de groupe saisi avant d'avoir un compte
+  function modal() {
+    let m = $("#auth-modal");
+    if (!m) {
+      document.body.insertAdjacentHTML("beforeend", `<div id="auth-modal" class="am" hidden><div class="am-box" role="dialog" aria-modal="true" aria-label="Mon compte">
+        <button type="button" class="am-x" aria-label="Fermer">✕</button><div class="am-body"></div></div></div>`);
+      m = $("#auth-modal");
+      m.addEventListener("click", (e) => { if (e.target === m || e.target.closest(".am-x")) closeModal(); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !m.hidden) closeModal(); });
+    }
+    m.hidden = false; document.body.classList.add("am-open");
+    return $(".am-body", m);
+  }
+  function closeModal() { const m = $("#auth-modal"); if (m) m.hidden = true; document.body.classList.remove("am-open"); }
+  // Bouton compte du header (en haut à droite)
+  function renderHeaderAcct() {
+    const h = $("#hdr-acct"); if (!h) return;
+    h.innerHTML = user
+      ? `<a href="#fun" class="ha-me" title="Mon compte">👤 ${esc(profile?.pseudo || "Mon compte")}</a>`
+      : `<button type="button" data-auth="up">Créer un compte</button><button type="button" data-auth="in">Se connecter</button>`;
+  }
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-auth]");
+    if (b && sb) { e.preventDefault(); renderAuth(b.dataset.auth, "", { open: true }); }
+  });
   const pel = () => $("#portrait-app"); // volet « Trouver le candidat de mes convictions » de la page Candidats
   const toPortrait = `<button type="button" class="cta small" onclick="document.getElementById('portrait-app').scrollIntoView({behavior:'smooth'})">🧭 Répondre au questionnaire ↓</button>`;
   const esc = (s) => A.esc(s);
@@ -60,7 +85,7 @@
     const g = data?.[0];
     if (!g) return msg("Ce lien d'invitation n'est plus valide.", "err");
     return `<div class="invite">🎉 <strong>${esc(g.owner_pseudo)}</strong> vous invite à rejoindre « <strong>${esc(g.name)}</strong> ».
-      ${user ? "" : "Créez votre compte en 20 secondes, puis remplissez votre portrait idéologique."}</div>`;
+      ${user ? "" : `Remplissez votre portrait ci-dessous, puis <button type="button" class="linkish" data-auth="up">créez votre compte</button> pour rejoindre le groupe.`}</div>`;
   }
 
   // Adresses jetables refusées dès l'inscription (la base les exclut aussi des résultats)
@@ -68,7 +93,8 @@
   const redirectUrl = () => `${location.origin}${location.pathname}#fun`;
 
   function checkEmailScreen(email, note = "") {
-    el().innerHTML = `<div class="fun-card mailbox">
+    const box = modal();
+    box.innerHTML = `<div class="fun-card mailbox">
         <div class="mail-ico">📩</div>
         <h3>Vérifiez votre boîte mail</h3>
         <p>Un e-mail de confirmation vient d'être envoyé à <strong>${esc(email)}</strong>.<br>Cliquez sur le lien qu'il contient pour activer votre compte : <strong>votre vote ne sera compté qu'une fois votre adresse confirmée</strong>.</p>
@@ -76,20 +102,19 @@
         <p class="muted small">Pensez à regarder dans les courriers indésirables. Le lien vous ramènera directement ici.</p>
         <div class="mail-actions"><button type="button" class="ghost" id="resend">Renvoyer l'e-mail</button><button type="button" class="ghost" id="back-login">J'ai confirmé : me connecter</button></div>
         <div id="resend-msg"></div></div>`;
-    $("#resend").onclick = async () => {
+    $("#resend", box).onclick = async () => {
       const { error } = await sb.auth.resend({ type: "signup", email, options: { emailRedirectTo: redirectUrl() } });
-      $("#resend-msg").innerHTML = error ? msg("Envoi impossible pour le moment (limite d'envoi atteinte ?) : réessayez dans quelques minutes.", "err") : msg("✓ E-mail renvoyé.", "ok");
+      $("#resend-msg", box).innerHTML = error ? msg("Envoi impossible pour le moment (limite d'envoi atteinte ?) : réessayez dans quelques minutes.", "err") : msg("✓ E-mail renvoyé.", "ok");
     };
-    $("#back-login").onclick = () => renderAuth("in", email);
+    $("#back-login", box).onclick = () => renderAuth("in", email);
   }
 
   async function renderAuth(startMode = "up", prefill = "", opts = {}) {
-    const open = !!(opts.open || prefill);
-    el().innerHTML = `${await inviteBanner()}
-      <div class="fun-card auth-card ${open ? "" : "closed"}">
-        <div class="auth-bar"><div class="seg" id="auth-tabs"><button data-t="up" class="on">Créer un compte</button><button data-t="in">Se connecter</button></div>
-          <span class="muted small">${open ? "" : "Répondez d'abord au questionnaire ci-dessous : le compte n'est demandé qu'à la fin, pour enregistrer votre vote."}</span></div>
-        <form id="auth-form" class="fun-form" ${open ? "" : "hidden"}>
+    const box = modal();
+    box.innerHTML = `${opts.note || ""}
+      <div class="fun-card auth-card">
+        <div class="auth-bar"><div class="seg" id="auth-tabs"><button data-t="up" class="on">Créer un compte</button><button data-t="in">Se connecter</button></div></div>
+        <form id="auth-form" class="fun-form">
           <label class="f-up">Pseudo (visible par les membres de vos groupes)<input name="pseudo" required minlength="2" maxlength="30" autocomplete="nickname"><small>Évitez votre nom complet si vous souhaitez rester discret.</small></label>
           <label>E-mail<input name="email" type="email" required autocomplete="email" value="${esc(prefill)}"><small class="f-up">Un e-mail de confirmation vous sera envoyé. Les adresses temporaires ne sont pas acceptées.</small></label>
           <label>Mot de passe<input name="password" type="password" required minlength="8" autocomplete="new-password"><small class="f-up">8 caractères minimum.</small></label>
@@ -98,10 +123,10 @@
           <button class="cta" type="submit">Créer mon compte →</button>
           <div id="auth-msg"></div>
         </form>
-        <p class="muted small auth-note" ${open ? "" : "hidden"}>🔒 Votre e-mail sert uniquement à vous connecter : il n'est jamais montré aux autres utilisateurs, ni à l'auteur d'un lien. Seuls les comptes à l'adresse confirmée sont comptés dans les résultats.</p>
+        <p class="muted small auth-note">🔒 Votre e-mail sert uniquement à vous connecter : il n'est jamais montré aux autres utilisateurs, ni à l'auteur d'un lien. Seuls les comptes à l'adresse confirmée sont comptés dans les résultats.</p>
       </div>`;
     let mode = "up";
-    const f = $("#auth-form");
+    const f = $("#auth-form", box);
     const setMode = (m) => {
       mode = m;
       $$("#auth-tabs button").forEach((x) => x.classList.toggle("on", x.dataset.t === m));
@@ -127,12 +152,11 @@
     $("#auth-tabs").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
       setMode(b.dataset.t);
-      f.hidden = false; $(".auth-card", el()).classList.remove("closed"); $(".auth-note", el()).hidden = false; $(".auth-bar .muted", el()).textContent = "";
     });
     setMode(startMode);
     f.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const out = $("#auth-msg");
+      const out = $("#auth-msg", box);
       const email = f.email.value.trim(), password = f.password.value;
       if (window.TURNSTILE_SITE_KEY && !captchaToken) return (out.innerHTML = msg("Merci de valider la vérification anti-robot ci-dessus.", "err"));
       if (mode === "up" && DISPOSABLE.test(email)) return (out.innerHTML = msg("Les adresses e-mail temporaires ne sont pas acceptées : utilisez votre adresse habituelle.", "err"));
@@ -150,6 +174,27 @@
         if (error) return (out.innerHTML = msg("E-mail ou mot de passe incorrect.", "err"));
       }
     });
+  }
+
+  function groupFormHTML() {
+    return `<div class="fun-card grp-top"><h3>🔗 Je sonde mes proches <small class="muted">anonymement</small></h3>
+        <p class="muted small">Créez un lien de groupe et partagez-le : vous n'avez pas besoin d'avoir voté ni rempli votre portrait pour le créer.</p>
+        <form id="grp-form" class="fun-form inline">
+          <label>Nom de votre groupe<input name="name" required minlength="2" maxlength="60" placeholder="ex. Les copains du foot"></label>
+          <button class="cta" type="submit">Générer un lien</button></form>
+        <p class="muted small">Chaque personne qui ouvre le lien, crée son compte et valide son portrait apparaît dans les résultats (pseudo uniquement, jamais l'e-mail).</p>
+        <div id="grp-list"></div></div>`;
+  }
+  async function renderLoggedOut() {
+    el().innerHTML = `${await inviteBanner()}${groupFormHTML()}
+      <div class="fun-card port-todo"><div><strong>📊 Le vote des participants et les résultats de vos groupes</strong><p class="muted small">Choisissez votre candidat et répondez au questionnaire ci-dessous, puis créez votre compte (en haut à droite) pour enregistrer votre vote et découvrir les résultats.</p></div>${toPortrait}</div>`;
+    $("#grp-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      store.set(PENDING_GROUP, e.target.name.value.trim());
+      renderAuth("up", "", { open: true, note: msg("Dernière étape : créez votre compte (ou connectez-vous). Votre lien « <strong>" + esc(e.target.name.value.trim()) + "</strong> » sera généré automatiquement.", "ok") });
+    });
+    const ib = $(".invite [data-auth]", el());
+    if (ib) ib.hidden = false;
   }
 
   async function ensureProfile() {
@@ -298,8 +343,7 @@
   // Barre d'onglets du Petit vote : « Je sonde mes proches » à gauche, puis les résultats
   // « Je sonde mes proches » : bouton à part, tout à gauche ; puis les résultats
   function tabsHTML() {
-    return `<button type="button" class="sonde-btn" data-p="f-groups">🔗 Je sonde mes proches<small>anonymement</small></button>
-      <div class="seg big fun-tabs"><button data-p="f-all" class="on">📊 Le vote des participants</button><button data-p="f-joined">👥 Mes groupes</button></div>`;
+    return `<div class="seg big fun-tabs"><button data-p="f-all" class="on">📊 Le vote des participants</button><button data-p="f-joined">👥 Mes groupes</button></div>`;
   }
 
   function portraitLoggedOut() {
@@ -324,7 +368,8 @@
             <button type="button" class="ghost danger" id="withdraw-vote">↩︎ Retirer mon vote</button></div></div>
         <div class="sim-out">${Q.portraitHTML(res)}</div>`;
     }
-    return `<div id="stepper" class="stepper"></div><div id="fun-result" class="sim-out"></div>`;
+    return `<h3 class="quiz-title">🧭 Vérifiez si vos idées correspondent au programme du candidat que vous soutenez</h3>
+      <div id="stepper" class="stepper"></div><div id="fun-result" class="sim-out"></div>`;
   }
 
   async function statusNote() {
@@ -355,15 +400,9 @@
     stepper.i = 0;
     el().innerHTML = `${notice}
       <div class="fun-head"><div>Connecté en tant que <strong>${esc(profile.pseudo)}</strong></div><div class="fun-head-btns"><button type="button" id="logout" class="ghost">Se déconnecter</button><button type="button" id="del-account" class="ghost danger">Supprimer mon compte</button></div></div>
-      ${done ? "" : `<div class="fun-card port-todo"><div><strong>Première étape : votre portrait</strong><p class="muted small">Répondez aux affirmations et choisissez votre candidat : votre vote comptera dans vos groupes et dans « Le vote des participants ».</p></div>${toPortrait}</div>`}
+      ${groupFormHTML()}
+      ${done ? "" : `<div class="fun-card port-todo"><div><strong>Votre vote n'est pas encore enregistré</strong><p class="muted small">Choisissez votre candidat et répondez aux affirmations : votre vote comptera dans vos groupes et dans « Le vote des participants ».</p></div>${toPortrait}</div>`}
       <div class="fun-tabbar" id="fun-tabs">${tabsHTML()}</div>
-      <div class="fun-pane" id="f-groups" hidden>
-        <div class="fun-card"><form id="grp-form" class="fun-form inline">
-          <label>Nom de votre groupe<input name="name" required minlength="2" maxlength="60" placeholder="ex. Les copains du foot"></label>
-          <button class="cta" type="submit">Générer un lien</button></form>
-          <p class="muted small">Partagez le lien : chaque personne qui crée son compte et valide son portrait apparaît dans les résultats (pseudo uniquement). Les membres voient eux aussi les résultats du groupe, une fois leur portrait validé.</p></div>
-        <div id="grp-list"></div>
-      </div>
       <div class="fun-pane" id="f-joined" hidden><div id="joined-list"></div></div>
       <div class="fun-pane" id="f-all"><div id="all-results"></div></div>`;
     pel().innerHTML = `${profile.completed_at && !stepper.editing ? "" : voteGridHTML()}<div id="f-portrait">${portraitPane()}</div><div id="port-msg"></div>`;
@@ -375,13 +414,14 @@
       if (!b.dataset.p) return;
       $$("#fun-tabs button").forEach((x) => x.classList.toggle("on", x === b));
       $$(".fun-pane").forEach((p) => (p.hidden = p.id !== b.dataset.p));
-      if (b.dataset.p === "f-groups") renderGroups();
       if (b.dataset.p === "f-joined") renderJoined();
       if (b.dataset.p === "f-all") renderAll();
     });
     $("#grp-form").addEventListener("submit", createGroup);
     bindPortrait();
     renderAll();
+    const pg = store.get(PENDING_GROUP);
+    if (pg) { store.del(PENDING_GROUP); await createGroup(null, pg); } else renderGroups();
   }
 
   /* ---------- Supprimer mon compte (droit à l'effacement) ---------- */
@@ -408,7 +448,7 @@
       el().innerHTML = `<div class="fun-card mailbox"><div class="mail-ico">✅</div><h3>Votre compte a été supprimé</h3>
         <p>Toutes vos données ont été effacées. Merci d'avoir participé !</p>
         <button type="button" class="ghost" id="del-back">Revenir à l'accueil du Petit vote</button></div>`;
-      $("#del-back").onclick = () => { deleting = false; renderAuth(); };
+      $("#del-back").onclick = () => { deleting = false; renderHeaderAcct(); renderLoggedOut(); };
     };
   }
 
@@ -440,9 +480,8 @@
     if (!$("#vote-consent")?.checked) return (out.innerHTML = msg("Cochez la case de consentement au traitement de votre opinion politique pour enregistrer votre vote.", "err"));
     if (!user) {
       savePendingDraft({ ready: true, consent: true, at: new Date().toISOString(), full: ans });
-      out.innerHTML = msg("✓ Vos réponses sont gardées sur cet appareil. Dernière étape : créez votre compte (ou connectez-vous) ci-dessus. Votre vote sera enregistré dès votre adresse e-mail confirmée.", "ok");
-      await renderAuth("up", "", { open: true });
-      el().scrollIntoView({ behavior: "smooth", block: "start" });
+      out.innerHTML = msg("✓ Vos réponses sont gardées sur cet appareil. Dernière étape : créez votre compte (ou connectez-vous). Votre vote sera enregistré dès votre adresse e-mail confirmée.", "ok");
+      await renderAuth("up", "", { open: true, note: msg("✓ Vos réponses sont gardées sur cet appareil. Dernière étape : créez votre compte (ou connectez-vous) pour enregistrer votre vote.", "ok") });
       return;
     }
     const row = { answers: ans, axes: res.axes, top_candidate: res.prox[0].id, top_pct: res.prox[0].pct, chosen_candidate: chosen, completed_at: new Date().toISOString(), consent_at: new Date().toISOString() };
@@ -456,14 +495,15 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  async function createGroup(e) {
-    e.preventDefault();
-    const name = e.target.name.value.trim();
+  async function createGroup(e, pendingName) {
+    e?.preventDefault();
+    const name = pendingName || e.target.name.value.trim();
     const { data: g, error } = await sb.from("groups").insert({ name }).select().single();
-    if (error) return alert("Création impossible : " + error.message);
+    if (error) { renderGroups(); return alert("Création impossible : " + error.message); }
     await sb.rpc("join_group", { p_code: g.code }); // le créateur compte aussi dans les résultats
-    e.target.reset();
-    renderGroups();
+    e?.target.reset();
+    await renderGroups();
+    if (pendingName) $("#grp-list")?.insertAdjacentHTML("afterbegin", msg(`✓ Votre lien « <strong>${esc(name)}</strong> » est prêt : partagez-le ci-dessous.`, "ok"));
   }
 
   /* ---------- Tableau de bord du créateur ---------- */
@@ -585,9 +625,11 @@
   /* ---------- Démarrage ---------- */
   async function refresh(session) {
     user = session?.user || null;
-    if (!user) { portraitLoggedOut(); return renderAuth(); }
+    if (!user) { profile = null; renderHeaderAcct(); portraitLoggedOut(); return renderLoggedOut(); }
+    closeModal();
     const notice = await joinPending();
     await renderApp(notice);
+    renderHeaderAcct();
     if (notice.includes("ok") && profile?.completed_at) $('#fun-tabs [data-p="f-joined"]').click();
   }
 
@@ -598,6 +640,7 @@
     if (code) store.set(PENDING, code);
     const cfg = window.FUN_CONFIG || {};
     if (!cfg.supabaseUrl || !cfg.supabaseAnonKey || !window.supabase) {
+      $("#hdr-acct")?.remove();
       el().innerHTML = `<div class="fun-card"><h3>🚧 Bientôt disponible</h3><p class="muted">Cette rubrique sera activée très prochainement. En attendant, vous pouvez estimer l'impact des programmes sur votre vie dans la rubrique « Candidats ».</p></div>`;
       if (pel()) pel().innerHTML = el().innerHTML;
       return;
@@ -607,8 +650,7 @@
     sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, { auth: { detectSessionInUrl: true, persistSession: true } });
     if (fromMail) setTimeout(() => history.replaceState(null, "", location.pathname + "#fun"), 1500);
     if (mailError) {
-      el().innerHTML = msg("Le lien de confirmation n'est plus valide (" + esc(decodeURIComponent(mailError.replace(/\+/g, " "))) + "). Connectez-vous pour en recevoir un nouveau.", "err");
-      setTimeout(() => renderAuth("in"), 2500);
+      setTimeout(() => renderAuth("in", "", { open: true, note: msg("Le lien de confirmation n'est plus valide (" + esc(decodeURIComponent(mailError.replace(/\+/g, " "))) + "). Connectez-vous pour en recevoir un nouveau.", "err") }), 600);
     }
     let last;
     sb.auth.onAuthStateChange((_e, session) => {
