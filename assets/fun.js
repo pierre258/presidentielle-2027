@@ -214,7 +214,8 @@
     if ($("#pw-form")) return;
     const box = modal();
     $("#auth-modal").classList.add("lock");
-    if (/[?&]reset=1/.test(location.search)) history.replaceState(null, "", location.pathname + "#fun");
+    if (/[?&]reset=1/.test(location.search)) history.replaceState(null, "", location.pathname);
+    if (location.hash !== "#fun") location.hash = "#fun";
     box.innerHTML = `<div class="fun-card auth-card"><h3>🔑 Choisissez un nouveau mot de passe</h3>
         <p class="muted small">Saisissez-le deux fois pour éviter toute erreur de frappe. Vous serez ensuite connecté automatiquement.</p>
         <form id="pw-form" class="fun-form">
@@ -689,7 +690,7 @@
     const fromMail = /access_token=|error_description=|type=signup/.test(location.hash) || /[?&](reset|confirm)=1/.test(location.search);
     const mailError = (location.hash.match(/error_description=([^&]+)/) || [])[1];
     sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, { auth: { detectSessionInUrl: true, persistSession: true } });
-    if (fromMail) setTimeout(() => history.replaceState(null, "", location.pathname + "#fun"), 1500);
+    if (fromMail) setTimeout(() => { history.replaceState(null, "", location.pathname); location.hash = "#fun"; }, 1500);
     if (mailError) {
       setTimeout(() => renderAuth("in", "", { open: true, note: msg("Le lien de confirmation n'est plus valide (" + esc(decodeURIComponent(mailError.replace(/\+/g, " "))) + "). Connectez-vous pour en recevoir un nouveau.", "err") }), 600);
     }
