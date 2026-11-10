@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T21:22+00:00",
+ "updated": "2026-11-10T04:00+00:00",
  "source": "Wikipédia — Liste de sondages sur l'élection présidentielle française de 2027",
  "source_url": "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027",
  "window_days": 15,
@@ -183,17 +183,17 @@
     "attal": 8.3
    },
    "previous": {
-    "arthaud": 0.8,
-    "melenchon": 17.5,
-    "roussel": 2.3,
-    "tondelier": 3.4,
-    "attal": 10.3,
-    "retailleau": 7.9,
+    "arthaud": 0.9,
+    "melenchon": 17.6,
+    "roussel": 2.4,
+    "tondelier": 3.5,
+    "attal": 11.0,
+    "retailleau": 8.2,
     "dupontaignan": 2.1,
     "lepen": 34.7,
-    "zemmour": 4.4,
-    "philippe": 16.3,
-    "glucksmann": 10.1,
+    "zemmour": 4.5,
+    "philippe": 16.8,
+    "glucksmann": 10.4,
     "lisnard": 4.2,
     "villepin": 2.0
    }
@@ -2027,7 +2027,7 @@
    }
   ],
   "current": {
-   "date": "2026-11-09",
+   "date": "2026-11-10",
    "window": 7,
    "n": 1,
    "scores": {
