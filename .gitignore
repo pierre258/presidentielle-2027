@@ -5,3 +5,8 @@ __pycache__/
 
 # Mentions éditeur retirées provisoirement (non publiées)
 docs/_prive_mentions_editeur.html
+
+# images sources locales (non publiées)
+/*.jpg
+/*.png
+/*.webp
