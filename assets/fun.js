@@ -91,7 +91,8 @@
 
   // Adresses jetables refusées dès l'inscription (la base les exclut aussi des résultats)
   const DISPOSABLE = /@(yopmail\.(com|fr|net)|mailinator\.(com|net)|guerrillamail\.\w+|sharklasers\.com|grr\.la|10minutemail\.\w+|temp-?mail\.\w+|tempmailo?\.com|tempinbox\.com|tempr\.email|trashmail\.\w+|throwawaymail\.com|getnada\.com|nada\.email|maildrop\.cc|dispostable\.com|fakeinbox\.com|mytemp\.email|moakt\.com|mohmal\.com|burnermail\.io|mailnesia\.com|jetable\.org|mail-temporaire\.\w+|tmpmail\.\w+|minuteinbox\.com|emailfake\.com|discard\.email|mailsac\.com|dropmail\.me|33mail\.com|wegwerfmail\.de|simplelogin\.(com|fr)|aleeas\.com|slmail\.me|anonaddy\.(com|me)|addy\.io|duck\.com|mozmail\.com|relay\.firefox\.com|proton\.me|protonmail\.(com|ch)|pm\.me|mail\.tm|tuta\.io)$/i;
-  const redirectUrl = () => `${location.origin}${location.pathname}#fun`;
+  // pas de « # » dans l'adresse de retour : Supabase y ajoute son propre fragment (#access_token=…)
+  const redirectUrl = () => `${location.origin}${location.pathname}?confirm=1`;
 
   function checkEmailScreen(email, note = "") {
     const box = modal();
@@ -163,7 +164,7 @@
       if (!f.email.checkValidity() || !email) { f.email.focus(); return (out.innerHTML = msg("Saisissez d'abord votre adresse e-mail ci-dessus.", "err")); }
       if (window.TURNSTILE_SITE_KEY && !captchaToken) return (out.innerHTML = msg("Merci de valider la vérification anti-robot ci-dessus.", "err"));
       out.innerHTML = msg("Un instant…");
-      const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: `${location.origin}${location.pathname}?reset=1#fun`, captchaToken: captchaToken || undefined });
+      const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: `${location.origin}${location.pathname}?reset=1`, captchaToken: captchaToken || undefined });
       if (error && /rate limit|seconds/i.test(error.message)) return (out.innerHTML = msg("Trop de demandes en ce moment : réessayez dans quelques minutes.", "err"));
       out.innerHTML = msg(`📩 Si un compte existe pour <strong>${esc(email)}</strong>, un e-mail vient de vous être envoyé avec un lien pour choisir un nouveau mot de passe. Pensez à regarder dans les courriers indésirables.`, "ok");
     };
@@ -685,7 +686,7 @@
       if (pel()) pel().innerHTML = el().innerHTML;
       return;
     }
-    const fromMail = /access_token=|error_description=|type=signup/.test(location.hash);
+    const fromMail = /access_token=|error_description=|type=signup/.test(location.hash) || /[?&](reset|confirm)=1/.test(location.search);
     const mailError = (location.hash.match(/error_description=([^&]+)/) || [])[1];
     sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, { auth: { detectSessionInUrl: true, persistSession: true } });
     if (fromMail) setTimeout(() => history.replaceState(null, "", location.pathname + "#fun"), 1500);

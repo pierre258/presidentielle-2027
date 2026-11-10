@@ -761,7 +761,7 @@
     if (window.JeVote) window.JeVote.init(window.APP);
     // Mini-lecteur du direct LCP (en-tête) : affiché seulement quand la chaîne est en direct
     initLiveLCP();
-    const fromMail = /access_token=|error_description=|type=signup/.test(location.hash);
+    const fromMail = /access_token=|error_description=|type=signup/.test(location.hash) || /[?&](reset|confirm)=1/.test(location.search);
     showTab(fromMail ? "fun" : location.hash.slice(1) || "sondages");
   }
   /* Direct LCP : lecteur YouTube de la chaîne (live_stream), masqué s'il n'y a pas de direct en cours.
