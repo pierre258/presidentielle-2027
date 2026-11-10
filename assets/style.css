@@ -818,3 +818,36 @@ h2 { margin: 44px 0 18px; }
 /* --- « Prêt à voter ? » dans la barre de menu (DA orange, entouré) --- */
 .tabs .nav-badge { align-self: center; font-size: 13.5px; padding: 6px 14px; margin-left: 6px; white-space: nowrap; }
 @media (max-width: 760px) { .tabs .nav-badge { margin-left: 4px; } }
+
+/* --- Menu : 2 rubriques principales + liste déroulante --- */
+.tabs { overflow: visible !important; align-items: center; }
+.nav-more { position: relative; }
+.more-btn { border: 0; background: none; font: inherit; font-weight: 600; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+.more-btn .caret { font-size: 11px; transition: transform .15s; }
+.more-btn[aria-expanded="true"] .caret { transform: rotate(180deg); }
+.more-btn[aria-expanded="true"]:not(.on) { color: var(--text); background: rgba(255,255,255,.08); }
+.more-menu { position: absolute; top: calc(100% + 8px); left: 0; z-index: 40; min-width: 320px; padding: 8px; border-radius: 16px;
+  background: #121a46; border: 1px solid var(--line); box-shadow: 0 18px 44px rgba(0,0,0,.45); display: grid; gap: 2px; }
+.more-menu a { display: grid; grid-template-columns: 28px 1fr; column-gap: 8px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: var(--text); }
+.more-menu a span { grid-row: span 2; font-size: 18px; align-self: center; }
+.more-menu a b { font-size: 14px; }
+.more-menu a small { color: var(--muted); font-size: 12px; }
+.more-menu a:hover, .more-menu a.on { background: rgba(255,255,255,.08); }
+.more-menu a.on b { color: #fff; }
+@media (max-width: 760px) { .more-menu { position: fixed; left: 12px; right: 12px; top: auto; min-width: 0; } }
+
+/* --- Sondages : lignes cliquables --- */
+#poll-bars .prow[data-cand] { cursor: pointer; border-radius: 12px; transition: background .15s; }
+#poll-bars .prow[data-cand]:hover, #poll-bars .prow[data-cand]:focus-visible { background: rgba(255,255,255,.07); outline: none; }
+#poll-bars .prow[data-cand]:hover .name { text-decoration: underline; text-underline-offset: 3px; }
+
+/* --- Fiche : « Son impact sur ma vie » --- */
+.impact-cta { border: 0; border-radius: 999px; padding: 12px 22px; font-weight: 800; font-size: 15px; color: #fff; cursor: pointer;
+  background: linear-gradient(135deg, #10b981, #0ea5e9); box-shadow: 0 8px 22px rgba(16,185,129,.3); }
+.impact-cta:hover { filter: brightness(1.08); }
+.impact-cta.on { outline: 2px solid #fff; outline-offset: 2px; }
+.sheet-impact { margin: 18px 0 8px; padding: 20px; border-radius: 16px; border: 1px solid rgba(16,185,129,.4); background: rgba(16,185,129,.06); }
+.sheet-impact #impact-block { margin: 0; }
+details.imp.focus { border-color: #10b981; box-shadow: 0 0 0 2px rgba(16,185,129,.35); }
+
+@media (max-width: 760px) { .tabs { flex-wrap: wrap; row-gap: 6px; width: 100%; } .tab { padding: 7px 11px; font-size: 13.5px; } .tabs .nav-badge { margin-left: 0; } }

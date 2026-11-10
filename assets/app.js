@@ -57,15 +57,29 @@
     // anciennes rubriques devenues des volets de « Candidats »
     const sub = { simulateur: "impact", portrait: "conv" }[id];
     if (sub) { id = "programmes"; setTimeout(() => window.ProgView?.(sub), 0); }
-    if (id === "parlement") { id = "programmes"; setTimeout(() => $("#parl-section")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50); }
+    const parlement = id === "parlement";
+    if (parlement) { id = "programmes"; setTimeout(() => $("#parl-section")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50); }
     if (!/^[a-z]+$/.test(id) || !$("#" + id)) id = "sondages";
     $$(".panel").forEach((p) => (p.hidden = p.id !== id));
-    $$(".tab").forEach((t) => t.classList.toggle("on", t.dataset.tab === id));
+    $$(".tab[data-tab]").forEach((t) => t.classList.toggle("on", t.dataset.tab === id));
+    // liste déroulante : la rubrique affichée devient le libellé du bouton
+    const sel = $(`#more-menu a[data-tab="${parlement ? "parlement" : id}"]`);
+    $$("#more-menu a").forEach((a) => a.classList.toggle("on", a === sel));
+    $("#more-btn")?.classList.toggle("on", !!sel);
+    if ($("#more-label")) $("#more-label").textContent = sel ? sel.querySelector("b").textContent : "Toutes les rubriques";
+    closeMore();
     if (id === "reseaux" && !shown.has(id)) setTimeout(() => Social.play(), 250);
     shown.add(id);
     if ($("#" + id).classList.contains("legal") || document.activeElement?.closest?.(".site-foot")) window.scrollTo(0, 0);
   }
   window.addEventListener("hashchange", () => showTab(location.hash.slice(1)));
+  function closeMore() { const m = $("#more-menu"); if (m) { m.hidden = true; $("#more-btn").setAttribute("aria-expanded", "false"); } }
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("#more-btn");
+    if (b) { const m = $("#more-menu"); m.hidden = !m.hidden; b.setAttribute("aria-expanded", String(!m.hidden)); return; }
+    if (!e.target.closest("#more-menu")) closeMore();
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMore(); });
 
   /* ---------------- 1. Sondages ---------------- */
   function renderPolls(w = "15") {
@@ -82,7 +96,7 @@
       const big = i < 4, c = C[id], prev = win.previous[id];
       const d = prev == null ? null : Math.round((v - prev) * 10) / 10;
       const delta = d == null ? "" : `<span class="delta ${d > 0 ? "up" : d < 0 ? "down" : "eq"}">${d > 0 ? "▲ +" : d < 0 ? "▼ " : "= "}${d ? fmtPct(d) : ""}${d ? " pt" : ""}</span>`;
-      return `<div class="prow ${big ? "" : "small"}">
+      return `<div class="prow ${big ? "" : "small"}" data-cand="${id}" role="link" tabindex="0" title="Voir la fiche de ${esc(c.name)}">
         ${avatar(id, big ? 58 : 34)}
         <div><div class="name">${esc(c.name)} <span class="party">${esc(c.party)}</span></div>
           <div class="bar"><i data-w="${(v / max) * 100}" style="background:${big ? "#fff" : "rgba(255,255,255,.85)"}"></i></div></div>
@@ -90,6 +104,12 @@
       </div>`;
     }).join("");
     requestAnimationFrame(() => $$("#poll-bars .bar i").forEach((b) => (b.style.width = b.dataset.w + "%")));
+    if (!$("#poll-bars").dataset.bound) {
+      $("#poll-bars").dataset.bound = "1";
+      const go = (e) => { const r = e.target.closest(".prow[data-cand]"); if (r && window.ProgSelect) window.ProgSelect(r.dataset.cand); };
+      $("#poll-bars").addEventListener("click", go);
+      $("#poll-bars").addEventListener("keydown", (e) => { if (e.key === "Enter") go(e); });
+    }
 
     const n = win.polls;
     const sel = POLLS.polls.filter((p) => (Date.now() - new Date(p.end)) / DAY <= +w + 1);
@@ -581,7 +601,9 @@
       return `<div class="sheet" style="--c:${c.color}">
         <div class="sheet-head">${avatar(id, 84)}<div><h3>${esc(c.name)}</h3><span class="status">${esc(c.party)} · ${esc(p.status)}</span>
           <div class="sheet-links">${socialLinks(id, 20)}${d.site ? `<a class="site" href="${esc(d.site)}" target="_blank" rel="noopener">🌐 ${esc(d.site_label || "Site officiel")}</a>` : ""}
-          <button class="full-btn" data-full="${id}">📄 Programme complet</button></div></div></div>
+          <button class="full-btn" data-full="${id}">📄 Programme complet</button>
+          <button class="impact-cta" data-impact="${id}">💶 Son impact sur ma vie</button></div></div></div>
+        <div class="sheet-impact" id="sheet-impact" hidden></div>
         <p class="pitch">${esc(p.pitch)}</p>
         <ul class="keys">${p.key.map((k) => `<li>${esc(k)}</li>`).join("")}</ul>
         ${window.Extras ? window.Extras.coutTotal(id) : ""}
@@ -623,7 +645,34 @@
         ${common.map((t) => `<div class="tl">${t.icon} ${esc(t.label)}</div><div>${esc(A.positions[t.id])}${window.Extras ? window.Extras.cout(a, t.id) : ""}</div><div>${esc(B.positions[t.id])}${window.Extras ? window.Extras.cout(b, t.id) : ""}</div>`).join("")}
       </div><p class="muted small">${common.length} thème(s) abordé(s) par les deux candidats sur ${PROG.topics.length}.</p>`;
     };
+    // Le simulateur (bloc unique) peut s'afficher dans la fiche d'un candidat ou dans le volet « Les impacts sur ma vie »
+    const IB = $("#impact-block"), home = document.createComment("place du simulateur");
+    IB.before(home);
+    const impactHome = () => {
+      if (IB.parentNode !== home.parentNode) home.after(IB);
+      if (window.SimFocus) {
+        window.SimFocus = null;
+        $(".impact-title", IB).textContent = "Quel impact sur mon quotidien ?";
+        ["#sim-part", "#sim-ent"].forEach((f) => { const out = $(f + "-out"); if (out && out.innerHTML.trim()) window.Simulateur?.rerun?.(f); });
+      }
+    };
+    const impactInSheet = (cid) => {
+      const slot = $("#sheet-impact");
+      if (!slot) return;
+      const open = slot.hidden || window.SimFocus !== cid;
+      impactHome(); IB.hidden = true; slot.hidden = true;
+      $$("#prog-view .impact-cta").forEach((b) => b.classList.toggle("on", open));
+      if (!open) return;
+      window.SimFocus = cid;
+      slot.appendChild(IB); IB.hidden = false; slot.hidden = false;
+      $(".impact-title", IB).textContent = `Quel impact ${/^[aeiouyéèêàâîôûh]/i.test(C[cid].name) ? "d'" : "de "}${C[cid].name} sur ma vie ?`;
+      ["#sim-part", "#sim-ent"].forEach((f) => { const out = $(f + "-out"); if (out && out.innerHTML.trim()) window.Simulateur?.rerun?.(f); });
+      slot.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    $("#prog-view").addEventListener("click", (e) => { const b = e.target.closest("[data-impact]"); if (b) impactInSheet(b.dataset.impact); });
     const view = () => {
+      impactHome(); if (st.mode !== "impact") IB.hidden = true;
+      $(".impact-title", IB).textContent = "Quel impact sur mon quotidien ?";
       grid();
       if (st.mode === "one") $("#prog-view").innerHTML = one(st.a);
       else $("#prog-view").innerHTML = st.a && st.b ? compare(st.a, st.b) : `<div class="empty">Sélectionnez ${st.a ? "un second" : "deux"} candidat${st.a ? "" : "s"}.</div>`;
@@ -641,6 +690,7 @@
     });
     // Volets : un candidat, comparaison, impacts sur ma vie, candidat de mes convictions
     function setView(v) {
+      impactHome(); st.mode = v === "compare" ? "compare" : v === "one" ? "one" : st.mode;
       $$("#prog-actions .pv").forEach((x) => x.classList.toggle("on", x.dataset.v === v));
       const prog = v === "one" || v === "compare";
       $("#prog-block").hidden = !prog;
@@ -653,6 +703,12 @@
       }
     }
     window.ProgView = setView;
+    // depuis la rubrique Sondages : ouvrir directement la fiche d'un candidat
+    window.ProgSelect = (cid) => {
+      if (!PROG.candidates[cid]) return;
+      st.a = cid; location.hash = "#programmes"; setView("one");
+      setTimeout(() => $("#prog-view")?.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+    };
     $("#prog-actions").addEventListener("click", (e) => { const b = e.target.closest(".pv"); if (b) setView(b.dataset.v); });
     view();
   }

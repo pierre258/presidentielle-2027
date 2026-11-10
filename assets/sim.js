@@ -172,10 +172,10 @@
       const list = M[id] || [];
       const total = list.reduce((a, m) => a + (m.amount || 0), 0);
       return { id, list, total };
-    }).sort((a, b) => b.total - a.total);
+    }).sort((a, b) => (b.id === window.SimFocus) - (a.id === window.SimFocus) || b.total - a.total);
     const max = Math.max(1, ...rows.map((r) => Math.abs(r.total)));
     target.innerHTML = intro + rows.map((r) => `
-      <details class="imp">
+      <details class="imp ${r.id === window.SimFocus ? "focus" : ""}" ${r.id === window.SimFocus ? "open" : ""}>
         <summary>
           <span class="imp-who">${A.avatar(r.id, 40)}<span><strong>${A.esc(A.C[r.id].name)}</strong><small>${r.list.length} mesure(s) vous concernant</small></span></span>
           <span class="imp-bar"><i style="width:${(Math.abs(r.total) / max) * 50}%;${r.total >= 0 ? "left:50%;background:var(--pos)" : `right:50%;background:var(--neg)`}"></i></span>
@@ -410,6 +410,7 @@
   }
   window.Simulateur = {
     init,
+    rerun: (f) => (f === "#sim-ent" ? simEntreprise() : simParticulier()),
     quiz: { quizHTML, readAnswers, compute, axesHTML, proxHTML, portraitHTML, axisPos, get questions() { return S.quiz; }, get axes() { return S.axes; } },
   };
 })();
