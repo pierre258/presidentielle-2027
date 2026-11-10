@@ -186,8 +186,7 @@
         <div id="grp-list"></div></div>`;
   }
   async function renderLoggedOut() {
-    el().innerHTML = `${await inviteBanner()}${groupFormHTML()}
-      <div class="fun-card port-todo"><div><strong>📊 Le vote des participants et les résultats de vos groupes</strong><p class="muted small">Choisissez votre candidat et répondez au questionnaire ci-dessous, puis créez votre compte (en haut à droite) pour enregistrer votre vote et découvrir les résultats.</p></div>${toPortrait}</div>`;
+    el().innerHTML = `${await inviteBanner()}${groupFormHTML()}`;
     $("#grp-form").addEventListener("submit", (e) => {
       e.preventDefault();
       store.set(PENDING_GROUP, e.target.name.value.trim());
