@@ -22,6 +22,7 @@ import os
 import re
 import time
 import urllib.parse
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -92,6 +93,20 @@ def youtube(query):
                 walk(x)
 
     walk(json.loads(m.group(1)))
+    return out
+
+
+def youtube_apify(query):
+    items = apify("streamers~youtube-scraper", {"searchQueries": [query], "maxResults": 12, "dateFilter": "week",
+                                                 "sortingOrder": "views"})
+    out = []
+    for v in items:
+        vid = v.get("id") or (re.search(r"v=([\w-]{11})", v.get("url") or "") or [None, None])[1]
+        if not vid or not v.get("title"):
+            continue
+        out.append({"type": "video", "title": v["title"], "source": v.get("channelName") or "",
+                    "url": v.get("url") or f"https://www.youtube.com/watch?v={vid}", "youtube_id": vid,
+                    "published": (v.get("date") or "")[:10], "views": int(v.get("viewCount") or 0)})
     return out
 
 
@@ -202,33 +217,52 @@ def heuristic(item):
     return "neutral", None
 
 
-def classify_with_claude(name, items):
-    """Renvoie une liste [(label, résumé)] alignée sur items, ou None en cas d'échec."""
-    key = os.environ.get("ANTHROPIC_API_KEY")
-    if not key or not items:
-        return None
-    listing = "\n".join(f"{i}. [{it['type']}] {it['title']} — {it['source']}" for i, it in enumerate(items))
-    prompt = (f"Voici des contenus médias des 7 derniers jours sur {name}, candidat(e) à la présidentielle "
-              "française 2027. Pour chacun, indique s'il s'agit d'un moment défavorable au candidat "
-              "(bad buzz : polémique, gaffe, recul, critique virale), favorable (bon buzz : séquence "
-              "remarquée, percée, réplique virale, soutien) ou neutre. Réponds UNIQUEMENT en JSON : "
-              '[{"i":0,"label":"negative|positive|neutral","why":"une phrase factuelle de contexte"}]\n\n'
-              + listing)
-    body = json.dumps({"model": os.environ.get("CLAUDE_MODEL", "claude-haiku-5-5"), "max_tokens": 4000,
+def _claude_batch(name, items, key):
+    listing = "\n".join(f"{i}. [{it.get('platform') or it['type']}] {it['title']} — {it['source']}" for i, it in enumerate(items))
+    prompt = (f"Voici des contenus médias et réseaux sociaux des 7 derniers jours sur {name}, candidat(e) à la "
+              "présidentielle française 2027. Pour chacun, indique s'il s'agit d'un moment défavorable au candidat "
+              "(negative : polémique, gaffe, recul, critique virale, attaque d'un adversaire largement relayée), "
+              "favorable (positive : séquence remarquée, percée, réplique virale, soutien, annonce marquante, "
+              "publication à forte audience sur ses propres comptes) ou neutral (simple information sans enjeu). "
+              "Pour chaque contenu negative ou positive, écris dans \"why\" une phrase courte, factuelle et neutre "
+              "qui explique le contexte. Réponds UNIQUEMENT par un tableau JSON, sans texte autour : "
+              '[{"i":0,"label":"negative|positive|neutral","why":"..."}]\n\n' + listing)
+    body = json.dumps({"model": os.environ.get("CLAUDE_MODEL", "claude-haiku-5-5"), "max_tokens": 8000,
                        "messages": [{"role": "user", "content": prompt}]}).encode()
     req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, headers={
         "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
     try:
-        txt = json.load(urllib.request.urlopen(req, timeout=120))["content"][0]["text"]
-        arr = json.loads(txt[txt.find("["): txt.rfind("]") + 1])
-        res = [("neutral", None)] * len(items)
-        for a in arr:
-            if 0 <= a["i"] < len(items):
-                res[a["i"]] = (a["label"], a.get("why"))
-        return res
-    except Exception as e:  # noqa: BLE001
-        print("Claude indisponible, heuristique utilisée :", e)
+        resp = json.load(urllib.request.urlopen(req, timeout=180))
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f"HTTP {e.code} : {e.read()[:300]!r}") from None
+    txt = "".join(c.get("text", "") for c in resp.get("content", []))
+    arr = json.loads(txt[txt.find("["): txt.rfind("]") + 1])
+    res = [("neutral", None)] * len(items)
+    for x in arr:
+        i = int(x.get("i", -1))
+        if 0 <= i < len(items) and x.get("label") in ("negative", "positive", "neutral"):
+            res[i] = (x["label"], (x.get("why") or "").strip() or None)
+    return res
+
+
+def classify_with_claude(name, items):
+    """Renvoie une liste [(label, résumé)] alignée sur items, ou None si Claude est indisponible."""
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not key or not items:
         return None
+    out = []
+    for k in range(0, len(items), 25):
+        chunk = items[k:k + 25]
+        for attempt in (1, 2):
+            try:
+                out += _claude_batch(name, chunk, key)
+                break
+            except Exception as e:  # noqa: BLE001
+                print(f"Claude ({name}, lot {k // 25 + 1}, essai {attempt}) :", e)
+                if attempt == 2:
+                    out += [heuristic(i) for i in chunk]
+                time.sleep(3)
+    return out
 
 
 def main():
@@ -244,6 +278,7 @@ def main():
               "classifier": "claude" if os.environ.get("ANTHROPIC_API_KEY") else "mots-clés",
               "candidates": {}}
     raw = {}
+    used_claude = False
     try:
         insta = instagram_all({k: cands[k] for k in MAIN}, since)
     except Exception as e:  # noqa: BLE001
@@ -257,7 +292,8 @@ def main():
         except Exception as e:  # noqa: BLE001
             print("news", cid, e)
         try:
-            vids = [v for v in youtube(c["name"])
+            found = youtube(c["name"]) or youtube_apify(c["name"])
+            vids = [v for v in found
                     if c["short"].lower().split("-")[0] in v["title"].lower()][:15]
             items += vids
         except Exception as e:  # noqa: BLE001
@@ -271,7 +307,16 @@ def main():
                 print(label, cid, e)
         items += insta.get(cid, [])
         raw[cid] = items
-        labels = classify_with_claude(c["name"], items) or [heuristic(i) for i in items]
+        labels = classify_with_claude(c["name"], items)
+        if labels is None:
+            labels = [heuristic(i) for i in items]
+        else:
+            used_claude = True
+        own = {h.lower().lstrip("@") for h in (c.get("social") or {}).values() if h}
+        for k, it in enumerate(items):
+            src = (it.get("source") or "").lower().lstrip("@")
+            if labels[k][0] == "neutral" and (it.get("platform") == "instagram" or src in own) and it.get("platform") in ("instagram", "tiktok", "x"):
+                labels[k] = ("positive", labels[k][1] or it.get("context") or "Publication à forte audience sur le compte officiel du candidat.")
         neg, pos = [], []
         for it, (lab, why) in zip(items, labels):
             if why:
@@ -285,6 +330,7 @@ def main():
                                      "volume": len(items)}
         print(cid, len(items), "éléments →", len(neg), "neg /", len(pos), "pos")
         time.sleep(1)
+    result["classifier"] = "claude" if used_claude else "mots-clés"
     (Path(os.environ["BUZZ_OUT"]) if os.environ.get("BUZZ_OUT") else ROOT / "data/buzz.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=1))
     if os.environ.get("BUZZ_RAW"):
