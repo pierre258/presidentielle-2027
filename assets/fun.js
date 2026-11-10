@@ -169,11 +169,52 @@
       : msg(`✓ Vous avez rejoint « <strong>${esc(data)}</strong> ». Remplissez votre portrait ci-dessous : vous découvrirez ensuite les résultats du groupe.`, "ok");
   }
 
+  /* Questionnaire approfondi (optionnel) : 30 affirmations sur les grands sujets de société */
+  let EXT = null;
+  const MIN_COVER = 10; // un candidat n'est comparé sur l'approfondi que s'il a au moins 10 positions connues
+  const extCover = (id) => Object.values(EXT?.stances?.[id] || {}).filter((v) => v).length;
+  function computeFull(ans) {
+    const base = Q.compute(ans);
+    if (!EXT || !Object.keys(ans).some((k) => k.startsWith("a_"))) return base;
+    const prio = new Set(ans._prio || []);
+    const ids = base.prox.map((p) => p.id);
+    const prox = ids.map((id) => {
+      const st = { ...(window.Simulateur.quiz.stancesOf?.(id) || {}) };
+      let sum = 0, w = 0;
+      Q.questions.forEach((q) => { if (ans[q.id]) { sum += Math.abs(ans[q.id] - (st[q.id] ?? 0)); w += 1; } });
+      if (extCover(id) >= MIN_COVER) EXT.questions.forEach((q) => {
+        if (ans[q.id] === undefined || ans[q.id] === 0) return;
+        const k = prio.has(q.theme) ? 2 : 1;
+        sum += k * Math.abs(ans[q.id] - (EXT.stances[id]?.[q.id] ?? 0)); w += k;
+      });
+      return { id, pct: w ? Math.round((1 - sum / w / 4) * 100) : 0, partial: extCover(id) < MIN_COVER };
+    }).sort((a, b) => b.pct - a.pct);
+    return { ...base, prox, answered: base.answered + EXT.questions.filter((q) => ans[q.id]).length, extended: true };
+  }
+
   /* Questionnaire pas à pas : une affirmation par écran, flèches précédent / suivant */
   const CHOICES = [["-2", "Pas du tout d'accord"], ["-1", "Plutôt pas d'accord"], ["0", "Sans avis"], ["1", "Plutôt d'accord"], ["2", "Tout à fait d'accord"]];
   const stepper = { i: 0, ans: {}, chosen: "" };
+  function renderPrio() {
+    const box = $("#stepper"), sel = new Set(stepper.ans._prio || []);
+    box.innerHTML = `<div class="st-card ext-intro"><div class="st-num">🔎 Questionnaire approfondi · facultatif</div>
+        <p class="st-q">Quels sujets comptent le plus pour vous ?</p>
+        <p class="muted small">${esc(EXT.intro)} Choisissez jusqu'à 3 priorités : elles compteront double dans le calcul.</p>
+        <div class="prio-grid">${EXT.themes.map((t) => `<button type="button" class="prio ${sel.has(t.id) ? "on" : ""}" data-t="${t.id}"><span>${t.icon}</span>${esc(t.label)}</button>`).join("")}</div></div>
+      <div class="st-nav"><button type="button" class="ghost" id="prio-back">← Revenir</button><span class="muted small" id="prio-n">${sel.size}/3</span>
+        <button type="button" class="cta small" id="prio-go">Commencer les ${EXT.questions.length} affirmations →</button></div>`;
+    $$(".prio", box).forEach((b) => (b.onclick = () => {
+      const t = b.dataset.t;
+      if (sel.has(t)) sel.delete(t); else if (sel.size < 3) sel.add(t);
+      $$(".prio", box).forEach((x) => x.classList.toggle("on", sel.has(x.dataset.t)));
+      $("#prio-n").textContent = `${sel.size}/3`;
+    }));
+    $("#prio-back").onclick = () => { stepper.ext = false; stepper.i = Q.questions.length; renderStep(); };
+    $("#prio-go").onclick = () => { stepper.ans._prio = [...sel]; stepper.prio = false; stepper.i = Q.questions.length; renderStep(); };
+  }
   function renderStep() {
-    const qs = Q.questions, n = qs.length, box = $("#stepper");
+    if (stepper.prio) return renderPrio();
+    const qs = stepper.ext ? [...Q.questions, ...EXT.questions] : Q.questions, n = qs.length, box = $("#stepper");
     const answered = qs.filter((q) => stepper.ans[q.id] !== undefined).length;
     const prog = `<div class="st-prog"><i style="width:${(Math.min(stepper.i, n) / n) * 100}%"></i></div>
       <div class="st-dots">${qs.map((q, k) => `<button type="button" class="st-dot ${k === stepper.i ? "cur" : ""} ${stepper.ans[q.id] !== undefined ? "done" : ""}" data-go="${k}" aria-label="Question ${k + 1}"></button>`).join("")}<button type="button" class="st-dot last ${stepper.i === n ? "cur" : ""}" data-go="${n}" aria-label="Choix du candidat">🗳</button></div>`;
@@ -181,7 +222,7 @@
       const q = qs[stepper.i], cur = stepper.ans[q.id];
       box.innerHTML = `${prog}
         <div class="st-card">
-          <div class="st-num">Question ${stepper.i + 1} / ${n}</div>
+          <div class="st-num">Question ${stepper.i + 1} / ${n}${q.theme ? ` · <span class="ext-chip">${(EXT.themes.find((t) => t.id === q.theme) || {}).icon || ""} ${esc((EXT.themes.find((t) => t.id === q.theme) || {}).label || "")}${(stepper.ans._prio || []).includes(q.theme) ? " · priorité ×2" : ""}</span>` : ""}</div>
           <p class="st-q">${esc(q.q)}</p>
           <div class="st-choices">${CHOICES.map(([v, l]) => `<button type="button" class="st-ch ${String(cur) === v ? "on" : ""}" data-v="${v}" data-k="${v}">${l}</button>`).join("")}</div>
         </div>
@@ -193,6 +234,8 @@
       const cands = Object.values(A.C).filter((c) => c.id !== "bardella").sort((a, b) => surname(a.name).localeCompare(surname(b.name), "fr"));
       box.innerHTML = `${prog}
         <div class="st-card">
+          ${EXT && !stepper.ext ? `<div class="ext-offer"><div><b>🔎 Envie d'un résultat plus précis ?</b><span class="muted small">Facultatif : ${EXT.questions.length} affirmations de plus sur ${EXT.themes.length} grands sujets de société (santé, sécurité, pouvoir d'achat, logement…), comparées aux programmes. Environ 6 minutes.</span></div><button type="button" class="ghost" id="ext-go">Approfondir mon portrait →</button></div>` : ""}
+          ${stepper.ext ? `<p class="muted small">✓ Questionnaire approfondi : ${EXT.questions.filter((q) => stepper.ans[q.id] !== undefined).length} affirmation(s) renseignée(s)${(stepper.ans._prio || []).length ? `, priorités : ${stepper.ans._prio.map((t) => (EXT.themes.find((x) => x.id === t) || {}).label).join(", ")}` : ""}.</p>` : ""}
           <div class="st-num">Dernière étape</div>
           <p class="st-q">Et finalement, pour qui pensez-vous voter, quel que soit le résultat du quiz ?</p>
           <select id="fun-choice" class="st-select"><option value="">— Choisir —</option><option value="indecis">Je ne sais pas encore</option>
@@ -206,13 +249,15 @@
       $("#fun-choice").value = stepper.chosen || "";
       $("#fun-choice").onchange = (e) => (stepper.chosen = e.target.value);
       $("#fun-save").onclick = savePortrait;
+      const eg = $("#ext-go");
+      if (eg) eg.onclick = () => { stepper.ext = true; stepper.prio = true; renderStep(); };
     }
     $$("[data-go]", box).forEach((d) => (d.onclick = () => { stepper.i = +d.dataset.go; renderStep(); }));
     $("#st-prev").onclick = () => { if (stepper.i > 0) { stepper.i--; renderStep(); } };
     const next = $("#st-next");
     if (next) next.onclick = () => { stepper.i++; renderStep(); };
     $$(".st-ch", box).forEach((c) => (c.onclick = () => {
-      stepper.ans[Q.questions[stepper.i].id] = +c.dataset.v;
+      stepper.ans[qs[stepper.i].id] = +c.dataset.v;
       $$(".st-ch", box).forEach((x) => x.classList.toggle("on", x === c));
       setTimeout(() => { stepper.i++; renderStep(); }, 220); // passe tout seul à la question suivante
     }));
@@ -235,7 +280,7 @@
   function portraitPane() {
     const done = !!profile.completed_at;
     if (done && !stepper.editing) {
-      const res = Q.compute(profile.answers || {});
+      const res = computeFull(profile.answers || {});
       const ch = profile.chosen_candidate;
       const chLabel = A.C[ch] ? A.C[ch].name : ch === "indecis" ? "Je ne sais pas encore" : ch === "blanc" ? "Vote blanc / abstention" : "—";
       return `<div class="fun-card wide port-sum">
@@ -262,6 +307,7 @@
     notice += await statusNote();
     const done = !!profile.completed_at;
     stepper.ans = { ...(profile.answers || {}) };
+    stepper.ext = !!EXT && Object.keys(stepper.ans).some((k) => k.startsWith("a_")); stepper.prio = false;
     stepper.chosen = profile.chosen_candidate || "";
     stepper.i = 0;
     el().innerHTML = `${notice}
@@ -340,7 +386,8 @@
   async function savePortrait() {
     const ans = {};
     Q.questions.forEach((q) => (ans[q.id] = stepper.ans[q.id] ?? 0));
-    const res = Q.compute(ans);
+    if (stepper.ext && EXT) { EXT.questions.forEach((q) => { if (stepper.ans[q.id] !== undefined) ans[q.id] = stepper.ans[q.id]; }); ans._prio = stepper.ans._prio || []; }
+    const res = computeFull(ans);
     const out = $("#fun-save-msg");
     const filled = Q.questions.filter((q) => stepper.ans[q.id] !== undefined).length;
     if (filled < 5) return (out.innerHTML = msg("Répondez à au moins 5 affirmations pour valider votre portrait.", "err"));
@@ -495,6 +542,7 @@
 
   function init(app) {
     A = app; Q = window.Simulateur.quiz;
+    fetch("data/quiz_approfondi.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : null)).then((d) => (EXT = d)).catch(() => {});
     const code = codeFromUrl();
     if (code) store.set(PENDING, code);
     const cfg = window.FUN_CONFIG || {};

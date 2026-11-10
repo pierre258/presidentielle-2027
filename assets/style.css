@@ -872,3 +872,12 @@ details.imp.focus { border-color: #10b981; box-shadow: 0 0 0 2px rgba(16,185,129
 .freeze-note { margin: 0 0 24px; padding: 16px 18px; border-radius: 14px; background: rgba(59,130,246,.12); border: 1px solid rgba(59,130,246,.4); line-height: 1.6; }
 .parl-in-sheet .parl-list { margin-top: 12px; }
 @media (max-width: 760px) { .nav-sep { display: none; } .nav-ico small { display: none; } .nav-ico span { font-size: 21px; } }
+
+/* --- Questionnaire approfondi --- */
+.ext-offer { display: flex; gap: 14px; align-items: center; justify-content: space-between; flex-wrap: wrap; text-align: left; margin: 0 0 18px; padding: 14px 16px; border-radius: 14px; border: 1px dashed rgba(59,130,246,.6); background: rgba(59,130,246,.08); }
+.ext-offer > div { display: grid; gap: 4px; max-width: 560px; }
+.ext-chip { display: inline-block; padding: 1px 8px; border-radius: 999px; background: rgba(59,130,246,.18); color: #bfdbfe; font-size: 12px; }
+.prio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; margin-top: 14px; text-align: left; }
+.prio { display: flex; gap: 8px; align-items: center; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255,255,255,.04); color: var(--text); font-weight: 600; cursor: pointer; }
+.prio span { font-size: 18px; }
+.prio.on { border-color: #3b82f6; background: rgba(59,130,246,.2); }

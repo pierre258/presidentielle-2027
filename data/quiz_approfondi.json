@@ -1,0 +1,796 @@
+{
+  "updated": "2026-11-10",
+  "_doc": "Questionnaire approfondi optionnel : mêmes conventions que simulateur.json (-2 = pas du tout d'accord … +2 = tout à fait d'accord ; inv = l'accord pousse vers le premier pôle de l'axe ; axe null = hors axes).",
+  "intro": "Envie d'un résultat plus précis ? Ces 30 affirmations, tirées de mesures concrètes des programmes, portent sur les sujets qui préoccupent le plus les Français : pouvoir d'achat, santé, sécurité, immigration, dette, écologie…",
+  "themes": [
+    {
+      "id": "pouvoir_achat",
+      "label": "Pouvoir d'achat",
+      "icon": "💶"
+    },
+    {
+      "id": "fiscalite",
+      "label": "Dette et impôts",
+      "icon": "🏦"
+    },
+    {
+      "id": "retraites",
+      "label": "Retraites",
+      "icon": "⏳"
+    },
+    {
+      "id": "sante",
+      "label": "Santé et déserts médicaux",
+      "icon": "🏥"
+    },
+    {
+      "id": "securite",
+      "label": "Sécurité et justice",
+      "icon": "🛡️"
+    },
+    {
+      "id": "immigration",
+      "label": "Immigration",
+      "icon": "🛂"
+    },
+    {
+      "id": "ecole",
+      "label": "École",
+      "icon": "🎓"
+    },
+    {
+      "id": "logement",
+      "label": "Logement",
+      "icon": "🏠"
+    },
+    {
+      "id": "ecologie",
+      "label": "Énergie, climat et agriculture",
+      "icon": "🌱"
+    },
+    {
+      "id": "europe",
+      "label": "Europe, Ukraine et défense",
+      "icon": "🇪🇺"
+    },
+    {
+      "id": "institutions",
+      "label": "Institutions et territoires",
+      "icon": "🏛️"
+    },
+    {
+      "id": "societe",
+      "label": "Fin de vie et laïcité",
+      "icon": "⚖️"
+    }
+  ],
+  "questions": [
+    {
+      "id": "a_pa_1",
+      "theme": "pouvoir_achat",
+      "axe": null,
+      "q": "Il faut baisser la TVA sur l'énergie (carburants, électricité, gaz) de 20 % à 5,5 %."
+    },
+    {
+      "id": "a_pa_2",
+      "theme": "pouvoir_achat",
+      "axe": "eco",
+      "q": "L'État doit bloquer par la loi les prix des produits de première nécessité (alimentation, énergie)."
+    },
+    {
+      "id": "a_pa_3",
+      "theme": "pouvoir_achat",
+      "axe": "eco",
+      "q": "Pour mieux payer les salariés, il faut augmenter le temps de travail (par exemple 37 h 30 par semaine en échange d'un 13e mois).",
+      "inv": true
+    },
+    {
+      "id": "a_fisc_1",
+      "theme": "fiscalite",
+      "axe": "eco",
+      "q": "Il faut créer un impôt minimal de 2 % sur les patrimoines de plus de 100 millions d'euros (« taxe Zucman »)."
+    },
+    {
+      "id": "a_fisc_2",
+      "theme": "fiscalite",
+      "axe": "eco",
+      "q": "Réduire la dette publique doit être la priorité, même au prix d'économies sur les dépenses sociales.",
+      "inv": true
+    },
+    {
+      "id": "a_fisc_3",
+      "theme": "fiscalite",
+      "axe": "eco",
+      "q": "Il faut supprimer les droits de succession pour les classes moyennes.",
+      "inv": true
+    },
+    {
+      "id": "a_ret_1",
+      "theme": "retraites",
+      "axe": "eco",
+      "q": "L'âge légal de départ à la retraite doit être porté à 65 ans.",
+      "inv": true
+    },
+    {
+      "id": "a_ret_2",
+      "theme": "retraites",
+      "axe": "eco",
+      "q": "Il faut introduire une part de capitalisation (épargne individuelle ou collective) dans le système de retraite.",
+      "inv": true
+    },
+    {
+      "id": "a_sante_1",
+      "theme": "sante",
+      "axe": null,
+      "q": "Il faut obliger les jeunes médecins à s'installer quelques années dans les déserts médicaux."
+    },
+    {
+      "id": "a_sante_2",
+      "theme": "sante",
+      "axe": "eco",
+      "q": "Tous les soins prescrits doivent être remboursés à 100 % par la Sécurité sociale, sans complémentaire."
+    },
+    {
+      "id": "a_sante_3",
+      "theme": "sante",
+      "axe": null,
+      "q": "Il faut supprimer les agences régionales de santé (ARS) et rendre leurs missions aux élus et aux soignants."
+    },
+    {
+      "id": "a_secu_1",
+      "theme": "securite",
+      "axe": "identite",
+      "q": "Il faut instaurer une présomption de légitime défense pour les policiers et les gendarmes."
+    },
+    {
+      "id": "a_secu_2",
+      "theme": "securite",
+      "axe": "identite",
+      "q": "Les mineurs délinquants doivent être jugés plus vite et plus sévèrement (comparution immédiate dès 16 ans)."
+    },
+    {
+      "id": "a_immi_1",
+      "theme": "immigration",
+      "axe": "identite",
+      "q": "Il faut remplacer l'aide médicale d'État (AME) des étrangers sans papiers par une simple aide médicale d'urgence."
+    },
+    {
+      "id": "a_immi_2",
+      "theme": "immigration",
+      "axe": "identite",
+      "q": "Il faut régulariser les travailleurs sans papiers qui occupent un emploi, notamment dans les métiers en tension.",
+      "inv": true
+    },
+    {
+      "id": "a_immi_3",
+      "theme": "immigration",
+      "axe": "identite",
+      "q": "Il faut supprimer le droit du sol : naître en France ne doit plus suffire pour devenir Français."
+    },
+    {
+      "id": "a_ecole_1",
+      "theme": "ecole",
+      "axe": null,
+      "q": "Il faut instaurer l'uniforme à l'école."
+    },
+    {
+      "id": "a_ecole_2",
+      "theme": "ecole",
+      "axe": "eco",
+      "q": "Il faut recruter massivement des enseignants pour réduire nettement le nombre d'élèves par classe."
+    },
+    {
+      "id": "a_log_1",
+      "theme": "logement",
+      "axe": "eco",
+      "q": "Il faut encadrer les loyers dans toutes les grandes villes."
+    },
+    {
+      "id": "a_log_2",
+      "theme": "logement",
+      "axe": "ecologie",
+      "q": "Il faut assouplir les règles environnementales (zéro artificialisation nette, interdiction de louer les passoires thermiques) pour construire et louer davantage de logements.",
+      "inv": true
+    },
+    {
+      "id": "a_eco_1",
+      "theme": "ecologie",
+      "axe": "ecologie",
+      "q": "Il faut accélérer le développement de l'éolien et du solaire."
+    },
+    {
+      "id": "a_eco_2",
+      "theme": "ecologie",
+      "axe": "europe",
+      "q": "La France doit sortir du marché européen de l'électricité pour fixer elle-même ses prix.",
+      "inv": true
+    },
+    {
+      "id": "a_eco_3",
+      "theme": "ecologie",
+      "axe": "ecologie",
+      "q": "Il faut réautoriser certains pesticides interdits (comme l'acétamipride) pour ne pas pénaliser les agriculteurs français face à la concurrence.",
+      "inv": true
+    },
+    {
+      "id": "a_eur_1",
+      "theme": "europe",
+      "axe": "europe",
+      "q": "L'Union européenne doit emprunter en commun pour financer sa défense."
+    },
+    {
+      "id": "a_eur_2",
+      "theme": "europe",
+      "axe": "europe",
+      "q": "La France doit être prête à déployer des soldats en Ukraine pour garantir un futur cessez-le-feu."
+    },
+    {
+      "id": "a_eur_3",
+      "theme": "europe",
+      "axe": "europe",
+      "q": "La France doit quitter le commandement intégré de l'OTAN.",
+      "inv": true
+    },
+    {
+      "id": "a_inst_1",
+      "theme": "institutions",
+      "axe": "institutions",
+      "q": "Les députés doivent être élus à la proportionnelle."
+    },
+    {
+      "id": "a_inst_2",
+      "theme": "institutions",
+      "axe": null,
+      "q": "Il faut transférer davantage de pouvoirs et de moyens de l'État vers les maires, départements et régions."
+    },
+    {
+      "id": "a_soc_1",
+      "theme": "societe",
+      "axe": null,
+      "q": "Il faut légaliser une aide à mourir pour les malades incurables qui en font la demande."
+    },
+    {
+      "id": "a_soc_2",
+      "theme": "societe",
+      "axe": "identite",
+      "q": "Il faut interdire le port du voile lors des compétitions sportives."
+    }
+  ],
+  "stances": {
+    "lepen": {
+      "a_pa_1": 2,
+      "a_pa_2": 0,
+      "a_pa_3": 0,
+      "a_fisc_1": -1,
+      "a_fisc_2": -1,
+      "a_fisc_3": 1,
+      "a_ret_1": -2,
+      "a_ret_2": 0,
+      "a_sante_1": 0,
+      "a_sante_2": 0,
+      "a_sante_3": 2,
+      "a_secu_1": 2,
+      "a_secu_2": 2,
+      "a_immi_1": 2,
+      "a_immi_2": -2,
+      "a_immi_3": 2,
+      "a_ecole_1": 2,
+      "a_ecole_2": 0,
+      "a_log_1": 0,
+      "a_log_2": 1,
+      "a_eco_1": -2,
+      "a_eco_2": 2,
+      "a_eco_3": 1,
+      "a_eur_1": -2,
+      "a_eur_2": -2,
+      "a_eur_3": 1,
+      "a_inst_1": 2,
+      "a_inst_2": 0,
+      "a_soc_1": -1,
+      "a_soc_2": 2
+    },
+    "melenchon": {
+      "a_pa_1": 1,
+      "a_pa_2": 2,
+      "a_pa_3": -2,
+      "a_fisc_1": 2,
+      "a_fisc_2": -2,
+      "a_fisc_3": -2,
+      "a_ret_1": -2,
+      "a_ret_2": -2,
+      "a_sante_1": 2,
+      "a_sante_2": 2,
+      "a_sante_3": 0,
+      "a_secu_1": -2,
+      "a_secu_2": -2,
+      "a_immi_1": -2,
+      "a_immi_2": 2,
+      "a_immi_3": -2,
+      "a_ecole_1": -1,
+      "a_ecole_2": 2,
+      "a_log_1": 2,
+      "a_log_2": -1,
+      "a_eco_1": 2,
+      "a_eco_2": 2,
+      "a_eco_3": -2,
+      "a_eur_1": -1,
+      "a_eur_2": -2,
+      "a_eur_3": 2,
+      "a_inst_1": 2,
+      "a_inst_2": 0,
+      "a_soc_1": 2,
+      "a_soc_2": -2
+    },
+    "philippe": {
+      "a_pa_1": 0,
+      "a_pa_2": -1,
+      "a_pa_3": 2,
+      "a_fisc_1": -2,
+      "a_fisc_2": 2,
+      "a_fisc_3": 0,
+      "a_ret_1": 2,
+      "a_ret_2": 2,
+      "a_sante_1": 0,
+      "a_sante_2": 0,
+      "a_sante_3": 0,
+      "a_secu_1": 0,
+      "a_secu_2": 1,
+      "a_immi_1": 0,
+      "a_immi_2": 0,
+      "a_immi_3": 0,
+      "a_ecole_1": 0,
+      "a_ecole_2": 0,
+      "a_log_1": 0,
+      "a_log_2": 0,
+      "a_eco_1": 1,
+      "a_eco_2": 0,
+      "a_eco_3": 0,
+      "a_eur_1": 1,
+      "a_eur_2": 1,
+      "a_eur_3": -2,
+      "a_inst_1": 0,
+      "a_inst_2": 2,
+      "a_soc_1": 0,
+      "a_soc_2": 0
+    },
+    "glucksmann": {
+      "a_pa_1": 0,
+      "a_pa_2": 0,
+      "a_pa_3": -1,
+      "a_fisc_1": 2,
+      "a_fisc_2": -1,
+      "a_fisc_3": -1,
+      "a_ret_1": -2,
+      "a_ret_2": -1,
+      "a_sante_1": 1,
+      "a_sante_2": 0,
+      "a_sante_3": 0,
+      "a_secu_1": -1,
+      "a_secu_2": -1,
+      "a_immi_1": -2,
+      "a_immi_2": 1,
+      "a_immi_3": -2,
+      "a_ecole_1": 0,
+      "a_ecole_2": 1,
+      "a_log_1": 1,
+      "a_log_2": -1,
+      "a_eco_1": 2,
+      "a_eco_2": -1,
+      "a_eco_3": -2,
+      "a_eur_1": 2,
+      "a_eur_2": 2,
+      "a_eur_3": -2,
+      "a_inst_1": 1,
+      "a_inst_2": 0,
+      "a_soc_1": 2,
+      "a_soc_2": -1
+    },
+    "lisnard": {
+      "a_pa_1": 0,
+      "a_pa_2": -2,
+      "a_pa_3": 2,
+      "a_fisc_1": -2,
+      "a_fisc_2": 2,
+      "a_fisc_3": 0,
+      "a_ret_1": 2,
+      "a_ret_2": 2,
+      "a_sante_1": -2,
+      "a_sante_2": -1,
+      "a_sante_3": 1,
+      "a_secu_1": 0,
+      "a_secu_2": 1,
+      "a_immi_1": 1,
+      "a_immi_2": -1,
+      "a_immi_3": 0,
+      "a_ecole_1": 0,
+      "a_ecole_2": -1,
+      "a_log_1": -2,
+      "a_log_2": 2,
+      "a_eco_1": 0,
+      "a_eco_2": 0,
+      "a_eco_3": 0,
+      "a_eur_1": -1,
+      "a_eur_2": 0,
+      "a_eur_3": -1,
+      "a_inst_1": 0,
+      "a_inst_2": 2,
+      "a_soc_1": 0,
+      "a_soc_2": 0
+    },
+    "attal": {
+      "a_pa_1": 0,
+      "a_pa_2": -1,
+      "a_pa_3": 1,
+      "a_fisc_1": -2,
+      "a_fisc_2": 1,
+      "a_fisc_3": 0,
+      "a_ret_1": 0,
+      "a_ret_2": 1,
+      "a_sante_1": 0,
+      "a_sante_2": 0,
+      "a_sante_3": 0,
+      "a_secu_1": 0,
+      "a_secu_2": 2,
+      "a_immi_1": 0,
+      "a_immi_2": 0,
+      "a_immi_3": 0,
+      "a_ecole_1": 1,
+      "a_ecole_2": 0,
+      "a_log_1": 0,
+      "a_log_2": 0,
+      "a_eco_1": 1,
+      "a_eco_2": -1,
+      "a_eco_3": 0,
+      "a_eur_1": 2,
+      "a_eur_2": 1,
+      "a_eur_3": -2,
+      "a_inst_1": 0,
+      "a_inst_2": 0,
+      "a_soc_1": 2,
+      "a_soc_2": 1
+    },
+    "retailleau": {
+      "a_pa_1": 0,
+      "a_pa_2": -1,
+      "a_pa_3": 2,
+      "a_fisc_1": -2,
+      "a_fisc_2": 2,
+      "a_fisc_3": 0,
+      "a_ret_1": 2,
+      "a_ret_2": 1,
+      "a_sante_1": 0,
+      "a_sante_2": 0,
+      "a_sante_3": 0,
+      "a_secu_1": 1,
+      "a_secu_2": 2,
+      "a_immi_1": 2,
+      "a_immi_2": -2,
+      "a_immi_3": 1,
+      "a_ecole_1": 0,
+      "a_ecole_2": 0,
+      "a_log_1": -1,
+      "a_log_2": 2,
+      "a_eco_1": -1,
+      "a_eco_2": 0,
+      "a_eco_3": 2,
+      "a_eur_1": -1,
+      "a_eur_2": 0,
+      "a_eur_3": -1,
+      "a_inst_1": -2,
+      "a_inst_2": 1,
+      "a_soc_1": -2,
+      "a_soc_2": 2
+    },
+    "zemmour": {
+      "a_pa_1": 1,
+      "a_pa_2": 0,
+      "a_pa_3": 1,
+      "a_fisc_1": -2,
+      "a_fisc_2": 1,
+      "a_fisc_3": 2,
+      "a_ret_1": -1,
+      "a_ret_2": 0,
+      "a_sante_1": 0,
+      "a_sante_2": 0,
+      "a_sante_3": 1,
+      "a_secu_1": 2,
+      "a_secu_2": 2,
+      "a_immi_1": 2,
+      "a_immi_2": -2,
+      "a_immi_3": 2,
+      "a_ecole_1": 1,
+      "a_ecole_2": 0,
+      "a_log_1": 0,
+      "a_log_2": 1,
+      "a_eco_1": -2,
+      "a_eco_2": 1,
+      "a_eco_3": 1,
+      "a_eur_1": -2,
+      "a_eur_2": -2,
+      "a_eur_3": 1,
+      "a_inst_1": 0,
+      "a_inst_2": 0,
+      "a_soc_1": -2,
+      "a_soc_2": 2
+    },
+    "tondelier": {
+      "a_pa_1": 0,
+      "a_pa_2": 1,
+      "a_pa_3": -2,
+      "a_fisc_1": 2,
+      "a_fisc_2": -2,
+      "a_fisc_3": -1,
+      "a_ret_1": -2,
+      "a_ret_2": -1,
+      "a_sante_1": 1,
+      "a_sante_2": 1,
+      "a_sante_3": 0,
+      "a_secu_1": -2,
+      "a_secu_2": -1,
+      "a_immi_1": -2,
+      "a_immi_2": 2,
+      "a_immi_3": -2,
+      "a_ecole_1": -1,
+      "a_ecole_2": 2,
+      "a_log_1": 2,
+      "a_log_2": -2,
+      "a_eco_1": 2,
+      "a_eco_2": 0,
+      "a_eco_3": -2,
+      "a_eur_1": 1,
+      "a_eur_2": 0,
+      "a_eur_3": -1,
+      "a_inst_1": 2,
+      "a_inst_2": 0,
+      "a_soc_1": 2,
+      "a_soc_2": -2
+    },
+    "roussel": {
+      "a_pa_1": 2,
+      "a_pa_2": 1,
+      "a_pa_3": -1,
+      "a_fisc_1": 2,
+      "a_fisc_2": -2,
+      "a_fisc_3": -1,
+      "a_ret_1": -2,
+      "a_ret_2": -2,
+      "a_sante_1": 2,
+      "a_sante_2": 2,
+      "a_sante_3": 0,
+      "a_secu_1": -1,
+      "a_secu_2": -1,
+      "a_immi_1": -2,
+      "a_immi_2": 2,
+      "a_immi_3": -2,
+      "a_ecole_1": 0,
+      "a_ecole_2": 2,
+      "a_log_1": 2,
+      "a_log_2": 0,
+      "a_eco_1": 1,
+      "a_eco_2": 2,
+      "a_eco_3": -1,
+      "a_eur_1": -1,
+      "a_eur_2": -2,
+      "a_eur_3": 1,
+      "a_inst_1": 2,
+      "a_inst_2": 0,
+      "a_soc_1": 1,
+      "a_soc_2": 0
+    },
+    "villepin": {
+      "a_pa_1": 0,
+      "a_pa_2": 0,
+      "a_pa_3": 0,
+      "a_fisc_1": 1,
+      "a_fisc_2": 0,
+      "a_fisc_3": 0,
+      "a_ret_1": 0,
+      "a_ret_2": 0,
+      "a_sante_1": 0,
+      "a_sante_2": 0,
+      "a_sante_3": 0,
+      "a_secu_1": 0,
+      "a_secu_2": 0,
+      "a_immi_1": 0,
+      "a_immi_2": 0,
+      "a_immi_3": 0,
+      "a_ecole_1": 0,
+      "a_ecole_2": 0,
+      "a_log_1": 0,
+      "a_log_2": 0,
+      "a_eco_1": 0,
+      "a_eco_2": 0,
+      "a_eco_3": 0,
+      "a_eur_1": 0,
+      "a_eur_2": 0,
+      "a_eur_3": 0,
+      "a_inst_1": 0,
+      "a_inst_2": 0,
+      "a_soc_1": 0,
+      "a_soc_2": 0
+    },
+    "dupontaignan": {
+      "a_pa_1": 2,
+      "a_pa_2": 0,
+      "a_pa_3": 0,
+      "a_fisc_1": 0,
+      "a_fisc_2": 0,
+      "a_fisc_3": 0,
+      "a_ret_1": -2,
+      "a_ret_2": 0,
+      "a_sante_1": 1,
+      "a_sante_2": 0,
+      "a_sante_3": 0,
+      "a_secu_1": 1,
+      "a_secu_2": 1,
+      "a_immi_1": 2,
+      "a_immi_2": -2,
+      "a_immi_3": 2,
+      "a_ecole_1": 0,
+      "a_ecole_2": 0,
+      "a_log_1": 0,
+      "a_log_2": 0,
+      "a_eco_1": -1,
+      "a_eco_2": 2,
+      "a_eco_3": 0,
+      "a_eur_1": -2,
+      "a_eur_2": -2,
+      "a_eur_3": 2,
+      "a_inst_1": 1,
+      "a_inst_2": 0,
+      "a_soc_1": 0,
+      "a_soc_2": 0
+    },
+    "arthaud": {
+      "a_pa_1": 0,
+      "a_pa_2": 1,
+      "a_pa_3": -2,
+      "a_fisc_1": 1,
+      "a_fisc_2": -2,
+      "a_fisc_3": -1,
+      "a_ret_1": -2,
+      "a_ret_2": -2,
+      "a_sante_1": 0,
+      "a_sante_2": 1,
+      "a_sante_3": 0,
+      "a_secu_1": -1,
+      "a_secu_2": -2,
+      "a_immi_1": -2,
+      "a_immi_2": 2,
+      "a_immi_3": -2,
+      "a_ecole_1": 0,
+      "a_ecole_2": 1,
+      "a_log_1": 1,
+      "a_log_2": 0,
+      "a_eco_1": 0,
+      "a_eco_2": 0,
+      "a_eco_3": 0,
+      "a_eur_1": 0,
+      "a_eur_2": -2,
+      "a_eur_3": 0,
+      "a_inst_1": 0,
+      "a_inst_2": 0,
+      "a_soc_1": 0,
+      "a_soc_2": 0
+    },
+    "riner": {
+      "a_pa_1": 0,
+      "a_pa_2": 0,
+      "a_pa_3": 0,
+      "a_fisc_1": 0,
+      "a_fisc_2": 0,
+      "a_fisc_3": 0,
+      "a_ret_1": 0,
+      "a_ret_2": 0,
+      "a_sante_1": 0,
+      "a_sante_2": 0,
+      "a_sante_3": 0,
+      "a_secu_1": 0,
+      "a_secu_2": 0,
+      "a_immi_1": 0,
+      "a_immi_2": 0,
+      "a_immi_3": 0,
+      "a_ecole_1": 0,
+      "a_ecole_2": 0,
+      "a_log_1": 0,
+      "a_log_2": 0,
+      "a_eco_1": 0,
+      "a_eco_2": 0,
+      "a_eco_3": 0,
+      "a_eur_1": 0,
+      "a_eur_2": 0,
+      "a_eur_3": 0,
+      "a_inst_1": 0,
+      "a_inst_2": 0,
+      "a_soc_1": 0,
+      "a_soc_2": 0
+    }
+  },
+  "sources": {
+    "lepen": [
+      {
+        "label": "Site officiel — Rassemblement national",
+        "url": "https://rassemblementnational.fr"
+      }
+    ],
+    "melenchon": [
+      {
+        "label": "Site officiel — La France insoumise — « L'Avenir en commun »",
+        "url": "https://lafranceinsoumise.fr"
+      }
+    ],
+    "philippe": [
+      {
+        "label": "Site officiel — Horizons",
+        "url": "https://horizonsleparti.fr"
+      }
+    ],
+    "glucksmann": [
+      {
+        "label": "Site officiel — Place publique",
+        "url": "https://place-publique.eu"
+      }
+    ],
+    "lisnard": [
+      {
+        "label": "Site officiel — Nouvelle Énergie",
+        "url": "https://www.nouvelle-energie.fr"
+      }
+    ],
+    "attal": [
+      {
+        "label": "Site officiel — Renaissance",
+        "url": "https://parti-renaissance.fr"
+      }
+    ],
+    "retailleau": [
+      {
+        "label": "Site officiel — Les Républicains",
+        "url": "https://republicains.fr"
+      }
+    ],
+    "zemmour": [
+      {
+        "label": "Site officiel — Reconquête",
+        "url": "https://www.parti-reconquete.fr"
+      }
+    ],
+    "tondelier": [
+      {
+        "label": "Site officiel — Les Écologistes",
+        "url": "https://lesecologistes.fr"
+      }
+    ],
+    "roussel": [
+      {
+        "label": "Site officiel — Parti communiste français",
+        "url": "https://www.pcf.fr"
+      }
+    ],
+    "villepin": [
+      {
+        "label": "Dominique de Villepin — Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Dominique_de_Villepin"
+      }
+    ],
+    "dupontaignan": [
+      {
+        "label": "Site officiel — Debout la France",
+        "url": "https://www.debout-la-france.fr"
+      }
+    ],
+    "arthaud": [
+      {
+        "label": "Site officiel — Lutte ouvrière",
+        "url": "https://www.lutte-ouvriere.org"
+      }
+    ],
+    "riner": [
+      {
+        "label": "Teddy Riner — Wikipédia",
+        "url": "https://fr.wikipedia.org/wiki/Teddy_Riner"
+      }
+    ]
+  },
+  "note": "Positions déduites des programmes publiés (L'Avenir en commun pour Jean-Luc Mélenchon, synthèses de projet pour les autres), des déclarations publiques et des votes au Parlement de leur famille politique (loi Duplomb sur les pesticides, proposition de loi sur l'aide à mourir, régulation de l'installation des médecins, taxe Zucman) : elles sont indicatives et seront révisées à la publication des programmes officiels. Lorsqu'aucune position connue n'existe, la valeur retenue est 0 (« sans position connue »), ce qui rapproche artificiellement ce candidat des réponses neutres : c'est le cas de toutes les affirmations pour Teddy Riner (programme à venir), de presque toutes pour Dominique de Villepin (une seule position connue), et d'environ la moitié des affirmations pour Édouard Philippe, Gabriel Attal, Nicolas Dupont-Aignan, Nathalie Arthaud et David Lisnard. Points incertains : le RN a soutenu à l'Assemblée la régulation de l'installation des médecins alors que son programme privilégie les incitations (0 retenu) ; LFI a soutenu des tarifs réglementés plutôt qu'une baisse de TVA stricte ; la position de Gabriel Attal sur les pesticides et l'AME reflète un camp divisé (0 retenu). Les thèmes reprennent les préoccupations prioritaires mesurées par les baromètres 2026 (Ipsos bva, Cevipof) : pouvoir d'achat, sécurité, santé, immigration, dette, environnement."
+}
