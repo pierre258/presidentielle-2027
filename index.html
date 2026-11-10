@@ -12,7 +12,7 @@
   <meta name="theme-color" content="#0b1030">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=202611101530">
+  <link rel="stylesheet" href="assets/style.css?v=202611101600">
 </head>
 <body>
   <header class="top">
@@ -217,12 +217,14 @@
               <option value="salarie_prive">Salarié(e) du privé</option><option value="fonctionnaire">Fonctionnaire / agent public</option>
               <option value="independant">Indépendant / chef d'entreprise</option><option value="chomage">Demandeur d'emploi</option>
               <option value="etudiant">Étudiant(e)</option><option value="retraite">Retraité(e)</option><option value="sans">Sans activité</option></select></label>
-            <label>Salaire net mensuel (€)<input type="number" name="net" min="0" step="10" value="2000"></label>
+            <label>Salaire (ou pension) net mensuel (€)<input type="number" name="net" min="0" step="10" value="2000"></label>
+            <label>Heures supplémentaires payées (€/an)<input type="number" name="heures_sup" min="0" step="50" value="0"></label>
             <label>Revenu net imposable du foyer (€/an)<input type="number" name="revenu" min="0" step="100" value="26000"><small>Ligne « revenu net imposable » de votre avis d'impôt.</small></label>
             <label>Âge de début de carrière<input type="number" name="debut" min="14" max="40" value="22"></label>
             <label>Années déjà cotisées pour la retraite<input type="number" name="annees" min="0" max="50" value="0"><small>Laisser 0 pour un calcul depuis le début de carrière.</small></label>
           </fieldset>
           <fieldset><legend>Logement, aides et dépenses</legend>
+            <label>Loyer mensuel (€, si locataire)<input type="number" name="loyer" min="0" step="10" value="0"></label>
             <label>Logement<select name="logement"><option value="locataire">Locataire</option><option value="proprietaire">Propriétaire</option><option value="accedant">Propriétaire avec crédit</option><option value="heberge">Hébergé(e)</option></select></label>
             <div class="checks"><span>Aides perçues</span>
               <label><input type="checkbox" name="aides" value="apl"> APL / aide au logement</label>
@@ -236,10 +238,16 @@
             <label>Montant total des aides (€/mois)<input type="number" name="aides_montant" min="0" step="10" value="0"></label>
             <label>Carburant + électricité + gaz (€/mois)<input type="number" name="energie" min="0" step="10" value="250"></label>
             <label>Cotisation mutuelle santé (€/mois)<input type="number" name="mutuelle" min="0" step="5" value="60"></label>
+            <label>Courses alimentaires et produits de base (€/mois)<input type="number" name="courses" min="0" step="10" value="400"></label>
+            <label>Péages d'autoroute (€/mois)<input type="number" name="peages" min="0" step="5" value="0"></label>
+            <label>Taxe foncière (€/an)<input type="number" name="taxe_fonciere" min="0" step="10" value="0"><small>Si vous êtes propriétaire.</small></label>
+            <label>Taxe d'habitation d'une résidence secondaire (€/an)<input type="number" name="th_secondaire" min="0" step="10" value="0"></label>
           </fieldset>
           <fieldset><legend>Patrimoine</legend>
             <label>Patrimoine net total (€)<input type="number" name="patrimoine" min="0" step="1000" value="50000"><small>Immobilier + placements − dettes.</small></label>
-            <label>Héritage ou donation attendu (€)<input type="number" name="heritage" min="0" step="1000" value="0"></label>
+            <label>dont immobilier (€)<input type="number" name="immobilier" min="0" step="1000" value="0"><small>Base de l'IFI actuel (au-delà de 1,3 M€).</small></label>
+            <label>Revenus du capital (€/an)<input type="number" name="capital" min="0" step="100" value="0"><small>Dividendes, intérêts, plus-values soumis à la flat tax (31,4 % en 2026).</small></label>
+            <label>Héritage ou donation attendu (€)<input type="number" name="heritage" min="0" step="1000" value="0"><small>Calcul pour un enfant héritant d'un parent.</small></label>
           </fieldset>
           <button class="cta" type="submit">Calculer mon impact →</button>
         </form>
@@ -256,6 +264,7 @@
               <option value="eurl_sarl">EURL / SARL</option><option value="sas_sasu" selected>SAS / SASU</option><option value="sa">SA</option>
               <option value="asso">Association</option><option value="autre">Autre</option></select></label>
             <label>Code activité (NAF)<input type="text" name="secteur" placeholder="ex. 62.01Z"></label>
+            <label>Secteur<select name="secteur_cat"><option value="">— Déduit du code NAF —</option><option value="industrie">Industrie</option><option value="energie">Énergie (production, raffinage, distribution)</option><option value="banque">Banque, finance</option><option value="assurance">Assurance</option><option value="numerique">Numérique, télécoms, médias</option><option value="transport_aerien">Transport aérien</option><option value="transport_maritime">Transport maritime</option><option value="autoroutes">Concessions d'autoroutes</option><option value="grande_distribution">Grande distribution</option><option value="armement">Armement, défense</option><option value="pharma">Pharmacie</option><option value="agriculture">Agriculture</option><option value="btp">BTP</option><option value="hotellerie_restauration">Hôtellerie, restauration</option><option value="commerce">Commerce, artisanat</option><option value="services">Services</option></select><small>Sert aux taxes sectorielles (superprofits, banques, énergie…).</small></label>
           </fieldset>
           <fieldset><legend>Chiffres clés (dernier exercice)</legend>
             <label>Chiffre d'affaires (€)<input type="number" name="ca" min="0" step="1000" value="500000"></label>
@@ -266,6 +275,14 @@
             <label>Facture d'énergie (€ HT/an)<input type="number" name="energie" min="0" step="100" value="8000"></label>
             <label>Achats annuels (€ HT)<input type="number" name="achats" min="0" step="1000" value="150000"></label>
             <label>Part des achats hors UE (%)<input type="number" name="import_hors_ue" min="0" max="100" value="0"></label>
+          </fieldset>
+          <fieldset><legend>Charges et impôts (€/an)</legend>
+            <label>Masse salariale brute<input type="number" name="masse" min="0" step="1000" value="180000"></label>
+            <label>Cotisations patronales payées<input type="number" name="cotis_pat" min="0" step="1000" value="0"><small>Laisser 0 : estimation à 27 % de la masse salariale (après allègements).</small></label>
+            <label>CFE (cotisation foncière des entreprises)<input type="number" name="cfe" min="0" step="50" value="1200"></label>
+            <label>CVAE<input type="number" name="cvae" min="0" step="50" value="0"><small>Due au-delà de 500 000 € de CA ; suppression progressive prévue.</small></label>
+            <label>Taxe foncière<input type="number" name="tf_ent" min="0" step="50" value="0"></label>
+            <label>Rachats d'actions de l'année<input type="number" name="rachats" min="0" step="1000" value="0"></label>
           </fieldset>
           <button class="cta" type="submit">Calculer l'impact →</button>
         </form>
@@ -408,7 +425,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
   <script src="assets/config.js?v=202611101700"></script>
-  <script src="assets/sim.js?v=202611101800"></script>
+  <script src="assets/sim.js?v=202611101600"></script>
   <script src="assets/fun.js?v=202611102150"></script>
   <script src="assets/jevote.js?v=202611101700"></script>
   <script src="assets/extras.js?v=202611101700"></script>

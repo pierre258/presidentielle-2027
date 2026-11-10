@@ -44,7 +44,8 @@
     "is_seuil_reduit": 42500,
     "is_taux_normal": 0.25,
     "isf_ancien_seuil": 1300000,
-    "inflation_hyp": 0.02
+    "inflation_hyp": 0.02,
+    "pfu": 0.314
   },
   "retraite": {
     "actuel": {

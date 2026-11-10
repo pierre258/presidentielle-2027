@@ -1,0 +1,3058 @@
+{
+ "_doc": "Mesures fiscales et sociales des candidats utilisées par le simulateur (assets/sim.js, moteur runMesures). calc = formule ; p = paramètres ; si = conditions ; n = note ; fiab = fiabilité de la source.",
+ "updated": "2026-11-10",
+ "part": [
+  {
+   "c": "lepen",
+   "t": "Énergie",
+   "l": "TVA ramenée de 20 % à 5,5 % sur l'énergie (électricité, gaz, fioul, carburants)",
+   "calc": "tva",
+   "p": {
+    "base": "energie",
+    "taux": 0.055
+   },
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Contre-budget 2027 : 12,2 Md€ selon le parti, 14 Md€ selon J.-P. Tanguy (11,3 Md€ chiffrés par l'Institut Montaigne en 2024). La directive TVA ne permet pas de taux réduit sur les carburants : le maintien des carburants dans le périmètre 2027 est incertain. Calcul pour un foyer : dépense TTC × (1 - 1,055/1,20) ≈ -12,1 % si le prix HT ne bouge pas.",
+   "src": "https://repere2027.fr/programmes/marine-le-pen",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lepen",
+   "t": "TVA",
+   "l": "TVA à 0 % sur environ 100 produits de première nécessité",
+   "calc": "tva",
+   "p": {
+    "base": "courses",
+    "taux": 0,
+    "actuel": 0.055,
+    "part": 0.3
+   },
+   "si": {
+    "min": {
+     "courses": 1
+    }
+   },
+   "n": "Hypothèse : 30 % de vos courses concernées (taux actuel 5,5 %). Liste non publiée (alimentation et hygiène de base supposées, aujourd'hui à 5,5 % pour la plupart). Mesure du contre-budget 2026, reprise en 2027.",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lepen",
+   "t": "Impôt sur le revenu",
+   "l": "Exonération d'impôt sur le revenu pour les actifs de moins de 30 ans",
+   "calc": "ir_exo_plafond",
+   "p": {
+    "plafond": 70896
+   },
+   "si": {
+    "max": {
+     "age": 29
+    },
+    "in": {
+     "statut": [
+      "salarie_prive",
+      "fonctionnaire",
+      "independant"
+     ]
+    },
+    "min": {
+     "revenu": 1
+    }
+   },
+   "n": "Calculé comme si tout le revenu du foyer était le vôtre. Exonération des revenus d'activité dans la limite de 4 SMIC annuels par bénéficiaire (rédaction de l'amendement RN ; non confirmé pour 2027). Le traitement des couples n'est pas précisé. Risque constitutionnel (égalité devant l'impôt).",
+   "src": "https://lcp.fr/actualites/permis-de-conduire-gratuit-exoneration-d-impot-jusqu-a-30-ans-comment-le-rn-veut",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lepen",
+   "t": "Impôt sur le revenu",
+   "l": "Part fiscale pleine dès le deuxième enfant",
+   "calc": "ir_parts",
+   "p": {
+    "extra": 0.5,
+    "des_enfant": 2
+   },
+   "si": {
+    "min": {
+     "enfants": 2,
+     "revenu": 1
+    }
+   },
+   "n": "Rien n'est dit sur le plafonnement du quotient familial (1 807 € par demi-part en 2026) : il faut supposer qu'il s'applique toujours.",
+   "src": "https://lcp.fr/actualites/permis-de-conduire-gratuit-exoneration-d-impot-jusqu-a-30-ans-comment-le-rn-veut",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lepen",
+   "t": "Patrimoine",
+   "l": "Remplacement de l'IFI par un impôt sur la fortune financière (IFF)",
+   "calc": "fortune",
+   "p": {
+    "seuil": 1300000.0,
+    "assiette": "financier"
+   },
+   "si": {
+    "min": {
+     "patrimoine": 1300000.0
+    }
+   },
+   "n": "Calcul : barème de l'IFI appliqué au patrimoine hors immobilier, sans l'abattement de 75 % sur les parts de PME ; l'IFI actuel disparaît. Le RN annonce environ 3 Md€ (4 Md€ dans le contre-budget 2026). Seuil et barème repris de l'IFI selon la presse ; le RN n'a pas publié de paramètres officiels pour 2027. L'immobilier sortirait de l'assiette (gain pour les assujettis à l'IFI aujourd'hui). Le RN est contre la taxe Zucman.",
+   "src": "https://www.publicsenat.fr/actualites/economie/limpot-sur-la-fortune-financiere-propose-par-le-rn-une-mesure-pour-faire-plaisir-aux-proprietaires",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lepen",
+   "t": "Héritage et donations",
+   "l": "Biens immobiliers exonérés de droits de succession jusqu'à 300 000 €",
+   "calc": "succession",
+   "p": {
+    "abattement": 400000
+   },
+   "si": {
+    "min": {
+     "heritage": 1
+    }
+   },
+   "n": "Si l'héritage est immobilier : abattement porté à 400 000 € (hypothèse). Programme 2022 repris par l'iFRAP pour 2027. En 2024 : exonération de la résidence principale.",
+   "once": true,
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lepen",
+   "t": "Héritage et donations",
+   "l": "Donations : 100 000 € renouvelables tous les 10 ans, abattement étendu aux grands-parents",
+   "calc": "succession",
+   "p": {
+    "abattement": 100000
+   },
+   "si": {
+    "min": {
+     "heritage": 1
+    }
+   },
+   "n": "Abattement inchangé (100 000 €) mais renouvelable tous les 10 ans au lieu de 15 : effet seulement si vous transmettez par donations répétées. L'extension aux grands-parents (100 000 € au lieu de 31 865 €) vient du programme 2022. Relèvement du plafond des dons familiaux d'argent annoncé en oct. 2026, montant non précisé.",
+   "k": "neutral",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lepen",
+   "t": "Audiovisuel public",
+   "l": "Privatisation de l'audiovisuel public (France Télévisions, Radio France)",
+   "n": "Aucun effet direct sur votre budget : la redevance (138 €) est déjà supprimée depuis 2022 ; l'audiovisuel public est financé par une part de la TVA, qui ne baisserait pas.",
+   "k": "neutral",
+   "src": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/privatiser-laudiovisuel-public",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lepen",
+   "t": "Autoroutes",
+   "l": "Nationalisation des autoroutes et baisse des péages de 10 à 15 %",
+   "calc": "champ",
+   "p": {
+    "champ": "peages",
+    "pct": -0.15,
+    "mensuel": true
+   },
+   "si": {
+    "min": {
+     "peages": 1
+    }
+   },
+   "n": "Mesure du programme 2022 (10 à 15 %), reprise à 15 % par les synthèses du programme Bardella 2027. Pas encore dans le contre-budget 2027.",
+   "src": "https://votons-2027.fr/candidats/bardella/programme",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "lepen",
+   "t": "Heures supplémentaires",
+   "l": "Maintien de la défiscalisation des heures supplémentaires",
+   "si": {
+    "min": {
+     "heures_sup": 1
+    }
+   },
+   "n": "Pas de changement par rapport à aujourd'hui. Le RN veut garder le dispositif actuel (exonération d'IR jusqu'à 7 500 €/an et réduction de cotisations salariales). Il a voté la défiscalisation totale proposée par LR au PLF 2026.",
+   "k": "neutral",
+   "src": "https://www.publicsenat.fr/actualites/economie/retraites-fiscalite-main-doeuvre-detrangere-cout-du-programme-jordan-bardella-face-aux-inquietudes-du-patronat",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "lepen",
+   "t": "Aides et allocations",
+   "l": "Prestations familiales réservées aux foyers avec au moins un parent français ; prestations non contributives conditionnées pour les étrangers",
+   "calc": "aides",
+   "si": {
+    "nonfr": true,
+    "min": {
+     "aides_montant": 1
+    }
+   },
+   "n": "Risque de perte de tout ou partie des aides déclarées. Les aides non contributives seraient supprimées pour les étrangers ne travaillant pas à temps plein depuis 5 ans (6,1 Md€ d'économies). Elles seraient aussi dégelées (3,6 Md€) et fusionnées en une allocation sociale unique dont les paramètres ne sont pas publiés.",
+   "k": "risk",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lepen",
+   "t": "Autre",
+   "l": "Jeunes : permis de conduire gratuit à 18 ans (environ 1 000 €), suppression de la CVEC (105 €), prime d'activité étudiante",
+   "calc": "fixe",
+   "p": {
+    "montant": 105
+   },
+   "si": {
+    "in": {
+     "statut": [
+      "etudiant"
+     ]
+    }
+   },
+   "n": "CVEC supprimée (105 €/an) ; permis gratuit à 18 ans sous conditions. Prime d'activité étudiante : 600 M€/an, montant individuel non publié.",
+   "src": "https://lcp.fr/actualites/permis-de-conduire-gratuit-exoneration-d-impot-jusqu-a-30-ans-comment-le-rn-veut",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lepen",
+   "t": "Énergie",
+   "l": "Sortie du marché européen de l'électricité ; fin de MaPrimeRénov' remplacée par un plan « 100 % rénov' »",
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Aucune baisse de tarif chiffrée.",
+   "k": "gain",
+   "src": "https://repere2027.fr/programmes/marine-le-pen",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "Énergie",
+   "l": "TVA ramenée de 20 % à 5,5 % sur l'énergie (électricité, gaz, fioul, carburants)",
+   "calc": "tva",
+   "p": {
+    "base": "energie",
+    "taux": 0.055
+   },
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Contre-budget 2027 : 12,2 Md€ selon le parti, 14 Md€ selon J.-P. Tanguy (11,3 Md€ chiffrés par l'Institut Montaigne en 2024). La directive TVA ne permet pas de taux réduit sur les carburants : le maintien des carburants dans le périmètre 2027 est incertain. Calcul pour un foyer : dépense TTC × (1 - 1,055/1,20) ≈ -12,1 % si le prix HT ne bouge pas.",
+   "src": "https://repere2027.fr/programmes/marine-le-pen",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "TVA",
+   "l": "TVA à 0 % sur environ 100 produits de première nécessité",
+   "calc": "tva",
+   "p": {
+    "base": "courses",
+    "taux": 0,
+    "actuel": 0.055,
+    "part": 0.3
+   },
+   "si": {
+    "min": {
+     "courses": 1
+    }
+   },
+   "n": "Hypothèse : 30 % de vos courses concernées (taux actuel 5,5 %). Liste non publiée (alimentation et hygiène de base supposées, aujourd'hui à 5,5 % pour la plupart). Mesure du contre-budget 2026, reprise en 2027.",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "Impôt sur le revenu",
+   "l": "Exonération d'impôt sur le revenu pour les actifs de moins de 30 ans",
+   "calc": "ir_exo_plafond",
+   "p": {
+    "plafond": 70896
+   },
+   "si": {
+    "max": {
+     "age": 29
+    },
+    "in": {
+     "statut": [
+      "salarie_prive",
+      "fonctionnaire",
+      "independant"
+     ]
+    },
+    "min": {
+     "revenu": 1
+    }
+   },
+   "n": "Calculé comme si tout le revenu du foyer était le vôtre. Exonération des revenus d'activité dans la limite de 4 SMIC annuels par bénéficiaire (rédaction de l'amendement RN ; non confirmé pour 2027). Le traitement des couples n'est pas précisé. Risque constitutionnel (égalité devant l'impôt).",
+   "src": "https://lcp.fr/actualites/permis-de-conduire-gratuit-exoneration-d-impot-jusqu-a-30-ans-comment-le-rn-veut",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "Impôt sur le revenu",
+   "l": "Part fiscale pleine dès le deuxième enfant",
+   "calc": "ir_parts",
+   "p": {
+    "extra": 0.5,
+    "des_enfant": 2
+   },
+   "si": {
+    "min": {
+     "enfants": 2,
+     "revenu": 1
+    }
+   },
+   "n": "Rien n'est dit sur le plafonnement du quotient familial (1 807 € par demi-part en 2026) : il faut supposer qu'il s'applique toujours.",
+   "src": "https://lcp.fr/actualites/permis-de-conduire-gratuit-exoneration-d-impot-jusqu-a-30-ans-comment-le-rn-veut",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "Patrimoine",
+   "l": "Remplacement de l'IFI par un impôt sur la fortune financière (IFF)",
+   "calc": "fortune",
+   "p": {
+    "seuil": 1300000.0,
+    "assiette": "financier"
+   },
+   "si": {
+    "min": {
+     "patrimoine": 1300000.0
+    }
+   },
+   "n": "Calcul : barème de l'IFI appliqué au patrimoine hors immobilier, sans l'abattement de 75 % sur les parts de PME ; l'IFI actuel disparaît. Le RN annonce environ 3 Md€ (4 Md€ dans le contre-budget 2026). Seuil et barème repris de l'IFI selon la presse ; le RN n'a pas publié de paramètres officiels pour 2027. L'immobilier sortirait de l'assiette (gain pour les assujettis à l'IFI aujourd'hui). Le RN est contre la taxe Zucman.",
+   "src": "https://www.publicsenat.fr/actualites/economie/limpot-sur-la-fortune-financiere-propose-par-le-rn-une-mesure-pour-faire-plaisir-aux-proprietaires",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "Héritage et donations",
+   "l": "Biens immobiliers exonérés de droits de succession jusqu'à 300 000 €",
+   "calc": "succession",
+   "p": {
+    "abattement": 400000
+   },
+   "si": {
+    "min": {
+     "heritage": 1
+    }
+   },
+   "n": "Si l'héritage est immobilier : abattement porté à 400 000 € (hypothèse). Programme 2022 repris par l'iFRAP pour 2027. En 2024 : exonération de la résidence principale.",
+   "once": true,
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "Héritage et donations",
+   "l": "Donations : 100 000 € renouvelables tous les 10 ans, abattement étendu aux grands-parents",
+   "calc": "succession",
+   "p": {
+    "abattement": 100000
+   },
+   "si": {
+    "min": {
+     "heritage": 1
+    }
+   },
+   "n": "Abattement inchangé (100 000 €) mais renouvelable tous les 10 ans au lieu de 15 : effet seulement si vous transmettez par donations répétées. L'extension aux grands-parents (100 000 € au lieu de 31 865 €) vient du programme 2022. Relèvement du plafond des dons familiaux d'argent annoncé en oct. 2026, montant non précisé.",
+   "k": "neutral",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "Audiovisuel public",
+   "l": "Privatisation de l'audiovisuel public (France Télévisions, Radio France)",
+   "n": "Aucun effet direct sur votre budget : la redevance (138 €) est déjà supprimée depuis 2022 ; l'audiovisuel public est financé par une part de la TVA, qui ne baisserait pas.",
+   "k": "neutral",
+   "src": "https://www.institutmontaigne.org/legislatives-2024/rassemblement-national/privatiser-laudiovisuel-public",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "bardella",
+   "t": "Autoroutes",
+   "l": "Nationalisation des autoroutes et baisse des péages de 10 à 15 %",
+   "calc": "champ",
+   "p": {
+    "champ": "peages",
+    "pct": -0.15,
+    "mensuel": true
+   },
+   "si": {
+    "min": {
+     "peages": 1
+    }
+   },
+   "n": "Mesure du programme 2022 (10 à 15 %), reprise à 15 % par les synthèses du programme Bardella 2027. Pas encore dans le contre-budget 2027.",
+   "src": "https://votons-2027.fr/candidats/bardella/programme",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "bardella",
+   "t": "Heures supplémentaires",
+   "l": "Maintien de la défiscalisation des heures supplémentaires",
+   "si": {
+    "min": {
+     "heures_sup": 1
+    }
+   },
+   "n": "Pas de changement par rapport à aujourd'hui. Le RN veut garder le dispositif actuel (exonération d'IR jusqu'à 7 500 €/an et réduction de cotisations salariales). Il a voté la défiscalisation totale proposée par LR au PLF 2026.",
+   "k": "neutral",
+   "src": "https://www.publicsenat.fr/actualites/economie/retraites-fiscalite-main-doeuvre-detrangere-cout-du-programme-jordan-bardella-face-aux-inquietudes-du-patronat",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "bardella",
+   "t": "Aides et allocations",
+   "l": "Prestations familiales réservées aux foyers avec au moins un parent français ; prestations non contributives conditionnées pour les étrangers",
+   "calc": "aides",
+   "si": {
+    "nonfr": true,
+    "min": {
+     "aides_montant": 1
+    }
+   },
+   "n": "Risque de perte de tout ou partie des aides déclarées. Les aides non contributives seraient supprimées pour les étrangers ne travaillant pas à temps plein depuis 5 ans (6,1 Md€ d'économies). Elles seraient aussi dégelées (3,6 Md€) et fusionnées en une allocation sociale unique dont les paramètres ne sont pas publiés.",
+   "k": "risk",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "Autre",
+   "l": "Jeunes : permis de conduire gratuit à 18 ans (environ 1 000 €), suppression de la CVEC (105 €), prime d'activité étudiante",
+   "calc": "fixe",
+   "p": {
+    "montant": 105
+   },
+   "si": {
+    "in": {
+     "statut": [
+      "etudiant"
+     ]
+    }
+   },
+   "n": "CVEC supprimée (105 €/an) ; permis gratuit à 18 ans sous conditions. Prime d'activité étudiante : 600 M€/an, montant individuel non publié.",
+   "src": "https://lcp.fr/actualites/permis-de-conduire-gratuit-exoneration-d-impot-jusqu-a-30-ans-comment-le-rn-veut",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "Énergie",
+   "l": "Sortie du marché européen de l'électricité ; fin de MaPrimeRénov' remplacée par un plan « 100 % rénov' »",
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Aucune baisse de tarif chiffrée.",
+   "k": "gain",
+   "src": "https://repere2027.fr/programmes/marine-le-pen",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "zemmour",
+   "t": "CSG",
+   "l": "CSG sur les revenus d'activité ramenée de 9,2 % à 2,5 % pour les salaires inférieurs à 2 000 € nets par mois",
+   "calc": "csg",
+   "p": {
+    "points": 0.067,
+    "net_max": 2000
+   },
+   "si": {
+    "in": {
+     "statut": [
+      "salarie_prive",
+      "fonctionnaire"
+     ]
+    }
+   },
+   "n": "Programme 2022 (« un 13e mois »). L'iFRAP cite toujours une baisse de la CSG pour les travailleurs modestes en 2027, sans paramètres nouveaux. Le lissage autour du seuil n'est pas précisé.",
+   "src": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/baisser-le-taux-de-la-csg-sur-les-revenus-dactivite-de-92-a-25",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "zemmour",
+   "t": "Héritage et donations",
+   "l": "Donations des parents et grands-parents exonérées jusqu'à 200 000 € tous les 10 ans ; transmission des entreprises familiales exonérée",
+   "calc": "succession",
+   "p": {
+    "abattement": 200000
+   },
+   "si": {
+    "min": {
+     "heritage": 1
+    }
+   },
+   "n": "Si la transmission se fait par donation. Programme 2022 (« exonérer la classe moyenne »).",
+   "once": true,
+   "src": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/synthese",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "zemmour",
+   "t": "Autre",
+   "l": "Primo-accédants exonérés de frais de notaire (droits de mutation) pour les biens de moins de 250 000 €",
+   "si": {
+    "in": {
+     "logement": [
+      "locataire",
+      "heberge"
+     ]
+    }
+   },
+   "n": "Programme 2022. Le gain réel porte sur les droits de mutation (environ 5,8 % du prix dans l'ancien).",
+   "k": "gain",
+   "src": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/synthese",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "zemmour",
+   "t": "Impôt sur le revenu",
+   "l": "Déduction de 50 % des intérêts d'emprunt de la résidence principale pour les primo-accédants, pendant 5 ans",
+   "si": {
+    "in": {
+     "logement": [
+      "accedant"
+     ]
+    }
+   },
+   "n": "Programme 2022.",
+   "k": "gain",
+   "src": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/synthese",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "zemmour",
+   "t": "Impôt sur le revenu",
+   "l": "Quotient familial renforcé (« doubler le quotient familial ») et demi-part des veufs rétablie",
+   "si": {
+    "min": {
+     "enfants": 1
+    }
+   },
+   "n": "Programme 2022. Le libellé de l'Institut Montaigne est ambigu : probablement un doublement du plafond.",
+   "k": "gain",
+   "src": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/synthese",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "zemmour",
+   "t": "Aides et allocations",
+   "l": "Allocations familiales universelles rétablies mais réservées aux Français ; prime de 10 000 € par naissance en zone rurale",
+   "calc": "aides",
+   "si": {
+    "nonfr": true,
+    "min": {
+     "aides_montant": 1
+    }
+   },
+   "n": "Perte probable des aides déclarées. Programme 2022. Les aides non contributives seraient supprimées pour les étrangers extra-européens (iFRAP 2027).",
+   "k": "risk",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "zemmour",
+   "t": "Audiovisuel public",
+   "l": "Privatisation des principales chaînes publiques",
+   "n": "Aucun effet direct : la redevance est supprimée depuis 2022 et l'audiovisuel public est financé par une part de la TVA.",
+   "k": "neutral",
+   "src": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/synthese",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "zemmour",
+   "t": "Heures supplémentaires",
+   "l": "Heures supplémentaires sans impôt ni cotisations",
+   "calc": "heures_sup",
+   "p": {
+    "taux": 0.097
+   },
+   "si": {
+    "min": {
+     "heures_sup": 1
+    }
+   },
+   "n": "Gain : CSG et CRDS (9,7 %) supprimées sur vos heures supplémentaires. Programme 2022.",
+   "src": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/synthese",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Salaires",
+   "l": "SMIC net à 1 600 € par mois",
+   "calc": "smic",
+   "p": {
+    "cible": 1600
+   },
+   "n": "Financé par une baisse des cotisations salariales.",
+   "src": "https://www.youtube.com/watch?v=wzlBwUWgS30",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Carburants",
+   "l": "Carburants -40 c/l : suppression de la TVA sur la TICPE (-13 c), fin des CEE (-17 c), plafonnement des marges des raffineurs (-10 c)",
+   "calc": "carburant",
+   "p": {
+    "baisse": 0.4
+   },
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Hypothèse : la moitié de votre dépense d'énergie en carburant, à 1,80 €/L. Calcul pour un foyer : litres consommés par an × 0,40 €.",
+   "src": "https://www.debout-la-france.fr/projet/economie-travail/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Énergie",
+   "l": "Électricité à 10 c€/kWh (tarif réglementé national) ; gaz -20 %",
+   "calc": "energie_part",
+   "p": {
+    "part": 0.35,
+    "pct": -0.45
+   },
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Hypothèse : électricité = 35 % de votre dépense d'énergie, facture −45 % (tarif actuel ≈ 0,19 €/kWh TTC). Annoncé comme une division par deux des prix la première année.",
+   "src": "https://www.debout-la-france.fr/projet/economie-travail/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "TVA",
+   "l": "TVA à 0 % sur 50 produits de première nécessité",
+   "calc": "tva",
+   "p": {
+    "base": "courses",
+    "taux": 0,
+    "actuel": 0.055,
+    "part": 0.2
+   },
+   "si": {
+    "min": {
+     "courses": 1
+    }
+   },
+   "n": "Hypothèse : 20 % de vos courses concernées. Liste non publiée.",
+   "src": "https://www.debout-la-france.fr/projet/economie-travail/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Autoroutes",
+   "l": "Gel des péages puis suppression d'ici 2030 ; autoroutes d'Île-de-France gratuites",
+   "calc": "champ",
+   "p": {
+    "champ": "peages",
+    "pct": -1,
+    "mensuel": true
+   },
+   "si": {
+    "min": {
+     "peages": 1
+    }
+   },
+   "n": "Gain à terme (2030). Entretien payé par une taxe sur les camions étrangers.",
+   "src": "https://www.debout-la-france.fr/projet/transport-automobilistes/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Voiture",
+   "l": "Suppression définitive des ZFE ; retour aux 90 km/h ; fin du permis à points",
+   "n": "",
+   "k": "gain",
+   "src": "https://www.debout-la-france.fr/projet/transport-automobilistes/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Heures supplémentaires",
+   "l": "Heures au-delà de 1 607 h/an sans impôt ni cotisations salariales, dans la limite de 300 h/an",
+   "si": {
+    "min": {
+     "heures_sup": 1
+    }
+   },
+   "n": "Le net égale le brut sur ces heures.",
+   "k": "gain",
+   "src": "https://www.debout-la-france.fr/projet/economie-travail/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Héritage et donations",
+   "l": "Résidence principale et 100 premiers hectares agricoles exonérés de droits de succession ; pacte Dutreil porté à 90 %",
+   "si": {
+    "min": {
+     "heritage": 1
+    }
+   },
+   "n": "",
+   "k": "gain",
+   "src": "https://www.debout-la-france.fr/projet/economie-travail/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Héritage et donations",
+   "l": "Plafonds de donation doublés (+100 000 € par enfant ou petit-enfant), délai de rappel ramené de 15 à 10 ans",
+   "calc": "succession",
+   "p": {
+    "abattement": 200000
+   },
+   "si": {
+    "min": {
+     "heritage": 1
+    }
+   },
+   "n": "Si la transmission se fait par donation.",
+   "once": true,
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Aides et allocations",
+   "l": "Aides non contributives (RSA, allocations familiales, aides au logement) supprimées pour les étrangers ; AME supprimée",
+   "calc": "aides",
+   "si": {
+    "nonfr": true,
+    "min": {
+     "aides_montant": 1
+    }
+   },
+   "n": "",
+   "k": "risk",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "retailleau",
+   "t": "Heures supplémentaires",
+   "l": "Heures au-delà de 1 623 h/an sans cotisations salariales ni impôt (CSG et CRDS maintenues)",
+   "si": {
+    "in": {
+     "statut": [
+      "salarie_prive"
+     ]
+    }
+   },
+   "n": "Effet seulement si vous travaillez au-delà de 1 623 h par an. Exemple LR : +230 €/mois (2 800 €/an, un « 13e mois ») pour 2 115 € nets, ce qui suppose de travailler plus. Remplace l'ancienne piste des 37 h 30. Effet nul pour qui reste à la durée de référence.",
+   "k": "gain",
+   "src": "https://www.publicsenat.fr/actualites/politique/la-fete-est-finie-bruno-retailleau-veut-supprimer-les-35-heures-inciter-a-la-reprise-dactivite-et-plafonner-les-aides-sociales-pour-relancer-lemploi",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "retailleau",
+   "t": "Héritage et donations",
+   "l": "Dons familiaux exonérés jusqu'à 150 000 € par donateur pour un bénéficiaire de moins de 30 ans, 100 000 € pour un bénéficiaire de moins de 40 ans",
+   "si": {
+    "max": {
+     "age": 39
+    }
+   },
+   "n": "Couvre les sommes d'argent, les donations et les successions immobilières (iFRAP).",
+   "k": "gain",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "retailleau",
+   "t": "Aides et allocations",
+   "l": "Revenu familial de 240 €/mois par enfant de 0 à 18 ans, doublé pour le 3e enfant (fusion de 12 dispositifs)",
+   "calc": "af",
+   "p": {
+    "par_enfant": 240,
+    "bonus_3e": 240
+   },
+   "si": {
+    "min": {
+     "enfants": 1
+    }
+   },
+   "n": "Comparé aux allocations familiales actuelles à taux plein ; le revenu familial fusionnerait d'autres aides, non déduites ici. Remplace les allocations familiales et d'autres aides : l'effet net dépend du foyer.",
+   "src": "https://votons-2027.fr/candidats/retailleau/programme/economie",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "retailleau",
+   "t": "Aides et allocations",
+   "l": "Plafond des aides non contributives à 70 % du SMIC net par adulte ; RSA, prime d'activité et ASS fusionnés en un RIA (300 €/mois de socle + 250 €/mois avec au moins 15 h d'activité)",
+   "calc": "aides_plafond",
+   "p": {
+    "pct_smic": 0.7
+   },
+   "si": {
+    "min": {
+     "aides_montant": 1
+    }
+   },
+   "n": "Hors dépendance et handicap. Exemple LR : un couple avec 2 enfants passerait de 2 375 € à 1 685 €/mois.",
+   "src": "https://www.publicsenat.fr/actualites/politique/la-fete-est-finie-bruno-retailleau-veut-supprimer-les-35-heures-inciter-a-la-reprise-dactivite-et-plafonner-les-aides-sociales-pour-relancer-lemploi",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "retailleau",
+   "t": "Impôt sur le revenu",
+   "l": "Intérêts d'emprunt de la résidence principale déductibles à 50 % (1 enfant), 75 % (2 enfants), 100 % (3 enfants ou plus)",
+   "si": {
+    "in": {
+     "logement": [
+      "accedant"
+     ]
+    },
+    "min": {
+     "enfants": 1
+    }
+   },
+   "n": "Pacte famille et logement. Plafond non précisé.",
+   "k": "gain",
+   "src": "https://votons-2027.fr/candidats/retailleau/programme/economie",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "retailleau",
+   "t": "Logement",
+   "l": "Fin de l'encadrement des loyers ; levée des interdictions de louer liées au DPE",
+   "si": {
+    "in": {
+     "logement": [
+      "locataire"
+     ]
+    }
+   },
+   "n": "Effet possible à la hausse sur les loyers des locataires en zone encadrée.",
+   "k": "risk",
+   "src": "https://votons-2027.fr/candidats/retailleau/programme/economie",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "retailleau",
+   "t": "Santé",
+   "l": "Jour de carence « d'ordre public » non remboursable dans le privé",
+   "si": {
+    "in": {
+     "statut": [
+      "salarie_prive"
+     ]
+    }
+   },
+   "n": "",
+   "k": "risk",
+   "src": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Impôt sur le revenu",
+   "l": "Impôt sur le revenu à 14 tranches (au lieu de 5)",
+   "calc": "ir_pct",
+   "p": {
+    "paliers": [
+     [
+      45000,
+      -0.1
+     ],
+     [
+      100000,
+      0.1
+     ],
+     [
+      null,
+      0.3
+     ]
+    ]
+   },
+   "si": {
+    "min": {
+     "revenu": 1
+    }
+   },
+   "n": "Hypothèse en l'absence de barème publié : −10 % d'impôt sous 45 000 € par part, +10 % jusqu'à 100 000 €, +30 % au-delà. Le programme 2027 annonce 14 tranches sans publier les seuils. Le barème ci-dessus (taux de 1 % à 90 %, revenu imposable par part) est celui des amendements LFI repris par le NFP en 2024 ; il est indicatif. Le taux de 90 % au-delà de 411 683 € inclurait selon certaines lectures la CSG.",
+   "src": "https://www.toutsurmesfinances.com/impots/programme-nouveau-front-populaire-impots.html",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "melenchon",
+   "t": "Impôt sur le revenu",
+   "l": "Suppression du quotient conjugal et remplacement du quotient familial par un crédit d'impôt par enfant identique pour toutes les familles",
+   "si": {
+    "in": {
+     "situation": [
+      "marie"
+     ]
+    }
+   },
+   "n": "Montant du crédit d'impôt non publié. Les couples mariés/pacsés aux revenus inégaux y perdraient.",
+   "k": "risk",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Revenus du capital",
+   "l": "Suppression de la flat tax (PFU 30 %) : revenus du capital imposés comme ceux du travail, au barème",
+   "calc": "capital_bareme",
+   "si": {
+    "min": {
+     "capital": 1
+    }
+   },
+   "n": "Rendement estimé à 9 Md€ (L'Essentiel de l'Éco). Extension des cotisations sociales aux revenus du capital, taux non chiffré.",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Patrimoine",
+   "l": "Rétablissement de l'ISF avec un volet climatique visant les gros pollueurs",
+   "calc": "fortune",
+   "p": {
+    "seuil": 1300000.0
+   },
+   "si": {
+    "min": {
+     "patrimoine": 1300000.0
+    }
+   },
+   "n": "Hypothèse : barème de l'ancien ISF sur tout le patrimoine (l'IFI actuel disparaît). Barème non publié. Hypothèse possible : barème de l'ancien ISF (seuil 1,3 M€, taux 0,5 % à 1,5 %) plus une majoration selon l'empreinte carbone des actifs. Rendement estimé à environ 10 Md€.",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Patrimoine",
+   "l": "Impôt plancher de 2 % sur le patrimoine des centimillionnaires (taxe Zucman) et exit tax renforcée",
+   "calc": "zucman",
+   "p": {
+    "seuil": 100000000.0,
+    "taux": 0.02
+   },
+   "si": {
+    "min": {
+     "patrimoine": 100000000.0
+    }
+   },
+   "n": "Rendement estimé à 15 Md€. Le seuil de 100 M€ est celui de la proposition Zucman reprise par LFI.",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Héritage et donations",
+   "l": "Héritage maximum de 12 M€ par héritier, imposition cumulée des donations et successions sur la vie, exonération des héritages inférieurs à 150 000 €",
+   "calc": "succ_exo_sous",
+   "p": {
+    "seuil": 150000
+   },
+   "si": {
+    "min": {
+     "heritage": 1
+    }
+   },
+   "n": "Barème intermédiaire non publié en 2027. Les amendements LFI 2024 prévoyaient un abattement de 120 000 € par enfant, 16 tranches, 47 % dès 674 800 €, 95 % au-delà de 10,53 M€. Rendement estimé entre 9 et 11 Md€ (Institut Montaigne) ou jusqu'à 20 Md€ selon la presse.",
+   "once": true,
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "TVA",
+   "l": "Blocage des prix des produits de première nécessité (alimentation, énergie, carburants), interdiction de la réduflation",
+   "si": {
+    "min": {
+     "courses": 1
+    }
+   },
+   "n": "Blocage de prix, pas de baisse de TVA annoncée. Encadrement des marges via des coefficients multiplicateurs sur l'alimentation.",
+   "k": "gain",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Énergie",
+   "l": "Première tranche de consommation d'électricité, d'eau, de gaz et de chaleur gratuite ; retour des tarifs réglementés",
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Volume de la tranche gratuite non précisé.",
+   "k": "gain",
+   "src": "https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre1",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Autoroutes",
+   "l": "Renationalisation des autoroutes et retour sur les hausses de péages passées",
+   "si": {
+    "min": {
+     "peages": 1
+    }
+   },
+   "n": "Ampleur de la baisse non chiffrée.",
+   "k": "gain",
+   "src": "https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Salaires",
+   "l": "SMIC porté immédiatement à 1 700 € net par mois ; indexation des salaires sur l'inflation",
+   "calc": "smic",
+   "p": {
+    "cible": 1700
+   },
+   "n": "Hausse par rapport au programme NFP 2024 (1 600 € net).",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Autre",
+   "l": "Point d'indice des fonctionnaires relevé de 10 %",
+   "calc": "salaire_pct",
+   "p": {
+    "pct": 0.1
+   },
+   "si": {
+    "in": {
+     "statut": [
+      "fonctionnaire"
+     ]
+    }
+   },
+   "n": "",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Aides et allocations",
+   "l": "APL relevées de 10 %",
+   "calc": "apl_pct",
+   "p": {
+    "pct": 0.1
+   },
+   "si": {
+    "has": {
+     "aides": "apl"
+    }
+   },
+   "n": "Chiffré si vos aides déclarées sont uniquement des APL.",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Santé",
+   "l": "« 100 % Sécu » : remboursement intégral des soins prescrits, intégration des complémentaires santé, fin des franchises et des dépassements d'honoraires",
+   "calc": "champ",
+   "p": {
+    "champ": "mutuelle",
+    "pct": -1,
+    "mensuel": true
+   },
+   "si": {
+    "min": {
+     "mutuelle": 1
+    }
+   },
+   "n": "Économie de votre cotisation de mutuelle (financement par la Sécurité sociale). Le foyer économiserait sa cotisation de mutuelle mais financerait la mesure via la cotisation sociale universelle (non chiffrée).",
+   "src": "https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre1",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Études",
+   "l": "Allocation d'autonomie pour les étudiants",
+   "si": {
+    "in": {
+     "statut": [
+      "etudiant"
+     ]
+    }
+   },
+   "n": "Montant non précisé.",
+   "k": "gain"
+  },
+  {
+   "c": "roussel",
+   "t": "Salaires",
+   "l": "SMIC à 1 700 € net, +5 % pour tous les salaires, échelle mobile",
+   "calc": "smic_ou_pct",
+   "p": {
+    "cible": 1700,
+    "pct": 0.05
+   },
+   "n": "",
+   "src": "https://www.pcf.fr/ue_26_discours_fr",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "roussel",
+   "t": "Autre",
+   "l": "Point d'indice des fonctionnaires relevé immédiatement de 30 %",
+   "calc": "salaire_pct",
+   "p": {
+    "pct": 0.3
+   },
+   "si": {
+    "in": {
+     "statut": [
+      "fonctionnaire"
+     ]
+    }
+   },
+   "n": "",
+   "src": "https://www.pcf.fr/ue_26_discours_fr",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "roussel",
+   "t": "Patrimoine",
+   "l": "Rétablissement de l'ISF, avec un taux et une progressivité renforcés (« tripler » l'ISF en 2022)",
+   "calc": "fortune",
+   "p": {
+    "seuil": 1300000.0,
+    "facteur": 3
+   },
+   "si": {
+    "min": {
+     "patrimoine": 1300000.0
+    }
+   },
+   "n": "Hypothèse : ancien ISF multiplié par 3. Barème 2027 non publié. En 2022 : ISF triplé par rapport à l'ancien.",
+   "src": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "roussel",
+   "t": "Héritage et donations",
+   "l": "Taxation renforcée des plus gros héritages et exonération des héritages inférieurs à 200 000 €",
+   "calc": "succ_exo_sous",
+   "p": {
+    "seuil": 200000
+   },
+   "si": {
+    "min": {
+     "heritage": 1
+    }
+   },
+   "n": "Barème des gros héritages non publié.",
+   "once": true,
+   "src": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "roussel",
+   "t": "Revenus du capital",
+   "l": "Cotisations sociales sur les revenus financiers et dividendes",
+   "si": {
+    "min": {
+     "capital": 1
+    }
+   },
+   "n": "Pas de position explicite sur le PFU ; taux non publié.",
+   "k": "risk",
+   "src": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "roussel",
+   "t": "Carburants",
+   "l": "Baisse des taxes sur les carburants ; prix plafonné à 1,60 €/L en 2022",
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "La baisse des taxes est réaffirmée en 2026 ; le plafond de 1,60 €/L date de 2022.",
+   "k": "gain",
+   "src": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "roussel",
+   "t": "Énergie",
+   "l": "Baisse immédiate des taxes sur l'électricité et le gaz",
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Montant non publié.",
+   "k": "gain",
+   "src": "https://votons-2027.fr/candidats/roussel/programme/economie",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "roussel",
+   "t": "Aides et allocations",
+   "l": "Revenu étudiant / jeune de 850 € par mois ; RSA ouvert aux moins de 25 ans",
+   "si": {
+    "max": {
+     "age": 25
+    }
+   },
+   "n": "Mesure du programme 2022.",
+   "k": "gain",
+   "src": "https://www.publicsenat.fr/actualites/politique/presidentielle-fabien-roussel-presente-180-propositions-pour-une-france-des-jours",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "arthaud",
+   "t": "Salaires",
+   "l": "SMIC à 2 200 € net par mois",
+   "calc": "smic",
+   "p": {
+    "cible": 2200
+   },
+   "n": "Confirmé le 5/11/2026 sur ICI Nord.",
+   "src": "https://www.ici.fr/emissions/l-invite-d-ici-matin-ici-nord/notre-seul-moyen-de-defense-c-est-la-greve-pour-nathalie-arthaud-porte-parole-de-lutte-ouvriere-1106974",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "arthaud",
+   "t": "Autre",
+   "l": "Gratuité des transports en commun",
+   "n": "",
+   "k": "gain",
+   "src": "https://www.lutte-ouvriere.org/medias/document/fichiers/2026/11/Depliant-NA-3nov.pdf",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "tondelier",
+   "t": "Patrimoine",
+   "l": "Taxe Zucman de 2 % au-delà de 100 M€ de patrimoine",
+   "calc": "zucman",
+   "p": {
+    "seuil": 100000000.0,
+    "taux": 0.02
+   },
+   "si": {
+    "min": {
+     "patrimoine": 100000000.0
+    }
+   },
+   "n": "p. 66.",
+   "src": "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "tondelier",
+   "t": "Patrimoine",
+   "l": "Rétablissement de l'ISF avec un volet climatique orientant les patrimoines vers l'investissement vert ; exit tax étendue",
+   "calc": "fortune",
+   "p": {
+    "seuil": 1300000.0
+   },
+   "si": {
+    "min": {
+     "patrimoine": 1300000.0
+    }
+   },
+   "n": "Hypothèse : barème de l'ancien ISF (l'IFI actuel disparaît). p. 66. Barème non publié ; rendement estimé à 3,5 Md€ dans le chiffrage NFP 2024.",
+   "src": "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "tondelier",
+   "t": "Héritage et donations",
+   "l": "Nouvelles tranches de droits de succession pour le 1 % le plus riche (au-delà de 4 M€) et le 0,1 % (au-delà de 13 M€)",
+   "si": {
+    "min": {
+     "heritage": 4000000.0
+    }
+   },
+   "n": "p. 66. Taux non publiés (le taux marginal actuel en ligne directe est de 45 % au-delà de 1 805 677 €).",
+   "k": "risk",
+   "src": "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "tondelier",
+   "t": "Salaires",
+   "l": "SMIC à 2 000 € brut dès 2027",
+   "calc": "smic",
+   "p": {
+    "cible": 1560
+   },
+   "n": "2 000 € brut ≈ 1 560 € net. p. 55.",
+   "src": "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "tondelier",
+   "t": "Heures supplémentaires",
+   "l": "Suppression des exonérations sur les heures supplémentaires",
+   "calc": "heures_sup",
+   "p": {
+    "taux": "tmi"
+   },
+   "si": {
+    "min": {
+     "heures_sup": 1
+    }
+   },
+   "n": "Coût estimé : cotisations salariales (11,3 %) et impôt au taux marginal sur vos heures supplémentaires. p. 67. Le texte vise les exonérations de cotisations ; le sort de la défiscalisation (IR) des heures supplémentaires n'est pas précisé.",
+   "src": "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "tondelier",
+   "t": "Logement",
+   "l": "Encadrement des loyers généralisé et pérennisé ; abrogation de la loi Kasbarian ; réquisition de logements vacants",
+   "si": {
+    "in": {
+     "logement": [
+      "locataire"
+     ]
+    }
+   },
+   "n": "p. 20.",
+   "k": "gain",
+   "src": "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "tondelier",
+   "t": "Santé",
+   "l": "Remboursement à 100 % des soins essentiels et suppression des franchises médicales",
+   "n": "p. 111.",
+   "k": "gain",
+   "src": "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "tondelier",
+   "t": "Autre",
+   "l": "Point d'indice des fonctionnaires indexé sur l'inflation",
+   "calc": "salaire_pct",
+   "p": {
+    "pct": 0.02
+   },
+   "si": {
+    "in": {
+     "statut": [
+      "fonctionnaire"
+     ]
+    }
+   },
+   "n": "Hypothèse : inflation de 2 %/an. Mesure non retrouvée dans le projet publié en 2026.",
+   "src": "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027",
+   "fiab": "piste_non_confirmee"
+  },
+  {
+   "c": "glucksmann",
+   "t": "Héritage et donations",
+   "l": "Taxation renforcée des successions au-delà de 2 M€ (1 % des héritages les plus élevés) pour environ 15 Md€",
+   "si": {
+    "min": {
+     "heritage": 2000000.0
+    }
+   },
+   "n": "Barème non publié ; 99 % des héritages non concernés selon le candidat. Rendement jugé « optimiste » par franceinfo (25/08/2026).",
+   "k": "risk",
+   "src": "https://www.publicsenat.fr/actualites/politique/fiscalite-ecole-immigration-ce-que-propose-raphael-glucksmann",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "glucksmann",
+   "t": "CSG",
+   "l": "Baisse de la CSG sur les salaires financée par la taxe sur les méga-héritages",
+   "calc": "net_paliers",
+   "p": {
+    "paliers": [
+     [
+      1800,
+      83
+     ],
+     [
+      4431,
+      100
+     ]
+    ]
+   },
+   "si": {
+    "in": {
+     "statut": [
+      "salarie_prive",
+      "fonctionnaire"
+     ]
+    }
+   },
+   "n": "Chiffres annoncés : +83 €/mois au SMIC, +100 € au salaire médian ; plafond 3 SMIC. Environ 83 €/mois au SMIC et 100 €/mois au salaire médian (RMC/BFMTV, 2/11/2026). Ne concerne que les revenus d'activité.",
+   "src": "https://www.wikiglucksmann.fr/themes/glucksmann-fiscalite.html",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "glucksmann",
+   "t": "Patrimoine",
+   "l": "Soutien à la taxe Zucman (2 % au-delà de 100 M€), modalités à étudier, notamment pour les patrimoines tech ; ISF européen",
+   "calc": "zucman",
+   "p": {
+    "seuil": 100000000.0,
+    "taux": 0.02
+   },
+   "si": {
+    "min": {
+     "patrimoine": 100000000.0
+    }
+   },
+   "n": "Soutien affiché depuis septembre 2025 ; le 4/06/2026 il dit vouloir en étudier les modalités.",
+   "src": "https://www.wikiglucksmann.fr/themes/glucksmann-fiscalite.html",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "glucksmann",
+   "t": "Énergie",
+   "l": "Chèque énergie porté à 500 € pour les ménages modestes et étendu aux classes moyennes (environ 10 millions de ménages)",
+   "si": {
+    "min": {
+     "energie": 1
+    },
+    "max": {
+     "revenu": 60000
+    }
+   },
+   "n": "Coût environ 4 Md€. Il refuse en revanche une baisse générale des taxes sur les carburants.",
+   "k": "gain",
+   "src": "https://www.wikiglucksmann.fr/themes/glucksmann-fiscalite.html",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "glucksmann",
+   "t": "Salaires",
+   "l": "SMIC net à 1 600 € en deux ans",
+   "calc": "smic",
+   "p": {
+    "cible": 1600
+   },
+   "n": "Non confirmé par un document officiel.",
+   "src": "https://voter2027.fr/candidat/raphael-glucksmann",
+   "fiab": "piste_non_confirmee"
+  },
+  {
+   "c": "philippe",
+   "t": "Heures supplémentaires",
+   "l": "Heures au-delà de 35 h (si négociées dans l'entreprise) défiscalisées et sans cotisations",
+   "si": {
+    "in": {
+     "statut": [
+      "salarie_prive"
+     ]
+    }
+   },
+   "n": "Gain d'environ 1 000 €/an pour un salarié au SMIC passant à 37 h (estimation de la presse). Suppose un accord d'entreprise.",
+   "k": "gain",
+   "src": "https://www.publicsenat.fr/actualites/economie/presidentielle-que-proposent-les-candidats-pour-augmenter-les-salaires",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "philippe",
+   "t": "Aides et allocations",
+   "l": "Allocation familiale unique de 350 €/mois dès le premier enfant",
+   "calc": "af",
+   "p": {
+    "forfait": 350
+   },
+   "si": {
+    "min": {
+     "enfants": 1
+    }
+   },
+   "n": "Hypothèse : 350 € par famille (montant par enfant non précisé), comparé aux allocations familiales actuelles. Remplacerait le système actuel des allocations familiales ; la liste des prestations remplacées et une éventuelle condition de ressources ne sont pas précisées. Concerne aussi les familles monoparentales. Annoncé sur France 2 le 8/10/2026.",
+   "src": "https://lcp.fr/actualites/allocations-familiales-edouard-philippe-propose-350-euros-des-le-premier-enfant-443576",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "philippe",
+   "t": "Impôt sur le revenu",
+   "l": "Exonération ou réduction d'impôt sur le revenu pendant les trois ans qui suivent une naissance",
+   "si": {
+    "max": {
+     "age": 45
+    }
+   },
+   "n": "Foyers payant moins de 3 000 € d'IR : exonération totale pendant 3 ans ; au-delà, réduction de 3 000 €. Les sources ne disent pas si les 3 000 € s'entendent par an ou au total (hypothèse la plus fréquente : par an). Réduction, pas crédit : rien pour les non-imposables.",
+   "k": "gain",
+   "src": "https://lcp.fr/actualites/allocations-familiales-edouard-philippe-propose-350-euros-des-le-premier-enfant-443576",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "philippe",
+   "t": "Impôt sur le revenu",
+   "l": "Quotient familial : une part fiscale entière dès le deuxième enfant",
+   "calc": "ir_parts",
+   "p": {
+    "extra": 0.5,
+    "des_enfant": 2
+   },
+   "si": {
+    "min": {
+     "enfants": 2,
+     "revenu": 1
+    }
+   },
+   "n": "Recensé par l'iFRAP ; plafonnement du quotient non précisé.",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "philippe",
+   "t": "CSG",
+   "l": "Retraités appelés à « contribuer davantage » au financement du modèle social",
+   "calc": "salaire_pct",
+   "p": {
+    "pct": -0.009
+   },
+   "si": {
+    "in": {
+     "statut": [
+      "retraite"
+     ]
+    }
+   },
+   "n": "Si la piste CSG 8,3 % → 9,2 % était retenue. Annonce sans modalités (meeting du 5/07/2026). Pistes citées par la presse, non confirmées : CSG des retraités alignée sur celle des actifs (8,3 % → 9,2 %, environ −195 €/an pour 1 800 € brut/mois), suppression de l'abattement de 10 % à l'IR, revalorisation retardée.",
+   "k": "risk",
+   "src": "https://www.senioractu.com/Retraites-la-mere-de-toutes-les-batailles-d-Edouard-Philippe-sera-financee-par-les-retraites_a27850.html",
+   "fiab": "piste_non_confirmee"
+  },
+  {
+   "c": "philippe",
+   "t": "Aides et allocations",
+   "l": "Maîtrise de la dépense publique et conditionnalité des prestations",
+   "si": {
+    "min": {
+     "aides_montant": 1
+    }
+   },
+   "n": "Risque de durcissement des conditions d'accès, non chiffré.",
+   "k": "risk"
+  },
+  {
+   "c": "attal",
+   "t": "Autre",
+   "l": "Baisse des cotisations salariales : environ +250 € nets par mois au salaire médian",
+   "calc": "salaire_plafond",
+   "p": {
+    "pct": 0.1136,
+    "plafond_mois": 250
+   },
+   "si": {
+    "in": {
+     "statut": [
+      "salarie_prive",
+      "fonctionnaire"
+     ]
+    }
+   },
+   "n": "Hypothèse : gain proportionnel au salaire (+250 € pour 2 200 € net), plafonné à 250 €. Le barème par niveau de salaire n'est pas publié. Hypothèse possible : environ +11 % du net autour du salaire médian. Financement : années blanches (État et prestations), réforme de l'assurance chômage, TVA non exclue.",
+   "src": "https://www.politiquematin.fr/gabriel-attal-france-inter-salaires-tva-10-novembre-2026",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "attal",
+   "t": "Aides et allocations",
+   "l": "« Année blanche » sur les prestations sociales en 2028 (pas de revalorisation), sauf les petites retraites",
+   "calc": "aides",
+   "p": {
+    "pct": 0.02
+   },
+   "si": {
+    "min": {
+     "aides_montant": 1
+    }
+   },
+   "n": "Coût : une année sans revalorisation (inflation supposée 2 %). Perte égale à l'inflation de 2028 sur les prestations (allocations familiales, aides au logement, retraites hors petites pensions…). Seuil des « petites retraites » non précisé.",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "attal",
+   "t": "Heures supplémentaires",
+   "l": "Heures supplémentaires défiscalisées, plafond annuel de 220 h supprimé",
+   "si": {
+    "min": {
+     "heures_sup": 1
+    }
+   },
+   "n": "Le plafond actuel d'exonération d'IR (7 500 €/an) n'est pas mentionné.",
+   "k": "gain",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "attal",
+   "t": "Héritage et donations",
+   "l": "Allègement des droits de succession",
+   "si": {
+    "min": {
+     "heritage": 1
+    }
+   },
+   "n": "Pas de chiffre pour 2027. Pour mémoire, le programme Ensemble des législatives 2024 prévoyait un abattement en ligne directe de 150 000 € au lieu de 100 000 € par enfant.",
+   "k": "gain",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "attal",
+   "t": "Énergie",
+   "l": "Gel des prix de l'électricité pendant cinq ans",
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Recensé par l'iFRAP.",
+   "k": "gain",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lisnard",
+   "t": "Autre",
+   "l": "Hausse du salaire net par baisse des cotisations salariales : +200 €/mois au départ, jusqu'à +400 €/mois",
+   "calc": "salaire_plafond",
+   "p": {
+    "pct": 0.2,
+    "plafond_mois": 400
+   },
+   "si": {
+    "in": {
+     "statut": [
+      "salarie_prive",
+      "fonctionnaire"
+     ]
+    }
+   },
+   "n": "Calcul à terme : +20 % du net, plafonné à 400 €/mois (+200 € au départ). La baisse de CSG annoncée fait partie de ce gain. Barème par niveau de salaire non publié. Calendrier : montée en charge sur le quinquennat.",
+   "src": "https://isoloir2027.fr/programme/david-lisnard",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lisnard",
+   "t": "Revenus du capital",
+   "l": "Taux unique de 25 % sur les revenus du capital, loyers compris, avec option pour le barème",
+   "calc": "capital",
+   "p": {
+    "taux": 0.25
+   },
+   "si": {
+    "min": {
+     "capital": 1
+    }
+   },
+   "n": "Exemple du parti : propriétaire à 30 % de TMI avec 10 000 € de loyers nets, impôt de 4 720 € (47,2 %) ramené à 2 500 €, soit −2 220 €/an. Taux de 25 % présumé tout compris (prélèvements sociaux inclus). Contradiction avec « maintien du PFU » (iFRAP).",
+   "src": "https://fr.qz.com/david-lisnard-propose-flat-tax-25-revenus-capital-fonciers-110726",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lisnard",
+   "t": "Héritage et donations",
+   "l": "Suppression des droits de succession en ligne directe ; donations libéralisées",
+   "calc": "succ_supp",
+   "si": {
+    "min": {
+     "heritage": 1
+    }
+   },
+   "n": "Barème actuel en ligne directe : jusqu'à 45 %. Abattements sur donations relevés (montant non publié). Une source cite un taux marginal maximal de 20 % hors ligne directe, non confirmé. Tribune « Changer de logiciel fiscal » (Atlantico, 16/04/2026).",
+   "once": true,
+   "src": "https://www.poliscope.info/propositions/david-lisnard-supprimer-droits-succession-ligne-directe",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lisnard",
+   "t": "Patrimoine",
+   "l": "Suppression de l'IFI et des droits de mutation (frais de notaire), remplacés par une taxe foncière sur la valeur vénale",
+   "calc": "ifi_supp",
+   "si": {
+    "min": {
+     "immobilier": 1300000.0
+    }
+   },
+   "n": "Remplacé par une taxe foncière sur la valeur vénale (non chiffrée). Le taux de la nouvelle taxe foncière n'est pas publié, donc l'effet sur la taxe foncière d'un ménage n'est pas chiffrable. Les droits de mutation sont d'environ 5,8 % du prix dans l'ancien.",
+   "src": "https://isoloir2027.fr/programme/david-lisnard",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lisnard",
+   "t": "Retraite",
+   "l": "Âge légal à 65 ans ; étage de capitalisation obligatoire ; pensions au-delà d'environ 2 000 €/mois désindexées",
+   "calc": "salaire_pct",
+   "p": {
+    "pct": -0.02
+   },
+   "si": {
+    "in": {
+     "statut": [
+      "retraite"
+     ]
+    },
+    "min": {
+     "net": 2000
+    }
+   },
+   "n": "Coût : perte de pouvoir d'achat si inflation de 2 %/an. Les pensions au-dessus de 2 000 €/mois ne suivraient plus l'inflation (perte = inflation × pension). Le capital retraite pourrait être débloqué en partie pour acheter sa résidence principale.",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lisnard",
+   "t": "Heures supplémentaires",
+   "l": "Heures supplémentaires majorées de 10 % par défaut (au lieu de 25 %)",
+   "calc": "heures_sup",
+   "p": {
+    "taux": -0.12
+   },
+   "si": {
+    "min": {
+     "heures_sup": 1
+    }
+   },
+   "n": "Si votre accord d'entreprise ne prévoit rien : majoration ramenée de 25 % à 10 %. Moins de gain par heure supplémentaire pour le salarié quand aucun accord ne prévoit mieux.",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lisnard",
+   "t": "Taxe d'habitation",
+   "l": "Rétablir une taxe d'habitation universelle",
+   "n": "Une seule source secondaire (Poliscope), pas de montant.",
+   "k": "risk",
+   "src": "https://www.poliscope.info/propositions/david-lisnard-supprimer-droits-succession-ligne-directe",
+   "fiab": "piste_non_confirmee"
+  },
+  {
+   "c": "lisnard",
+   "t": "Aides et allocations",
+   "l": "Allocation sociale unique plafonnée",
+   "si": {
+    "min": {
+     "aides_montant": 1
+    }
+   },
+   "n": "Peut réduire vos aides si leur cumul dépasse le plafond (non publié).",
+   "k": "risk"
+  },
+  {
+   "c": "villepin",
+   "t": "Primes",
+   "l": "Environ 1 500 € par an pour chaque salarié, issus d'un tiers des dividendes",
+   "calc": "fixe",
+   "p": {
+    "montant": 1500
+   },
+   "si": {
+    "in": {
+     "statut": [
+      "salarie_prive"
+     ]
+    }
+   },
+   "n": "Pour les salariés d'entreprises versant des dividendes (montant moyen). Moyenne nationale (33 Md€ répartis) : le montant réel dépend des dividendes de l'employeur. Fiscalité et cotisations de cette somme non précisées. Rien pour les salariés d'entreprises sans dividendes, ni pour les fonctionnaires.",
+   "src": "https://www.lecourrierdesstrateges.fr/le-projet-de-villepin-33-milliards-pris-aux-actionnaires-200-milliards-bascules-sur-la-csg/",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "villepin",
+   "t": "CSG",
+   "l": "Taux unique de CSG pour tous, assiette élargie ; plus de 200 Md€ de cotisations basculées sur la CSG",
+   "si": {
+    "in": {
+     "statut": [
+      "salarie_prive",
+      "fonctionnaire"
+     ]
+    }
+   },
+   "n": "Taux non publié. Il annonce +200 €/mois par salarié au terme de la réforme (deux quinquennats), chiffre non expliqué. Les retraités (CSG de 0 à 8,3 % aujourd'hui) et les revenus du capital paieraient davantage. Effet net par foyer non calculable sans le taux.",
+   "k": "gain",
+   "src": "https://www.lecourrierdesstrateges.fr/le-projet-de-villepin-33-milliards-pris-aux-actionnaires-200-milliards-bascules-sur-la-csg/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "villepin",
+   "t": "Héritage et donations",
+   "l": "Impôt sur les successions unique et renforcé ; transmissions de son vivant entièrement défiscalisées",
+   "si": {
+    "min": {
+     "heritage": 1
+    }
+   },
+   "n": "Barème non publié. Un seuil de 2 M€ est évoqué par un agrégateur, sans source primaire.",
+   "k": "neutral",
+   "src": "https://www.moneyvox.fr/impot/actualites/110169/presidentielle-2027-pour-sortir-un-systeme-feodal-villepin-propose-un-big-bang-fiscal",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "villepin",
+   "t": "Impôt sur le revenu",
+   "l": "Suppression de toutes les niches fiscales et sociales (réductions et crédits d'impôt)",
+   "si": {
+    "min": {
+     "revenu": 1
+    }
+   },
+   "n": "Touche potentiellement l'emploi à domicile, les frais de garde, les dons et les heures supplémentaires défiscalisées. Extinction progressive. Liste et compensations non publiées.",
+   "k": "risk",
+   "src": "https://www.moneyvox.fr/impot/actualites/110169/presidentielle-2027-pour-sortir-un-systeme-feodal-villepin-propose-un-big-bang-fiscal",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "villepin",
+   "t": "Audiovisuel public",
+   "l": "Renforcement de l'audiovisuel public",
+   "n": "Aucun effet direct sur votre budget (financement par une part de la TVA).",
+   "k": "neutral",
+   "src": "https://monvote2027.fr/candidat/devillepin",
+   "fiab": "declaration_2026"
+  }
+ ],
+ "ent": [
+  {
+   "c": "lepen",
+   "t": "Impôts de production",
+   "l": "Suppression de la CFE, de la CVAE et de la C3S",
+   "calc": "prod",
+   "p": {
+    "cfe": -1,
+    "cvae": -1,
+    "c3s": -1
+   },
+   "n": "Contre-budget RN 2026 (oct. 2025, 16,2 Md€) puis contre-budget 2027 (6 oct. 2026, environ 17 Md€). Calendrier non précisé ; en 2024, Bardella prévoyait la fin de la CVAE d'ici 2027 et une sortie progressive de la C3S. Pour une entreprise : CVAE (0,28 % max de la VA en 2026, en extinction légale d'ici 2030), CFE et C3S (0,16 % du CA au-delà de 19 M€) ramenées à 0.",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lepen",
+   "t": "Cotisations",
+   "l": "Exonération de cotisations patronales sur les hausses de salaire jusqu'à 10 %, pour les salaires jusqu'à 3 SMIC",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Effet seulement si vous augmentez vos salariés. Programme législatives 2024 (et proposition de loi RN) ; reprise annoncée dans le programme Bardella 2027 selon les synthèses, sans texte 2027 détaillé. Exonération facultative : ne joue que si l'employeur augmente les salaires.",
+   "k": "gain",
+   "src": "https://www.publicsenat.fr/actualites/economie/retraites-fiscalite-main-doeuvre-detrangere-cout-du-programme-jordan-bardella-face-aux-inquietudes-du-patronat",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "lepen",
+   "t": "Rachats d'actions",
+   "l": "Taxe sur les rachats d'actions portée à 33 %",
+   "calc": "taux_base",
+   "p": {
+    "base": "rachats",
+    "taux": 0.25
+   },
+   "si": {
+    "min": {
+     "ca": 750000000.0,
+     "rachats": 1
+    }
+   },
+   "n": "Hausse de 25 points (8 % → 33 %) sur vos rachats. Amendement RN (K. Mauvieux) adopté en séance au PLF 2026 le 29 oct. 2025 ; maintien dans le texte final non vérifié. L'iFRAP liste une taxe sur les rachats d'actions dans le programme 2027 de M. Le Pen, sans nouveaux paramètres.",
+   "src": "https://www.legifiscal.fr/actualites-fiscales/4299-plf-2026-amendement-faveur-hausse-importante-taxe-rachats-actions.html",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lepen",
+   "t": "Taxe sectorielle",
+   "l": "Taxe de 1 000 € par an pour l'embauche d'un salarié extra-européen",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Concerne uniquement les salariés de nationalité extra-européenne. Payée par l'employeur.",
+   "k": "risk",
+   "src": "https://repere2027.fr/programmes/marine-le-pen",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lepen",
+   "t": "Taxe sectorielle",
+   "l": "Taxe sur les services numériques doublée (vote du RN)",
+   "si": {
+    "secteurs": [
+     "numerique"
+    ],
+    "min": {
+     "ca": 750000000.0
+    }
+   },
+   "n": "Amendement EPR au PLF 2026, voté par le RN ; ce n'est pas une proposition propre au RN.",
+   "k": "risk",
+   "src": "https://www.ifrap.org/budget-et-fiscalite/principaux-amendements-au-budget-2026-qui-vote-quoi",
+   "fiab": "piste_non_confirmee"
+  },
+  {
+   "c": "lepen",
+   "t": "Énergie",
+   "l": "Sortie du marché européen de l'électricité, prix fondé sur les coûts du nucléaire français",
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Aucun prix cible chiffré. Moratoire sur les nouveaux projets éoliens et solaires, fin des subventions aux renouvelables (5 Md€ la première année selon le RN). La TVA ne compte pas pour une entreprise assujettie.",
+   "k": "gain",
+   "src": "https://www.timefrance.fr/politique/presidentielle-2027-marine-le-pen-devoile-son-contre-budget/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lepen",
+   "t": "Autre",
+   "l": "Suppression de plus de 120 « petites taxes »",
+   "n": "Liste non publiée.",
+   "k": "gain",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lepen",
+   "t": "Salaires",
+   "l": "Pas de hausse du SMIC par la loi",
+   "si": {
+    "min": {
+     "nb_smic": 1
+    }
+   },
+   "n": "Le RN préfère l'exonération sur les hausses de salaire décrite plus haut.",
+   "k": "neutral",
+   "src": "https://www.publicsenat.fr/actualites/economie/retraites-fiscalite-main-doeuvre-detrangere-cout-du-programme-jordan-bardella-face-aux-inquietudes-du-patronat",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "bardella",
+   "t": "Impôts de production",
+   "l": "Suppression de la CFE, de la CVAE et de la C3S",
+   "calc": "prod",
+   "p": {
+    "cfe": -1,
+    "cvae": -1,
+    "c3s": -1
+   },
+   "n": "Contre-budget RN 2026 (oct. 2025, 16,2 Md€) puis contre-budget 2027 (6 oct. 2026, environ 17 Md€). Calendrier non précisé ; en 2024, Bardella prévoyait la fin de la CVAE d'ici 2027 et une sortie progressive de la C3S. Pour une entreprise : CVAE (0,28 % max de la VA en 2026, en extinction légale d'ici 2030), CFE et C3S (0,16 % du CA au-delà de 19 M€) ramenées à 0.",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "Cotisations",
+   "l": "Exonération de cotisations patronales sur les hausses de salaire jusqu'à 10 %, pour les salaires jusqu'à 3 SMIC",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Effet seulement si vous augmentez vos salariés. Programme législatives 2024 (et proposition de loi RN) ; reprise annoncée dans le programme Bardella 2027 selon les synthèses, sans texte 2027 détaillé. Exonération facultative : ne joue que si l'employeur augmente les salaires.",
+   "k": "gain",
+   "src": "https://www.publicsenat.fr/actualites/economie/retraites-fiscalite-main-doeuvre-detrangere-cout-du-programme-jordan-bardella-face-aux-inquietudes-du-patronat",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "bardella",
+   "t": "Rachats d'actions",
+   "l": "Taxe sur les rachats d'actions portée à 33 %",
+   "calc": "taux_base",
+   "p": {
+    "base": "rachats",
+    "taux": 0.25
+   },
+   "si": {
+    "min": {
+     "ca": 750000000.0,
+     "rachats": 1
+    }
+   },
+   "n": "Hausse de 25 points (8 % → 33 %) sur vos rachats. Amendement RN (K. Mauvieux) adopté en séance au PLF 2026 le 29 oct. 2025 ; maintien dans le texte final non vérifié. L'iFRAP liste une taxe sur les rachats d'actions dans le programme 2027 de M. Le Pen, sans nouveaux paramètres.",
+   "src": "https://www.legifiscal.fr/actualites-fiscales/4299-plf-2026-amendement-faveur-hausse-importante-taxe-rachats-actions.html",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "bardella",
+   "t": "Taxe sectorielle",
+   "l": "Taxe de 1 000 € par an pour l'embauche d'un salarié extra-européen",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Concerne uniquement les salariés de nationalité extra-européenne. Payée par l'employeur.",
+   "k": "risk",
+   "src": "https://repere2027.fr/programmes/marine-le-pen",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "Taxe sectorielle",
+   "l": "Taxe sur les services numériques doublée (vote du RN)",
+   "si": {
+    "secteurs": [
+     "numerique"
+    ],
+    "min": {
+     "ca": 750000000.0
+    }
+   },
+   "n": "Amendement EPR au PLF 2026, voté par le RN ; ce n'est pas une proposition propre au RN.",
+   "k": "risk",
+   "src": "https://www.ifrap.org/budget-et-fiscalite/principaux-amendements-au-budget-2026-qui-vote-quoi",
+   "fiab": "piste_non_confirmee"
+  },
+  {
+   "c": "bardella",
+   "t": "Énergie",
+   "l": "Sortie du marché européen de l'électricité, prix fondé sur les coûts du nucléaire français",
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Aucun prix cible chiffré. Moratoire sur les nouveaux projets éoliens et solaires, fin des subventions aux renouvelables (5 Md€ la première année selon le RN). La TVA ne compte pas pour une entreprise assujettie.",
+   "k": "gain",
+   "src": "https://www.timefrance.fr/politique/presidentielle-2027-marine-le-pen-devoile-son-contre-budget/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "Autre",
+   "l": "Suppression de plus de 120 « petites taxes »",
+   "n": "Liste non publiée.",
+   "k": "gain",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "bardella",
+   "t": "Salaires",
+   "l": "Pas de hausse du SMIC par la loi",
+   "si": {
+    "min": {
+     "nb_smic": 1
+    }
+   },
+   "n": "Le RN préfère l'exonération sur les hausses de salaire décrite plus haut.",
+   "k": "neutral",
+   "src": "https://www.publicsenat.fr/actualites/economie/retraites-fiscalite-main-doeuvre-detrangere-cout-du-programme-jordan-bardella-face-aux-inquietudes-du-patronat",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "zemmour",
+   "t": "Impôts de production",
+   "l": "Baisse supplémentaire de 30 Md€ des impôts de production (C3S, CVAE, CFE)",
+   "calc": "prod",
+   "p": {
+    "cvae": -1,
+    "c3s": -1,
+    "cfe": -0.5
+   },
+   "n": "Hypothèse : suppression de la CVAE et de la C3S, CFE divisée par deux. Programme 2022, non actualisé : aucun programme économique 2027 détaillé n'est publié (candidature annoncée en sept. 2026). Les synthèses parlent d'une suppression de la C3S, de la CVAE et de la CFE.",
+   "src": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/synthese",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "zemmour",
+   "t": "Impôt sur les sociétés",
+   "l": "IS à 15 % pour les petites entreprises, artisans, commerçants et agriculteurs",
+   "calc": "is",
+   "p": {
+    "reduit": 0.15,
+    "seuil": 300000
+   },
+   "n": "Programme 2022. Seuil de bénéfice de 300 000 € selon une synthèse tierce, non vérifié (le taux réduit actuel ne porte que sur 42 500 €). Coût : 4,8 Md€.",
+   "src": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/baisser-le-taux-dis-a-15-pour-les-petites-entreprises-les-artisans-les-commercants-et-les-agriculteurs",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "zemmour",
+   "t": "Primes",
+   "l": "« Prime zéro charge » au mérite, sans cotisations ni impôt, jusqu'à 3 mois de salaire net",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Facultative pour l'employeur. Toujours citée en 2026 (iFRAP 2027) ; paramètres 2022.",
+   "k": "gain",
+   "src": "https://www.institutmontaigne.org/presidentielle-2022/legislatives-2022/reconquete/creer-une-prime-zero-charge-au-merite-versee-par-lemployeur-exoneree-de-cotisations-et-dimpots-jusqua-3-mois-de-salaire-net",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "zemmour",
+   "t": "Cotisations",
+   "l": "Exonération de cotisations patronales pendant 2 ans pour les entreprises de moins de 11 salariés qui embauchent 2 CDI",
+   "si": {
+    "min": {
+     "effectif": 1
+    },
+    "max": {
+     "effectif": 10
+    }
+   },
+   "n": "Programme 2022.",
+   "k": "gain",
+   "src": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/synthese",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "zemmour",
+   "t": "Temps de travail",
+   "l": "Heures supplémentaires totalement exonérées d'impôt et de cotisations",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Programme 2022.",
+   "k": "gain",
+   "src": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/synthese",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "zemmour",
+   "t": "Énergie",
+   "l": "Obligation pour les entreprises de rembourser 50 % des frais de carburant des salariés",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Programme 2022 (coût public estimé à 1,7 Md€, donc probablement compensé).",
+   "k": "risk",
+   "src": "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/synthese",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Impôts de production",
+   "l": "Baisse des impôts de production",
+   "n": "Non chiffrée (« 3,2 % du PIB, presque deux fois la médiane européenne »). Page programme DLF consultée en nov. 2026, en cours d'actualisation pour 2027 (pas de badge « Projet 2027 »). Un projet économique doit être présenté le 12 nov. 2026.",
+   "k": "gain",
+   "src": "https://www.debout-la-france.fr/projet/economie-travail/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Impôt sur les sociétés",
+   "l": "IS réduit de moitié sur les bénéfices réinvestis en France",
+   "calc": "is_reinvesti",
+   "p": {
+    "pct": 0.5
+   },
+   "si": {
+    "min": {
+     "resultat": 1
+    }
+   },
+   "n": "Calcul : part du bénéfice non distribuée en dividendes. Taux déduit (25 % ÷ 2). Page programme DLF consultée en nov. 2026, en cours d'actualisation pour 2027 (pas de badge « Projet 2027 »). Un projet économique doit être présenté le 12 nov. 2026.",
+   "src": "https://prisme.vote/programmes/presidentielles_2027/nicolas-dupont-aignan/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Impôt sur les sociétés",
+   "l": "« Participation gaullienne » : IS réduit d'1 point par tranche de 5 % d'actionnariat salarié, dans la limite de 10 points",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "La page « Produire en France » parle d'1 point par tranche de 2 %. Exonération de forfait social sur la participation (1 Md€).",
+   "k": "gain",
+   "src": "https://www.debout-la-france.fr/projet/economie-travail/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Cotisations",
+   "l": "SMIC à 1 600 € nets par mois grâce à une baisse des cotisations salariales (coût employeur inchangé)",
+   "si": {
+    "min": {
+     "nb_smic": 1
+    }
+   },
+   "n": "Annonce de nov. 2026, sans barème de baisse publié.",
+   "k": "neutral",
+   "src": "https://www.youtube.com/watch?v=wzlBwUWgS30",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Énergie",
+   "l": "Sortie du marché européen de l'électricité : tarif réglementé de 10 c€/kWh (100 €/MWh) garanti par contrat, prix divisés par deux la première année ; gaz -20 %",
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "",
+   "k": "gain",
+   "src": "https://www.debout-la-france.fr/projet/economie-travail/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Commerce extérieur",
+   "l": "Droits de douane élevés sur les véhicules importés hors Europe ; taxe anti-dumping (5 Md€) ; 50 à 75 % de la commande publique réservée au made in France",
+   "si": {
+    "min": {
+     "import_hors_ue": 1
+    }
+   },
+   "n": "",
+   "k": "risk",
+   "src": "https://www.debout-la-france.fr/projet/transport-automobilistes/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Taxe sectorielle",
+   "l": "Taxe sur les bénéfices des multinationales selon le chiffre d'affaires réalisé en France (10 Md€) et taxe sur l'usage des données personnelles (5 Md€)",
+   "si": {
+    "secteurs": [
+     "numerique"
+    ],
+    "min": {
+     "ca": 750000000.0
+    }
+   },
+   "n": "Rendements visés à 5 ans.",
+   "k": "risk",
+   "src": "https://prisme.vote/programmes/presidentielles_2027/nicolas-dupont-aignan/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "dupontaignan",
+   "t": "Taxe sectorielle",
+   "l": "Renationalisation des autoroutes sans indemnisation",
+   "si": {
+    "secteurs": [
+     "autoroutes"
+    ]
+   },
+   "n": "Concessionnaires expropriés.",
+   "k": "risk",
+   "src": "https://www.debout-la-france.fr/projet/transport-automobilistes/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "retailleau",
+   "t": "Impôts de production",
+   "l": "Suppression de la C3S",
+   "calc": "prod",
+   "p": {
+    "c3s": -1
+   },
+   "si": {
+    "min": {
+     "ca": 19000000.0
+    }
+   },
+   "n": "Bloc d'environ 15 Md€ de baisse des impôts de production.",
+   "src": "https://republicains.fr/qrtravail/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "retailleau",
+   "t": "Impôts de production",
+   "l": "Suppression de la CVAE",
+   "calc": "prod",
+   "p": {
+    "cvae": -1
+   },
+   "si": {
+    "min": {
+     "cvae": 1
+    }
+   },
+   "n": "Accélère l'extinction prévue d'ici 2030.",
+   "src": "https://republicains.fr/qrtravail/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "retailleau",
+   "t": "Impôts de production",
+   "l": "Exonération de la part industrielle de la CFE",
+   "calc": "prod",
+   "p": {
+    "cfe": -1
+   },
+   "si": {
+    "secteurs": [
+     "industrie",
+     "agriculture"
+    ]
+   },
+   "n": "Hypothèse : CFE entièrement exonérée pour un site industriel. Étendue à l'agroalimentaire.",
+   "src": "https://republicains.fr/qrtravail/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "retailleau",
+   "t": "Cotisations",
+   "l": "Plus de 25 Md€ d'allègements du coût du travail (seuil « zéro cotisation » et baisse des cotisations patronales non contributives)",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Barème et répartition par niveau de salaire non publiés. Les entreprises bénéficieraient de 30 Md€ de baisses de prélèvements au total (12 oct. 2026).",
+   "k": "gain",
+   "src": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "retailleau",
+   "t": "Temps de travail",
+   "l": "Fin des 35 heures : temps de travail annualisé, durée de référence portée de 1 607 h à 1 623 h ; au-delà, zéro cotisation patronale et salariale (CSG et CRDS maintenues)",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Les 16 heures de plus sont payées. La majoration de 25 % ne serait plus imposée par la loi.",
+   "k": "neutral",
+   "src": "https://www.publicsenat.fr/actualites/politique/la-fete-est-finie-bruno-retailleau-veut-supprimer-les-35-heures-inciter-a-la-reprise-dactivite-et-plafonner-les-aides-sociales-pour-relancer-lemploi",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "retailleau",
+   "t": "Impôt sur les sociétés",
+   "l": "Sur-amortissement de l'investissement industriel ; sur-amortissement IA de 100 % sur 3 ans pour les PME et ETI ; CIR sanctuarisé",
+   "si": {
+    "secteurs": [
+     "industrie"
+    ]
+   },
+   "n": "Taux d'IS inchangé, aucune annonce.",
+   "k": "gain",
+   "src": "https://votons-2027.fr/candidats/retailleau/programme/economie",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Salaires",
+   "l": "SMIC porté immédiatement à 1 700 € net par mois",
+   "calc": "smic",
+   "p": {
+    "cible": 1700
+   },
+   "si": {
+    "min": {
+     "nb_smic": 1
+    }
+   },
+   "n": "Coût employeur estimé pour vos salariés au SMIC (allègements non recalculés). Mesure clé du programme. Aucune compensation spécifique pour les employeurs n'est annoncée ; les allègements de cotisations sur les bas salaires ne sont pas détaillés.",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Salaires",
+   "l": "Indexation de tous les salaires (privé et public) sur l'inflation",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Échelle mobile des salaires ; aucun taux particulier.",
+   "k": "risk",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Impôt sur les sociétés",
+   "l": "Impôt sur les sociétés progressif, même traitement PME / grands groupes, taux modulé selon l'usage des bénéfices",
+   "si": {
+    "min": {
+     "dividendes": 1
+    }
+   },
+   "n": "Aucun taux ni seuil publié dans l'édition 2027. Le taux actuel est de 25 % (15 % sur les 42 500 premiers euros pour les PME).",
+   "k": "risk",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Superprofits",
+   "l": "Taxe sur les superprofits des grandes entreprises, déclenchée en cas de hausse brutale des bénéfices pendant une crise",
+   "si": {
+    "min": {
+     "ca": 750000000.0
+    }
+   },
+   "n": "Le programme 2027 ne donne ni taux ni seuil. Les amendements portés par la gauche depuis 2022 visaient les sociétés réalisant plus de 750 M€ de CA dont le résultat dépasse 1,25 fois la moyenne 2017-2019 ; ces paramètres sont repris à titre indicatif. Rendement estimé à 15 Md€ (programme NFP 2024).",
+   "k": "risk",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Dividendes",
+   "l": "Suppression de la flat tax : dividendes imposés au barème de l'impôt sur le revenu (14 tranches)",
+   "si": {
+    "min": {
+     "dividendes": 1
+    }
+   },
+   "n": "Côté associés : dividendes imposés au barème au lieu de 31,4 %. Mesure côté associé. S'y ajoute l'extension des cotisations sociales aux revenus du capital (taux non chiffré). Fin de la fraude à l'arbitrage de dividendes (CumCum).",
+   "k": "risk",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Impôts de production",
+   "l": "Remplacement de la CVAE par une nouvelle taxe progressive selon le chiffre d'affaires et l'empreinte écologique, affectée aux « éco-régions »",
+   "n": "La CVAE est en cours de suppression d'ici 2030 dans la loi actuelle ; le programme créerait un impôt de production de remplacement. Aucun taux publié.",
+   "k": "risk",
+   "src": "https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Temps de travail",
+   "l": "Retour effectif aux 35 heures, heures supplémentaires majorées à 25 % (4 premières) puis 50 % ; 32 heures dans les métiers pénibles ou de nuit ; 6e semaine de congés payés",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Hausse du coût du travail pour les entreprises qui recourent aux heures supplémentaires (les accords d'entreprise permettent aujourd'hui une majoration de 10 %).",
+   "k": "risk",
+   "src": "https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre1",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Autre",
+   "l": "Arrêt maladie indemnisé à 100 % du salaire sans jour de carence",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Le financement (Sécurité sociale ou employeur) n'est pas précisé.",
+   "k": "risk",
+   "src": "https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre1",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Taxe sectorielle",
+   "l": "Fin des niches fiscales sur le kérosène",
+   "si": {
+    "secteurs": [
+     "transport_aerien"
+    ]
+   },
+   "n": "Présenté comme un moyen de limiter le dumping du e-commerce venu de l'étranger. Aucun chiffrage.",
+   "k": "risk",
+   "src": "https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre2",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Taxe sectorielle",
+   "l": "Renationalisation des autoroutes, avec retour sur les hausses de péages passées",
+   "si": {
+    "secteurs": [
+     "autoroutes"
+    ]
+   },
+   "n": "Concerne les sociétés concessionnaires ; indemnisation non chiffrée.",
+   "k": "risk",
+   "src": "https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "melenchon",
+   "t": "Énergie",
+   "l": "Retour des tarifs réglementés de l'énergie calculés sur les coûts de production ; retour sur les hausses du prix du gaz",
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Le programme ne précise pas si les entreprises (au-delà des TPE déjà éligibles) en bénéficieraient.",
+   "k": "gain",
+   "src": "https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "roussel",
+   "t": "Salaires",
+   "l": "SMIC porté à 1 700 € net",
+   "calc": "smic",
+   "p": {
+    "cible": 1700
+   },
+   "si": {
+    "min": {
+     "nb_smic": 1
+    }
+   },
+   "n": "Coût employeur estimé pour vos salariés au SMIC. Annoncé à l'université d'été du PCF (Toulouse). Le programme 2022 prévoyait 1 500 € net. Retour de l'échelle mobile des salaires.",
+   "src": "https://www.pcf.fr/ue_26_discours_fr",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "roussel",
+   "t": "Salaires",
+   "l": "Hausse de 5 % de tous les salaires",
+   "calc": "masse_pct",
+   "p": {
+    "pct": 0.05
+   },
+   "si": {
+    "min": {
+     "masse": 1
+    }
+   },
+   "n": "Coût : +5 % sur votre masse salariale, cotisations comprises. Annoncé à l'université d'été du PCF (Toulouse). Le programme 2022 prévoyait 1 500 € net. Retour de l'échelle mobile des salaires.",
+   "src": "https://www.pcf.fr/ue_26_discours_fr",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "roussel",
+   "t": "Cotisations",
+   "l": "Cotisations sociales sur les revenus financiers et les dividendes pour financer la Sécurité sociale et les retraites ; suppression des exonérations jugées inefficaces",
+   "si": {
+    "min": {
+     "dividendes": 1
+    }
+   },
+   "n": "Taux non publié.",
+   "k": "risk",
+   "src": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "roussel",
+   "t": "Superprofits",
+   "l": "Confiscation des profits de TotalEnergies et nationalisation du groupe (« expropriation si nécessaire »)",
+   "si": {
+    "secteurs": [
+     "energie"
+    ]
+   },
+   "n": "Déclaration de campagne, sans mécanisme fiscal précis.",
+   "k": "risk",
+   "src": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "roussel",
+   "t": "Autre",
+   "l": "Nationalisation des grandes banques et assurances (BNP Paribas, Société générale, Axa) pour créer un pôle financier public prêtant à taux zéro ou négatif",
+   "si": {
+    "secteurs": [
+     "banque",
+     "assurance"
+    ]
+   },
+   "n": "",
+   "k": "risk",
+   "src": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "roussel",
+   "t": "Temps de travail",
+   "l": "Semaine de 32 heures sans perte de salaire",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "",
+   "k": "risk",
+   "src": "https://votons-2027.fr/candidats/roussel/programme/economie",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "roussel",
+   "t": "Énergie",
+   "l": "Baisse des taxes sur l'électricité et le gaz ; pôle public de l'énergie",
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Montant non publié.",
+   "k": "gain",
+   "src": "https://votons-2027.fr/candidats/roussel/programme/economie",
+   "fiab": "programme_2022_ou_2024"
+  },
+  {
+   "c": "arthaud",
+   "t": "Salaires",
+   "l": "SMIC à 2 200 € net par mois (au minimum)",
+   "calc": "smic",
+   "p": {
+    "cible": 2200
+   },
+   "si": {
+    "min": {
+     "nb_smic": 1
+    }
+   },
+   "n": "Coût employeur estimé. Chiffre de la campagne 2027 (meeting du 26/09/2026, dépliant du 3/11/2026).",
+   "src": "https://www.objectif2027.fr/candidats/nathalie-arthaud/",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "arthaud",
+   "t": "Autre",
+   "l": "Interdiction des licenciements et des suppressions d'emplois",
+   "n": "Contrainte forte sur la gestion des effectifs.",
+   "k": "risk",
+   "src": "https://www.lutte-ouvriere.org/medias/document/fichiers/2026/11/Depliant-NA-3nov.pdf",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "arthaud",
+   "t": "Superprofits",
+   "l": "Réquisition et confiscation des profits, à commencer par le pétrole et l'armement, affectés aux services publics",
+   "calc": "taux_base",
+   "p": {
+    "base": "resultat",
+    "taux": 1
+   },
+   "si": {
+    "secteurs": [
+     "energie",
+     "armement"
+    ],
+    "min": {
+     "resultat": 1
+    }
+   },
+   "n": "Pas un impôt au sens strict ; LO refuse de faire de la « taxation des riches » un objectif.",
+   "src": "https://www.objectif2027.fr/candidats/nathalie-arthaud/",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "tondelier",
+   "t": "Salaires",
+   "l": "SMIC à 2 000 € brut par mois dès 2027",
+   "calc": "smic",
+   "p": {
+    "cible": 1560
+   },
+   "si": {
+    "min": {
+     "nb_smic": 1
+    }
+   },
+   "n": "2 000 € brut ≈ 1 560 € net ; coût employeur estimé. Projet « Pour une prospérité écologique », p. 55. Soit environ +9,7 % par rapport à 1 823 € brut (janvier 2026).",
+   "src": "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "tondelier",
+   "t": "Cotisations",
+   "l": "Rationalisation des allègements : gel et désindexation de leurs montants, suppression des exonérations au-delà de 1,6 SMIC et sur les heures supplémentaires",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "p. 67. Hausse du coût du travail pour les salaires supérieurs à 1,6 SMIC (fin de l'allègement « maladie » et des allocations familiales réduites au-dessus de ce seuil, selon lecture) et sur les heures supplémentaires.",
+   "k": "risk",
+   "src": "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "tondelier",
+   "t": "Superprofits",
+   "l": "Taxe exceptionnelle sur les superprofits pétroliers, gaziers et du transport maritime",
+   "si": {
+    "secteurs": [
+     "energie",
+     "transport_maritime"
+    ]
+   },
+   "n": "p. 66. Taux non publié. Rendement estimé à 15 Md€ dans le programme NFP 2024.",
+   "k": "risk",
+   "src": "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "tondelier",
+   "t": "Taxe sectorielle",
+   "l": "Hausse de la taxe de solidarité sur les billets d'avion (TSBA) et de la TVA sur le transport aérien",
+   "si": {
+    "secteurs": [
+     "transport_aerien"
+    ]
+   },
+   "n": "p. 25. Montant non publié.",
+   "k": "risk",
+   "src": "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "tondelier",
+   "t": "Énergie",
+   "l": "Suppression progressive des exonérations fiscales sur les énergies fossiles",
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "p. 16. Concerne notamment les taux réduits d'accise (gazole non routier, transport routier, agriculture). Calendrier non chiffré.",
+   "k": "risk",
+   "src": "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "glucksmann",
+   "t": "Cotisations",
+   "l": "Baisse des prélèvements sur les salaires (CSG salariale) financée par la taxation des méga-héritages : +15 Md€ de salaire net",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Coût employeur inchangé. Neutre pour le coût employeur (le brut ne change pas). Environ 83 €/mois au SMIC et 100 € au salaire médian (RMC/BFMTV, 2/11/2026) ; 120 €/mois pour 2 000 € net selon une déclaration du 31/08/2026. Plafond « jusqu'à 3 SMIC » rapporté par la presse, non confirmé.",
+   "k": "neutral",
+   "src": "https://www.wikiglucksmann.fr/themes/glucksmann-fiscalite.html",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "glucksmann",
+   "t": "Salaires",
+   "l": "Revalorisation du SMIC : 1 600 € net en deux ans",
+   "calc": "smic",
+   "p": {
+    "cible": 1600
+   },
+   "si": {
+    "min": {
+     "nb_smic": 1
+    }
+   },
+   "n": "Chiffre rapporté par des sites de synthèse ; d'autres évoquent +100 € immédiats. Non confirmé par un document officiel.",
+   "src": "https://voter2027.fr/candidat/raphael-glucksmann",
+   "fiab": "piste_non_confirmee"
+  },
+  {
+   "c": "glucksmann",
+   "t": "Taxe sectorielle",
+   "l": "« Taxe Amazon » sur les grandes plateformes numériques / e-commerce, affectée à l'emploi et à la formation",
+   "si": {
+    "secteurs": [
+     "numerique",
+     "commerce"
+    ],
+    "min": {
+     "ca": 750000000.0
+    }
+   },
+   "n": "Taux et assiette non publiés.",
+   "k": "risk",
+   "src": "https://www.elyseescope.com/questions/raphael-glucksmann-hausse-du-smic-et-taxe-amazon-au-c-ur-de-son",
+   "fiab": "piste_non_confirmee"
+  },
+  {
+   "c": "glucksmann",
+   "t": "Superprofits",
+   "l": "Taxe européenne sur les superprofits des multinationales fossiles ; mécanisme automatique de taxation des superprofits en temps de crise",
+   "si": {
+    "secteurs": [
+     "energie"
+    ]
+   },
+   "n": "Échelon européen ; recettes affectées au chèque énergie (environ 4 Md€).",
+   "k": "risk",
+   "src": "https://www.wikiglucksmann.fr/themes/glucksmann-fiscalite.html",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "glucksmann",
+   "t": "Impôt sur les sociétés",
+   "l": "Impôt minimum effectif des multinationales",
+   "calc": "is_min",
+   "p": {
+    "taux": 0.25
+   },
+   "si": {
+    "min": {
+     "ca": 750000000.0
+    }
+   },
+   "n": "Le taux de 25 % n'est cité que dans une synthèse non sourcée ; le taux minimum mondial OCDE (pilier 2) est de 15 %, déjà en vigueur. À confirmer.",
+   "src": "https://www.wikiglucksmann.fr/themes/glucksmann-fiscalite.html",
+   "fiab": "piste_non_confirmee"
+  },
+  {
+   "c": "glucksmann",
+   "t": "Commerce extérieur",
+   "l": "Taxe carbone aux frontières de l'UE (MACF) renforcée",
+   "calc": "hors_ue",
+   "p": {
+    "taux": 0.02
+   },
+   "si": {
+    "min": {
+     "import_hors_ue": 1
+    }
+   },
+   "n": "Hypothèse : surcoût de 2 % sur vos achats hors UE. Mécanisme européen déjà en vigueur depuis 2026 ; extension non chiffrée.",
+   "src": "https://voter2027.fr/candidat/raphael-glucksmann",
+   "fiab": "piste_non_confirmee"
+  },
+  {
+   "c": "philippe",
+   "t": "Impôts de production",
+   "l": "« Deal fiscal » : baisse de 50 Md€ par an des impôts de production, compensée par 50 Md€ de baisse des aides aux entreprises",
+   "calc": "prod",
+   "p": {
+    "cvae": -1,
+    "c3s": -1,
+    "cfe": -1
+   },
+   "n": "Hypothèse : CVAE, C3S et CFE supprimées ; compensé par la baisse des aides aux entreprises (effet net variable selon vos aides). Neutre pour l'État selon l'équipe. Répartition entre CVAE, C3S et CFE non publiée : pour un calcul individuel, hypothèse possible = suppression CVAE + C3S puis baisse de la CFE, mais elle n'est pas officielle. L'effet net dépend des aides perçues par l'entreprise (qui seraient réduites). Taxe foncière des entreprises non citée. Annoncé sur LinkedIn le 5/11/2025.",
+   "src": "https://www.publicsenat.fr/actualites/economie/entreprises-un-deal-a-250-milliards-deuros-sur-un-quinquennat-que-represente-la-proposition-dedouard-philippe",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "philippe",
+   "t": "Autre",
+   "l": "Pacte de stabilité fiscale et réglementaire sur cinq ans ; pas de nouvel impôt sur le quinquennat",
+   "n": "Engagement de ne pas alourdir la fiscalité des entreprises. Aucune mesure annoncée sur le taux d'IS, la flat tax ou les rachats d'actions.",
+   "k": "neutral",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "philippe",
+   "t": "Temps de travail",
+   "l": "Durée du travail négociable au-delà de 35 h dans l'entreprise ; heures au-delà défiscalisées et exonérées de cotisations",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Exemple de Public Sénat : un salarié au SMIC travaillant 37 h gagnerait un peu plus de 1 000 €/an. Taux de majoration non précisé. Pas de hausse du SMIC décrétée.",
+   "k": "neutral",
+   "src": "https://www.publicsenat.fr/actualites/economie/presidentielle-que-proposent-les-candidats-pour-augmenter-les-salaires",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "attal",
+   "t": "Impôts de production",
+   "l": "Suppression de la CVAE",
+   "calc": "prod",
+   "p": {
+    "cvae": -1
+   },
+   "si": {
+    "min": {
+     "cvae": 1
+    }
+   },
+   "n": "Recensé par l'iFRAP sans calendrier. La suppression est déjà prévue par la loi (étalée jusqu'en 2030).",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "attal",
+   "t": "Cotisations",
+   "l": "Baisse des cotisations salariales (env. 40 Md€) : coût employeur inchangé, salaire net en hausse",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "En 2025 il évoquait la suppression de la part salariale des cotisations vieillesse. Effet neutre sur le coût du travail pour l'employeur.",
+   "k": "neutral",
+   "src": "https://www.politiquematin.fr/gabriel-attal-france-inter-salaires-tva-10-novembre-2026",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "attal",
+   "t": "Énergie",
+   "l": "Gel des prix de l'électricité pendant cinq ans",
+   "si": {
+    "min": {
+     "energie": 1
+    }
+   },
+   "n": "Recensé par l'iFRAP. En 2025 il visait aussi un prix de 50 €/MWh pour l'industrie.",
+   "k": "gain",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lisnard",
+   "t": "Impôt sur les sociétés",
+   "l": "Impôt sur les sociétés ramené à 20 %, plus une part locale de 0 à 5 % votée par les collectivités",
+   "calc": "is",
+   "p": {
+    "normal": 0.225
+   },
+   "n": "Hypothèse : part locale de 2,5 % (milieu de la fourchette), taux réduit PME inchangé. Taux national actuel : 25 % (15 % PME jusqu'à 42 500 €). Taux réel entre 20 % et 25 % selon la commune. Pas de taux réduit PME mentionné.",
+   "src": "https://isoloir2027.fr/programme/david-lisnard",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lisnard",
+   "t": "Impôts de production",
+   "l": "Suppression de la C3S et de la CVAE ; baisse de 40 Md€ des impôts de production",
+   "calc": "prod",
+   "p": {
+    "c3s": -1,
+    "cvae": -1
+   },
+   "n": "Le site du parti chiffre à 11,5 Md€ la suppression C3S + CVAE. Le reste des 40 Md€ (CFE, taxe foncière, impôts agricoles) n'est pas détaillé. Les impôts de production agricoles seraient aussi supprimés.",
+   "src": "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "lisnard",
+   "t": "Cotisations",
+   "l": "Baisse des cotisations salariales pour augmenter le net (120 Md€ à terme)",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Coût employeur inchangé, salaires nets en hausse. Coût employeur inchangé. Financement par 200 Md€ d'économies d'ici 2032.",
+   "k": "neutral",
+   "src": "https://isoloir2027.fr/programme/david-lisnard",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lisnard",
+   "t": "Cotisations",
+   "l": "Baisse durable des charges sur les salaires entre 2 et 4 SMIC ; fin des aides compensatoires",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Taux de baisse non publié. Les aides servant à compenser les charges seraient supprimées.",
+   "k": "gain",
+   "src": "https://isoloir2027.fr/programme/david-lisnard",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lisnard",
+   "t": "Temps de travail",
+   "l": "Heures supplémentaires majorées de 10 % par défaut, sans cotisations patronales supplémentaires ; contrat de travail unique",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Le contrat unique fusionnerait CDI et CDD, avec des indemnités progressives. Pas de mesure annoncée sur le SMIC.",
+   "k": "gain",
+   "src": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "lisnard",
+   "t": "Dividendes",
+   "l": "Flat tax à 25 % sur l'ensemble des revenus du capital (dividendes et loyers)",
+   "calc": "associes",
+   "p": {
+    "taux": 0.25
+   },
+   "si": {
+    "min": {
+     "dividendes": 1
+    }
+   },
+   "n": "Gain côté associés : 25 % au lieu de 31,4 % sur vos dividendes. Les sources se contredisent : l'iFRAP et lafacture2027 parlent d'un « maintien du PFU », Poliscope cite un plafond de 22 % sur les revenus du capital.",
+   "src": "https://fr.qz.com/david-lisnard-propose-flat-tax-25-revenus-capital-fonciers-110726",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "villepin",
+   "t": "Dividendes",
+   "l": "Un tiers des dividendes reversé aux salariés (environ 1 500 € par salarié et par an)",
+   "calc": "taux_base",
+   "p": {
+    "base": "dividendes",
+    "taux": 0.3333333333333333
+   },
+   "si": {
+    "min": {
+     "dividendes": 1
+    }
+   },
+   "n": "Coût : un tiers de vos dividendes reversé aux salariés. France 2, 5/11/2026 : « sur trois euros versés, un euro aux salariés », calculé sur 100 Md€ de dividendes. Mécanisme (prime, intéressement, obligation légale) et répartition entre salariés non précisés. Pour une entreprise, coût = dividendes/3 (et non 1 500 € × effectif ; Aucun document écrit de La France humaniste retrouvé.",
+   "src": "https://www.lecourrierdesstrateges.fr/le-projet-de-villepin-33-milliards-pris-aux-actionnaires-200-milliards-bascules-sur-la-csg/",
+   "fiab": "declaration_2026"
+  },
+  {
+   "c": "villepin",
+   "t": "Cotisations",
+   "l": "Plus de 200 Md€ de cotisations (salariés et employeurs) transférées vers la CSG, sur deux quinquennats",
+   "si": {
+    "min": {
+     "effectif": 1
+    }
+   },
+   "n": "Seules les cotisations non contributives seraient concernées. Répartition entre parts patronale et salariale non publiée. Le coût du travail baisserait, mais l'impôt payé par les ménages (y compris retraités et revenus du capital) augmenterait. « Big Bang : la règle républicaine », 28/08/2026.",
+   "k": "neutral",
+   "src": "https://lcp.fr/actualites/presidentielle-2027-dominique-villepin-veut-une-nouvelle-abolition-des-privileges-et-un",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "villepin",
+   "t": "Autre",
+   "l": "Suppression de toutes les niches fiscales et sociales ; système ramené à neuf grands impôts",
+   "n": "Une partie des recettes compenserait l'effet sur les entreprises. Liste des neuf impôts non publiée (CIR, allègements de charges… potentiellement concernés).",
+   "k": "risk",
+   "src": "https://www.moneyvox.fr/impot/actualites/110169/presidentielle-2027-pour-sortir-un-systeme-feodal-villepin-propose-un-big-bang-fiscal",
+   "fiab": "programme_2027"
+  },
+  {
+   "c": "villepin",
+   "t": "Taxe sectorielle",
+   "l": "Taxe carbone progressive sur les billets d'avion ; prix du carbone relevé",
+   "si": {
+    "secteurs": [
+     "transport_aerien"
+    ]
+   },
+   "n": "Barème non publié (discours de la Sorbonne, 27/03/2026). Fin progressive des subventions aux énergies fossiles.",
+   "k": "risk",
+   "src": "https://monvote2027.fr/candidat/devillepin",
+   "fiab": "declaration_2026"
+  }
+ ]
+}

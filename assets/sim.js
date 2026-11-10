@@ -24,7 +24,7 @@
     const couple = u.situation === "marie";
     let p = couple ? 2 : 1;
     const k = u.enfants;
-    p += Math.min(k, 2) * 0.5 + Math.max(0, k - 2);
+    p += Math.min(k, 2) * 0.5 + Math.max(0, k - 2) + (u._xp || 0);
     if (!couple && k > 0) p += 0.5; // parent isolé (case T)
     return { p, base: couple ? 2 : 1, couple };
   }
@@ -52,125 +52,141 @@
     return { depart, annee: new Date().getFullYear() + (depart - u.age), legal: age, annees };
   }
 
-  /* ------------ Mesures par candidat (particulier) ------------ */
-  function mesuresParticulier(u) {
-    const sal = ["salarie_prive", "fonctionnaire"].includes(u.statut);
-    const prive = u.statut === "salarie_prive";
-    const net = u.net;
-    const irActuel = impotRevenu(u.revenu, u);
-    const energie = u.energie * 12;
-    const tvaGain = energie * (1 - (1 + P.tva_reduite) / (1 + P.tva_normale));
-    const smic = (cible) => (sal && net > 0 && net < cible ? (cible - net) * 12 : 0);
-    const nonFr = u.nationalite && u.nationalite !== "francaise";
-    const aides = u.aides_montant * 12;
-    const rpart = u.revenu / parts(u).p;
-    const isfAncien = (taux) => (u.patrimoine > P.isf_ancien_seuil ? -(u.patrimoine - P.isf_ancien_seuil) * taux : 0);
-    const M = {};
-    const add = (id, theme, label, amount, note, kind) => (M[id] = M[id] || []).push({ theme, label, amount, note, kind: kind || (amount > 0 ? "gain" : amount < 0 ? "cost" : "neutral") });
+  /* ------------ Moteur de mesures (data/mesures_fiscales.json) ------------
+     Chaque mesure : { c: id candidat, t: thème, l: libellé, calc, p: paramètres, si: conditions,
+                       n: note, k: kind forcé, once: versement unique, src, fiab }.
+     Convention : amount > 0 = gain pour le foyer / l'entreprise, < 0 = coût. */
+  let MF = null; // mesures chargées
+  const FIAB = { programme_2027: "Programme 2027", declaration_2026: "Déclaration 2026", programme_2022_ou_2024: "Programme 2022 / 2024 (à confirmer)", piste_non_confirmee: "Piste non confirmée" };
 
-    // Marine Le Pen
-    if (energie) add("lepen", "Énergie", "TVA ramenée à 5,5 % sur carburants, électricité et gaz", tvaGain, `Sur ${eurPlain(energie)} de dépenses d'énergie par an.`);
-    if (u.age < 30 && irActuel && sal) add("lepen", "Impôts", "Exonération d'impôt sur le revenu pour les moins de 30 ans", irActuel, "Mesure du programme 2022, à confirmer pour 2027.", "gain");
-    if (nonFr && aides) add("lepen", "Aides", "Priorité nationale : accès aux aides (logement, prestations) réservé en priorité aux Français", -aides, "Risque de perte de tout ou partie des aides déclarées.", "risk");
-    if (sal) add("lepen", "Salaire", "Hausses de salaire encouragées par exonération de cotisations patronales", 0, "Dépend de votre employeur : pas d'effet automatique.", "neutral");
-
-    // Jean-Luc Mélenchon
-    const s1700 = smic(1700);
-    if (s1700) add("melenchon", "Salaire", "SMIC porté à 1 700 € net", s1700, `Votre salaire passerait de ${eurPlain(net)} à 1 700 € net par mois.`);
-    if (u.revenu) {
-      const k = rpart < 45000 ? -0.10 : rpart < 100000 ? 0.10 : 0.30;
-      add("melenchon", "Impôts", "Impôt sur le revenu à 14 tranches (plus progressif)", -irActuel * k, `Hypothèse : ${k < 0 ? "baisse de 10 %" : "hausse de " + Math.round(k * 100) + " %"} de votre impôt (${eurPlain(irActuel)} aujourd'hui).`);
-    }
-    if (u.patrimoine > P.isf_ancien_seuil) add("melenchon", "Patrimoine", "Rétablissement de l'ISF (avec volet climatique)", isfAncien(0.007), "Hypothèse : barème de l'ancien ISF (seuil 1,3 M€).");
-    if (u.mutuelle) add("melenchon", "Santé", "« 100 % Sécu » : remboursement intégral, fin des complémentaires", u.mutuelle * 12, "Économie de votre cotisation de mutuelle.");
-    if (u.statut === "etudiant") add("melenchon", "Études", "Allocation d'autonomie pour les étudiants", 0, "Montant non chiffré dans le programme 2027 à ce stade.", "gain");
-
-    // Édouard Philippe
-    if (sal) add("philippe", "Salaire", "Pas de hausse du SMIC décrétée ; « travailler plus » pour gagner plus", 0, "Pas d'effet automatique sur votre salaire.", "neutral");
-    if (aides) add("philippe", "Aides", "Maîtrise de la dépense publique et conditionnalité des prestations", 0, "Risque de durcissement des conditions d'accès, non chiffré.", "risk");
-
-    // Raphaël Glucksmann
-    if (u.patrimoine > 100e6) add("glucksmann", "Patrimoine", "Impôt plancher de 2 % sur les très hauts patrimoines", -(u.patrimoine * 0.02), "Concerne les patrimoines de plus de 100 M€.");
-    if (sal && net < P.smic_net_mensuel * 1.3) add("glucksmann", "Salaire", "Revalorisation des bas salaires négociée par branche", 0, "Montant non chiffré.", "gain");
-
-    // David Lisnard
-    if (sal && net) add("lisnard", "Salaire", "Transfert de cotisations sociales vers le salaire net", Math.min(net * 0.18, 400) * 12, "Hypothèse : jusqu'à +400 €/mois pour 2 200 € net, soit environ +18 %.");
-    if (aides) add("lisnard", "Aides", "Forte baisse de la dépense publique", 0, "Risque sur certaines prestations, non chiffré.", "risk");
-
-    // Gabriel Attal
-    if (sal && net > P.smic_net_mensuel * 1.2 && net < P.smic_net_mensuel * 2.5) add("attal", "Salaire", "Baisse des cotisations sur les salaires moyens", 0, "Gain annoncé mais non chiffré à ce stade.", "gain");
-
-    // Bruno Retailleau
-    if (prive && net) add("retailleau", "Salaire", "37 h 30 : 30 minutes de plus par jour pour un 13e mois", net, "Contre 2 h 30 de travail en plus par semaine.");
-    if (aides) add("retailleau", "Aides", "Plafonnement du cumul des aides sociales", 0, "Peut réduire vos aides si leur cumul dépasse le plafond (non publié).", "risk");
-
-    // Éric Zemmour
-    if (nonFr && aides) add("zemmour", "Aides", "Allocations réservées aux Français", -aides, "Perte probable des aides déclarées.", "risk");
-    if (u.heritage > 0 && u.heritage < 500000) add("zemmour", "Patrimoine", "Suppression des droits de succession pour la classe moyenne", u.heritage * 0.1, "Hypothèse : droits évités ≈ 10 % de l'héritage attendu (versement unique).", "gain");
-    if (sal) add("zemmour", "Salaire", "« Prime zéro charge » versable par l'employeur", 0, "Dépend de votre employeur.", "neutral");
-
-    // Marine Tondelier
-    if (u.statut === "fonctionnaire" && net) add("tondelier", "Salaire", "Point d'indice indexé sur l'inflation", net * 12 * P.inflation_hyp, "Hypothèse : inflation de 2 %/an.");
-    if (u.patrimoine > P.isf_ancien_seuil) add("tondelier", "Patrimoine", "ISF climatique", isfAncien(0.008), "Hypothèse : seuil de l'ancien ISF.");
-
-    // Fabien Roussel
-    if (sal && net < P.smic_net_mensuel * 1.5) add("roussel", "Salaire", "Hausse générale des salaires et du SMIC", 0, "Montant non chiffré.", "gain");
-    if (energie) add("roussel", "Énergie", "Baisse des prix de l'énergie via un pôle public", 0, "Non chiffré.", "gain");
-
-    // Dominique de Villepin
-    if (prive) add("villepin", "Salaire", "1 500 € par an pour chaque salarié, financés sur les dividendes", 1500, "Pour les salariés d'entreprises versant des dividendes.");
-
-    // Nicolas Dupont-Aignan
-    if (energie) add("dupontaignan", "Énergie", "Baisse des taxes sur l'énergie", tvaGain * 0.8, "Hypothèse proche de la baisse de TVA à 5,5 %.");
-
-    // Nathalie Arthaud
-    const s2000 = smic(2000);
-    if (s2000) add("arthaud", "Salaire", "SMIC et salaire minimum à 2 000 € net", s2000, `Votre salaire passerait à 2 000 € net par mois.`);
-
-    return { M, irActuel };
+  function cond(o, si) {
+    if (!si) return true;
+    for (const [f, v] of Object.entries(si.min || {})) if (!((o[f] || 0) >= v)) return false;
+    for (const [f, v] of Object.entries(si.max || {})) if (!((o[f] || 0) <= v)) return false;
+    for (const [f, v] of Object.entries(si.in || {})) if (!v.includes(o[f])) return false;
+    for (const [f, v] of Object.entries(si.notin || {})) if (v.includes(o[f])) return false;
+    for (const [f, v] of Object.entries(si.has || {})) if (!(o[f] || []).includes(v)) return false;
+    if (si.nonfr && !(o.nationalite && o.nationalite !== "francaise")) return false;
+    if (si.secteurs && !si.secteurs.includes(o.secteur_cat)) return false;
+    return true;
   }
 
-  /* ------------ Mesures par candidat (entreprise) ------------ */
+  // droits de succession en ligne directe, pour un enfant (barème actuel, abattement 100 000 €)
+  const BAR_SUCC = [[8072, 0.05], [12109, 0.10], [15932, 0.15], [552324, 0.20], [902838, 0.30], [1805677, 0.40], [null, 0.45]];
+  function droitsSucc(h, abatt = 100000) {
+    let r = Math.max(0, h - abatt), t = 0, prev = 0;
+    for (const [lim, rate] of BAR_SUCC) { const top = lim ?? Infinity; if (r > prev) t += (Math.min(r, top) - prev) * rate; prev = top; }
+    return t;
+  }
+  // barème progressif générique [[plafond, taux], …] appliqué au-delà d'un seuil
+  const progressif = (x, bar) => { let t = 0, prev = 0; for (const [lim, rate] of bar) { const top = lim ?? Infinity; if (x > prev) t += (Math.min(x, top) - prev) * rate; prev = top; } return t; };
+
+  const CALC_P = {
+    fixe: (u, p) => p.montant,
+    // variation d'un poste du formulaire (€/mois si p.mensuel) : pct = variation du coût (−1 = suppression)
+    champ: (u, p) => -(u[p.champ] || 0) * (p.mensuel ? 12 : 1) * p.pct,
+    tva: (u, p) => { const b = (u[p.base] || 0) * 12 * (p.part ?? 1); return b * (1 - (1 + p.taux) / (1 + (p.actuel ?? P.tva_normale))); },
+    smic: (u, p) => (["salarie_prive", "fonctionnaire"].includes(u.statut) && u.net > 0 && u.net < p.cible ? (p.cible - u.net) * 12 : 0),
+    salaire_pct: (u, p) => (u.net || 0) * 12 * p.pct,
+    salaire_plafond: (u, p) => Math.min((u.net || 0) * p.pct, p.plafond_mois ?? Infinity) * 12,
+    ir_pct: (u, p, X) => { const rp = u.revenu / parts(u).p; const k = (p.paliers.find(([m]) => m == null || rp < m) || [0, 0])[1]; return -X.ir * k; },
+    ir_exo: (u, p, X) => X.ir * (p.pct ?? 1),
+    capital: (u, p) => (u.capital || 0) * ((p.actuel ?? P.pfu) - p.taux),
+    isf: (u, p) => (u.patrimoine > p.seuil ? -(p.bareme ? progressif(u.patrimoine - (p.abattement ?? 0), p.bareme) : (u.patrimoine - p.seuil) * p.taux) : 0),
+    succession: (u, p) => { const h = u.heritage || 0; if (!h) return 0; const old = droitsSucc(h); const nw = p.plafond && h > p.plafond ? droitsSucc(p.plafond, p.abattement ?? 100000) + (h - p.plafond) * (p.taux_au_dela ?? 1) : droitsSucc(h, p.abattement ?? 100000) * (p.facteur ?? 1); return old - nw; },
+    aides: (u, p) => -(u.aides_montant || 0) * 12 * (p.pct ?? 1),
+    // part supplémentaire (ex. part pleine dès le 2e enfant)
+    ir_parts: (u, p, X) => (u.enfants >= (p.des_enfant ?? 2) ? X.ir - impotRevenu(u.revenu, { ...u, _xp: p.extra ?? 0.5 }) : 0),
+    // exonération jusqu'à un plafond de revenu (ex. 4 SMIC)
+    ir_exo_plafond: (u, p, X) => X.ir * Math.min(1, (p.plafond || Infinity) / Math.max(1, u.revenu)),
+    // CSG : baisse de n points sur le salaire (assiette 98,25 % du brut)
+    csg: (u, p) => (u.net > 0 && u.net <= (p.net_max ?? Infinity) ? (u.net / P.net_vers_brut) * 0.9825 * p.points * 12 : 0),
+    // gain mensuel par paliers de salaire net [[net_max, €/mois], …]
+    net_paliers: (u, p) => { if (!(u.net > 0)) return 0; const r = p.paliers.find(([m]) => m == null || u.net <= m); return r ? r[1] * 12 : 0; },
+    smic_ou_pct: (u, p) => { if (!["salarie_prive", "fonctionnaire"].includes(u.statut) || !(u.net > 0)) return 0; return Math.max(u.net < p.cible ? (p.cible - u.net) * 12 : 0, u.net * 12 * p.pct); },
+    // flat tax supprimée : revenus du capital au barème (TMI + prélèvements sociaux), jamais mieux que l'option actuelle
+    capital_bareme: (u, p, X) => { const t = X.tmi + 0.186; return -(u.capital || 0) * Math.max(0, t - Math.min(P.pfu, t)); },
+    // impôt sur la fortune : nouveau barème sur une assiette, moins l'IFI actuel
+    fortune: (u, p, X) => {
+      const base = p.assiette === "financier" ? Math.max(0, u.patrimoine - (u.immobilier || 0)) : u.patrimoine;
+      const nouveau = base > p.seuil ? progressif(base, p.bareme || BAR_ISF) * (p.facteur ?? 1) : 0;
+      return X.ifi - nouveau;
+    },
+    ifi_supp: (u, p, X) => X.ifi,
+    zucman: (u, p, X) => (u.patrimoine >= p.seuil ? -Math.max(0, u.patrimoine * p.taux - X.ir) : 0),
+    succ_exo_sous: (u, p) => (u.heritage > 0 && u.heritage <= p.seuil ? droitsSucc(u.heritage) : 0),
+    succ_supp: (u) => droitsSucc(u.heritage || 0),
+    // allocations familiales : nouveau montant mensuel moins les AF actuelles (taux plein, sans modulation)
+    af: (u, p) => { const k = u.enfants || 0; if (!k) return 0; const nv = p.forfait ?? (p.par_enfant * k + (k >= 3 ? p.bonus_3e ?? 0 : 0)); return (nv - afActuelles(k)) * 12; },
+    aides_plafond: (u, p) => { const pl = p.pct_smic * P.smic_net_mensuel * (u.situation === "marie" || u.situation === "concubin" ? 2 : 1); return -Math.max(0, (u.aides_montant || 0) - pl) * 12; },
+    apl_pct: (u, p) => ((u.aides || []).length === 1 && u.aides[0] === "apl" ? (u.aides_montant || 0) * 12 * p.pct : 0),
+    heures_sup: (u, p, X) => (u.heures_sup || 0) * (p.taux === "tmi" ? -(0.113 + X.tmi) : p.taux),
+    // carburant : baisse en €/litre (part carburant de la dépense d'énergie, prix moyen au litre)
+    carburant: (u, p) => ((u.energie || 0) * (p.part ?? 0.5) / (p.prix ?? 1.8)) * p.baisse * 12,
+    // variation d'un poste de la facture d'énergie (part du poste dans la dépense mensuelle)
+    energie_part: (u, p) => -(u.energie || 0) * 12 * p.part * p.pct,
+  };
+
+  // Entreprise
+  const COTIS_TAUX = 0.27; // taux moyen de cotisations patronales après allègements (hypothèse)
+  const cotisEst = (e) => e.cotis_pat > 0 ? e.cotis_pat : (e.masse || 0) * COTIS_TAUX;
   const coutSmic = (cible, n) => n > 0 ? -n * ((cible - P.smic_net_mensuel) / P.net_vers_brut) * P.charges_patronales_smic * 12 : 0;
-  function isActuel(e) {
-    if (["micro", "ei", "asso"].includes(e.forme) || e.resultat <= 0) return 0;
-    if (e.ca < 10e6) return Math.min(e.resultat, P.is_seuil_reduit) * P.is_taux_reduit + Math.max(0, e.resultat - P.is_seuil_reduit) * P.is_taux_normal;
-    return e.resultat * P.is_taux_normal;
+  const soumisIS = (e) => !["micro", "ei", "asso"].includes(e.forme);
+  function isCalc(e, q) {
+    if (!soumisIS(e) || e.resultat <= 0) return 0;
+    const pme = e.ca < (q.pme_ca ?? 10e6);
+    let t = pme ? Math.min(e.resultat, q.seuil ?? P.is_seuil_reduit) * (q.reduit ?? P.is_taux_reduit) + Math.max(0, e.resultat - (q.seuil ?? P.is_seuil_reduit)) * (q.normal ?? P.is_taux_normal) : e.resultat * (q.normal ?? P.is_taux_normal);
+    if (q.surtaxe && e.ca >= q.surtaxe.seuil_ca) t += t * q.surtaxe.taux;
+    return t;
   }
-  function mesuresEntreprise(e) {
-    const M = {};
-    const add = (id, theme, label, amount, note, kind) => (M[id] = M[id] || []).push({ theme, label, amount, note, kind: kind || (amount > 0 ? "gain" : amount < 0 ? "cost" : "neutral") });
-    const smicN = e.nb_smic;
-    if (smicN) add("melenchon", "Masse salariale", "SMIC à 1 700 € net", coutSmic(1700, smicN), `${smicN} salarié(s) au SMIC ; coût employeur estimé (allègements non recalculés).`);
-    if (e.dividendes > 0) add("melenchon", "Fiscalité", "Taxation renforcée des dividendes et des superprofits", 0, "Non chiffré.", "risk");
-    if (smicN) add("arthaud", "Masse salariale", "Salaire minimum à 2 000 € net", coutSmic(2000, smicN), "Coût employeur estimé.");
-    add("arthaud", "Social", "Interdiction des licenciements", 0, "Contrainte forte sur la gestion des effectifs.", "risk");
-    if (e.effectif > 0) add("villepin", "Partage de la valeur", "1 500 € par salarié et par an, financés sur les dividendes", -Math.min(e.effectif * 1500, Math.max(e.dividendes, 0)), e.dividendes > 0 ? `Plafonné à vos dividendes (${eurPlain(e.dividendes)}).` : "Sans dividendes versés : pas d'effet.");
-    add("lepen", "Fiscalité", "Baisse des impôts de production", 0, "Gain non chiffré (C3S, CFE…).", "gain");
-    if (e.effectif) add("lepen", "Masse salariale", "Exonération de cotisations sur les hausses de salaire", 0, "Si vous augmentez vos salariés.", "gain");
-    if (e.energie) add("lepen", "Énergie", "Sortie du marché européen de l'électricité", 0, "Baisse possible des prix, non chiffrée (la TVA est déjà récupérée par l'entreprise).", "gain");
-    add("zemmour", "Fiscalité", "Suppression des impôts de production", 0, "Gain non chiffré.", "gain");
-    if (e.effectif) add("zemmour", "Masse salariale", "« Prime zéro charge »", 0, "Primes sans cotisations.", "gain");
-    add("lisnard", "Fiscalité", "Baisse des prélèvements obligatoires et simplification", 0, "Gain non chiffré.", "gain");
-    if (e.effectif) add("lisnard", "Masse salariale", "Transfert de cotisations vers le net", 0, "Coût employeur inchangé, salaires nets en hausse.", "neutral");
-    if (e.effectif) add("retailleau", "Temps de travail", "Passage à 37 h 30 contre un 13e mois", 0, `Environ +7 % d'heures travaillées pour ${e.effectif} salarié(s), financées par le 13e mois.`, "neutral");
-    add("retailleau", "Normes", "Allègement des normes", 0, "Non chiffré.", "gain");
-    add("philippe", "Fiscalité", "Stabilité fiscale et redressement des comptes", 0, "Pas de baisse d'impôt annoncée.", "neutral");
-    if (e.effectif) add("attal", "Masse salariale", "Baisse des cotisations sur les salaires moyens", 0, "Non chiffré.", "gain");
-    if (e.import_hors_ue > 0) add("glucksmann", "Commerce", "Taxe carbone aux frontières de l'UE", -e.achats * (e.import_hors_ue / 100) * 0.02, "Hypothèse : surcoût de 2 % sur vos achats hors UE.");
-    if (e.ca > 750e6) add("glucksmann", "Fiscalité", "Impôt minimum effectif des multinationales", 0, "Non chiffré.", "risk");
-    if (e.resultat > 0) add("tondelier", "Fiscalité", "Taxation des superprofits", 0, "Concerne surtout les grandes entreprises.", e.ca > 750e6 ? "risk" : "neutral");
-    if (smicN) add("roussel", "Masse salariale", "Hausse générale des salaires", 0, "Non chiffré.", "risk");
-    if (e.energie) add("dupontaignan", "Énergie", "Baisse des taxes sur l'énergie", e.energie * 0.05, "Hypothèse : baisse de 5 % de la facture HT.");
-    return { M, is: isActuel(e) };
+  const isActuel = (e) => isCalc(e, {});
+  const CALC_E = {
+    fixe: (e, p) => p.montant,
+    is: (e, p) => isActuel(e) - isCalc(e, p),
+    cotis: (e, p) => -cotisEst(e) * p.pct,
+    champ: (e, p) => -(e[p.champ] || 0) * p.pct,
+    c3s: (e, p) => -Math.max(0, (e.ca || 0) - 19e6) * 0.0016 * p.pct,
+    taux_base: (e, p) => -Math.max(0, (e[p.base] || 0) - (p.franchise ?? 0)) * p.taux,
+    smic: (e, p) => coutSmic(p.cible, e.nb_smic),
+    par_salarie: (e, p) => { const v = -(e.effectif || 0) * p.montant; return p.plafond_dividendes ? -Math.min(-v, Math.max(e.dividendes || 0, 0)) : v; },
+    associes: (e, p) => (e.dividendes || 0) * ((p.actuel ?? P.pfu) - p.taux),
+    hors_ue: (e, p) => -(e.achats || 0) * ((e.import_hors_ue || 0) / 100) * p.taux,
+    // impôts de production : variation de chaque impôt (−1 = suppression)
+    prod: (e, p) => -((e.cfe || 0) * (p.cfe ?? 0) + (e.cvae || 0) * (p.cvae ?? 0) + Math.max(0, (e.ca || 0) - 19e6) * 0.0016 * (p.c3s ?? 0) + (e.tf_ent || 0) * (p.tf ?? 0)),
+    is_reinvesti: (e, p) => (e.resultat > 0 ? isActuel(e) * p.pct * Math.max(0, 1 - (e.dividendes || 0) / e.resultat) : 0),
+    is_min: (e, p) => -Math.max(0, (e.resultat || 0) * p.taux - isActuel(e)),
+    masse_pct: (e, p) => -(e.masse || 0) * p.pct * (1 + COTIS_TAUX),
+  };
+
+  function runMesures(target, obj, X) {
+    const M = {}, calc = target === "ent" ? CALC_E : CALC_P;
+    for (const m of (MF?.[target] || [])) {
+      if (!A.C[m.c] || !cond(obj, m.si)) continue;
+      const f = calc[m.calc];
+      let amount = f ? f(obj, m.p || {}, X) : 0;
+      if (!isFinite(amount)) amount = 0;
+      if (m.min_abs && Math.abs(amount) < m.min_abs) continue;
+      (M[m.c] = M[m.c] || []).push({ theme: m.t, label: m.l, amount, note: m.n, once: !!m.once, fiab: m.fiab, src: m.src,
+        kind: m.k || (amount > 0 ? "gain" : amount < 0 ? "cost" : "neutral") });
+    }
+    return M;
   }
+  const BAR_ISF = [[800000, 0], [1300000, 0.005], [2570000, 0.007], [5000000, 0.01], [10000000, 0.0125], [null, 0.015]];
+  const afActuelles = (k) => (k < 2 ? 0 : 151.05 + (k >= 3 ? 193.53 * (k - 2) : 0)); // AF 2026, taux plein
+  const tmi = (u) => { const r = u.revenu / parts(u).p; let t = 0, prev = 0; for (const [lim, rate] of P.bareme_ir) { if (r > prev) t = rate; prev = lim ?? Infinity; } return t; };
+  const mesuresParticulier = (u) => {
+    const ir = impotRevenu(u.revenu, u);
+    const ifi = (u.immobilier || 0) > 1.3e6 ? progressif(u.immobilier, BAR_ISF) : 0;
+    return { M: runMesures("part", u, { ir, ifi, tmi: tmi(u) }), irActuel: ir };
+  };
+  const mesuresEntreprise = (e) => ({ M: runMesures("ent", e, {}), is: isActuel(e) });
 
   /* ------------ Rendu ------------ */
   const KIND = { gain: ["▲", "var(--pos)"], cost: ["▼", "var(--neg)"], risk: ["⚠", "#ffb020"], neutral: ["•", "var(--muted)"] };
   function renderImpacts(target, M, ids, intro) {
     const rows = ids.map((id) => {
       const list = M[id] || [];
-      const total = list.reduce((a, m) => a + (m.amount || 0), 0);
+      const total = list.reduce((a, m) => a + (m.once ? 0 : m.amount || 0), 0);
       return { id, list, total };
     }).sort((a, b) => (b.id === window.SimFocus) - (a.id === window.SimFocus) || b.total - a.total);
     const max = Math.max(1, ...rows.map((r) => Math.abs(r.total)));
@@ -181,7 +197,7 @@
           <span class="imp-bar"><i style="width:${(Math.abs(r.total) / max) * 50}%;${r.total >= 0 ? "left:50%;background:var(--pos)" : `right:50%;background:var(--neg)`}"></i></span>
           <span class="imp-total" style="color:${r.total > 0 ? "var(--pos)" : r.total < 0 ? "var(--neg)" : "var(--muted)"}">${r.total ? eur(r.total) + "<small>/an</small>" : "non chiffré"}</span>
         </summary>
-        <ul>${r.list.map((m) => `<li><span class="k" style="color:${KIND[m.kind][1]}">${KIND[m.kind][0]}</span><div><strong>${A.esc(m.theme)} — ${A.esc(m.label)}</strong>${m.amount ? ` <span style="color:${m.amount > 0 ? "var(--pos)" : "var(--neg)"}">${eur(m.amount)}/an</span>` : ""}<br><small>${A.esc(m.note || "")}</small></div></li>`).join("") || "<li><span class='k'>•</span><div>Aucune mesure identifiée qui vous concerne directement.</div></li>"}</ul>
+        <ul>${r.list.map((m) => `<li><span class="k" style="color:${KIND[m.kind][1]}">${KIND[m.kind][0]}</span><div><strong>${A.esc(m.theme)} — ${A.esc(m.label)}</strong>${m.amount ? ` <span style="color:${m.amount > 0 ? "var(--pos)" : "var(--neg)"}">${eur(m.amount)}${m.once ? " <small>(une fois)</small>" : "/an"}</span>` : ""}<br><small>${A.esc(m.note || "")}${m.fiab || m.src ? ` <span class="fiab">${m.fiab ? A.esc(FIAB[m.fiab] || m.fiab) : ""}${m.src ? ` · <a href="${A.esc(m.src)}" target="_blank" rel="noopener">source</a>` : ""}</span>` : ""}</small></div></li>`).join("") || "<li><span class='k'>•</span><div>Aucune mesure identifiée qui vous concerne directement.</div></li>"}</ul>
       </details>`).join("");
   }
 
@@ -194,7 +210,9 @@
     return o;
   }
 
+  const whenReady = (fn) => (MF ? fn() : setTimeout(() => whenReady(fn), 150));
   function simParticulier() {
+    if (!MF) return whenReady(simParticulier);
     const f = $("#sim-part");
     const u = readForm(f);
     u.aides = u.aides || [];
@@ -235,6 +253,26 @@
     if (c.startsWith("92")) return "asso";
     return "autre";
   }
+  function secteurDepuisNAF(naf) {
+    const c = String(naf || "").replace(/\s/g, ""), d = parseInt(c, 10), n4 = c.slice(0, 5);
+    if (!c || isNaN(d)) return "";
+    if (n4 === "52.21" || n4 === "52.21") return "autoroutes";
+    if (n4 === "47.11") return "grande_distribution";
+    if (n4 === "25.40" || n4 === "30.40") return "armement";
+    if (d === 35 || d === 6 || d === 19) return "energie";
+    if (d === 65) return "assurance";
+    if (d === 64 || d === 66) return "banque";
+    if (d >= 58 && d <= 63) return "numerique";
+    if (d === 51) return "transport_aerien";
+    if (d === 50) return "transport_maritime";
+    if (d === 21) return "pharma";
+    if (d >= 1 && d <= 3) return "agriculture";
+    if (d >= 5 && d <= 33) return "industrie";
+    if (d >= 41 && d <= 43) return "btp";
+    if (d === 55 || d === 56) return "hotellerie_restauration";
+    if (d >= 45 && d <= 47) return "commerce";
+    return "services";
+  }
   async function lookupSiret() {
     const f = $("#sim-ent");
     const q = f.siret.value.replace(/\s/g, "");
@@ -248,6 +286,7 @@
       f.nom.value = d.nom_complet || "";
       f.forme.value = formeDepuisCode(d.nature_juridique, d.complements);
       f.secteur.value = d.activite_principale || "";
+      if (secteurDepuisNAF(f.secteur.value)) f.secteur_cat.value = secteurDepuisNAF(f.secteur.value);
       const eff = TRANCHES[d.tranche_effectif_salarie];
       if (eff != null) f.effectif.value = Math.round(eff);
       const years = Object.keys(d.finances || {}).sort();
@@ -262,6 +301,7 @@
     }
   }
   function simEntreprise() {
+    if (!MF) return whenReady(simEntreprise);
     const e = readForm($("#sim-ent"));
     const { M, is } = mesuresEntreprise(e);
     const ids = Object.keys(S.stances).filter((id) => A.C[id]);
@@ -404,6 +444,8 @@
     $("#sim-part").addEventListener("submit", (e) => { e.preventDefault(); simParticulier(); });
     $("#sim-ent").addEventListener("submit", (e) => { e.preventDefault(); simEntreprise(); });
     $("#siret-btn").addEventListener("click", lookupSiret);
+    $("#sim-ent").secteur.addEventListener("change", (e) => { const k = secteurDepuisNAF(e.target.value); if (k) $("#sim-ent").secteur_cat.value = k; });
+    fetch("data/mesures_fiscales.json?v=202611101600").then((r) => r.json()).then((d) => (MF = d)).catch(() => (MF = { part: [], ent: [] }));
     if ($("#quiz")) renderQuiz();
     wizard($("#sim-part"));
     wizard($("#sim-ent"));
