@@ -537,7 +537,7 @@
   function initBuzz() {
     const ids = Object.keys(BUZZ.candidates).filter((id) => C[id]);
     const st = { id: "", kind: "" };
-    $("#buzz-meta").textContent = `Du ${fmtDate(BUZZ.since, { day: "numeric", month: "long" })} à aujourd'hui · articles de presse, séquences TV (YouTube, Dailymotion), TikTok, Instagram et X · ${BUZZ.classifier}`;
+    if ($("#buzz-meta")) $("#buzz-meta").textContent = `Du ${fmtDate(BUZZ.since, { day: "numeric", month: "long" })} à aujourd'hui · articles de presse, séquences TV (YouTube, Dailymotion), TikTok, Instagram et X · ${BUZZ.classifier}`;
     $("#buzz-filter").innerHTML = `<button class="chip all on" data-id="">Tous</button>` + ids.map((id) => `<button class="chip" data-id="${id}">${avatar(id, 26)}${esc(C[id].short)}</button>`).join("");
     $("#buzz-kind").innerHTML = Object.entries(KINDS).map(([k, v]) => `<button data-k="${k}" class="${k === "" ? "on" : ""}">${v}</button>`).join("");
     const media = (it) => {
@@ -802,7 +802,6 @@
       $("#buzz-main").hidden = b.dataset.b !== "buzz-main";
       $("#tp-app").hidden = b.dataset.b !== "tp-app";
       $("#buzz-title").textContent = b.dataset.b === "tp-app" ? "Temps de parole dans les médias" : "Buzz des 7 derniers jours";
-      $("#buzz-meta").hidden = b.dataset.b === "tp-app";
     });
     if (window.Extras) { await window.Extras.load(); window.Extras.init({ C, avatar, esc, fmtN, socialLinks }, POLLS); }
     Social.init(); initBuzz(); initProg();
