@@ -222,13 +222,12 @@
   }
 
   function groupFormHTML() {
-    return `<div class="fun-card grp-top"><h3>🔗 Je sonde mes proches <small class="muted">anonymement</small></h3>
+    return `<div class="fun-card grp-top"><h3 class="grp-h">🔗 Je sonde mes proches <span class="anon-badge inline">🔒 <strong>100 % anonyme</strong></span></h3>
         <p class="muted small">Créez un lien de groupe et partagez-le : vous n'avez pas besoin d'avoir voté ni rempli votre portrait pour le créer.</p>
         <form id="grp-form" class="fun-form inline">
           <label>Nom de votre groupe<input name="name" required minlength="2" maxlength="60" placeholder="ex. Les copains du foot"></label>
           <span class="grp-actions"><button class="cta" type="submit">Générer un lien</button>
           <span class="share-dd"><button type="button" class="ghost share-toggle" id="share-toggle" aria-expanded="false">📤 Partager</button><div class="share-menu" id="share-menu" hidden></div></span></span></form>
-        <p class="anon-badge">🔒 <strong>100 % anonyme</strong></p>
         <div id="grp-list"></div></div>`;
   }
   async function renderLoggedOut() {

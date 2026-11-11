@@ -1078,3 +1078,8 @@ button.linkish { background: none; border: 0; padding: 0; color: #93c5fd; text-d
 
 /* espace entre « 100 % anonyme » et la liste des groupes */
 .grp-top > .anon-badge { margin-bottom: 22px; }
+
+/* « 100 % anonyme » à côté du titre « Je sonde mes proches » */
+.grp-h { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.anon-badge.inline { margin: 0; font-size: 15px; text-transform: none; font-family: inherit; }
+.grp-top #grp-list { margin-top: 18px; }
