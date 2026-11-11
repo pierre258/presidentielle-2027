@@ -1027,3 +1027,29 @@ button.linkish { background: none; border: 0; padding: 0; color: #93c5fd; text-d
 .tp-load small { font-weight: 400; color: var(--muted); font-size: 12px; }
 .ig.ig-off { height: auto !important; aspect-ratio: auto !important; }
 .plat-below { margin-top: 14px; }
+
+/* --- Compte connecté : boutons en haut à droite --- */
+.hdr-acct .ha-btns { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+.hdr-acct .ha-btns button { font-size: 10.5px; padding: 2px 8px; }
+.hdr-acct .ha-del { color: #ff8fa3 !important; border-color: rgba(255,92,108,.45) !important; }
+@media (max-width: 760px) { .hdr-acct { flex-wrap: wrap; } .hdr-acct .ha-btns button { font-size: 10px; padding: 2px 6px; } }
+
+/* --- « 100 % anonyme » --- */
+.anon-badge { margin: 12px 0 4px; font-size: 18px; color: #3ddc97; text-align: center; }
+.anon-badge strong { font-weight: 800; letter-spacing: .02em; }
+
+/* --- Partage simplifié --- */
+.share { display: grid; gap: 12px; justify-items: center; margin: 8px 0 14px; }
+.share-main { width: min(100%, 360px); font-size: 16px; padding: 12px 18px; }
+.share-ico { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.share-ico a, .share-ico button { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; color: var(--sc); background: color-mix(in srgb, var(--sc) 14%, transparent); border: 1px solid color-mix(in srgb, var(--sc) 55%, transparent); text-decoration: none; cursor: pointer; font-size: 18px; padding: 0; }
+.share-ico a:hover, .share-ico button:hover { background: color-mix(in srgb, var(--sc) 28%, transparent); }
+
+/* --- Résultats d'un groupe --- */
+.grp-count { display: grid; justify-items: center; gap: 2px; margin: 6px 0 14px; text-align: center; }
+.grp-count strong { font: 800 64px/1 var(--head); }
+.grp-count span { font: 700 18px var(--head); text-transform: uppercase; letter-spacing: .06em; }
+.grp-count small { color: var(--muted); }
+.grp-poll { margin-bottom: 14px; }
+.grp-poll .prow .bar i { transition: none; }
+.dash .dcard { margin-bottom: 14px; }

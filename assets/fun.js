@@ -31,10 +31,18 @@
   function renderHeaderAcct() {
     const h = $("#hdr-acct"); if (!h) return;
     h.innerHTML = user
-      ? `<a href="#fun" class="ha-me" title="Mon compte">👤 ${esc(profile?.pseudo || "Mon compte")}</a>`
+      ? `<a href="#fun" class="ha-me" title="Mon compte">👤 ${esc(profile?.pseudo || "Mon compte")}</a><span class="ha-btns"><button type="button" data-acct="logout">Se déconnecter</button><button type="button" data-acct="export">Télécharger mes données</button><button type="button" data-acct="delete" class="ha-del">Supprimer mon compte</button></span>`
       : `<button type="button" data-auth="up">Créer un compte</button><button type="button" data-auth="in">Se connecter</button>`;
   }
   document.addEventListener("click", (e) => {
+    const a = e.target.closest("[data-acct]");
+    if (a && sb && user) {
+      e.preventDefault();
+      if (a.dataset.acct === "logout") sb.auth.signOut();
+      else if (a.dataset.acct === "export") exportData();
+      else if (a.dataset.acct === "delete") { if (location.hash !== "#fun") location.hash = "#fun"; setTimeout(() => { confirmDelete(); $("#fun")?.scrollIntoView({ behavior: "smooth" }); }, 50); }
+      return;
+    }
     const b = e.target.closest("[data-auth]");
     if (b && sb) { e.preventDefault(); renderAuth(b.dataset.auth, "", { open: true }); }
   });
@@ -53,26 +61,38 @@
   /* ---------- Partage ---------- */
   function shareHTML(url, title) {
     const t = encodeURIComponent(title), u = encodeURIComponent(url), tu = encodeURIComponent(`${title} ${url}`);
+    const I = {
+      "WhatsApp": ["#25D366", '<path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.2c.2-.4.5-.4.8-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.3 0 .5-.1.7l-.5.6c.6 1.2 1.6 2.1 2.8 2.7l.6-.6c.2-.2.4-.2.7-.1l1.6.8c.3.1.4.3.4.6v.4c0 .4-.2.8-.6 1-.5.3-1.2.4-2 .1-2.6-.9-4.6-2.9-5.5-5.4-.3-.9-.1-1.6.1-2.4Z" fill="currentColor"/>'],
+      "Messenger": ["#0084FF", '<path d="M12 3C7 3 3 6.7 3 11.3c0 2.6 1.3 4.9 3.3 6.4V21l3-1.7c.9.3 1.8.4 2.7.4 5 0 9-3.7 9-8.4S17 3 12 3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m7 13.5 3.3-3.5 2.2 2 3.5-2-3.3 3.5-2.2-2Z" fill="currentColor"/>'],
+      "Telegram": ["#2AABEE", '<path d="M21 4 3 11l6 2 2 6 3-4 5 4 2-15Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 13 9-6" stroke="currentColor" stroke-width="1.6"/>'],
+      "SMS": ["#3ddc97", '<path d="M4 5h16v11H9l-5 4V5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="9" cy="10.5" r="1.1" fill="currentColor"/><circle cx="12" cy="10.5" r="1.1" fill="currentColor"/><circle cx="15" cy="10.5" r="1.1" fill="currentColor"/>'],
+      "E-mail": ["#ff8fa3", '<rect x="3" y="5.5" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8"/>'],
+      "X": ["#e7e9ea", '<path d="M4 4l16 16M20 4 4 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>'],
+      "Facebook": ["#1877F2", '<path d="M14 21v-7.5h2.6l.4-3H14V8.7c0-.9.3-1.5 1.5-1.5H17V4.5c-.3 0-1.2-.1-2.2-.1-2.2 0-3.8 1.3-3.8 3.8v2.3H8.5v3H11V21" fill="currentColor"/>'],
+      "LinkedIn": ["#0A66C2", '<rect x="4" y="9" width="3.2" height="11" fill="currentColor"/><circle cx="5.6" cy="5.6" r="1.9" fill="currentColor"/><path d="M10 9h3v1.6c.6-1.1 1.8-1.9 3.4-1.9 2.6 0 3.6 1.7 3.6 4.4V20h-3.2v-6.1c0-1.4-.4-2.4-1.7-2.4-1.4 0-2 1-2 2.5V20H10V9Z" fill="currentColor"/>']
+    };
     const items = [
-      ["WhatsApp", `https://wa.me/?text=${tu}`, "#25D366"],
-      ["Telegram", `https://t.me/share/url?url=${u}&text=${t}`, "#2AABEE"],
-      ["X", `https://x.com/intent/post?text=${t}&url=${u}`, "#9aa4b2"],
-      ["Facebook", `https://www.facebook.com/sharer/sharer.php?u=${u}`, "#1877F2"],
-      ["LinkedIn", `https://www.linkedin.com/sharing/share-offsite/?url=${u}`, "#0A66C2"],
-      ["E-mail", `mailto:?subject=${t}&body=${tu}`, "#ff2d55"],
-      ["SMS", `sms:?&body=${tu}`, "#3ddc97"],
+      ["WhatsApp", `https://wa.me/?text=${tu}`],
+      ["Messenger", `fb-messenger://share/?link=${u}`],
+      ["Telegram", `https://t.me/share/url?url=${u}&text=${t}`],
+      ["SMS", `sms:?&body=${tu}`],
+      ["E-mail", `mailto:?subject=${t}&body=${tu}`],
+      ["X", `https://x.com/intent/post?text=${t}&url=${u}`],
+      ["Facebook", `https://www.facebook.com/sharer/sharer.php?u=${u}`],
+      ["LinkedIn", `https://www.linkedin.com/sharing/share-offsite/?url=${u}`],
     ];
     return `<div class="share">
-      <div class="share-link"><input type="text" readonly value="${esc(url)}" aria-label="Lien à partager"><button type="button" data-copy="${esc(url)}">Copier</button></div>
-      <div class="share-btns">${navigator.share ? `<button type="button" class="sh" data-native="${esc(url)}" data-title="${esc(title)}" style="--sc:#fff">Partager…</button>` : ""}
-      ${items.map(([n, href, c]) => `<a class="sh" style="--sc:${c}" href="${href}" target="_blank" rel="noopener">${n}</a>`).join("")}</div></div>`;
+      <button type="button" class="cta share-main" ${navigator.share ? `data-native="${esc(url)}" data-title="${esc(title)}"` : `data-copy="${esc(url)}" data-label="📤 Partager le lien"`}>📤 Partager le lien</button>
+      <div class="share-ico">${items.map(([n, href]) => `<a href="${href}" target="_blank" rel="noopener" title="Partager sur ${n}" aria-label="Partager sur ${n}" style="--sc:${I[n][0]}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">${I[n][1]}</svg></a>`).join("")}
+        <button type="button" data-copy="${esc(url)}" data-label="🔗" title="Copier le lien" aria-label="Copier le lien" style="--sc:#fff">🔗</button></div></div>`;
   }
   document.addEventListener("click", async (e) => {
     const c = e.target.closest("[data-copy]");
     if (c) {
-      try { await navigator.clipboard.writeText(c.dataset.copy); c.textContent = "Copié ✓"; }
-      catch { c.previousElementSibling?.select(); document.execCommand?.("copy"); c.textContent = "Copié ✓"; }
-      setTimeout(() => (c.textContent = "Copier"), 1800);
+      const lab = c.dataset.label || "Copier";
+      try { await navigator.clipboard.writeText(c.dataset.copy); c.textContent = lab.length > 2 ? "Lien copié ✓" : "✓"; }
+      catch { window.prompt("Copiez ce lien :", c.dataset.copy); }
+      setTimeout(() => (c.textContent = lab), 1800);
     }
     const n = e.target.closest("[data-native]");
     if (n) navigator.share({ title: n.dataset.title, text: n.dataset.title, url: n.dataset.native }).catch(() => {});
@@ -194,7 +214,7 @@
         <form id="grp-form" class="fun-form inline">
           <label>Nom de votre groupe<input name="name" required minlength="2" maxlength="60" placeholder="ex. Les copains du foot"></label>
           <button class="cta" type="submit">Générer un lien</button></form>
-        <p class="muted small">Chaque personne qui ouvre le lien, crée son compte et valide son portrait apparaît dans les résultats (pseudo uniquement, jamais l'e-mail).</p>
+        <p class="anon-badge">🔒 <strong>100 % anonyme</strong></p>
         <div id="grp-list"></div></div>`;
   }
   async function renderLoggedOut() {
@@ -445,7 +465,6 @@
     stepper.chosen = profile.chosen_candidate || "";
     stepper.i = 0;
     el().innerHTML = `${notice}
-      <div class="fun-head"><div>Connecté en tant que <strong>${esc(profile.pseudo)}</strong></div><div class="fun-head-btns"><button type="button" id="logout" class="ghost">Se déconnecter</button><button type="button" id="export-data" class="ghost">Télécharger mes données</button><button type="button" id="del-account" class="ghost danger">Supprimer mon compte</button></div></div>
       ${groupFormHTML()}
       ${done ? "" : `<div class="fun-card port-todo"><div><strong>Votre vote n'est pas encore enregistré</strong><p class="muted small">Choisissez votre candidat et répondez aux affirmations : votre vote comptera dans vos groupes et dans « Le vote des participants ».</p></div>${toPortrait}</div>`}
       <div class="fun-tabbar" id="fun-tabs">${tabsHTML()}</div>
@@ -453,9 +472,6 @@
       <div class="fun-pane" id="f-all"><div id="all-results"></div></div>`;
     pel().innerHTML = `${profile.completed_at && !stepper.editing ? "" : voteGridHTML()}<div id="f-portrait">${portraitPane()}</div><div id="port-msg"></div>`;
     bindVoteGrid();
-    $("#logout").onclick = () => sb.auth.signOut();
-    $("#del-account").onclick = confirmDelete;
-    $("#export-data").onclick = exportData;
     $("#fun-tabs").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
       if (!b.dataset.p) return;
@@ -593,34 +609,27 @@
         ${names ? `<div class="voters">${done.filter((r) => String(r[key]) === id).map((r) => `<span class="voter" style="--vc:${color(id)}">${esc(r.pseudo)}</span>`).join("")}</div>`
           : `<small class="muted">${n} vote${n > 1 ? "s" : ""}</small>`}
       </div>`).join("")}</div>`;
-    const avgAxes = {};
-    Object.keys(Q.axes).forEach((ax) => (avgAxes[ax] = done.reduce((a, r) => a + (r.axes?.[ax] || 0), 0) / done.length));
     const avgAns = {};
     Q.questions.forEach((q) => (avgAns[q.id] = done.reduce((a, r) => a + (r.answers?.[q.id] || 0), 0) / done.length));
     const groupRes = Q.compute(avgAns);
-    const coherent = done.filter((r) => r.chosen_candidate === r.top_candidate).length;
-    const chosen = count("chosen_candidate"), top = groupRes.prox[0];
+    const chosen = count("chosen_candidate");
+    const nb = G ? done.length : rows.length;
+    const row = ([id, n], i) => `<div class="prow ${i < 4 ? "" : "small"}">
+        ${A.C[id] ? A.avatar(id, i < 4 ? 52 : 32) : `<span class="av-ph" style="width:${i < 4 ? 52 : 32}px;height:${i < 4 ? 52 : 32}px"></span>`}
+        <div><div class="name">${esc(A.C[id] ? A.C[id].name : label(id))}${A.C[id] ? ` <span class="party">${esc(A.C[id].party || "")}</span>` : ""}</div>
+          <div class="bar"><i style="width:${(n / chosen[0][1]) * 100}%;background:${i < 4 ? "#fff" : "rgba(255,255,255,.85)"}"></i></div></div>
+        <div><div class="score">${pct(n)}<sup>%</sup></div><small class="muted">${n} vote${n > 1 ? "s" : ""}</small></div></div>`;
     return `<div class="dash">
-      <div class="kpis">
-        <div class="kpi"><span class="kpi-v">${G ? done.length : rows.length}</span><span class="kpi-l">${G ? "votants" : "membres"}</span><small>${G ? `${opt.groups ?? "?"} groupe(s) créés` : `${done.length} portrait(s) validé(s)`}</small></div>
-        <div class="kpi lead">${A.C[chosen[0][0]] ? A.avatar(chosen[0][0], 46) : ""}<div><span class="kpi-l">En tête des votes</span><span class="kpi-v sm">${esc(label(chosen[0][0]))}</span><small>${pct(chosen[0][1])} % · ${chosen[0][1]} sur ${done.length}</small></div></div>
-        <div class="kpi lead">${A.avatar(top.id, 46)}<div><span class="kpi-l">Idées les plus proches</span><span class="kpi-v sm">${esc(label(top.id))}</span><small>${top.pct} % de proximité moyenne</small></div></div>
-        <div class="kpi"><span class="kpi-v">${pct(coherent)} %</span><span class="kpi-l">votent comme leurs idées</span><small>choix = résultat du quiz</small></div>
-      </div>
-      <div class="dash-grid">
-        <section class="dcard"><h4>🗳️ Qui vote pour qui</h4><p class="muted small">Candidat choisi par ${who}${G ? "" : ", avec les pseudos"}.</p>${bars(chosen, "chosen_candidate", !G)}</section>
-        <section class="dcard"><h4>🧭 Ce que disent les idées</h4><p class="muted small">Candidat le plus proche des réponses de chacun au quiz.</p>${bars(count("top_candidate"), "top_candidate", !G)}</section>
-      </div>
-      <section class="dcard"><h4>📍 Où se situe ${who}</h4><p class="muted small">Position moyenne sur les 5 grands axes, comparée aux 3 candidats les plus proches.</p>
-        ${Q.axesHTML(null, groupRes.prox.slice(0, 3), "", [{ label: G ? "TOUS" : "GROUPE", pos: avgAxes, cls: "grp" }])}</section>
-      <details class="dcard more-d"><summary>🤝 Proximité avec chaque candidat et 📊 réponses moyennes aux ${Q.questions.length} affirmations</summary>
-        ${Q.proxHTML(groupRes.prox.slice(0, 8))}
+      <div class="grp-count"><strong>${nb}</strong><span>${G ? `votant${nb > 1 ? "s" : ""}` : `membre${nb > 1 ? "s" : ""}`}</span>
+        <small>${G ? `${opt.groups ?? "?"} groupe(s) créé(s)` : `dont ${done.length} vote${done.length > 1 ? "s" : ""} validé${done.length > 1 ? "s" : ""}`}</small></div>
+      <div class="poll-card grp-poll"><div class="poll-card-title"><span>${G ? "Le vote des participants" : "Le vote du groupe"} :</span> candidat choisi</div>
+        ${chosen.map(row).join("")}</div>
+      <section class="dcard"><h4>🤝 Proximité avec chaque candidat</h4><p class="muted small">D'après les réponses moyennes ${G ? "de l'ensemble des participants" : "du groupe"} au questionnaire.</p>${Q.proxHTML(groupRes.prox.slice(0, 8))}</section>
+      <section class="dcard"><h4>📊 Réponses moyennes aux ${Q.questions.length} affirmations</h4>
         <div class="avgq">${Q.questions.map((q) => { const v = avgAns[q.id]; return `<div class="avgq-r"><span>${esc(q.q)}</span><span class="avgq-b"><b style="left:${(v + 2) * 25}%"></b></span><strong>${v > 0 ? "+" : ""}${v.toFixed(1)}</strong></div>`; }).join("")}</div>
-        <p class="muted small">Échelle : −2 pas du tout d'accord … +2 tout à fait d'accord.</p></details>
-      ${G ? `<p class="muted small">Résultats anonymes : aucun pseudo n'est affiché pour l'ensemble des utilisateurs. Seuls les comptes à l'adresse e-mail confirmée (hors adresses temporaires) ayant validé leur portrait sont comptés.</p>` : `
-      <section class="dcard"><h4>👤 Les membres</h4><div class="members">${rows.map((r) => `<div class="member">
-          ${r.completed && A.C[r.chosen_candidate] ? A.avatar(r.chosen_candidate, 30) : "<span class='av-ph'></span>"}
-          <div><strong>${esc(r.pseudo)}</strong><small>${r.completed ? `vote ${esc(label(r.chosen_candidate))} · idées proches de ${esc(label(r.top_candidate))}` : "portrait pas encore validé"}</small></div></div>`).join("")}</div></section>`}
+        <p class="muted small">Échelle : −2 pas du tout d'accord … +2 tout à fait d'accord.</p></section>
+      ${G ? `<p class="muted small">Seuls les comptes à l'adresse e-mail confirmée (hors adresses temporaires) ayant validé leur portrait sont comptés.</p>` : ""}
+      <p class="anon-badge">🔒 <strong>100 % anonyme</strong></p>
     </div>`;
   }
 
@@ -659,7 +668,7 @@
           <span class="muted small">${g.is_owner ? "créé par vous" : `créé par ${esc(g.owner_pseudo)}`} · ${g.members} membre${g.members > 1 ? "s" : ""}</span></summary>
           <div class="grp-in"><div class="grp-dash">${done ? msg("Chargement des résultats…") : `<p class="muted">🔒 Résultats visibles après validation de votre portrait.</p>`}</div>
           ${g.is_owner ? "" : `<button type="button" class="ghost danger" data-leave="${g.group_id}">Quitter ce groupe</button>`}</div></details>`).join("")
-      + `<p class="muted small">Dans chaque groupe, les membres voient les pseudos, le candidat choisi et les tendances — jamais les e-mails.</p>`;
+      + `<p class="anon-badge">🔒 <strong>100 % anonyme</strong></p>`;
     if (done) {
       $$(".grp", box).forEach((d) => d.addEventListener("toggle", async () => {
         if (!d.open) return;
