@@ -33,6 +33,31 @@
     return `<span class="av av-init" style="--c:${c.color};width:${size}px;height:${size}px;background:${c.color};font-size:${size / 2.6}px">${esc(ini)}</span>`;
   };
 
+  /* ---------------- Consentement aux contenus tiers (RGPD / CNIL) ----------------
+     « all » : direct LCP, TikTok et Instagram chargés automatiquement ; « none » : rien n'est chargé
+     sans clic. Choix conservé 6 mois dans le stockage local. */
+  const CONSENT_KEY = "mds_consent";
+  const Consent = {
+    get() { try { const c = JSON.parse(localStorage.getItem(CONSENT_KEY) || "null"); return c && Date.now() - c.at < 182 * DAY ? c.v : null; } catch { return null; } },
+    ok() { return Consent.get() === "all"; },
+    set(v) { try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ v, at: Date.now() })); } catch { /* stockage indisponible */ } document.dispatchEvent(new CustomEvent("mds-consent", { detail: v })); },
+  };
+  window.MDSConsent = Consent;
+  function consentBanner() {
+    let b = $("#consent-bar");
+    if (!b) {
+      b = document.createElement("div");
+      b.id = "consent-bar"; b.className = "consent-bar"; b.setAttribute("role", "dialog"); b.setAttribute("aria-label", "Contenus tiers et cookies");
+      b.innerHTML = `<p>🍪 <strong>Contenus tiers.</strong> Le direct de LCP (YouTube), les vidéos TikTok et les publications Instagram peuvent déposer des cookies de ces plateformes. Le site lui-même n'utilise ni publicité ni mesure d'audience. <a href="#confidentialite">En savoir plus</a></p>
+        <div class="consent-btns"><button type="button" data-c="none">Tout refuser</button><button type="button" data-c="all">Tout accepter</button></div>`;
+      b.addEventListener("click", (e) => { const x = e.target.closest("[data-c]"); if (x) { Consent.set(x.dataset.c); b.hidden = true; } });
+      document.body.appendChild(b);
+    }
+    b.hidden = false;
+  }
+  document.addEventListener("click", (e) => { if (e.target.closest("[data-consent-open]")) { e.preventDefault(); consentBanner(); } });
+  if (Consent.get() === null) setTimeout(consentBanner, 600);
+
   /* ---------------- Compte à rebours jusqu'au vote ---------------- */
   // Dates annoncées en Conseil des ministres le 1er juillet 2026 (décret attendu avant le 7 février 2027)
   const TOURS = [{ label: "1er tour", date: new Date(2027, 3, 18) }, { label: "2nd tour", date: new Date(2027, 4, 2) }];
@@ -337,7 +362,7 @@
   const Social = (() => {
     const PL = { all: "Tous réseaux", x: "X", instagram: "Instagram", tiktok: "TikTok", youtube: "YouTube", facebook: "Facebook" };
     const PC = { all: "#ff2d55", x: "#9aa4b2", instagram: "#e1306c", tiktok: "#25d8e8", youtube: "#ff0033", facebook: "#1877f2" };
-    const st = { platform: "all", period: "365", mode: "total", from: 0, to: 0, t: 1, raf: 0 };
+    const st = { platform: "all", period: "ytd", mode: "total", from: 0, to: 0, t: 1, raf: 0 };
     let H, ids, allIds, ROW = 44;
 
     const val = (pt, id, p) => {
@@ -524,9 +549,14 @@
           ? `<button class="yt" data-src="https://geo.dailymotion.com/player/${esc(window.DM_PLAYER)}.html?video=${esc(it.dailymotion_id)}&autoplay=1" aria-label="Lire la vidéo Dailymotion"><img src="https://www.dailymotion.com/thumbnail/video/${esc(it.dailymotion_id)}" alt="" loading="lazy"></button>`
           : `<a class="yt" href="https://www.dailymotion.com/video/${esc(it.dailymotion_id)}" target="_blank" rel="noopener" aria-label="Voir la vidéo sur Dailymotion"><img src="https://www.dailymotion.com/thumbnail/video/${esc(it.dailymotion_id)}" alt="" loading="lazy"></a>`;
       if (pf === "tiktok" && it.tiktok_id)
-        return `<div class="tt" data-tt="${esc(it.tiktok_id)}"><span class="tt-ph">♪ TikTok</span></div>`;
+        return `<div class="tt" data-tt="${esc(it.tiktok_id)}">${Consent.ok() ? `<span class="tt-ph">♪ TikTok</span>` : `<button type="button" class="tp-load" data-tt-load>♪ Lire la vidéo TikTok<small>TikTok pourra déposer des cookies</small></button>`}</div>`;
       if (pf === "instagram" && it.instagram_code)
-        return `<div class="ig"><iframe src="https://www.instagram.com/${it.instagram_kind === "p" ? "p" : "reel"}/${esc(it.instagram_code)}/embed/" loading="lazy" scrolling="no" allowtransparency="true" allow="encrypted-media; fullscreen" title="Publication Instagram"></iframe></div>`;
+      {
+        const src = `https://www.instagram.com/${it.instagram_kind === "p" ? "p" : "reel"}/${esc(it.instagram_code)}/embed/`;
+        return Consent.ok()
+          ? `<div class="ig"><iframe src="${src}" loading="lazy" scrolling="no" allowtransparency="true" allow="encrypted-media; fullscreen" title="Publication Instagram"></iframe></div>`
+          : `<div class="ig ig-off"><button type="button" class="tp-load" data-ig="${src}">◎ Afficher la publication Instagram<small>Instagram pourra déposer des cookies</small></button></div>`;
+      }
       if (pf === "x" && it.x_id)
         return `<button class="xload" data-src="https://platform.twitter.com/embed/Tweet.html?id=${esc(it.x_id)}&lang=fr&theme=dark&dnt=true">Afficher le post</button>`;
       return "";
@@ -551,11 +581,26 @@
       $("#buzz-pos").innerHTML = pos.map(([it, id]) => card(it, id, "pos")).join("") || `<div class="empty">Aucune séquence favorable détectée pour ce filtre.</div>`;
       $$("#buzz .tt").forEach((t) => ttObs.observe(t));
     };
+    // chargement à la demande (sans accord global)
+    $("#buzz").addEventListener("click", (e) => {
+      const ig = e.target.closest("[data-ig]");
+      if (ig) { ig.parentElement.classList.remove("ig-off"); ig.parentElement.innerHTML = `<iframe src="${ig.dataset.ig}" scrolling="no" allowtransparency="true" allow="encrypted-media; fullscreen" title="Publication Instagram"></iframe>`; return; }
+      const tt = e.target.closest("[data-tt-load]");
+      if (tt) {
+        const box = tt.closest(".tt"); box.dataset.ok = "1";
+        box.innerHTML = `<iframe src="https://www.tiktok.com/player/v1/${box.dataset.tt}?autoplay=1&loop=1&music_info=0&description=0&rel=0&controls=1&progress_bar=1&volume_control=1&fullscreen_button=1&play_button=1&timestamp=0" allow="autoplay; fullscreen; encrypted-media" title="Vidéo TikTok"></iframe>`;
+      }
+    });
+    document.addEventListener("mds-consent", () => render());
     // TikTok : lecteur officiel chargé quand la vidéo arrive à l'écran, lecture automatique sans le son
     const ttPost = (f, type) => f?.contentWindow?.postMessage({ type, "x-tiktok-player": true }, "*");
     const ttObs = new IntersectionObserver((entries) => entries.forEach((en) => {
       const box = en.target; let f = box.querySelector("iframe");
       if (en.isIntersecting) {
+        if (!f && !Consent.ok() && !box.dataset.ok) {
+          if (!box.querySelector(".tp-load")) box.innerHTML = `<button type="button" class="tp-load" data-tt-load>♪ Lire la vidéo TikTok<small>TikTok pourra déposer des cookies</small></button>`;
+          return;
+        }
         if (!f) {
           box.innerHTML = `<iframe src="https://www.tiktok.com/player/v1/${box.dataset.tt}?autoplay=1&loop=1&music_info=0&description=0&rel=0&controls=1&progress_bar=1&volume_control=1&fullscreen_button=1&play_button=1&timestamp=0" allow="autoplay; fullscreen; encrypted-media" title="Vidéo TikTok"></iframe>`;
           f = box.querySelector("iframe");
@@ -771,17 +816,21 @@
       document.querySelectorAll("#buzz-side button").forEach((x) => x.classList.toggle("on", x === b));
       document.querySelector(".buzz-cols").dataset.s = b.dataset.s;
     });
-    // Mini-lecteur du direct LCP (en-tête) : affiché seulement quand la chaîne est en direct
-    initLiveLCP();
+    // Mini-lecteur du direct LCP (en-tête) : affiché seulement quand la chaîne est en direct,
+    // et chargé uniquement si les contenus tiers ont été acceptés
+    if (Consent.ok()) initLiveLCP();
+    document.addEventListener("mds-consent", (e) => { if (e.detail === "all") initLiveLCP(); else if (liveStarted) location.reload(); });
     const fromMail = /access_token=|error_description=|type=signup/.test(location.hash) || /[?&](reset|confirm)=1/.test(location.search);
     showTab(fromMail ? "fun" : location.hash.slice(1) || "sondages");
   }
   /* Direct LCP : lecteur YouTube de la chaîne (live_stream), masqué s'il n'y a pas de direct en cours.
      Vérifié au chargement puis toutes les 5 minutes. */
   const LCP_CHANNEL = "UCHGFbA0KWBgf6gMbyUCZeCQ";
+  let liveStarted = false;
   function initLiveLCP() {
     const box = $("#mini-live"), host = $("#ml-player");
-    if (!box || !host) return;
+    if (!box || !host || liveStarted) return;
+    liveStarted = true;
     let player = null, live = false;
     // Hors direct, le bloc reste chargé mais invisible (hors écran) pour pouvoir tester la lecture
     const show = (on) => {

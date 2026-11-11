@@ -117,16 +117,15 @@
       <div class="fun-card auth-card">
         <div class="auth-bar"><div class="seg" id="auth-tabs"><button data-t="up" class="on">Créer un compte</button><button data-t="in">Se connecter</button></div></div>
         <form id="auth-form" class="fun-form">
-          <label class="f-up">Pseudo (visible par les membres de vos groupes)<input name="pseudo" required minlength="2" maxlength="30" autocomplete="nickname"><small>Évitez votre nom complet si vous souhaitez rester discret.</small></label>
           <label>E-mail<input name="email" type="email" required autocomplete="email" value="${esc(prefill)}"><small class="f-up">Un e-mail de confirmation vous sera envoyé. Les adresses temporaires ne sont pas acceptées.</small></label>
           <label>Mot de passe<input name="password" type="password" required minlength="8" autocomplete="new-password"><small class="f-up">8 caractères minimum.</small></label>
           <button type="button" class="linkish f-in forgot" id="forgot">Mot de passe oublié ?</button>
-          <label class="f-up consent"><input type="checkbox" name="consent" required> <span>J'accepte les <a href="#cgu" target="_blank">conditions d'utilisation</a> et la <a href="#confidentialite" target="_blank">politique de confidentialité</a>.</span></label>
+          <label class="f-up consent"><input type="checkbox" name="consent" required> <span>J'ai au moins 15 ans et j'accepte les <a href="#cgu" target="_blank">conditions d'utilisation</a> et la <a href="#confidentialite" target="_blank">politique de confidentialité</a>.</span></label>
           <div id="captcha-box" class="captcha-box"></div>
           <button class="cta" type="submit">Créer mon compte →</button>
           <div id="auth-msg"></div>
         </form>
-        <p class="muted small auth-note">🔒 Votre e-mail sert uniquement à vous connecter : il n'est jamais montré aux autres utilisateurs, ni à l'auteur d'un lien. Seuls les comptes à l'adresse confirmée sont comptés dans les résultats.</p>
+        <p class="muted small auth-note">🔒 Aucun pseudo à choisir : un pseudo anonyme (ex. « anonyme245 ») vous est attribué. Votre e-mail sert uniquement à vous connecter : il n'est jamais montré aux autres utilisateurs, ni à l'auteur d'un lien. Seuls les comptes à l'adresse confirmée sont comptés dans les résultats.</p>
       </div>`;
     let mode = "up";
     const f = $("#auth-form", box);
@@ -135,7 +134,6 @@
       $$("#auth-tabs button").forEach((x) => x.classList.toggle("on", x.dataset.t === m));
       $$(".f-up", f).forEach((x) => (x.hidden = m !== "up"));
       $$(".f-in", f).forEach((x) => (x.hidden = m !== "in"));
-      f.pseudo.required = m === "up";
       f.consent.required = m === "up";
       f.password.autocomplete = m === "up" ? "new-password" : "current-password";
       f.password.minLength = m === "up" ? 8 : 1;
@@ -178,7 +176,7 @@
       if (mode === "up") {
         const pending = codeFromUrl() || store.get(PENDING) || undefined;
         const { data, error } = await sb.auth.signUp({ email, password,
-          options: { captchaToken: captchaToken || undefined, emailRedirectTo: redirectUrl(), data: { pseudo: f.pseudo.value.trim(), pending_group: pending, cgu_at: new Date().toISOString() } } });
+          options: { captchaToken: captchaToken || undefined, emailRedirectTo: redirectUrl(), data: { pseudo: anonPseudo(), pending_group: pending, cgu_at: new Date().toISOString() } } });
         if (error) return (out.innerHTML = msg(/rate limit/i.test(error.message) ? "Trop d'inscriptions en ce moment : réessayez dans quelques minutes." : esc(error.message), "err"));
         if (data.user && !data.user.identities?.length) return (out.innerHTML = msg("Un compte existe déjà avec cette adresse : connectez-vous.", "err"));
         if (!data.session) return checkEmailScreen(email);
@@ -239,10 +237,16 @@
     });
   }
 
+  // pseudo anonyme attribué à chaque participant (jamais dérivé de l'e-mail)
+  function anonPseudo() {
+    const n = new Uint32Array(1); crypto.getRandomValues(n);
+    return "anonyme" + (100 + (n[0] % 9900));
+  }
   async function ensureProfile() {
     let { data } = await sb.from("profiles").select("id, pseudo, created_at").eq("id", user.id).maybeSingle();
     if (!data) {
-      const pseudo = (user.user_metadata?.pseudo || user.email.split("@")[0]).slice(0, 30);
+      const meta = user.user_metadata?.pseudo;
+      const pseudo = /^anonyme\d+$/.test(meta || "") ? meta : anonPseudo();
       ({ data } = await sb.from("profiles").insert({ id: user.id, pseudo }).select("id, pseudo, created_at").single());
     }
     // le bulletin (réponses + vote) est stocké à part, relié au compte par une empreinte chiffrée
@@ -441,7 +445,7 @@
     stepper.chosen = profile.chosen_candidate || "";
     stepper.i = 0;
     el().innerHTML = `${notice}
-      <div class="fun-head"><div>Connecté en tant que <strong>${esc(profile.pseudo)}</strong></div><div class="fun-head-btns"><button type="button" id="logout" class="ghost">Se déconnecter</button><button type="button" id="del-account" class="ghost danger">Supprimer mon compte</button></div></div>
+      <div class="fun-head"><div>Connecté en tant que <strong>${esc(profile.pseudo)}</strong></div><div class="fun-head-btns"><button type="button" id="logout" class="ghost">Se déconnecter</button><button type="button" id="export-data" class="ghost">Télécharger mes données</button><button type="button" id="del-account" class="ghost danger">Supprimer mon compte</button></div></div>
       ${groupFormHTML()}
       ${done ? "" : `<div class="fun-card port-todo"><div><strong>Votre vote n'est pas encore enregistré</strong><p class="muted small">Choisissez votre candidat et répondez aux affirmations : votre vote comptera dans vos groupes et dans « Le vote des participants ».</p></div>${toPortrait}</div>`}
       <div class="fun-tabbar" id="fun-tabs">${tabsHTML()}</div>
@@ -451,6 +455,7 @@
     bindVoteGrid();
     $("#logout").onclick = () => sb.auth.signOut();
     $("#del-account").onclick = confirmDelete;
+    $("#export-data").onclick = exportData;
     $("#fun-tabs").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
       if (!b.dataset.p) return;
@@ -464,6 +469,24 @@
     renderAll();
     const pg = store.get(PENDING_GROUP);
     if (pg) { store.del(PENDING_GROUP); await createGroup(null, pg); } else renderGroups();
+  }
+
+  /* ---------- Télécharger mes données (droits d'accès et de portabilité) ---------- */
+  async function exportData() {
+    const [{ data: prof }, { data: ballot }, { data: groups }] = await Promise.all([
+      sb.from("profiles").select("*").eq("id", user.id).maybeSingle(),
+      sb.rpc("my_ballot"),
+      sb.rpc("my_joined_groups"),
+    ]);
+    const out = {
+      export: "moyennedessondages2027.fr — vos données personnelles", date: new Date().toISOString(),
+      compte: { email: user.email, cree_le: user.created_at, email_confirme_le: user.email_confirmed_at, derniere_connexion: user.last_sign_in_at, cgu_acceptees_le: user.user_metadata?.cgu_at || null },
+      profil: prof || null, bulletin: (ballot && ballot[0]) || null, groupes: groups || [],
+    };
+    const url = URL.createObjectURL(new Blob([JSON.stringify(out, null, 2)], { type: "application/json" }));
+    const a = Object.assign(document.createElement("a"), { href: url, download: "mes-donnees-moyennedessondages2027.json" });
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
   }
 
   /* ---------- Supprimer mon compte (droit à l'effacement) ---------- */

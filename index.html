@@ -10,9 +10,9 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0b1030">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=202611102000">
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=barlow-condensed:600,700,800|inter:400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css?v=202611111000">
 </head>
 <body>
   <header class="top">
@@ -54,7 +54,6 @@
       <div class="panel-head">
         <div>
           <h1>Intentions de vote — 1<sup>er</sup> tour</h1>
-          <p class="muted" id="poll-meta"></p>
         </div>
         <div class="poll-actions">
         <div class="seg" id="poll-window">
@@ -78,6 +77,7 @@
         </div>
         <div class="poll-card-foot" id="poll-sources"></div>
       </div>
+      <p class="muted small poll-meta" id="poll-meta"></p>
       <h2>Duels du 2<sup>nd</sup> tour</h2>
       <p class="muted small" id="duel-meta"></p>
       <div class="duels" id="duels"></div>
@@ -92,18 +92,14 @@
       <div class="panel-head">
         <div>
           <h1>Communautés sur les réseaux sociaux</h1>
-          <p class="muted">Abonnés cumulés ou par réseau : choisissez une plateforme ci-dessous.</p>
+          <p class="muted">Abonnés cumulés ou par réseau : choisissez une plateforme sous le classement.</p>
         </div>
       </div>
       <div id="social-warning" class="warn" hidden></div>
-      <div class="plat-cards" id="soc-platform" role="tablist" aria-label="Choisir un réseau social"></div>
       <div class="controls">
         <div class="seg" id="soc-period">
-          <button data-p="7">7 j</button>
           <button data-p="30">30 j</button>
-          <button data-p="90">3 mois</button>
-          <button data-p="ytd">Depuis janvier</button>
-          <button data-p="365" class="on">12 mois</button>
+          <button data-p="ytd" class="on">Depuis janvier</button>
           <button data-p="custom">Personnalisé</button>
         </div>
         <div class="custom-range" id="soc-custom" hidden>
@@ -122,6 +118,7 @@
         <div class="race" id="soc-race"></div>
         <input type="range" id="soc-scrub" min="0" max="1000" value="1000" aria-label="Position dans le temps">
       </div>
+      <div class="plat-cards plat-below" id="soc-platform" role="tablist" aria-label="Choisir un réseau social"></div>
       <h2 id="soc-curve-title">Évolution des communautés</h2>
       <div class="chart-box" id="soc-curve"></div>
       <h2>Détail par candidat</h2>
@@ -323,16 +320,18 @@
     <!-- 7. PAGES LÉGALES -->
     <section id="mentions" class="panel legal" hidden>
       <h1>Mentions légales</h1>
-      <p class="muted small">Dernière mise à jour : 9 novembre 2026</p>
+      <p class="muted small">Dernière mise à jour : 11 novembre 2026</p>
+      <h2>Éditeur</h2>
+      <p>Le site est édité par une personne physique, à titre non professionnel et sans but lucratif. Conformément à l'article 6, III, 2 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, ses nom, prénom et adresse ont été communiqués à l'hébergeur du site. Contact : <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a>.</p>
       <h2>Hébergement</h2>
       <p><strong>Site :</strong> GitHub, Inc. (GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — <a href="https://github.com" target="_blank" rel="noopener">github.com</a>.<br>
-      <strong>Comptes et votes du « Petit vote entre amis » :</strong> Supabase, Inc. (États-Unis) ; données hébergées dans l'Union européenne (région Francfort, Allemagne) — <a href="https://supabase.com" target="_blank" rel="noopener">supabase.com</a>.<br>
+      <strong>Comptes et votes de « Que votent mes amis ? » :</strong> Supabase, Inc. (États-Unis) ; données hébergées dans l'Union européenne (région Francfort, Allemagne) — <a href="https://supabase.com" target="_blank" rel="noopener">supabase.com</a>.<br>
       <strong>Envoi des e-mails :</strong> Brevo (Sendinblue SAS), 106 boulevard Haussmann, 75008 Paris — <a href="https://www.brevo.com" target="_blank" rel="noopener">brevo.com</a>.</p>
       <h2>Nature du site</h2>
       <p>MDS 2027 est un site d'information indépendant et gratuit, sans publicité et sans rien à vendre. Il n'a aucun lien avec les candidats, les partis politiques ou les instituts de sondage, et ne reçoit aucun financement de leur part.</p>
       <h2>Sondages publiés</h2>
       <p>La rubrique « Sondages » présente des <strong>moyennes calculées par le site</strong> à partir de sondages réalisés et publiés par des instituts (liste publique Wikipédia des sondages pour l'élection présidentielle de 2027). Pour chaque sondage, la notice détaillée (commanditaire, échantillon, dates, méthode, marge d'erreur) est consultable auprès de l'institut concerné et de la <a href="https://www.commission-des-sondages.fr" target="_blank" rel="noopener">Commission des sondages</a>. Conformément à la loi n° 77-808 du 19 juillet 1977, aucun sondage ni aucune moyenne de sondages ne sera publié ou mis à jour la veille et le jour de chaque tour de scrutin.</p>
-      <p>Le « Petit vote entre amis » et ses résultats ne sont <strong>pas un sondage</strong> : les participants se désignent eux-mêmes, l'échantillon n'est pas représentatif de la population et les résultats ne permettent aucune prévision.</p>
+      <p>« Que votent mes amis ? » et ses résultats ne sont <strong>pas un sondage</strong> : les participants se désignent eux-mêmes, l'échantillon n'est pas représentatif de la population et les résultats ne permettent aucune prévision.</p>
       <h2>Propriété intellectuelle</h2>
       <p>Les textes, calculs, graphiques et la mise en forme du site appartiennent à l'éditeur du site, sauf mention contraire. Les photographies proviennent de Wikimedia Commons (licences libres, auteurs crédités sur Commons). Les vidéos et publications intégrées (YouTube, Dailymotion, TikTok, X…) restent la propriété de leurs auteurs. Les marques et logos cités appartiennent à leurs titulaires.</p>
       <h2>Responsabilité</h2>
@@ -341,25 +340,26 @@
 
     <section id="cgu" class="panel legal" hidden>
       <h1>Conditions générales d'utilisation</h1>
-      <p class="muted small">Dernière mise à jour : 9 novembre 2026</p>
+      <p class="muted small">Dernière mise à jour : 11 novembre 2026</p>
       <h2>1. Objet</h2>
       <p>Les présentes conditions encadrent l'utilisation du site moyennedessondages2027.fr (voir les <a href="#mentions">mentions légales</a>). Utiliser le site vaut acceptation de ces conditions ; la création d'un compte nécessite de les accepter expressément.</p>
       <h2>2. Accès au site</h2>
-      <p>Le site est gratuit et accessible sans inscription. Seul le « Petit vote entre amis » (portrait idéologique, choix de candidat, groupes) nécessite un compte. L'éditeur peut suspendre ou faire évoluer tout ou partie du site, notamment pour maintenance ou pour respecter la période de réserve électorale.</p>
+      <p>Le site est gratuit et accessible sans inscription. Seule la rubrique « Que votent mes amis ? » (portrait idéologique, choix de candidat, groupes) nécessite un compte. L'éditeur peut suspendre ou faire évoluer tout ou partie du site, notamment pour maintenance ou pour respecter la période de réserve électorale.</p>
       <h2>3. Compte utilisateur</h2>
       <ul>
         <li>Le compte est personnel et gratuit. Il faut avoir au moins 15 ans et fournir une adresse e-mail valide, que vous devez confirmer ; les adresses temporaires sont refusées.</li>
         <li>Un seul compte par personne. Vous êtes responsable de la confidentialité de votre mot de passe.</li>
+        <li>Aucun pseudo n'est demandé : un pseudo anonyme (par exemple « anonyme245 ») vous est attribué automatiquement.</li>
         <li>Seuls les comptes à l'adresse confirmée sont pris en compte dans les résultats. Un seul vote par compte et par personne : les comptes créés en double (variantes d'une même adresse), les adresses jetables ou relais d'alias ne sont pas comptés ; les modifications de vote sont limitées.</li>
         <li>Aucun vote ni résultat n'est enregistré ou affiché la veille et le jour de chaque tour, jusqu'à 20 h (période de réserve électorale).</li>
-        <li>Vous pouvez supprimer votre compte à tout moment, en un clic, avec le bouton « Supprimer mon compte » du « Petit vote entre amis ».</li>
+        <li>Vous pouvez supprimer votre compte à tout moment, en un clic, avec le bouton « Supprimer mon compte » de « Que votent mes amis ? ». Le bouton « Télécharger mes données » vous en remet une copie.</li>
       </ul>
       <h2>4. Règles de conduite</h2>
-      <p>Il est interdit de : créer des comptes multiples ou automatisés pour fausser les résultats ; choisir un pseudo injurieux, discriminatoire, trompeur ou usurpant l'identité d'autrui (y compris d'un candidat) ; tenter d'accéder aux données d'autres utilisateurs ou de perturber le fonctionnement du site. L'éditeur peut supprimer, sans préavis, tout compte ou groupe qui ne respecte pas ces règles.</p>
+      <p>Il est interdit de : créer des comptes multiples ou automatisés pour fausser les résultats ; donner un nom de groupe injurieux, discriminatoire, trompeur ou usurpant l'identité d'autrui (y compris d'un candidat) ; tenter d'accéder aux données d'autres utilisateurs ou de perturber le fonctionnement du site. L'éditeur peut supprimer, sans préavis, tout compte ou groupe qui ne respecte pas ces règles.</p>
       <h2>5. Groupes et liens de partage</h2>
       <p>Le créateur d'un groupe et ses membres voient les résultats du groupe et les <strong>pseudos</strong> des participants, jamais leurs adresses e-mail. En rejoignant un groupe, vous acceptez que votre pseudo, votre choix de candidat et votre portrait y soient visibles. Ne partagez votre lien qu'avec des personnes de confiance.</p>
       <h2>6. Nature des résultats</h2>
-      <p>Les résultats du « Petit vote entre amis » (groupes et ensemble des participants) ne sont pas un sondage au sens de la loi du 19 juillet 1977 : ils reflètent uniquement les réponses de personnes volontaires, sans représentativité. Ils ne doivent pas être présentés comme un sondage.</p>
+      <p>Les résultats de « Que votent mes amis ? » (groupes et ensemble des participants) ne sont pas un sondage au sens de la loi du 19 juillet 1977 : ils reflètent uniquement les réponses de personnes volontaires, sans représentativité. Ils ne doivent pas être présentés comme un sondage.</p>
       <h2>7. Responsabilité</h2>
       <p>Les informations sont fournies à titre indicatif (voir les <a href="#mentions">mentions légales</a>). L'éditeur ne saurait être tenu responsable d'une décision prise sur la base des contenus du site, ni des contenus des sites tiers vers lesquels il renvoie.</p>
       <h2>8. Modification et droit applicable</h2>
@@ -368,32 +368,46 @@
 
     <section id="confidentialite" class="panel legal" hidden>
       <h1>Confidentialité et cookies</h1>
-      <p class="muted small">Dernière mise à jour : 9 novembre 2026</p>
+      <p class="muted small">Dernière mise à jour : 11 novembre 2026</p>
       <p class="legal-key">🔒 <strong>Vos données ne sont ni vendues, ni louées, ni cédées</strong> à qui que ce soit, et ne servent à aucune publicité ni à aucun ciblage politique. Le site n'utilise aucun traceur publicitaire ni outil de mesure d'audience.</p>
       <h2>Responsable du traitement</h2>
-      <p>L'éditeur du site, joignable à <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a>.</p>
+      <p>L'éditeur du site (voir les <a href="#mentions">mentions légales</a>), joignable à <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a>.</p>
       <h2>Sans compte : ce que le site ne collecte pas</h2>
       <p>La consultation des sondages, réseaux sociaux, buzz, programmes et du simulateur « Les impacts sur ma vie » ne nécessite aucune donnée personnelle. Les informations saisies dans le simulateur (revenus, situation familiale, entreprise…) <strong>restent dans votre navigateur</strong> : elles ne sont ni envoyées ni enregistrées. Seul le numéro SIRET, si vous le saisissez, est transmis à l'annuaire public des entreprises (recherche-entreprises.api.gouv.fr, service de l'État) pour remplir le formulaire.</p>
-      <h2>Avec un compte « Petit vote entre amis »</h2>
+      <h2>Avec un compte « Que votent mes amis ? »</h2>
       <table class="legal-table">
-        <tr><th>Données</th><th>Pourquoi</th><th>Qui les voit</th></tr>
-        <tr><td>Adresse e-mail, mot de passe (chiffré)</td><td>Connexion, confirmation du compte, lutte contre les faux comptes</td><td>Personne d'autre que vous ; jamais affichée</td></tr>
-        <tr><td>Pseudo</td><td>Vous identifier dans vos groupes</td><td>Les membres de vos groupes</td></tr>
-        <tr><td>Réponses au portrait, axes calculés, choix de candidat</td><td>Votre portrait, les résultats des groupes et de l'ensemble des participants</td><td>Vos groupes (avec votre pseudo) ; résultats globaux uniquement agrégés et anonymes</td></tr>
-        <tr><td>Groupes créés ou rejoints</td><td>Faire fonctionner les liens de partage</td><td>Les membres du groupe</td></tr>
+        <tr><th>Données</th><th>Pourquoi</th><th>Base légale</th><th>Qui les voit</th></tr>
+        <tr><td>Adresse e-mail, mot de passe (haché)</td><td>Connexion, confirmation du compte, lutte contre les faux comptes</td><td>Exécution du service demandé (art. 6.1.b RGPD)</td><td>Personne d'autre que vous ; jamais affichée</td></tr>
+        <tr><td>Pseudo anonyme attribué automatiquement (ex. « anonyme245 »)</td><td>Distinguer les participants d'un groupe sans révéler leur identité</td><td>Exécution du service</td><td>Les membres de vos groupes</td></tr>
+        <tr><td>Réponses au portrait, axes calculés, choix de candidat</td><td>Votre portrait, les résultats des groupes et de l'ensemble des participants</td><td>Consentement explicite (art. 9.2.a RGPD)</td><td>Vos groupes (avec votre pseudo anonyme) ; résultats globaux uniquement agrégés et anonymes</td></tr>
+        <tr><td>Groupes créés ou rejoints</td><td>Faire fonctionner les liens de partage</td><td>Exécution du service</td><td>Les membres du groupe</td></tr>
+        <tr><td>Journaux techniques (adresse IP, date, navigateur)</td><td>Sécurité, prévention des abus</td><td>Intérêt légitime (art. 6.1.f RGPD)</td><td>L'éditeur et les hébergeurs ; conservés 30 jours au plus</td></tr>
       </table>
-      <p><strong>Base légale :</strong> vos réponses et votre choix de candidat révèlent des opinions politiques, qui sont des données sensibles (article 9 du RGPD). Elles ne sont traitées qu'avec votre <strong>consentement explicite et dédié</strong>, recueilli par une case à cocher distincte de l'acceptation des conditions d'utilisation, au moment où vous enregistrez votre vote. Vous pouvez le retirer à tout moment en un clic (« Retirer mon vote ») ou en supprimant votre compte. Les données de connexion sont traitées pour exécuter le service que vous demandez.</p>
+      <p><strong>Données sensibles :</strong> vos réponses et votre choix de candidat révèlent des opinions politiques (article 9 du RGPD). Elles ne sont traitées qu'avec votre <strong>consentement explicite et dédié</strong>, recueilli par une case à cocher distincte de l'acceptation des conditions d'utilisation, au moment où vous enregistrez votre vote. Vous pouvez le retirer à tout moment en un clic (« Retirer mon vote ») ou en supprimant votre compte ; le retrait ne remet pas en cause ce qui a été fait avant. Aucune décision automatisée ni aucun profilage produisant des effets à votre égard n'est réalisé. L'inscription est réservée aux personnes d'au moins 15 ans.</p>
       <h2>Sécurité</h2>
-      <p>Les échanges sont chiffrés (HTTPS) et les mots de passe stockés sous forme hachée. <strong>Votre vote est conservé à part de votre adresse e-mail</strong> : il figure dans une table distincte, reliée à votre compte uniquement par une empreinte cryptographique (HMAC-SHA256) calculée avec une clé secrète chiffrée ; ni votre e-mail ni l'identifiant de votre compte n'y apparaissent. Cette table n'est accessible à aucun utilisateur : les résultats ne sont produits que par des fonctions qui ne renvoient jamais d'adresse e-mail (pseudo dans vos groupes, lignes anonymes et mélangées pour l'ensemble des participants). Les adresses e-mail ne sont jamais exposées aux autres utilisateurs.</p>
-      <h2>Destinataires et sous-traitants</h2>
-      <p>Seul l'éditeur a accès aux données, via ses sous-traitants techniques : Supabase (hébergement de la base, dans l'Union européenne, à Francfort), Brevo (envoi des e-mails de confirmation, en France) et GitHub (hébergement des pages du site). Ces prestataires agissent sur instruction de l'éditeur et sont tenus par des engagements conformes au RGPD.</p>
+      <p>Les échanges sont chiffrés (HTTPS) et les mots de passe stockés sous forme hachée. <strong>Votre vote est conservé à part de votre adresse e-mail</strong> : il figure dans une table distincte, reliée à votre compte uniquement par une empreinte cryptographique (HMAC-SHA256) calculée avec une clé secrète chiffrée ; ni votre e-mail ni l'identifiant de votre compte n'y apparaissent. Cette table n'est accessible à aucun utilisateur : les résultats ne sont produits que par des fonctions qui ne renvoient jamais d'adresse e-mail (pseudo anonyme dans vos groupes, lignes anonymes et mélangées pour l'ensemble des participants). En cas de violation de données présentant un risque, la CNIL est notifiée sous 72 heures et les personnes concernées sont informées.</p>
+      <h2>Destinataires, sous-traitants et transferts</h2>
+      <p>Seul l'éditeur a accès aux données, via ses sous-traitants techniques, qui agissent sur ses instructions dans le cadre d'un contrat conforme à l'article 28 du RGPD :</p>
+      <ul>
+        <li><strong>Supabase</strong> : base de données et comptes, hébergés dans l'Union européenne (Francfort). Supabase, Inc. étant une société américaine, un accès depuis les États-Unis (support, maintenance) est encadré par les clauses contractuelles types de la Commission européenne.</li>
+        <li><strong>Brevo</strong> (France) : envoi des e-mails de confirmation et de réinitialisation du mot de passe.</li>
+        <li><strong>GitHub</strong> (États-Unis) : hébergement des pages du site ; reçoit votre adresse IP lors de chaque visite. Transfert encadré par le cadre de protection des données UE–États-Unis (Data Privacy Framework) et les clauses contractuelles types.</li>
+        <li><strong>jsDelivr</strong> : diffusion de la bibliothèque technique de connexion (adresse IP uniquement).</li>
+        <li><strong>Bunny Fonts</strong> (Union européenne) : polices de caractères, sans cookie ni journalisation des adresses IP.</li>
+      </ul>
       <h2>Durée de conservation</h2>
-      <p>Votre <strong>vote et vos réponses</strong> sont supprimés automatiquement le <strong>9 mai 2027</strong>, une semaine après le second tour : seuls les totaux nationaux par candidat, anonymes, sont conservés. Vous pouvez aussi les retirer vous-même à tout moment, en un clic (« Retirer mon vote »). Votre compte (e-mail, pseudo, groupes) est conservé tant que vous ne le supprimez pas, et au plus tard jusqu'au 31 décembre 2027. Un compte jamais confirmé peut être supprimé au bout de 30 jours.</p>
+      <p>Votre <strong>vote et vos réponses</strong> sont supprimés automatiquement le <strong>9 mai 2027</strong>, une semaine après le second tour : seuls les totaux nationaux par candidat, anonymes, sont conservés. Vous pouvez aussi les retirer vous-même à tout moment, en un clic (« Retirer mon vote »). Votre compte (e-mail, pseudo, groupes) est conservé tant que vous ne le supprimez pas, et au plus tard jusqu'au 31 décembre 2027. Un compte jamais confirmé peut être supprimé au bout de 30 jours. Les journaux techniques sont conservés 30 jours au plus.</p>
       <h2>Vos droits</h2>
-      <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données, ainsi que du droit de retirer votre consentement. <strong>Pour supprimer votre compte</strong>, connectez-vous au « Petit vote entre amis » et cliquez sur « Supprimer mon compte » : toutes vos données sont effacées immédiatement et définitivement. Pour exercer vos autres droits, écrivez depuis l'adresse de votre compte à <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a> : nous répondons sous un mois. Vous pouvez aussi adresser une réclamation à la <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener">CNIL</a>.</p>
-      <h2>Cookies et stockage local</h2>
-      <p>Le site ne dépose <strong>aucun cookie publicitaire ou de mesure d'audience</strong>, c'est pourquoi aucun bandeau de consentement n'est affiché. Il utilise uniquement le stockage local de votre navigateur, strictement nécessaire au service : maintien de votre connexion au « Petit vote entre amis » mémorisation d'un lien de groupe en attente d'inscription, et des cases cochées de « Prêt à voter ? » (elles ne quittent jamais votre appareil).</p>
-      <p><strong>Contenus tiers :</strong> les polices de caractères sont chargées depuis Google Fonts, qui reçoit à cette occasion votre adresse IP. Sur ordinateur, le direct de Public Sénat (chaîne YouTube officielle, lecteur youtube-nocookie) se charge sans le son en haut de chaque page. Les autres vidéos YouTube et Dailymotion et les publications X ne sont chargées que si vous cliquez dessus. Les vidéos TikTok et les publications Instagram de la rubrique Buzz se chargent lorsqu'elles apparaissent à l'écran (les vidéos TikTok se lancent sans le son). Ces plateformes peuvent alors déposer leurs propres cookies, selon leurs politiques.</p>
+      <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données, du droit de retirer votre consentement à tout moment, et du droit de définir des directives sur le sort de vos données après votre décès. Directement depuis « Que votent mes amis ? », une fois connecté :</p>
+      <ul>
+        <li><strong>« Télécharger mes données »</strong> : copie de toutes vos données dans un fichier (accès et portabilité) ;</li>
+        <li><strong>« Retirer mon vote »</strong> : efface vos réponses et votre choix de candidat ;</li>
+        <li><strong>« Supprimer mon compte »</strong> : efface immédiatement et définitivement toutes vos données.</li>
+      </ul>
+      <p>Pour toute autre demande, écrivez depuis l'adresse de votre compte à <a href="mailto:contact@moyennedessondages2027.fr">contact@moyennedessondages2027.fr</a> : nous répondons sous un mois. Vous pouvez aussi adresser une réclamation à la <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener">CNIL</a>.</p>
+      <h2>Cookies, stockage local et contenus tiers</h2>
+      <p>Le site ne dépose <strong>aucun cookie publicitaire ou de mesure d'audience</strong>. Il utilise uniquement le stockage local de votre navigateur, strictement nécessaire au service et exempté de consentement : maintien de votre connexion à « Que votent mes amis ? », mémorisation d'un lien de groupe en attente d'inscription, de votre choix concernant les contenus tiers et des cases cochées de « Prêt à voter ? » (elles ne quittent jamais votre appareil).</p>
+      <p><strong>Contenus tiers, soumis à votre accord :</strong> le direct de LCP (lecteur YouTube), les vidéos TikTok et les publications Instagram de la rubrique Buzz ne sont chargés que si vous les acceptez dans le bandeau affiché à votre première visite (« Tout accepter » ou « Tout refuser », au même niveau). Si vous refusez, chaque contenu peut être chargé individuellement d'un clic. Les autres vidéos YouTube et Dailymotion et les publications X ne sont chargées que lorsque vous cliquez dessus. Ces plateformes peuvent alors déposer leurs propres cookies, selon leurs politiques. Vous pouvez changer d'avis à tout moment avec le lien <a href="#" data-consent-open>Gérer mes cookies</a>, en bas de chaque page. Votre choix est conservé 6 mois.</p>
     </section>
   </main>
 
@@ -410,7 +424,7 @@
       </div>
       <div>
         <h4>Informations</h4>
-        <a href="#mentions">Mentions légales</a><a href="#cgu">Conditions d'utilisation</a><a href="#confidentialite">Confidentialité et cookies</a><a href="mailto:contact@moyennedessondages2027.fr">Contact</a>
+        <a href="#mentions">Mentions légales</a><a href="#cgu">Conditions d'utilisation</a><a href="#confidentialite">Confidentialité et cookies</a><a href="#" data-consent-open>Gérer mes cookies</a><a href="mailto:contact@moyennedessondages2027.fr">Contact</a>
       </div>
     </div>
     <div class="wrap foot-method">
@@ -421,9 +435,9 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
   <script src="assets/config.js?v=202611101700"></script>
   <script src="assets/sim.js?v=202611102000"></script>
-  <script src="assets/fun.js?v=202611102000"></script>
+  <script src="assets/fun.js?v=202611111000"></script>
   <script src="assets/jevote.js?v=202611101700"></script>
   <script src="assets/extras.js?v=202611101700"></script>
-  <script src="assets/app.js?v=202611101900"></script>
+  <script src="assets/app.js?v=202611111000"></script>
 </body>
 </html>
