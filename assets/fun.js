@@ -81,11 +81,22 @@
       ["Facebook", `https://www.facebook.com/sharer/sharer.php?u=${u}`],
       ["LinkedIn", `https://www.linkedin.com/sharing/share-offsite/?url=${u}`],
     ];
-    return `<div class="share">
-      <button type="button" class="cta share-main" ${navigator.share ? `data-native="${esc(url)}" data-title="${esc(title)}"` : `data-copy="${esc(url)}" data-label="📤 Partager le lien"`}>📤 Partager le lien</button>
-      <div class="share-ico">${items.map(([n, href]) => `<a href="${href}" target="_blank" rel="noopener" title="Partager sur ${n}" aria-label="Partager sur ${n}" style="--sc:${I[n][0]}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">${I[n][1]}</svg></a>`).join("")}
-        <button type="button" data-copy="${esc(url)}" data-label="🔗" title="Copier le lien" aria-label="Copier le lien" style="--sc:#fff">🔗</button></div></div>`;
+    return `<div class="share-ico">${navigator.share ? `<button type="button" data-native="${esc(url)}" data-title="${esc(title)}" title="Plus d'options" aria-label="Plus d'options de partage" style="--sc:#fff">📤</button>` : ""}${items.map(([n, href]) => `<a href="${href}" target="_blank" rel="noopener" title="Partager sur ${n}" aria-label="Partager sur ${n}" style="--sc:${I[n][0]}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">${I[n][1]}</svg></a>`).join("")}
+        <button type="button" data-copy="${esc(url)}" data-label="🔗" title="Copier le lien" aria-label="Copier le lien" style="--sc:#fff">🔗</button></div>
+      <p class="share-url">${esc(url)}</p>`;
   }
+  document.addEventListener("click", (e) => {
+    const menu = $("#share-menu");
+    if (!menu) return;
+    const t = e.target.closest("#share-toggle");
+    if (!t) { if (!e.target.closest("#share-menu")) { menu.hidden = true; $("#share-toggle")?.setAttribute("aria-expanded", "false"); } return; }
+    if (!menu.hidden) { menu.hidden = true; t.setAttribute("aria-expanded", "false"); return; }
+    const g = $("#grp-list .grp[open][data-link]") || $("#grp-list .grp[data-link]");
+    menu.innerHTML = g
+      ? `<p class="share-for">Lien du groupe « <strong>${esc(g.dataset.name)}</strong> »</p>${shareHTML(g.dataset.link, `Je vous invite à comparer vos idées pour la présidentielle 2027 (« ${g.dataset.name} »)`)}`
+      : `<p class="share-for">Donnez d'abord un nom à votre groupe, puis cliquez sur « Générer un lien ».</p>`;
+    menu.hidden = false; t.setAttribute("aria-expanded", "true");
+  });
   document.addEventListener("click", async (e) => {
     const c = e.target.closest("[data-copy]");
     if (c) {
@@ -213,7 +224,8 @@
         <p class="muted small">Créez un lien de groupe et partagez-le : vous n'avez pas besoin d'avoir voté ni rempli votre portrait pour le créer.</p>
         <form id="grp-form" class="fun-form inline">
           <label>Nom de votre groupe<input name="name" required minlength="2" maxlength="60" placeholder="ex. Les copains du foot"></label>
-          <button class="cta" type="submit">Générer un lien</button></form>
+          <span class="grp-actions"><button class="cta" type="submit">Générer un lien</button>
+          <span class="share-dd"><button type="button" class="ghost share-toggle" id="share-toggle" aria-expanded="false">📤 Partager</button><div class="share-menu" id="share-menu" hidden></div></span></span></form>
         <p class="anon-badge">🔒 <strong>100 % anonyme</strong></p>
         <div id="grp-list"></div></div>`;
   }
@@ -584,7 +596,7 @@
     await sb.rpc("join_group", { p_code: g.code }); // le créateur compte aussi dans les résultats
     e?.target.reset();
     await renderGroups();
-    if (pendingName) $("#grp-list")?.insertAdjacentHTML("afterbegin", msg(`✓ Votre lien « <strong>${esc(name)}</strong> » est prêt : partagez-le ci-dessous.`, "ok"));
+    if (pendingName) $("#grp-list")?.insertAdjacentHTML("afterbegin", msg(`✓ Votre lien « <strong>${esc(name)}</strong> » est prêt : cliquez sur « 📤 Partager ».`, "ok"));
   }
 
   /* ---------- Tableau de bord du créateur ---------- */
@@ -609,9 +621,6 @@
         ${names ? `<div class="voters">${done.filter((r) => String(r[key]) === id).map((r) => `<span class="voter" style="--vc:${color(id)}">${esc(r.pseudo)}</span>`).join("")}</div>`
           : `<small class="muted">${n} vote${n > 1 ? "s" : ""}</small>`}
       </div>`).join("")}</div>`;
-    const avgAns = {};
-    Q.questions.forEach((q) => (avgAns[q.id] = done.reduce((a, r) => a + (r.answers?.[q.id] || 0), 0) / done.length));
-    const groupRes = Q.compute(avgAns);
     const chosen = count("chosen_candidate");
     const nb = G ? done.length : rows.length;
     const row = ([id, n], i) => `<div class="prow ${i < 4 ? "" : "small"}">
@@ -624,10 +633,6 @@
         <small>${G ? `${opt.groups ?? "?"} groupe(s) créé(s)` : `dont ${done.length} vote${done.length > 1 ? "s" : ""} validé${done.length > 1 ? "s" : ""}`}</small></div>
       <div class="poll-card grp-poll"><div class="poll-card-title"><span>${G ? "Le vote des participants" : "Le vote du groupe"} :</span> candidat choisi</div>
         ${chosen.map(row).join("")}</div>
-      <section class="dcard"><h4>🤝 Proximité avec chaque candidat</h4><p class="muted small">D'après les réponses moyennes ${G ? "de l'ensemble des participants" : "du groupe"} au questionnaire.</p>${Q.proxHTML(groupRes.prox.slice(0, 8))}</section>
-      <section class="dcard"><h4>📊 Réponses moyennes aux ${Q.questions.length} affirmations</h4>
-        <div class="avgq">${Q.questions.map((q) => { const v = avgAns[q.id]; return `<div class="avgq-r"><span>${esc(q.q)}</span><span class="avgq-b"><b style="left:${(v + 2) * 25}%"></b></span><strong>${v > 0 ? "+" : ""}${v.toFixed(1)}</strong></div>`; }).join("")}</div>
-        <p class="muted small">Échelle : −2 pas du tout d'accord … +2 tout à fait d'accord.</p></section>
       ${G ? `<p class="muted small">Seuls les comptes à l'adresse e-mail confirmée (hors adresses temporaires) ayant validé leur portrait sont comptés.</p>` : ""}
       <p class="anon-badge">🔒 <strong>100 % anonyme</strong></p>
     </div>`;
@@ -639,8 +644,8 @@
     const { data: groups, error } = await sb.from("groups").select("*").order("created_at", { ascending: false });
     if (error) return (box.innerHTML = msg(/réserve/.test(error.message) ? "🔒 Période de réserve électorale : les résultats sont masqués la veille et le jour du vote, jusqu'à 20 h." : esc(error.message), "err"));
     if (!groups.length) return (box.innerHTML = `<p class="muted">Vous n'avez pas encore créé de lien.</p>`);
-    box.innerHTML = groups.map((g) => `<details class="grp" data-id="${g.id}"><summary><strong>${esc(g.name)}</strong><span class="muted small">créé le ${new Date(g.created_at).toLocaleDateString("fr-FR")}</span></summary>
-      <div class="grp-in">${shareHTML(linkFor(g.code), `${profile.pseudo} vous invite à comparer vos idées pour la présidentielle 2027 (« ${g.name} »)`)}
+    box.innerHTML = groups.map((g) => `<details class="grp" data-id="${g.id}" data-link="${esc(linkFor(g.code))}" data-name="${esc(g.name)}"><summary><strong>${esc(g.name)}</strong><span class="muted small">créé le ${new Date(g.created_at).toLocaleDateString("fr-FR")}</span></summary>
+      <div class="grp-in">
       <div class="grp-dash">${msg("Chargement des résultats…")}</div>
       <button type="button" class="ghost danger" data-del="${g.id}">Supprimer ce lien</button></div></details>`).join("");
     $$(".grp", box).forEach((d) => d.addEventListener("toggle", async () => {
