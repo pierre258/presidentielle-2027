@@ -1075,3 +1075,6 @@ button.linkish { background: none; border: 0; padding: 0; color: #93c5fd; text-d
 .my-vote .port-ch { display: flex; gap: 12px; align-items: center; }
 .my-vote .port-ch small { display: block; }
 .my-vote .port-ch strong { font-size: 18px; }
+
+/* espace entre « 100 % anonyme » et la liste des groupes */
+.grp-top > .anon-badge { margin-bottom: 22px; }
