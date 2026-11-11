@@ -729,7 +729,7 @@
       impactHome(); if (st.mode !== "impact") IB.hidden = true;
       $(".impact-title", IB).textContent = "Quel impact sur mon quotidien ?";
       grid();
-      if (st.mode === "one") $("#prog-view").innerHTML = st.a ? one(st.a) : `<div class="empty">Sélectionnez un candidat ci-dessus pour afficher sa fiche. Les candidats sont présentés par ordre alphabétique.</div>`;
+      if (st.mode === "one") $("#prog-view").innerHTML = st.a ? one(st.a) : "";
       else $("#prog-view").innerHTML = st.a && st.b ? compare(st.a, st.b) : `<div class="empty">Sélectionnez ${st.a ? "un second" : "deux"} candidat${st.a ? "" : "s"}.</div>`;
       document.body.classList.toggle("cmp-on", st.mode === "compare" && !!(st.a && st.b));
     };
