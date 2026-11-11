@@ -1066,3 +1066,12 @@ button.linkish { background: none; border: 0; padding: 0; color: #93c5fd; text-d
 @media (max-width: 560px) { .share-menu { right: auto; left: 0; } }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 #fun > #fun-app { margin-top: 18px; }
+
+/* --- Vote direct sur « Que votent mes amis ? » --- */
+.vote-direct h3 { margin: 0 0 4px; }
+.vote-direct .vp-grid { margin-top: 12px; }
+.dv-go { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 14px; }
+.my-vote { display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.my-vote .port-ch { display: flex; gap: 12px; align-items: center; }
+.my-vote .port-ch small { display: block; }
+.my-vote .port-ch strong { font-size: 18px; }

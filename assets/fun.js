@@ -117,7 +117,7 @@
     const g = data?.[0];
     if (!g) return msg("Ce lien d'invitation n'est plus valide.", "err");
     return `<div class="invite">🎉 <strong>${esc(g.owner_pseudo)}</strong> vous invite à rejoindre « <strong>${esc(g.name)}</strong> ».
-      ${user ? "" : `Remplissez votre portrait ci-dessous, puis <button type="button" class="linkish" data-auth="up">créez votre compte</button> pour rejoindre le groupe.`}</div>`;
+      ${user ? "" : "Choisissez votre candidat ci-dessous et validez : aucun questionnaire à remplir."}</div>`;
   }
 
   // Adresses jetables refusées dès l'inscription (la base les exclut aussi des résultats)
@@ -125,12 +125,13 @@
   // pas de « # » dans l'adresse de retour : Supabase y ajoute son propre fragment (#access_token=…)
   const redirectUrl = () => `${location.origin}${location.pathname}?confirm=1`;
 
-  function checkEmailScreen(email, note = "") {
+  function checkEmailScreen(email, note = "", opts = {}) {
     const box = modal();
     box.innerHTML = `<div class="fun-card mailbox">
         <div class="mail-ico">📩</div>
         <h3>Vérifiez votre boîte mail</h3>
-        <p>Un e-mail de confirmation vient d'être envoyé à <strong>${esc(email)}</strong>.<br>Cliquez sur le lien qu'il contient pour activer votre compte : <strong>votre vote ne sera compté qu'une fois votre adresse confirmée</strong>.</p>
+        <p>Un e-mail de confirmation vient d'être envoyé à <strong>${esc(email)}</strong>.<br>Cliquez sur le lien qu'il contient pour activer votre compte.</p>
+        ${opts.voted ? `<p class="fun-msg ok">✓ Votre vote est enregistré : il compte déjà dans les résultats du groupe. Il comptera aussi dans « Le vote des participants » (tous groupes confondus) dès que votre adresse sera confirmée.</p>` : ""}
         ${note}
         <p class="muted small">Pensez à regarder dans les courriers indésirables. Le lien vous ramènera directement ici.</p>
         <div class="mail-actions"><button type="button" class="ghost" id="resend">Renvoyer l'e-mail</button><button type="button" class="ghost" id="back-login">J'ai confirmé : me connecter</button></div>
@@ -156,7 +157,7 @@
           <button class="cta" type="submit">Créer mon compte →</button>
           <div id="auth-msg"></div>
         </form>
-        <p class="muted small auth-note">🔒 Aucun pseudo à choisir : un pseudo anonyme (ex. « anonyme245 ») vous est attribué. Votre e-mail sert uniquement à vous connecter : il n'est jamais montré aux autres utilisateurs, ni à l'auteur d'un lien. Seuls les comptes à l'adresse confirmée sont comptés dans les résultats.</p>
+        <p class="muted small auth-note">🔒 Aucun pseudo à choisir : un pseudo anonyme (ex. « anonyme245 ») vous est attribué. Votre e-mail sert uniquement à vous connecter : il n'est jamais montré aux autres utilisateurs, ni à l'auteur d'un lien. Votre vote compte aussitôt dans vos groupes ; il ne compte dans « Le vote des participants » qu'une fois votre adresse confirmée.</p>
       </div>`;
     let mode = "up";
     const f = $("#auth-form", box);
@@ -206,11 +207,12 @@
       out.innerHTML = msg("Un instant…");
       if (mode === "up") {
         const pending = codeFromUrl() || store.get(PENDING) || undefined;
+        const pv = pendingVote(), dv = pv?.ready && pv.chosen && pv.consent ? { pending_vote: pv.chosen, vote_consent: true } : {};
         const { data, error } = await sb.auth.signUp({ email, password,
-          options: { captchaToken: captchaToken || undefined, emailRedirectTo: redirectUrl(), data: { pseudo: anonPseudo(), pending_group: pending, cgu_at: new Date().toISOString() } } });
+          options: { captchaToken: captchaToken || undefined, emailRedirectTo: redirectUrl(), data: { pseudo: anonPseudo(), pending_group: pending, cgu_at: new Date().toISOString(), ...dv } } });
         if (error) return (out.innerHTML = msg(/rate limit/i.test(error.message) ? "Trop d'inscriptions en ce moment : réessayez dans quelques minutes." : esc(error.message), "err"));
         if (data.user && !data.user.identities?.length) return (out.innerHTML = msg("Un compte existe déjà avec cette adresse : connectez-vous.", "err"));
-        if (!data.session) return checkEmailScreen(email);
+        if (!data.session) { return checkEmailScreen(email, "", { voted: !!dv.pending_vote }); }
       } else {
         const { error } = await sb.auth.signInWithPassword({ email, password, options: { captchaToken: captchaToken || undefined } });
         if (error && /confirm/i.test(error.message)) return checkEmailScreen(email, msg("Votre adresse n'est pas encore confirmée.", "err"));
@@ -230,14 +232,15 @@
         <div id="grp-list"></div></div>`;
   }
   async function renderLoggedOut() {
-    el().innerHTML = `${await inviteBanner()}${groupFormHTML()}`;
+    const inv = await inviteBanner(), pv = pendingVote();
+    if (pv?.direct) direct.chosen = pv.chosen || direct.chosen;
+    el().innerHTML = `${inv}${inv.includes("invite") ? directVoteHTML() : ""}${groupFormHTML()}`;
+    bindDirectVote();
     $("#grp-form").addEventListener("submit", (e) => {
       e.preventDefault();
       store.set(PENDING_GROUP, e.target.name.value.trim());
       renderAuth("up", "", { open: true, note: msg("Dernière étape : créez votre compte (ou connectez-vous). Votre lien « <strong>" + esc(e.target.name.value.trim()) + "</strong> » sera généré automatiquement.", "ok") });
     });
-    const ib = $(".invite [data-auth]", el());
-    if (ib) ib.hidden = false;
   }
 
   function renderNewPassword() {
@@ -295,7 +298,7 @@
     if (meta) sb.auth.updateUser({ data: { pending_group: null } }); // code consommé
     if (location.hash.includes("?g=")) history.replaceState(null, "", "#fun");
     return error ? msg("Impossible de rejoindre ce groupe : lien invalide.", "err")
-      : msg(`✓ Vous avez rejoint « <strong>${esc(data)}</strong> ». Remplissez votre portrait ci-dessous : vous découvrirez ensuite les résultats du groupe.`, "ok");
+      : msg(`✓ Vous avez rejoint « <strong>${esc(data)}</strong> ». Si ce n'est pas déjà fait, votez ci-dessous pour découvrir les résultats du groupe.`, "ok");
   }
 
   /* Questionnaire approfondi (optionnel) : 30 affirmations sur les grands sujets de société */
@@ -339,6 +342,63 @@
       $$("#portrait-app [data-vote]").forEach((x) => x.classList.toggle("on", x === b));
       if ($("#stepper") && stepper.i >= (stepper.ext ? Q.questions.length + EXT.questions.length : Q.questions.length)) renderStep();
     }));
+  }
+
+  /* Vote direct (page « Que votent mes amis ? ») : choix du candidat, sans questionnaire */
+  const direct = { chosen: "", open: false };
+  function directVoteHTML() {
+    const ch = direct.chosen;
+    return `<div class="fun-card wide vote-direct" id="vote-direct"><h3>🗳️ Pour qui voulez-vous voter ?</h3>
+      <p class="muted small">Touchez un candidat (ordre alphabétique), puis validez. Vous pourrez changer d'avis à tout moment.</p>
+      <div class="avatar-grid vp-grid">${candList().map((c) => `<button type="button" class="pick ${ch === c.id ? "on" : ""}" data-dvote="${c.id}">${A.avatar(c.id, 56)}${esc(c.short)}</button>`).join("")}
+        <button type="button" class="pick vp-other ${ch === "indecis" ? "on" : ""}" data-dvote="indecis"><span class="vp-ico">🤔</span>Je ne sais pas encore</button>
+        <button type="button" class="pick vp-other ${ch === "blanc" ? "on" : ""}" data-dvote="blanc"><span class="vp-ico">⚪</span>Vote blanc</button></div>
+      <label class="consent-vote"><input type="checkbox" id="dv-consent"> <span><b>Je consens au traitement de mon opinion politique</b> (mon choix de candidat) pour le « Que votent mes amis ? » et ses résultats. Consentement distinct des conditions d'utilisation, retirable à tout moment (« Retirer mon vote ») ; mon vote est conservé à part de mon adresse e-mail et supprimé après l'élection.</span></label>
+      <div class="dv-go"><button type="button" class="cta" id="dv-save">${user ? "Valider mon vote ✓" : "Valider mon vote →"}</button>
+        ${user ? "" : `<small class="muted">Création d'un compte gratuit requise (e-mail + mot de passe) pour valider.</small>`}</div>
+      <div id="dv-msg"></div></div>`;
+  }
+  function myVoteHTML() {
+    const ch = profile.chosen_candidate;
+    return `<div class="fun-card wide my-vote"><div class="port-ch">${A.C[ch] ? A.avatar(ch, 44) : ""}<div><small class="muted">Mon vote</small><strong>${esc(choiceLabel(ch) || "—")}</strong></div></div>
+      <div class="port-btns"><button type="button" class="ghost" id="dv-change">✏️ Changer mon vote</button><button type="button" class="ghost danger" id="dv-withdraw">↩︎ Retirer mon vote</button></div></div>`;
+  }
+  function bindDirectVote() {
+    $$("[data-dvote]").forEach((b) => (b.onclick = () => {
+      direct.chosen = b.dataset.dvote;
+      $$("[data-dvote]").forEach((x) => x.classList.toggle("on", x === b));
+    }));
+    const ch = $("#dv-change");
+    if (ch) ch.onclick = () => { direct.open = true; direct.chosen = profile.chosen_candidate || ""; ch.closest(".my-vote").outerHTML = directVoteHTML(); bindDirectVote(); };
+    const wd = $("#dv-withdraw");
+    if (wd) wd.onclick = async () => {
+      wd.disabled = true;
+      const { error } = await sb.rpc("delete_my_ballot");
+      if (error) { wd.disabled = false; return alert("Impossible de retirer le vote : " + error.message); }
+      ["answers", "axes", "top_candidate", "top_pct", "chosen_candidate", "completed_at", "consent_at"].forEach((k) => delete profile[k]);
+      direct.chosen = ""; direct.open = false;
+      await renderApp(msg("✓ Votre vote a été supprimé. Votre compte reste actif : vous pouvez revoter quand vous voulez.", "ok"));
+    };
+    const sv = $("#dv-save");
+    if (sv) sv.onclick = saveDirectVote;
+  }
+  async function saveDirectVote() {
+    const out = $("#dv-msg");
+    if (!direct.chosen) return (out.innerHTML = msg("Touchez d'abord un candidat (ou « Je ne sais pas encore »).", "err"));
+    if (!$("#dv-consent")?.checked) return (out.innerHTML = msg("Cochez la case de consentement pour enregistrer votre vote.", "err"));
+    if (!user) {
+      store.set(PENDING_VOTE, JSON.stringify({ chosen: direct.chosen, ready: true, consent: true, direct: true, at: new Date().toISOString() }));
+      out.innerHTML = msg("Dernière étape : créez votre compte pour valider votre vote.", "ok");
+      return renderAuth("up", "", { open: true, note: msg(`🗳️ Votre choix : <strong>${esc(choiceLabel(direct.chosen))}</strong>. Dernière étape : créez votre compte (ou connectez-vous) pour valider votre vote. Il est enregistré dès la création du compte, même avant la confirmation de votre e-mail.`, "ok") });
+    }
+    $("#dv-save").disabled = true;
+    // le questionnaire éventuel déjà rempli est conservé
+    const { error } = await sb.rpc("save_ballot", { p_answers: profile.answers || null, p_axes: profile.axes || null, p_top: profile.top_candidate || null, p_pct: profile.top_pct ?? null, p_chosen: direct.chosen, p_consent: true });
+    if (error) { $("#dv-save").disabled = false; return (out.innerHTML = msg(/réserve/.test(error.message) ? "🔒 Période de réserve électorale : les votes reprendront après la fermeture des bureaux (20 h)." : "Enregistrement impossible : " + esc(error.message), "err")); }
+    Object.assign(profile, { chosen_candidate: direct.chosen, completed_at: profile.completed_at || new Date().toISOString(), consent_at: new Date().toISOString() });
+    direct.open = false;
+    await renderApp(msg("✓ Vote enregistré ! Découvrez ci-dessous les résultats de vos groupes et de tous les participants.", "ok"));
+    if ($('#fun-tabs [data-p="f-joined"]') && (await sb.rpc("my_joined_groups")).data?.length) $('#fun-tabs [data-p="f-joined"]').click();
   }
 
   /* Vote préparé sans compte : gardé sur l'appareil jusqu'à la création du compte */
@@ -433,8 +493,9 @@
     bindVoteGrid(); bindPortrait();
   }
 
+  const hasQuiz = () => !!profile?.completed_at && !!profile.answers && Object.keys(profile.answers).length > 0;
   function portraitPane() {
-    const done = !!profile?.completed_at;
+    const done = hasQuiz();
     if (done && !stepper.editing) {
       const res = computeFull(profile.answers || {});
       const ch = profile.chosen_candidate;
@@ -461,27 +522,29 @@
   async function renderApp(notice = "") {
     profile = await ensureProfile();
     const pv = pendingVote();
-    if (pv?.ready && pv.full && pv.chosen) {
+    if (pv?.ready && pv.chosen) {
       if (!profile.completed_at) {
-        const res = computeFull(pv.full);
-        const { error } = await sb.rpc("save_ballot", { p_answers: pv.full, p_axes: res.axes, p_top: res.prox[0].id, p_pct: res.prox[0].pct, p_chosen: pv.chosen, p_consent: !!pv.consent });
-        if (!error) { Object.assign(profile, { answers: pv.full, axes: res.axes, top_candidate: res.prox[0].id, top_pct: res.prox[0].pct, chosen_candidate: pv.chosen, completed_at: new Date().toISOString() }); notice += msg("✓ Votre vote préparé avant l'inscription a bien été enregistré.", "ok"); }
+        const res = pv.full ? computeFull(pv.full) : null;
+        const row = { answers: pv.full || null, axes: res?.axes || null, top_candidate: res?.prox[0].id || null, top_pct: res?.prox[0].pct ?? null };
+        const { error } = await sb.rpc("save_ballot", { p_answers: row.answers, p_axes: row.axes, p_top: row.top_candidate, p_pct: row.top_pct, p_chosen: pv.chosen, p_consent: !!pv.consent });
+        if (!error) { Object.assign(profile, row, { chosen_candidate: pv.chosen, completed_at: new Date().toISOString() }); notice += msg("✓ Votre vote a bien été enregistré.", "ok"); }
       }
       store.del(PENDING_VOTE);
     } else if (pv) store.del(PENDING_VOTE);
     notice += await statusNote();
     const done = !!profile.completed_at;
+    if (done) notice = notice.replace(" Si ce n'est pas déjà fait, votez ci-dessous pour découvrir les résultats du groupe.", "");
     stepper.ans = { ...(profile.answers || {}) };
     stepper.ext = !!EXT && Object.keys(stepper.ans).some((k) => k.startsWith("a_")); stepper.prio = false;
     stepper.chosen = profile.chosen_candidate || "";
     stepper.i = 0;
     el().innerHTML = `${notice}
+      ${done && !direct.open ? myVoteHTML() : directVoteHTML()}
       ${groupFormHTML()}
-      ${done ? "" : `<div class="fun-card port-todo"><div><strong>Votre vote n'est pas encore enregistré</strong><p class="muted small">Choisissez votre candidat et répondez aux affirmations : votre vote comptera dans vos groupes et dans « Le vote des participants ».</p></div>${toPortrait}</div>`}
       <div class="fun-tabbar" id="fun-tabs">${tabsHTML()}</div>
       <div class="fun-pane" id="f-joined" hidden><div id="joined-list"></div></div>
       <div class="fun-pane" id="f-all"><div id="all-results"></div></div>`;
-    pel().innerHTML = `${profile.completed_at && !stepper.editing ? "" : voteGridHTML()}<div id="f-portrait">${portraitPane()}</div><div id="port-msg"></div>`;
+    pel().innerHTML = `${hasQuiz() && !stepper.editing ? "" : voteGridHTML()}<div id="f-portrait">${portraitPane()}</div><div id="port-msg"></div>`;
     bindVoteGrid();
     $("#fun-tabs").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
@@ -492,6 +555,8 @@
       if (b.dataset.p === "f-all") renderAll();
     });
     $("#grp-form").addEventListener("submit", createGroup);
+    if (!done) direct.chosen = direct.chosen || "";
+    bindDirectVote();
     bindPortrait();
     renderAll();
     const pg = store.get(PENDING_GROUP);
@@ -602,8 +667,8 @@
   function dashboard(rows, opt = {}) {
     const G = !!opt.global; // vue « Le vote des participants » : anonyme, sans pseudos
     const done = rows.filter((r) => r.completed);
-    if (!rows.length) return `<p class="muted">${G ? "Aucun portrait validé pour l'instant." : "Personne n'a encore utilisé ce lien."}</p>`;
-    if (!done.length) return `<p class="muted">${rows.length} membre(s), aucun portrait validé pour l'instant.</p>`;
+    if (!rows.length) return `<p class="muted">${G ? "Aucun vote validé pour l'instant." : "Personne n'a encore utilisé ce lien."}</p>`;
+    if (!done.length) return `<p class="muted">${rows.length} membre(s), aucun vote validé pour l'instant.</p>`;
     const who = G ? "l'ensemble des utilisateurs" : "le groupe";
     const count = (key) => {
       const c = {};
@@ -632,7 +697,7 @@
         <small>${G ? `${opt.groups ?? "?"} groupe(s) créé(s)` : `dont ${done.length} vote${done.length > 1 ? "s" : ""} validé${done.length > 1 ? "s" : ""}`}</small></div>
       <div class="poll-card grp-poll"><div class="poll-card-title"><span>${G ? "Le vote des participants" : "Le vote du groupe"} :</span> candidat choisi</div>
         ${chosen.map(row).join("")}</div>
-      ${G ? `<p class="muted small">Seuls les comptes à l'adresse e-mail confirmée (hors adresses temporaires) ayant validé leur portrait sont comptés.</p>` : ""}
+      ${G ? `<p class="muted small">Seuls les comptes à l'adresse e-mail confirmée (hors adresses temporaires) sont comptés.</p>` : ""}
       <p class="anon-badge">🔒 <strong>100 % anonyme</strong></p>
     </div>`;
   }
@@ -667,10 +732,10 @@
     if (error) return (box.innerHTML = msg(/réserve/.test(error.message) ? "🔒 Période de réserve électorale : les résultats sont masqués la veille et le jour du vote, jusqu'à 20 h." : esc(error.message), "err"));
     if (!data?.length) return (box.innerHTML = `<p class="muted">Vous n'avez encore rejoint aucun groupe. Créez un lien avec « Je sonde mes proches » ou demandez-en un à un ami !</p>`);
     const done = !!profile.completed_at;
-    box.innerHTML = (done ? "" : msg("Validez votre portrait (<a href=\"#portrait\">Trouver le candidat de mes convictions</a>, page Candidats) pour découvrir les résultats de vos groupes.", "err"))
+    box.innerHTML = (done ? "" : msg("Votez ci-dessus pour découvrir les résultats de vos groupes.", "err"))
       + data.map((g) => `<details class="grp" data-id="${g.group_id}"><summary><strong>${esc(g.name)}</strong>
           <span class="muted small">${g.is_owner ? "créé par vous" : `créé par ${esc(g.owner_pseudo)}`} · ${g.members} membre${g.members > 1 ? "s" : ""}</span></summary>
-          <div class="grp-in"><div class="grp-dash">${done ? msg("Chargement des résultats…") : `<p class="muted">🔒 Résultats visibles après validation de votre portrait.</p>`}</div>
+          <div class="grp-in"><div class="grp-dash">${done ? msg("Chargement des résultats…") : `<p class="muted">🔒 Résultats visibles une fois votre vote validé.</p>`}</div>
           ${g.is_owner ? "" : `<button type="button" class="ghost danger" data-leave="${g.group_id}">Quitter ce groupe</button>`}</div></details>`).join("")
       + `<p class="anon-badge">🔒 <strong>100 % anonyme</strong></p>`;
     if (done) {
@@ -690,13 +755,13 @@
 
   async function renderAll() {
     const box = $("#all-results");
-    if (!profile.completed_at) return (box.innerHTML = msg("🔒 Validez votre portrait (<a href=\"#portrait\">Trouver le candidat de mes convictions</a>, page Candidats) pour découvrir les résultats de tous les participants.", "err"));
+    if (!profile.completed_at) return (box.innerHTML = msg("🔒 Votez ci-dessus pour découvrir les résultats de tous les participants.", "err"));
     box.innerHTML = msg("Chargement…");
     const { data, error } = await sb.rpc("global_results");
     if (error) return (box.innerHTML = msg(/réserve/.test(error.message) ? "🔒 Période de réserve électorale : les résultats sont masqués la veille et le jour du vote, jusqu'à 20 h." : esc(error.message), "err"));
     const rows = (data || []).map((r) => ({ ...r, completed: true }));
     box.innerHTML = `<div class="fun-card wide"><h3>📊 Le vote des participants — tous groupes confondus</h3>
-      <p class="muted small">Tous les portraits validés avec un candidat choisi, tous groupes confondus. Échantillon non représentatif de la population : ce n'est pas un sondage.</p>
+      <p class="muted small">Tous les votes validés, tous groupes confondus, des seuls comptes à l'adresse e-mail confirmée. Échantillon non représentatif de la population : ce n'est pas un sondage.</p>
       ${dashboard(rows, { global: true, groups: data?.[0]?.groups })}</div>`;
   }
 
