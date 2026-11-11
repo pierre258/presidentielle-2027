@@ -686,16 +686,13 @@
           : `<small class="muted">${n} vote${n > 1 ? "s" : ""}</small>`}
       </div>`).join("")}</div>`;
     const chosen = count("chosen_candidate");
-    const nb = G ? done.length : rows.length;
     const row = ([id, n], i) => `<div class="prow ${i < 4 ? "" : "small"}">
         ${A.C[id] ? A.avatar(id, i < 4 ? 52 : 32) : `<span class="av-ph" style="width:${i < 4 ? 52 : 32}px;height:${i < 4 ? 52 : 32}px"></span>`}
         <div><div class="name">${esc(A.C[id] ? A.C[id].name : label(id))}${A.C[id] ? ` <span class="party">${esc(A.C[id].party || "")}</span>` : ""}</div>
           <div class="bar"><i style="width:${(n / chosen[0][1]) * 100}%;background:${i < 4 ? "#fff" : "rgba(255,255,255,.85)"}"></i></div></div>
         <div><div class="score">${pct(n)}<sup>%</sup></div><small class="muted">${n} vote${n > 1 ? "s" : ""}</small></div></div>`;
     return `<div class="dash">
-      <div class="grp-count"><strong>${nb}</strong><span>${G ? `votant${nb > 1 ? "s" : ""}` : `membre${nb > 1 ? "s" : ""}`}</span>
-        <small>${G ? `${opt.groups ?? "?"} groupe(s) créé(s)` : `dont ${done.length} vote${done.length > 1 ? "s" : ""} validé${done.length > 1 ? "s" : ""}`}</small></div>
-      <div class="poll-card grp-poll"><div class="poll-card-title"><span>${G ? "Le vote des participants" : "Le vote du groupe"} :</span> candidat choisi</div>
+      <div class="poll-card grp-poll"><div class="poll-card-title"><span>${G ? "Le vote des participants" : "Le vote du groupe"} :</span> ${done.length} vote${done.length > 1 ? "s" : ""}</div>
         ${chosen.map(row).join("")}</div>
       ${G ? `<p class="muted small">Seuls les comptes à l'adresse e-mail confirmée (hors adresses temporaires) sont comptés.</p>` : ""}
       <p class="anon-badge">🔒 <strong>100 % anonyme</strong></p>
