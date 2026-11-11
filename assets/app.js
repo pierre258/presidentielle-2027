@@ -132,7 +132,7 @@
       return `<div class="prow ${big ? "" : "small"}" data-cand="${id}" role="link" tabindex="0" title="Voir la fiche de ${esc(c.name)}">
         ${avatar(id, big ? 58 : 34)}
         <div><div class="name">${esc(c.name)} <span class="party">${esc(c.party)}</span></div>
-          <div class="bar"><i data-w="${(v / max) * 100}" style="background:${big ? "#fff" : "rgba(255,255,255,.85)"}"></i></div></div>
+          <div class="bar"><i data-w="${(v / max) * 100}" style="background:${c.color === "#404040" ? "#8a8f98" : c.color}"></i></div></div>
         <div><div class="score">${fmtPct(v)}<sup>%</sup></div>${delta}</div>
       </div>`;
     }).join("");
