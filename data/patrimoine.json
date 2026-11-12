@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09",
+ "updated": "2026-11-12",
  "note": "Données issues exclusivement des déclarations officielles déposées auprès de la HATVP. Les déclarations de situation patrimoniale ne sont publiées en ligne que pour les candidats à l'élection présidentielle (publiées le 8 mars 2022 pour le scrutin de 2022) et pour les membres du Gouvernement pendant leurs fonctions ; celles des parlementaires ne sont consultables qu'en préfecture et celles des élus locaux ne sont pas publiques. Les déclarations retirées du site de la HATVP sont citées via leur copie archivée (web.archive.org). Le patrimoine net est la somme des montants déclarés (actifs moins passif restant dû), à la date de la déclaration ; les déclarations de 2027 seront publiées après le dépôt des candidatures. Les revenus sont les montants annuels déclarés (nets sauf mention contraire).",
  "candidates": {
   "lepen": {
@@ -273,7 +273,7 @@
    "revenus": [
     {
      "annee": 2024,
-     "label": "Député — Parlement européen (net)",
+     "label": "Député européen (net)",
      "montant": 56635
     },
     {
@@ -283,7 +283,7 @@
     },
     {
      "annee": 2023,
-     "label": "Député — Parlement européen (net)",
+     "label": "Député européen (net)",
      "montant": 120234
     },
     {
@@ -299,8 +299,8 @@
    ],
    "sources": [
     {
-     "label": "HATVP — déclaration d'intérêts (2024)",
-     "url": "https://www.hatvp.fr/livraison/dossiers/glucksmann-raphael-di33197-europe.xml"
+     "label": "HATVP — déclaration d'intérêts modificative (2025)",
+     "url": "https://www.hatvp.fr/livraison/dossiers/glucksmann-raphael-dim36372-europe.xml"
     },
     {
      "label": "HATVP — fiche nominative",
