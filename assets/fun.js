@@ -115,6 +115,90 @@
     if (n) navigator.share({ title: n.dataset.title, text: n.dataset.title, url: n.dataset.native }).catch(() => {});
   });
 
+  /* ---------- Story Instagram : visuel 1080 × 1920 avec le lien du groupe ---------- */
+  const STORY_PHOTO = "assets/candidats-2027.jpg";
+  function rrect(x, ctx, a, b, w, h, r) { ctx.beginPath(); ctx.moveTo(a + r, b); ctx.arcTo(a + w, b, a + w, b + h, r); ctx.arcTo(a + w, b + h, a, b + h, r); ctx.arcTo(a, b + h, a, b, r); ctx.arcTo(a, b, a + w, b, r); ctx.closePath(); }
+  function fitText(ctx, text, max, size, weight, family) {
+    do { ctx.font = `${weight} ${size}px ${family}`; size -= 2; } while (ctx.measureText(text).width > max && size > 18);
+  }
+  async function storyBlob(name, link) {
+    const HEAD = '"Barlow Condensed", "Arial Narrow", sans-serif', BODY = 'Inter, system-ui, sans-serif';
+    try { await Promise.all([document.fonts.load(`800 120px "Barlow Condensed"`), document.fonts.load(`700 40px Inter`)]); } catch { /* polices système */ }
+    const img = new Image(); img.src = STORY_PHOTO;
+    await img.decode().catch(() => {});
+    const W = 1080, H = 1920, c = document.createElement("canvas"); c.width = W; c.height = H;
+    const x = c.getContext("2d");
+    // fond
+    const bg = x.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, "#0b1030"); bg.addColorStop(.55, "#141c4d"); bg.addColorStop(1, "#0b1030");
+    x.fillStyle = bg; x.fillRect(0, 0, W, H);
+    const glow = x.createRadialGradient(W / 2, 900, 50, W / 2, 900, 700); glow.addColorStop(0, "rgba(255,45,85,.18)"); glow.addColorStop(1, "rgba(255,45,85,0)");
+    x.fillStyle = glow; x.fillRect(0, 0, W, H);
+    // bandeau tricolore
+    [["#0055a4", 0], ["#f4f6ff", W / 3], ["#ef4135", 2 * W / 3]].forEach(([col, a]) => { x.fillStyle = col; x.fillRect(a, 0, W / 3 + 1, 14); });
+    // logo MDS 2027
+    x.textAlign = "center"; x.textBaseline = "alphabetic";
+    x.fillStyle = "#ff2d55"; rrect(0, x, W / 2 - 190, 110, 380, 150, 22); x.fill();
+    x.fillStyle = "#fff"; x.font = `800 92px ${HEAD}`; x.fillText("MDS 2027", W / 2, 205);
+    x.font = `600 26px ${BODY}`; x.fillText("moyennedessondages2027", W / 2, 243);
+    // titre
+    x.font = `800 128px ${HEAD}`; x.fillText("POUR QUI", W / 2, 420); x.fillText("VOTEZ-VOUS ?", W / 2, 545);
+    x.fillStyle = "#a5addb"; x.font = `600 40px ${BODY}`; x.fillText("Présidentielle 2027 · votez en 10 secondes", W / 2, 615);
+    // photo
+    const pw = 960, ph = img.naturalWidth ? Math.round(pw * img.naturalHeight / img.naturalWidth) : 611, py = 670;
+    x.save(); rrect(0, x, 60, py, pw, ph, 36); x.clip();
+    x.fillStyle = "#1a2150"; x.fillRect(60, py, pw, ph);
+    if (img.naturalWidth) x.drawImage(img, 60, py, pw, ph);
+    x.restore();
+    x.strokeStyle = "rgba(255,255,255,.18)"; x.lineWidth = 3; rrect(0, x, 60, py, pw, ph, 36); x.stroke();
+    // groupe + zone du sticker « Lien »
+    let y = py + ph + 95;
+    x.fillStyle = "#fff"; fitText(x, `« ${name} »`, 940, 60, 800, HEAD); x.fillText(`« ${name} »`, W / 2, y);
+    y += 70; x.fillStyle = "#ffb020"; x.font = `800 50px ${HEAD}`; x.fillText("👇 VOTEZ ICI 👇", W / 2, y);
+    y += 30; x.fillStyle = "#fff"; rrect(0, x, 90, y, 900, 120, 60); x.fill();
+    const short = link.replace(/^https?:\/\//, "");
+    x.fillStyle = "#0b1030"; fitText(x, short, 820, 38, 700, BODY); x.fillText(short, W / 2, y + 74);
+    // 100 % anonyme
+    y = H - 150;
+    x.font = `800 58px ${HEAD}`; const t = "🔒 100 % ANONYME", tw = x.measureText(t).width + 90;
+    x.fillStyle = "rgba(61,220,151,.16)"; rrect(0, x, W / 2 - tw / 2, y - 66, tw, 96, 48); x.fill();
+    x.strokeStyle = "#3ddc97"; x.lineWidth = 3; x.stroke();
+    x.fillStyle = "#3ddc97"; x.fillText(t, W / 2, y);
+    return new Promise((res) => c.toBlob(res, "image/png"));
+  }
+  async function openStory() {
+    const g = $("#grp-list .grp[open][data-link]") || $("#grp-list .grp[data-link]");
+    if (!g) {
+      const inp = $("#grp-form input[name=name]");
+      if (inp?.value.trim()) { $("#grp-form").requestSubmit(); for (let i = 0; i < 30 && !$("#grp-list .grp[data-link]"); i++) await new Promise((r) => setTimeout(r, 150)); }
+      if (!$("#grp-list .grp[data-link]")) { inp?.focus(); $("#grp-list")?.insertAdjacentHTML("afterbegin", msg("Donnez d'abord un nom à votre groupe (ex. « Mes abonnés Insta ») : le lien de la Story y mènera.", "err")); return; }
+      return openStory();
+    }
+    const name = g.dataset.name, link = g.dataset.link;
+    const body = modal();
+    body.innerHTML = `<div class="story-box"><h3>📸 Ma Story Instagram</h3><p class="muted">Préparation du visuel…</p></div>`;
+    const blob = await storyBlob(name, link);
+    const file = new File([blob], "mds2027-story.png", { type: "image/png" });
+    const url = URL.createObjectURL(blob);
+    const canFile = !!(navigator.canShare && navigator.canShare({ files: [file] }));
+    body.innerHTML = `<div class="story-box"><h3>📸 Ma Story Instagram</h3>
+      <img class="story-prev" src="${url}" alt="Visuel de Story pour le groupe « ${esc(name)} »">
+      <button type="button" class="ig-story-btn" id="story-go"><span class="ig-logo" aria-hidden="true"></span>${canFile ? "Publier dans ma Story" : "Télécharger le visuel"}</button>
+      <ol class="story-steps">
+        <li>${canFile ? "Choisissez <strong>Instagram</strong> puis <strong>Story</strong>." : "Envoyez l'image sur votre téléphone, puis publiez-la en <strong>Story</strong> Instagram."}</li>
+        <li>Ajoutez le sticker <strong>🔗 Lien</strong> sur la zone « Votez ici » et collez le lien : ${canFile ? "il est déjà copié." : `<button type="button" class="linklike" data-copy="${esc(link)}" data-label="copier le lien">copier le lien</button>`}</li>
+      </ol>
+      <p class="muted small">Vos abonnés votent sans voir qui a voté quoi : 100 % anonyme.</p></div>`;
+    $("#story-go").onclick = async () => {
+      try { await navigator.clipboard.writeText(link); } catch { /* le lien reste dans le visuel */ }
+      if (canFile) {
+        try { await navigator.share({ files: [file], title: "MDS 2027", text: link }); } catch { /* partage annulé */ }
+      } else {
+        const a = document.createElement("a"); a.href = url; a.download = "mds2027-story.png"; document.body.append(a); a.click(); a.remove();
+      }
+    };
+  }
+  document.addEventListener("click", (e) => { if (e.target.closest("#ig-story")) { e.preventDefault(); openStory(); } });
+
   /* ---------- Écrans ---------- */
   async function inviteBanner() {
     const code = codeFromUrl() || store.get(PENDING);
@@ -234,6 +318,7 @@
           <label>Nom de votre groupe<input name="name" required minlength="2" maxlength="60" placeholder="ex. Les copains du foot"></label>
           <span class="grp-actions"><button class="cta" type="submit">Générer un lien</button>
           <span class="share-dd"><button type="button" class="ghost share-toggle" id="share-toggle" aria-expanded="false">📤 Partager</button><div class="share-menu" id="share-menu" hidden></div></span></span></form>
+        <button type="button" class="ig-story-btn" id="ig-story"><span class="ig-logo" aria-hidden="true"></span>Sonder ma communauté Instagram en Story</button>
         </div>
       <div id="grp-list" class="grp-blocks"></div>`;
   }

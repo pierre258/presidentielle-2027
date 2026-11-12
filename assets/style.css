@@ -1104,3 +1104,17 @@ button.linkish { background: none; border: 0; padding: 0; color: #93c5fd; text-d
 .grp-blocks > .grp { padding: 4px 6px; margin-bottom: 14px; }
 .grp-blocks > .grp > summary { font: 700 20px var(--head); text-transform: uppercase; }
 .grp-blocks > .grp > summary .muted { font: 500 13px var(--body, inherit); text-transform: none; }
+
+/* --- Bouton « Sonder ma communauté Instagram en Story » --- */
+.ig-story-btn { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; margin-top: 16px; padding: 16px 22px; border: 0; border-radius: 16px; cursor: pointer;
+  font: 800 20px/1.15 var(--head); text-transform: uppercase; letter-spacing: .02em; color: #fff;
+  background: linear-gradient(45deg, #feda75 0%, #fa7e1e 22%, #d62976 50%, #962fbf 75%, #4f5bd5 100%); box-shadow: 0 8px 24px rgba(214,41,118,.35); }
+.ig-story-btn:hover { filter: brightness(1.08); }
+.ig-logo { flex: none; width: 30px; height: 30px; border: 3px solid #fff; border-radius: 9px; position: relative; }
+.ig-logo::before { content: ""; position: absolute; inset: 5px; border: 3px solid #fff; border-radius: 50%; }
+.ig-logo::after { content: ""; position: absolute; top: 2px; right: 2px; width: 4px; height: 4px; background: #fff; border-radius: 50%; }
+.story-box { display: grid; gap: 14px; justify-items: center; text-align: center; }
+.story-box h3 { margin: 0; }
+.story-prev { width: min(62vw, 260px); aspect-ratio: 9 / 16; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+.story-steps { text-align: left; margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 14px; }
+.linklike { background: none; border: 0; padding: 0; color: #fff; text-decoration: underline; font: inherit; cursor: pointer; }
