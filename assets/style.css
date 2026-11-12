@@ -1099,3 +1099,8 @@ button.linkish { background: none; border: 0; padding: 0; color: #93c5fd; text-d
 }
 .foot-acct > a { display: block; color: var(--muted); text-decoration: none; padding: 3px 0; }
 .foot-acct > a:hover { color: var(--text); }
+/* --- Groupes créés : un bloc par groupe, sous le bloc « Je sonde mes proches » --- */
+.grp-blocks { max-width: 760px; margin: 0 0 18px; }
+.grp-blocks > .grp { padding: 4px 6px; margin-bottom: 14px; }
+.grp-blocks > .grp > summary { font: 700 20px var(--head); text-transform: uppercase; }
+.grp-blocks > .grp > summary .muted { font: 500 13px var(--body, inherit); text-transform: none; }

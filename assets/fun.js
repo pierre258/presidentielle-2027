@@ -234,7 +234,8 @@
           <label>Nom de votre groupe<input name="name" required minlength="2" maxlength="60" placeholder="ex. Les copains du foot"></label>
           <span class="grp-actions"><button class="cta" type="submit">Générer un lien</button>
           <span class="share-dd"><button type="button" class="ghost share-toggle" id="share-toggle" aria-expanded="false">📤 Partager</button><div class="share-menu" id="share-menu" hidden></div></span></span></form>
-        <div id="grp-list"></div></div>`;
+        </div>
+      <div id="grp-list" class="grp-blocks"></div>`;
   }
   async function renderLoggedOut() {
     const inv = await inviteBanner(), pv = pendingVote();
@@ -760,7 +761,7 @@
     const { data, error } = await sb.rpc("global_results");
     if (error) return (box.innerHTML = msg(/réserve/.test(error.message) ? "🔒 Période de réserve électorale : les résultats sont masqués la veille et le jour du vote, jusqu'à 20 h." : esc(error.message), "err"));
     const rows = (data || []).map((r) => ({ ...r, completed: true }));
-    box.innerHTML = `<div class="fun-card wide"><h3>📊 Le vote des participants — tous groupes confondus</h3>
+    box.innerHTML = `<div class="fun-card wide"><h3>📊 La moyenne des groupes de MDS2027</h3>
       <p class="muted small">Tous les votes validés, tous groupes confondus, des seuls comptes à l'adresse e-mail confirmée. Échantillon non représentatif de la population : ce n'est pas un sondage.</p>
       ${dashboard(rows, { global: true, groups: data?.[0]?.groups })}</div>`;
   }

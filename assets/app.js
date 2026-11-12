@@ -115,7 +115,7 @@
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMore(); });
 
   /* ---------------- 1. Sondages ---------------- */
-  function renderPolls(w = "30") {
+  function renderPolls(w = "7") {
     const isEvo = w === "evo";
     $("#poll-bars").hidden = isEvo; $("#poll-evo").hidden = !isEvo;
     $(".poll-card").classList.toggle("evo", isEvo);
@@ -790,7 +790,7 @@
     if (window.MDS_FREEZE) {
       $("#freeze-note").hidden = false;
       $$("#sondages > :not(.panel-head):not(.hero-cands):not(#freeze-note)").forEach((n) => (n.hidden = true));
-    } else { renderPolls("30"); renderTrend(); renderDuels(); }
+    } else { renderPolls("7"); renderTrend(); renderDuels(); }
     $("#poll-window").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
       $$("#poll-window button").forEach((x) => x.classList.toggle("on", x === b));
