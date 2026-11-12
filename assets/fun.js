@@ -544,7 +544,7 @@
     stepper.chosen = profile.chosen_candidate || "";
     stepper.i = 0;
     el().innerHTML = `${notice}
-      ${done && !direct.open ? myVoteHTML() : directVoteHTML()}
+      ${done && !direct.open ? "" : directVoteHTML()}
       ${groupFormHTML()}
       <div class="fun-tabbar" id="fun-tabs">${tabsHTML()}</div>
       <div class="fun-pane" id="f-joined" hidden><div id="joined-list"></div></div>
