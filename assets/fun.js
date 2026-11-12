@@ -31,8 +31,14 @@
   function renderHeaderAcct() {
     const h = $("#hdr-acct"); if (!h) return;
     h.innerHTML = user
-      ? `<a href="#fun" class="ha-me" title="Mon compte">👤 ${esc(profile?.pseudo || "Mon compte")}</a><span class="ha-btns"><button type="button" data-acct="logout">Se déconnecter</button><button type="button" data-acct="export">Télécharger mes données</button><button type="button" data-acct="delete" class="ha-del">Supprimer mon compte</button></span>`
+      ? `<a href="#fun" class="ha-me" title="Mon compte">👤 ${esc(profile?.pseudo || "Mon compte")}</a><span class="ha-btns"><button type="button" data-acct="logout">Se déconnecter</button></span>`
       : `<button type="button" data-auth="up">Créer un compte</button><button type="button" data-auth="in">Se connecter</button>`;
+    // « Télécharger mes données » et « Supprimer mon compte » : en bas de page, sous « Contact »
+    const f = $("#foot-acct");
+    if (f) {
+      f.hidden = !user;
+      f.innerHTML = user ? `<a href="#" data-acct="export">Télécharger mes données</a><a href="#" data-acct="delete">Supprimer mon compte</a>` : "";
+    }
   }
   document.addEventListener("click", (e) => {
     const a = e.target.closest("[data-acct]");
@@ -694,7 +700,6 @@
       <div class="poll-card grp-poll"><div class="poll-card-title"><span>${G ? "Le vote des participants" : "Le vote du groupe"} :</span> ${done.length} vote${done.length > 1 ? "s" : ""}</div>
         ${chosen.map(row).join("")}</div>
       ${G ? `<p class="muted small">Seuls les comptes à l'adresse e-mail confirmée (hors adresses temporaires) sont comptés.</p>` : ""}
-      <p class="anon-badge">🔒 <strong>100 % anonyme</strong></p>
     </div>`;
   }
 
@@ -732,8 +737,7 @@
       + data.map((g) => `<details class="grp" data-id="${g.group_id}"><summary><strong>${esc(g.name)}</strong>
           <span class="muted small">${g.is_owner ? "créé par vous" : `créé par ${esc(g.owner_pseudo)}`} · ${g.members} membre${g.members > 1 ? "s" : ""}</span></summary>
           <div class="grp-in"><div class="grp-dash">${done ? msg("Chargement des résultats…") : `<p class="muted">🔒 Résultats visibles une fois votre vote validé.</p>`}</div>
-          ${g.is_owner ? "" : `<button type="button" class="ghost danger" data-leave="${g.group_id}">Quitter ce groupe</button>`}</div></details>`).join("")
-      + `<p class="anon-badge">🔒 <strong>100 % anonyme</strong></p>`;
+          ${g.is_owner ? "" : `<button type="button" class="ghost danger" data-leave="${g.group_id}">Quitter ce groupe</button>`}</div></details>`).join("");
     if (done) {
       $$(".grp", box).forEach((d) => d.addEventListener("toggle", async () => {
         if (!d.open) return;

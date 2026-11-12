@@ -99,7 +99,7 @@
     const sel = $(`#more-menu a[data-tab="${parlement ? "parlement" : id}"]`);
     $$("#more-menu a").forEach((a) => a.classList.toggle("on", a === sel));
     $("#more-btn")?.classList.toggle("on", !!sel);
-    if ($("#more-label")) $("#more-label").textContent = sel ? sel.querySelector("b").textContent : "Toutes les rubriques";
+    if ($("#more-label")) $("#more-label").textContent = sel ? sel.querySelector("b").textContent : "Rubriques";
     closeMore();
     if (id === "reseaux" && !shown.has(id)) setTimeout(() => Social.play(), 250);
     shown.add(id);
@@ -128,7 +128,7 @@
     $("#poll-bars").innerHTML = rows.map(([id, v], i) => {
       const big = i < 4, c = C[id], prev = win.previous[id];
       const d = prev == null ? null : Math.round((v - prev) * 10) / 10;
-      const delta = d == null ? "" : `<span class="delta ${d > 0 ? "up" : d < 0 ? "down" : "eq"}">${d > 0 ? "▲ +" : d < 0 ? "▼ " : "= "}${d ? fmtPct(d) : ""}${d ? " pt" : ""}</span>`;
+      const delta = d == null ? "" : `<span class="delta ${d > 0 ? "up" : d < 0 ? "down" : "eq"}">${d > 0 ? "▲ +" : d < 0 ? "▼ " : "= stable"}${d ? fmtPct(d) + " pt" : ""}</span>`;
       return `<div class="prow ${big ? "" : "small"}" data-cand="${id}" role="link" tabindex="0" title="Voir la fiche de ${esc(c.name)}">
         ${avatar(id, big ? 58 : 34)}
         <div><div class="name">${esc(c.name)} <span class="party">${esc(c.party)}</span></div>
@@ -782,7 +782,7 @@
       document.querySelector("main").innerHTML = `<p class="warn">Impossible de charger les données (${esc(e.message)}). Ouvrez le site via un serveur web (voir README).</p>`;
       return;
     }
-    $("#updated").textContent = "Mis à jour le " + new Date(POLLS.updated).toLocaleString("fr-FR", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
+    if ($("#updated")) $("#updated").textContent = "Mis à jour le " + new Date(POLLS.updated).toLocaleString("fr-FR", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
     // Réserve électorale : veille et jour de chaque tour, jusqu'à 20 h (heure de Paris)
     const paris = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" }));
     const FREEZE = [["2027-04-17T00:00", "2027-04-18T20:00"], ["2027-05-01T00:00", "2027-05-02T20:00"]];

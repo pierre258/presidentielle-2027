@@ -1083,3 +1083,19 @@ button.linkish { background: none; border: 0; padding: 0; color: #93c5fd; text-d
 .grp-h { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .anon-badge.inline { margin: 0; font-size: 15px; text-transform: none; font-family: inherit; }
 .grp-top #grp-list { margin-top: 18px; }
+
+/* --- Menu « Rubriques » : un seul bouton déroulant, « Que votent mes amis ? » mis en avant --- */
+.more-dd { position: relative; }
+.tabs .more-btn { color: var(--text); border: 1px solid var(--line); padding: 8px 14px; }
+.tabs .more-btn.on { background: none; color: var(--text); }
+.tabs .more-btn .caret { margin-left: 2px; }
+.tabs > .friends-btn { font-size: 16px; padding: 10px 20px; }
+.foot-acct { display: contents; }
+.foot-acct[hidden] { display: none; }
+@media (max-width: 760px) {
+  .tabs .more-dd { flex: 1 1 100%; }
+  .tabs .more-btn { width: 100%; justify-content: center; }
+  .more-menu { position: absolute; left: 0; right: 0; }
+}
+.foot-acct > a { display: block; color: var(--muted); text-decoration: none; padding: 3px 0; }
+.foot-acct > a:hover { color: var(--text); }

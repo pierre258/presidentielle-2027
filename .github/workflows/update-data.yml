@@ -28,7 +28,7 @@ jobs:
       - name: Photos des candidats
         run: python scripts/update_photos.py
 
-      - name: Buzz des 7 derniers jours (1 fois par jour : collectes Apify payantes)
+      - name: "Buzz des 7 derniers jours (1 fois par jour, collectes Apify payantes)"
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 5 * * *'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

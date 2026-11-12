@@ -12,7 +12,7 @@
   <meta name="theme-color" content="#0b1030">
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=barlow-condensed:600,700,800|inter:400,500,600,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=202611112300">
+  <link rel="stylesheet" href="assets/style.css?v=202611121000">
 </head>
 <body>
   <header class="top">
@@ -21,7 +21,6 @@
         <span class="brand-mark"><b>MDS 2027</b><small>moyennedessondages2027</small></span>
         <div>
           <div class="brand-title">Présidentielle 2027 <span class="cd-mini" id="countdown" role="link" tabindex="0"></span></div>
-          <div class="brand-sub" id="updated">Chargement…</div>
         </div>
       </a>
       <div class="top-right">
@@ -35,11 +34,16 @@
       </div>
       <nav class="tabs" role="tablist">
         <a href="#fun" data-tab="fun" class="tab friends-btn">💬 Que votent mes amis ?</a>
-        <span class="nav-sep" aria-hidden="true"></span>
-        <a href="#programmes" data-tab="programmes" class="tab nav-ico" title="Candidats" aria-label="Candidats"><span>👤</span><small>Candidats</small></a>
-        <a href="#buzz" data-tab="buzz" class="tab nav-ico" title="Buzz" aria-label="Buzz"><span>🔥</span><small>Buzz</small></a>
-        <a href="#reseaux" data-tab="reseaux" class="tab nav-ico" title="Réseaux sociaux" aria-label="Réseaux sociaux"><span>📱</span><small>Réseaux</small></a>
-        <a href="#parrainages" data-tab="parrainages" class="tab nav-ico" title="Les parrainages des 500 élus" aria-label="Les parrainages des 500 élus"><span>✍️</span><small>Parrainages</small></a>
+        <div class="more-dd">
+          <button type="button" class="tab more-btn" id="more-btn" aria-expanded="false" aria-controls="more-menu"><span aria-hidden="true">☰</span> <span id="more-label">Rubriques</span> <span class="caret" aria-hidden="true">▼</span></button>
+          <div class="more-menu" id="more-menu" hidden>
+            <a href="#sondages" data-tab="sondages"><span>📊</span><b>Sondages</b><small>Moyenne des intentions de vote</small></a>
+            <a href="#programmes" data-tab="programmes"><span>👤</span><b>Candidats</b><small>Programmes et convictions</small></a>
+            <a href="#buzz" data-tab="buzz"><span>🔥</span><b>Buzz</b><small>Presse, TV et réseaux de la semaine</small></a>
+            <a href="#reseaux" data-tab="reseaux"><span>📱</span><b>Réseaux</b><small>Abonnés des candidats</small></a>
+            <a href="#parrainages" data-tab="parrainages"><span>✍️</span><b>Parrainages</b><small>Les 500 signatures d'élus</small></a>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
@@ -48,7 +52,7 @@
     <!-- 1. SONDAGES -->
     <section id="sondages" class="panel">
       <div class="freeze-note" id="freeze-note" hidden>🔒 <b>Période de réserve électorale.</b> Conformément à la loi, aucun sondage ni résultat n'est affiché la veille et le jour du scrutin, jusqu'à la fermeture des derniers bureaux de vote (20 h). Rendez-vous après 20 h.</div>
-      <figure class="hero-cands">
+      <figure class="hero-cands" hidden>
         <img src="assets/candidats-2027.jpg" srcset="assets/candidats-2027-800.jpg 800w, assets/candidats-2027.jpg 1572w" sizes="(max-width: 900px) 100vw, 1100px" alt="Les principaux candidats à l'élection présidentielle 2027" width="1572" height="1001">
       </figure>
       <div class="panel-head">
@@ -414,6 +418,7 @@
       <div>
         <h4>Informations</h4>
         <a href="#mentions">Mentions légales</a><a href="#cgu">Conditions d'utilisation</a><a href="#confidentialite">Confidentialité et cookies</a><a href="#" data-consent-open>Gérer mes cookies</a><a href="mailto:contact@moyennedessondages2027.fr">Contact</a>
+        <span class="foot-acct" id="foot-acct" hidden></span>
       </div>
     </div>
     <div class="wrap foot-method">
@@ -424,9 +429,9 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
   <script src="assets/config.js?v=202611101700"></script>
   <script src="assets/sim.js?v=202611102000"></script>
-  <script src="assets/fun.js?v=202611112300"></script>
+  <script src="assets/fun.js?v=202611121000"></script>
   <script src="assets/jevote.js?v=202611101700"></script>
   <script src="assets/extras.js?v=202611101700"></script>
-  <script src="assets/app.js?v=202611112200"></script>
+  <script src="assets/app.js?v=202611121000"></script>
 </body>
 </html>
