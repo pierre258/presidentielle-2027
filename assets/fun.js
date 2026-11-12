@@ -121,7 +121,7 @@
   function fitText(ctx, text, max, size, weight, family) {
     do { ctx.font = `${weight} ${size}px ${family}`; size -= 2; } while (ctx.measureText(text).width > max && size > 18);
   }
-  async function storyBlob(name, link) {
+  async function storyBlob(name, link, handle) {
     const HEAD = '"Barlow Condensed", "Arial Narrow", sans-serif', BODY = 'Inter, system-ui, sans-serif';
     try { await Promise.all([document.fonts.load(`800 120px "Barlow Condensed"`), document.fonts.load(`700 40px Inter`)]); } catch { /* polices système */ }
     const img = new Image(); img.src = STORY_PHOTO;
@@ -133,16 +133,23 @@
     x.fillStyle = bg; x.fillRect(0, 0, W, H);
     const glow = x.createRadialGradient(W / 2, 900, 50, W / 2, 900, 700); glow.addColorStop(0, "rgba(255,45,85,.18)"); glow.addColorStop(1, "rgba(255,45,85,0)");
     x.fillStyle = glow; x.fillRect(0, 0, W, H);
-    // bandeau tricolore
-    [["#0055a4", 0], ["#f4f6ff", W / 3], ["#ef4135", 2 * W / 3]].forEach(([col, a]) => { x.fillStyle = col; x.fillRect(a, 0, W / 3 + 1, 14); });
+    // cadre tricolore sur les 4 bords
+    const B = 14, TRI = ["#0055a4", "#f4f6ff", "#ef4135"];
+    TRI.forEach((col, i) => {
+      x.fillStyle = col;
+      x.fillRect(i * W / 3, 0, W / 3 + 1, B); x.fillRect(i * W / 3, H - B, W / 3 + 1, B);
+      x.fillRect(0, i * H / 3, B, H / 3 + 1); x.fillRect(W - B, i * H / 3, B, H / 3 + 1);
+    });
     // logo MDS 2027
     x.textAlign = "center"; x.textBaseline = "alphabetic";
     x.fillStyle = "#ff2d55"; rrect(0, x, W / 2 - 190, 110, 380, 150, 22); x.fill();
     x.fillStyle = "#fff"; x.font = `800 92px ${HEAD}`; x.fillText("MDS 2027", W / 2, 205);
     x.font = `600 26px ${BODY}`; x.fillText("moyennedessondages2027", W / 2, 243);
+    // pseudo Instagram de l'auteur
+    const who = handle ? `@${handle} interroge sa commu` : "J'interroge ma commu";
+    x.fillStyle = "#ffb020"; fitText(x, who, 940, 50, 700, BODY); x.fillText(who, W / 2, 345);
     // titre
-    x.font = `800 128px ${HEAD}`; x.fillText("POUR QUI", W / 2, 420); x.fillText("VOTEZ-VOUS ?", W / 2, 545);
-    x.fillStyle = "#a5addb"; x.font = `600 40px ${BODY}`; x.fillText("Présidentielle 2027 · votez en 10 secondes", W / 2, 615);
+    x.fillStyle = "#fff"; x.font = `800 112px ${HEAD}`; x.fillText("POURQUOI PAS CE", W / 2, 475); x.fillText("CANDIDAT EN 2027 ?", W / 2, 590);
     // photo
     const pw = 960, ph = img.naturalWidth ? Math.round(pw * img.naturalHeight / img.naturalWidth) : 611, py = 670;
     x.save(); rrect(0, x, 60, py, pw, ph, 36); x.clip();
@@ -176,11 +183,14 @@
     const name = g.dataset.name, link = g.dataset.link;
     const body = modal();
     body.innerHTML = `<div class="story-box"><h3>📸 Ma Story Instagram</h3><p class="muted">Préparation du visuel…</p></div>`;
-    const blob = await storyBlob(name, link);
-    const file = new File([blob], "mds2027-story.png", { type: "image/png" });
-    const url = URL.createObjectURL(blob);
+    const cleanHandle = (v) => (v || "").trim().replace(/^@+/, "").replace(/[^A-Za-z0-9._]/g, "").slice(0, 30);
+    let handle = cleanHandle(store.get("mds_ig_handle"));
+    let blob = await storyBlob(name, link, handle);
+    let file = new File([blob], "mds2027-story.png", { type: "image/png" });
+    let url = URL.createObjectURL(blob);
     const canFile = !!(navigator.canShare && navigator.canShare({ files: [file] }));
     body.innerHTML = `<div class="story-box"><h3>📸 Ma Story Instagram</h3>
+      <label class="story-handle">Votre pseudo Instagram <span class="sh-in"><b>@</b><input id="story-handle" maxlength="31" placeholder="votre.pseudo" value="${esc(handle)}" autocomplete="off" autocapitalize="none" spellcheck="false"></span></label>
       <img class="story-prev" src="${url}" alt="Visuel de Story pour le groupe « ${esc(name)} »">
       <button type="button" class="ig-story-btn" id="story-go"><span class="ig-logo" aria-hidden="true"></span>${canFile ? "Publier dans ma Story" : "Télécharger le visuel"}</button>
       <ol class="story-steps">
@@ -188,6 +198,16 @@
         <li>Ajoutez le sticker <strong>🔗 Lien</strong> sur la zone « Votez ici » et collez le lien : ${canFile ? "il est déjà copié." : `<button type="button" class="linklike" data-copy="${esc(link)}" data-label="copier le lien">copier le lien</button>`}</li>
       </ol>
       <p class="muted small">Vos abonnés votent sans voir qui a voté quoi : 100 % anonyme.</p></div>`;
+    let tm;
+    $("#story-handle").addEventListener("input", (e) => {
+      clearTimeout(tm);
+      tm = setTimeout(async () => {
+        handle = cleanHandle(e.target.value); store.set("mds_ig_handle", handle);
+        blob = await storyBlob(name, link, handle);
+        file = new File([blob], "mds2027-story.png", { type: "image/png" });
+        URL.revokeObjectURL(url); url = URL.createObjectURL(blob); $(".story-prev").src = url;
+      }, 300);
+    });
     $("#story-go").onclick = async () => {
       try { await navigator.clipboard.writeText(link); } catch { /* le lien reste dans le visuel */ }
       if (canFile) {
