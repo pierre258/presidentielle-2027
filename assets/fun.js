@@ -160,7 +160,7 @@
     // groupe + zone du sticker « Lien »
     let y = py + ph + 95;
     x.fillStyle = "#fff"; fitText(x, `« ${name} »`, 940, 60, 800, HEAD); x.fillText(`« ${name} »`, W / 2, y);
-    y += 70; x.fillStyle = "#ffb020"; x.font = `800 50px ${HEAD}`; x.fillText("👇 VOTEZ ICI 👇", W / 2, y);
+    y += 70; x.fillStyle = "#ffb020"; x.font = `800 50px ${HEAD}`; x.fillText("👇 POURQUOI PAS LUI 👇", W / 2, y);
     y += 30; x.fillStyle = "#fff"; rrect(0, x, 90, y, 900, 120, 60); x.fill();
     const short = link.replace(/^https?:\/\//, "");
     x.fillStyle = "#0b1030"; fitText(x, short, 820, 38, 700, BODY); x.fillText(short, W / 2, y + 74);
@@ -195,7 +195,7 @@
       <button type="button" class="ig-story-btn" id="story-go"><span class="ig-logo" aria-hidden="true"></span>${canFile ? "Publier dans ma Story" : "Télécharger le visuel"}</button>
       <ol class="story-steps">
         <li>${canFile ? "Choisissez <strong>Instagram</strong> puis <strong>Story</strong>." : "Envoyez l'image sur votre téléphone, puis publiez-la en <strong>Story</strong> Instagram."}</li>
-        <li>Ajoutez le sticker <strong>🔗 Lien</strong> sur la zone « Votez ici » et collez le lien : ${canFile ? "il est déjà copié." : `<button type="button" class="linklike" data-copy="${esc(link)}" data-label="copier le lien">copier le lien</button>`}</li>
+        <li>Ajoutez le sticker <strong>🔗 Lien</strong> sous « Pourquoi pas lui » et collez le lien : ${canFile ? "il est déjà copié." : `<button type="button" class="linklike" data-copy="${esc(link)}" data-label="copier le lien">copier le lien</button>`}</li>
       </ol>
       <p class="muted small">Vos abonnés votent sans voir qui a voté quoi : 100 % anonyme.</p></div>`;
     let tm;
