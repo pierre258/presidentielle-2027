@@ -1122,3 +1122,55 @@ button.linkish { background: none; border: 0; padding: 0; color: #93c5fd; text-d
 .story-handle .sh-in { display: flex; align-items: center; gap: 4px; background: rgba(255,255,255,.06); border: 1px solid var(--line); border-radius: 10px; padding: 0 10px; }
 .story-handle .sh-in b { color: var(--text); }
 .story-handle input { flex: 1; background: none; border: 0; color: var(--text); font: 500 15px inherit; padding: 10px 0; outline: none; }
+
+/* ============ Animations (désactivées si « réduire les animations ») ============ */
+@media (prefers-reduced-motion: no-preference) {
+  /* changement de rubrique */
+  .panel:not([hidden]) { animation: mds-panel .45s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes mds-panel { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+  /* apparition au défilement */
+  .anim .rv { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
+  .anim .rv.rv-on { opacity: 1; transform: none; }
+
+  /* lignes des sondages en cascade */
+  .prow.cascade { animation: mds-row .5s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i, 0) * 45ms); }
+  @keyframes mds-row { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: none; } }
+  #poll-bars .prow[data-cand] .avatar, #poll-bars .prow[data-cand] img { transition: transform .25s cubic-bezier(.2,.8,.2,1); }
+  #poll-bars .prow[data-cand]:hover .avatar, #poll-bars .prow[data-cand]:hover img { transform: scale(1.08); }
+  .bar i { position: relative; overflow: hidden; }
+  .bar i::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%); transform: translateX(-100%); animation: mds-sheen 1.4s 1.1s ease-out 1; }
+  @keyframes mds-sheen { to { transform: translateX(100%); } }
+
+  /* bouton principal « Que votent mes amis ? » : reflet régulier + légère respiration */
+  .friends-btn { position: relative; overflow: hidden; animation: mds-breathe 3.2s ease-in-out infinite; }
+  .friends-btn::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.75), transparent); transform: skewX(-20deg); animation: mds-shine 4.5s ease-in-out infinite 1s; pointer-events: none; }
+  @keyframes mds-shine { 0%, 70% { left: -60%; } 100% { left: 130%; } }
+  @keyframes mds-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025); } }
+  .friends-btn.on { animation: none; }
+
+  /* menu Rubriques */
+  .more-menu:not([hidden]) { animation: mds-drop .2s cubic-bezier(.2,.8,.2,1) both; transform-origin: top center; }
+  .more-menu:not([hidden]) a { animation: mds-row .3s cubic-bezier(.2,.8,.2,1) both; }
+  .more-menu a:nth-child(2) { animation-delay: .03s !important; } .more-menu a:nth-child(3) { animation-delay: .06s !important; }
+  .more-menu a:nth-child(4) { animation-delay: .09s !important; } .more-menu a:nth-child(5) { animation-delay: .12s !important; }
+  @keyframes mds-drop { from { opacity: 0; transform: translateY(-8px) scale(.97); } to { opacity: 1; transform: none; } }
+
+  /* bouton Story Instagram : dégradé qui ondule */
+  .ig-story-btn { background-size: 220% 220%; animation: mds-ig 6s ease infinite; transition: transform .2s; }
+  .ig-story-btn:hover { transform: translateY(-2px); }
+  @keyframes mds-ig { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+  /* boutons d'action */
+  .cta { transition: transform .15s, filter .15s, box-shadow .2s; }
+  .cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,45,85,.35); }
+  .cta:active { transform: translateY(0) scale(.98); }
+
+  /* compte à rebours J-xxx */
+  .cd-mini { animation: mds-tick 2.4s ease-in-out infinite; }
+  @keyframes mds-tick { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,45,85,.55); } 60% { box-shadow: 0 0 0 7px rgba(255,45,85,0); } }
+
+  /* candidats à choisir (vote) */
+  [data-dvote], .pv { transition: transform .18s cubic-bezier(.2,.8,.2,1), border-color .15s, background .15s; }
+  [data-dvote]:hover, .pv:hover { transform: translateY(-3px); }
+}
