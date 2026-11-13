@@ -1,23 +1,23 @@
 {
- "updated": "2026-11-13T12:43+00:00",
+ "updated": "2026-11-13T18:20+00:00",
  "source": "Wikipédia — Liste de sondages sur l'élection présidentielle française de 2027",
  "source_url": "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027",
  "window_days": 15,
  "window_extended": false,
  "average": {
-  "lepen": 33.1,
-  "melenchon": 18.4,
-  "philippe": 11.5,
-  "glucksmann": 11.3,
+  "lepen": 32.7,
+  "melenchon": 17.8,
+  "philippe": 11.6,
+  "glucksmann": 11.0,
   "lisnard": 9.8,
-  "attal": 7.3,
-  "retailleau": 5.8,
-  "zemmour": 3.1,
-  "tondelier": 2.2,
+  "attal": 6.3,
+  "retailleau": 5.4,
+  "zemmour": 3.0,
+  "tondelier": 2.4,
   "villepin": 2.0,
-  "dupontaignan": 1.8,
-  "roussel": 1.6,
-  "arthaud": 0.8
+  "dupontaignan": 1.9,
+  "roussel": 1.7,
+  "arthaud": 0.9
  },
  "previous_average": {
   "arthaud": 0.6,
@@ -35,6 +35,37 @@
   "villepin": 3.0
  },
  "polls_in_window": [
+  {
+   "pollster": "OpinionWay",
+   "fieldwork": "10-12 novembre",
+   "end": "2026-11-12",
+   "sample": "1001",
+   "hypotheses": 2,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 16.0,
+    "roussel": 2.0,
+    "tondelier": 3.0,
+    "glucksmann": 10.0,
+    "attal": 3.5,
+    "philippe": 12.0,
+    "lisnard": 9.5,
+    "retailleau": 4.5,
+    "dupontaignan": 2.0,
+    "lepen": 31.5,
+    "zemmour": 2.5
+   },
+   "families": {
+    "eg": 1.03,
+    "gr": 18.47,
+    "eco": 3.08,
+    "sd": 10.26,
+    "ce": 15.89,
+    "dr": 14.35,
+    "sv": 2.05,
+    "ed": 34.88
+   }
+  },
   {
    "pollster": "Opinionway",
    "fieldwork": "9-10 novembre",
@@ -132,20 +163,20 @@
  ],
  "windows": {
   "7": {
-   "polls": 2,
+   "polls": 3,
    "average": {
     "arthaud": 0.8,
-    "melenchon": 18.2,
-    "roussel": 1.7,
-    "tondelier": 2.2,
-    "glucksmann": 11.1,
-    "attal": 6.8,
-    "philippe": 11.1,
-    "lisnard": 10.2,
-    "retailleau": 5.0,
+    "melenchon": 17.4,
+    "roussel": 1.8,
+    "tondelier": 2.5,
+    "glucksmann": 10.7,
+    "attal": 5.7,
+    "philippe": 11.4,
+    "lisnard": 10.0,
+    "retailleau": 4.9,
     "dupontaignan": 1.9,
-    "lepen": 31.9,
-    "zemmour": 2.9
+    "lepen": 31.8,
+    "zemmour": 2.8
    },
    "previous": {
     "arthaud": 1.0,
@@ -164,20 +195,20 @@
    }
   },
   "15": {
-   "polls": 3,
+   "polls": 4,
    "average": {
-    "arthaud": 0.8,
-    "melenchon": 18.4,
-    "roussel": 1.6,
-    "tondelier": 2.2,
-    "glucksmann": 11.3,
-    "attal": 7.3,
-    "philippe": 11.5,
+    "arthaud": 0.9,
+    "melenchon": 17.8,
+    "roussel": 1.7,
+    "tondelier": 2.4,
+    "glucksmann": 11.0,
+    "attal": 6.3,
+    "philippe": 11.6,
     "lisnard": 9.8,
-    "retailleau": 5.8,
-    "dupontaignan": 1.8,
-    "lepen": 33.1,
-    "zemmour": 3.1,
+    "retailleau": 5.4,
+    "dupontaignan": 1.9,
+    "lepen": 32.7,
+    "zemmour": 3.0,
     "villepin": 2.0
    },
    "previous": {
@@ -197,20 +228,20 @@
    }
   },
   "30": {
-   "polls": 12,
+   "polls": 13,
    "average": {
     "arthaud": 0.7,
-    "melenchon": 17.4,
+    "melenchon": 17.3,
     "roussel": 1.9,
-    "tondelier": 2.6,
-    "glucksmann": 12.9,
-    "attal": 8.3,
-    "philippe": 13.7,
-    "lisnard": 7.8,
-    "retailleau": 7.0,
+    "tondelier": 2.7,
+    "glucksmann": 12.7,
+    "attal": 7.9,
+    "philippe": 13.5,
+    "lisnard": 7.9,
+    "retailleau": 6.8,
     "dupontaignan": 2.1,
-    "lepen": 34.1,
-    "zemmour": 3.8,
+    "lepen": 33.9,
+    "zemmour": 3.7,
     "villepin": 2.8
    },
    "previous": {
@@ -2047,65 +2078,96 @@
    },
    {
     "month": "2026-11",
-    "n": 3,
+    "n": 4,
     "scores": {
-     "arthaud": 0.8,
-     "melenchon": 18.4,
-     "roussel": 1.6,
-     "tondelier": 2.2,
-     "glucksmann": 11.3,
-     "attal": 7.3,
-     "philippe": 11.5,
+     "arthaud": 0.9,
+     "melenchon": 17.8,
+     "roussel": 1.7,
+     "tondelier": 2.4,
+     "glucksmann": 11.0,
+     "attal": 6.3,
+     "philippe": 11.6,
      "lisnard": 9.8,
-     "retailleau": 5.8,
-     "dupontaignan": 1.8,
-     "lepen": 33.1,
-     "zemmour": 3.1,
+     "retailleau": 5.4,
+     "dupontaignan": 1.9,
+     "lepen": 32.7,
+     "zemmour": 3.0,
      "villepin": 2.0
     },
     "families": {
-     "eg": 0.8,
-     "gr": 20.5,
-     "eco": 2.2,
-     "sd": 11.4,
-     "ce": 12.7,
-     "dr": 14.0,
-     "sv": 1.8,
-     "ed": 36.6
+     "eg": 0.9,
+     "gr": 20.0,
+     "eco": 2.4,
+     "sd": 11.1,
+     "ce": 13.5,
+     "dr": 14.1,
+     "sv": 1.9,
+     "ed": 36.2
     }
    }
   ],
   "current": {
    "date": "2026-11-13",
    "window": 7,
-   "n": 2,
+   "n": 3,
    "scores": {
     "arthaud": 0.8,
-    "melenchon": 18.2,
-    "roussel": 1.7,
-    "tondelier": 2.2,
-    "glucksmann": 11.1,
-    "attal": 6.8,
-    "philippe": 11.1,
-    "lisnard": 10.2,
-    "retailleau": 5.0,
+    "melenchon": 17.4,
+    "roussel": 1.8,
+    "tondelier": 2.5,
+    "glucksmann": 10.7,
+    "attal": 5.7,
+    "philippe": 11.4,
+    "lisnard": 10.0,
+    "retailleau": 4.9,
     "dupontaignan": 1.9,
-    "lepen": 31.9,
-    "zemmour": 2.9
+    "lepen": 31.8,
+    "zemmour": 2.8
    },
    "families": {
-    "eg": 0.8,
-    "gr": 20.5,
-    "eco": 2.2,
-    "sd": 11.2,
-    "ce": 12.4,
-    "dr": 15.6,
+    "eg": 0.9,
+    "gr": 19.8,
+    "eco": 2.5,
+    "sd": 10.9,
+    "ce": 13.6,
+    "dr": 15.2,
     "sv": 2.0,
-    "ed": 35.4
+    "ed": 35.2
    }
   }
  },
  "polls": [
+  {
+   "pollster": "OpinionWay",
+   "fieldwork": "10-12 novembre",
+   "end": "2026-11-12",
+   "sample": "1001",
+   "hypotheses": 2,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 16.0,
+    "roussel": 2.0,
+    "tondelier": 3.0,
+    "glucksmann": 10.0,
+    "attal": 3.5,
+    "philippe": 12.0,
+    "lisnard": 9.5,
+    "retailleau": 4.5,
+    "dupontaignan": 2.0,
+    "lepen": 31.5,
+    "zemmour": 2.5
+   },
+   "families": {
+    "eg": 1.03,
+    "gr": 18.47,
+    "eco": 3.08,
+    "sd": 10.26,
+    "ce": 15.89,
+    "dr": 14.35,
+    "sv": 2.05,
+    "ed": 34.88
+   }
+  },
   {
    "pollster": "Opinionway",
    "fieldwork": "9-10 novembre",
