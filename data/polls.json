@@ -1,38 +1,38 @@
 {
- "updated": "2026-11-12T22:31+00:00",
+ "updated": "2026-11-13T02:19+00:00",
  "source": "Wikipédia — Liste de sondages sur l'élection présidentielle française de 2027",
  "source_url": "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027",
  "window_days": 15,
  "window_extended": false,
  "average": {
-  "lepen": 33.8,
-  "melenchon": 18.2,
-  "philippe": 11.9,
+  "lepen": 33.1,
+  "melenchon": 18.4,
+  "philippe": 11.5,
   "glucksmann": 11.3,
-  "lisnard": 9.3,
-  "attal": 7.2,
-  "retailleau": 5.6,
-  "zemmour": 3.4,
-  "tondelier": 2.4,
+  "lisnard": 9.8,
+  "attal": 7.3,
+  "retailleau": 5.8,
+  "zemmour": 3.1,
+  "tondelier": 2.2,
   "villepin": 2.0,
   "dupontaignan": 1.8,
-  "roussel": 1.7,
+  "roussel": 1.6,
   "arthaud": 0.8
  },
  "previous_average": {
   "arthaud": 0.6,
-  "melenchon": 16.6,
+  "melenchon": 17.1,
   "roussel": 1.9,
-  "tondelier": 2.6,
-  "glucksmann": 13.7,
-  "attal": 8.4,
-  "philippe": 14.2,
+  "tondelier": 2.8,
+  "glucksmann": 13.4,
+  "attal": 8.6,
+  "philippe": 14.4,
+  "lisnard": 7.1,
   "retailleau": 7.5,
-  "dupontaignan": 2.0,
+  "dupontaignan": 2.2,
   "lepen": 34.5,
   "zemmour": 4.0,
-  "lisnard": 6.6,
-  "villepin": 3.5
+  "villepin": 3.0
  },
  "polls_in_window": [
   {
@@ -128,37 +128,6 @@
     "sv": 1.6,
     "ed": 39.0
    }
-  },
-  {
-   "pollster": "Ifop",
-   "fieldwork": "27-29 octobre",
-   "end": "2026-10-29",
-   "sample": "1501",
-   "hypotheses": 4,
-   "scores": {
-    "arthaud": 0.62,
-    "melenchon": 17.62,
-    "roussel": 1.88,
-    "tondelier": 3.12,
-    "glucksmann": 11.38,
-    "attal": 7.0,
-    "philippe": 13.17,
-    "lisnard": 7.83,
-    "retailleau": 5.33,
-    "dupontaignan": 1.88,
-    "lepen": 36.0,
-    "zemmour": 4.25
-   },
-   "families": {
-    "eg": 0.62,
-    "gr": 19.5,
-    "eco": 3.12,
-    "sd": 11.38,
-    "ce": 13.38,
-    "dr": 9.88,
-    "sv": 1.88,
-    "ed": 40.25
-   }
   }
  ],
  "windows": {
@@ -195,69 +164,69 @@
    }
   },
   "15": {
-   "polls": 4,
+   "polls": 3,
    "average": {
     "arthaud": 0.8,
-    "melenchon": 18.2,
-    "roussel": 1.7,
-    "tondelier": 2.4,
+    "melenchon": 18.4,
+    "roussel": 1.6,
+    "tondelier": 2.2,
     "glucksmann": 11.3,
-    "attal": 7.2,
-    "philippe": 11.9,
-    "lisnard": 9.3,
-    "retailleau": 5.6,
+    "attal": 7.3,
+    "philippe": 11.5,
+    "lisnard": 9.8,
+    "retailleau": 5.8,
     "dupontaignan": 1.8,
-    "lepen": 33.8,
-    "zemmour": 3.4,
+    "lepen": 33.1,
+    "zemmour": 3.1,
     "villepin": 2.0
    },
    "previous": {
     "arthaud": 0.6,
-    "melenchon": 16.6,
+    "melenchon": 17.1,
     "roussel": 1.9,
-    "tondelier": 2.6,
-    "glucksmann": 13.7,
-    "attal": 8.4,
-    "philippe": 14.2,
+    "tondelier": 2.8,
+    "glucksmann": 13.4,
+    "attal": 8.6,
+    "philippe": 14.4,
+    "lisnard": 7.1,
     "retailleau": 7.5,
-    "dupontaignan": 2.0,
+    "dupontaignan": 2.2,
     "lepen": 34.5,
     "zemmour": 4.0,
-    "lisnard": 6.6,
-    "villepin": 3.5
+    "villepin": 3.0
    }
   },
   "30": {
-   "polls": 15,
+   "polls": 12,
    "average": {
     "arthaud": 0.7,
-    "melenchon": 17.0,
+    "melenchon": 17.4,
     "roussel": 1.9,
     "tondelier": 2.6,
-    "glucksmann": 13.1,
-    "attal": 8.1,
-    "philippe": 13.6,
-    "lisnard": 7.4,
+    "glucksmann": 12.9,
+    "attal": 8.3,
+    "philippe": 13.7,
+    "lisnard": 7.8,
     "retailleau": 7.0,
-    "dupontaignan": 2.0,
-    "lepen": 34.3,
+    "dupontaignan": 2.1,
+    "lepen": 34.1,
     "zemmour": 3.8,
-    "villepin": 3.2
+    "villepin": 2.8
    },
    "previous": {
-    "arthaud": 0.9,
-    "melenchon": 17.6,
-    "roussel": 2.4,
-    "tondelier": 3.5,
-    "attal": 11.0,
-    "retailleau": 8.2,
-    "dupontaignan": 2.1,
-    "lepen": 34.7,
-    "zemmour": 4.5,
-    "philippe": 16.8,
-    "glucksmann": 10.4,
-    "lisnard": 4.2,
-    "villepin": 2.0
+    "arthaud": 0.8,
+    "melenchon": 16.9,
+    "roussel": 2.2,
+    "tondelier": 3.1,
+    "glucksmann": 11.5,
+    "attal": 9.8,
+    "philippe": 15.7,
+    "lisnard": 4.6,
+    "retailleau": 7.8,
+    "dupontaignan": 1.9,
+    "lepen": 34.8,
+    "zemmour": 4.3,
+    "villepin": 3.5
    }
   }
  },
@@ -2107,7 +2076,7 @@
    }
   ],
   "current": {
-   "date": "2026-11-12",
+   "date": "2026-11-13",
    "window": 7,
    "n": 2,
    "scores": {
