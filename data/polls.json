@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T11:51+00:00",
+ "updated": "2026-11-14T16:49+00:00",
  "source": "Wikipédia — Liste de sondages sur l'élection présidentielle française de 2027",
  "source_url": "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027",
  "window_days": 15,
@@ -39,7 +39,7 @@
    "pollster": "OpinionWay",
    "fieldwork": "10-12 novembre",
    "end": "2026-11-12",
-   "sample": "1001",
+   "sample": "964",
    "hypotheses": 2,
    "scores": {
     "arthaud": 1.0,
@@ -266,12 +266,19 @@
   {
    "a": "glucksmann",
    "b": "lepen",
-   "last": "2026-11-05",
+   "last": "2026-11-12",
    "window": "15 jours",
-   "n": 1,
-   "avg_a": 40.0,
-   "avg_b": 60.0,
+   "n": 2,
+   "avg_a": 41.0,
+   "avg_b": 59.0,
    "polls": [
+    {
+     "pollster": "OpinionWay",
+     "fieldwork": "10-12 novembre 2026",
+     "end": "2026-11-12",
+     "a": 42.0,
+     "b": 58.0
+    },
     {
      "pollster": "Harris",
      "fieldwork": "3-5 novembre 2026",
@@ -306,25 +313,25 @@
      "end": "2026-10-16",
      "a": 46.5,
      "b": 53.5
-    },
-    {
-     "pollster": "YouGov",
-     "fieldwork": "12-15 octobre 2026",
-     "end": "2026-10-15",
-     "a": 45.0,
-     "b": 55.0
     }
    ]
   },
   {
    "a": "melenchon",
    "b": "lepen",
-   "last": "2026-11-05",
+   "last": "2026-11-12",
    "window": "15 jours",
-   "n": 1,
+   "n": 2,
    "avg_a": 32.0,
    "avg_b": 68.0,
    "polls": [
+    {
+     "pollster": "OpinionWay",
+     "fieldwork": "10-12 novembre 2026",
+     "end": "2026-11-12",
+     "a": 32.0,
+     "b": 68.0
+    },
     {
      "pollster": "Harris",
      "fieldwork": "3-5 novembre 2026",
@@ -359,25 +366,25 @@
      "end": "2026-10-16",
      "a": 31.0,
      "b": 69.0
-    },
-    {
-     "pollster": "YouGov",
-     "fieldwork": "12-15 octobre 2026",
-     "end": "2026-10-15",
-     "a": 32.0,
-     "b": 68.0
     }
    ]
   },
   {
    "a": "philippe",
    "b": "lepen",
-   "last": "2026-11-05",
+   "last": "2026-11-12",
    "window": "15 jours",
-   "n": 1,
-   "avg_a": 42.0,
-   "avg_b": 58.0,
+   "n": 2,
+   "avg_a": 43.0,
+   "avg_b": 57.0,
    "polls": [
+    {
+     "pollster": "OpinionWay",
+     "fieldwork": "10-12 novembre 2026",
+     "end": "2026-11-12",
+     "a": 44.0,
+     "b": 56.0
+    },
     {
      "pollster": "Harris",
      "fieldwork": "3-5 novembre 2026",
@@ -412,13 +419,6 @@
      "end": "2026-10-16",
      "a": 47.5,
      "b": 52.5
-    },
-    {
-     "pollster": "YouGov",
-     "fieldwork": "12-15 octobre 2026",
-     "end": "2026-10-15",
-     "a": 48.0,
-     "b": 52.0
     }
    ]
   },
@@ -2141,7 +2141,7 @@
    "pollster": "OpinionWay",
    "fieldwork": "10-12 novembre",
    "end": "2026-11-12",
-   "sample": "1001",
+   "sample": "964",
    "hypotheses": 2,
    "scores": {
     "arthaud": 1.0,
