@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-09",
-  "disclaimer": "Synthèse indicative des positions publiques des candidats (déclarations, programmes 2022, propositions relayées par la presse jusqu'au 9 novembre 2026). La plupart des programmes officiels 2027 ne sont pas encore publiés : chaque fiche doit être relue et mise à jour au fil de la campagne.",
+  "updated": "2026-11-16",
+  "disclaimer": "Synthèse indicative des positions publiques des candidats (déclarations, programmes 2022, propositions relayées par la presse jusqu'au 16 novembre 2026). La plupart des programmes officiels 2027 ne sont pas encore publiés : chaque fiche doit être relue et mise à jour au fil de la campagne.",
   "topics": [
     {
       "id": "pouvoir_achat",
@@ -345,6 +345,494 @@
         "Candidature annoncée le 9 novembre 2026",
         "Positionnement « ni de droite, ni de gauche »",
         "Mots d'ordre : « fédérer », « la résignation n'est pas une option »"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "hollande": {
+      "status": "Pressenti — décision annoncée pour décembre ou janvier",
+      "pitch": "Ancien président de la République (2012-2017), il a publié en septembre 2026 « Unir », un ouvrage programmatique, et n'a pas participé à la primaire de la gauche.",
+      "key": [
+        "Président de la République de 2012 à 2017",
+        "Livre-programme « Unir » (septembre 2026)",
+        "Pas candidat à la primaire de la gauche"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "ruffin": {
+      "status": "Candidat déclaré, hors primaire",
+      "pitch": "Député de la Somme et fondateur de Debout !, il se présente seul après l'abandon d'une primaire unitaire de la gauche.",
+      "key": [
+        "Candidature hors primaire (été 2026)",
+        "Mouvement : Debout !"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "bertrand": {
+      "status": "Candidat déclaré (fin août 2026)",
+      "pitch": "Président de la région Hauts-de-France, ancien ministre, il a confirmé sa candidature fin août 2026 et exclut une primaire de la droite.",
+      "key": [
+        "Candidature confirmée fin août 2026",
+        "Refuse une primaire de la droite"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "bouamrane": {
+      "status": "Candidat déclaré (juin 2026), hors primaire",
+      "pitch": "Maire socialiste de Saint-Ouen, il se présente « pour une France humaine et une France forte ».",
+      "key": [
+        "Candidature annoncée en juin 2026",
+        "Hors primaire de la gauche"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "cazeneuve": {
+      "status": "Candidature en préparation — projet présenté en juillet 2026",
+      "pitch": "Ancien Premier ministre (2016-2017) et fondateur de La Convention, il a présenté son projet présidentiel en juillet 2026, en dehors de la primaire de la gauche.",
+      "key": [
+        "Projet présidentiel présenté en juillet 2026",
+        "Hors primaire de la gauche"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "lemaire": {
+      "status": "Pressenti — réflexion en cours",
+      "pitch": "Ancien ministre de l'Économie (2017-2024), il a publié en août 2026 un manifeste « pour une autre France ».",
+      "key": [
+        "Manifeste « pour une autre France » (août 2026)",
+        "Décision non annoncée à ce jour"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "borne": {
+      "status": "Pressentie — réflexion en cours",
+      "pitch": "Ancienne Première ministre (2022-2024), elle avance des « pistes » pour le pays dans son livre « Réveillons-nous ! ».",
+      "key": [
+        "Livre « Réveillons-nous ! »",
+        "Décision non annoncée à ce jour"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "batho": {
+      "status": "Candidate déclarée (novembre 2025)",
+      "pitch": "Députée des Deux-Sèvres et ancienne ministre de l'Écologie, elle veut « reconstruire une écologie capable de gouverner ».",
+      "key": [
+        "Candidature annoncée en novembre 2025",
+        "Présidente de Génération écologie"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "becht": {
+      "status": "Candidat déclaré (24 septembre 2026)",
+      "pitch": "Ancien ministre délégué au Commerce extérieur, apparenté au groupe Ensemble pour la République, il se présente comme le candidat de « l'extrême-centre ».",
+      "key": [
+        "Candidature annoncée le 24 septembre 2026",
+        "Positionnement : « extrême-centre »"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "platret": {
+      "status": "Candidat déclaré (8 octobre 2026)",
+      "pitch": "Maire de Chalon-sur-Saône et ancien vice-président des Républicains, il a lancé sa campagne dans sa ville le 8 octobre 2026.",
+      "key": [
+        "Campagne lancée le 8 octobre 2026 à Chalon-sur-Saône"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "philippot": {
+      "status": "Candidat déclaré (mai 2026)",
+      "pitch": "Président des Patriotes, ancien vice-président du Front national qu'il a quitté en 2017, il défend une ligne souverainiste.",
+      "key": [
+        "Candidature annoncée en mai 2026",
+        "Ligne souverainiste"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "asselineau": {
+      "status": "Candidat déclaré (août 2023)",
+      "pitch": "Président de l'Union populaire républicaine, il prône la sortie de la France de l'Union européenne.",
+      "key": [
+        "Candidature annoncée en août 2023",
+        "Sortie de l'Union européenne"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "lassalle": {
+      "status": "Candidature conditionnelle (parrainages et financement)",
+      "pitch": "Ancien député des Pyrénées-Atlantiques, candidat en 2017 et 2022, il subordonne sa candidature aux 500 parrainages et à son financement (250 parrainages revendiqués en juillet 2026).",
+      "key": [
+        "250 parrainages revendiqués en juillet 2026",
+        "Candidature subordonnée à une collecte de fonds"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "polony": {
+      "status": "Candidate déclarée (14 octobre 2026)",
+      "pitch": "Journaliste et essayiste, ancienne directrice de Marianne, elle dit ne pas pouvoir « regarder son pays s'effondrer ».",
+      "key": [
+        "Candidature annoncée le 14 octobre 2026"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "branco": {
+      "status": "Candidat déclaré (décembre 2025)",
+      "pitch": "Avocat et essayiste, il est candidat depuis décembre 2025.",
+      "key": [
+        "Candidature annoncée en décembre 2025"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "kazib": {
+      "status": "Candidat déclaré",
+      "pitch": "Cheminot et syndicaliste, porte-parole de Révolution permanente (extrême gauche).",
+      "key": [
+        "Candidat de Révolution permanente"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "labib": {
+      "status": "Candidate désignée (juin 2026)",
+      "pitch": "Désignée en juin 2026 par le NPA-Révolutionnaires, qui présentait jusqu'ici Philippe Poutou.",
+      "key": [
+        "Désignée par le NPA-Révolutionnaires en juin 2026"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "egger": {
+      "status": "Candidate déclarée",
+      "pitch": "Candidate de Solution démocratique.",
+      "key": [
+        "Candidate de Solution démocratique"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "mikolajczak": {
+      "status": "Candidat déclaré",
+      "pitch": "Candidat du parti Équinoxe.",
+      "key": [
+        "Candidat d'Équinoxe"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "lalanne": {
+      "status": "Candidat déclaré",
+      "pitch": "Chanteur, candidat du mouvement France Libre.",
+      "key": [
+        "Candidat de France Libre"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "durif": {
+      "status": "Candidat déclaré",
+      "pitch": "Candidat déclaré, sans étiquette.",
+      "key": [
+        "Candidature déclarée"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "markovic": {
+      "status": "Candidate déclarée",
+      "pitch": "Candidate du Parti animaliste.",
+      "key": [
+        "Candidate du Parti animaliste"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "mlekuz": {
+      "status": "Candidat déclaré",
+      "pitch": "Candidat du mouvement Trajectoire.",
+      "key": [
+        "Candidat de Trajectoire"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "mathieu": {
+      "status": "Candidat déclaré",
+      "pitch": "Candidat déclaré, sans étiquette connue.",
+      "key": [
+        "Candidature déclarée"
+      ],
+      "positions": {
+        "pouvoir_achat": null,
+        "fiscalite": null,
+        "retraites": null,
+        "immigration": null,
+        "securite": null,
+        "ecologie": null,
+        "europe": null,
+        "education": null,
+        "sante": null,
+        "institutions": null
+      }
+    },
+    "legendre": {
+      "status": "Candidat déclaré",
+      "pitch": "Candidat du mouvement À nous maintenant.",
+      "key": [
+        "Candidat d'À nous maintenant"
       ],
       "positions": {
         "pouvoir_achat": null,

@@ -272,6 +272,456 @@
     "youtube": "",
     "facebook": ""
    }
+  },
+  {
+   "id": "hollande",
+   "name": "François Hollande",
+   "short": "Hollande",
+   "party": "PS",
+   "color": "#EC6B95",
+   "wiki": "François_Hollande",
+   "poll_keys": [
+    "Hollande"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "ruffin",
+   "name": "François Ruffin",
+   "short": "Ruffin",
+   "party": "Debout !",
+   "color": "#E8543F",
+   "wiki": "François_Ruffin",
+   "poll_keys": [
+    "Ruffin"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "bertrand",
+   "name": "Xavier Bertrand",
+   "short": "Bertrand",
+   "party": "Nous France",
+   "color": "#2F6EC0",
+   "wiki": "Xavier_Bertrand",
+   "poll_keys": [
+    "Bertrand"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "bouamrane",
+   "name": "Karim Bouamrane",
+   "short": "Bouamrane",
+   "party": "PS",
+   "color": "#F2A0BE",
+   "wiki": "Karim_Bouamrane",
+   "poll_keys": [
+    "Bouamrane"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "cazeneuve",
+   "name": "Bernard Cazeneuve",
+   "short": "Cazeneuve",
+   "party": "La Convention",
+   "color": "#B0305F",
+   "wiki": "Bernard_Cazeneuve",
+   "poll_keys": [
+    "Cazeneuve"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "lemaire",
+   "name": "Bruno Le Maire",
+   "short": "Le Maire",
+   "party": "Sans étiquette",
+   "color": "#5C7CBA",
+   "wiki": "Bruno_Le_Maire",
+   "poll_keys": [
+    "Le Maire"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "borne",
+   "name": "Élisabeth Borne",
+   "short": "Borne",
+   "party": "Centre",
+   "color": "#F0C24B",
+   "wiki": "Élisabeth_Borne",
+   "poll_keys": [
+    "Borne"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "batho",
+   "name": "Delphine Batho",
+   "short": "Batho",
+   "party": "Génération écologie",
+   "color": "#4CAF50",
+   "wiki": "Delphine_Batho",
+   "poll_keys": [
+    "Batho"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "becht",
+   "name": "Olivier Becht",
+   "short": "Becht",
+   "party": "Sans étiquette",
+   "color": "#F5A623",
+   "wiki": "Olivier_Becht",
+   "poll_keys": [
+    "Becht"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "platret",
+   "name": "Gilles Platret",
+   "short": "Platret",
+   "party": "Divers droite",
+   "color": "#1C5DB0",
+   "wiki": "Gilles_Platret",
+   "poll_keys": [
+    "Platret"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "philippot",
+   "name": "Florian Philippot",
+   "short": "Philippot",
+   "party": "Les Patriotes",
+   "color": "#3B4BA8",
+   "wiki": "Florian_Philippot",
+   "poll_keys": [
+    "Philippot"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "asselineau",
+   "name": "François Asselineau",
+   "short": "Asselineau",
+   "party": "UPR",
+   "color": "#34495E",
+   "wiki": "François_Asselineau",
+   "poll_keys": [
+    "Asselineau"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "lassalle",
+   "name": "Jean Lassalle",
+   "short": "Lassalle",
+   "party": "Résistons !",
+   "color": "#8D6E63",
+   "wiki": "Jean_Lassalle",
+   "poll_keys": [
+    "Lassalle"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "polony",
+   "name": "Natacha Polony",
+   "short": "Polony",
+   "party": "Nous sommes la France",
+   "color": "#7A5548",
+   "wiki": "Natacha_Polony",
+   "poll_keys": [
+    "Polony"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "branco",
+   "name": "Juan Branco",
+   "short": "Branco",
+   "party": "Sans étiquette",
+   "color": "#546E7A",
+   "wiki": "Juan_Branco",
+   "poll_keys": [
+    "Branco"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "kazib",
+   "name": "Anasse Kazib",
+   "short": "Kazib",
+   "party": "Révolution permanente",
+   "color": "#A31919",
+   "wiki": "Anasse_Kazib",
+   "poll_keys": [
+    "Kazib"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "labib",
+   "name": "Selma Labib",
+   "short": "Labib",
+   "party": "NPA-Révolutionnaires",
+   "color": "#C62828",
+   "wiki": "Selma_Labib",
+   "poll_keys": [
+    "Labib"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "egger",
+   "name": "Clara Egger",
+   "short": "Egger",
+   "party": "Solution démocratique",
+   "color": "#26A69A",
+   "wiki": "Clara_Egger",
+   "poll_keys": [
+    "Egger"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "mikolajczak",
+   "name": "Antoine Mikolajczak",
+   "short": "Mikolajczak",
+   "party": "Équinoxe",
+   "color": "#7E57C2",
+   "wiki": "Antoine_Mikolajczak",
+   "poll_keys": [
+    "Mikolajczak"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "lalanne",
+   "name": "Francis Lalanne",
+   "short": "Lalanne",
+   "party": "France Libre",
+   "color": "#9E9D24",
+   "wiki": "Francis_Lalanne",
+   "poll_keys": [
+    "Lalanne"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "durif",
+   "name": "Sylvain Durif",
+   "short": "Durif",
+   "party": "Sans étiquette",
+   "color": "#8E8E8E",
+   "wiki": "Sylvain_Durif",
+   "poll_keys": [
+    "Durif"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "markovic",
+   "name": "Mira Markovic",
+   "short": "Markovic",
+   "party": "Parti animaliste",
+   "color": "#43A047",
+   "wiki": "Mira_Markovic",
+   "poll_keys": [
+    "Markovic"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "mlekuz",
+   "name": "Manolo Mlekuz",
+   "short": "Mlekuz",
+   "party": "Trajectoire",
+   "color": "#5C6BC0",
+   "wiki": "Manolo_Mlekuz",
+   "poll_keys": [
+    "Mlekuz"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "mathieu",
+   "name": "Benoît Mathieu",
+   "short": "Mathieu",
+   "party": "Sans étiquette",
+   "color": "#78909C",
+   "wiki": "Benoît_Mathieu",
+   "poll_keys": [
+    "Mathieu"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
+  },
+  {
+   "id": "legendre",
+   "name": "Jean-François Legendre",
+   "short": "Legendre",
+   "party": "À nous maintenant",
+   "color": "#8D6E9E",
+   "wiki": "Jean-François_Legendre",
+   "poll_keys": [
+    "Legendre"
+   ],
+   "social": {
+    "x": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "facebook": ""
+   }
   }
  ]
 }

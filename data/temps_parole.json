@@ -97,6 +97,156 @@
    "tv_min": 16.8,
    "radio_min": 0.0,
    "part_pct": 0.2
+  },
+  "hollande": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "ruffin": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "bertrand": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "bouamrane": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "cazeneuve": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "lemaire": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "borne": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "batho": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "becht": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "platret": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "philippot": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "asselineau": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "lassalle": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "polony": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "branco": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "kazib": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "labib": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "egger": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "mikolajczak": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "lalanne": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "durif": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "markovic": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "mlekuz": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "mathieu": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
+  },
+  "legendre": {
+   "total_min": null,
+   "tv_min": null,
+   "radio_min": null,
+   "part_pct": null
   }
  },
  "historique": [

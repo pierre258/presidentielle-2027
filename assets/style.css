@@ -1174,3 +1174,101 @@ button.linkish { background: none; border: 0; padding: 0; color: #93c5fd; text-d
   [data-dvote], .pv { transition: transform .18s cubic-bezier(.2,.8,.2,1), border-color .15s, background .15s; }
   [data-dvote]:hover, .pv:hover { transform: translateY(-3px); }
 }
+
+/* =====================================================================
+   Habillage « esprit Apple » : typographie système, noir profond, verre dépoli,
+   grands espaces, coins très arrondis, boutons pilule bleus. Couche finale.
+   ===================================================================== */
+:root {
+  --bg: #050507;
+  --bg2: #101014;
+  --card: rgba(255, 255, 255, 0.045);
+  --card-solid: #16161b;
+  --line: rgba(255, 255, 255, 0.09);
+  --text: #f5f5f7;
+  --muted: #8e8e93;
+  --radius: 22px;
+  --apple-blue: #0a84ff;
+  --head: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Inter, system-ui, sans-serif;
+  --body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Inter, system-ui, sans-serif;
+}
+body {
+  font: 16px/1.5 var(--body);
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  background:
+    radial-gradient(1100px 520px at 50% -180px, rgba(64, 98, 255, .22) 0%, transparent 70%),
+    radial-gradient(700px 420px at 100% 40%, rgba(255, 45, 85, .07) 0%, transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+}
+::selection { background: rgba(10, 132, 255, .45); }
+
+/* titres : graisse forte, interlettrage serré, sans capitales forcées */
+h1, h2, h3, h4 { font-family: var(--head); letter-spacing: -0.025em; }
+h1 { font-size: clamp(30px, 4.4vw, 48px); font-weight: 700; line-height: 1.06; }
+h2 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; }
+body :is(h1, h2, h3, h4, .poll-card-title, .prow .name, .grp-blocks > .grp > summary, .brand-title, .ig-story-btn, .grp-h) { text-transform: none; }
+.brand-mark b { font-family: "Barlow Condensed", var(--head); letter-spacing: .01em; }
+.score, .prow .score { font-family: var(--head); font-weight: 700; letter-spacing: -0.03em; }
+
+/* en-tête en verre dépoli */
+.top { background: rgba(14, 14, 18, .72); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(255,255,255,.07); }
+.brand-title { font-weight: 700; font-size: 19px; letter-spacing: -0.02em; }
+.tabs .more-btn { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.1); }
+.tabs .more-btn:hover { background: rgba(255,255,255,.1); }
+
+/* respiration */
+.panel { padding: 44px 0 16px; }
+.panel-head { margin-bottom: 26px; }
+
+/* cartes */
+.poll-card, .fun-card, .race-card, .grp, .dcard, .bcard, .pick, .plat-cards > *, .tp-row, .parr-status, .parr-bars {
+  border-radius: var(--radius);
+}
+.poll-card, .fun-card, .race-card, .grp, .dcard {
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(255,255,255,.05) inset, 0 20px 50px -20px rgba(0,0,0,.6);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+}
+.poll-card { padding: 28px; }
+.fun-card { padding: 26px 28px; }
+.poll-card-title { background: none; color: var(--text); font: 700 22px/1.2 var(--head); letter-spacing: -0.02em; padding: 0; border-radius: 0; }
+.poll-card-title span { color: var(--muted); font-weight: 600; }
+
+/* barres de sondage plus fines, façon jauge */
+.bar { height: 8px !important; border-radius: 99px; background: rgba(255,255,255,.08); }
+.bar i { border-radius: 99px; }
+.prow { gap: 16px; }
+#poll-bars .prow[data-cand]:hover { background: rgba(255,255,255,.04); }
+
+/* contrôles segmentés type iOS */
+.seg { background: rgba(118,118,128,.24); border: 0; padding: 2px; border-radius: 10px; }
+.seg button { border-radius: 8px; padding: 7px 14px; color: var(--text); font-weight: 500; }
+.seg button.on { background: #636366; color: #fff; box-shadow: 0 3px 8px rgba(0,0,0,.25); }
+
+/* boutons pilule bleus */
+.cta { background: var(--apple-blue); color: #fff; font-weight: 600; letter-spacing: -0.01em; border-radius: 999px; }
+.cta:hover { background: #2a95ff; box-shadow: 0 8px 22px rgba(10,132,255,.35) !important; }
+.ghost, .share-toggle { border-radius: 999px; }
+a:not(.tab):not(.brand):not(.friends-btn):hover { text-decoration-color: var(--apple-blue); }
+
+/* champs de saisie */
+input:not([type=checkbox]):not([type=radio]), select, textarea {
+  border-radius: 12px !important; background: rgba(118,118,128,.16) !important; border: 1px solid transparent !important; color: var(--text);
+}
+input:not([type=checkbox]):not([type=radio]):focus, select:focus, textarea:focus { outline: none; border-color: var(--apple-blue) !important; box-shadow: 0 0 0 4px rgba(10,132,255,.25); }
+
+/* menu déroulant et fenêtres : verre dépoli */
+.more-menu, .share-menu { background: rgba(28,28,32,.86) !important; -webkit-backdrop-filter: saturate(180%) blur(24px); backdrop-filter: saturate(180%) blur(24px); border: 1px solid rgba(255,255,255,.1) !important; border-radius: 18px !important; }
+.am-box { border-radius: 26px !important; background: rgba(24,24,28,.92) !important; -webkit-backdrop-filter: blur(30px); backdrop-filter: blur(30px); }
+
+/* pied de page sobre */
+.site-foot { background: #0b0b0e; border-top: 1px solid rgba(255,255,255,.07); font-size: 13px; }
+.site-foot h4 { color: var(--text); font-weight: 600; letter-spacing: -0.01em; }
+
+@media (max-width: 760px) {
+  .panel { padding-top: 30px; }
+  .poll-card, .fun-card { padding: 20px; }
+}
