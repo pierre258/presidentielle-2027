@@ -442,6 +442,528 @@
       "site": "https://www.lutte-ouvriere.org",
       "site_label": "Lutte ouvrière",
       "details": {}
+    },
+    "hollande": {
+      "site": "",
+      "site_label": "",
+      "details": {
+        "pouvoir_achat": [
+          "Baisse des cotisations salariales financée par la TVA et une taxe progressive sur les revenus financiers",
+          "Taux de TVA réduit de 5,5 % ramené à 0 % sur l'énergie et les produits de première nécessité",
+          "Part des salariés portée à 30 % dans les conseils d'administration"
+        ],
+        "fiscalite": [
+          "Hausse progressive de la TVA normale de 20 % à 24 %",
+          "Taxation des grosses successions et des patrimoines supérieurs à 10 millions d'euros bruts",
+          "Opposition à la taxe Zucman"
+        ],
+        "retraites": [
+          "Âge légal d'environ 63 ans au 1er janvier 2028",
+          "Indexation des pensions plafonnée à 1 % pendant cinq ans",
+          "Volet par capitalisation piloté par les partenaires sociaux"
+        ],
+        "immigration": [
+          "Quota annuel d'immigration de travail",
+          "Contrôle renforcé du regroupement familial et du nombre d'étudiants étrangers",
+          "Réduction des délais d'examen des demandes d'asile"
+        ],
+        "securite": [
+          "Augmentation du nombre de places de prison",
+          "Coordination des polices municipales et nationale",
+          "Peines de prison, y compris courtes, dès la première infraction"
+        ],
+        "ecologie": [
+          "Compte carbone individuel",
+          "Voiture électrique populaire soutenue par l'État",
+          "Révision du calendrier de réduction de la part du nucléaire"
+        ],
+        "europe": [
+          "Noyau de six à huit États pour piloter industrie, numérique, IA et défense",
+          "Protection du ciel ukrainien présentée comme première décision"
+        ],
+        "education": [
+          "Classes de primaire limitées à 19 élèves",
+          "Assistant numérique « e-Aristote » pour chaque élève",
+          "Service civique étendu à 300 000 jeunes, permis gratuit et chèque de 10 000 €"
+        ],
+        "institutions": [
+          "Acte de décentralisation soumis à référendum",
+          "Autonomie accrue pour la Corse et les outre-mer",
+          "Cumul d'un mandat local autorisé pour les seuls sénateurs"
+        ]
+      }
+    },
+    "ruffin": {
+      "site": "https://nouspresident.fr/",
+      "site_label": "Nous Président ! – Ruffin 2027",
+      "details": {
+        "pouvoir_achat": [
+          "Indexation des salaires sur l'inflation",
+          "Heures atypiques (avant 8 h, après 18 h) payées double",
+          "Prix minimum garanti aux agriculteurs"
+        ],
+        "fiscalite": [
+          "Taxe de 4 % sur les dividendes des entreprises versant plus de 10 M€, 2 % en dessous",
+          "Impôt minimum de 2 % sur les patrimoines de plus de 100 M€ (taxe Zucman)",
+          "Abattement successoral porté à 200 000 €, taux marginal de 50 % au-delà de 6 M€"
+        ],
+        "retraites": [
+          "Retraite anticipée pour les travailleurs essentiels",
+          "Un trimestre supplémentaire pour quatre trimestres en métier exposé",
+          "Trimestres de retraite pour les bénévoles associatifs"
+        ],
+        "securite": [
+          "+20 000 pompiers professionnels d'ici 2030",
+          "Flotte de 16 Canadair",
+          "Suppression du pouvoir de nomination des procureurs par le gouvernement"
+        ],
+        "ecologie": [
+          "Interdiction des vols intérieurs quand le train fait moins de 4 h",
+          "Budget de la rénovation énergétique multiplié par quatre",
+          "Leasing public de 3 millions de voitures électriques sur cinq ans"
+        ],
+        "europe": [
+          "Refus de ratification du CETA",
+          "Arrêt des négociations de libre-échange avec Malaisie, Thaïlande, Émirats et Philippines",
+          "Déclenchement des clauses de sauvegarde de l'accord UE-Mercosur"
+        ],
+        "education": [
+          "Suppression de Parcoursup",
+          "CAP en 3 ans et bac pro en 4 ans",
+          "Matières pratiques au collège"
+        ],
+        "sante": [
+          "Pôle public de production de médicaments génériques essentiels",
+          "Service unique de santé scolaire par rectorat"
+        ],
+        "institutions": [
+          "Référendum d'initiative citoyenne (RIC)",
+          "Fin de l'immunité pénale et civile du président",
+          "Encadrement strict du pantouflage"
+        ]
+      }
+    },
+    "bertrand": {
+      "site": "https://nousfrance.fr/",
+      "site_label": "Nous France",
+      "details": {
+        "pouvoir_achat": [
+          "Heures au-delà de 35 h exonérées d'impôt et de cotisations",
+          "Pas de dividendes sans part pour les salariés dans les entreprises de plus de 250 salariés",
+          "Partage du résultat obligatoire dans les entreprises de 11 à 50 salariés"
+        ],
+        "retraites": [
+          "Recul de l'âge légal lié à l'espérance de vie",
+          "Départ anticipé possible avec décote",
+          "Abaissement de l'âge d'annulation de la décote pour les femmes"
+        ],
+        "immigration": [
+          "Quotas annuels par catégorie fixés par le Parlement",
+          "Examen « passeport républicain » avant regroupement familial",
+          "Demandes d'asile traitées en un mois"
+        ],
+        "securite": [
+          "Majorité pénale à 15 ans",
+          "Peine de prison automatique pour agression de policiers, gendarmes, pompiers ou maires",
+          "Au moins 80 000 places de prison"
+        ],
+        "ecologie": [
+          "Construction de nouveaux réacteurs EPR",
+          "Solaire privilégié sans artificialiser terres agricoles ni forêts",
+          "Projets énergétiques communaux financés par la Caisse des dépôts"
+        ],
+        "europe": [
+          "Refus de partager le siège permanent au Conseil de sécurité de l'ONU",
+          "Alliance méditerranéenne de contrôle migratoire avec Frontex"
+        ],
+        "education": [
+          "Chefs d'établissement véritables patrons de leur école",
+          "Pas de fermeture de classe rurale sans accord du maire"
+        ],
+        "sante": [
+          "Assistant administratif financé par le département pour les médecins",
+          "AME limitée aux soins urgents et vitaux pour les adultes",
+          "Application de la loi Leonetti et soins palliatifs sur tout le territoire"
+        ],
+        "institutions": [
+          "Mandat présidentiel unique",
+          "Référendum en Corse",
+          "Lois adaptées à chaque territoire"
+        ]
+      }
+    },
+    "bouamrane": {
+      "site": "https://www.karimbouamrane2027.org/",
+      "site_label": "Karim Bouamrane 2027",
+      "details": {
+        "fiscalite": [
+          "Réduction des doublons administratifs et allègement des normes"
+        ],
+        "securite": [
+          "Lutte contre le narcotrafic",
+          "Protection de l'enfance érigée en grande cause nationale"
+        ],
+        "europe": [
+          "Augmentation de l'effort de défense"
+        ]
+      }
+    },
+    "cazeneuve": {
+      "site": "https://www.la-convention.fr",
+      "site_label": "La Convention",
+      "details": {
+        "fiscalite": [
+          "« Règle d'or sociale » : compensation intégrale par l'État des exonérations de cotisations décidées",
+          "Hausse de la taxation des très grandes fortunes et des plus hauts revenus du capital",
+          "Réduction des niches fiscales pour financer une baisse des impôts de production"
+        ],
+        "retraites": [
+          "Pas de nouveau recul de l'âge légal ; reprise de la trajectoire d'allongement de la durée de cotisation engagée en 2014",
+          "Rétablissement des départs anticipés pour pénibilité et cohérence des carrières longues",
+          "Généralisation de l'apprentissage dès le premier cycle universitaire et CDI comme norme"
+        ],
+        "securite": [
+          "Police de proximité avec effectifs dédiés et formés",
+          "Unités spécialisées contre la criminalité organisée et parquet européen renforcé",
+          "Plus de places d'hébergement d'urgence et traitement accéléré des plaintes pour violences faites aux femmes"
+        ],
+        "ecologie": [
+          "Planification du renouvellement du parc nucléaire",
+          "Plan École-Climat-Solidarité de rénovation des écoles sur dix ans",
+          "Création d'une « DATAR du climat » rattachée au Premier ministre"
+        ],
+        "europe": [
+          "Réarmement proportionné à la menace et renforcement de l'industrie de défense",
+          "Réflexion sur l'apport de la dissuasion française à l'Europe, y compris avec le Royaume-Uni",
+          "Réforme du budget européen et politique industrielle commune"
+        ],
+        "education": [
+          "Philosophie dès la seconde et esprit critique dès le collège",
+          "Aide supplémentaire d'au moins 2 000 euros pour les étudiants boursiers les deux premières années",
+          "« Avance jeunesse » de 3 000 euros pour les 18-24 ans sans diplôme ni emploi, sous conditions de ressources"
+        ],
+        "sante": [
+          "Santé mentale érigée en grande cause nationale",
+          "Maintien des hôpitaux de proximité"
+        ],
+        "institutions": [
+          "Rétablissement du septennat",
+          "Dose de proportionnelle aux élections législatives",
+          "Vote de confiance systématique dès la nomination du Premier ministre et moindre recours au 49.3"
+        ]
+      }
+    },
+    "lemaire": {
+      "site": "https://www.uneautrefrance.fr",
+      "site_label": "Une autre France",
+      "details": {
+        "fiscalite": [
+          "Hausse de 2 à 3 points de la TVA (hors taux réduit) compensée par une baisse des charges salariales",
+          "Désindexation du barème de l'impôt sur le revenu et des prestations sociales",
+          "Triplement de la taxe sur les géants du numérique et hausse des droits de douane sur les produits carbonés importés"
+        ],
+        "retraites": [
+          "Report de l'âge légal à 65 ans",
+          "Introduction d'une part de capitalisation",
+          "Négociation préalable de quelques mois laissée aux partenaires sociaux"
+        ],
+        "securite": [
+          "Peines planchers et peines automatiques",
+          "Réponse ferme aux agressions contre policiers, enseignants et soignants"
+        ],
+        "europe": [
+          "Fédération de six États mettant en commun semi-conducteurs, IA, finance, diplômes et contrôle des frontières"
+        ],
+        "institutions": [
+          "Suppression du 49.3",
+          "Motion de censure possible uniquement avec une majorité et un gouvernement alternatifs",
+          "État recentré sur sécurité, protection, éducation et santé, le reste étant délégué"
+        ]
+      }
+    },
+    "borne": {
+      "site": "",
+      "site_label": "",
+      "details": {
+        "education": [
+          "Allocation de 500 euros par mois jusqu'à un an pour jeunes diplômés, sous conditions de ressources et de recherche d'emploi",
+          "Reprise de formation via le compte personnel de formation après un premier emploi",
+          "Opposée au report du baccalauréat (novembre 2026)"
+        ],
+        "institutions": [
+          "Mandat présidentiel unique de sept ans non renouvelable",
+          "Conseil des ministres présidé par le Premier ministre",
+          "Dose de proportionnelle aux législatives"
+        ],
+        "securite": [
+          "Renforcement des moyens de la police, de la gendarmerie et de la justice",
+          "Contrôles d'antécédents renforcés pour les personnels encadrant les jeunes enfants"
+        ]
+      }
+    },
+    "batho": {
+      "site": "https://www.delphinebatho.fr",
+      "site_label": "Delphine Batho 2027",
+      "details": {
+        "ecologie": [
+          "Aides agricoles conditionnées à l'agriculture biologique et à l'agroécologie d'ici la fin du quinquennat",
+          "Développement massif de la géothermie et de l'autoconsommation collective",
+          "Remplacement du PIB comme objectif par un indicateur d'empreinte écologique et un indice de santé sociale"
+        ],
+        "sante": [
+          "Retrait immédiat des pesticides cancérogènes, mutagènes, reprotoxiques ou perturbateurs endocriniens",
+          "Régulation de l'installation des médecins et création de centres de santé",
+          "Nutri-Score obligatoire et interdiction de la publicité pour les produits nocifs"
+        ],
+        "securite": [
+          "Ministère régalien dédié à la sécurité civile",
+          "Loi de programmation pour les sapeurs-pompiers"
+        ],
+        "institutions": [
+          "Loi de séparation des lobbies et de l'État",
+          "« Règle d'or de la constance » : stabilité des normes et contrôle a posteriori",
+          "Lois de programmation pluriannuelles pour la sortie des fossiles et l'adaptation climatique"
+        ]
+      }
+    },
+    "philippot": {
+      "site": "https://les-patriotes.fr/projetpourlafrance/",
+      "site_label": "Les Patriotes – Projet pour la France 2026",
+      "details": {
+        "pouvoir_achat": [
+          "Encadrement plus strict des prix des produits de première nécessité",
+          "Rétablissement des monopoles publics dans le rail et l'énergie",
+          "Prix planchers pour garantir le revenu des agriculteurs"
+        ],
+        "fiscalite": [
+          "Économie annoncée de 20 milliards d'euros par an grâce au Frexit",
+          "Emprunt à taux modéré auprès de la Banque de France",
+          "Allègement de la taxation des petits héritages"
+        ],
+        "europe": [
+          "Référendum et sortie de l'UE, de l'euro et de Schengen",
+          "Sortie de l'OTAN et de la CEDH",
+          "Refus d'une armée européenne"
+        ],
+        "ecologie": [
+          "Sortie du marché européen de l'électricité",
+          "Moratoire sur l'éolien",
+          "Maintien des voitures thermiques au-delà de 2035"
+        ],
+        "sante": [
+          "Suppression des agences régionales de santé",
+          "Sortie de l'OMS et rejet du traité mondial sur les pandémies",
+          "Non-retour du pass sanitaire"
+        ]
+      }
+    },
+    "asselineau": {
+      "site": "https://www.upr.fr/",
+      "site_label": "Union populaire républicaine (UPR)",
+      "details": {
+        "pouvoir_achat": [
+          "SMIC brut augmenté de 24 % sur le quinquennat",
+          "Gel des prix de l'électricité et du gaz au moins deux ans",
+          "Baisse de 10 % des péages autoroutiers"
+        ],
+        "fiscalite": [
+          "Nouvelles tranches d'impôt au-delà de 250 000 et 500 000 euros annuels",
+          "Annulation de la hausse de la CSG",
+          "Baisse de 5 points des droits de succession sous 300 000 euros par héritier"
+        ],
+        "europe": [
+          "Sortie de l'UE, de l'euro et de l'OTAN (Frexit)",
+          "Siège de statut d'observateur auprès des BRICS",
+          "Économie d'environ 12 milliards d'euros par an de contribution européenne"
+        ],
+        "sante": [
+          "Réouverture de 30 000 lits d'hôpital public",
+          "Bonus de 20 % des honoraires dans les déserts médicaux",
+          "AAH revalorisée de 20 % et déconjugalisée"
+        ],
+        "institutions": [
+          "Députés ramenés à 500 et sénateurs à environ 100",
+          "Révision constitutionnelle uniquement par référendum",
+          "Conseil constitutionnel remplacé par une cour de juristes élus pour 12 ans"
+        ]
+      }
+    },
+    "lassalle": {
+      "site": "https://resistons-france.fr/",
+      "site_label": "Résistons !",
+      "details": {
+        "pouvoir_achat": [
+          "SMIC fixé à 1 400 euros net par mois",
+          "TVA sur les carburants abaissée de 20 % à 5,5 %",
+          "Création d'un « ticket paysan » pour les circuits courts"
+        ],
+        "institutions": [
+          "Référendum d'initiative citoyenne",
+          "Vote blanc reconnu comme suffrage exprimé",
+          "Engagement des forces armées soumis au Parlement ou à référendum"
+        ],
+        "sante": [
+          "Recrutement de 100 000 infirmiers et aides-soignants sur le quinquennat",
+          "ARS remplacées par des directions départementales des affaires sociales",
+          "Accès à un hôpital à moins de 40 minutes de route"
+        ]
+      }
+    },
+    "polony": {
+      "site": "",
+      "site_label": "Nous sommes la France",
+      "details": {
+        "pouvoir_achat": [
+          "Hausse des salaires de 20 à 30 %",
+          "Taxe flottante sur les produits pétroliers, à taux décroissant quand les prix montent",
+          "Taxe sur les superprofits"
+        ],
+        "fiscalite": [
+          "« État d'urgence de la production » et priorité au made in France dans la commande publique",
+          "Suppression des aides d'État non liées à une production sur le sol national"
+        ],
+        "ecologie": [
+          "Renationalisation d'EDF",
+          "Protection des barrages hydroélectriques et du parc nucléaire"
+        ]
+      }
+    },
+    "becht": {
+      "site": "",
+      "site_label": "",
+      "details": {
+        "retraites": [
+          "Contrat de travail unique suivant le salarié d'un employeur à l'autre",
+          "Revenu de base pendant le chômage, conditionné à l'acceptation d'un emploi, à une formation ou à 25 heures de bénévolat",
+          "Système universel de protection sociale fondé sur la réciprocité droits-devoirs"
+        ],
+        "securite": [
+          "Centres de redressement encadrés par d'anciens militaires où les délinquants travaillent et apprennent un métier"
+        ],
+        "ecologie": [
+          "Production de carburants de synthèse pour réduire les importations de pétrole"
+        ],
+        "education": [
+          "Suppression de Parcoursup, orientation fondée davantage sur les résultats du bac et une épreuve de spécialité",
+          "Gestion des enseignants décentralisée, chefs d'établissement composant leurs équipes",
+          "Objectif d'un enseignant devant chaque classe"
+        ]
+      }
+    },
+    "platret": {
+      "site": "https://france-2050.fr/",
+      "site_label": "France 2050 (mouvement d'idées fondé par Gilles Platret)",
+      "details": {
+        "retraites": [
+          "Abrogation de la loi sur les 35 heures et retour aux 39 heures"
+        ],
+        "immigration": [
+          "Rétablissement des frontières nationales",
+          "Fin de l'accord franco-algérien de 1968"
+        ],
+        "securite": [
+          "Fin de la présence des Frères musulmans et fermeture de toutes les associations salafistes",
+          "Interdiction du voile dans l'espace public",
+          "Création de places de prison supplémentaires"
+        ],
+        "europe": [
+          "Rappel de l'ambassadeur de France en Iran",
+          "Soutien sans condition à Israël"
+        ],
+        "institutions": [
+          "Mode de scrutin uninominal à un tour",
+          "Déchéance des mandats pour les élus soutenant les « ennemis de l'intérieur »",
+          "Réduction de la bureaucratie et de l'emprise de la haute fonction publique"
+        ]
+      }
+    },
+    "branco": {
+      "site": "https://www.ruches.org/le-projet",
+      "site_label": "Les Ruches – Le projet",
+      "details": {
+        "pouvoir_achat": [
+          "SMIC à 1 500 € net",
+          "Suppression de la prime d'activité",
+          "Déconditionnement du RSA et attribution automatique des minima sociaux"
+        ],
+        "fiscalite": [
+          "Rétablissement de l'ISF",
+          "Élection du gouverneur de la Banque de France et droit de tirage direct du Trésor",
+          "TVA majorée de dix points sur le luxe et les aliments ultra-transformés"
+        ],
+        "retraites": [
+          "Fusion des caisses de retraite publiques et privées, fin des complémentaires publiques",
+          "Suppression de l'abattement de 10 % des retraités"
+        ],
+        "immigration": [
+          "Critères objectifs d'intégration pour les régularisations, avec obligations de service",
+          "Regroupement familial conditionné et traitement de l'asile dans les consulats"
+        ],
+        "securite": [
+          "Municipalisation de la police nationale hors police judiciaire et maintien de l'ordre",
+          "Suppression des BAC et dissolution de la BRAV-M",
+          "Garde à vue limitée à 24 heures, rétablissement intégral des jurés d'assises"
+        ],
+        "ecologie": [
+          "Nationalisation de la distribution d'électricité et sortie du marché européen de l'électricité",
+          "Construction de 14 EPR2",
+          "Fin de la concurrence ferroviaire et investissement dans 4 000 km de lignes secondaires"
+        ],
+        "europe": [
+          "Référendums sur la sortie de l'UE, de l'euro, du Conseil de l'Europe et/ou de Schengen",
+          "Référendum sur la sortie de l'OTAN",
+          "Arrêt des livraisons d'armes à l'Ukraine"
+        ],
+        "education": [
+          "Gratuité réelle des études universitaires",
+          "Budgets universitaires et de recherche +30 %, financés par la suppression du CIR",
+          "Fin de Parcoursup et rétablissement du bac classique"
+        ],
+        "sante": [
+          "Suppression des complémentaires santé au profit d'une sécurité sociale universelle",
+          "Référendum sur la suppression des dépassements d'honoraires",
+          "Création d'une industrie pharmaceutique publique"
+        ],
+        "institutions": [
+          "Référendum d'initiative citoyenne en toutes matières et mandats révocables",
+          "Suppression de l'article 49.3 et du poste de Premier ministre",
+          "Mandat présidentiel de sept ans, limité à trois mandats"
+        ]
+      }
+    },
+    "kazib": {
+      "site": "https://anasse2027.fr",
+      "site_label": "Anasse Kazib 2027",
+      "details": {
+        "pouvoir_achat": [
+          "SMIC à 2 000 € net",
+          "Hausse de 500 € de tous les salaires et revalorisation des allocations",
+          "Indexation des salaires et allocations sur l'inflation"
+        ],
+        "retraites": [
+          "Retraite à 60 ans, 55 ans pour les métiers pénibles, sans condition de durée de cotisation",
+          "Interdiction des licenciements et semaine de 28 heures sans perte de salaire",
+          "CDI pour tous les précaires et fin de la sous-traitance"
+        ],
+        "immigration": [
+          "Régularisation de tous les sans-papiers"
+        ],
+        "securite": [
+          "Dissolution des unités spéciales de police",
+          "Abrogation des lois sécuritaires, de la loi de 2004 à la loi « séparatisme »"
+        ],
+        "europe": [
+          "Fermeture des bases militaires françaises à l'étranger et retrait des troupes",
+          "Démantèlement de l'industrie d'armement"
+        ],
+        "education": [
+          "Revenu étudiant au niveau du SMIC financé par le patronat"
+        ],
+        "institutions": [
+          "Suppression de la présidence de la République, du Sénat et du Conseil constitutionnel",
+          "Assemblée unique élue pour deux ans, élus révocables payés au salaire médian"
+        ]
+      }
     }
   }
 }

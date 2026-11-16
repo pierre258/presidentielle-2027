@@ -368,16 +368,16 @@
         "Pas candidat à la primaire de la gauche"
       ],
       "positions": {
-        "pouvoir_achat": null,
-        "fiscalite": null,
-        "retraites": null,
-        "immigration": null,
-        "securite": null,
-        "ecologie": null,
-        "europe": null,
-        "education": null,
+        "pouvoir_achat": "Baisse des cotisations salariales pour hausser le net, TVA à 0 % sur énergie et produits de première nécessité.",
+        "fiscalite": "TVA normale portée progressivement à 24 %, taxation des gros patrimoines et héritages, déficit ramené à 3 %.",
+        "retraites": "Âge légal fixé à 63 ans en 2028, durée de cotisation indexée sur l'espérance de vie, part de capitalisation.",
+        "immigration": "Quotas annuels d'immigration de travail, regroupement familial restreint, exécution des OQTF.",
+        "securite": "Davantage de places de prison, priorité à la lutte contre le narcotrafic, peines dès la première infraction.",
+        "ecologie": "Nucléaire comme pilier de la décarbonation, compte carbone individuel, voiture électrique populaire.",
+        "europe": "Europe à plusieurs vitesses avec un noyau de six à huit États pour l'industrie et la défense.",
+        "education": "Classes réduites en primaire, tuteur IA pour chaque élève, service civique élargi avec dotation de 10 000 €.",
         "sante": null,
-        "institutions": null
+        "institutions": "Grand acte de décentralisation soumis à référendum, Premier ministre chargé de la gestion quotidienne."
       }
     },
     "ruffin": {
@@ -388,16 +388,16 @@
         "Mouvement : Debout !"
       ],
       "positions": {
-        "pouvoir_achat": null,
-        "fiscalite": null,
-        "retraites": null,
-        "immigration": null,
-        "securite": null,
-        "ecologie": null,
-        "europe": null,
-        "education": null,
-        "sante": null,
-        "institutions": null
+        "pouvoir_achat": "Statut des travailleurs essentiels, indexation des salaires sur l'inflation, électricité vendue à prix coûtant.",
+        "fiscalite": "Taxe sur les dividendes, impôt minimum de 2 % sur les fortunes de plus de 100 millions, réforme des successions.",
+        "retraites": "Retraite anticipée pour les travailleurs essentiels et les métiers pénibles, encadrement des horaires atypiques.",
+        "immigration": "Opposition déclarée à l'immigration de travail, présentée comme pesant sur les salaires.",
+        "securite": "Renforcement des effectifs de pompiers et de la sécurité civile, parquet rendu indépendant du gouvernement.",
+        "ecologie": "Rénovation des logements, leasing public de véhicules électriques, nouveaux EPR2 et renouvelables pilotés par EDF.",
+        "europe": "Refus de ratifier le CETA, clauses de sauvegarde sur le Mercosur, protectionnisme avec un « Buy French Act ».",
+        "education": "Fin de Parcoursup, revalorisation de la voie professionnelle, lycée avec un tronc commun général et professionnel.",
+        "sante": "Pôle public du médicament et relocalisation de la production de médicaments stratégiques.",
+        "institutions": "Référendum d'initiative citoyenne, séparation de l'argent et de l'État, fin de l'immunité présidentielle."
       }
     },
     "bertrand": {
@@ -408,16 +408,16 @@
         "Refuse une primaire de la droite"
       ],
       "positions": {
-        "pouvoir_achat": null,
-        "fiscalite": null,
-        "retraites": null,
-        "immigration": null,
-        "securite": null,
-        "ecologie": null,
-        "europe": null,
-        "education": null,
-        "sante": null,
-        "institutions": null
+        "pouvoir_achat": "Heures supplémentaires défiscalisées, partage obligatoire des bénéfices avec les salariés, prime au travail.",
+        "fiscalite": "Baisse des dépenses sociales, pas de taxe sur les voitures électriques, priorité aux classes moyennes.",
+        "retraites": "Report de l'âge légal avec l'espérance de vie, départ anticipé avec décote, part de capitalisation.",
+        "immigration": "Quotas annuels votés par le Parlement, examen civique avant regroupement familial, AME limitée à l'urgence.",
+        "securite": "Majorité pénale à 15 ans, peines automatiques pour les agressions d'élus et forces de l'ordre, 80 000 places de prison.",
+        "ecologie": "Soutien au nucléaire et aux EPR, préférence pour le solaire, limitation de l'éolien.",
+        "europe": "Siège français au Conseil de sécurité non partagé, reprise du dialogue avec la Russie, alliance méditerranéenne avec Frontex.",
+        "education": "Chefs d'établissement renforcés, aucune fermeture de classe rurale sans accord du maire.",
+        "sante": "Assistants administratifs pour les médecins, pas d'installation forcée des jeunes médecins, soins palliatifs étendus.",
+        "institutions": "« République des territoires » : État recentré sur ses missions régaliennes, gestion quotidienne décentralisée."
       }
     },
     "bouamrane": {
@@ -428,16 +428,16 @@
         "Hors primaire de la gauche"
       ],
       "positions": {
-        "pouvoir_achat": null,
-        "fiscalite": null,
+        "pouvoir_achat": "Un travail qui paye et permet de vivre dignement, construction et rénovation de logements.",
+        "fiscalite": "Simplification administrative et allègement des normes.",
         "retraites": null,
-        "immigration": null,
-        "securite": null,
-        "ecologie": null,
-        "europe": null,
-        "education": null,
-        "sante": null,
-        "institutions": null
+        "immigration": "Accueil digne des ayants droit, action dans les pays d'origine, reconduite des personnes en situation irrégulière.",
+        "securite": "Lutte contre le narcotrafic, autorité de l'État, protection des enfants et des femmes victimes de violences.",
+        "ecologie": "Transition juste : rénovation des logements modestes, emplois durables, protection des agriculteurs.",
+        "europe": "Europe protectrice aux frontières sécurisées, hausse de l'effort de défense.",
+        "education": "Égalité des chances sur tout le territoire, formation menant à un emploi choisi.",
+        "sante": "Lutte contre les déserts médicaux, accès aux soins quel que soit le lieu de vie ou le revenu.",
+        "institutions": "Primauté de la République, laïcité, confiance accordée aux maires et aux associations."
       }
     },
     "cazeneuve": {
@@ -448,16 +448,16 @@
         "Hors primaire de la gauche"
       ],
       "positions": {
-        "pouvoir_achat": null,
-        "fiscalite": null,
-        "retraites": null,
-        "immigration": null,
-        "securite": null,
-        "ecologie": null,
-        "europe": null,
-        "education": null,
-        "sante": null,
-        "institutions": null
+        "pouvoir_achat": "Travail qui paie, aides sociales simplifiées et automatisées, plan de construction et rénovation de logements.",
+        "fiscalite": "Taxation accrue des très grandes fortunes et revenus du capital, moins de niches, « règle d'or sociale » pour la Sécurité sociale.",
+        "retraites": "Pas de recul supplémentaire de l'âge légal, durée de cotisation comme levier, retour de la pénibilité, réforme négociée.",
+        "immigration": "Politique fondée sur humanité, intégration et fermeté contre l'immigration irrégulière, pilotée à l'échelle européenne.",
+        "securite": "Police de proximité, unités spécialisées contre le crime organisé et le narcotrafic, moyens et indépendance accrus pour la justice.",
+        "ecologie": "Soutien au nucléaire avec renouvellement du parc, développement planifié des renouvelables, sortie des énergies fossiles.",
+        "europe": "Réarmement et industrie de défense renforcés, maintien dans l'OTAN, vote à la majorité au sein de l'UE.",
+        "education": "Enseignants mieux formés et payés, philosophie dès la seconde, aides renforcées pour étudiants boursiers et jeunes sans emploi.",
+        "sante": "Maintien des hôpitaux de proximité, accès aux soins et urgences, santé mentale grande cause nationale.",
+        "institutions": "Retour au septennat, dose de proportionnelle aux législatives, Premier ministre renforcé, recours limité au 49.3."
       }
     },
     "lemaire": {
@@ -468,16 +468,16 @@
         "Décision non annoncée à ce jour"
       ],
       "positions": {
-        "pouvoir_achat": null,
-        "fiscalite": null,
-        "retraites": null,
-        "immigration": null,
-        "securite": null,
+        "pouvoir_achat": "Objectif de doubler le salaire médian net, financement de la protection sociale déplacé du travail vers la TVA.",
+        "fiscalite": "Hausse de la TVA de 2 à 3 points compensée par baisse des charges, désindexation du barème, taxe numérique triplée.",
+        "retraites": "Âge légal porté à 65 ans, introduction d'une part de capitalisation, désindexation des pensions.",
+        "immigration": "Réexamen des prestations versées aux personnes en situation irrégulière, contrôle des frontières mis en commun à six pays.",
+        "securite": "Peines planchers et automatiques, comparution et incarcération immédiates, État recentré sur la sécurité.",
         "ecologie": null,
-        "europe": null,
-        "education": null,
-        "sante": null,
-        "institutions": null
+        "europe": "Création d'une fédération de six États-nations (France, Allemagne, Italie, Espagne, Pologne, Pays-Bas) au sein de l'UE.",
+        "education": "L'éducation fait partie des quatre missions sur lesquelles l'État doit se recentrer.",
+        "sante": "La santé fait partie des quatre missions sur lesquelles l'État doit se recentrer.",
+        "institutions": "« Nouvelle Ve République », suppression du 49.3, censure conditionnée à une majorité alternative."
       }
     },
     "borne": {
@@ -488,16 +488,16 @@
         "Décision non annoncée à ce jour"
       ],
       "positions": {
-        "pouvoir_achat": null,
-        "fiscalite": null,
-        "retraites": null,
+        "pouvoir_achat": "Mesures ciblées sur les bas salaires de la fonction publique plutôt qu'une hausse générale du point d'indice.",
+        "fiscalite": "Critique du coût de la suppression de la taxe d'habitation.",
+        "retraites": "Maintien des seniors en emploi et travail un peu plus long pour ceux qui le peuvent.",
         "immigration": null,
-        "securite": null,
+        "securite": "Moyens et effectifs accrus pour police, gendarmerie et justice, contrôles renforcés des personnels de la petite enfance.",
         "ecologie": null,
         "europe": null,
-        "education": null,
+        "education": "Allocation temporaire de 500 euros par mois pour jeunes diplômés en difficulté, reprise de formation facilitée.",
         "sante": null,
-        "institutions": null
+        "institutions": "Septennat unique non renouvelable, Conseil des ministres présidé par le Premier ministre, dose de proportionnelle."
       }
     },
     "batho": {
@@ -508,16 +508,16 @@
         "Présidente de Génération écologie"
       ],
       "positions": {
-        "pouvoir_achat": null,
+        "pouvoir_achat": "Lutte contre la vie chère par la sortie des énergies fossiles et création d'une « sécurité sociale climatique ».",
         "fiscalite": null,
         "retraites": null,
         "immigration": null,
-        "securite": null,
-        "ecologie": null,
+        "securite": "Ministère dédié à la sécurité civile, loi de programmation pour les pompiers, poursuite de l'effort de défense.",
+        "ecologie": "Décroissance différenciée, agriculture bio et agroécologique, sobriété énergétique, géothermie et sortie des fossiles.",
         "europe": null,
-        "education": null,
-        "sante": null,
-        "institutions": null
+        "education": "Droit pour chaque enfant à une éducation à la sensibilité, à la nature et à la culture.",
+        "sante": "Régulation de l'installation des médecins, centres de santé, retrait des pesticides dangereux, Nutri-Score obligatoire.",
+        "institutions": "Fin du présidentialisme, pouvoirs et ressources accrus pour les collectivités, loi de séparation des lobbies et de l'État."
       }
     },
     "becht": {
@@ -530,14 +530,14 @@
       "positions": {
         "pouvoir_achat": null,
         "fiscalite": null,
-        "retraites": null,
+        "retraites": "Contrat de travail unique et portable, revenu de base entre deux emplois en échange de contreparties.",
         "immigration": null,
-        "securite": null,
-        "ecologie": null,
-        "europe": null,
-        "education": null,
+        "securite": "Création de centres de redressement encadrés par d'anciens militaires pour les délinquants.",
+        "ecologie": "Souveraineté énergétique, énergie décarbonée produite en France, développement des carburants de synthèse.",
+        "europe": "Noyau dur de six à huit États européens face aux États-Unis et à la Chine.",
+        "education": "Suppression de Parcoursup, poids accru du bac, autonomie des établissements, programmes nationaux maintenus.",
         "sante": null,
-        "institutions": null
+        "institutions": "Refondation du modèle institutionnel, davantage de fédéralisme et de pouvoir aux acteurs locaux."
       }
     },
     "platret": {
@@ -549,14 +549,14 @@
       "positions": {
         "pouvoir_achat": null,
         "fiscalite": null,
-        "retraites": null,
-        "immigration": null,
-        "securite": null,
+        "retraites": "Abrogation des 35 heures, retour aux 39 heures, allongement de la durée de travail.",
+        "immigration": "Rétablissement des frontières nationales, fin de l'accord franco-algérien de 1968.",
+        "securite": "Lutte contre l'islamisme, fermeture des associations salafistes, interdiction du voile dans l'espace public.",
         "ecologie": null,
-        "europe": null,
+        "europe": "Fin de l'accord de 1968 avec l'Algérie, rappel de l'ambassadeur en Iran, soutien à Israël.",
         "education": null,
         "sante": null,
-        "institutions": null
+        "institutions": "Scrutin uninominal à un tour, déchéance des mandats d'élus soutenant les « ennemis de l'intérieur »."
       }
     },
     "philippot": {
@@ -567,16 +567,16 @@
         "Ligne souverainiste"
       ],
       "positions": {
-        "pouvoir_achat": null,
-        "fiscalite": null,
-        "retraites": null,
-        "immigration": null,
-        "securite": null,
-        "ecologie": null,
-        "europe": null,
-        "education": null,
-        "sante": null,
-        "institutions": null
+        "pouvoir_achat": "Lutte contre la vie chère, encadrement des prix de première nécessité, fin des plans d'austérité.",
+        "fiscalite": "Baisse des impôts des indépendants et petites entreprises, réduction du train de vie de l'État sans hausse d'impôts.",
+        "retraites": "Abaissement de l'âge de départ à la retraite, décidé souverainement après sortie de l'UE.",
+        "immigration": "Fin de l'immigration massive, sortie de Schengen et du pacte migratoire européen, fin de l'immigration de travail.",
+        "securite": "Retour de la police de proximité, peines planchers, construction de prisons et expulsion des détenus étrangers.",
+        "ecologie": "Sortie du marché européen de l'électricité, investissement dans le nucléaire, moratoire sur l'éolien.",
+        "europe": "Sortie de l'UE (Frexit), de l'euro, de l'OTAN et de l'OMS, retour à une monnaie nationale.",
+        "education": "Priorité au français en primaire, filières différenciées dès 14 ans, école sans intelligence artificielle.",
+        "sante": "Suppression des ARS, développement des centres de santé de proximité, liberté vaccinale.",
+        "institutions": "RIC inscrit dans la Constitution, révision constitutionnelle par référendum uniquement, inéligibilité à vie pour corruption."
       }
     },
     "asselineau": {
@@ -587,16 +587,16 @@
         "Sortie de l'Union européenne"
       ],
       "positions": {
-        "pouvoir_achat": null,
-        "fiscalite": null,
+        "pouvoir_achat": "Hausse du SMIC brut de 24 % sur le quinquennat, gel des prix de l'électricité et du gaz.",
+        "fiscalite": "Baisse de la TVA sur les produits courants, nouvelles tranches d'impôt sur les hauts revenus, lutte contre la fraude fiscale.",
         "retraites": null,
-        "immigration": null,
-        "securite": null,
-        "ecologie": null,
-        "europe": null,
-        "education": null,
-        "sante": null,
-        "institutions": null
+        "immigration": "Sortie de Schengen, contrôles à toutes les frontières, objectif d'au moins 75 % d'éloignements effectifs.",
+        "securite": "Hausse de 20 % des budgets de la justice et de la police, police de proximité, peines planchers pour récidivistes.",
+        "ecologie": "Relocalisation de la production, fret ferroviaire renforcé, TVA nulle sur l'alimentation bio et en circuit court.",
+        "europe": "Sortie de l'UE par l'article 50, de l'euro et de l'OTAN, rapprochement avec les BRICS.",
+        "education": "Rétablissement du baccalauréat national, des notes et classements, 80 % du temps de primaire aux fondamentaux.",
+        "sante": "Réouverture de 30 000 lits d'hôpital public, budget hospitalier en hausse de 15 %, moratoire sur les fermetures.",
+        "institutions": "Référendum d'initiative citoyenne, réduction du nombre de parlementaires, proportionnelle partielle aux législatives."
       }
     },
     "lassalle": {
@@ -604,19 +604,20 @@
       "pitch": "Ancien député des Pyrénées-Atlantiques, candidat en 2017 et 2022, il subordonne sa candidature aux 500 parrainages et à son financement (250 parrainages revendiqués en juillet 2026).",
       "key": [
         "250 parrainages revendiqués en juillet 2026",
-        "Candidature subordonnée à une collecte de fonds"
+        "Candidature subordonnée à une collecte de fonds",
+        "Positions issues de son programme 2022 (pas encore de programme 2027)"
       ],
       "positions": {
-        "pouvoir_achat": null,
+        "pouvoir_achat": "SMIC à 1 400 euros net, TVA sur les carburants à 5,5 %, hausse des APL (programme 2022).",
         "fiscalite": null,
-        "retraites": null,
-        "immigration": null,
+        "retraites": "Maintien du pouvoir d'achat des retraités face à l'inflation inscrit dans la Constitution (programme 2022).",
+        "immigration": "Davantage de moyens contre l'immigration illégale, maintien du droit d'asile (programme 2022).",
         "securite": null,
-        "ecologie": null,
-        "europe": null,
-        "education": null,
-        "sante": null,
-        "institutions": null
+        "ecologie": "Développement du solaire et des énergies marines, PAC réorientée vers les agriculteurs (programme 2022).",
+        "europe": "Désengagement de l'OTAN, critique de l'accord UE-Mercosur.",
+        "education": "Service national de neuf mois, places réservées aux bacheliers professionnels dans le supérieur (programme 2022).",
+        "sante": "Recrutement de 100 000 soignants paramédicaux, remplacement des ARS, hôpital à moins de 40 minutes (programme 2022).",
+        "institutions": "RIC, reconnaissance du vote blanc, référendum sur le retour au septennat (programme 2022)."
       }
     },
     "polony": {
@@ -626,14 +627,14 @@
         "Candidature annoncée le 14 octobre 2026"
       ],
       "positions": {
-        "pouvoir_achat": null,
-        "fiscalite": null,
+        "pouvoir_achat": "Hausse des salaires de 20 à 30 %, taxe flottante sur les carburants et taxe sur les superprofits.",
+        "fiscalite": "Réforme de l'État et réduction du millefeuille territorial, aides publiques conditionnées à la production en France.",
         "retraites": null,
-        "immigration": null,
+        "immigration": "Accueil de ceux qui respectent les règles et travaillent, départ des étrangers qui les enfreignent.",
         "securite": null,
-        "ecologie": null,
-        "europe": null,
-        "education": null,
+        "ecologie": "Énergie décarbonée, renationalisation d'EDF, protection du nucléaire et des barrages hydroélectriques.",
+        "europe": "Refus des politiques européennes contraires aux intérêts vitaux, opposition au marché unique de la défense.",
+        "education": "École publique et laïque, retour à l'enseignement structuré des fondamentaux, maîtrise du français.",
         "sante": null,
         "institutions": null
       }
@@ -645,16 +646,16 @@
         "Candidature annoncée en décembre 2025"
       ],
       "positions": {
-        "pouvoir_achat": null,
-        "fiscalite": null,
-        "retraites": null,
-        "immigration": null,
-        "securite": null,
-        "ecologie": null,
-        "europe": null,
-        "education": null,
-        "sante": null,
-        "institutions": null
+        "pouvoir_achat": "SMIC porté à 1 500 € net, suppression de la prime d'activité, minima sociaux automatiques.",
+        "fiscalite": "Rétablissement de l'ISF, gouverneur de la Banque de France élu, suppression de nombreuses petites taxes.",
+        "retraites": "Fusion des caisses publiques et privées, alignement des régimes et des taux de cotisation.",
+        "immigration": "Régularisations sur critères d'intégration, regroupement familial conditionné, demandes d'asile en consulat.",
+        "securite": "Municipalisation de la police nationale, suppression des BAC, exécution réelle des peines.",
+        "ecologie": "Nationalisation de l'électricité, sortie du marché européen de l'électricité, construction de 14 EPR2.",
+        "europe": "Référendums sur la sortie de l'UE, de l'euro et de l'OTAN, arrêt des livraisons d'armes à l'Ukraine.",
+        "education": "Gratuité réelle de l'université, fin de Parcoursup, retour du bac classique, hausse des salaires enseignants.",
+        "sante": "Sécurité sociale universelle remplaçant les mutuelles, fin de la tarification à l'acte, plan contre les déserts médicaux.",
+        "institutions": "RIC en toutes matières, mandats révocables, suppression du 49.3 et du poste de Premier ministre."
       }
     },
     "kazib": {
@@ -664,16 +665,16 @@
         "Candidat de Révolution permanente"
       ],
       "positions": {
-        "pouvoir_achat": null,
-        "fiscalite": null,
-        "retraites": null,
-        "immigration": null,
-        "securite": null,
-        "ecologie": null,
-        "europe": null,
-        "education": null,
-        "sante": null,
-        "institutions": null
+        "pouvoir_achat": "SMIC à 2 000 € net, hausse de 500 € des salaires, indexation des salaires et allocations sur l'inflation.",
+        "fiscalite": "Fin des aides publiques aux grandes entreprises, expropriation des groupes bancaires, prêts à taux zéro.",
+        "retraites": "Retraite à 60 ans (55 ans pour métiers pénibles), semaine de 28 heures, interdiction des licenciements.",
+        "immigration": "Régularisation de tous les sans-papiers, liberté de circulation et d'installation.",
+        "securite": "Dissolution des unités spéciales de police, abrogation des lois sécuritaires, amnistie des manifestants réprimés.",
+        "ecologie": "Expropriation des secteurs stratégiques dont l'énergie, planification démocratique de la production.",
+        "europe": "Retrait des troupes françaises à l'étranger, démantèlement de l'industrie d'armement, soutien à la Palestine.",
+        "education": "Revenu étudiant au niveau du SMIC, opposition au SNU et à la militarisation des écoles.",
+        "sante": "Investissement massif dans la santé publique sous contrôle des travailleurs, expropriation du secteur.",
+        "institutions": "Suppression de la présidence et du Sénat, assemblée unique d'élus révocables payés au salaire médian."
       }
     },
     "labib": {
