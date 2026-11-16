@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T17:31+00:00",
+ "updated": "2026-11-16T01:31+00:00",
  "source": "Wikipédia — Liste de sondages sur l'élection présidentielle française de 2027",
  "source_url": "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027",
  "window_days": 15,
@@ -2146,7 +2146,7 @@
    }
   ],
   "current": {
-   "date": "2026-11-15",
+   "date": "2026-11-16",
    "window": 7,
    "n": 4,
    "scores": {
