@@ -241,15 +241,15 @@
         : (ms) => L + ((ms - M.t0) / (M.t1 - M.t0)) * span;
       y = (v) => T + (1 - v / ymax) * (H - T - B);
       let g = "";
-      for (let v = 0; v <= ymax; v += 5) g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(255,255,255,.07)"/><text x="${L - 8}" y="${y(v) + 4}" fill="#a5addb" font-size="11" text-anchor="end">${v}%</text>`;
+      for (let v = 0; v <= ymax; v += 5) g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" style="stroke:rgba(var(--ink-rgb),.07)"/><text x="${L - 8}" y="${y(v) + 4}" style="fill:var(--muted)" font-size="11" text-anchor="end">${v}%</text>`;
       if (M.markers.length) {
-        M.markers.forEach((e) => { g += `<line x1="${x(e.ms)}" x2="${x(e.ms)}" y1="${T}" y2="${H - B}" stroke="rgba(255,255,255,.18)"/><text x="${x(e.ms)}" y="${H - 10}" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">${e.year}</text>`; });
-        for (let yr = 2023; yr <= new Date(M.t1).getFullYear(); yr++) { const ms = +new Date(yr + "-01-01"); g += `<line x1="${x(ms)}" x2="${x(ms)}" y1="${T}" y2="${H - B}" stroke="rgba(255,255,255,.08)" stroke-dasharray="3 5"/><text x="${x(ms)}" y="${H - 10}" fill="#a5addb" font-size="11" text-anchor="middle">${yr}</text>`; }
+        M.markers.forEach((e) => { g += `<line x1="${x(e.ms)}" x2="${x(e.ms)}" y1="${T}" y2="${H - B}" style="stroke:rgba(var(--ink-rgb),.18)"/><text x="${x(e.ms)}" y="${H - 10}" style="fill:var(--ink)" font-size="12" font-weight="700" text-anchor="middle">${e.year}</text>`; });
+        for (let yr = 2023; yr <= new Date(M.t1).getFullYear(); yr++) { const ms = +new Date(yr + "-01-01"); g += `<line x1="${x(ms)}" x2="${x(ms)}" y1="${T}" y2="${H - B}" style="stroke:rgba(var(--ink-rgb),.08)" stroke-dasharray="3 5"/><text x="${x(ms)}" y="${H - 10}" style="fill:var(--muted)" font-size="11" text-anchor="middle">${yr}</text>`; }
         g += `<rect x="${x(M.warp.split)}" y="${T}" width="${x(M.t1) - x(M.warp.split)}" height="${H - T - B}" fill="rgba(255,45,85,.05)"/><text x="${(x(M.warp.split) + x(M.t1)) / 2}" y="${T + 14}" fill="#ff8fa6" font-size="12" font-weight="700" text-anchor="middle">Campagne 2027 (échelle élargie)</text>`;
       } else {
         for (let yr = new Date(M.t0).getFullYear() + 1; yr <= new Date(M.t1).getFullYear(); yr++) {
           const ms = +new Date(yr + "-01-01");
-          g += `<line x1="${x(ms)}" x2="${x(ms)}" y1="${T}" y2="${H - B}" stroke="rgba(255,255,255,.12)" stroke-dasharray="3 5"/><text x="${x(ms) + 4}" y="${H - 10}" fill="#a5addb" font-size="12" font-weight="600">${yr}</text>`;
+          g += `<line x1="${x(ms)}" x2="${x(ms)}" y1="${T}" y2="${H - B}" style="stroke:rgba(var(--ink-rgb),.12)" stroke-dasharray="3 5"/><text x="${x(ms) + 4}" y="${H - 10}" style="fill:var(--muted)" font-size="12" font-weight="600">${yr}</text>`;
         }
       }
       const pts = (arr) => `points="${arr.map((q) => x(q[0]) + "," + y(q[1])).join(" ")}"`;
@@ -259,11 +259,11 @@
         const dots = a.map((q) => `<circle cx="${x(q[0])}" cy="${y(q[1])}" r="4.5" fill="${s.color}"/>`).join("");
         return `<polyline fill="none" stroke="${s.color}" stroke-width="2" stroke-dasharray="5 5" opacity=".75" ${pts(a)}/>${dots}<polyline fill="none" stroke="${s.color}" stroke-width="3" stroke-linejoin="round" ${pts(b)}/>`;
       }).join("");
-      const heads = M.series.map((s) => `<g class="evo-head" data-k="${s.key}"><circle r="6" fill="${s.color}" stroke="#0b1030" stroke-width="2"/><text x="12" y="4" fill="#fff" font-size="13" font-weight="700"></text></g>`).join("");
+      const heads = M.series.map((s) => `<g class="evo-head" data-k="${s.key}"><circle r="6" fill="${s.color}" style="stroke:var(--surface)" stroke-width="2"/><text x="12" y="4" style="fill:var(--ink)" font-size="13" font-weight="700"></text></g>`).join("");
       $("#evo-chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Évolution des intentions de vote">
         <defs><clipPath id="evo-clip"><rect id="evo-clip-r" x="${L - 6}" y="0" height="${H}" width="0"/></clipPath></defs>${g}<g clip-path="url(#evo-clip)">${lines}</g>${heads}</svg>`;
       $("#evo-legend").innerHTML = mode === "fam"
-        ? `<span><i style="background:repeating-linear-gradient(90deg,#fff 0 5px,transparent 5px 10px)"></i>Résultats officiels (points), reliés d'une élection à l'autre</span><span><i style="background:#fff"></i>Sondages 2027 (moyenne mensuelle lissée sur 3 mois)</span>`
+        ? `<span><i style="background:repeating-linear-gradient(90deg,var(--ink) 0 5px,transparent 5px 10px)"></i>Résultats officiels (points), reliés d'une élection à l'autre</span><span><i style="background:#fff"></i>Sondages 2027 (moyenne mensuelle lissée sur 3 mois)</span>`
           + HIST.families.map((f) => `<span><i style="background:${f.color}"></i>${esc(f.label)}</span>`).join("")
         : "";
       const E = POLLS.evolution, n = E.monthly.reduce((a, q) => a + q.n, 0);
@@ -343,9 +343,9 @@
     const x = (d) => L + ((+new Date(d) - t0) / (t1 - t0)) * (W - L - R);
     const y = (v) => T + (1 - v / ymax) * (H - T - B);
     let g = "";
-    for (let v = 0; v <= ymax; v += 5) g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(255,255,255,.08)"/><text x="${L - 8}" y="${y(v) + 4}" fill="#a5addb" font-size="11" text-anchor="end">${v}</text>`;
+    for (let v = 0; v <= ymax; v += 5) g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" style="stroke:rgba(var(--ink-rgb),.08)"/><text x="${L - 8}" y="${y(v) + 4}" style="fill:var(--muted)" font-size="11" text-anchor="end">${v}</text>`;
     const months = new Set();
-    S.forEach((s) => { const m = s.date.slice(0, 7); if (!months.has(m)) { months.add(m); g += `<text x="${x(s.date)}" y="${H - 8}" fill="#a5addb" font-size="11">${fmtDate(s.date, { month: "short" })}</text>`; } });
+    S.forEach((s) => { const m = s.date.slice(0, 7); if (!months.has(m)) { months.add(m); g += `<text x="${x(s.date)}" y="${H - 8}" style="fill:var(--muted)" font-size="11">${fmtDate(s.date, { month: "short" })}</text>`; } });
     const ends = [];
     ids.forEach((id) => {
       const pts = S.filter((s) => s.scores[id] != null).map((s) => [x(s.date), y(s.scores[id])]);
@@ -354,7 +354,7 @@
       ends.push({ id, y: pts[pts.length - 1][1], x: pts[pts.length - 1][0] });
     });
     ends.sort((a, b) => a.y - b.y).forEach((e, i, a) => { if (i && e.y - a[i - 1].y < 14) e.y = a[i - 1].y + 14; });
-    ends.forEach((e) => { g += `<text x="${e.x + 8}" y="${e.y + 4}" fill="#fff" font-size="12" font-weight="600">${esc(C[e.id].short)} ${fmtPct(S[S.length - 1].scores[e.id] || 0)}</text>`; });
+    ends.forEach((e) => { g += `<text x="${e.x + 8}" y="${e.y + 4}" style="fill:var(--ink)" font-size="12" font-weight="600">${esc(C[e.id].short)} ${fmtPct(S[S.length - 1].scores[e.id] || 0)}</text>`; });
     $("#poll-trend").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Évolution des intentions de vote">${g}</svg>`;
   }
 
@@ -460,9 +460,9 @@
       const x = (ms) => L + ((ms - a) / (b - a || 1)) * (W - L - R);
       const y = (v) => T + (1 - v / ymax) * (Hh - T - B);
       let g = "";
-      for (let i = 0; i <= 4; i++) { const v = (ymax / 4) * i; g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(255,255,255,.08)"/><text x="${L - 8}" y="${y(v) + 4}" fill="#a5addb" font-size="11" text-anchor="end">${fmtN(v)}</text>`; }
+      for (let i = 0; i <= 4; i++) { const v = (ymax / 4) * i; g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" style="stroke:rgba(var(--ink-rgb),.08)"/><text x="${L - 8}" y="${y(v) + 4}" style="fill:var(--muted)" font-size="11" text-anchor="end">${fmtN(v)}</text>`; }
       const seen = new Set();
-      for (let ms = a; ms <= b; ms += DAY) { const d = new Date(ms); const k = d.getFullYear() + "-" + d.getMonth(); if (!seen.has(k) && d.getDate() <= 7) { seen.add(k); g += `<text x="${x(ms)}" y="${Hh - 8}" fill="#a5addb" font-size="11">${fmtDate(ms, { month: "short" })}</text>`; } }
+      for (let ms = a; ms <= b; ms += DAY) { const d = new Date(ms); const k = d.getFullYear() + "-" + d.getMonth(); if (!seen.has(k) && d.getDate() <= 7) { seen.add(k); g += `<text x="${x(ms)}" y="${Hh - 8}" style="fill:var(--muted)" font-size="11">${fmtDate(ms, { month: "short" })}</text>`; } }
       const firstReal = H.find((h) => !h.estimated);
       if (firstReal && firstReal.ms > a && firstReal.ms <= b) g += `<line x1="${x(firstReal.ms)}" x2="${x(firstReal.ms)}" y1="${T}" y2="${Hh - B}" stroke="#ffe08a" stroke-dasharray="4 4"/><text x="${x(firstReal.ms) - 6}" y="${T + 10}" fill="#ffe08a" font-size="11" text-anchor="end">estimé ← | → réel</text>`;
       let lines = "";
@@ -474,7 +474,7 @@
       });
       ends.sort((p, q) => p.y - q.y).forEach((e, i, arr) => { if (i && e.y - arr[i - 1].y < 14) e.y = arr[i - 1].y + 14; });
       let labels = "";
-      ends.forEach((e) => { labels += `<text x="${W - R + 8}" y="${e.y + 4}" fill="#fff" font-size="12" font-weight="600">${esc(C[e.id].short)} ${(st.mode === "gain" ? "+" : "") + fmtN(e.v)}</text>`; });
+      ends.forEach((e) => { labels += `<text x="${W - R + 8}" y="${e.y + 4}" style="fill:var(--ink)" font-size="12" font-weight="600">${esc(C[e.id].short)} ${(st.mode === "gain" ? "+" : "") + fmtN(e.v)}</text>`; });
       $("#soc-curve").innerHTML = `<svg viewBox="0 0 ${W} ${Hh}" role="img" aria-label="Évolution des abonnés"><defs><clipPath id="soc-clip"><rect id="soc-clip-rect" x="0" y="0" height="${Hh}" width="${W - R - L}" data-w="${W - R - L}" transform="translate(${L},0)"/></clipPath></defs>${g}<g clip-path="url(#soc-clip)">${lines}</g><g id="soc-curve-labels" style="transition:opacity .4s">${labels}</g></svg>`;
       const lbl = { "7": "7 jours", "30": "30 jours", "90": "3 mois", "365": "12 mois", ytd: "depuis janvier", custom: "période choisie" }[st.period];
       $("#soc-curve-title").textContent = `Évolution ${st.mode === "gain" ? "du gain d'abonnés" : "des communautés"} — ${PL[st.platform]} — ${lbl}`;

@@ -87,8 +87,8 @@
       ["Facebook", `https://www.facebook.com/sharer/sharer.php?u=${u}`],
       ["LinkedIn", `https://www.linkedin.com/sharing/share-offsite/?url=${u}`],
     ];
-    return `<div class="share-ico">${navigator.share ? `<button type="button" data-native="${esc(url)}" data-title="${esc(title)}" title="Plus d'options" aria-label="Plus d'options de partage" style="--sc:#fff">📤</button>` : ""}${items.map(([n, href]) => `<a href="${href}" target="_blank" rel="noopener" title="Partager sur ${n}" aria-label="Partager sur ${n}" style="--sc:${I[n][0]}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">${I[n][1]}</svg></a>`).join("")}
-        <button type="button" data-copy="${esc(url)}" data-label="🔗" title="Copier le lien" aria-label="Copier le lien" style="--sc:#fff">🔗</button></div>
+    return `<div class="share-ico">${navigator.share ? `<button type="button" data-native="${esc(url)}" data-title="${esc(title)}" title="Plus d'options" aria-label="Plus d'options de partage" style="--sc:var(--ink)">📤</button>` : ""}${items.map(([n, href]) => `<a href="${href}" target="_blank" rel="noopener" title="Partager sur ${n}" aria-label="Partager sur ${n}" style="--sc:${I[n][0]}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">${I[n][1]}</svg></a>`).join("")}
+        <button type="button" data-copy="${esc(url)}" data-label="🔗" title="Copier le lien" aria-label="Copier le lien" style="--sc:var(--ink)">🔗</button></div>
       <p class="share-url">${esc(url)}</p>`;
   }
   document.addEventListener("click", (e) => {
@@ -800,7 +800,7 @@
     const row = ([id, n], i) => `<div class="prow ${i < 4 ? "" : "small"}">
         ${A.C[id] ? A.avatar(id, i < 4 ? 52 : 32) : `<span class="av-ph" style="width:${i < 4 ? 52 : 32}px;height:${i < 4 ? 52 : 32}px"></span>`}
         <div><div class="name">${esc(A.C[id] ? A.C[id].name : label(id))}${A.C[id] ? ` <span class="party">${esc(A.C[id].party || "")}</span>` : ""}</div>
-          <div class="bar"><i style="width:${(n / chosen[0][1]) * 100}%;background:${i < 4 ? "#fff" : "rgba(255,255,255,.85)"}"></i></div></div>
+          <div class="bar"><i style="width:${(n / chosen[0][1]) * 100}%;background:${i < 4 ? "var(--ink)" : "rgba(var(--ink-rgb),.7)"}"></i></div></div>
         <div><div class="score">${pct(n)}<sup>%</sup></div><small class="muted">${n} vote${n > 1 ? "s" : ""}</small></div></div>`;
     return `<div class="dash">
       <div class="poll-card grp-poll"><div class="poll-card-title"><span>${G ? "Le vote des participants" : "Le vote du groupe"} :</span> ${done.length} vote${done.length > 1 ? "s" : ""}</div>
