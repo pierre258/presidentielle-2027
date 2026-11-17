@@ -128,21 +128,65 @@ def dailymotion(name, short, since):
     return out
 
 
-def apify(actor, payload):
+ERRORS = []  # erreurs de collecte, écrites dans buzz.json pour diagnostic (les journaux GitHub ne sont pas publics)
+
+
+def apify(actor, payload, max_wait=900):
+    """Lance un Actor Apify en asynchrone, attend sa fin (jusqu'à 15 min) et renvoie ses résultats.
+    L'ancien appel « run-sync » échouait au-delà de 5 min (Instagram, TikTok)."""
     token = os.environ.get("APIFY_TOKEN")
     if not token:
+        ERRORS.append(f"{actor} : APIFY_TOKEN absent")
         return []
-    url = f"https://api.apify.com/v2/acts/{actor}/run-sync-get-dataset-items?" + urllib.parse.urlencode({"token": token})
-    req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=300) as r:
-        return json.load(r)
+    base = "https://api.apify.com/v2"
+    q = urllib.parse.urlencode({"token": token})
+    try:
+        req = urllib.request.Request(f"{base}/acts/{actor}/runs?{q}&waitForFinish=60", data=json.dumps(payload).encode(),
+                                     headers={"Content-Type": "application/json"})
+        run = json.load(urllib.request.urlopen(req, timeout=120))["data"]
+        t0 = time.time()
+        while run["status"] in ("READY", "RUNNING") and time.time() - t0 < max_wait:
+            run = json.load(urllib.request.urlopen(f"{base}/actor-runs/{run['id']}?{q}&waitForFinish=60", timeout=120))["data"]
+        if run["status"] != "SUCCEEDED":
+            ERRORS.append(f"{actor} : run {run['id']} {run['status']}")
+            if run["status"] in ("READY", "RUNNING"):
+                return []
+        items = json.load(urllib.request.urlopen(f"{base}/datasets/{run['defaultDatasetId']}/items?{q}&clean=true", timeout=120))
+        print(actor, run["status"], len(items), "résultats")
+        return items
+    except urllib.error.HTTPError as e:
+        ERRORS.append(f"{actor} : HTTP {e.code} {e.read()[:200].decode(errors='ignore')}")
+    except Exception as e:  # noqa: BLE001
+        ERRORS.append(f"{actor} : {e}")
+    return []
 
 
-def x_posts(name, since):
-    """Publications X les plus partagées de la semaine citant le candidat (Apify)."""
-    items = apify("apidojo~tweet-scraper", {"searchTerms": [f'"{name}" min_faves:300'], "sort": "Top",
-                                             "tweetLanguage": "fr", "start": since.isoformat(), "maxItems": 10})
-    return [x_item(t) for t in items if t.get("id") and t.get("text")]
+def _bucket(items, names, key):
+    """Répartit les résultats d'un lancement groupé par candidat (champ de la requête d'origine)."""
+    out = {}
+    for it in items:
+        q = (it.get(key) or "").strip('"').lower()
+        cid = names.get(q)
+        if cid:
+            out.setdefault(cid, []).append(it)
+    return out
+
+
+def x_all(cands, since):
+    """Publications X les plus partagées de la semaine citant chaque candidat (un seul lancement Apify)."""
+    names = {c["name"].lower(): cid for cid, c in cands.items()}
+    items = apify("apidojo~tweet-scraper", {"searchTerms": [f'"{c["name"]}" min_faves:300 since:{since.isoformat()}' for c in cands.values()],
+                                             "sort": "Top", "tweetLanguage": "fr", "maxItems": 10 * len(cands)})
+    out = {}
+    for t in items:
+        if not t.get("id") or not t.get("text"):
+            continue
+        txt = t["text"].lower()
+        for n, cid in names.items():
+            if n in txt or n.split()[-1] in txt:
+                out.setdefault(cid, []).append(x_item(t))
+                break
+    return {k: v[:10] for k, v in out.items()}
 
 
 def x_item(t):
@@ -153,11 +197,15 @@ def x_item(t):
             "date": (t.get("createdAt") and dt.datetime.strptime(t["createdAt"], "%a %b %d %H:%M:%S %z %Y").date().isoformat()) or ""}
 
 
-def tiktok(name):
-    """Vidéos TikTok de la semaine citant le candidat (Apify)."""
-    items = apify("clockworks~tiktok-scraper", {"searchQueries": [name], "searchSection": "/video",
-                                                 "videoSearchDateFilter": "PAST_WEEK", "resultsPerPage": 8})
-    return [tiktok_item(v) for v in items if v.get("id") and v.get("webVideoUrl")]
+def tiktok_all(cands):
+    """Vidéos TikTok de la semaine citant chaque candidat (un seul lancement Apify pour tous)."""
+    names = {c["name"].lower(): cid for cid, c in cands.items()}
+    items = apify("clockworks~tiktok-scraper", {"searchQueries": [c["name"] for c in cands.values()], "searchSection": "/video",
+                                                 "videoSearchDateFilter": "PAST_WEEK", "resultsPerPage": 10})
+    out = {}
+    for cid, vids in _bucket(items, names, "searchQuery").items():
+        out[cid] = [tiktok_item(v) for v in vids if v.get("id") and v.get("webVideoUrl") and not v.get("isAd") and not v.get("isSponsored")]
+    return out
 
 
 def tiktok_item(v):
@@ -279,11 +327,15 @@ def main():
               "candidates": {}}
     raw = {}
     used_claude = False
-    try:
-        insta = instagram_all({k: cands[k] for k in MAIN}, since)
-    except Exception as e:  # noqa: BLE001
-        print("instagram", e)
-        insta = {}
+    main_c = {k: cands[k] for k in MAIN}
+    collected = {}
+    for label, fn in (("instagram", lambda: instagram_all(main_c, since)), ("tiktok", lambda: tiktok_all(main_c)),
+                      ("x", lambda: x_all(main_c, since))):
+        try:
+            collected[label] = fn()
+        except Exception as e:  # noqa: BLE001
+            ERRORS.append(f"{label} : {e}")
+            collected[label] = {}
     for cid in MAIN:
         c = cands[cid]
         items = []
@@ -298,14 +350,12 @@ def main():
             items += vids
         except Exception as e:  # noqa: BLE001
             print("youtube", cid, e)
-        for label, fn in (("dailymotion", lambda: dailymotion(c["name"], c["short"], since)[:10]),
-                          ("x", lambda: x_posts(c["name"], since)),
-                          ("tiktok", lambda: tiktok(c["name"]))):
-            try:
-                items += fn()
-            except Exception as e:  # noqa: BLE001
-                print(label, cid, e)
-        items += insta.get(cid, [])
+        try:
+            items += dailymotion(c["name"], c["short"], since)[:10]
+        except Exception as e:  # noqa: BLE001
+            print("dailymotion", cid, e)
+        for label in ("instagram", "tiktok", "x"):
+            items += collected[label].get(cid, [])
         raw[cid] = items
         labels = classify_with_claude(c["name"], items)
         if labels is None:
@@ -343,6 +393,8 @@ def main():
         print(cid, len(items), "éléments →", len(neg), "neg /", len(pos), "pos")
         time.sleep(1)
     result["classifier"] = "claude" if used_claude else "mots-clés"
+    result["sources"] = sorted({i.get("platform") or ("youtube" if i.get("youtube_id") else "presse") for v in raw.values() for i in v})
+    result["errors"] = ERRORS
     (Path(os.environ["BUZZ_OUT"]) if os.environ.get("BUZZ_OUT") else ROOT / "data/buzz.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=1))
     if os.environ.get("BUZZ_RAW"):
