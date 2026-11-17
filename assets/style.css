@@ -1335,3 +1335,43 @@ input::placeholder, textarea::placeholder { color: #a1a1a6; }
 .seg .evo-btn { color: var(--accent); }
 .seg .evo-btn.on { background: var(--accent); color: #fff; }
 .pv.on small { color: rgba(var(--surface-rgb), .75); }
+
+/* ===== Bouton « Que votent mes amis ? » : vrai drapeau tricolore qui flotte ===== */
+.tabs > .friends-btn, .tabs > .friends-btn.on {
+  position: relative; overflow: hidden; isolation: isolate;
+  color: #fff !important; font-weight: 900; letter-spacing: .02em; text-transform: uppercase;
+  background: linear-gradient(90deg, #0055a4 0 33.34%, #ffffff 33.34% 66.67%, #ef4135 66.67% 100%) !important;
+  border: 0 !important; border-radius: 6px 10px 10px 6px !important;
+  padding-left: 26px !important;
+  box-shadow: 0 8px 22px -6px rgba(0,35,90,.45), inset 0 0 0 1px rgba(0,0,0,.08) !important;
+  text-shadow: -1px -1px 0 #0b1a4a, 1px -1px 0 #0b1a4a, -1px 1px 0 #0b1a4a, 1px 1px 0 #0b1a4a, 0 2px 4px rgba(0,0,0,.45) !important;
+  transform-origin: left center;
+  animation: mds-flag-wave 3.4s ease-in-out infinite;
+}
+/* hampe */
+.tabs > .friends-btn::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 9px; z-index: 2;
+  background: linear-gradient(90deg, #6b5a3e, #d9c79e 45%, #8a7550); box-shadow: 1px 0 3px rgba(0,0,0,.35);
+}
+/* plis du tissu qui ondulent */
+.tabs > .friends-btn::after {
+  content: ""; position: absolute; inset: 0; left: 9px; width: auto; z-index: 1; transform: none; pointer-events: none;
+  background: repeating-linear-gradient(90deg,
+    rgba(0,0,0,.20) 0, rgba(255,255,255,.22) 22px, rgba(0,0,0,.20) 44px);
+  background-size: 88px 100%; mix-blend-mode: soft-light;
+  animation: mds-flag-folds 1.8s linear infinite;
+}
+.tabs > .friends-btn > * { position: relative; z-index: 3; }
+.tabs > .friends-btn:hover { filter: saturate(1.15) brightness(1.04); animation-duration: 1.6s; }
+.tabs > .friends-btn.on { box-shadow: 0 0 0 3px rgba(0,85,164,.25), 0 8px 22px -6px rgba(0,35,90,.45) !important; }
+@keyframes mds-flag-folds { to { background-position: 88px 0; } }
+@keyframes mds-flag-wave {
+  0%, 100% { transform: perspective(400px) rotateY(0deg) skewY(0deg); }
+  25% { transform: perspective(400px) rotateY(-4deg) skewY(-.6deg); }
+  75% { transform: perspective(400px) rotateY(3deg) skewY(.5deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tabs > .friends-btn, .tabs > .friends-btn::after { animation: none !important; }
+}
+.consent-btns button { background: #fff; color: #1d1d1f; border: 1px solid rgba(29,29,31,.18); }
+.consent-btns button[data-c="all"] { background: var(--apple-blue, #0066cc); color: #fff; border-color: transparent; }
