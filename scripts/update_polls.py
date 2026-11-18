@@ -156,12 +156,16 @@ def main():
     year, prev_month = today.year, today.month
     polls, by_key = [], {}
     for grid in tables:
-        if len(grid) < 4 or len(grid[1]) < 9 or grid[1][0]["text"] != "Sondeur":
+        # Ligne d'en-tête = première ligne « Sondeur » portant les noms des candidats. Selon les
+        # versions de la page Wikipédia, c'est la 1re ou la 2e ligne (l'autre étant un bandeau de couleurs).
+        hi = next((k for k in range(min(3, len(grid))) if len(grid[k]) >= 9 and grid[k][0]["text"] == "Sondeur"
+                   and sum(1 for c in grid[k][3:] if c["text"].strip()) >= 5), None)
+        if len(grid) < 4 or hi is None:
             continue  # on ne garde que les tableaux de 1er tour
-        header = grid[1]
+        header = grid[hi]
         stop = False
         cur = None
-        for row in grid[3:]:
+        for row in grid[hi + 1:]:
             if len(row) < len(header) or not row[0]["text"]:
                 continue
             # Lignes d'événement (« X officialise sa candidature… ») : une seule cellule sur
@@ -326,7 +330,19 @@ def main():
         "evolution": evolution,
         "polls": out_polls,
     }
-    (ROOT / "data/polls.json").write_text(json.dumps(result, ensure_ascii=False, indent=1))
+    # Garde-fou : si la page Wikipédia change de structure, la lecture peut ne plus trouver les
+    # principaux candidats. On garde alors les données précédentes plutôt que de publier un tableau tronqué.
+    out = ROOT / "data/polls.json"
+    try:
+        prev = json.loads(out.read_text())
+    except Exception:  # noqa: BLE001
+        prev = None
+    if prev and prev.get("average") and (len(result["average"]) < max(5, len(prev["average"]) // 2)
+                                         or len(out_polls) < len(prev.get("polls", [])) // 2):
+        print(f"ANOMALIE : {len(result['average'])} candidats / {len(out_polls)} sondages lus "
+              f"(contre {len(prev['average'])} / {len(prev.get('polls', []))}) — polls.json conservé.")
+        return  # sans erreur, pour que les autres mises à jour (buzz, parrainages…) continuent
+    out.write_text(json.dumps(result, ensure_ascii=False, indent=1))
     print(f"{len(out_polls)} sondages, fenêtre {window} j ({len(sel)} sondage(s)) :", result["average"])
 
 
