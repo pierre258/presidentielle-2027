@@ -1,54 +1,29 @@
 {
- "updated": "2026-11-17T13:58+00:00",
- "since": "2026-11-10",
+ "updated": "2026-11-18T13:34+00:00",
+ "since": "2026-11-11",
  "classifier": "claude",
  "candidates": {
   "lepen": {
    "negative": [
     {
      "type": "video",
-     "platform": "tiktok",
-     "title": "Marine Le Pen a été accueillie sous quelques huées lors de son passage au salon Made in France, à Paris #paris #politique #lepen #rn #présidentielle2027",
-     "source": "@bfmtv",
-     "url": "https://www.tiktok.com/@bfmtv/video/7707691177851604246",
-     "tiktok_id": "7707691177851604246",
-     "views": 160952,
-     "likes": 8414,
-     "date": "2026-11-13",
-     "context": "Accueillie par des huées lors de sa visite au salon du Made in France à Paris."
+     "title": "Marine Le Pen : L'offensive illibérale",
+     "source": "Samuel Etienne",
+     "url": "https://www.youtube.com/watch?v=RdBpwab-FyE",
+     "youtube_id": "RdBpwab-FyE",
+     "published": "il y a 2 j",
+     "views": 57408,
+     "context": "Émission qui présente son discours comme une offensive illibérale, critique de sa ligne politique."
     },
     {
      "type": "video",
-     "platform": "tiktok",
-     "title": "INSOLITE | « Madame Le Pen, le bracelet électronique, il est Made in France ? » Marine Le Pen interpellée au salon du Made in France, après sa condamnation en appel dans l'affaire des assistants parle",
-     "source": "@impact_media_france",
-     "url": "https://www.tiktok.com/@impact_media_france/video/7707961049391090976",
-     "tiktok_id": "7707961049391090976",
-     "views": 140469,
-     "likes": 24000,
-     "date": "2026-11-14",
-     "context": "Interpellée au salon du Made in France sur sa condamnation (« le bracelet électronique, il est Made in France ? »)."
-    },
-    {
-     "type": "video",
-     "title": "Propos de Marine Le Pen : “On pourrait penser qu’elle a le soutien de Trump et Poutine”",
-     "source": "franceinfo",
-     "url": "https://www.youtube.com/watch?v=8ibuo04UqNU",
-     "youtube_id": "8ibuo04UqNU",
-     "published": "il y a 7 j",
-     "views": 11213,
-     "context": "Polémique autour de ses liens supposés avec Donald Trump et Vladimir Poutine."
-    },
-    {
-     "type": "video",
-     "platform": "dailymotion",
-     "title": "\"Il n'y a pas de discrimination en France\" : pourquoi Marine Le Pen se trompe (encore) ?",
-     "source": "Le Nouvel Obs",
-     "url": "https://www.dailymotion.com/video/xbvjt96",
-     "dailymotion_id": "xbvjt96",
-     "views": 8752,
-     "date": "2026-11-10",
-     "context": "Critique publique de ses propos sur l'absence de discrimination en France."
+     "title": "Glucksmann ragebait Marine Le Pen",
+     "source": "Quotidien",
+     "url": "https://www.youtube.com/watch?v=SBfNVVmnB9A",
+     "youtube_id": "SBfNVVmnB9A",
+     "published": "il y a 3 h",
+     "views": 31092,
+     "context": "Une vidéo met en scène la provocation de Raphaël Glucksmann à son encontre lors du débat."
     },
     {
      "type": "video",
@@ -57,9 +32,9 @@
      "source": "LeHuffPost",
      "url": "https://www.dailymotion.com/video/xbwkmcq",
      "dailymotion_id": "xbwkmcq",
-     "views": 8710,
+     "views": 8931,
      "date": "2026-11-14",
-     "context": "Visite au salon Made in France fortement perturbée par des opposants aux cris de « Rends l'argent »."
+     "context": "Visite au salon Made in France perturbée par des huées et une interpellation hostile."
     },
     {
      "type": "video",
@@ -68,19 +43,20 @@
      "source": "BFM",
      "url": "https://www.dailymotion.com/video/xbwvnfi",
      "dailymotion_id": "xbwvnfi",
-     "views": 7831,
+     "views": 7836,
      "date": "2026-11-15",
-     "context": "L'entourage d'Emmanuel Macron critique sa position sur l'aide à l'Ukraine, qui la présenterait comme isolant la France en Europe."
+     "context": "L'entourage d'Emmanuel Macron critique sa position possible sur l'aide à l'Ukraine, sujet largement relayé."
     },
     {
      "type": "video",
-     "title": "David Cayla : \"Marine Le Pen a changé de discours sur la retraite par capitalisation\"",
-     "source": "Boursorama",
-     "url": "https://www.youtube.com/watch?v=CzJm4slUsy8",
-     "youtube_id": "CzJm4slUsy8",
-     "published": "il y a 50 min",
-     "views": 100,
-     "context": "L'économiste David Cayla estime qu'elle a changé de discours sur la retraite par capitalisation."
+     "platform": "dailymotion",
+     "title": "Marine Le Pen : «Je ne connais pas le début du quart d'une proposition de Teddy Riner»",
+     "source": "CNEWS",
+     "url": "https://www.dailymotion.com/video/xbwao2e",
+     "dailymotion_id": "xbwao2e",
+     "views": 7034,
+     "date": "2026-11-13",
+     "context": "Réponse jugée embarrassée sur une proposition de Teddy Riner, très relayée comme gaffe."
     },
     {
      "type": "article",
@@ -88,33 +64,55 @@
      "source": "Libération",
      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNeVd4cDY1N3hQZjBmcTdNY2dXUUZxbXd6aTNmSW9FclM3OHptZnhtOWlVYjJkQXJSZ1V1cUw5NTlEX0FFU3lpY0lkSlpma2JuMFp6ZUREakRVbjRpNGdwTHZjZmpueDllQmlnYnlHZU5ENktqTmQ0MVdMTUhfbzVad01XWWNoMWk4OGJtbTJvLUNJb09xT3lEcXNDTXRsa2lzVWNXSktqQjVCLWh3X0Y3S0ViNUZYUUFFaXFUSg?oc=5",
      "date": "2026-11-11",
-     "context": "Chronique critique de Libération accusant Marine Le Pen de minimiser le racisme."
+     "context": "Chronique critique qui met en cause la personnalité et le discours de Marine Le Pen sur le racisme."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : l’offensive illibérale de Marine Le Pen",
+     "source": "Le Monde.fr",
+     "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPU25rX3VvOVM5TEZZNlVvY29TUm1tcWxTbWJGTldSV3dxYjFQa09Ka0k3dy12UlJVOURNOVp1WkRlVWNveXNENHNIVW5NVjhsODM5cXV3XzZhRzZya0I5TlZhYUdNMHZTM3JJZ0V5bkJjVjU0cTJxNDdsY3BtNHZMWmxYZ3NReVA5WFpiQXZ0aUtWRWlJeWQ1U0hfc0VWZU1WdTJJNTVJMGE5LUluaF8wVElTV2JyZ1I3Q0s5UkpmZDBaUHlmM0hJV3RLUQ?oc=5",
+     "date": "2026-11-13",
+     "context": "Analyse critique de ses positions sur les institutions et les contre-pouvoirs."
+    },
+    {
+     "type": "article",
+     "title": "\"J'ai commis une erreur\": sur LCP, Marine Le Pen regrette avoir défendu la suppression de la binationalité",
+     "source": "LCP-Assemblée nationale",
+     "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOMDNNeHFRSTVDVUJFdk8xdFNCU2J2VlBLZzNDZGZ5ZmZrUWVfLWd0MnNTVHIxR3loNVVhMnhrWXF0LXlEM2stOXYwQUkteXZ2TmZ3M3lMSnpnUVM2UnBhTXNaQk0wUThLNFY2RHBpeThPWDNkV3pFdVUzb2RMdzNGM1k1ZWYwdndxNlc5VE5FYWRSVDBDUktoeGxrZ20yamliOExWTlBZWFZrX0sxMS1rSjBGUFE?oc=5",
+     "date": "2026-11-15",
+     "context": "Elle reconnaît avoir eu tort de défendre la suppression de la binationalité, sur LCP."
     }
    ],
    "positive": [
     {
      "type": "video",
-     "platform": "tiktok",
-     "title": "Pourquoi le permis sera pris en charge par l’État avec nous ?",
-     "source": "@mlp.officiel",
-     "url": "https://www.tiktok.com/@mlp.officiel/video/7708742796588469536",
-     "tiktok_id": "7708742796588469536",
-     "views": 1097074,
-     "likes": 119046,
-     "date": "2026-11-16",
-     "context": "Vidéo de campagne sur la prise en charge du permis de conduire par l'État, plus d'un million de vues."
+     "title": "Marine Le Pen refuse les leçons de gestion de Gabriel Attal ! 🔥",
+     "source": "Droite Actu Buzz",
+     "url": "https://www.youtube.com/watch?v=7XHngbHJ26k",
+     "youtube_id": "7XHngbHJ26k",
+     "published": "il y a 18 h",
+     "views": 95790,
+     "context": "Réplique à Gabriel Attal sur la gestion publique, largement relayée sur les réseaux."
     },
     {
-     "type": "post",
-     "platform": "x",
-     "title": "Le financement de l’Ukraine secoue aujourd’hui l’Europe : 90 milliards d’emprunts ont déjà été effectués et plusieurs pays s’opposent à un financement supplémentaire.",
-     "source": "@MLP_officiel",
-     "url": "https://x.com/MLP_officiel/status/2121282250826199195",
-     "x_id": "2121282250826199195",
-     "views": 714595,
-     "likes": 11808,
-     "date": "2026-11-13",
-     "context": "Message sur le financement de l'Ukraine, plus de 700 000 vues sur X."
+     "type": "video",
+     "title": "Marine Le Pen ATOMISE G. Attal",
+     "source": "France Eternelle",
+     "url": "https://www.youtube.com/watch?v=V3ufpFh33c0",
+     "youtube_id": "V3ufpFh33c0",
+     "published": "il y a 1 j",
+     "views": 44029,
+     "context": "Vidéo partisane reprenant une attaque contre Gabriel Attal, présentée comme une réplique à son adversaire."
+    },
+    {
+     "type": "video",
+     "title": "Marine Le Pen veut couper les subventions aux associations politisées : Antoine Diers approuve",
+     "source": "RMC et Les Grandes Gueules",
+     "url": "https://www.youtube.com/watch?v=62TZXFPQmFg",
+     "youtube_id": "62TZXFPQmFg",
+     "published": "il y a 1 j",
+     "views": 40911,
+     "context": "Antoine Diers approuve sur RMC sa proposition de couper les subventions aux associations politisées."
     },
     {
      "type": "video",
@@ -123,29 +121,9 @@
      "source": "CNEWS",
      "url": "https://www.dailymotion.com/video/xbwbq76",
      "dailymotion_id": "xbwbq76",
-     "views": 32775,
+     "views": 32792,
      "date": "2026-11-13",
-     "context": "Dénonce la pression physique exercée par des militants d'extrême gauche, se présentant en victime."
-    },
-    {
-     "type": "video",
-     "title": "🚨Marine Le Pen recadre sèchement Gabriel Attal sur la gestion des finances publiques !",
-     "source": "Les Moutons Rebelles",
-     "url": "https://www.youtube.com/watch?v=4ztZvmTi25U",
-     "youtube_id": "4ztZvmTi25U",
-     "published": "il y a 17 h",
-     "views": 32584,
-     "context": "Échange virulent avec Gabriel Attal sur les finances publiques, relayé en vidéo."
-    },
-    {
-     "type": "video",
-     "title": "Marine Le Pen passe son \"Brevet présidentiel\" face à Noa",
-     "source": "LCP - Assemblée nationale",
-     "url": "https://www.youtube.com/watch?v=FNviqw2z17A",
-     "youtube_id": "FNviqw2z17A",
-     "published": "il y a 1 j",
-     "views": 20451,
-     "context": "Séquence remarquée diffusée par LCP, dans un format léger et ludique."
+     "context": "Dénonciation publique d'une pression physique exercée par des militants d'extrême gauche, relayée par les médias."
     },
     {
      "type": "video",
@@ -154,58 +132,42 @@
      "source": "Le Parisien",
      "url": "https://www.dailymotion.com/video/xbxg03y",
      "dailymotion_id": "xbxg03y",
-     "views": 5017,
+     "views": 30812,
      "date": "2026-11-17",
-     "context": "Annonce d'une mesure sur les retraites permettant à des centaines de milliers de travailleurs de partir plus tôt."
+     "context": "Promesse de départs anticipés à la retraite pour des centaines de milliers de travailleurs."
     },
     {
      "type": "video",
      "platform": "dailymotion",
-     "title": "« Je voterai pour Marine Le Pen » face à Jean-Luc Mélenchon, affirme Thibault de Montbrial",
-     "source": "Europe 1",
-     "url": "https://www.dailymotion.com/video/xbwu25y",
-     "dailymotion_id": "xbwu25y",
-     "views": 4709,
-     "date": "2026-11-15",
-     "context": "Soutien affiché par Thibault de Montbrial, qui déclare voter pour elle face à Jean-Luc Mélenchon."
+     "title": "\"Marine Le Pen ne va pas abandonner l'Ukraine\", estime Jean-Philippe Tanguy (RN)",
+     "source": "BFM",
+     "url": "https://www.dailymotion.com/video/xbxo6j6",
+     "dailymotion_id": "xbxo6j6",
+     "views": 6394,
+     "date": "2026-11-18",
+     "context": "Soutien du député RN Jean-Philippe Tanguy affirmant qu'elle n'abandonnera pas l'Ukraine."
     },
     {
-     "type": "video",
-     "title": "Marine Le Pen veut couper les subventions aux associations politisées : Antoine Diers approuve",
-     "source": "RMC et Les Grandes Gueules",
-     "url": "https://www.youtube.com/watch?v=62TZXFPQmFg",
-     "youtube_id": "62TZXFPQmFg",
-     "published": "il y a 1 h",
-     "views": 3857,
-     "context": "L'animateur Antoine Diers approuve publiquement sa proposition de couper les subventions aux associations politisées."
+     "type": "article",
+     "title": "Présidentielle 2027 : Marine Le Pen joue gros en dévoilant sa réforme des retraites",
+     "source": "Les Echos",
+     "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPNE1BalRtdGxqUk1VcC1UU1RFczV5RUwwd3o2SUpwblRLRUVhbUE5RlhXRGJTZ0p3eGN6X3RwcEM1Y3pNS0t2eElERWpBWlY4Z0lTeVVFNmdaN0stN2huaVFQb3ZTLVp0QUQ3aTc2T2RQUFZuV1ZJcDRUSnM2dlJEZkdhNk8yTTdSSTNkQXg1Y3dZN050bkVVaURMMDlydk5EU0dxRndwZy1CMmhHd085Y2k0NDhaT2gzcE1wbWZGblVwY2JUQ3lxSGRrYmY1elc2czBfNQ?oc=5",
+     "date": "2026-11-16",
+     "context": "Présentation de sa réforme des retraites, présentée comme un pari politique majeur."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : Marine Le Pen présente sa réforme des retraites, un système basé sur la progressivité et une part de capitalisation",
+     "source": "Le Monde.fr",
+     "url": "https://news.google.com/rss/articles/CBMi2wJBVV95cUxNTFNObEltek9aWlAxWU1LYm5XOHlyX3NpSDh0ZWNTVm9hNG9SYkVCRVVqTk5XNHo1bzRHdlpTaFY5REREckdlOXRTNXAxYkZxeUlxSGhZaXp6cnV5enZKMENXZkNhX2ViNmNGbHdyYW5PcF9EY2Z4N3FxY05BOXI3TlVUUUl3alpwNWZaVkZ4dHBFTWF2LXA4RS1BWGZxaUZtZUJDazlBVjNFTVN3WkpXbk9CQXJKRnpRcXQxaGpqZFVGczd6aDhMTlJ5OURmTWhNRVpDUUpvTEtrV3hnaTBfNlBBLS1VRmpKcm45YzZFMGdnTjhEOWJpclc3Q3gxVF9Xa2N4TmwzRi1wWnRWMTBUZTMwS0I4LUM4Z1pLUkRWbHZuMFU0SUE0T2VtVG83VE5hcGd0S1pad2lFT3A0dzJ3WFIzX0gwMVpCc1hMNWJXcWZVT0ZFcFdJSi05Yw?oc=5",
+     "date": "2026-11-17",
+     "context": "Présentation officielle de sa réforme des retraites, combinant progressivité et capitalisation."
     }
    ],
-   "volume": 69
+   "volume": 65
   },
   "melenchon": {
    "negative": [
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "🇫🇷 FLASH | Bruno Retailleau attaque Jean-Luc Mélenchon sur son train de vie en plein débat… « Ne me mettez pas en cause sur le plan personnel, parce que j'ai la réponse ! » Sour",
-     "source": "@impact_media_france",
-     "url": "https://www.tiktok.com/@impact_media_france/video/7708890241444138272",
-     "tiktok_id": "7708890241444138272",
-     "views": 202497,
-     "likes": 3208,
-     "date": "2026-11-16",
-     "context": "Attaqué par Bruno Retailleau sur son train de vie lors du débat présidentiel, séquence largement relayée."
-    },
-    {
-     "type": "video",
-     "title": "\"Je voterai pour Marine Le Pen\" face à Jean-Luc Mélenchon, affirme Thibault de Montbrial",
-     "source": "Europe 1",
-     "url": "https://www.youtube.com/watch?v=4pJ7hjGjcWM",
-     "youtube_id": "4pJ7hjGjcWM",
-     "published": "il y a 2 j",
-     "views": 114133,
-     "context": "Thibault de Montbrial affirme qu'il votera pour Marine Le Pen face à Jean-Luc Mélenchon, une prise de position hostile relayée par Europe 1."
-    },
     {
      "type": "video",
      "platform": "dailymotion",
@@ -213,9 +175,19 @@
      "source": "LeHuffPost",
      "url": "https://www.dailymotion.com/video/xbw1g06",
      "dailymotion_id": "xbw1g06",
-     "views": 55791,
+     "views": 55966,
      "date": "2026-11-13",
-     "context": "Une vidéo critique sa position sur la guerre en Ukraine, qualifiée de nouvel embourbement."
+     "context": "Analyse critique de sa position sur la guerre en Ukraine, présentée comme une nouvelle maladresse."
+    },
+    {
+     "type": "video",
+     "title": "Jean-Luc Mélenchon VS Pierre Perret : la guerre est déclarée",
+     "source": "RTL  ",
+     "url": "https://www.youtube.com/watch?v=lb1jJIYkB_0",
+     "youtube_id": "lb1jJIYkB_0",
+     "published": "il y a 18 h",
+     "views": 38823,
+     "context": "Confrontation publique avec le chanteur Pierre Perret, présentée comme une polémique."
     },
     {
      "type": "video",
@@ -224,35 +196,40 @@
      "source": "Europe 1",
      "url": "https://www.dailymotion.com/video/xbx2rb6",
      "dailymotion_id": "xbx2rb6",
-     "views": 23755,
+     "views": 23896,
      "date": "2026-11-16",
-     "context": "Une vidéo d'Europe 1 qualifie son programme économique de marxiste, angle critique relayé en ligne."
+     "context": "Présentation critique de son programme économique par Europe 1, qualifié de marxiste."
     },
     {
      "type": "video",
-     "title": "\"Jean-Luc Mélenchon c’est « faites ce que je dis mais pas ce que je fais »\" (auditeur)",
-     "source": "Europe 1",
-     "url": "https://www.youtube.com/watch?v=VDq6Kldbxho",
-     "youtube_id": "VDq6Kldbxho",
-     "published": "il y a 4 h",
-     "views": 2855,
-     "context": "Un auditeur d'Europe 1 critique l'écart entre le discours et les actes de Jean-Luc Mélenchon."
+     "title": "Présidentielle 2027 : \"Je crains davantage Mélenchon que Marine Le Pen\"",
+     "source": "RMC et Les Grandes Gueules",
+     "url": "https://www.youtube.com/watch?v=r3-giV2Cms8",
+     "youtube_id": "r3-giV2Cms8",
+     "published": "il y a 3 h",
+     "views": 18387,
+     "context": "Dans une émission RMC, une intervention déclare craindre davantage Mélenchon que Marine Le Pen, ce qui nourrit une controverse."
     },
     {
-     "type": "article",
-     "title": "Accusé de se faire le \"porte-parole du Kremlin\", Jean-Luc Mélenchon réplique sur l'Ukraine",
-     "source": "LCP-Assemblée nationale",
-     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOVW9GV3M0TnJ6aW02NnFzUkpWc2hfMG1nc0F5ZmN4VWM3LS1Ham5SU3FDQ2RLcm9ONWQ5NmU2U1FMQUo4TXQ5eERvb21ZZ24wZ0xfNXg5OWQ0Q2R4c25aaERBS2ZhbXFkS3hoT0FHY1lhQ0d1Z2JKTXA3R1B3NW1keExBbzllQnl5c3JYMGNhUGhpYzJPc1p1UjVCY3luTHh6Z2VBOXY3cTllX0FzbVlzZG1Ddw?oc=5",
-     "date": "2026-11-10",
-     "context": "Accusé de se faire le « porte-parole du Kremlin » sur l'Ukraine, il répond aux critiques."
+     "type": "video",
+     "title": "Dîner de Jean-Luc Mélenchon avec Bernard Arnault et Patrick Pouyanné",
+     "source": "RMC",
+     "url": "https://www.youtube.com/watch?v=izGWLgu_cxc",
+     "youtube_id": "izGWLgu_cxc",
+     "published": "il y a 6 h",
+     "views": 10920,
+     "context": "Dîner avec Bernard Arnault et Patrick Pouyanné, relayé dans un contexte où ce type de rencontre peut être critiqué par son propre camp."
     },
     {
-     "type": "article",
-     "title": "\"Une provocation\" ou \"un choix logique\" : la venue de Jean-Luc Mélenchon en Creuse ce 11 novembre divise les élus locaux",
-     "source": "ici.fr",
-     "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNWk5NRFp2ZEJuSVAyU2R4Y1lEeElQQThuNE5OSFkwcFFmTXNoMXdNSC04OTlIR0hKY3l4dkpaYzgzeXdzMTVXYlBpTG5La082NnhvTlo1WEI4endNVzBhemVOdkgwbE02cUlrZ09YNFJPQU4zbXBMdUQyX1dSVWtVMXRSVkZPZUV2YzZ5SHFVYl81UFZlX3JWS0xPQnI4dTloZWZQeFIzekdmNE1XeTJ3ZldTQjJlazc3dUxoQzNLQi1nNi15MWxaVUtMU1czX2V6cXp0cmpRbGZKTW9NVkpDcGtsLUhhaGU2amJKV3kzYUk4Tzh4d3o0aERjRnl4WnM?oc=5",
-     "date": "2026-11-10",
-     "context": "La venue de Jean-Luc Mélenchon en Creuse le 11 novembre est qualifiée de provocation par une partie des élus locaux, qui sont divisés."
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "Mélenchon interdit d’entrée en Israël : «La décision souveraine d’un État souverain», estime Torres",
+     "source": "CNEWS",
+     "url": "https://www.dailymotion.com/video/xbw3avu",
+     "dailymotion_id": "xbw3avu",
+     "views": 9396,
+     "date": "2026-11-12",
+     "context": "Interdiction d'entrée en Israël, décision validée par les autorités israéliennes et relayée comme un revers."
     },
     {
      "type": "article",
@@ -261,64 +238,46 @@
      "url": "https://news.google.com/rss/articles/CBMipwJBVV95cUxPNzcyZlBZZzZhUmJfbHN3UVVjYmFQZ09ITlRPd2ZxM3pRN0h3MnFmUlc1eWhHTmduS1RiMnFXTVQ2WkRpeHpHenlDVXhtUlBVcmQzMHYweVVWVUJXajJKaEdiSFllZFY4VzloWjlETEpXeTFhTThXcnVUN0dfSTg1amgzd21HUFVxeVRxTHZHaGE2VkVNS2hpU1d3RGFJOU84UnZ0bkZ3MWk2NjNxaERLRzJ0RzBuQnREMUhqN1djMmplTDN4Uk9aTDMyb2JGZGtKa3Z6VC0wZUZOOWwxdmdENTdtRjZkUWFTb2xkZjJjcnV3VVNBOFZDRmJTUExlUTlQX21DTVZlNnhsajNZeXhCcEJnU1pXdmlyRWR3dFZBZkdyTU03TW9n?oc=5",
      "date": "2026-11-11",
      "context": "Critiqué pour ses propositions sur l'Ukraine, il accuse les médias d'avoir « truqué ses paroles »."
+    },
+    {
+     "type": "article",
+     "title": "Jean-Luc Mélenchon a été interdit d’entrée en Israël en raison de la « position extrêmement hostile » de LFI",
+     "source": "Le Monde.fr",
+     "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxQUWMycVlaUHNUMzZKZDRkNGdqWXVRYU5UeGhkbXZEc3Z2MUk2ZVJsUXVWQ01LT1RVbUlkeGtOelIwYzRXVFhBRTVYSlZkcF9TemI4aVphSmo2ZFg2NU1sb1RkQVVWWkpDbi1JR2EtQ3RIWXB4dWduVmpBV1BXYW5PTEp4QnBpQ0FkQXJpRGdjNDdTX1NJQ0FaLVFOQ21ab2o0bUZtVVpKWmFOUC16RjhZUXVpT1BjdlNFc1lXcVNrR2xUNHUtNkswVVJWT0I2Sko3ekRzQ0xJbmduaTdGSEc1RzdTOGttYm9QZEFFb0d5VjJ2ZDNZTm5GVXdiZTU0WklYNkpkMFNncks4RHN3dlpz?oc=5",
+     "date": "2026-11-12",
+     "context": "Interdiction d'entrée en Israël attribuée à la « position extrêmement hostile » de LFI."
     }
    ],
    "positive": [
-    {
-     "type": "post",
-     "platform": "instagram",
-     "title": "Comment appelle-t-on le fait d’avoir 10 millions de pauvres ?",
-     "source": "@jlmelenchon",
-     "url": "https://www.instagram.com/p/Df0PIuwNH4R/",
-     "instagram_code": "Df0PIuwNH4R",
-     "instagram_kind": "reel",
-     "views": 755935,
-     "likes": 0,
-     "date": "2026-11-16",
-     "context": "Extrait du débat présidentiel sur la pauvreté, très partagé sur Instagram."
-    },
-    {
-     "type": "post",
-     "platform": "instagram",
-     "title": "Il ne peut pas y avoir de tri dans les gens à loger. Tout le monde est utile.",
-     "source": "@jlmelenchon",
-     "url": "https://www.instagram.com/p/Df0Tb-ktajB/",
-     "instagram_code": "Df0Tb-ktajB",
-     "instagram_kind": "reel",
-     "views": 674109,
-     "likes": 0,
-     "date": "2026-11-16",
-     "context": "Extrait du débat présidentiel sur le logement et la réquisition des logements vides."
-    },
-    {
-     "type": "video",
-     "title": "\"Ce n'est pas un extrême, Jean-Luc Mélenchon\" déclare Ségolène Royal ｜LCI",
-     "source": "LCI",
-     "url": "https://www.youtube.com/watch?v=UOw-tnsHlFI",
-     "youtube_id": "UOw-tnsHlFI",
-     "published": "il y a 4 j",
-     "views": 266244,
-     "context": "Ségolène Royal affirme que Jean-Luc Mélenchon n'est pas un extrême, un soutien public notable."
-    },
     {
      "type": "video",
      "title": "Mélenchon fait passer les autres candidats pour des amateurs #présidentielles",
      "source": "Civicio",
      "url": "https://www.youtube.com/watch?v=orUsjn-7b6A",
      "youtube_id": "orUsjn-7b6A",
-     "published": "il y a 15 h",
-     "views": 266164,
-     "context": "Une vidéo de Civicio présente Jean-Luc Mélenchon comme dominant les autres candidats lors des débats, ce qui le valorise."
+     "published": "il y a 1 j",
+     "views": 474231,
+     "context": "Une vidéo de Civicio met en avant Mélenchon comme plus solide que les autres candidats, avec un ton favorable."
     },
     {
      "type": "video",
-     "title": "Mélenchon atomise tout le monde sur LCI face à Le Pen, Attal, Glucksmann et Retailleau !",
-     "source": "Les News de Samir",
-     "url": "https://www.youtube.com/watch?v=PisSsZf-Rfk",
-     "youtube_id": "PisSsZf-Rfk",
-     "published": "il y a 15 h",
-     "views": 29783,
-     "context": "Présenté comme une performance dominante lors d'un débat télévisé sur LCI face à plusieurs adversaires."
+     "title": "\"Jean-Luc Mélenchon face à Marine Le Pen gagnera l'élection présidentielle\" pour Gérald Darmanin｜LCI",
+     "source": "LCI",
+     "url": "https://www.youtube.com/watch?v=9Hf2xGBxKxM",
+     "youtube_id": "9Hf2xGBxKxM",
+     "published": "il y a 5 h",
+     "views": 62990,
+     "context": "Gérald Darmanin affirme que Mélenchon gagnerait face à Marine Le Pen à la présidentielle, sur LCI."
+    },
+    {
+     "type": "video",
+     "title": "Gérald Darmanin : \"Jean-Luc Mélenchon face à Marine Le Pen, gagnera l'élection présidentielle\"｜LCI",
+     "source": "LCI",
+     "url": "https://www.youtube.com/watch?v=I6iVHcybm1s",
+     "youtube_id": "I6iVHcybm1s",
+     "published": "il y a 16 h",
+     "views": 57292,
+     "context": "Gérald Darmanin estime sur LCI que Mélenchon gagnerait l'élection face à Marine Le Pen."
     },
     {
      "type": "video",
@@ -327,52 +286,59 @@
      "source": "CNEWS",
      "url": "https://www.dailymotion.com/video/xbvz8tm",
      "dailymotion_id": "xbvz8tm",
-     "views": 22468,
+     "views": 22482,
      "date": "2026-11-12",
-     "context": "Une intervenante sur CNEWS affirme qu'il a bien perçu un danger, propos perçus comme une forme de soutien."
+     "context": "Mémona Hintermann salue sa lecture politique du contexte, ce qui constitue un commentaire favorable."
     },
     {
-     "type": "article",
-     "title": "Le programme de Jean-Luc Mélenchon dépasse les ventes du prix Goncourt",
-     "source": "20 Minutes",
-     "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNQ2lTWWZrZFZKcmhHTkM2VDY4a0Z3REdWRzJFeTlmYnhtVHJZVUhYNU9CYmNiaERBZDNMUUc2dFdudkpBNmF3Z3JIWUJ3RHZ1RkNZLXpMZFJhWDBXOFBwN2R5M21qaXBjRWZFMnRiV0VZRTdZNWdXQXdnZEZ4WkhMb1B6VjdaVWtDaWl4NUZOYUxHZUJVTFhBUEN5blROZE95UkRnMFFkMUNhOExOOFpZS3NQNjFtaG1vV2dvX3h6bk9IZG42ZlFSLTdMOGhtTDRJeUZDeUhMMA?oc=5",
-     "date": "2026-11-11",
-     "context": "Son livre-programme « L'Avenir en commun » dépasse les ventes du prix Goncourt."
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "Vie chère : Mélenchon veut bloquer les marges de l’agroalimentaire",
+     "source": "Le Parisien",
+     "url": "https://www.dailymotion.com/video/xbxg13q",
+     "dailymotion_id": "xbxg13q",
+     "views": 12185,
+     "date": "2026-11-17",
+     "context": "Proposition marquante de blocage des marges de l'agroalimentaire pour répondre à la vie chère."
     },
     {
      "type": "article",
      "title": "Le livre-programme de Jean-Luc Mélenchon pour la présidentielle se vend davantage que le roman de Philippe Jaenada lauréat du prix Goncourt",
-     "source": "franceinfo",
+     "source": "Franceinfo",
      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNU1BBUzNpWjVkZmZaMC00R3hDMktTMjBJQ21TMVhVY2RRRXJ0bW51MkxvajdmZk9kMm1xdjlwRlp0b1JYTDJXNTB3b3ZYamZDTkFORE1RNTRhWnBTamwydFoxMXVfUEVqc2s5dkFCTER1cjQ3aW5KdlQxVHBYSE1taFpIdmFHQUxQSXZybGhSeXVKZ1N3czF0RlFoRC1vNlhlSzZudzBFWlBrck53VFFmYUJtenVsSXhidk9yYkQ4cWNFNTVXYTlnb05McDRXcTJDUW5BRm1aSzFGaDRFQ0E?oc=5",
      "date": "2026-11-11",
-     "context": "Son livre-programme se vend davantage que le roman lauréat du prix Goncourt."
+     "context": "Son livre-programme « L'Avenir en commun » se vend davantage que le roman lauréat du prix Goncourt."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : le livre programme de Jean-Luc Mélenchon, « L’Avenir en commun », en tête des ventes de livres, devant le prix Goncourt",
+     "source": "Le Monde.fr",
+     "url": "https://news.google.com/rss/articles/CBMirAJBVV95cUxQM05uVWl5cHNtUHJRZGNMTzBjbElPbFU1Y1U1V3psclp6SmFrUXpwWEJ5bHVkdHZubjFKOGZNRktYNnBPXzR2R0dtd0JhWDFoaHg4S0VPa1FjQ21PLUlSLTBGcmZLWlpzTDZfYUNIbnZlY0ltcE0za1RxX2Y1TDV0Sjh2VmNNQjdZNG1FYWg3aFRmczV5eExaUHBnV2lNblNOSEVfQnNqeERoQ2d1dDUwc1lZYWlCcUhEaUVORUxQUGc1MllfYXpsLXVsSnFaRFQzTnM3b2JIRXJlUDhGazRHdkh4MkFadlYxbWcxbU9tejR1dXRHZjhlZElzRGxsOVNNaXNIZFNfUnpZUzdzVzVpX0FEeTJCeW1KUGhWVFc0Nkk1dHdlR3BadmRiUFk?oc=5",
+     "date": "2026-11-12",
+     "context": "Son livre-programme est en tête des ventes, devant le prix Goncourt."
+    },
+    {
+     "type": "article",
+     "title": "Top des ventes de livres : Jean-Luc Mélenchon devance le Goncourt",
+     "source": "Libération",
+     "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPSkV1clRnZGlETkVUQ01hakN0V3FOVmV1YWJrM0F4QlBmcWZJdDgyMkJ0a21HcU1RdlNsd3o1bllXbEVUdlRRZVBnVGZ0VkppaUIzX3VoeDQ0akRpY3hZb2lEc3dweDZITlBJRWkxdWNDRDVpZXVCdldzeTZfc2ZXZ0pSc1JkYTNtVlppajlYM2xkc0pjT0VlZGN1YU53aHdhc1BoTVh6dktWNnFINndIM0hoNFlYcUxReHJCM052NEM4S1BEOXBJQnJwNXExR2tibWdmNW0tU1g?oc=5",
+     "date": "2026-11-14",
+     "context": "Son livre-programme devance le Goncourt dans le top des ventes de livres."
     }
    ],
-   "volume": 62
+   "volume": 61
   },
   "philippe": {
    "negative": [
     {
      "type": "video",
-     "platform": "tiktok",
-     "title": "C’est vraiment dommage que les selfies ne soient pas encore arrivés à Chartres, mais heureusement, ils sont vraiment très bien organisés pour la venue d’Édouard Philippe (qui a validé cette com ?!).",
-     "source": "@quotidienofficiel",
-     "url": "https://www.tiktok.com/@quotidienofficiel/video/7706876514108837142",
-     "tiktok_id": "7706876514108837142",
-     "views": 1781098,
-     "likes": 144553,
-     "date": "2026-11-11",
-     "context": "Séquence ironique de Quotidien sur son déplacement de campagne à Chartres, près de 1,8 million de vues."
-    },
-    {
-     "type": "video",
-     "title": "💥FRAUDE, H*RCELEMENT, FAVORITISME : TOP 5 DES MAGOUILLES D'EDOUARD PHILIPPE ! [Le OFF]",
-     "source": "J'suis pas content TV",
-     "url": "https://www.youtube.com/watch?v=Z2nsVG-5Zug",
-     "youtube_id": "Z2nsVG-5Zug",
-     "published": "il y a 2 j",
-     "views": 242166,
-     "context": "Vidéo satirique listant des accusations de fraude, de harcèlement et de favoritisme le visant."
+     "title": "La com désastreuse d'Édouard Philippe",
+     "source": "Quotidien",
+     "url": "https://www.youtube.com/watch?v=rihT6GsPD1A",
+     "youtube_id": "rihT6GsPD1A",
+     "published": "il y a 6 j",
+     "views": 936456,
+     "context": "Vidéo critiquant la communication d'Édouard Philippe, qualifiée de désastreuse."
     },
     {
      "type": "video",
@@ -381,9 +347,9 @@
      "source": "CNEWS",
      "url": "https://www.dailymotion.com/video/xbvwxjm",
      "dailymotion_id": "xbvwxjm",
-     "views": 118979,
+     "views": 119115,
      "date": "2026-11-12",
-     "context": "Le maire de Saint-Ouen Karim Bouamrane critique vivement Édouard Philippe, qu'il juge « nul » et « mauvais »."
+     "context": "Attaque de Karim Bouamrane, qui juge Édouard Philippe « nul » et « mauvais », relayée par CNEWS."
     },
     {
      "type": "video",
@@ -391,19 +357,19 @@
      "source": "RTL  ",
      "url": "https://www.youtube.com/watch?v=TVP3ngZDNts",
      "youtube_id": "TVP3ngZDNts",
-     "published": "il y a 18 h",
-     "views": 26632,
-     "context": "Absence à un grand débat, perçue comme une possible stratégie d'évitement."
+     "published": "il y a 1 j",
+     "views": 43141,
+     "context": "Son absence du grand débat du soir est présentée comme un possible évitement."
     },
     {
      "type": "video",
-     "title": "\"Édouard Philippe a peur de perdre\", assure Lucas Jakubowicz sur la primaire de la droite",
+     "title": "\"Il faut interdire la possibilité de se syndiquer dans la magistrature\" (Édouard Philippe)",
      "source": "franceinfo",
-     "url": "https://www.youtube.com/watch?v=b40fA_Yc8Y4",
-     "youtube_id": "b40fA_Yc8Y4",
-     "published": "il y a 22 h",
-     "views": 17277,
-     "context": "Lucas Jakubowicz affirme qu'Édouard Philippe a peur de perdre la primaire de la droite."
+     "url": "https://www.youtube.com/watch?v=nMqvW6WiUnw",
+     "youtube_id": "nMqvW6WiUnw",
+     "published": "il y a 5 j",
+     "views": 22328,
+     "context": "Prise de position controversée d'Édouard Philippe sur l'interdiction de la syndicalisation dans la magistrature, suscitant la polémique."
     },
     {
      "type": "article",
@@ -411,15 +377,7 @@
      "source": "BFM",
      "url": "https://news.google.com/rss/articles/CBMipAJBVV95cUxOd1hIZlVLa2VMc1d2cVo2Q3ViamJBSkRGZFhPVEhVM0EwZGVKS19zcUxEX1hXWG10QkloNThNOXZtVFJFdWFuSld4Ylg0UFlHLWZWcEN5dnhJUlJhdkhlbWpkbWpwS3p0OFc3aGRkUWZqWUo4UTY2Uks1b2ZnUWtnT1FnSFgtUmZ5c2hrU3JiQ3RVWlVrb3phVUR1ZEU1Yk9wdm80NVREU0JPNE9Lb0VualhISldCYXRvWjNPNExfeGlNYXM0bEFNOGJsdUNhY0JMQnVUOFBSZUhvQ1Z4dHA2b0I4QTY0RjFSVlJ3cTdDQzJxd01EQWFKSGtXNENGM0dyVDU5R0d0QXlKNURUSElKbk1tVi1NU0R0QW9NemtMRkZySnJU?oc=5",
      "date": "2026-11-11",
-     "context": "Jean-Luc Mélenchon affirme qu'il et Gabriel Attal « n'ont rien à proposer », attaque largement relayée."
-    },
-    {
-     "type": "article",
-     "title": "Pourquoi Edouard Philippe et le maire de Chartres, Ladislas Vergne, se sont fait égratigner par Yann Barthès sur TMC",
-     "source": "L’Écho Républicain",
-     "url": "https://news.google.com/rss/articles/CBMikgJBVV95cUxOLWZwZ0NvXy1CdnZXem1LM2NmYnVlaU1tc1lMcWs4Uk5nWFdIUjNLajFqdXlyUXIzQkI1Y1ZvVFAwNzRJeFVrNFBDblF0V1hSakdCTjQ0cVg2U2JBT05DbVpDWmJvRy11OFQ2MDgtempPczZTS3MzUXlWOXR5T0pvWTg3UEEzM1dWc3dSVWJoTjh4VEREMW5hc2tpd29XMkxmaVY2RFJUY3A1YkhUTXVVWEwzZXRMVF9EVDBhUDJESXZkV1FkdlZNcUlYNFBwVU5sc1VZLXQ0UVc1TnlCWlF0emlLOVYxMWlDckJrb2Q1ZlEydHE5TW1kWmdmWWFSaHIxQnZWTmtKWm5SY1JMM1Vmd3h3?oc=5",
-     "date": "2026-11-11",
-     "context": "Épinglé par Yann Barthès sur TMC aux côtés du maire de Chartres, dans une chronique moqueuse."
+     "context": "Jean-Luc Mélenchon affirme qu'Édouard Philippe et Gabriel Attal n'ont rien à proposer, critique relayée par BFM."
     },
     {
      "type": "article",
@@ -427,45 +385,65 @@
      "source": "Le HuffPost",
      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQeXRtbHFkVFJrUTFZcDhWYlZtNV83T1hiS2lDZ1dTY0VnRlRtZ2FIUWExNXhxNHpvWE43ejhPNGVCRHkxNmFldk1hNTlfZGlMU0ZLWmV6RTMxV1ZmMW9saGdDUlFyVFpjdFdaMThQdGJyX21aY1RlVGJ0R0pQZGlKX3lOVnpGZTFkWkVaRkdTTk9Ndm1wYzluVC1rcnFIME9JWS1Dam5oaXYwN3k4b2tIc1M1WDVIWG5Ka0xHc3ZyX0ZONHlCWm1UOXpRRTNRMEdOQmVwMTVMcGRhTWNKWmVGN2FITDNPOXhF?oc=5",
      "date": "2026-11-12",
-     "context": "Assume son absence du grand débat TF1 avec ses rivaux, ce qui alimente la polémique."
+     "context": "Absence assumée à un grand débat télévisé sur TF1 avec ses principaux rivaux."
+    },
+    {
+     "type": "article",
+     "title": "Édouard Philippe en perte de vitesse dans les sondages : et au milieu coule un centriste",
+     "source": "Marianne",
+     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOT3dFNmxCSlY5MG41OXpzZkk1eGtlR2lkdllkYmstSF9obkNZVE5yb0g1dFBIQjdCLWRvZnBGZTR1UG1mcEktcEtxc3BjZ2dXMmJ1NnJIYk5vZWJpR0M1V3V2T0kzTklnVmZDM1ZXbWJnZ2lnSUFNLTZGaE9mU3R5TUZCX3lFUF9ELUJYQUN4OE40MGFwNGpqRE1xeERRLTBmcjZObGhUVm9KMm1UTU4zRlAzN2k4Z0docFVvajBn?oc=5",
+     "date": "2026-11-13",
+     "context": "Article constatant une baisse de sa popularité dans les sondages présidentiels."
+    },
+    {
+     "type": "video",
+     "title": "Édouard Philippe s'attaque à une croyance fondamentale de la religion catholique !?",
+     "source": "BGNEWS",
+     "url": "https://www.youtube.com/watch?v=T_S8SuQoUjo",
+     "youtube_id": "T_S8SuQoUjo",
+     "published": "il y a 3 j",
+     "views": 21250,
+     "context": "Ses propos sur un dogme catholique suscitent la polémique."
     }
    ],
    "positive": [
     {
      "type": "video",
-     "platform": "tiktok",
-     "title": "En campagne à Chartres ! #edouardphilippe #CroireEnNous #avecedouard",
-     "source": "@avec_edouard",
-     "url": "https://www.tiktok.com/@avec_edouard/video/7706572990770728224",
-     "tiktok_id": "7706572990770728224",
-     "views": 31555,
-     "likes": 854,
-     "date": "2026-11-10",
-     "context": "Images de son déplacement de campagne à Chartres."
+     "title": "\"Édouard Philippe veut rompre avec la politique d'Emmanuel Macron\" (Antoine Comte)",
+     "source": "franceinfo",
+     "url": "https://www.youtube.com/watch?v=MtNOFVvB7G4",
+     "youtube_id": "MtNOFVvB7G4",
+     "published": "il y a 2 h",
+     "views": 5103,
+     "context": "Édouard Philippe affiche une volonté de rompre avec la politique d'Emmanuel Macron, positionnement largement repris."
     },
     {
-     "type": "article",
-     "title": "Logement, 35 heures, allocations familiales... Édouard Philippe distille de nouvelles propositions de son programme présidentiel",
-     "source": "BFM",
-     "url": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxQbHJaeE56RGpGRGVGSVdxQTZBZU44bWpoelhPLTV3S1l1R01meHhuempwMmhRU2JUam14UDc4MnhwM2k4VXM1LUp1MWQ0Wjc3UFFyYXhjMmpHcUtCYVBocjdVbWpOeF9HUG1rd0xNQ0RqOVMxMkJvRk9SVVFicGZZaWNOS0doQ21IZndtWmVUWEEtRkhEXzRYTGlwZFpqS3lfZVBSRkdlbUVBLWNTZ3pMMkc3ZVV5SVNVNGp4RmJWYzVsanhBZU1iMlFvaTJjbXRWUjctaURvelFaMElSbksxSFRJQ1hVanBRUEhjeERzbWVQNHpaUXFBTjhlOGdXVDRSZHNfMFFBU09mbEdwT2lub0E0X3dEcWw0aTc1TGQzWnQ4VHdUd21aQQ?oc=5",
-     "date": "2026-11-15",
-     "context": "Dévoile de nouvelles propositions de son programme (logement, 35 heures, allocations familiales)."
+     "type": "video",
+     "title": "\"Mon objectif est simple : rétablir l'ordre\" : Édouard Philippe dévoile son programme pour 2027",
+     "source": "franceinfo",
+     "url": "https://www.youtube.com/watch?v=nfxgMO91DQI",
+     "youtube_id": "nfxgMO91DQI",
+     "published": "il y a 2 h",
+     "views": 3318,
+     "context": "Il dévoile les grandes lignes de son programme pour 2027, centrées sur le rétablissement de l'ordre."
+    },
+    {
+     "type": "video",
+     "title": "Édouard Philippe passe son \"Brevet présidentiel\" face à Noa",
+     "source": "LCP - Assemblée nationale",
+     "url": "https://www.youtube.com/watch?v=Z8JbqHbTSGs",
+     "youtube_id": "Z8JbqHbTSGs",
+     "published": "il y a 20 h",
+     "views": 2804,
+     "context": "Il participe au « Brevet présidentiel » face à une élève, séquence remarquée sur LCP."
     },
     {
      "type": "article",
      "title": "Logement et pouvoir d'achat : Édouard Philippe veut supprimer les frais de notaire pour certains Français",
      "source": "Orange Actualités",
-     "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxOMkhJczNmWGFRYVVXUU9IRjBJWjZkbHdneE1XamhXM3BrMUx4QV9XaHl6UXFYZ053UW95NlJLQklrZmR2X3hra0g2OG1HaldJN1pzNkFwNGFWOG9yMTNYNmtnYkEtSk5vTDZCcWwwQ1RNcUotZjlIT1JWVkc0VlczZkZKbFlGTkZjMUxuOEpONUEtSEE4cUU4UlpZX1F5VGJvWjRjZl91V0tQa3JZVEdJUzM3NWoxNGdOUVVGa2pmY3lzSzlTaEV0ZzBUMTB6SEt5cTExX1Z4QkdYQjdZQzRsUTdKakFSQ09QMkY0ZWN0dWVMQnN4WjY1eVEySG8yUURoNjE2ZF93?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPWnVjOGRDaFA5WjlsS0VUYzNUcUZGZGl4enNVRWc4UEtYLWZJQ3N5b0xqaUgtY2I3OVQ0SHN4a0dSY25qY1lHUnVkQ3I4ejYwWUQyMDdOeHZLQnQ0SEpySVBBREs5VDkta3JsOTlOUXBZYmNBanJZV0VlQVBrSWI5SkY1OUFYQW5TTnBmeEtIRVNiTnFUVV82ZUZlNHRSWFBkR0EtendxVkhINW1OeE5PbGwyUzcxVlZNbTlpaVBnVU9sQzFaZGExQnJSd1RKS2pTUjY2OF9sSWZEanFqNDlWajUzM2E2RllfZW1TcDR1VmVzYlgxSHBHUk1Dei1RTG9keTNNOVBGcXJVZw?oc=5",
      "date": "2026-11-16",
-     "context": "Proposition de supprimer les frais de notaire pour certains Français, annonce programmatique marquante."
-    },
-    {
-     "type": "article",
-     "title": "Il veut supprimer les frais de notaires pour les moins de 35 ans, bâtir 4 millions de logements en 10 ans: Édouard Philippe détaille son programme pour répondre à la crise immobilière",
-     "source": "BFM",
-     "url": "https://news.google.com/rss/articles/CBMi1gJBVV95cUxONXpmNk1DVDhOMTVJNGl2aFhKcXFMbDEtX0VmUnhWb3hBRlNRa01UdkU4WUNqRzRsVjFKUHVBUVdsa0NKZnBJeUlIV29ha2ZBMnoxQXVNWVhBQnB5QWc5Y3htb3kwcWRGaVRoTkdrWXJIOEhnRDVNWEJoV01lU3ZEUzBTRXJaWnh2NkprVlRLbTk5TXNZZDA1a3FUMDNheDlTQWhaV3d4aWZ3T1E4WkxlbFo4VnlaQ2FkV21DcFRtRTJ0c0UwZDVpM1hiZnFXa2F1TG1RVUJNUlR2aGltalF6bUN3cC00Sk1JU3M3RWNIeWhiUDUwSlJkU2dZSWQyTlc5SXRudE55aTRkdE1SWjFuVFlQenRnNkpySkp2WFBWT3FuQ2M3Yy0tVVF0ZncwZXVtUFo0ZHlJT1hKS2FxUXRNZUF0d2d0eTdaZXNnQ3pKSU15dnZVUWc?oc=5",
-     "date": "2026-11-16",
-     "context": "Présentation d'un programme logement marquant : frais de notaire supprimés pour les moins de 35 ans, 4 millions de logements en 10 ans."
+     "context": "Annonce d'une proposition de programme sur la suppression des frais de notaire pour certains Français."
     },
     {
      "type": "article",
@@ -473,7 +451,7 @@
      "source": "Le Parisien",
      "url": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxNTnh3RTJGRmQ3bWNHMUVqaG8zN1dmZVRCT1FYZnhIYm1RX3NrNFFvd0lscEJRNEVUeTBZX2VYUV9BYmkwTGI2TWZNUjVIWDFLeDNxU2VsT21oalk5WnFrX1FCb2I4ZDNiSUhtb29ubXhzeWxkUnVxMTVNVkZBTFRHSTgtWW5LMUtSWjlJWVA3OFBGclZtbks4Tk5DejdkVGZTdFdubmY0SHZMbk93ckdRQzNiQ3VFX3RpVTdlVEtEVFhDQ2M2Z1BVd1hXQ19iYnRzSk8zN2NLc0xKZWVMZUhIZjYxM2FLWC1OczB2VnBrX3JVWC04RVoxaXhwaUxXM1B5bWljcDVpMGQybGFadXc2dWVMb0pSSmxqMVVrbDR3ckFISmtXcVlkeXNUZzZJdTQ2MFdZX2ZRYzdaWDhrOVdiRll0SQ?oc=5",
      "date": "2026-11-16",
-     "context": "Reste le favori d'un sondage de primaire de la droite et du centre, devant David Lisnard."
+     "context": "Un sondage le place en tête des potentiels candidats en cas de primaire de la droite et du centre."
     },
     {
      "type": "article",
@@ -481,10 +459,30 @@
      "source": "Batiactu",
      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNeEFkZTVMYk55NFExZ09abGxlQ3FUVUwwWGcyQ0NRMHZmb3k0Yy1vMnlld0piMnJ0SVFkWFlUb2E4bDlCdE1TaWFJQUsybmhUSnN3VlMyd0VZN3BPUnVFbkN3UExRVVBmLXdZejVUM0EwZ2g0cUliOVVzNERVNzBuZVhWRThSanAxd2lZdHA5UGJHVDhOdi1GSHNpNA?oc=5",
      "date": "2026-11-16",
-     "context": "Annonce un objectif de construction de quatre millions de logements en dix ans."
+     "context": "Il annonce un objectif chiffré de construction de quatre millions de logements en dix ans."
+    },
+    {
+     "type": "video",
+     "title": "Présidentielle: Édouard Philippe présente son programme",
+     "source": "BFMTV",
+     "url": "https://www.youtube.com/watch?v=0XdTj1yoIFM",
+     "youtube_id": "0XdTj1yoIFM",
+     "published": "il y a 2 h",
+     "views": 1549,
+     "context": "Il présente son programme pour la présidentielle, avec une couverture télévisée importante."
+    },
+    {
+     "type": "video",
+     "title": "Édouard Philippe dénonce la \"fascination malsaine\" de \"M.Mélenchon et Mme. Le Pen pour M. Poutine\"",
+     "source": "BFMTV",
+     "url": "https://www.youtube.com/watch?v=moAxFTsiKrQ",
+     "youtube_id": "moAxFTsiKrQ",
+     "published": "il y a 1 h",
+     "views": 1084,
+     "context": "Il attaque Jean-Luc Mélenchon et Marine Le Pen sur leur rapport à Vladimir Poutine, une charge largement relayée."
     }
    ],
-   "volume": 66
+   "volume": 65
   },
   "glucksmann": {
    "negative": [
@@ -494,19 +492,9 @@
      "source": "Le Média",
      "url": "https://www.youtube.com/watch?v=N0LJOua-jK4",
      "youtube_id": "N0LJOua-jK4",
-     "published": "il y a 18 h",
-     "views": 177795,
-     "context": "Une vidéo critique sa communication, dans le sillage de la polémique impliquant Teddy Riner."
-    },
-    {
-     "type": "video",
-     "title": "Horty hatewatch le live de l'horrible Glucksmann",
-     "source": "LesLundiPrime",
-     "url": "https://www.youtube.com/watch?v=G50msqveMc4",
-     "youtube_id": "G50msqveMc4",
-     "published": "il y a 6 j",
-     "views": 118198,
-     "context": "Une vidéo hostile diffusée sous forme de live critique ses prises de position."
+     "published": "il y a 1 j",
+     "views": 242354,
+     "context": "Vidéo qualifiant une communication impliquant le candidat de fiasco."
     },
     {
      "type": "video",
@@ -514,17 +502,30 @@
      "source": "Le Parisien",
      "url": "https://www.youtube.com/watch?v=GqYV9NfaVF4",
      "youtube_id": "GqYV9NfaVF4",
-     "published": "il y a 2 j",
-     "views": 32571,
-     "context": "Il met en cause le positionnement « ni de droite ni de gauche » du champion Teddy Riner, ce qui suscite une polémique."
+     "published": "il y a 3 j",
+     "views": 33805,
+     "context": "Polémique suscitée par la critique de Raphaël Glucksmann envers le « ni de droite ni de gauche » de Teddy Riner."
     },
     {
-     "type": "article",
-     "title": "Raphaël Glucksmann sans boussole",
-     "source": "Telos-eu.",
-     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQNUstdm81bk5uYU5iNzJ3ajQtdFZFZmVHV1pzZVhfRFVfZllTdnl5enZxSFJJQ2g3NDZjSTlUb0xEQ19YS3ozeF9Vb3JpSEFLQ251Q3ltclVfN1NwWC1QNFN5YU9VdDZPT21nNTBEbzJieXZITDlFNnBDc2VqODdwTm10U0R5VGIwOVBwVkJFdTI0QVo0SEJjS05mRVdPNS1oNDhYWENn?oc=5",
-     "date": "2026-11-11",
-     "context": "Analyse critique de sa ligne politique jugée sans cap clair."
+     "type": "video",
+     "title": "Glucksmann ragebait Marine Le Pen",
+     "source": "Quotidien",
+     "url": "https://www.youtube.com/watch?v=SBfNVVmnB9A",
+     "youtube_id": "SBfNVVmnB9A",
+     "published": "il y a 3 h",
+     "views": 31098,
+     "context": "Vidéo accusant le candidat de ragebait envers Marine Le Pen, critique largement relayée."
+    },
+    {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "Glucksmann met en cause le « ni de droite ni de gauche » de Teddy Riner",
+     "source": "Le Parisien",
+     "url": "https://www.dailymotion.com/video/xbwlrdu",
+     "dailymotion_id": "xbwlrdu",
+     "views": 1358,
+     "date": "2026-11-14",
+     "context": "Il met en cause publiquement la position « ni droite ni gauche » de Teddy Riner, ce qui crée un désaccord public."
     },
     {
      "type": "article",
@@ -532,25 +533,7 @@
      "source": "RFI",
      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxONmR5TFR4TGg2c2x6QU1sVWpRNW9VaHBFZkhva1R3YWtYdnpLQWQzSV8wRDVzWHAwaEw2ZHZDS0cxRnZrSUg4eFVTRHE5RDRwQU8xcVRNb3N1NlM3Rll0V1k4cWZwb1Q1NGZtckxoY1BnQ3F4LWxCbk1YdmNhTFRmWW5HWGFuczJBLXBvVkd0VFpQQk9vdkMzNlI2Nno2LTFxSHB3RXUxNWRmRk4yNGkwb1ktdFUwRU96cnJyQkZrM2x2cDBlVzEwdTBJc3EyZEE0Vk8tR1Q2VjNOU0pHUXBuVUFaU2lyTXo1akc4VDdOckxBSGZB?oc=5",
      "date": "2026-11-14",
-     "context": "Interrogation sur l'essoufflement de sa dynamique après la primaire."
-    },
-    {
-     "type": "article",
-     "title": "Présidentielle 2027 : face à Le Pen, seuls 26 % des électeurs de Glucksmann voteraient Mélenchon",
-     "source": "lejdd.fr",
-     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQMlVZSmtsSnkydG1rMDR0ZWRTX0hpZEx2MkZQUHFET0l1MVNjejFDUERiM2VHU05YYUgxTjhTQVdiczRJbXZTTDNNVTRnbnUwOWk1aVBIa3g0SFJmajhkNUVnbkxWbThmTjhURlg2U21wT2pNZUtGdFRsdzNSRVVOZEc5bEc1XzhrNnhxWml0RGNPTkN0bF9fQ0x0aTA5eXV0OHl1cndvQklHakQ2MGRKWnBYNUp2ZFZlYkJ5Zmw5UnRiVWExVUdmQw?oc=5",
-     "date": "2026-11-14",
-     "context": "Un sondage indique que seuls 26 % de ses électeurs voteraient pour Jean-Luc Mélenchon face à Marine Le Pen."
-    },
-    {
-     "type": "video",
-     "title": "Glucksmann : pourquoi les réseaux sociaux se retournent contre lui ?",
-     "source": "StérenneTV",
-     "url": "https://www.youtube.com/watch?v=i6QDzYC_snc",
-     "youtube_id": "i6QDzYC_snc",
-     "published": "il y a 19 h",
-     "views": 19710,
-     "context": "Une vidéo s'interroge sur le retournement des réseaux sociaux contre lui, signe de critiques en ligne."
+     "context": "Article s'interrogeant sur le retombement de l'effet de la primaire de la gauche."
     },
     {
      "type": "article",
@@ -558,55 +541,47 @@
      "source": "Libération",
      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQeDBnak02OGNjU3hhMkpOLXVuYXZTdWlxUk1odmxMSVluQWNhajVUWkV4dktGZ21rTlk4S3ZGSE05d0dmYUJWNFBiX2lqQlhHd2VxbWo0VDN3TF9xd2RZS25wZVQ1bmVtOHZsS1NGRHhjcjZJN1BfdnI0Y1lkbGNQNmJnRGVLSUEwZFBhNmhUekc2bTZsTHVEQVZyeWJVdG1GejZWNmtSY01rbTNydGZibGhOclpEUXByVUlwalJKMkFQTy1VTEdGTm0xRFM?oc=5",
      "date": "2026-11-15",
-     "context": "Article interrogeant le recul de sa popularité sur les réseaux sociaux."
+     "context": "Article analysant la baisse de sa popularité sur les réseaux sociaux."
+    },
+    {
+     "type": "article",
+     "title": "\"Il faut faire campagne sur les deux bords\" : coincé entre deux lignes, Raphaël Glucksmann sur la ligne de crête",
+     "source": "L'Express",
+     "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPWnB0RDMtWXFKYkZBaF8wU3hxWmg5Ymw5UGNRNElJVk12bVZOaVdIcHNMME9vS0JCeFpyWUlROGszb1ZTTmpudlEwLTR1dTcybzg1R3BrMk5PaXhVR3Fkd0N3UFJ5cWZYZlV2MU53cl9SbkZqNm8tdTg4S0dwM3VZUzdBNnNmNWxSQjZ4NUNnR3pyNW42MHBJWHFKdnZvaUZCbzdOanh3OExTVzNESGtQOFlOYVV0TC0tajBJMm82VEEzaGk0enJ6YTRoTGFaWUZQMVRwcV9MRkpYX2p6d2l3YWNSdWl1Z2lfOGRlU2hJRDJHQQ?oc=5",
+     "date": "2026-11-15",
+     "context": "Article présentant le candidat comme coincé entre deux lignes politiques et en difficulté de positionnement."
+    },
+    {
+     "type": "video",
+     "title": "Glucksmann : pourquoi les réseaux sociaux se retournent contre lui ?",
+     "source": "StérenneTV",
+     "url": "https://www.youtube.com/watch?v=i6QDzYC_snc",
+     "youtube_id": "i6QDzYC_snc",
+     "published": "il y a 1 j",
+     "views": 21341,
+     "context": "Vidéo analysant pourquoi les réseaux sociaux se retournent contre le candidat."
     }
    ],
    "positive": [
     {
-     "type": "post",
-     "platform": "instagram",
-     "title": "Merci pour votre accueil au Salon du Made in France !",
-     "source": "@raphaelglucksmann",
-     "url": "https://www.instagram.com/p/Dfw-DpYIEdZ/",
-     "instagram_code": "Dfw-DpYIEdZ",
-     "instagram_kind": "reel",
-     "views": 129516,
-     "likes": 0,
-     "date": "2026-11-15",
-     "context": "Visite au salon du Made in France."
-    },
-    {
-     "type": "post",
-     "platform": "instagram",
-     "title": "Il faut arrêter cette chasse aux associations.",
-     "source": "@raphaelglucksmann",
-     "url": "https://www.instagram.com/p/Df0WR9TAs0e/",
-     "instagram_code": "Df0WR9TAs0e",
-     "instagram_kind": "reel",
-     "views": 93951,
-     "likes": 0,
-     "date": "2026-11-16",
-     "context": "Défense des associations face aux attaques de l'extrême droite et des médias Bolloré."
+     "type": "video",
+     "title": "Glucksmann, caillou dans la chaussure de Mélenchon ?",
+     "source": "Censored Free Minds ",
+     "url": "https://www.youtube.com/watch?v=hPsKVofkygQ",
+     "youtube_id": "hPsKVofkygQ",
+     "published": "il y a 2 j",
+     "views": 73027,
+     "context": "Vidéo présentant le candidat comme un irritant pour Jean-Luc Mélenchon."
     },
     {
      "type": "video",
-     "title": "Présidentielle: Olivier Faure (PS) réaffirme son soutien à \"son candidat\" Raphaël Glucksmann",
-     "source": "BFMTV",
-     "url": "https://www.youtube.com/watch?v=L8d7trh9feQ",
-     "youtube_id": "L8d7trh9feQ",
-     "published": "il y a 1 j",
-     "views": 34039,
-     "context": "Le premier secrétaire du PS réaffirme son soutien à Raphaël Glucksmann pour la présidentielle de 2027."
-    },
-    {
-     "type": "video",
-     "title": "GLUCKSMANN ATTAQUE MÉLENCHON… J'AI SORTI LES DOSSIERS !",
-     "source": "Guesh",
-     "url": "https://www.youtube.com/watch?v=fDFcCP7KPTc",
-     "youtube_id": "fDFcCP7KPTc",
-     "published": "il y a 6 j",
-     "views": 19437,
-     "context": "Il attaque Jean-Luc Mélenchon sur le fond, séquence relayée comme une réplique marquante."
+     "title": "Raphaël Glucksmann se réjouit d'avoir plus parlé que Jean Luc Mélenchon dans \"Le Grand Débat\" !",
+     "source": "Matsch",
+     "url": "https://www.youtube.com/watch?v=-8RMwza7IdA",
+     "youtube_id": "-8RMwza7IdA",
+     "published": "il y a 16 h",
+     "views": 23165,
+     "context": "Le candidat se félicite d'avoir plus parlé que Jean-Luc Mélenchon lors du Grand Débat, séquence relayée."
     },
     {
      "type": "video",
@@ -615,9 +590,19 @@
      "source": "BFM",
      "url": "https://www.dailymotion.com/video/xbx2ooq",
      "dailymotion_id": "xbx2ooq",
-     "views": 1388,
+     "views": 1389,
      "date": "2026-11-16",
-     "context": "Le premier secrétaire du PS réaffirme son soutien à Raphaël Glucksmann pour la présidentielle de 2027."
+     "context": "Le premier secrétaire du PS, Olivier Faure, réaffirme publiquement son soutien à Raphaël Glucksmann."
+    },
+    {
+     "type": "video",
+     "title": "200 milliards pour la transition : le plan Glucksmann #glucksmann #présidentielle2027",
+     "source": "Cap Civique",
+     "url": "https://www.youtube.com/watch?v=YI3L36boMZ0",
+     "youtube_id": "YI3L36boMZ0",
+     "published": "il y a 6 j",
+     "views": 931,
+     "context": "Présentation d'un plan chiffré de 200 milliards d'euros pour la transition écologique."
     },
     {
      "type": "video",
@@ -628,7 +613,7 @@
      "dailymotion_id": "xbvnzxi",
      "views": 506,
      "date": "2026-11-11",
-     "context": "Proposition phare présentée sur RMC : un million de voitures électriques accessibles à 100 euros par mois."
+     "context": "Présentation d'une proposition d'un million de voitures électriques à 100 euros par mois."
     },
     {
      "type": "video",
@@ -637,9 +622,9 @@
      "source": "BFM",
      "url": "https://www.dailymotion.com/video/xbx2m4u",
      "dailymotion_id": "xbx2m4u",
-     "views": 487,
+     "views": 488,
      "date": "2026-11-16",
-     "context": "Olivier Faure explique son soutien à Raphaël Glucksmann en vue de la présidentielle de 2027."
+     "context": "Olivier Faure explique publiquement les raisons de son soutien à Raphaël Glucksmann pour 2027."
     },
     {
      "type": "article",
@@ -647,44 +632,30 @@
      "source": "RMC",
      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxORXlMZzQyR1A0WW9rSUVfem9GOW4zc3FvbGROczNHVG54V0RaZnl5YnJsVkYtMTljRmhTYWYxTXlGWVJ3b29fdUNpUWJtd3NfTWtyQmVsdlpjTTNTTk1UX3lKMmRUQUExSHQtXzhDVFpsenJZSmpVdDBPMlVvd3BqSkhPRXpyaHJhVVZ2QVkxekxPZEpIY3ZLTEtDdHNrTWNGd1h0RGtiQm41YkhuUG5aQmlUQ0pMUnB2SmI3OVN0WUoyT0RRRUdpNXpnQ1E4TXFNSFpOOA?oc=5",
      "date": "2026-11-11",
-     "context": "Il présente une proposition concrète sur les voitures électriques à 100 euros par mois."
+     "context": "Annonce d'une proposition chiffrée de voitures électriques à 100 euros par mois pour un million de véhicules."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027: \"Je n'en vois qu'un qui peut battre Marine Le Pen, c'est Raphaël Glucksmann\", déclare Yannick Jadot, sénateur et soutien du candidat",
+     "source": "BFM",
+     "url": "https://news.google.com/rss/articles/CBMi0AJBVV95cUxOZGNuMHdXdlQtUmd1aUJ1UUtfajU2XzU2UzE0SVBUdVlfQjQzR3BveUlycFVGSnc3eHV5anRQUmlqamIwOEdobjB0enlvRDloOFBSQTV5ejItblgtZXpjcWh3WDV0cm93bWdFODJxenozLV9EY2lPMG5rRXJnRlBveXVCY1VVdWhONUtlRkVpMlJ1SV8zeXpjckJBZHRtUW9GMkRVSmJlVzMxN1RiWVR3RmpTNkdpWU5YclU2WTNXc2xBTFZBZnMwSEpHc3ZmcThsUG5sbWNYZUVDTkpJbVV0WDU4bmZ3MW5jelpEd2JmTzFnMVZFQjFkeHZOZWVna05jMnZtOVd0N2xGUklPMmoxMDVyTVZfQ0hoRTBFVVp0MVF0cldlcHA2Q1dIVW9oZldIWHRUQ1hsdXhRLXE4dXJaNXRBN3gxTXhLVDNSSmN3dC0?oc=5",
+     "date": "2026-11-15",
+     "context": "Le sénateur Yannick Jadot affirme que Raphaël Glucksmann est le seul à pouvoir battre Marine Le Pen."
     }
    ],
-   "volume": 65
+   "volume": 62
   },
   "lisnard": {
    "negative": [
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "Lisnard, tu nous feras le plaisir de ne plus réapparaître dans ma ville. 🏙️ #pourtoi #politique #davidlisnard #17octobre #gauche",
-     "source": "@frdhraphael",
-     "url": "https://www.tiktok.com/@frdhraphael/video/7706623211722542369",
-     "tiktok_id": "7706623211722542369",
-     "views": 107795,
-     "likes": 7901,
-     "date": "2026-11-10",
-     "context": "Vidéo hostile très vue : « Lisnard, tu nous feras le plaisir de ne plus réapparaître dans ma ville »."
-    },
-    {
-     "type": "video",
-     "title": "Florian Gérard-Mercier: \"David Lisnard might have to fight for media attention\"",
-     "source": "CNEWS",
-     "url": "https://www.youtube.com/watch?v=5A1540hAENw",
-     "youtube_id": "5A1540hAENw",
-     "published": "il y a 3 j",
-     "views": 62271,
-     "context": "Un analyste estime que Lisnard devra se battre pour obtenir de l'attention médiatique."
-    },
     {
      "type": "video",
      "title": "Derrière la percée Lisnard, un programme radical comme aucun autre - L'édito politique",
      "source": "France Inter",
      "url": "https://www.youtube.com/watch?v=B1izQqdJd2g",
      "youtube_id": "B1izQqdJd2g",
-     "published": "il y a 20 h",
-     "views": 19727,
-     "context": "Une chronique de France Inter, tout en évoquant sa percée, juge son programme radical."
+     "published": "il y a 1 j",
+     "views": 36898,
+     "context": "Un éditorial de France Inter qualifie le programme de Lisnard de radical, en analysant sa percée."
     },
     {
      "type": "video",
@@ -695,76 +666,89 @@
      "dailymotion_id": "xbwceey",
      "views": 1765,
      "date": "2026-11-13",
-     "context": "Un analyste estime que Lisnard devra se battre pour obtenir de l'attention médiatique."
+     "context": "CNEWS suggère qu'il devra lutter pour obtenir de l'attention médiatique."
     },
     {
      "type": "video",
-     "platform": "dailymotion",
+     "title": "Le MoDem ne veut pas de David Lisnard dans une primaire",
+     "source": "LCP - Assemblée nationale",
+     "url": "https://www.youtube.com/watch?v=MX_bdTeJ4XE",
+     "youtube_id": "MX_bdTeJ4XE",
+     "published": "il y a 33 min",
+     "views": 252,
+     "context": "Le MoDem refuse la présence de Lisnard dans une primaire de la droite."
+    },
+    {
+     "type": "article",
+     "title": "AMF : qui veut la peau de David Lisnard ?",
+     "source": "l'Opinion",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE84Z0g4VV9qY1pXREZrVkVfMlZqVV94cnBaZE9YOGpwTDhRcG93SDRzQVFzUGhCbFNtMUVtLU5QbjljMDhZVG9qaVV5NVhWdWM1Y1YwVnptWERMZDI2SzFpUHRFa0M3UEQ1cHZadnFuakR6MjE2ZVNTMWdibw?oc=5",
+     "date": "2026-11-15",
+     "context": "Remous au sein de l'AMF autour de sa double candidature et de sa position à sa tête."
+    },
+    {
+     "type": "article",
      "title": "\"David Lisnard est dans le camp des populistes\", estime Jean-François Copé, maire LR de Meaux",
      "source": "BFM",
-     "url": "https://www.dailymotion.com/video/xbwxfzi",
-     "dailymotion_id": "xbwxfzi",
-     "views": 292,
+     "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOUmg3YlRYNVloVGxUSTJlMVFEQ3FwSVZWMW04aG1zbElHQUJZRXcwakJlaXkzaktqTktScUxUTmZCN09ZQXgyVzdyN1F1QVpNSS1Db2h3czhqSG11bjd3a3NnNENqVEZMNUNLMTF3TDV6a2xvTEwwT2FUNHVSZjF6V252bC1FenAtOF9FS2lhN0tSYXhMZWNtOWNLUDBNaUE1UkRFZ3I2RG5aSmtnU0tMZXk0aEdXUDhUSlNQbjRYTkk4ZURtakxROXZQN010OTlnV093SWptOHRPWVJuelM4YUhxazVJR1Z0RF85WHEwOWZVSzRaMFNuMFg4S2JZajl4d2VtTw?oc=5",
      "date": "2026-11-15",
-     "context": "Jean-François Copé, figure de LR, classe Lisnard dans le camp des populistes."
+     "context": "Jean-François Copé, maire LR de Meaux, affirme que Lisnard se situe dans le camp des populistes."
     },
     {
      "type": "article",
-     "title": "\"Dérive toujours plus droitière\" : Le PS ne soutiendra pas David Lisnard pour la présidence de l'Association des maires de France",
-     "source": "TF1 Info",
-     "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxPUDhPQlBFVl95WFBEanhiVkRqYThxTGJkUHFoSVNSdlFpX0JaQzFVLWdCTTRCdmNLNEhBMWhkQ21xYnlyUlZadlR5OWdQa2wxd2lpMEFpYWg5TXl0aVRZR0szZ0d1a2NMV055dFk0Ul9iaFQwZGg5QnU2aW1lRlBYdFYxVVBzWDZRWWNTQVlIcTBUYmhJSkhsNVpmeWw4eDhYdjJmODlXNkl2TGUzQm4tZ3NlQnhjYm5zYTA2bUtoblhFcWxUVFRqMkJtMXJzakEwbmhia20xUWVwbVlJaVRmdTF1ZmowUzM3QUlYYWl3N0hCa0pvaU9RYXBhYktRNkpR?oc=5",
-     "date": "2026-11-11",
-     "context": "Le PS annonce qu'il ne soutiendra pas sa candidature à la présidence de l'AMF, qu'il juge trop à droite."
+     "title": "Pour le camp Philippe, David Lisnard est «le meilleur argument pour repousser la primaire»",
+     "source": "Libération",
+     "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNdVM5bFA2QWhsanJTT1dCSmluekxfMXlmYlBtSjRadWxQM1NFNkFpcTl4LXdkN0s1ZVJLVWNCWDVPeHBZUkd5ZUlwVVgxQ3VKZ1NNM1VveHo2QWRIUjB1cEx3SWdTWFhHZ3RMbm94QUtCZ1Awa3hsUGRrZFhYeHBzbFhnRVkyZEowdFdmbmozODJJTlJhS1ZuTjdUVTJZTnZpVnp5VENqTFZGaHF3RGdkQzd5WWRzWjBTNkxvRzEwdzh2cGRzUGJtOXlqbjNXX1FaZlQ1VGh5TFNxOVRsbllYS3lsWFVUNzQ2bjdfTHRDbURhUQ?oc=5",
+     "date": "2026-11-16",
+     "context": "Le camp d'Édouard Philippe le présente comme un obstacle à la primaire, critique largement relayée."
     },
     {
      "type": "article",
-     "title": "La percée de David Lisnard dans la campagne présidentielle crée des remous chez les maires de France",
-     "source": "Le Figaro",
-     "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNaDZqbFY1WmFrRTVBSy12U3huR203MFJKM3duRUxUYS1mTDUzeW1YTlF5THhwOTYxLWJyaGw1N3hCX3FlWkoweE40aUJ1blRVeWpxOFBIS2hEekhyMVRLSEFYUTE4MWI3dUtmd1lwVzR4UXZRaHAtUUIzT0lVaTVIeTZ0Njc0NmE5Z1BBc09jVnFkdi10Q09Sc01nb1p4N1IxMS1WQXNGSl9KRS1mYWlxZThPT1lUOXNQejJSWUJMUlc3eHJQWWJPejFDNHk4SW1Kem5QcHE4Ul9BMERWSWxBbFZPNXExbjJzWGIyQlhOckg?oc=5",
-     "date": "2026-11-11",
-     "context": "Sa progression provoque des tensions et des critiques au sein des maires de France."
+     "title": "Présidentielle 2027 : « accaparement », « mélange des genres », « dérive »… David Lisnard face à la fronde des maires",
+     "source": "Sud Ouest",
+     "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPdFFfSzN4Ui1nWm10YkNzU1hhS1JuaXEwM0hwU2c3bDRwcExmNzZqd20wRi1FMGxSZ3RUSXZKZFpxTzNmTXdIMDJZdzBCRjFzYm4wS3FQVjYtYVdRcTROR2VHUERfLXlpYTA5Tm81SGpxWGNqZlYtNXNWUW9wMjF2eXZJMzVtaDVldHRRTTMxN1dLdWlaWXJfNkZNdVEtYlhTUjVpVGY1bFladGZRcnhZMGlUaVJwVDlacWprWldOcHRnWm5rcnpxR3NQWFBrMVlDU0FiakxPTU5PdHViR3VpSg?oc=5",
+     "date": "2026-11-16",
+     "context": "Critiques de maires sur son double positionnement entre présidentielle et présidence de l'AMF."
     },
     {
      "type": "article",
-     "title": "Élisabeth Borne écarte une primaire allant jusqu'à David Lisnard en vue de l'élection présidentielle de 2027",
-     "source": "franceinfo",
-     "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPV01EYTZSNEZDZFpOcUdqOHNsQzQ0b0lpOFZNYU1Nc1plMVd0M2RfRHhNbzhuNVlkZVk4NEwydmhTbHVZcV9jWi1EMmRCOGVJWTdiSER5bmFrbEJTTTk4MVV6Yy1wYm1zeU1yaEgwclljZlJyNXg1X0UyNGFta2F2YVlQQU5hbC1SMnhsY3JoVW5vM3dWMDkzNmh4Uld3aG9XWXNPUmw5LVV6UGFjQnVHYlJhNmJnVW4wMTQwX3c5QjJaRlJvcFIzSU1CaTl5d2gyR19VSzhSTDVtMzY2TUw2VktmNllGWGpoUFJLLVhR?oc=5",
-     "date": "2026-11-13",
-     "context": "Élisabeth Borne écarte une primaire qui inclurait David Lisnard, selon franceinfo."
+     "title": "\"On n’a pas signé pour ça\" : 25.000 membres d’un groupe Facebook de vide-greniers se retrouvent soutiens de David Lisnard malgré eux",
+     "source": "France 3 Régions",
+     "url": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxOd1RXcVRJQy1VQnVtTUtwUEx0dmQtUF9Qc0x4SDIwdzc5Mng5TDR1N041VW92bHZuaHlVYlBYbWNIUjQ4Q0pmXzdTVkMwd19TWlRlVmlYWE5hdVlpZ2pDWDRFeElXUjY1RlV0cFBlY2Y3SDZIM0xNWjlIT3F1eWdwczRYU29tS0JOdlpuN2tsT0tlYjRNc0daTHl2S3Rwb2dRaC1YX0Y1UlZXeFBaXzZpTzFpY0pkQmpaMl9EUlI3ckpwWlpxOXN3cHZ4NzAwRUVfR29qRFc4MjVqWnJmRDFYUW5wLWc2b29MSlZ3RWgxd2VGSWlCWXdZczkweVFLTzdwOThaTDc0SlVMb3ZRdVM3NndONXRaQ192MVhtTks5THl0Z2hXaHd6WW9vSQ?oc=5",
+     "date": "2026-11-16",
+     "context": "Des membres d'un groupe Facebook de vide-greniers se retrouvent soutiens de Lisnard sans l'avoir choisi."
     }
    ],
    "positive": [
     {
      "type": "video",
-     "platform": "tiktok",
-     "title": "David Lisnard parle de la dette #xyzcba #france #lisnard #2027 #lfi",
-     "source": "@generationlisnard",
-     "url": "https://www.tiktok.com/@generationlisnard/video/7706643906070449441",
-     "tiktok_id": "7706643906070449441",
-     "views": 81966,
-     "likes": 4402,
-     "date": "2026-11-10",
-     "context": "Extrait de David Lisnard sur la dette publique."
+     "title": "Primaire : \"Je crois à la compétition, pas à la compromission\", David Lisnard invité de TF1",
+     "source": "TF1 INFO",
+     "url": "https://www.youtube.com/watch?v=51qBUwVwGpE",
+     "youtube_id": "51qBUwVwGpE",
+     "published": "il y a 6 h",
+     "views": 71637,
+     "context": "Lisnard, invité de TF1, défend l'idée d'une compétition plutôt que d'une compromission pour la primaire."
     },
     {
      "type": "video",
-     "title": "David Lisnard: \"Il a une colonne vertébrale, un vision et pas de bilan macroniste\", déclare Luc Gras",
+     "title": "David Lisnard a le vent en poupe, à 11% dans les sondages au 1er tour de la présidentielle",
      "source": "Europe 1",
-     "url": "https://www.youtube.com/watch?v=VQZMJigWmy0",
-     "youtube_id": "VQZMJigWmy0",
-     "published": "il y a 2 j",
-     "views": 43572,
-     "context": "Le maire de Lyon Luc Gras le soutient publiquement et loue sa vision, sur Europe 1."
+     "url": "https://www.youtube.com/watch?v=5I3CTw--liQ",
+     "youtube_id": "5I3CTw--liQ",
+     "published": "il y a 5 j",
+     "views": 68341,
+     "context": "Lisnard atteint 11 % au premier tour dans les sondages pour la présidentielle."
     },
     {
      "type": "video",
-     "title": "Primaire du bloc central : \"David Lisnard serait quasiment sûr de la gagner\" (Hadrien Mathoux)",
-     "source": "Europe 1",
-     "url": "https://www.youtube.com/watch?v=qWjcUdzvpgk",
-     "youtube_id": "qWjcUdzvpgk",
-     "published": "il y a 5 h",
-     "views": 10078,
-     "context": "Europe 1 rapporte qu'un analyste estime David Lisnard quasiment sûr de gagner une primaire du bloc central."
+     "title": "David Lisnard, guest on Bonjour ! on TF1",
+     "source": "David Lisnard",
+     "url": "https://www.youtube.com/watch?v=67yMGmr_pS0",
+     "youtube_id": "67yMGmr_pS0",
+     "published": "il y a 4 h",
+     "views": 13946,
+     "context": "Lisnard est invité de l'émission Bonjour! sur TF1, diffusée sur son propre compte."
     },
     {
      "type": "video",
@@ -773,9 +757,9 @@
      "source": "Europe 1",
      "url": "https://www.dailymotion.com/video/xbw7pjq",
      "dailymotion_id": "xbw7pjq",
-     "views": 3044,
+     "views": 3049,
      "date": "2026-11-13",
-     "context": "Titre présentant Lisnard en pleine progression, sans détail sur la séquence."
+     "context": "Europe 1 décrit sa progression dans les sondages ou l'opinion à travers l'expression « monte les marches »."
     },
     {
      "type": "video",
@@ -784,99 +768,82 @@
      "source": "CNEWS",
      "url": "https://www.dailymotion.com/video/xbwbn5m",
      "dailymotion_id": "xbwbn5m",
-     "views": 2868,
+     "views": 2869,
      "date": "2026-11-13",
-     "context": "Le plateau de CNEWS souligne une dynamique favorable à David Lisnard."
+     "context": "CNEWS commente une bonne dynamique de sa candidature sur le plateau."
     },
     {
      "type": "video",
      "platform": "dailymotion",
-     "title": "Marschall Truchot : 2027, David Lisnard, la surprise du chef à droite ? - 16/11",
+     "title": "David Lisnard parodie GTA 6 pour illustrer le programme de Jean-Luc Mélenchon",
+     "source": "Europe 1",
+     "url": "https://www.dailymotion.com/video/xbxj4ja",
+     "dailymotion_id": "xbxj4ja",
+     "views": 519,
+     "date": "2026-11-17",
+     "context": "Il parodie le jeu GTA 6 pour critiquer le programme de Jean-Luc Mélenchon, une réplique visible sur les réseaux."
+    },
+    {
+     "type": "article",
+     "title": "Sondage présidentielle 2027 : David Lisnard continue de progresser et atteint 10 % des intentions de vote, le double de Bruno Retailleau",
+     "source": "Le Parisien",
+     "url": "https://news.google.com/rss/articles/CBMixwJBVV95cUxNTWl6V19DTlM1WEhzUXNldmt6NWI3VXJmUXVkZWw3aXRNaDBuREt6ekZYV0k0WkVieEZLWS1QRGJHcFgyTnY0ZHAwZmlRendyMkRJd094NFRMY3JBNHZ0YjZfMldyeDFrYjNIX21YN3Fibm9WRkt4Smx3bzN1RVV1R1VxQU80MkZIaEUyd20ycHNJQ1A2bUxTOHdjclBHbnh4NVRyS21tMF92cHFfNDdyWU5COHhWVEhBWC14UDZnajZzTGpzZTNvVFVYWUlNQWYyLTd4OFVpZVdjSGg5R0c1SWlMT21qR1ZrbF9UR3BCUjdtS3FjRTRoWi1OZ1BZLWlLSmg5TkJtQ1JjX3JXRFp0YUtHcjVfbnFCeWR6X3RaM19sekl0QTVfWDQyNzFGVWZxS0IwVmIwQjBfQXVxRXhVSWhyZWQzUWM?oc=5",
+     "date": "2026-11-12",
+     "context": "Sondage Le Parisien : il atteint 10 % d'intentions de vote, soit le double de Bruno Retailleau."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027: David Lisnard fait une percée à au moins 10%, juste derrière Édouard Philippe et Raphaël Glucksmann, selon un sondage",
      "source": "BFM",
-     "url": "https://www.dailymotion.com/video/xbx940q",
-     "dailymotion_id": "xbx940q",
-     "views": 357,
-     "date": "2026-11-16",
-     "context": "BFM présente Lisnard comme une possible surprise à droite pour 2027."
-    },
-    {
-     "type": "article",
-     "title": "Cote de popularité de David Lisnard au plus haut: \"Quand on voit la communication d'autres candidats...\"",
-     "source": "RMC",
-     "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQbXpGYl9zVUY1ZzdyWkJIUmFwLVVPdDdUcTgySDhEVmE5RFdnUDJHZkd2U05hVGg1TDFNY09fQllWSzQ5TmozSS1oS29LOU8wb1dacDVlbVBLaUJwV1QtQjFxYi1Wa3EzZlZWckhwTFBXOHhRLVZSWV9ZU01fLWZrZzBNdlVoTi0yWkZWQmlKbU9JbW1mWnFhZzA2elVjTmZZQ0VxSmlzN0Fob2lFbGxBVmJpZmN5bDFwN2RhQkZVMW5EbTg2WE93Ty0zajk0eVk1ZmRKUVFNaF9DR00zUXZnbm1vMS00NkdmMGhR?oc=5",
-     "date": "2026-11-10",
-     "context": "Sa cote de popularité atteint un niveau haut dans une enquête relayée par RMC."
-    },
-    {
-     "type": "article",
-     "title": "Présidentielle 2027 : un nouveau baromètre confirme la popularité de David Lisnard, Emmanuel Macron historiquement bas",
-     "source": "RTL",
-     "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPSncyeFdYclNmUnMtMDhFVEhoQUFId0dDX3RiT1R0ZDJpcEx0NWVtVElqcDdJN1N2dS13UktmN0VSbnlxamkybkhMUHZRLUNOM1FjbUtDSlVwX2xTeUUzNHNMcXRiU1RNVVUwazMzajRDSGxyQmM1YzlHczFBMHVidHNxV1NQMHppaldSWno3OWhnSVRtRU54c0o2MFFONVhBalVFbWpHclpnS2dIeDdNTEdabFNrX3VSLWg1Q3pvTlQyZ3RKdEZHZUR3ZDRBQnd6X1kwWjc4SkhCZVB3aW5zWjZtUnBzaTFOMUNhLUZTM2ZEZw?oc=5",
-     "date": "2026-11-10",
-     "context": "Un nouveau baromètre confirme sa popularité, alors que celle d'Emmanuel Macron est historiquement basse."
+     "url": "https://news.google.com/rss/articles/CBMitwJBVV95cUxQSXdWQlM3QWdaMG92ZDBlMkFzVlRWU1RrSzlTcjlpNjZFaUlzOXU2S1RnQnRUU3RPdWtFNzF0V3JrdDRCelBldTRPc1VtTGdFeldpMnNUeGVTd1BqNUpyQXI0bW03T1JRXzFfbG14ZTljVm8zazg1dE5BeXVhMHpKQUVpaENWY3A5VHEwOW4xY3FsWU5IeUpuRndPRnRucHc1dE1wbTVNWDhjOTNXZ2g1WlpVcl92X1Z2QTNHUmpFZ0doLXNjZ1oxWldPYmltMEF6bmZPT1lEOEpJc0N6Vmt6WTIxbHpwVVQtVHJlX1JYaHA0Q0Z4X0RFUFljdmlFdmhCM0V2SDdpU2pGVHYzbkxIUVUyNmNDbFdGWW5GR1ZoaEI1Z2VleS1oLXZSN3VTSDdKSVZ4N3g4RQ?oc=5",
+     "date": "2026-11-13",
+     "context": "Sondage le plaçant à au moins 10 %, juste derrière Édouard Philippe et Raphaël Glucksmann."
     }
    ],
-   "volume": 61
+   "volume": 60
   },
   "attal": {
    "negative": [
-    {
-     "type": "video",
-     "title": "Rapport Stanislas : Gabriel Attal aurait-il volontairement garder le silence ? Complément d'enquête",
-     "source": "Complément d’enquête",
-     "url": "https://www.youtube.com/watch?v=_eIH8JKBpG4",
-     "youtube_id": "_eIH8JKBpG4",
-     "published": "il y a 4 j",
-     "views": 175595,
-     "context": "Une enquête interroge son silence supposé sur le rapport Stanislas, ce qui alimente une critique."
-    },
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "Gabriel Attal : carrière finie ? #attal #branco",
-     "source": "@kentraroi",
-     "url": "https://www.tiktok.com/@kentraroi/video/7708351290572557601",
-     "tiktok_id": "7708351290572557601",
-     "views": 54538,
-     "likes": 3010,
-     "date": "2026-11-15",
-     "context": "Vidéo virale qui s'interroge sur la fin de sa carrière politique, en lien avec Juan Branco."
-    },
     {
      "type": "video",
      "title": "🚨Marine Le Pen recadre sèchement Gabriel Attal sur la gestion des finances publiques !",
      "source": "Les Moutons Rebelles",
      "url": "https://www.youtube.com/watch?v=4ztZvmTi25U",
      "youtube_id": "4ztZvmTi25U",
-     "published": "il y a 17 h",
-     "views": 32584,
-     "context": "Marine Le Pen critique publiquement Gabriel Attal sur la gestion des finances publiques, dans une vidéo diffusée largement."
+     "published": "il y a 1 j",
+     "views": 124938,
+     "context": "Marine Le Pen recadre Gabriel Attal sur la gestion des finances publiques, dans une vidéo largement diffusée."
     },
     {
      "type": "video",
-     "title": "Teddy Riner devant Gabriel Attal et Bruno Retailleau dans les sondages",
-     "source": "Rudy Actu",
-     "url": "https://www.youtube.com/watch?v=y0MHA0rYhjY",
-     "youtube_id": "y0MHA0rYhjY",
-     "published": "il y a 2 j",
-     "views": 29502,
-     "context": "Un sondage place Teddy Riner devant Gabriel Attal et Bruno Retailleau."
+     "title": "Marine Le Pen refuse les leçons de gestion de Gabriel Attal ! 🔥",
+     "source": "Droite Actu Buzz",
+     "url": "https://www.youtube.com/watch?v=7XHngbHJ26k",
+     "youtube_id": "7XHngbHJ26k",
+     "published": "il y a 18 h",
+     "views": 95790,
+     "context": "Marine Le Pen critique la gestion de Gabriel Attal dans une vidéo virale."
     },
     {
-     "type": "article",
-     "title": "Gabriel Attal en meeting, mais pas dans les sondages",
-     "source": "TF1+",
-     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOSmx4dGRRcGloeVh6NnQtbFpyVDJVeHFsNlNQTUR6MmNYUTFyc0d2c056M01DSnRXYldRWm5zb29ZV2tvYTZOc1pyS3VvZE12TW9qTUZsUnVXbHprVDNpLTdhVGgxQ1JRQzVJR2pDTGFvRkJZVmwwbm1oZTE3dWVpbUVSNkRqQ3NyNG5QOHJVZXpTdHY2VGFkV1l3dU55XzNwT1hSTF9lSklWRmRTenU5V1NncnBQQXdaUmJQTmhXWU8?oc=5",
-     "date": "2026-11-10",
-     "context": "Un meeting est mis en avant alors que le candidat reste absent des sondages."
+     "type": "video",
+     "title": "Macron présente ses \"EXCUSES\", et Gabriel Attal se fait ATOMISER.",
+     "source": "Le Zapping du COVID",
+     "url": "https://www.youtube.com/watch?v=RwY3tezf7n8",
+     "youtube_id": "RwY3tezf7n8",
+     "published": "il y a 19 h",
+     "views": 89850,
+     "context": "Vidéo virale critiquant Gabriel Attal, mise en avant dans un contexte de déclarations d'Emmanuel Macron."
     },
     {
-     "type": "article",
-     "title": "\"Complément d'enquête\". Gabriel Attal, l'enfant pas si chéri de la Macronie",
-     "source": "franceinfo",
-     "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxORWNqQ042UGlzUzR2bTNCNjNDeUZMTFByTEZaa2tUSzF3NTctUm95MjVQZ29IVjNhdWNDS2xqcjl4YXNtRXFtVHF3alNRUzF6dExWS3BtNXJ4WU5acG9MRHFiMXBtWDNYSk1adWlRcW5YVGpRWE9wc0JXYkRWem1aNHpRNUQtU1J6NXNSVEtlOUVSVnNkUFhIa0tJdHpxN0ZTN0RXcnNNSWd2UnRCdWVWQVBoaHEtQUpsTGRzWlowTUREOGhkd3lFb2RqMWNUQ0NONlpWdU45N1RnZ2ZnQVdOYlBWNU81Q05xTEU3VQ?oc=5",
-     "date": "2026-11-11",
-     "context": "Le reportage de Complément d'enquête, relayé par franceinfo, présente Gabriel Attal comme un enfant peu apprécié de la Macronie."
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "Philippe, Attal, Retailleau : «Ils sont tous un peu responsables de la situation», analyse H. Roué",
+     "source": "Europe 1",
+     "url": "https://www.dailymotion.com/video/xbxhb0a",
+     "dailymotion_id": "xbxhb0a",
+     "views": 312,
+     "date": "2026-11-17",
+     "context": "Analyste d'Europe 1 estimant que Gabriel Attal, comme d'autres responsables politiques, porte une part de responsabilité dans la situation."
     },
     {
      "type": "article",
@@ -884,7 +851,23 @@
      "source": "BFM",
      "url": "https://news.google.com/rss/articles/CBMipAJBVV95cUxOd1hIZlVLa2VMc1d2cVo2Q3ViamJBSkRGZFhPVEhVM0EwZGVKS19zcUxEX1hXWG10QkloNThNOXZtVFJFdWFuSld4Ylg0UFlHLWZWcEN5dnhJUlJhdkhlbWpkbWpwS3p0OFc3aGRkUWZqWUo4UTY2Uks1b2ZnUWtnT1FnSFgtUmZ5c2hrU3JiQ3RVWlVrb3phVUR1ZEU1Yk9wdm80NVREU0JPNE9Lb0VualhISldCYXRvWjNPNExfeGlNYXM0bEFNOGJsdUNhY0JMQnVUOFBSZUhvQ1Z4dHA2b0I4QTY0RjFSVlJ3cTdDQzJxd01EQWFKSGtXNENGM0dyVDU5R0d0QXlKNURUSElKbk1tVi1NU0R0QW9NemtMRkZySnJU?oc=5",
      "date": "2026-11-11",
-     "context": "Jean-Luc Mélenchon affirme qu'Édouard Philippe et Gabriel Attal n'ont rien à proposer, critique largement relayée."
+     "context": "Jean-Luc Mélenchon affirme qu'Attal et Édouard Philippe « n'ont rien à proposer », critique relayée par BFM."
+    },
+    {
+     "type": "article",
+     "title": "Gabriel Attal, l'enfant pas si chéri de la Macronie en replay - Complément d'enquête",
+     "source": "France TV",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQNTFJamdtbWpWdVZGRW9jMkRFdGlyNXNoUUtnWkdnTlU0X1RKZVk2bGxnOU9uamRvb2FiV2h1Z1M2VFlmSXp0OFc5WDhYX0dSZUo3dmVuVUtXUmhJNGNXTVU5RnRHc2U4WlVkZDlOdXM3Y3cwOEN4aWFwd2QyNTQwZTl5T2s0cU9mXzFXOEt1cV9BRGdFcWtsa1BlMVFrYXJVbV8waGRrYWp1SENaNUxYQWlKTjhZZw?oc=5",
+     "date": "2026-11-12",
+     "context": "Un Complément d'enquête le présente comme un candidat fragilisé au sein de la majorité présidentielle."
+    },
+    {
+     "type": "article",
+     "title": "Gabriel Attal, un candidat en disgrâce dans un “Complément d’enquête” assez classique",
+     "source": "Télérama",
+     "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPN1BsbXA2QWJWUjh5VmhQUjdYRm1CRkJoMEVpbEgycTY0Q0JtWWt2amVsa0NnN3JheG9adUFVNXVEWkhOR2F3SE1QMHA0WGI5eFJ3dkoyQWlNWDNkNGlRRmtoN2NsSHRkMUpoaUk2eWZ6Q3oyYlhpamRiNUxZR3hEV2M0SmM5dDJLYkZaVlZTVEhjcmlXNElISFk3c0pwQXFTQ240ZTZsZDN6LWNfT1lXN3FiV0J1OElkNE81dmRJMkVHcE0xVzNfbG1IcVNJQQ?oc=5",
+     "date": "2026-11-12",
+     "context": "Un article de Télérama qualifie Attal de candidat en disgrâce à l'issue d'un Complément d'enquête."
     },
     {
      "type": "video",
@@ -892,24 +875,21 @@
      "source": "France Eternelle",
      "url": "https://www.youtube.com/watch?v=V3ufpFh33c0",
      "youtube_id": "V3ufpFh33c0",
-     "published": "il y a 3 h",
-     "views": 6405,
-     "context": "Marine Le Pen critique vivement Gabriel Attal dans une vidéo diffusée sur une chaîne partisane."
+     "published": "il y a 1 j",
+     "views": 44091,
+     "context": "Vidéo virale présentant Marine Le Pen comme ayant nettement pris l'avantage sur Gabriel Attal."
     }
    ],
    "positive": [
     {
-     "type": "post",
-     "platform": "instagram",
-     "title": "C’est vrai ça ! 👀",
-     "source": "@gabrielattal",
-     "url": "https://www.instagram.com/p/Df14T0YouR6/",
-     "instagram_code": "Df14T0YouR6",
-     "instagram_kind": "reel",
-     "views": 146174,
-     "likes": 0,
-     "date": "2026-11-17",
-     "context": "Reel de campagne à forte audience sur son compte officiel."
+     "type": "video",
+     "title": "Gabriel Attal sur France Info | Ses propositions sur le service public",
+     "source": "Gabriel Attal",
+     "url": "https://www.youtube.com/watch?v=QHsojHi4vsI",
+     "youtube_id": "QHsojHi4vsI",
+     "published": "il y a 6 j",
+     "views": 4288,
+     "context": "Publication sur ses propres comptes présentant ses propositions sur le service public."
     },
     {
      "type": "video",
@@ -918,17 +898,17 @@
      "source": "B SMART",
      "url": "https://www.dailymotion.com/video/xbx97nq",
      "dailymotion_id": "xbx97nq",
-     "views": 3040,
+     "views": 3296,
      "date": "2026-11-16",
      "context": "Présentation de la première mesure économique que Gabriel Attal mettrait en œuvre s'il était élu en 2027."
     },
     {
      "type": "article",
-     "title": "Une indemnité pour quitter la fonction publique : Gabriel Attal propose 100 000 départs volontaires",
-     "source": "Capital.fr",
-     "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQV2oySE9mX3FOUzB3dFgxXzVkYzh5TkgyV1RyS2w4RHo4ZnRpd0w0U1R4TklTOGI4ZTJoNmZWMXVxRHY0SVRvdXBMWFVqZV9SUnRNSTVpcTJOYTYyQS1kUUwwVEhhVVBOaFRTSWtETUNaRmVpUDV4TzhucWp5XzRlUXNFbDRUZGV0NDNSeWZyb3JYVzBPbk1iNmJma1A3S04waU9TeVpDTXlNWUVxWGVCbGE2N2oyY2lzWGZwUGxLQzdCcWxmcEhwMnluSDlZSHkwenZCb3dhWkYxODA?oc=5",
-     "date": "2026-11-12",
-     "context": "Gabriel Attal propose une indemnité pour inciter 100 000 agents de la fonction publique à partir volontairement."
+     "title": "France 2 : Gabriel Attal prochain invité de « L’heure de Vérité », d’autres candidats attendus",
+     "source": "Le Parisien",
+     "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxOWTJNVXd1MFB3OTJuSHZxM1I4cHEtbHlRVUg5Y0tBaWlZaVIwekNvY2lWQS1wemt0cnFFWHN4UVg4U1FQb3FaSGVXSVRGZUtKOUVPVkU0RWxtLUF4RGlmaEFLNGpVQVpTZTBVQ01hQTRmSnV2LWhwTW9TeXd5N2FHaDN3SWVtdmxKRWU0TmpmU0NGZktDM0dKYnZpLVFTb1diRndJaXNLd1AtLWEtTERFZzREaUxrNkowcXlwNklGNV9LOE1OOTh3UnN3MDF5QXgtbldDY2hxQmxiUFJUelNmRmVLaHhwZWp5UzVFQUJJc01DTGpVSFRvR0U4YXVkMTQ0Y1E?oc=5",
+     "date": "2026-11-13",
+     "context": "Il est annoncé comme prochain invité de l'émission politique L'Heure de Vérité sur France 2."
     },
     {
      "type": "article",
@@ -936,157 +916,74 @@
      "source": "Capital.fr",
      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQd0FhcjRQUVhmS05HTFAzOFNLS1k1azR0OHZmWF9pWllJUUFIRTdqUVFHVXdwNURzRy1MVlQ4cTNkSHhkdnNVT2k0dkpmVDc2M3dyTHhhMHNTOUVzVkRtYzNMcEZhNjRoNENzVEN2TUdpLTZ5Y2pDMlZWdE9PdVJIT215VTgwTU9YdjhUWVJDbGdtclVmZWF1Z0JQU1JUcUF5bGt0bHJnZkNVZGl6by1yc1JUYXYtMUJIdVFjMFZQVGxLZw?oc=5",
      "date": "2026-11-17",
-     "context": "Gabriel Attal répète sa proposition de supprimer la CSG, présentée comme un gain pouvant atteindre 270 euros net par an."
+     "context": "Attal annonce vouloir supprimer la CSG, avec un gain estimé jusqu'à 270 euros net par an."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : en cas de défaite à la primaire, Gabriel Attal retirera sa candidature",
+     "source": "Le Figaro",
+     "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNM1ZfWlZCc2pyMFFwcy1TZmFVeG8wUUNsOWNtWURubDJQNHJ2c2pUX0Uwcl9rZzNYckI4OHZ4cEEwVS1VMWNNM0xQOUkxR0FPSkVZNW92M3VPcE1HOTlZZ3pnOUlrWHhtQ1JBcHFXYkFyaEFKX2hGbUJBUlhZYm9MRDZmUWR5SjlnN1JwM1NlRlMzc1NIMWxmYllsRW1QWVJpbWxLV1ZZaDVQVzZnSmQ0WFZ4WTc1Nl9EaGcxbUlucDlYNWRxc3dJYVJMM3MxLTdLVjh5aWpZYjRWdVhyMkc0ZUxn?oc=5",
+     "date": "2026-11-17",
+     "context": "Engagement annoncé de retirer sa candidature en cas de défaite à la primaire de la droite et du centre."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027: Gabriel Attal, Bruno Retailleau et David Lisnard “d’accord” pour une primaire “fin janvier”",
+     "source": "BFM",
+     "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxOd2JkbGdZTnB5SlVXN1VrTWU2Wkxlam5IeExKQnp1emlMcXVFYThrbTlUVWlvT0E1UjY5VlBRb0x4X3l1Rkh4cENwcGw5enVOVlpCNGtlTzFRcG1tWnhPSXM3ODF1Uy1mREM3MEtSX3J1TkpSbWlTUmVnMnl2Wm5Md2x5MDVVa25HNkhZaTJNcU5TSV9FWC1qRW91cmdSM0JFdEtxeUZCbUYzV0VsQlRKMklZWlE1cGVNYnZHSjRRaTNWOFBIRE5QQ2hfNnN2TmtIdmlrcTVkakh2aFdvU3h4UjlHMW0yVHNoRFRQSnlPUlhNQ0NaTHFvMFpGaER6RzVRYjF6M082Tmt6OURHRFV1RkRTQkNLa3BZdUE?oc=5",
+     "date": "2026-11-17",
+     "context": "Accord de principe avec Bruno Retailleau et David Lisnard sur le principe d'une primaire en fin janvier."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : Gabriel Attal, David Lisnard et Bruno Retailleau travaillent à une éventuelle primaire de la droite et du centre en janvier",
+     "source": "CNews",
+     "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQTXl1QW9qSkkzQ2Q0Y1R1eDIyMEMtcHVudlpxNTRoYkhKNHNleVY5MVc2bXB0NnloNTVValEteGg0T3M2aTMycGswYnRQTnFwUUMwOTdwOWw0cXYxSFRGcFBPUEZEY2dHVk9Tb2staldwa0d0WVVGSXZXY0pYYUs3eEdHWDBtQ3JTdldmWnhyWkt6VzJDRm5PYzRXYktZSlpzR2JPSDNoc2twTk9ORUlhWG9zeEFRSk9hMmfSAb8BQVVfeXFMUEZlcENYQzBrUloyY01uQ3hZNUlRdnhpVi1EVHFISHZmZE44SWNPRlJaMzhBN25UWGFtajJBWEo1b1NueENrQVc5RzNqVW9pYzR3bUVKTmhDb0NXVGcwTDRhd3F5Wmhmd0gwQjZwNHIzWlQ3Y3BuY3hWYnhUR2paRWN0VWpKT2hYakJPWU5Ta0VFdnVBSm5yeDhhTlpxUnh3ZDJrR0JyWWxYdWJtY0oxQTJsLWd3SUJFVEtfc1dSQmM?oc=5",
+     "date": "2026-11-17",
+     "context": "Information sur un travail commun avec Lisnard et Retailleau en vue d'une primaire en janvier."
+    },
+    {
+     "type": "article",
+     "title": "Gabriel Attal veut aider les Français à devenir propriétaires avec une \"banque publique du logement\": comment ça marcherait?",
+     "source": "RMC",
+     "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxObVA4ajVuSFR3QjJfTEQtdkFzbWlYRWtaZXNnZ2MzODVnUDBaMmJINnB6R3EydkdiVExvdTlHNGFlOG5yaUtVOFhqdXdqdWhuaTBLVnFKM1Z4SncyTWt6UGpERUdueEZNNXdXb0gxSGdra2NBUjdOR09qNGw3NnRiU1VkQk1ROHlpTzdiLUh0NGEwaENIcjZzU0xSZHE0ZmxWQlU0UHpQeEVYM2VZX3RNR3BCOTlWaGhGZFR1QzR0ejVBZ3ZWMHB4UjdfOTRHeUJ6bG9DM0daUl9WYWRycHNvanQ4Y0tLeDJQaE9ZdzFrX1BsUktKRzRpdldkakJxMDlSSDJrMG9xdFVoX2pkVzF3eg?oc=5",
+     "date": "2026-11-17",
+     "context": "Annonce d'une « banque publique du logement » destinée à faciliter l'accès à la propriété."
     }
    ],
-   "volume": 66
+   "volume": 63
   },
   "retailleau": {
    "negative": [
     {
      "type": "video",
-     "title": "Attal, Philippe, Retailleau et Lisnard n'existent pas ou peu médiatiquement... - C Ce Soir",
-     "source": "C Ce Soir - France Télévisions",
-     "url": "https://www.youtube.com/watch?v=MOzSecR7gQg",
-     "youtube_id": "MOzSecR7gQg",
-     "published": "il y a 6 j",
-     "views": 38112,
-     "context": "Critique sur la faible visibilité médiatique de Retailleau et d'autres candidats de la droite."
+     "title": "Mélenchon répond à Retailleau… Marine Le Pen éclate de rire",
+     "source": "Les Moutons Rebelles",
+     "url": "https://www.youtube.com/watch?v=u96tuzpOzm8",
+     "youtube_id": "u96tuzpOzm8",
+     "published": "il y a 1 j",
+     "views": 865226,
+     "context": "Réplique de Jean-Luc Mélenchon relayée en vidéo, accompagnée de la réaction moqueuse de Marine Le Pen."
     },
     {
      "type": "video",
-     "title": "Teddy Riner devant Gabriel Attal et Bruno Retailleau dans les sondages",
-     "source": "Rudy Actu",
-     "url": "https://www.youtube.com/watch?v=y0MHA0rYhjY",
-     "youtube_id": "y0MHA0rYhjY",
-     "published": "il y a 2 j",
-     "views": 29502,
-     "context": "Sondage plaçant Teddy Riner devant Gabriel Attal et Bruno Retailleau."
+     "title": "Mélenchon détruit Retailleau et Lepen en direct, séquence légendaire",
+     "source": "Éthique et tac",
+     "url": "https://www.youtube.com/watch?v=a8gzdphfI9c",
+     "youtube_id": "a8gzdphfI9c",
+     "published": "il y a 21 h",
+     "views": 246286,
+     "context": "Vidéo virale présentant Jean-Luc Mélenchon comme l'emportant face à Bruno Retailleau et Marine Le Pen."
     },
     {
      "type": "video",
-     "title": "Retailleau se fait ridiculiser par Mélenchon !",
-     "source": "Ersilia Soudais",
-     "url": "https://www.youtube.com/watch?v=-_iDW0hk74M",
-     "youtube_id": "-_iDW0hk74M",
-     "published": "il y a 15 h",
-     "views": 17051,
-     "context": "Vidéo présentant Retailleau comme ridiculisé par Jean-Luc Mélenchon lors d'un débat."
-    },
-    {
-     "type": "article",
-     "title": "\"Bruno Retailleau a été ministre d'Emmanuel Macron et je pense que les Français veulent tourner la page du macronisme\", déclare Jordan Bardella",
-     "source": "BFM",
-     "url": "https://news.google.com/rss/articles/CBMixwJBVV95cUxNdC14eGxsUW5RR2JlaVQ1Sk5rV0tRTWxNcl9SbjJmYjNhVjNCRkstZmtRVU1ZV0hwa0k0Sm9UeE5VN28xWUYwdnJlRFNRR2Qwb1BSeFVWOHNtYlNVV0czNjBIbHVueEpTR0V0c2UwOXdaV1ctRFVyejN0eXRzMjgwU3RHTDk4SWpiSl9GQTZieXdXM25xZkJkaUZHaTBzNkZxbVdpUmx1OElnUEJ5bEZPcVo2VHlYVDdfZ2swaHRFRWdReWs2RDNocnI3d1dtX3JfYmxPeVdMWnRISWdWYVUzdDRhRWlSa1ZRNjdFODBXblQzU1FrRFdFWXNZYThBX2RBaDBBRWdvbHM2T0NUekpsQVJGSDg2NjlSei0zYTVEOTdVY1RVY1hDbzB2S05XaXdMajN4V2ZySkFOdHFQUS1vbzRCOGM3LTg?oc=5",
-     "date": "2026-11-10",
-     "context": "Jordan Bardella rappelle qu'il fut ministre de Macron et affirme que les Français veulent tourner la page du macronisme."
-    },
-    {
-     "type": "article",
-     "title": "Présidentielle 2027: Bruno Retailleau n'a \"pas de prêt bancaire\" pour financer sa campagne et accuse Matignon",
-     "source": "BFM",
-     "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxOQ3l5OWFzbWJGeFBUY2kzWmFfejJuN1h5WE42Rk1vMF8xTU1BWm9QNWNWZzlIdHRiVmhERWk1NlYzd0pQdVdPZE9BQ205RlFOTUQ2RDRZWVdqcUtlenljb1BzNDhJQ0t1bXFnc3BFeTE0Znc5eVl6N0hLTHBTaTQtS0twSjNJVUVRWlYtcVYwQzJHaGdYaUNvMDVUVWk5UVdGNkstOWhlbk9PTUw3Snk5TWRRdDhRRlJqQmhLdkJnZE5TRk1FWnZiN1JmeVlNTlNBQV9sSUI2a0wyUGNkYVNrUDhHdEhJZENLTzBhZzdHU2NHZ1BRT2tBMGpHSHhKdUE1S092T2JtYy1XM1k?oc=5",
-     "date": "2026-11-13",
-     "context": "Il affirme ne pas avoir de prêt bancaire pour financer sa campagne et accuse Matignon."
-    },
-    {
-     "type": "article",
-     "title": "Bruno Retailleau, le candidat des Républicains à la présidentielle, n'a \"pas de prêt bancaire\" et accuse le gouvernement",
-     "source": "franceinfo",
-     "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOVWRrSXN0aDVuV1RaX0Rrb3c5NW50SnhsNENnMkNWb0x5b1hHd3hjRXp1X0lKZFhLTm5zQS1vd2VWd3RURERwcEdTSDhnUGZtV2p5Z0xmdkduUDlsdzNvdV96ME5RMVNiRE1obFotd2FJdEdIdHlvWTAwRlFxbGx0TGJJbHBUbElVb21Nek45cDNYZThJSXQza3FGaGtCOVVTNEtnT3ZMWGZyR3VIS2ZSTlpwQmo1dVFhVWVVM0RBTTZFWW9fMFNuM0R1Z2MwV3lDWFp6UXBHQWdVX3BpWk5mSGdtSDQtQWxaT1l6aHJnV0xEdUVEQ2lPYQ?oc=5",
-     "date": "2026-11-13",
-     "context": "Il affirme ne pas avoir de prêt bancaire et accuse le gouvernement."
-    },
-    {
-     "type": "video",
-     "title": "On vérifie : Bruno Retailleau et la part des dépenses régaliennes",
-     "source": "Isoloir2027",
-     "url": "https://www.youtube.com/watch?v=TKIA5hCSRto",
-     "youtube_id": "TKIA5hCSRto",
-     "published": "il y a 5 j",
-     "views": 153,
-     "context": "Vérification de ses affirmations sur la part des dépenses régaliennes dans le budget de l'État."
-    },
-    {
-     "type": "article",
-     "title": "\"Une curieuse vision de la démocratie\": Nicolas Sarkozy se dit contre l'interdiction de LFI suggérée par Bruno Retailleau",
-     "source": "BFM",
-     "url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxQTTJMQ3ZidEFkLXN1bEJ1cVFnbkVTSTRaZHF4cHprS2lOdTYzXzUzSFFsMXZZQ2lnaTJmbmRITWdrTExEV0FZZ013Z05Gd3RDc05hTzR1UTZKVXcySUUwcG5PNEQ1TF8zZTlrUHRnMVk1Y2hicTBqdHEwd3ROdnZ5SWRGR2QxWUZZcnFCS0NvWm9PUjB6SjNGZlpWUmVxQ1ozU0ktN2lva0pCNEVTT20ybWdlUjhhWDVEUDNZdVZydUpFWWRQbHM0dDM2c0lRcGI2UEhtU09oVzRRRXI5T25kZ1lEU0ctbzB1d012NWp4SEFOa0JMMGMtYVkxTFh0UGhYMXplMEFMQVZEbzZFZGZYM2tiMTBJZGZZS2EwWEJUb1hRQQ?oc=5",
-     "date": "2026-11-13",
-     "context": "Nicolas Sarkozy critique sa suggestion d'interdire LFI, qualifiée de « curieuse vision de la démocratie »."
-    }
-   ],
-   "positive": [
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "🇫🇷 FLASH | Bruno Retailleau attaque Jean-Luc Mélenchon sur son train de vie en plein débat… « Ne me mettez pas en cause sur le plan personnel, parce que j'ai la réponse ! » Sour",
-     "source": "@impact_media_france",
-     "url": "https://www.tiktok.com/@impact_media_france/video/7708890241444138272",
-     "tiktok_id": "7708890241444138272",
-     "views": 202497,
-     "likes": 3208,
-     "date": "2026-11-16",
-     "context": "Son attaque contre Jean-Luc Mélenchon sur son train de vie pendant le débat, très relayée."
-    },
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "Des enseignants refusent de consacrer dix minutes au 11 novembre. Dix minutes pour expliquer à nos enfants pourquoi la France rend hommage à ceux qui sont morts pour elle. Comment peut-on en arriver l",
-     "source": "@brunoretailleauoff",
-     "url": "https://www.tiktok.com/@brunoretailleauoff/video/7706632976867642657",
-     "tiktok_id": "7706632976867642657",
-     "views": 113937,
-     "likes": 5364,
-     "date": "2026-11-10",
-     "context": "Prise de position sur les enseignants refusant de consacrer dix minutes au 11 Novembre."
-    },
-    {
-     "type": "post",
-     "platform": "instagram",
-     "title": "Ce n’est pas la propriété qui est du vol, c’est de squatter qui est du vol.",
-     "source": "@bruno_retailleau",
-     "url": "https://www.instagram.com/p/Df0RV5PNvR_/",
-     "instagram_code": "Df0RV5PNvR_",
-     "instagram_kind": "reel",
-     "views": 91162,
-     "likes": 0,
-     "date": "2026-11-16",
-     "context": "Extrait du débat présidentiel sur l'expulsion des squatteurs."
-    },
-    {
-     "type": "video",
-     "title": "🚨 Bruno Retailleau face à David Guiraud (LCI) et sur BFMTV : clash sur l'immigration et LFI",
-     "source": "Charlotte",
-     "url": "https://www.youtube.com/watch?v=mV4n85ssf4k",
-     "youtube_id": "mV4n85ssf4k",
-     "published": "il y a 5 j",
-     "views": 1873,
-     "context": "Confrontation médiatique avec le député LFI David Guiraud sur l'immigration, relayée sur LCI et BFMTV."
-    },
-    {
-     "type": "article",
-     "title": "Bruno Retailleau propose une primaire de la droite et du centre les 31 janvier et 7 février",
-     "source": "France 24",
-     "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQYkUxRzctd3ZPWjFYRDRoWW5jT3h4cmp6SlozMER3TmRuU0lTVzZLUnpwVFdjenE1R1p0ZWpTUWRyM0R5d19Pb29WcW1PQ1BoUUc5TE9ROEdUVlhnT25wcDVkcUIyYVVIazQ2dml4NkY0QVRjN0tzOVBfQ3FyN2tkdGNyZzc0N3dxbGZNWjBzLU5ZTTF5dmNaNlBCNlJPZlBPQzBlSm5GdTV5R1pjNFU4MjBQdHIwUEJkTlg0NFNNMXk4SjFmMElSTkJGOFhXWVJnVmJsM1lONA?oc=5",
-     "date": "2026-11-11",
-     "context": "Annonce d'une primaire de la droite et du centre fixée aux 31 janvier et 7 février."
-    },
-    {
-     "type": "article",
-     "title": "Présidentielle 2027 : Bruno Retailleau propose une primaire de la droite et du centre les 31 janvier et 7 février",
-     "source": "CNews",
-     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOQ3hWeEFZbThVOHByeE1DRnBVTHdtU3VobjRJV01OREtLci1DWnEwamhsc0c5SXF5WVNVRXdyd3JTak5ycHhUT29HRHRucVVqNEhQX0YwN0lxaU9rY3V5aFhmZWlrc2t3WlNkcXprSk5zQVE3NksyUUg4QlIzeTVpX1dseGZNZkhwNTdXSnlrYjRkc2hrcVFiVGpaNDcxRmZKRlB3LTYwZjdUV3pzSGRSbzFjM0ZnQdIBuwFBVV95cUxNSVA3N0RtcWRBN1BjUF9HRXE3Z1pFakZKZFgwVjI4RVplMGVmMVlVczNNUU9HUjJ5UTJrTmtubF9QaHRSSWF2RFZUeVhja1dJNzlqRWcwTVkzdGVHSkdpUnlWblBTM2N5OUN1X2pheDliQ0pYWk9FTF82SVNBWnVscDcyMktrMldPbk1mQlAtSXJCdFNkN1pSRjJyYzdieHBleDNkR1Z6dHhEd0RtWVBOZEV3ZDZrLUhzUVh3?oc=5",
-     "date": "2026-11-11",
-     "context": "Annonce d'une primaire de la droite et du centre les 31 janvier et 7 février, relayée par CNews."
-    },
-    {
-     "type": "article",
-     "title": "Présidentielle 2027 : Bruno Retailleau propose une primaire les 31 janvier et 7 février",
-     "source": "Ouest-France",
-     "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxQNHFxeTg5cHoteU1JcEozaVI0THgzOUs1YXRVRWpYTFVQdlhVYW14V042ekZ5dWpUVTRBQ2FMLUxoZ1NRQ2lNd04temdaNjdDYlBvblh6dTk2RGdpUHdITms0U1VnUkF3Yk9BeUVXMkRGR1NsLUdCQ19lRjhuTkx6Q0dCR0c2N1ctNzhNOFFOTEduS2daWHVxbzhlMmNuc3NWc3VPSHFKTWdUdzJjVGFsTFNCQnVueTAyWVdBRDlWN1FDWW1ZazVxMnA0X2pHbHB0TVhsVTlyTWFlTk81OHI1TlFQa2JURUl0a1pSdHpGWjlILUlBVmxFRFBYNEhTVUtrWF9GRFpB?oc=5",
-     "date": "2026-11-11",
-     "context": "Annonce d'une primaire les 31 janvier et 7 février, relayée par la presse régionale."
+     "title": "Mélenchon atomise tout le monde sur LCI face à Le Pen, Attal, Glucksmann et Retailleau !",
+     "source": "Les News de Samir",
+     "url": "https://www.youtube.com/watch?v=PisSsZf-Rfk",
+     "youtube_id": "PisSsZf-Rfk",
+     "published": "il y a 1 j",
+     "views": 42536,
+     "context": "Sur LCI, Mélenchon est présenté comme dominant le débat face à Retailleau et d'autres invités."
     },
     {
      "type": "article",
@@ -1094,66 +991,150 @@
      "source": "franceinfo",
      "url": "https://news.google.com/rss/articles/CBMilwJBVV95cUxONi0xMXdpR3BJSkI0V3FrcDdsalVmSGpvRjBwTWh6dlFJdzBxdnBETDFyQS03Z3pHQ1ktdlpKMjdtYmpwUWpKa1dPU3lMNVhfYXZlb1FPTHVvNDZpVnJjbHh4aWROLXhLQlNpeFp5Nm1ELUtQaGR0U0MtdUt3bTRNSm9sT0t0MnAyeS03Z1J3aWlobk5ZdUZKVnVQbFQ4Y3owNm40ZjF3VkNrc1FNbkRxd25XcVNJVU16Qk9YYjdMbVIzTmFYR0dOcV9SNzk1djJTWEpLVm5IX0o3V3RraE5PVjZzX0R4NEZrTGxQd3YzVVBOcHY4YlB1VDhYeWNmeTZINWtsYkd0TXhyMndLTm56Z3BwbUZTTGs?oc=5",
      "date": "2026-11-12",
-     "context": "Annonce d'un objectif chiffré de réduction de 300 000 postes dans la fonction publique grâce à l'IA."
+     "context": "Chiffre de 300 000 postes économisés dans la fonction publique, critiqué."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : Bruno Retailleau, en s’attaquant au droit du sol, durcit son programme sur l’immigration",
+     "source": "Le Monde.fr",
+     "url": "https://news.google.com/rss/articles/CBMijgJBVV95cUxNdjVCc0s0ejMzTUExSzBCMmJidHJYQlNHUUFpS0dpWV91MkNGUG9mVG4tSk1QYU1XU0xsb2JiMk9rNWxzU1JrcXZDYlZEUjZIS1ptb01yck0xaGk0MEt0MnRGMjBqcGk2U00zYXJ1OE9PazkyN2Fici1CMTZTNEFYWWlkbVJWVzFOVUV3dWFCRkVPQm9wVC1oN1c5eUNxZlJrNHd4RF9wNVRSSE5WTEY5Ym80Rzk3YjNnVXI1UFFORU5FUXE2MV8wVVFzNkVNRkNwN0ZHMzZXLUJWbXRkMnh6ejJWZ00tbTdlWjVPSnVpZU1zaDRIN1VBWVlfMjhNRU82NG9KcmtwSHRLOFZSclE?oc=5",
+     "date": "2026-11-13",
+     "context": "Prise de position controversée sur le droit du sol, sujet très clivant."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027: Bruno Retailleau n'a \"pas de prêt bancaire\" pour financer sa campagne et accuse Matignon",
+     "source": "BFM",
+     "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxOQ3l5OWFzbWJGeFBUY2kzWmFfejJuN1h5WE42Rk1vMF8xTU1BWm9QNWNWZzlIdHRiVmhERWk1NlYzd0pQdVdPZE9BQ205RlFOTUQ2RDRZWVdqcUtlenljb1BzNDhJQ0t1bXFnc3BFeTE0Znc5eVl6N0hLTHBTaTQtS0twSjNJVUVRWlYtcVYwQzJHaGdYaUNvMDVUVWk5UVdGNkstOWhlbk9PTUw3Snk5TWRRdDhRRlJqQmhLdkJnZE5TRk1FWnZiN1JmeVlNTlNBQV9sSUI2a0wyUGNkYVNrUDhHdEhJZENLTzBhZzdHU2NHZ1BRT2tBMGpHSHhKdUE1S092T2JtYy1XM1k?oc=5",
+     "date": "2026-11-13",
+     "context": "Il affirme ne pas avoir de prêt bancaire et accuse Matignon, ce qui crée une polémique."
+    },
+    {
+     "type": "video",
+     "title": "Le mépris de classe ordinaire de Bruno Retailleau #actualités #politique  #humour #pourtoi",
+     "source": "Margot Demeurisse",
+     "url": "https://www.youtube.com/watch?v=M0eS6PZR8sY",
+     "youtube_id": "M0eS6PZR8sY",
+     "published": "il y a 20 h",
+     "views": 35705,
+     "context": "Vidéo virale critiquant Bruno Retailleau pour un supposé mépris de classe."
+    },
+    {
+     "type": "video",
+     "title": "Retailleau se fait ridiculiser par Mélenchon !",
+     "source": "Ersilia Soudais",
+     "url": "https://www.youtube.com/watch?v=-_iDW0hk74M",
+     "youtube_id": "-_iDW0hk74M",
+     "published": "il y a 1 j",
+     "views": 29663,
+     "context": "Vidéo virale présentant Bruno Retailleau comme ridiculisé lors d'un échange avec Jean-Luc Mélenchon."
     }
    ],
-   "volume": 58
+   "positive": [
+    {
+     "type": "video",
+     "title": "Présidentielle : Bruno Retailleau veut accélérer l'organisation d'une primaire",
+     "source": "RTL  ",
+     "url": "https://www.youtube.com/watch?v=6ID89rnTTTY",
+     "youtube_id": "6ID89rnTTTY",
+     "published": "il y a 6 j",
+     "views": 12365,
+     "context": "Retailleau souhaite accélérer l'organisation d'une primaire pour la présidentielle, selon RTL."
+    },
+    {
+     "type": "video",
+     "title": "Présidentielle : David Lisnard, Gabriel Attal et Bruno Retailleau s’accordent sur une primaire 🩵✨",
+     "source": "FARAH RK",
+     "url": "https://www.youtube.com/watch?v=E3h_sN-XHOk",
+     "youtube_id": "E3h_sN-XHOk",
+     "published": "il y a 13 h",
+     "views": 2753,
+     "context": "Vidéo relayée annonçant l'accord sur une primaire impliquant Bruno Retailleau."
+    },
+    {
+     "type": "video",
+     "title": "Bruno Retailleau confirme une primaire la plus ouverte possible : est-ce la bonne stratégie ?",
+     "source": "Sud Radio",
+     "url": "https://www.youtube.com/watch?v=PugBgZgclUE",
+     "youtube_id": "PugBgZgclUE",
+     "published": "il y a 1 h",
+     "views": 133,
+     "context": "Retailleau affirme vouloir une primaire la plus ouverte possible, position relayée par Sud Radio."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle: Bruno Retailleau propose une primaire les 31 janvier et 7 février",
+     "source": "LCP-Assemblée nationale",
+     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNcnBIUzNaY0dxY2JkX3ppWXgyNG4tcWMtQklQSG1oLTVjOGVDay1WMXEtdjd2Z0ZhUlphczdpX1R6ZUdPOEdOSFl2MXlZZVFZRzNPd0RNamY4SkZVX3RvMzFLTkZucVZSalpJVnpsR00yc2dZQ3J0RW5xeV9sLWF5UlBvUmZmcTlrcVpaRERDR1VZc0FTTmhsYm5UOXQ2ZHlQTnpDUFpvMGN2LUxmU0ZrSjhMOA?oc=5",
+     "date": "2026-11-12",
+     "context": "Proposition d'un calendrier de primaire à droite et au centre les 31 janvier et 7 février."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : Bruno Retailleau, en déplacement en Loire-Atlantique, très à l’aise devant 250 personnes à Sautron",
+     "source": "Ouest-France",
+     "url": "https://news.google.com/rss/articles/CBMisAJBVV95cUxNNVg5THpTWkFxejQ5Wk81bFZpMUw0VkFfNXNhMlF6Zk16UXZGT1FZS2p2SktiVW15ZWZtN2dYelo2UWdmSkdYZl9rb182MDA0SG1zZWRubVhaM0NPbGhVT1hvRjlhX3hDQjJJSi1wcGxyUTJOaGhIeWZyaDhLOUdMcFpBR3pGM29KSlc4UnlfbEFHS3loSFhfQXNyTE5PVEp5bXJGZWlvSHF3djVIYWpFdmROdzQwVGxtcTJTOTM0d1Q1aEtNbThLTWx5SmJfbkNKQnd4T3J6cUtPMmdLcmp5Si1RT3ZlV245RVgtMU1ZZHBqaHlRLUcyMHBzZUdscWNIX3ZRdk82dHYwcVpIUDl3V2p2a0lqTnJtTUdkUXVGelRPdUtCaldfaVpOaWZLYmE4?oc=5",
+     "date": "2026-11-13",
+     "context": "Déplacement en Loire-Atlantique devant 250 personnes, présenté comme une prestation à l'aise."
+    },
+    {
+     "type": "article",
+     "title": "\"Vous êtes un David Copperfield\" : Bruno Retailleau raille Jean-Luc Mélenchon sur la réforme des retraites",
+     "source": "TF1 Info",
+     "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNTUMwbTJ5aUJWbWd1bk5Ocm1qdWFrZS1FNFI5a0xTRmpEVjJxTVE3Q1NuSWUzR1l6XzdMai1hc185ODVWVENKX2JOd0FuRjRfYWktMm8xMjJENXBnUndiNng3cDBwVUNCZUZLNFowcUZ6V25hSnlPaU5BNWtvRjZLYVBZcHZzOGxleC1FcFJHNmJPam5jaDdKd3dDYWJ6TmotWUlBTTdXclZXbVBSdlJSRXBmaFRSNFA0clBHUjZuTlkzZmVHX0xYTF9BN3BoaThVRkdzTk90cXpsazlkZWJYdE9YTFBsWjdwWFV3RnhXMVdDOGRT?oc=5",
+     "date": "2026-11-16",
+     "context": "Réplique moquant Jean-Luc Mélenchon sur la réforme des retraites, relayée largement."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027: Marc Fesneau plaide pour une primaire large de Bruno Retailleau à Raphaël Glucksmann",
+     "source": "LCP-Assemblée nationale",
+     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOZnRSOWVDNUczQXJFeUhpdWZvQ205b294QVFqaUFCWDM3ZEk0VWRBSlBNR3BZWFBQeHBJZ1g0anZrX1RhbEdZRS0zMHlTWEEweFlodWZTN1BPdW1TQVR2c1pBOXFIS3hkb1YxMEgtcjN1SVRTbVJ3Tnl6MmFfTVlZV2IyeW9OZ00xZUdmRW9VRmdDdnRMRlk4YzBNaVh6MlNCMldQYVVpTlB5NmNYcFVJag?oc=5",
+     "date": "2026-11-16",
+     "context": "Marc Fesneau plaide pour une primaire large incluant Bruno Retailleau, signe de soutien."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027: Gabriel Attal, Bruno Retailleau et David Lisnard “d’accord” pour une primaire “fin janvier”",
+     "source": "BFM",
+     "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxOd2JkbGdZTnB5SlVXN1VrTWU2Wkxlam5IeExKQnp1emlMcXVFYThrbTlUVWlvT0E1UjY5VlBRb0x4X3l1Rkh4cENwcGw5enVOVlpCNGtlTzFRcG1tWnhPSXM3ODF1Uy1mREM3MEtSX3J1TkpSbWlTUmVnMnl2Wm5Md2x5MDVVa25HNkhZaTJNcU5TSV9FWC1qRW91cmdSM0JFdEtxeUZCbUYzV0VsQlRKMklZWlE1cGVNYnZHSjRRaTNWOFBIRE5QQ2hfNnN2TmtIdmlrcTVkakh2aFdvU3h4UjlHMW0yVHNoRFRQSnlPUlhNQ0NaTHFvMFpGaER6RzVRYjF6M082Tmt6OURHRFV1RkRTQkNLa3BZdUE?oc=5",
+     "date": "2026-11-17",
+     "context": "Accord annoncé avec Gabriel Attal et David Lisnard sur le principe d'une primaire de la droite et du centre fin janvier."
+    }
+   ],
+   "volume": 57
   },
   "riner": {
    "negative": [
-    {
-     "type": "video",
-     "title": "Teddy Riner n’aurait pas pu faire un point presse plus court pour son premier déplacement",
-     "source": "LeHuffPost",
-     "url": "https://www.youtube.com/watch?v=mRyPYgtYCG8",
-     "youtube_id": "mRyPYgtYCG8",
-     "published": "il y a 3 j",
-     "views": 249700,
-     "context": "Son premier point presse de déplacement est moqué pour sa brièveté."
-    },
     {
      "type": "video",
      "title": "ÉNORME BOURDE de Teddy Riner, Zidane MORT DE RIRE, Thuram tacle Teddy, Pascal Praud détruit",
      "source": "LQDP et LQDP TV",
      "url": "https://www.youtube.com/watch?v=uReRb3zvR7s",
      "youtube_id": "uReRb3zvR7s",
-     "published": "il y a 1 j",
-     "views": 233753,
-     "context": "Contenu viral centré sur une gaffe attribuée à Teddy Riner, relayé avec des réactions moqueuses."
+     "published": "il y a 2 j",
+     "views": 251471,
+     "context": "Vidéo virale moquant une « bourde » de Teddy Riner, avec réactions de personnalités et de journalistes."
     },
     {
      "type": "video",
-     "title": "2027 Presidential Election: The scandals that could sink Teddy Riner's campaign",
-     "source": "BFMTV",
-     "url": "https://www.youtube.com/watch?v=BPboEPhcyMI",
-     "youtube_id": "BPboEPhcyMI",
+     "title": "Teddy Riner et les PIRES candidats de la présidentielle | BANGER 💥 (Yérim Sar)",
+     "source": "Journal l'Humanité",
+     "url": "https://www.youtube.com/watch?v=4bzdVKDDhcY",
+     "youtube_id": "4bzdVKDDhcY",
      "published": "il y a 4 j",
-     "views": 164472,
-     "context": "Reportage sur les polémiques et scandales susceptibles de fragiliser sa campagne."
+     "views": 138847,
+     "context": "Vidéo critique de L'Humanité qui classe Teddy Riner parmi les « pires » candidats de la présidentielle."
     },
     {
      "type": "video",
-     "platform": "tiktok",
-     "title": "La journaliste était clairement là dans l’unique but de l’anéantir #pourtoiii #fypviralシ #teddyriner #programme #2027",
-     "source": "@westlezzz",
-     "url": "https://www.tiktok.com/@westlezzz/video/7708381892705291552",
-     "tiktok_id": "7708381892705291552",
-     "views": 112724,
-     "likes": 13798,
-     "date": "2026-11-15",
-     "context": "Interview jugée hostile par les internautes, très partagée."
-    },
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "Présidentielle 2027: ces affaires qui pourraient plomber la campagne de Teddy Riner #justice #politique #balkany #riner #teddyriner #fisc #présidentielle2027",
-     "source": "@bfmtv",
-     "url": "https://www.tiktok.com/@bfmtv/video/7707315747483159831",
-     "tiktok_id": "7707315747483159831",
-     "views": 100676,
-     "likes": 6009,
-     "date": "2026-11-12",
-     "context": "BFMTV revient sur les affaires qui pourraient peser sur sa campagne."
+     "title": "Teddy Riner : la suite du naufrage - Stream du 16/11/2026",
+     "source": "ClemovitchReplay",
+     "url": "https://www.youtube.com/watch?v=8dVw_TKv064",
+     "youtube_id": "8dVw_TKv064",
+     "published": "il y a 1 j",
+     "views": 68843,
+     "context": "Vidéo virale critique intitulée « la suite du naufrage »."
     },
     {
      "type": "video",
@@ -1162,10 +1143,50 @@
      "source": "LeHuffPost",
      "url": "https://www.dailymotion.com/video/xbwavzi",
      "dailymotion_id": "xbwavzi",
-     "views": 48245,
+     "views": 48512,
      "date": "2026-11-13",
-     "context": "Critique ironique de son premier point presse de campagne, jugé trop long."
+     "context": "Critique relayée sur la brièveté de son point presse lors de son premier déplacement de candidat."
     },
+    {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "Présidentielle : Pour sa première sortie, Teddy Riner déçoit en n'accordant qu’une minute à la presse, sans répondre à la moindre question sur sa candidature - Regardez",
+     "source": "Jeanmarcmorandini.com",
+     "url": "https://www.dailymotion.com/video/xbwaku6",
+     "dailymotion_id": "xbwaku6",
+     "views": 16651,
+     "date": "2026-11-13",
+     "context": "Lors de sa première sortie, il n'a accordé qu'une minute à la presse sans répondre aux questions sur sa candidature."
+    },
+    {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "Accusé d'être télécommandé par Emmanuel Macron, Teddy Riner répond sèchement : \"Personne ne joue aux marionnettes avec moi. La déclaration du Président, c'est le baiser de la mort...\"",
+     "source": "Jeanmarcmorandini.com",
+     "url": "https://www.dailymotion.com/video/xbwmrve",
+     "dailymotion_id": "xbwmrve",
+     "views": 16062,
+     "date": "2026-11-14",
+     "context": "Accusé d'être télécommandé par Emmanuel Macron, il répond sèchement, ce qui alimente la polémique."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : comment Emmanuel Macron a adoubé la candidature de Teddy Riner",
+     "source": "Le Monde.fr",
+     "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPc0g2Y29jZTFLX0NYT2Q5Mk1FUTl6dHM2ODNrOG9uSktqU2lBRUhkbV9YS2RiQ1daYVIwVllGRkhCNndCbFd1MUdNaC1aVDhZRVhCMEFqN3lDY1RsT0ZsdG1pZDJHVzh5NHVhdWtFb2hCZmcxd2hsOW8zblZkMEdVcmhQQndwSzlockNJQk5EVG9ZRkpGYlhsdmJwM2xuNVc4ZnotdWwtcUlhYWtfVDl3LVA2elJPX1VDSVhFdjZxS21SMWRSWTN2TXpNZ1BIRi0zdlZsc2g2ajg3YkVFaWYwUWVnMk9BQkt5ZGc?oc=5",
+     "date": "2026-11-11",
+     "context": "Le soutien d'Emmanuel Macron à sa candidature alimente l'accusation de proximité avec l'exécutif."
+    },
+    {
+     "type": "article",
+     "title": "A peine candidat, Teddy Riner rattrapé par le fisc",
+     "source": "20 Minutes",
+     "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOdFl1eXI3NEZlV1M1R3RjdENLaG1LS2pXcm1KM3VmWjd0N3BZdkpaNzM4ZDZRUzR0SVE3Vl9VbktRdG1sNnpxU0tHZFp2SklLZzhfektXcFZwbnVCQXFVa29mSzd4M2gzTGFrem1KXy1jRzhRck9iSGNXbVlkN3ZZZ0owRXA3VmlVbVllUGZwOTFwc29KOU9adUtXYmpaU1pWb2VncGprakhlVUdEbVdFQ1pR?oc=5",
+     "date": "2026-11-11",
+     "context": "Révélation d'un contrôle ou d'un litige avec le fisc peu après sa candidature."
+    }
+   ],
+   "positive": [
     {
      "type": "video",
      "platform": "dailymotion",
@@ -1173,74 +1194,9 @@
      "source": "LeHuffPost",
      "url": "https://www.dailymotion.com/video/xbwmr6u",
      "dailymotion_id": "xbwmr6u",
-     "views": 42500,
+     "views": 42708,
      "date": "2026-11-14",
-     "context": "Analyse suggérant que l'engouement au salon tenait à sa notoriété de judoka plutôt qu'à son projet politique."
-    },
-    {
-     "type": "article",
-     "title": "Teddy Riner candidat : « Opération téléguidée » par l’Elysée, ou « révélateur d’une crise politique profonde » ?",
-     "source": "Public Sénat",
-     "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPM1JDWGtMTE5mUE5hbThJUDlhclZjT2wtSXk0SmFuOUhWa2otQ3R2bEZJSFFPUVlOOVdTZS1VNVVVVXNaMzdoaW9jV0VsblNla0h6OUQ0ZlRYRnJ2UXBZdVlqb19oSEpRcmlfczctdDZ1c3lMYUw5bldQT243eFMzRktHTnJfcWRsR3NxQmQ0NExUU3dzeEVhSGtIRzkxUDJYQUN0UjhjTTZuMTZzZkNTZUI0bXA0TWNMakUySHBhTnZLZzBBb2dsMThRRmR4ekNJcmVXUW5WXzFKczVKUUE?oc=5",
-     "date": "2026-11-10",
-     "context": "Accusations d'opération téléguidée par l'Élysée, relayées dans le débat public."
-    }
-   ],
-   "positive": [
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "Premier déplacement de campagne pour Teddy Riner avec une visite dans un hôpital à Saint-Denis.",
-     "source": "@brutofficiel",
-     "url": "https://www.tiktok.com/@brutofficiel/video/7707640511770692897",
-     "tiktok_id": "7707640511770692897",
-     "views": 1301529,
-     "likes": 114938,
-     "date": "2026-11-13",
-     "context": "Premier déplacement de campagne, dans un hôpital de Saint-Denis, 1,3 million de vues."
-    },
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "🟥🔴🟥 TEDDY RINER : 《Je ne veux pas entendre Made in Outre-mer, on est tous français...》 🟥Au Salon du Made In France à Porte de Versailles, le champion guadel",
-     "source": "@blacknewspage2",
-     "url": "https://www.tiktok.com/@blacknewspage2/video/7708159947829267745",
-     "tiktok_id": "7708159947829267745",
-     "views": 1023523,
-     "likes": 52045,
-     "date": "2026-11-14",
-     "context": "« On est tous Français » : sa réplique sur les Outre-mer, plus d'un million de vues."
-    },
-    {
-     "type": "video",
-     "title": "Teddy Riner recadre un journaliste : \"Il va falloir arrêter de me couper la parole\"",
-     "source": "franceinfo",
-     "url": "https://www.youtube.com/watch?v=Dj16Rm8LzRM",
-     "youtube_id": "Dj16Rm8LzRM",
-     "published": "il y a 2 j",
-     "views": 165876,
-     "context": "Il recadre un journaliste en lui demandant de ne plus lui couper la parole, séquence remarquée."
-    },
-    {
-     "type": "video",
-     "platform": "dailymotion",
-     "title": "Personne n’ose s’attaquer à Teddy Riner, pas même ses concurrents",
-     "source": "LeHuffPost",
-     "url": "https://www.dailymotion.com/video/xbvhiyy",
-     "dailymotion_id": "xbvhiyy",
-     "views": 61396,
-     "date": "2026-11-10",
-     "context": "Selon le titre, ses concurrents évitent de le critiquer, ce qui peut être lu comme un signe de force."
-    },
-    {
-     "type": "video",
-     "title": "RED LINE - Teddy Riner, the champion shaking up the campaign",
-     "source": "BFMTV",
-     "url": "https://www.youtube.com/watch?v=n4IAWoWww0Q",
-     "youtube_id": "n4IAWoWww0Q",
-     "published": "il y a 2 j",
-     "views": 31056,
-     "context": "Un reportage en anglais présente sa candidature comme un élément qui bouscule la campagne."
+     "context": "Forte affluence et engouement autour de sa présence au salon du Made in France."
     },
     {
      "type": "video",
@@ -1249,75 +1205,63 @@
      "source": "L'Équipe",
      "url": "https://www.dailymotion.com/video/xbwm5qa",
      "dailymotion_id": "xbwm5qa",
-     "views": 16824,
+     "views": 17143,
      "date": "2026-11-14",
-     "context": "Premier bain de foule depuis l'annonce de sa candidature, présenté comme un moment remarqué de sa campagne."
+     "context": "Premier bain de foule depuis l'annonce de sa candidature, remarqué par la presse sportive."
     },
     {
      "type": "article",
-     "title": "Présidentielle 2027: 22% des électeurs seraient \"prêts\" à voter pour Teddy Riner selon un sondage",
-     "source": "BFM",
-     "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxNTGFERjVOZkc2Y3BXa09CdHdXS1hiRzNwQkprRHRJTjU4WmxYN2YxWmJtWEtWTXJGai1DcnFidnBKbDJKYksyMloxYTd1d2VyUHA2YmhWRmZwVWdCUTctODNVMFpObjU5RjhJUXZIbmRKV3p6UG50WDE5ZVN2WTBZdzdnZjRTTHR4Ulozb29yamI3aW5Jb19OMjBoNUJGd0VSeDNoYnY2ODZFV3UyN0JfN3Jfbm5Fb0xZSk9xaHB3SFZJY3FTLTB6MlRicnBUcDlQQkVvczA5bkx6RVZSM0pMcTQ5c3hzYll2NHJGcEdycEZvT25iYTlPeU1hbGVmTnpw?oc=5",
-     "date": "2026-11-10",
-     "context": "Un sondage indique que 22% des électeurs se disent prêts à voter pour lui."
+     "title": "Présidentielle 2027 : « Je ne suis pas un macroniste », rejette Teddy Riner, qui qualifie les félicitations d’Emmanuel Macron de « baiser empoisonné »",
+     "source": "Le Monde.fr",
+     "url": "https://news.google.com/rss/articles/CBMitAJBVV95cUxNTG1BTTdveXBfdFZucV95WGpwbFR4R3U5SWE4ZHIwUV90ZnVwdUFWa252VEYxbGt1LWxDZm14NjdIS0R3Yk9BVUV6Nzd0dmlldkl3VGk3NF9sazBKbWVialVzU2QteXhVNmlxdGZRb2w2MjBuZDhGWm5WaTRRSFZYMzR5bVFScHpWdXo3ME1kWERra2xpT2tXV3I4b215RFNRRDAzTE83WkhTMV9udGlaSklEUjJ4LVNWV0pQT0JsSThEMWNpLWg5ZWxKdVZMQjBwR3dWeUhwWUNsdVEzay1TU01IalcyMWdqYmI5dzZhT2VYWFpHX2lvaEF4THNyZVpRNXBKRVhZWnNuSjZtTVBvM00xb0NiNkw3dUxucmp0QVA1bjFTWEFLVjk1U0tpNHptX0xnbw?oc=5",
+     "date": "2026-11-14",
+     "context": "Réplique remarquée rejetant la proximité avec Macron après les félicitations de ce dernier."
+    },
+    {
+     "type": "article",
+     "title": "Teddy Riner félicité par Emmanuel Macron : \"Un baiser empoisonné\", dit le candidat, \"je ne suis pas l'envoyé du président de la République\"",
+     "source": "TF1 Info",
+     "url": "https://news.google.com/rss/articles/CBMiqgJBVV95cUxPdDFlUE1MdEdBUm16TmNKa2pmZEs2VUNSM1UweDQzRDI2MExhRWRyazhnQWhJZ201cmRhNkxRQ2VlcGJEbEwyOS00RmZKT3doU0xTd0hveGNEM09iYWthV2Z5eHpmX01pczBpbERMRVR5cGZEUkVxRmtOdFYyOU44UnNGNzBHUnkyV19zZ2psS0hhMGttWkRWbWgyZFNSOTc0UWE0NDlkU0Y1MF9UVkF1UDd1czU0WGxIR1BrbzluOWNXSjNMRE9odmNOaEJCNnhUWmZLc3NIREJVRk5zS1JTY3BqYjMtMTl1dzU4dk9IMjhBX0duWG9WVkdJRVlQVTBib1MwT2JTWHRySTF2RjgxUFhTZDVseVcxT0xTa2ZITHdzcTBnRmFwT3NB?oc=5",
+     "date": "2026-11-14",
+     "context": "Il qualifie les félicitations de Macron de baiser empoisonné, réplique largement relayée."
     },
     {
      "type": "article",
      "title": "Partie de campagne, épisode 9 : Teddy Riner, un candidat surprise qui bouscule la semaine politique",
      "source": "TF1 Info",
      "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxQR2JKVVNaUmRMaFBVSWxzaGpmODliWGpqUnBSd0lodThrUnV0SXZ3RkhueThTejg5V2xfR3RkTzNVMUZOQW1yYnE5cHVQVnJRUXBTWGpFdzdJblhVc1FjbFVla0c0Y3VVNHVXQzFpZlRHNXVBNmw5Y2xwWi1jTElhaGtKYm9lbnJnVUN5TTJJZ3hNVG55X0hWQk5xMHNreHVkc2ltMmRLTWFZLTdGQi1XMTZONnkyY3dNQzBmU0ZhSXRWS0NYbVE1LVlnUjI4MXZTSmZYQVBXVGhuNXBtQVV0Z3puMFNMM0ZMcDZMQThOcTVndVFIWnRIaXZsNzZBZHRnMy1ZTUlfdw?oc=5",
-     "date": "2026-11-14",
-     "context": "Candidature présentée comme une surprise qui bouscule la semaine politique."
+     "date": "2026-11-15",
+     "context": "Sa candidature surprise est présentée comme une séquence qui bouscule la vie politique."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : \"Je ne suis pas un macroniste\", affirme Teddy Riner",
+     "source": "franceinfo",
+     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPU1dyRFZIRVJMUXZJTWNjemREYmxVZW5GcFVFX3dNejFibEFhd1JtOGpONm9nZUhmbmpoVE1uRlJKbXB2TmY5UnltT0UyU3l2Sk1rd1ZZMlExeXRmT3JOc01nYWlvX1E0T0FSVXJ1X3dkMWRZY1JSakhMXzZhdVVaX1dJRnhZanAtUU9mX2xoSjJvblB3cFZ6S2VSTTVWamNKOVhSTFJFSkk5d1UtREFOUXUtdUdGM0M4?oc=5",
+     "date": "2026-11-15",
+     "context": "Déclaration de rejet du macronisme largement relayée, présentée comme une prise de distance affirmée."
+    },
+    {
+     "type": "article",
+     "title": "Candidature de Teddy Riner: \"Un fait politique beaucoup plus intéressant que certains outsiders qu'on nous ressert à chaque fois \", déclare Jean-François Copé, maire LR de Meaux",
+     "source": "BFM",
+     "url": "https://news.google.com/rss/articles/CBMi8gJBVV95cUxPY0RUZGxMV29YTmZlVzNzd2R5VU5fTDd1N2xSeFdyaDJ6ME5kUWE1VkNrN0JjMmJtOGZpTkE4YXVFQUVmOEU2dUFrV3BVNHNHME5lYWE4Sm0xUjFYNTZhbFVmZ3FjSTNLS0prWTB1OGVhSUdXWXJHeHM3Wk5nU0lSZFZHTnFTOVBGVzN5azFLdnp0UTR1YWQ1TUI1UUJpQXVWRVVpVEFBQS00MGEzQjBwNEtzWXNNeC1rbFR5TXZEQndkZ0xObzRVcm9fUGR6YUt5a0ZrSXZENWM3TG53ZmdxcGk4ZF9MbjhGay1IcFpQNVVmT2FUckYwZDd2U1ZmejloOXVoMF9zZ0k5TVcxSVpyOHVKNlk4MVM1T2dkN2tUX291UDRLUktGOUZNY3Z0aWFwVmg2bHVfSlVNTG4zMWdFalNNazlDa2pZaG1OMUtUTkl6MHhJZDlKbGlUZGFTSllqWmFYMlpQVnl2WGpvaklOX2hn?oc=5",
+     "date": "2026-11-15",
+     "context": "Jean-François Copé juge sa candidature plus intéressante que celles d'autres outsiders."
+    },
+    {
+     "type": "article",
+     "title": "Teddy Riner devant Fabien Roussel selon un sondage Elabe: \"Je vais me mettre au judo\", ironise le candidat PCF à l'élection présidentielle",
+     "source": "BFM",
+     "url": "https://news.google.com/rss/articles/CBMivwJBVV95cUxNck44S3dnLUpNQXZMZ0N4RFJiYVdOVzB3djNObWhNcC1GMThwRlRpY3RtZEprR284ekttNVd5enB4RkRpNUhvVkdlX1BnaFhVVXlIM0tXQi03aFJxOHkxVW4wV0Z3NGdYaG5RUFN6U3lLTnN0SFRITlBEWWhpajRlSXhPZ3hRRi1JYkRRWjZVV0NwTzEzS01Ba0VYSnNVT1IzM0dFRllZUUtEbXNnYldLcl9PdHcwWHRhUXkzTmU3SmxoTXc1ZmFQT1hLMHNMdEdxMXpyaG85QUNTYjhMbGVTWmw3UktqU1hJdHJlZDY2OGRkQVFsSGsxMjFCUHV2TEZaOEQwWlFLdlVjQ1ZYRFV4TmhkM2NmbHJaQm5EZ29PdVNKa1pNeEo2UnpueUs1TDlpOUxabkJzQVhpVUtWZWNJ?oc=5",
+     "date": "2026-11-16",
+     "context": "Un sondage Elabe le place devant Fabien Roussel au premier tour."
     }
    ],
-   "volume": 69
+   "volume": 65
   },
   "zemmour": {
    "negative": [
-    {
-     "type": "video",
-     "title": "Le petit Zemmour - Akim Omiri, La Riposte",
-     "source": "Akim Omiri",
-     "url": "https://www.youtube.com/watch?v=kvUUah3d2IY",
-     "youtube_id": "kvUUah3d2IY",
-     "published": "il y a 2 j",
-     "views": 573090,
-     "context": "Vidéo satirique d'un militant de gauche visant Zemmour (« Le petit Zemmour »)."
-    },
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "Michel Onfray répond à Éric Zemmour sur les musulmans lors d’un échange tendu. Qui a raison ? #MichelOnfray #Zemmour #Debat",
-     "source": "@cryptdec",
-     "url": "https://www.tiktok.com/@cryptdec/video/7707119214590561558",
-     "tiktok_id": "7707119214590561558",
-     "views": 129147,
-     "likes": 6402,
-     "date": "2026-11-12",
-     "context": "Échange tendu avec Michel Onfray sur les musulmans."
-    },
-    {
-     "type": "video",
-     "title": "Candidature d'Éric Zemmour : \"Le résultat sera catastrophique pour lui\"",
-     "source": "Sud Radio",
-     "url": "https://www.youtube.com/watch?v=-0MkaSsZXR4",
-     "youtube_id": "-0MkaSsZXR4",
-     "published": "il y a 5 j",
-     "views": 43808,
-     "context": "Un commentateur prédit un résultat catastrophique pour sa candidature."
-    },
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "Zemmour sur TF1 : « le racisme n'est pas une opinion » « Si, monsieur » Quatre condamnations définitives pour provocation à la haine. Sa réponse au 20H : abolir la loi qui le condamne. Et toi, on t'a",
-     "source": "@lasterisque_media",
-     "url": "https://www.tiktok.com/@lasterisque_media/video/7706774269866413344",
-     "tiktok_id": "7706774269866413344",
-     "views": 42432,
-     "likes": 3606,
-     "date": "2026-11-11",
-     "context": "Sur TF1, rappel de ses condamnations pour provocation à la haine."
-    },
     {
      "type": "video",
      "title": "Laurent Joly : \"Eric Zemmour ment sur l'Histoire\"",
@@ -1325,285 +1269,276 @@
      "url": "https://www.youtube.com/watch?v=s756no_33OY",
      "youtube_id": "s756no_33OY",
      "published": "il y a 1 j",
-     "views": 35423,
-     "context": "Historien accusant Zemmour de mentir sur l'Histoire dans l'émission C à vous."
+     "views": 85647,
+     "context": "L'historien Laurent Joly accuse Éric Zemmour de mentir sur l'histoire sur France Télévisions."
     },
     {
-     "type": "article",
-     "title": "Présidentielle 2027 : la candidature d’Eric Zemmour pose « un problème républicain », estime le président de SOS Racisme, Dominique Sopo",
-     "source": "Le Monde.fr",
-     "url": "https://news.google.com/rss/articles/CBMipwJBVV95cUxPMl9OYnlrSEE3OXd0ZlA4UThfU2IwWWoyblB6WUQzUHpvem1CYmxaZDROT3dZVkRwMVI5d1ZWMl8tajJ4QVlKZUJpS3c4NVJNOVp6Y0FSRjBaQlY5bzc3RUs5SHVUN2FoLTh3WWEycVpHUVVIaWIzbHVVMGNIWVQzR0dtUlFlZTE2ZU5JcVhOZnp0X2xiUll2NVZRWlZwOTBwa1k2SU42aENjYTYxWjJ0Y2xFWV9XUlV1RG9kVGQ3NFdRUTlBNzhfaHhmdTdFVFVicGs5VXphVFV3eWZaeFZHd1pQVDdFcFZvU2VYaG1hUFZaOUhubGdHNjJrUFdXQTU2TENsUDk2VW0zODlVZGwzN1V0OVNpWXpoc3hTeTZwZGpXSGxXTjZB?oc=5",
-     "date": "2026-11-11",
-     "context": "Le président de SOS Racisme juge que sa candidature pose un « problème républicain »."
+     "type": "video",
+     "title": "Éric Zemmour s’effondre officiellement dans les sondages",
+     "source": "Rudy Actu",
+     "url": "https://www.youtube.com/watch?v=3Yvi0bmetTg",
+     "youtube_id": "3Yvi0bmetTg",
+     "published": "il y a 3 j",
+     "views": 23882,
+     "context": "Article ou vidéo annonçant un recul de Zemmour dans les sondages."
     },
     {
-     "type": "article",
-     "title": "Le président de SOS Racisme estime que la candidature d'Éric Zemmour, condamné pour provocation à la haine raciale, pose un \"problème républicain\"",
+     "type": "video",
+     "title": "Présidentielle 2027 : la candidature d'Eric Zemmour est \"un problème républicain\"",
+     "source": "RTL  ",
+     "url": "https://www.youtube.com/watch?v=m7GDtEEFPOM",
+     "youtube_id": "m7GDtEEFPOM",
+     "published": "il y a 7 j",
+     "views": 15553,
+     "context": "Critique publique qualifiant sa candidature de « problème républicain »."
+    },
+    {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "Jérémie Patrier-Leitus (Horizons): \"Jamais Édouard Philippe ne participera à une primaire. Encore moins à une primaire avec Éric Zemmour\"",
      "source": "BFM",
-     "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxNc0JxZzV2c3dJU0dIdVcwOUV1ejlzSHVKSGs5NHRpcF8wTjNoSDhJeWdLZHJqU2J5ZnFEaU9sY0tRZEJhRWxSWUdCbjB5VGpWaXQ1WDRHV3BDejBBR3VUaEZIZXVaZGExN3QxUy01OWkwN1JPNEZfUFdkbGJhVjBTbzRuY21QQkgtTWtxZFRZYkw3VmNDRWNCM2M0eG53V3FaekxzZXJVOW1tQXMwUEFHOGlxQk1QWGh6aHQxTmdlaEo4NDlXYk1aY2FCYS1FaXVPNl81RWJIQTBKY2QtU3c5ckczUFZ4X2pBZFg1NVpoa1V0b1ZzX01iM0I0OUF6cEtleXZwY2J1NXZiVHRMd1hoMV9DckFSV0pSUHJWYWFHamh6c1NtbUc5bHNTOERTdVB1bllROElzaVVoLTd4RnB6ZU1R?oc=5",
-     "date": "2026-11-11",
-     "context": "Le président de SOS Racisme juge que sa candidature, après sa condamnation pour provocation à la haine raciale, pose un « problème républicain »."
+     "url": "https://www.dailymotion.com/video/xbxp4xy",
+     "dailymotion_id": "xbxp4xy",
+     "views": 2373,
+     "date": "2026-11-18",
+     "context": "Un responsable d'Horizons exclut toute primaire commune avec Zemmour, en écartant aussi Édouard Philippe."
     },
     {
      "type": "article",
-     "title": "Éric Zemmour, le candidat rétréci",
-     "source": "Le Point",
-     "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPU2tiVW1VanBhYUZGWHdEaGoyajFtTExJT1d4VUJMUHk4b28xYnMxUm8wNU1aS0VIVTJFRkpzSUFTSFJ4MTBFdlNJLVMwYlpqa0QtS0lDV2JsZGtUbURIV3o3aEx6azNrR3JWVy0yVHE5UjF1VGlRWlZ3MWxxTktEYjJiQzJQLVF5Uy1lUnhjN0s2TDBscXRWSmh3ZTdhS2tWMTFjREJhZ3dta0tZaklINVd3NFVQcFpTYlhyWFlSMmRCOE5PaVB5VXdXMDE4eDJzSjVFd18xTUM4ODZSQ3dvZkNQWHVWSmV1ZUdpZk1R?oc=5",
+     "title": "VÉRIF' - Les États-Unis et la Suisse expulsent-ils les étrangers au chômage depuis plus de six mois, comme l'affirme Éric Zemmour",
+     "source": "TF1 Info",
+     "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxOdGFqT3hXbGE0aFNlUk8tM1l3NHI2bGx1VVBLYlFHUW8wZXM0dFNMYUNfVUVLS0lIR3VwOXd0ZDVNWXpiN0R6RkRqOGpoNml5Mk80LUFxOHlFZEd6bjY1UGlTY1g0T1QzMDBzNWJYRnQwNVpkbnBIMmloUTN0MEdSMFpDdlVUM25oWFNYR2VQNmc5V1oyTlRDWVlhUkNVVHdyTFNvWmRHcUVleWU1dmdUQi1jZ0JBNURlOFNyY0dCYllKY0t3dkI5R2JXa3k3bnJJM2RoM0c3cGQxZmM4RVFQc0pSaE0wUWl4OG90R0lnRkc0TEVoa085LURnTnNRczJDVW15akln?oc=5",
      "date": "2026-11-11",
-     "context": "Analyse critique du Point sur sa candidature, qualifiée de « candidat rétréci »."
+     "context": "Une vérification journalistique examine une affirmation d'Éric Zemmour sur l'expulsion des étrangers au chômage et la juge contestable."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : la candidature d’Éric Zemmour pose un « problème républicain », juge le président de SOS Racisme",
+     "source": "Le Parisien",
+     "url": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxOS2F1VUZuc2U1RDRfdEFIdFFUVWZ2SERpemZCUHpKaGhseVBpX3ZHOWlQZGtvNjlBdmlSZ0ZTYjBwM2hka2YtbGhlRDk2OTBXOE5qNXJ1OHlPaXZlZFdnWFVjYUR6by1zLWJacTU3dTRrN0FwQkoxdS0tTWxQOEZNOU83WWxpWnVNOXMzbEd1ZWNyTVpjYmY0WnEwSnh1dVhERWxBcmdYaF9yZXZ2STRRZ0dKdXZTU0NrNEFLUTRpY0gzajVkRWV4Z3lWalBQRHMweUFZb0VpdjZTZGFXLXY3T0ttTWROaGM5bU9kbW5qclZBYXdkT2hwRndXSjZRT05YTUFZZXA5aU0tN1FqY1AxWFdGUFREdmROMDVVdko3MktrcDV1QVdObExvWQ?oc=5",
+     "date": "2026-11-11",
+     "context": "Le président de SOS Racisme juge que la candidature d'Éric Zemmour pose un problème républicain."
+    },
+    {
+     "type": "article",
+     "title": "Guillaume Tabard : « Zemmour à la recherche d’une nouvelle utilité politique »",
+     "source": "Le Figaro",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNM0ExckhiemJEZzFrdWd4blRaRm9UNWtIRFY3R2N0NDBVNDRiTUxidkFMUG42ejlUX1lQcmpZQ2xtd09VM1BGaEpHdUdIREY3ZzAtOVc1aERtdUloTXJ0SlpuX3VmSEVodVo4MjZWWTlYTlFuQURxZlcwWlhfVkJ3UDBKUU4ybUF2azdIVkZTaklYT3g3OE9PRWtJQTlxUkZTaHkzTWpieXVjb1loeUpVWGpIdmdVZw?oc=5",
+     "date": "2026-11-11",
+     "context": "Analyse critique sur la recherche d'une nouvelle utilité politique du candidat."
+    },
+    {
+     "type": "video",
+     "title": "ZEMMOUR voulait déjà CASSER du MADE IN FRANCE à 8 ans",
+     "source": "Kevin Razy",
+     "url": "https://www.youtube.com/watch?v=FKnPcMn1LiQ",
+     "youtube_id": "FKnPcMn1LiQ",
+     "published": "il y a 1 j",
+     "views": 13266,
+     "context": "Vidéo mettant en cause les positions passées d'Éric Zemmour sur le Made in France."
     }
    ],
    "positive": [
     {
      "type": "video",
-     "platform": "tiktok",
-     "title": "La Bourgogne incarne la France éternelle : la beauté, l'art de vivre, le raffinement, l'élégance. C'est ça, la France qui rayonne dans le monde entier. Je me bats pour qu'on garde une France français",
-     "source": "@zemmour_eric",
-     "url": "https://www.tiktok.com/@zemmour_eric/video/7708067967510023456",
-     "tiktok_id": "7708067967510023456",
-     "views": 284078,
-     "likes": 12274,
-     "date": "2026-11-14",
-     "context": "Vidéo de campagne en Bourgogne, forte audience sur son compte officiel."
-    },
-    {
-     "type": "video",
-     "title": "Zemmour face aux voix d'internet",
+     "title": "Eric Zemmour sur France Info : Mes propositions pour le service public",
      "source": "Éric Zemmour",
-     "url": "https://www.youtube.com/watch?v=ntOjSe5GkSo",
-     "youtube_id": "ntOjSe5GkSo",
-     "published": "Diffusé il y a 6 j",
-     "views": 248557,
-     "context": "Vidéo publiée sur sa chaîne où il répond aux « voix d'internet », format à forte audience."
+     "url": "https://www.youtube.com/watch?v=hOdtRPtU8iU",
+     "youtube_id": "hOdtRPtU8iU",
+     "published": "il y a 5 j",
+     "views": 120386,
+     "context": "Présentation par Éric Zemmour de ses propositions pour le service public, publiée sur sa chaîne."
     },
     {
      "type": "video",
-     "title": "Présidentielle 2027 : Éric Zemmour annonce sa candidature dans le 20H de TF1｜TF1 INFO",
-     "source": "TF1 INFO",
-     "url": "https://www.youtube.com/watch?v=_5dsp05CBW8",
-     "youtube_id": "_5dsp05CBW8",
-     "published": "il y a 6 j",
-     "views": 229075,
-     "context": "Annonce de sa candidature au journal de 20h de TF1."
+     "title": "École, industrie, civilisation : Eric Zemmour face aux Entrepreneurs et Dirigeants Chrétiens.",
+     "source": "Éric Zemmour",
+     "url": "https://www.youtube.com/watch?v=hz2ckr8mXGE",
+     "youtube_id": "hz2ckr8mXGE",
+     "published": "il y a 1 j",
+     "views": 48643,
+     "context": "Intervention d'Éric Zemmour devant des entrepreneurs et dirigeants chrétiens, publiée sur sa chaîne."
     },
     {
      "type": "video",
-     "title": "Ce geste de Louise de Montangon envers Éric Zemmour a fait pleurer tout le monde ! 😭",
-     "source": "Saga Social 🟡",
-     "url": "https://www.youtube.com/watch?v=Te_88fVnb0k",
-     "youtube_id": "Te_88fVnb0k",
-     "published": "il y a 6 j",
-     "views": 225618,
-     "context": "Un geste de Louise de Montangon envers lui, émouvant, circule largement sur les réseaux."
+     "title": "Présidentielle : Eric Zemmour officialise sa candidature",
+     "source": "RMC",
+     "url": "https://www.youtube.com/watch?v=bDyAaKWapZ0",
+     "youtube_id": "bDyAaKWapZ0",
+     "published": "il y a 5 j",
+     "views": 19623,
+     "context": "Annonce officielle de sa candidature à la présidentielle de 2027."
     },
     {
      "type": "article",
-     "title": "\"Je me présente pour conserver une France française\" : Éric Zemmour officialise sa candidature à la présidentielle 2027",
-     "source": "RTL",
-     "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQa3RZTEVwWGxUTzBPR09iX041NkVKYTl0TklPSG0yYXNrVnhvejhRTWRBYkdydHVpejZGa0FndjY0RzVwYWRoM2p2ak9zWmd2aU92aDdjNW5aREVaeUZEU09aWWE0eUdXWkRadGZ2YUZfUzhXRGd2bU1OX3docWVfTTdfWm5Hdmljb2E0b3NQSWhjNjBhQTVQSXFJMk0xSk1MQmwtRklwRmhqbjM2WEVFbi1ScWQweVhPMjJsbGRiY1kwN2NCMHJkbmJlNDdiVkJTMElib040akpNWUltZGVqZlFjX3BCM19tS2xnbllMTGRnZw?oc=5",
-     "date": "2026-11-10",
-     "context": "Officialisation de sa candidature à la présidentielle 2027 annoncée sur RTL."
+     "title": "Éric Zemmour annonce sa candidature à la présidentielle pour « conserver une France française",
+     "source": "L'Orient-Le Jour",
+     "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQMjBTenV2U0VJMTluV3puR1lNSnlfYVlXQmRsMmk2Rk9VWUhyZ2llWlZodnpzUUM2MkF4Z0NSNnZXdDNNeFQwcWV3R1NhMHlybUxlemhabWMwM3RUb2Q1MnFFZ1hLVEFrblY2TEtuX0ZsQWVHaEVNcjVHSnJsNm1ONFJUSFFMbFpqUV9UblREUWk0WmFlQWNLWUc4QU5fYl9uZXdlTFNENTA3bEJQQWtaWW1SZ2JlekJNcGlkUXBsVXp6RnFoRHJNU2RwTWtuRVEzLWlnYVJsOHZOUQ?oc=5",
+     "date": "2026-11-11",
+     "context": "Éric Zemmour annonce officiellement sa candidature à l'élection présidentielle de 2027."
     },
     {
      "type": "article",
-     "title": "\"Je suis bien candidat\": Éric Zemmour confirme se présenter à l'élection présidentielle",
+     "title": "Candidat à la présidentielle, Éric Zemmour lancera sa campagne au Zénith de Toulon le 21 novembre",
      "source": "BFM",
-     "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQNThkYjR4dGFwY1l2d1FuaE50N01yVU81YnoxS19NRHRpYXN4cC1KSXBPYlp3SjVfNnhfUUc4Y3J6QVJFNHBnUV85UDVycHVQWTJDWDFFSmJnOFI3QWNITUYxa1pTOU0wOUNWYTBBTWlIQzZJU2pLTFFVZUNUU3lyWUFaUVB3YjZHa05mYVZyRUJWRGtNWFBXX1Z1aTRDeWVMVEVFVF9seHFlYzYtZ2lzTVNGRldsbk9iMXJSS2tsTFhCZEtCeVdNYkp3Qi1iaWZ1X3ptM3pfR0hvUkstMXhadVplTW93b1V4dHdUMGtvdVZ0WkVX?oc=5",
-     "date": "2026-11-10",
-     "context": "Confirmation publique de sa candidature à l'élection présidentielle."
+     "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxQR3pHaWtScW8wcFBKNkFiRURKTlduNU9YUmRGSzUyYnlvVkN6VTFZX1A4YlpPQzU1a21VVGlCaV9NVThUN19wc3lGdXVPZk5Wd3ZrS1lTUlpYWlF2U3hBU3E1dU1VeDZJcjRtalRtbENuNzdyVUNXUklQZkxZbGRYZVVBa2tHNE1YNmdsUDM3MFMzaTYwOWZKN3QxMDM1dlNQczRXZS12UWpBMWw0d0VKVGxQdFRGQ1Bha2VveXRxdlJHOVBmRExLMXRJX0NiWUlzNHYyZXJhQUk3eE1sSHhPMnNBOG9ONjlPdkJuYloxaDU1aXlYa3VLWk0yTWp1QnZRWkdod0N4MWs3dw?oc=5",
+     "date": "2026-11-11",
+     "context": "Éric Zemmour annonce le lancement de sa campagne par un grand meeting au Zénith de Toulon le 21 novembre."
     },
     {
      "type": "article",
-     "title": "Présidentielle 2027 : Éric Zemmour officialise sa candidature au 20H de TF1",
-     "source": "TF1 Info",
-     "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQSjBoSWQ4ZjNTZ1g0RWN0cXlETTlPZXEwOW5JbG05OHgxQzNBTmhpWHl3bW8yVWZuRHY3dVdPbnhCZFlXWU5oVVRxS0VyOWR4MUNiVGdldjZaZUk1UEcyYTRGcDZyZThWdmdfTmF2LWtlOXNIS1gxOGxiTS1QTEQ0U0xNSzhiYmMyT3UzWU9Rb1RVeUF5RGxjNl9sZmV2bzVHbDNHVE41SFIzSVBLNE5xY0w2YlJZZFhiVE5ESUNaUERDNm5YbmlUMGp5LXJzS21rX1RV?oc=5",
-     "date": "2026-11-10",
-     "context": "Annonce de sa candidature lors du journal de 20h de TF1."
+     "title": "Éric Zemmour dans une primaire de la droite? \"Pourquoi pas\", déclare François-Xavier Bellamy, député européen LR",
+     "source": "BFM",
+     "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxQcGN0VXdJRzhJNFBVU0FEYTI0NXBYd2pFbVNPQXduV0NCNnB3S0Y2VS1DM25YOWpZckVBbTQ0SUVQb3p2LWVzUjBGUktMMlA5RjBlM1RYRUhXSHYxVURKQTdLTFVqdTJKR3RxRmdnTFB6alJSS3hmSlZtcVkyWkhmQVE4b0ROYlh0ZGRub0NPaUZ2MlFxTVRZTkxLaE1HMVgzWTR5Mm9XcmNXRURsSXc1ZzRBMVZ0ajhZZDViNS05VUprYlpQMjFCNUVic2I2ekxrNjR2TEhGWjM4cWppWUdqLXU3RDV5QnVLUTZCSEN2eFVVOUZsQTVLV2ViRzBYel9EQVJFdmFMS0xkcjZScm0ycWxSbw?oc=5",
+     "date": "2026-11-12",
+     "context": "Le député européen LR François-Xavier Bellamy se dit ouvert à la participation d'Éric Zemmour à une primaire de la droite."
     },
     {
-     "type": "video",
-     "title": "Éric Zemmour : Je suis candidat à l'élection présidentielle de 2027. Notre avenir sera français !",
-     "source": "Éric Zemmour",
-     "url": "https://www.youtube.com/watch?v=6qDUG34PYWo",
-     "youtube_id": "6qDUG34PYWo",
-     "published": "il y a 6 j",
-     "views": 215150,
-     "context": "Vidéo publiée sur ses comptes annonçant sa candidature à la présidentielle de 2027."
+     "type": "article",
+     "title": "Présidentielle 2027 : Éric Zemmour officialise sa candidature et dévoile ses premières propositions",
+     "source": "Média Web",
+     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPWFBjQ1dKaEVnVEhpY0tzYkhQUkxDZG94cVp4YlFldXVTd1dqZ1VTdDRLbWNVY1NLSGUzbWR1cmtnUVNRY2xkamxDZHNLTU53SHZmcWRLNUF0V1M5LURsSWV0WHVOb2E1LXNELWlwY0hXYm1QSzNjSmo2d2RkdlRCTUNNdjhsekd3YldDaGJZeTlJQ25sbHdwNmwtRWlXNUp6bW53Sk9DbG1GNllmVVhfZENZMmZkeWJMZUpJ?oc=5",
+     "date": "2026-11-12",
+     "context": "Officialisation de la candidature d'Éric Zemmour à la présidentielle 2027 et présentation de premières propositions."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : Éric Zemmour peut-il participer à la primaire de la droite ? « Pourquoi pas », dit François-Xavier Bellamy",
+     "source": "Le Parisien",
+     "url": "https://news.google.com/rss/articles/CBMitwJBVV95cUxOYXFDNXRtR3gtWTlwS0lKR3ExcUhZaWtwOGZVSFc4ajhiUy13RTBxQXc2VVhIUlRWMTFuVlNoQm9ZeTUwaWlHRzBvZDNfZklfMG5kak1vTHNUN1p3U3l3aU1wWGU5cDJacVU5MlJRNEFKUTNjYTFFcWdUWGJlRXo2SEJRaDI1M05IeC1nRjdKZUFlcTlLdXYyRlRvUjJzUkxGb25PVDl3WkRRU0NKdG1VbkxxN3ZfZUgtNVZrN0h1T0tuV2xSc2UwRi1Ubm8zLTA0SDc0VDlsQTdSbXJ5SnUwMVE1TEhlZ1doTUNtRVRWZG1jTnFmWXZXa1J6MFhUbzFmN1VPMEoxdzRPOThOVUQzUDVnUkQ1NzNUSklhTTFTcF85WkJUeTNjNk9TZy1zWkFlT1lHV0tWNA?oc=5",
+     "date": "2026-11-13",
+     "context": "François-Xavier Bellamy répond « pourquoi pas » à une participation d'Éric Zemmour à la primaire de la droite."
     }
    ],
-   "volume": 60
+   "volume": 57
   },
   "bardella": {
    "negative": [
     {
      "type": "video",
-     "title": "Bardella, the Sorcerer's Apprentice - Akim Omiri's column in \"The Counterattack\"",
-     "source": "Radio Nova et Akim Omiri",
-     "url": "https://www.youtube.com/watch?v=vSqC3O_1i8U",
-     "youtube_id": "vSqC3O_1i8U",
-     "published": "il y a 6 j",
-     "views": 644275,
-     "context": "Chronique critique d'Akim Omiri sur Radio Nova associant le candidat à un apprenti sorcier."
-    },
-    {
-     "type": "video",
-     "title": "Bardella, the Sorcerer's Apprentice - Akim Omiri's segment on \"La riposte\"",
-     "source": "Radio Nova et Akim Omiri",
-     "url": "https://www.youtube.com/watch?v=pJCI0Zy3Ow8",
-     "youtube_id": "pJCI0Zy3Ow8",
-     "published": "il y a 6 j",
-     "views": 170774,
-     "context": "Chronique critique d'Akim Omiri sur Radio Nova, dans l'émission « La riposte »."
-    },
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "💥 \"Une complaisance avec la Russie\" : Gros clash dans les GG entre Charles Consigny et Jordan Bardella sur la question ukrainienne.",
-     "source": "@lesgrandesgueulesrmc",
-     "url": "https://www.tiktok.com/@lesgrandesgueulesrmc/video/7708807543589457174",
-     "tiktok_id": "7708807543589457174",
-     "views": 71451,
-     "likes": 1684,
-     "date": "2026-11-16",
-     "context": "Clash avec Charles Consigny aux Grandes Gueules, accusé de « complaisance avec la Russie»."
-    },
-    {
-     "type": "video",
-     "title": "Bardella the new Chirac? De Villepin isn't buying it!",
-     "source": "Ataguiiz®️",
-     "url": "https://www.youtube.com/watch?v=15P_blyfv0U",
-     "youtube_id": "15P_blyfv0U",
-     "published": "il y a 21 h",
-     "views": 62943,
-     "context": "Dominique de Villepin critique publiquement l'idée d'un Bardella « nouveau Chirac »."
+     "title": "Bardella TACLE Teddy Riner",
+     "source": "France Eternelle",
+     "url": "https://www.youtube.com/watch?v=H6NC4VPhY-0",
+     "youtube_id": "H6NC4VPhY-0",
+     "published": "il y a 2 j",
+     "views": 58091,
+     "context": "Critique de Teddy Riner, candidat potentiel, relayée par un média partisan."
     },
     {
      "type": "video",
      "platform": "dailymotion",
-     "title": "Jordan Bardella porte plainte contre Mediapart pour \"faux et usage de faux\"",
-     "source": "Brut",
-     "url": "https://www.dailymotion.com/video/xbw2xdq",
-     "dailymotion_id": "xbw2xdq",
-     "views": 654,
+     "title": "Quand Anne-Cécile Mailfert, choquée que l'on fasse allusion à son compagnon sur France Info, faisait la même chose avec Carolina de Bourbon en raison de sa liaison avec... Jordan Bardella",
+     "source": "Jeanmarcmorandini.com",
+     "url": "https://www.dailymotion.com/video/xbxnoc6",
+     "dailymotion_id": "xbxnoc6",
+     "views": 10718,
+     "date": "2026-11-18",
+     "context": "Un site people revient sur la liaison de Bardella avec Carolina de Bourbon, dans une polémique impliquant Anne-Cécile Mailfert."
+    },
+    {
+     "type": "article",
+     "title": "Jordan Bardella propose de retirer les titres de séjour des étrangers sans emploi depuis plus de 6 mois",
+     "source": "Yahoo Finance France",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQbW54NkNYRW1lVmhPWElIeVlkZVN6SUtGaGJvejRicVR1MjFFYzVnWW1Ra1o2QzJ2bm1HRXZWLVloV1EtTnhqelpQdk1SSVNsdGVxYXkyWmlUUUtaOURic1VSZ1Z3Y09pM2dsZEVtZU45UGZLR1RfSFN3aVlYbTVfU3pYb2hja19fcWxKRU1wdXRKdW9uVVoyUA?oc=5",
+     "date": "2026-11-11",
+     "context": "Sa proposition de retirer les titres de séjour des étrangers sans emploi depuis plus de 6 mois suscite des critiques."
+    },
+    {
+     "type": "article",
+     "title": "Ecrits antisémites : Jordan Bardella porte plainte pour faux et usage de faux",
+     "source": "Le Monde.fr",
+     "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNR1FGUWpmdnVJX3pmOFVlMTRIQWVYTEVtVTRtXzRUMGRjYnE2aWFDTk50NWtKV1QxRHBZRGRYUEM1dndQODdzTXNIUnFFeVVOcllJYmliQTlKRGVmd3V2MlNuX0RmSFRnNmhqejBqeXlCVVFJNmdjVHE4OGpBNktBN3hodVJCQVNrY2RpRE1IMTdKekVmNUtHZHgtcE11QW9aMGc3SDJuSmVmZzY1VlF1QVpNQUttR2RVcG01MDVNTlcyTE1CNXlIMm9EbndId3pfODFWem0xaEdRSEd5SEhWNA?oc=5",
      "date": "2026-11-12",
-     "context": "Bardella porte plainte contre Mediapart pour « faux et usage de faux », dans une affaire médiatique controversée."
+     "context": "Bardella porte plainte pour faux et usage de faux après des accusations d'écrits antisémites révélées par Mediapart."
     },
     {
      "type": "article",
-     "title": "Jordan Bardella revient sur les propos antisémites qui lui sont attribués par Mediapart",
-     "source": "BFM",
-     "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOY25hVGxxUmtlaG94YlA1eTRRRkdPbUtBbWN2em0tajU1NjVZbEEwQzRBSV9wM0VkNExrajYyZUNFNHIzM2pnYll2T0xNUGZtMlJUNnR1anI5aGJIZ2diMzFJLTlBY3VTMnlMS3RmeWY5dkU0TG5lUTZZYUg4TlJFX0N5QjlyRFVzSFE1WlRwZkRCTktwb2JPUHRiZk9Ea2pHR2FjNlNJZjhYTUhCMWlvWms3bzloc1pVZGhMNjVqWjFtYkFDX3dxOGY2RkdoWWNMaWZJaTVlUGFncmVHdUpXOFM5cmIyQVVJd1I2QVhMRXlhaWIwUnhYbXJtRURIVDlO?oc=5",
-     "date": "2026-11-10",
-     "context": "Il revient sur les propos antisémites qui lui sont attribués par Mediapart."
+     "title": "Le président du Rassemblement national, Jordan Bardella, porte plainte \"pour faux et usage de faux\" après les accusations d'antisémitisme portées par Mediapart",
+     "source": "franceinfo",
+     "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxQUDh5X09TZFRDZ3JLcC1jdWJzNXpMWGZGeFVFOV9LMFJjd2V2ejc4eVNSc0NTd1IxWXNra0FCeFNzYzlSWVczcno4Z29IaUNydktmdWdkN3oxNS1rM2xQTVFqRGhHRUVZTHNCLVJVNnJ2bEtrd2JDQnZ2U3ZSQ19fenpOZGJ3WkxoWWlRYWdSM1ItRXNMVDhiV25nUzB0SHRGdXdNUU01X1NvVFljR2cwSTQtWGFYVXB5ZjJQcWFnOWRET1Z5MjhVSnlRU2xVWjFlbV9QTi1vVHVwblRFZGdYT1VqeE8xZGhKb3U4WXY3SWhGeGl5WkFMNzcyUFFMRzlVUHlVOExaUHVHSHFvVVVRT1VfdF9Bc05yLUpNdDlzVHM3Nlk3akZiWjdlbDMzOUlMZGxTVm1adFZvemtKNVJkaC1R?oc=5",
+     "date": "2026-11-12",
+     "context": "Bardella porte plainte pour faux et usage de faux après les accusations d'antisémitisme portées par Mediapart."
     },
     {
      "type": "article",
-     "title": "\"Ils sont devenus fous\": Jordan Bardella dénonce le refus de certains syndicats enseignants de rendre hommage au 11-Novembre dans les écoles",
-     "source": "BFM",
-     "url": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxNeS03akdUdlpYWHhURmhxa1g5Z0VnZ2dOazBnSjZwV0N2Z2IwWC1WRGNBMFRZT0VEQ1FlYWRScmZ0VTIwVnpZd212ejdoMkQ5SVpXU1RRVllwZWJENEpWcWhYRi1kVlYyWGNvY2FmSERPLUR2OFVUNVBrY2xYSlJuSFloR2w2ZUpVMlJVZGNMQTRQZnZCTmNBU2trdW50bUVjb21BUGdyOXNCdTdBaW1ETzgtbzdUcVBTQl9hTVJmUHFVVHd0SmRkQXhkc0h1RnNCQ2JhWXQ4ZU5HVUdTTVhsVGFSWGlJWEVuRHBsMWJIV01TTXE0SjZMbUFlaFVIU2RqUU56S19fdEF3OFp0RzhtNzRydjFMVGFkekZ0eTB3OHk3UjZyeW5ISmg3S1dnTl9pRUhCLUxCTHZ3eW1DU3FOMXhpTQ?oc=5",
-     "date": "2026-11-10",
-     "context": "Propos virulents à l'encontre de syndicats enseignants refusant l'hommage du 11-Novembre dans les écoles."
+     "title": "Accusations d'antisémitisme : Jordan Bardella a porté plainte pour faux et usage de faux",
+     "source": "France 24",
+     "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOY1JPU2ZEQkdka1BCdXA2REZ0Uzc2MUlXSWpsLXZrQWtOTDN4Y25pV1h6TjdsNS01RzhVY2szQmFnSW1aQnZpVEdxUHNobTZTWjBpMzZxbXdJZHJzUy1aUnRKTVdmaUczejJnQWgtZEFVVFVJMEdpQklrYlczUkpnTTFLSjZKNmQzZ19LVFJfeHBPNmZyNFF5MjkzbTRTUzBqR2NrYUFQVk1sa0JMWmd0Q3RiQktac294S2VkOHVCNlZZS3Nrb29kM0sxTVdzeUl5?oc=5",
+     "date": "2026-11-12",
+     "context": "Bardella porte plainte pour faux et usage de faux après des accusations d'antisémitisme."
     },
     {
      "type": "article",
-     "title": "Jordan Bardella accuse \"des dirigeants de gauche et d'extrême gauche\" de \"mettre des fatwas et des cibles sur le dos\" de responsables politiques",
+     "title": "Accusations d'antisémitisme : Jordan Bardella a porté plainte pour faux et usage de faux",
+     "source": "CNews",
+     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPZmxmbFVNQTJBMm1ldEJ1VkYzaXBMc3JvN09lcXVBN1F2VWxDalY0XzVmeU5iWURVbWNBZHlGMU0zVG45djU2eFZEdDNEeHFud2pEOUhhSDlKMUZRa2VnVzBqQjc0cGRkUm5WWkZ6bHhGdnVQUjFmWmJodElYLVdic0U3NGxFdmJzcHZWNzd4ZldRNkZIVHFQRVpSTG1qYU9RRDZ3ZVR3cm0tdFBPSDF5OXIyRVRMWUNJ0gG-AUFVX3lxTE1vdkNDODdVcEgzNlVleHEya2s1R05zZ0thZzVrYTM2VFI4Xy1Qb3BEeTNhd2tsa1RvekJJZ2QwWU84dFVXV2I3dXU1THJYdjFzdzZBQXF3LXpKQzBuazYtWWxkc3JOTjhrVWJXMHpDWk5mUDhkZVlxZlA2Z3R3b244MGtyQVAtRzZucGNjVDdPY0pqcDJXcnpKNS04amZfYldaSmoxWGdIZkdtamtpam9vWW00UEgwak93Qjhrb3c?oc=5",
+     "date": "2026-11-12",
+     "context": "Bardella porte plainte pour faux et usage de faux après des accusations d'antisémitisme."
+    },
+    {
+     "type": "article",
+     "title": "Écrits antisémites: Jordan Bardella a porté plainte pour \"faux et usage de faux\" après les révélations de Médiapart",
      "source": "BFM",
-     "url": "https://news.google.com/rss/articles/CBMisgJBVV95cUxPU0ItXzB6aFNERWFEa01YRkptaHhsMUlhTTRqUG5ELWxkMWw3REZDMDBQSEhNSGhZTUkwSkE1b3pWS0Z0ejNuX3lYeVd3N1c1d18zb19jd21oMHdPQjJWVFI4N1hTb29mdHY0NTNCMjd2REVxejVVaGY5VDlFNVpvSVJJa1E2bkkzdElUR2dJdE9lVFhsdjBXWXFkTGcwOUdlNXYzNFFnME53d1FJMmxqa3NpVkRmS3gzUG0taGE2bVg3LVpESnNsRkEtUWdydjBzd2JfVzVCMFhYT3p2WGtVRVpOS3hmU1RFeXJEVHhZY3JsRklJQ01qYjdLQzNxX25vZVVRX3VEQXF2emJNdng5bWpCWGZOUHMwLVFKRHdEdkMzS05XYmpFZ3lKZkpqRGlpUlE?oc=5",
-     "date": "2026-11-10",
-     "context": "Accusation contre des dirigeants de gauche et d'extrême gauche de mettre des cibles sur le dos de responsables politiques, propos susceptibles de polémique."
+     "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPa0dxZjJSeVFaMk5kRWhFX2N1M1hybll2bEdDMVZ5eDJzbklfQlpNVGxSYmJPcGtPS2xwY0tJLXhlNVl0eXVsSTdnYzZkc3htaExtVVFnVGZ4cTJJeHcydklyVlcwOFNzVDR6QVVweE5tMmxSTUtyeDZ4djktMjVwSHNlaVQ0WWRnNWhsR1E1aUtsWkd6VFZ1R256cVpCOVp5UWxMdkNKR3dTck9la0JlWC1EcndpTzJ3cS1pOUVjYmtwWjdFVFJldWJBVHhXUXRvMlBWSkI1bHBvNWp2UGt6d0xMNmVja0xQRTd5bVhfa0Rkb3k0eXBEMkhxRk1yTUc1cThEeWx3VmFmcmtf?oc=5",
+     "date": "2026-11-12",
+     "context": "Bardella porte plainte pour faux et usage de faux après les révélations de Mediapart sur des écrits antisémites."
     }
    ],
    "positive": [
-    {
-     "type": "post",
-     "platform": "instagram",
-     "title": "🤫🎮",
-     "source": "@jordanbardella",
-     "url": "https://www.instagram.com/p/Dfz0zGNBCTJ/",
-     "instagram_code": "Dfz0zGNBCTJ",
-     "instagram_kind": "reel",
-     "views": 827495,
-     "likes": 0,
-     "date": "2026-11-16",
-     "context": "Teaser sur GTA VI, plus de 800 000 vues sur Instagram (et 500 000 sur TikTok)."
-    },
-    {
-     "type": "post",
-     "platform": "instagram",
-     "title": "Je suis pour l’uniforme à l’école ! 👔🇫🇷",
-     "source": "@jordanbardella",
-     "url": "https://www.instagram.com/p/DfwhDAQMcGc/",
-     "instagram_code": "DfwhDAQMcGc",
-     "instagram_kind": "reel",
-     "views": 402554,
-     "likes": 0,
-     "date": "2026-11-15",
-     "context": "Prise de position pour l'uniforme à l'école."
-    },
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "Jordan Bardella donne un cours de maths à un journaliste BFMTV inc0mpétent. #pourtoi #france #jordanbardella",
-     "source": "@useros1jzn5pfe",
-     "url": "https://www.tiktok.com/@useros1jzn5pfe/video/7707017158487805216",
-     "tiktok_id": "7707017158487805216",
-     "views": 275916,
-     "likes": 7910,
-     "date": "2026-11-11",
-     "context": "Échange remarqué avec un journaliste de BFMTV, très partagé."
-    },
-    {
-     "type": "video",
-     "title": "\"Tout ce qui est à droite de Mélenchon serait fasciste !\" : le ras-le-bol de Jordan Bardella",
-     "source": "RMC et Les Grandes Gueules",
-     "url": "https://www.youtube.com/watch?v=cTYjI6042go",
-     "youtube_id": "cTYjI6042go",
-     "published": "il y a 1 j",
-     "views": 132753,
-     "context": "Réplique sur la classification des droites politiques, relayée sur RMC."
-    },
     {
      "type": "video",
      "title": "Is Jordan Bardella a gamer? His answer on GTA 6! 😂🎮",
      "source": "Droite Actu Buzz",
      "url": "https://www.youtube.com/watch?v=2XsRC_6JfM4",
      "youtube_id": "2XsRC_6JfM4",
-     "published": "il y a 20 h",
-     "views": 55384,
-     "context": "Réponse sur GTA VI reprise en vidéo par une page de réseaux sociaux."
+     "published": "il y a 1 j",
+     "views": 68786,
+     "context": "Réponse humoristique sur GTA VI relayée largement sur les réseaux."
     },
     {
      "type": "video",
-     "platform": "dailymotion",
-     "title": "L'ÉDITO POLITIQUE - Jordan Bardella: l'heure du rebond",
-     "source": "BFM",
-     "url": "https://www.dailymotion.com/video/xbvdije",
-     "dailymotion_id": "xbvdije",
-     "views": 231,
-     "date": "2026-11-10",
-     "context": "Édito de BFM évoquant un « rebond » de Bardella, présenté comme une remontée dans les sondages ou l'actualité."
-    },
-    {
-     "type": "video",
-     "platform": "dailymotion",
-     "title": "Réforme des retraites du RN: \"Celui qui a acquis tous ses droits et décide de continuer à travailler (...) sera exempté de cotisations retraite et chômage\", annonce Jordan Bardella",
-     "source": "BFM",
-     "url": "https://www.dailymotion.com/video/xbxfnzi",
-     "dailymotion_id": "xbxfnzi",
-     "views": 116,
-     "date": "2026-11-17",
-     "context": "Bardella annonce une exemption de cotisations retraite et chômage pour les salariés ayant acquis leurs droits et qui continuent de travailler."
+     "title": "LIVE | Jordan Bardella is Laurence Ferrari's guest on CNEWS",
+     "source": "Jordan Bardella",
+     "url": "https://www.youtube.com/watch?v=BfykDivOYFI",
+     "youtube_id": "BfykDivOYFI",
+     "published": "Diffusé il y a 15 h",
+     "views": 51716,
+     "context": "Invité en direct de CNews, une séquence d'interview remarquée."
     },
     {
      "type": "article",
-     "title": "Jordan Bardella veut arrêter le renouvellement des titres de séjour des étrangers sans emploi depuis plus de 6 mois",
-     "source": "Le Parisien",
-     "url": "https://news.google.com/rss/articles/CBMingJBVV95cUxPXy1XX0dDNHNlNUMxMkVnNURXZFNxdnV3aDVINTF1N1U2dTlKcVQwZVdBdzRmODZqVHpoQ0FzTEJTTzh6ZUptZklFNHJ1Y3J3S1ZQRkhNUUVHSEhIQ3hHZkxtdEwyVHpUMWthT1ZydFhZVndTY2l4Ym04dWI4VkE5Sl9fRml5Xy1OUWVSQWcyeVVISmdrTGdYVFl4RHc0M1pyN0wwNVFDQldkM1l3U1FUeUtmT21rdlpLbUMzQ2xKX0luX2YxUEZWTENIMWROR3hsV05XZXdkSmJXMFZYcmJsbjVBLUNlUjdtOHBQaTlBOG9NOG5FV01BaERqWXlwaWRxVDhvTlZMY1Y4R2owNFV1eTBTVWcwQXZzVWdRaXR3?oc=5",
-     "date": "2026-11-10",
-     "context": "Annonce d'une proposition visant à arrêter le renouvellement des titres de séjour des étrangers sans emploi depuis plus de 6 mois."
+     "title": "Livret A, assurance-vie : Jordan Bardella promet un nouveau placement «beaucoup plus rémunérateur",
+     "source": "Capital.fr",
+     "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQQmpkVDZCU2VVVmVpRHdPYnB0dFcyM3VIWld4MHR5aWstSEpqZTVOZHVyWHo5VlZZOVF1dkVjaE9RT3dEMElmajVvSDdYTEZZeUtGeXRaenQyZWRVLW5HemtnTUhnR2JDMTBNZmZ3aUpIbU5JckcwODVyN3o4eFBqSFNEQmxFNWVmR0xPVGZDblNLeDRPazNqOG5HY25GVHFYZFJPWF9oaVRURkp2Z1NSNVdrSUdqZU1oU3pxV1FaNER1NGtSRWdDci11eExKZHd3YWs4?oc=5",
+     "date": "2026-11-11",
+     "context": "Annonce d'un nouveau placement d'épargne présenté comme plus rémunérateur."
+    },
+    {
+     "type": "article",
+     "title": "Ventes de livres : Jordan Bardella résiste-t-il à Jean-Luc Mélenchon en librairie ?",
+     "source": "L'Express",
+     "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNb2hRRDZieF9ENF9hQ0NIaDRSQlBVRW5uSkhXUVJiQjFsUHRfc3V0ZEp2Y01nVmY2cTZlVWtYR1dpOVFWWEpzbThwSDhJZHQwUWNUR2lNZnU1cEJKeHpJRmk1RDRqcndoakJ6Y19KVWp5V3BQR2xuNDdVcUFGVnZHeG9rWm5lNGNLUTFMTkNWakhuNHhWWE5nYVA3LTY4RG16SmtjSV9KdnJFZWVSUUdhbjJrVWk4bTVlamEwY0xObTZzSXlsXy1qZUJER2JZOHVhSVczY01DcGpQY3V2WEE?oc=5",
+     "date": "2026-11-13",
+     "context": "Ses ventes de livre sont comparées à celles de Jean-Luc Mélenchon, perçues comme un bon score en librairie."
+    },
+    {
+     "type": "article",
+     "title": "«Quelle indignation sélective !» : Bardella dénonce le traitement réservé par Anne-Cécile Mailfert à sa compagne",
+     "source": "lejdd.fr",
+     "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPMWFRMU9aNm5VUHZYTGxaSERmVU0tUXBZc1ljcDJkRjkxX0ZpRlpLUWR2elU3TzVHdGVoUUNRaHZOX0tCRVZvR1BWRG9DX3JoOHZ0X1JZa2NpVTZFUXYwLVR3WmFpNjcwU2VlNjNTUWxoa2xPMXM1cDM4R3R4UDJGWlhmSjVxU3psbF8zX29nUDBTZzZnd3I5d2RIbzBFa2c5S2otTy04VFBGN24zbUg3OUoxOUxkbjBIdExGSThfeUgyc2JxYXFPMUtGU25rSG1aMWFnNHRkMlRPdw?oc=5",
+     "date": "2026-11-17",
+     "context": "Bardella répond par une critique à Anne-Cécile Mailfert, qu'il accuse d'indignation sélective."
+    },
+    {
+     "type": "article",
+     "title": "Jordan Bardella propulsé en prime time sur CNews",
+     "source": "Toutelatele",
+     "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPNGNBMlp4dE05aHRndG1EdGxkVkhSNVA5S2hkektkY2hzSXN5OGgxdi1RMjJaNkdHYTBmYmNYYWczYkI0QlNnSEpSaFotQy1XbnhnWWRPN09ETTdOSVJ0cG5hTlNOOXktYjZ4YVhSbFlwcGZ4V3dMa1h6Q3F5b3JlVHMtT3RJUTJHNFRKSHpXQXJMYW9mTFE?oc=5",
+     "date": "2026-11-17",
+     "context": "Invitation en prime time sur CNews, une exposition médiatique marquante."
     }
    ],
-   "volume": 66
+   "volume": 65
   },
   "tondelier": {
    "negative": [
@@ -1613,29 +1548,40 @@
      "source": "BFMTV",
      "url": "https://www.youtube.com/watch?v=SyOKcPXZU40",
      "youtube_id": "SyOKcPXZU40",
-     "published": "il y a 2 j",
-     "views": 179558,
-     "context": "Sandrine Rousseau, députée Les Écologistes, demande le retrait de Marine Tondelier de la présidentielle."
-    },
-    {
-     "type": "video",
-     "title": "INCOMPRÉHENSION SUR LE PLATEAU DE BFM À LA SUITE DES PROPOS DE MARINE TONDELIER",
-     "source": "CGTVoff",
-     "url": "https://www.youtube.com/watch?v=j5v7flGPReo",
-     "youtube_id": "j5v7flGPReo",
      "published": "il y a 3 j",
-     "views": 86003,
-     "context": "Incompréhension sur le plateau de BFM après ses propos, relayée en vidéo."
+     "views": 188962,
+     "context": "Sandrine Rousseau demande publiquement le retrait de Marine Tondelier de la course présidentielle."
     },
     {
      "type": "video",
-     "title": "Teddy Riner : « J'ai fini ? »… Sandrine Rousseau choisit Mélenchon, Tondelier répond",
-     "source": "PAT · Politique À Table",
-     "url": "https://www.youtube.com/watch?v=c4e7SF1KDjg",
-     "youtube_id": "c4e7SF1KDjg",
-     "published": "il y a 1 j",
-     "views": 80750,
-     "context": "Sandrine Rousseau choisit Jean-Luc Mélenchon et Marine Tondelier lui répond, dans une séquence qui illustre la querelle interne."
+     "title": "Marine Tondelier répond àSandrine Rousseau, qui qualifie sa candidature de \"dangereuse\"｜LCI",
+     "source": "LCI",
+     "url": "https://www.youtube.com/watch?v=jJP8maCXK0E",
+     "youtube_id": "jJP8maCXK0E",
+     "published": "il y a 2 j",
+     "views": 45610,
+     "context": "Sandrine Rousseau qualifie la candidature de Marine Tondelier de « dangereuse », et celle-ci répond."
+    },
+    {
+     "type": "video",
+     "title": "Marine Tondelier veut interdire le tabac… mais légaliser le cannabis, l’héroïne et la cocaine",
+     "source": "Les Moutons Rebelles",
+     "url": "https://www.youtube.com/watch?v=J2IqRVWTi-g",
+     "youtube_id": "J2IqRVWTi-g",
+     "published": "il y a 5 j",
+     "views": 35854,
+     "context": "Une vidéo critique Marine Tondelier pour une position sur la légalisation du cannabis, de l'héroïne et de la cocaïne, en opposition à l'interdiction du tabac."
+    },
+    {
+     "type": "video",
+     "platform": "dailymotion",
+     "title": "Marine Tondelier se dit \"extrêmement sereine\" face au RN qui souhaite déposer plainte contre elle",
+     "source": "BFM",
+     "url": "https://www.dailymotion.com/video/xbw3mhm",
+     "dailymotion_id": "xbw3mhm",
+     "views": 11518,
+     "date": "2026-11-12",
+     "context": "Le RN annonce vouloir porter plainte contre elle, dans un contexte de polémique politique."
     },
     {
      "type": "video",
@@ -1644,25 +1590,9 @@
      "source": "Jeanmarcmorandini.com",
      "url": "https://www.dailymotion.com/video/xbw8sda",
      "dailymotion_id": "xbw8sda",
-     "views": 4657,
+     "views": 4660,
      "date": "2026-11-13",
-     "context": "Proposition de légalisation des drogues et d'interdiction du tabac pour les générations nées après 2014, sujet polémique."
-    },
-    {
-     "type": "article",
-     "title": "« Je ne lui donnerai pas mon parrainage » : Sandrine Rousseau étrille (encore) Marine Tondelier",
-     "source": "Le Point",
-     "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNZjNHS2lZa3FGRFZDRVJlSmZDRFlVajZTdDl2MUtHTmVPNUY3ZXItZjdDNGZ2Q3ZBVEJyNlpVeWctUkNNTGJpQ1hyMHJvTkRabWZ0NlNKZWNQNkZGX2oxR0NBVGstUFUtanVjVXBVdU5idTlkeVJZREw5RDZnZjI2NW83ODJ3R0VkcUJ1MUZhaHVMa1VnLXpwSU5tUzEySDBZem1aSlhSbEczOHdXRko1Qm5reGdSWEhTa2Jwcl9reDhVbFBtZVFqd3hCUHpTbjg5QTAwT1djeFprSEthanJidENn?oc=5",
-     "date": "2026-11-10",
-     "context": "Sandrine Rousseau annonce ne pas parrainer Marine Tondelier, nouvel épisode de critiques internes."
-    },
-    {
-     "type": "article",
-     "title": "Fractures chez les Verts : Sandrine Rousseau menace de ne pas parrainer Marine Tondelier",
-     "source": "lejdd.fr",
-     "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQQV9vX1AwSWhWR0gzNUFqcnhnY2lIcFgtVm5pWVFnN3k5Ri16VF9FdGlZZVFQSWVFaE5QTnhfZXBTS3kzdjh3bXJQcjhZRGtJZlJIa0VybnFKZjQwR0V6bTVlc18xVTcyeGtORnBNYWdrQjk5Y1FKTm9KaTNtMm5MUGNXYmlyY21UZHo5NFhlLTVtVmxVb1pQVXpUWmNkemc3LXNmR2dya0hhcXQwWEJwbjFNX3lTTkxZY1lkSWNEZFRnUQ?oc=5",
-     "date": "2026-11-11",
-     "context": "Sandrine Rousseau menace de ne pas parrainer Marine Tondelier, révélant des divisions internes chez les Écologistes."
+     "context": "Prise de position controversée sur la légalisation des drogues et l'interdiction du tabac, susceptible de susciter des critiques."
     },
     {
      "type": "article",
@@ -1670,92 +1600,35 @@
      "source": "Libération",
      "url": "https://news.google.com/rss/articles/CBMiswJBVV95cUxQS0NET3lwcUJka0Z6TVJ2dkZfS3NtTVFsY050dG9KdHdaNmNtZm1ZZW1iaUhDRWQtNTBMNGVob2duTTNqMm9fdS1rLTB6NmlPa3BXZF9XMC01WGc0UzY0OV90cWU4ZmUtUE5HQjY2UU0zM0l0czl5cnJuWjhsVzFFSzBPU25rMXdwM3BGTW40MnhtWVVvZ3F1eEpteVBZTEExRzdWSVo5bFlTV1BMQThLSW5CU1pVQXNqYk81V21DU0I4Rkd6ZnIxYmgzbnFmeUlTYV9LZmdEVFcteHdmU1hpMHBBcEJta1kzdVlOZVliTGN6TkRmbTdnZzcyYUJuOUJiR3lCOS0wU0liS2xtSW1JSU1FRjdDUnRoa0dQVUMzOHVxRDRVQnpBcWM0SEtheG5NZzVr?oc=5",
      "date": "2026-11-12",
-     "context": "Propos sur l'attentat de Trappes contestés, le RN annonce une plainte en diffamation."
+     "context": "Le RN annonce une plainte en diffamation après des propos de Tondelier sur l'attentat de Trappes."
     },
     {
-     "type": "video",
-     "title": "ROUSSEAU VS TONDELIER : ÇA PART EN VRILLE...",
-     "source": "10 Minutes l'Actu",
-     "url": "https://www.youtube.com/watch?v=XaXzTHAKj-o",
-     "youtube_id": "XaXzTHAKj-o",
-     "published": "il y a 1 j",
-     "views": 26965,
-     "context": "Une vidéo titrée sur le conflit Rousseau-Tondelier met en scène une escalade de la querelle interne."
+     "type": "article",
+     "title": "\"Pas pour les vendre au supermarché ou chez le buraliste\": Marine Tondelier plaide pour la légalisation des drogues et l'interdiction de la vente de tabac aux personnes nées après 2014",
+     "source": "BFM",
+     "url": "https://news.google.com/rss/articles/CBMi9gJBVV95cUxPc21JckZGVWNHdFNfS0JuUVJvQ1FzT082bXNRVEhhbHY2bEhOU1JoN1dzQUJJTERwRDVwTmVtdWFtaU5iWDFtck51b0IyVWZCaEdTaWwtS2x4aXhBaTZSQnctRkgzeGR4aktoV2Z2Nk8wcnFRTTBlQTdUWWtlVTdSMUs0WXJnUlVfZEo3OUNhQnlwR2wycFlYbHlYTGVSazdkdk52dWptWGtzTGNMTnE2cGs0OWFoZVc2UG91dktyby1JY2tCdDVmeXJycFpXZ0d6ZUdiS0J6QW9wRGtMMmFGT2YtdEplaEdLenhRd2dmZzZvQnV3eGRHUDNqYmNFQl9KSkpuYms1NVlNbVNybURuZzk5MkdJTWowNkFFamVwb3Fxb3RUNWpZeG4zeFpoU1FJQTFsQjdNdnc1UE9Bb3U0UTBkOWdLT2RaS0lZNXZkcTNPaW1QMVBLdXgxY0RMTFppM1NJN3UzMFVoZUo4cVc4aEFFR3JYdw?oc=5",
+     "date": "2026-11-12",
+     "context": "Sa position sur la légalisation des drogues et l'interdiction du tabac pour les personnes nées après 2014 provoque des réactions critiques."
+    },
+    {
+     "type": "article",
+     "title": "Marine Tondelier, accusée de diffamation par le RN après des propos sur le suspect de l'attentat des Yvelines, se dit \"extrêmement sereine\"",
+     "source": "BFM",
+     "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxQaFdqWWF6M2xqRlNUenlVaG1XSjc2ODlPLWNmTlZ4WVRxRFdrZXNLUFhuTnJyTFEyWWZpNXZFZnRWSnNlajMyaEd4emFoWFQ1aEVBNDZ5UjNGdFlQRXFRUFdIYVZWTy1SWXAyN0hoMlVVSTZrbnpsWlNwYm5sYzNhSWFHa001bHRKUkkxRTFUTlQ4bE5ENnlKcUU3SWVQQXc5N2xwOVNpTm1qMU5OLUlSQTNQYXVaMzlpay12SWJBZTJleHFWWEZXZEVfY1YySHpEVWRBRFR0MExNTmdyTnN2OER6TUxLQlA0X3pGdm5vbjBKdGVqUTdoTkhZb3RfejBVVmFmNU42cXcwOGtRS1oxWWY4bjFCTlJGSGhaSU9icmNhSUFHSzhXOTk4QlE5am5Da1dKY2ZMN2g?oc=5",
+     "date": "2026-11-12",
+     "context": "Le RN accuse Tondelier de diffamation après ses propos sur le suspect de l'attentat des Yvelines."
     }
    ],
    "positive": [
-    {
-     "type": "post",
-     "platform": "instagram",
-     "title": "Pengo Bossio Wangi, Samba Coulibaly, Ramatou, Ahmed... N'oubliez pas leurs noms.",
-     "source": "@marinetondelier",
-     "url": "https://www.instagram.com/p/Df0UFKmTZ_G/",
-     "instagram_code": "Df0UFKmTZ_G",
-     "instagram_kind": "reel",
-     "views": 232102,
-     "likes": 0,
-     "date": "2026-11-16",
-     "context": "Intervention du débat présidentiel, très vue sur Instagram."
-    },
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "\"Je m'occuperai d'elle plus tard\" : invitée ce matin sur LCI, Marine Tondelier, candidate des Écologistes a répondu avec fermeté à Sandrine Rousseau, qui l'a appelée ce week-end à se retirer de la cou",
-     "source": "@tf1info",
-     "url": "https://www.tiktok.com/@tf1info/video/7708757894128471298",
-     "tiktok_id": "7708757894128471298",
-     "views": 188148,
-     "likes": 6752,
-     "date": "2026-11-16",
-     "context": "Réplique remarquée sur LCI : « Je m'occuperai d'elle plus tard »."
-    },
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "Au moins 2.000 euros brut : Marine Tondelier détaille sa proposition pour le SMIC en cas de victoire à l'élection présidentielle #sinformersurktiktok #politique #france #marinetondelier",
-     "source": "@bfmtv",
-     "url": "https://www.tiktok.com/@bfmtv/video/7707410225271278870",
-     "tiktok_id": "7707410225271278870",
-     "views": 150745,
-     "likes": 4960,
-     "date": "2026-11-12",
-     "context": "Détaille sa proposition d'un SMIC à au moins 2 000 euros brut."
-    },
-    {
-     "type": "video",
-     "title": "Marine Tondelier répond àSandrine Rousseau, qui qualifie sa candidature de \"dangereuse\"｜LCI",
-     "source": "LCI",
-     "url": "https://www.youtube.com/watch?v=jJP8maCXK0E",
-     "youtube_id": "jJP8maCXK0E",
-     "published": "il y a 1 j",
-     "views": 35313,
-     "context": "Marine Tondelier répond publiquement à Sandrine Rousseau, qui qualifie sa candidature de dangereuse."
-    },
     {
      "type": "video",
      "title": "Présidentielle: \"Je suis prête à rejoindre une coalition\", déclare Marine Tondelier",
      "source": "BFMTV",
      "url": "https://www.youtube.com/watch?v=d43EEu8jFa4",
      "youtube_id": "d43EEu8jFa4",
-     "published": "il y a 4 j",
-     "views": 23508,
-     "context": "Déclaration sur sa disposition à rejoindre une coalition pour la présidentielle."
-    },
-    {
-     "type": "article",
-     "title": "Marine Tondelier au 20h de TF1 : son arrivée avec la poussette de son bébé Léon, 1 mois et demi, ne laisse pas les internautes indifférents !",
-     "source": "Gala",
-     "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxNME9wcGNNX1M2Q1lNbl9rdTRVYVZzVTJpMnNmVElEMzdWRXg4UUtJQmtSTWRMNlNXSlBSdkJJQk9xZFI5d0UxRlcya2U3bjloeFdYZTR4REVHMmo5bktqTVo4UzNJSW9SdnRXdlcySHcwLWJYTGdIUXgtRkJ5ckZnUkZ2S09zN3A1RUNUNnlZdjRpQ19RcHJGazlHbjd3ZVJ4bTJ0dlEtQndQa0hHSFZZeFdCeEVsY3RhT0RHalhyblpVcnVUWVlPQmNPM3poSHJIaXBEYjNWQVNEQUpDcnpEaTZBV180MUpIaDZtZlNCT1V3VmM5c09tOFY2UWRHVDBKOFVaaA?oc=5",
-     "date": "2026-11-10",
-     "context": "Son arrivée avec la poussette de son bébé au 20h de TF1 suscite de nombreuses réactions sur les réseaux sociaux."
-    },
-    {
-     "type": "article",
-     "title": "Présidentielle 2027 : Marine Tondelier promet l'ouverture de 2 000 centres de santé d'ici 2030 en France",
-     "source": "franceinfo",
-     "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOWERSM3NIZ0FxZTJad2tWYmxvZjZ4TUJ3UWVGUl9pbi1kbzZzTXB5VjRSY3FjZVdoN0VLMUtRb1NocUpZajlWb0htdnFoNDludjM1MzZUbXZBa1ltZ0FwS1Z6cWRrTjNCdVhYaGF3SEpvby1iQVJSQ1lqUkJJYXpmcF95UXZRa2dEb3JFcExXQlYwLXRTWEoycFl6RmdZSncyU1pBR3ZvaEZhSXdtRVNQWjVQZjlMWXAwSTlYMG1mT0pXTWM1MWh3N3ZhR0VzSDdleFRsU2dTM2FYUFoyTEUwX0U4Y1MzQVBQQXVaOHBoSUs4VGc?oc=5",
-     "date": "2026-11-12",
-     "context": "Annonce d'un programme chiffré de centres de santé pour 2030."
+     "published": "il y a 5 j",
+     "views": 23236,
+     "context": "Elle déclare être prête à rejoindre une coalition en vue de la présidentielle, annonce politique marquante."
     },
     {
      "type": "article",
@@ -1763,10 +1636,34 @@
      "source": "BFM",
      "url": "https://news.google.com/rss/articles/CBMi0AJBVV95cUxOYXBmX3pidmQ1dEd4U2tId19NNF9ZZGRPVVI3emtiTWl3Ym9WQlZ0YTBJeDFDMWp5ekIxNEsySm9uQmtxWHRUdnRxVnd6WUtLTHA4XzByc2ctcUZlbkhLYkxaaTRQT2tVWllJNGNHdUdydEkwMWdrNWNBUmxTNjlPam5oQzJkTHVGZ0E0cG9yNjhEZXY1WlRyUWhmOWJoVTU4YVhrZ3hWQ3NWNzJXSk9WMkVSWVJGR1c0UzY3TEFhNVJHM1dyaGIyaUQtY1JnOC1rM05YeDhnYVF4eXJoVHk4MHBVMnRsODBpMHBWWElaSklvSGlKR1NIUVl5a2xjOHNrT1F0ZkV6Rzc0ZU9rWm9zcnF1cjZZb0NvVXhkd3FpcThBY3NpYm9VbGYxNVl2dGRDRTgzNFE4dEoycV9sQnBDZlF1SnpPWWUyMzVndjdxTmE?oc=5",
      "date": "2026-11-12",
-     "context": "Proposition de hausse du Smic à 2 000 euros brut, formulée de façon remarquée."
+     "context": "Sa formule « pas venue avec un catalogue de 12.000 tableaux Excel » en défendant la hausse du Smic à 2.000 euros brut fait parler d'elle."
+    },
+    {
+     "type": "article",
+     "title": "Au moins 2.000 euros brut \"tout de suite\": Marine Tondelier donne sa proposition pour le SMIC",
+     "source": "BFM",
+     "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOTVlKUE5DNF9icy1FMUtxNV9YUTBDbXBqWHYtbmtYREVuR0NISE5LQUhOeEtyUzhnaV9qUFI2M1ZJSDc0Q05vaHpHS2RGYlkyQmsxV05fRm9LanJ1OGg1cDgxelhpS1YtTE1QdXctRHAyaE9UaFNlbDZyNEpRNV9NY19mY2thU3c0b1VRSWNPQVhxTUxhS3M0X0FJVFNtMVJQWUlmdkZ2Tlo1ZzRpVG1XYUd5NWRYQTI4RVQwODVGektWT3Z1Y2p2NHNHd1Y5N2NFRkhqQW5zeWJRMm1OSEo2MVBWblM2UENnd3ROTnFoeG9CMzd4aHh5d0ZLSFBsWmVybnh0Wg?oc=5",
+     "date": "2026-11-12",
+     "context": "Marine Tondelier avance une proposition chiffrée de SMIC à 2 000 euros bruts."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle: en cas de victoire, Marine Tondelier propose d'augmenter le salaire de \"tous les gens qui touchent moins de 2.000 euros nets\", en plus d'une hausse du SMIC",
+     "source": "BFM",
+     "url": "https://news.google.com/rss/articles/CBMi6gJBVV95cUxPNEU2dm1GMkNjczVobGd2b19CZWpRLU1mUVJVNGxyRHlWc0MtRU42cGg1cVNuYTUwVFZ2QzZHVWpDZGJTTG9sMEloVmNoeFB2U3FsRmwyZWdHcTdiYXhwb3h2YWozcGVEbnZPM0UtaktzNU9JZGhWLTZDYXJnbzJ2Zl9CTFhLLXg2MDN6OFJIS1ZHRkMtUWdqdmFZSi0waGNhWFVUbEJxZy1vSG9fbjhsa0xJLXBlbDE0SWY3Yi1sSEF2a3E5OENTb3RDbGdIWGs2UWFqLVBQOWlWUHpoSlR3MzIxazh5b3hQam5fZTFfTGgxRk5iaklReTVmZEVEY3hWSVpScHVfaDZISG1YWjc0ZDRpMWpzR0lqUm9wZ0xpX294N0VWNUtocm1GUUp0YWgteVBrVXNscW5ucEpjQ0ZBbWJiZFhzd2pSbE9PdC1ub1k5Zkx2WEh3YndPblZBODRHYUlrdW1kdWdxQQ?oc=5",
+     "date": "2026-11-12",
+     "context": "Marine Tondelier propose, en cas de victoire, une hausse de salaire pour les personnes gagnant moins de 2 000 euros nets."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle : \"Toutes celles et ceux qui veulent nous abattre soutiennent Marine Le Pen\", dénonce Marine Tondelier en évoquant les appuis de Donald Trump et Elon Musk à la candidate RN",
+     "source": "franceinfo",
+     "url": "https://news.google.com/rss/articles/CBMi-wJBVV95cUxNTm9FWXhqQzZvQlVtMHBjXzgzX1gzaF9UU1RKdVpWNk15bmlxUzJPSW9hbURPVG4yWldVWUhFNmZkNXBDTVduLWRSWnk2QUxlTDRGa1JySzJjejgzdHRQNDNNOW1ybGVReEFZZll1QUdmekd1QjZ4cW94cjBiTzFUbVZXSzd6d1d6ZGl5YndjVkgtSS0xOGZmN0s2NHBuU0Q3dWszV2pRNkxhZDBKa1N5ek4xRlpGSFBHOWlxUHlJRVZqaDNubEN3WVlLUmZrMi1iVmc4LVI3RUNCWURTb05zSU1mS3NlSE43Z19yaWJJSy1TSmZkV1F1N01LT0lHVjkwR19fVjE2LXo0SFBUczFrSUlEYzN2QnZsb29xa1gwN0hEYkNtQ0RETW55eElCbG9Vc1k0UVkxbG1mWWNDOUJSd1c0ZWJYU1hDRE9uTWd6YnBrUFBzN1YtLW1VazNpY0F6TXBYeUFaQ2xaMXVzcnY2bGc0QXZlMG5LOW9Z?oc=5",
+     "date": "2026-11-15",
+     "context": "Tondelier riposte à ses adversaires en accusant ceux qui veulent l'abattre de soutenir Marine Le Pen, appuyée par Trump et Musk."
     }
    ],
-   "volume": 60
+   "volume": 57
   },
   "roussel": {
    "negative": [
@@ -1776,19 +1673,9 @@
      "source": "FRANCE 24",
      "url": "https://www.youtube.com/watch?v=WkcB2WA4-uY",
      "youtube_id": "WkcB2WA4-uY",
-     "published": "il y a 6 j",
-     "views": 75255,
-     "context": "Stéphane Peu estime que la candidature de Fabien Roussel risque d'ajouter de la division à gauche."
-    },
-    {
-     "type": "video",
-     "title": "Mélenchon vs Roussel : le silence qui en dit long !",
-     "source": "Le Réveil Français",
-     "url": "https://www.youtube.com/watch?v=77Zg4xJkYi8",
-     "youtube_id": "77Zg4xJkYi8",
-     "published": "il y a 4 j",
-     "views": 8680,
-     "context": "Vidéo de commentateur mettant en scène une tension entre Fabien Roussel et Jean-Luc Mélenchon."
+     "published": "il y a 7 j",
+     "views": 75488,
+     "context": "Le député Stéphane Peu critique la candidature, estimant qu'elle ajoute de la division."
     },
     {
      "type": "video",
@@ -1796,33 +1683,9 @@
      "source": "SlowMo",
      "url": "https://www.youtube.com/watch?v=6vjG6EbYt1Y",
      "youtube_id": "6vjG6EbYt1Y",
-     "published": "il y a 4 j",
+     "published": "il y a 5 j",
      "views": 1256,
-     "context": "Vérification de chiffres avancés par Fabien Roussel sur franceinfo concernant les mineurs arrêtés."
-    },
-    {
-     "type": "article",
-     "title": "Présidentielle 2027: divisés entre Mélenchon et Roussel, les députés communistes s'imposent le silence sur le sujet dans l'hémicycle",
-     "source": "LCP-Assemblée nationale",
-     "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQX3NSVENnQUVnTHlKc1FOeDZNXzFLS09OTHB5NkFyT0FOVzRqR1ZxWmZtZXF6WU1tVXVxdzcxYzdFZnB6WWNWZW8tVzRRd0ZYWGRvOURwdE53b0taQ1VsVF9wNE05SzV5cW11MS1YNVFqdEdGSnFfVEdnc2R2Mkd4MVJJckw4SmV1dGZ6YnFYZ0MxTjZ0NHVvbmFGamc2UENWMVVvTHlWbEFkdw?oc=5",
-     "date": "2026-11-10",
-     "context": "Les députés communistes divisés entre le soutien à Mélenchon et la candidature Roussel s'imposent le silence sur le sujet à l'Assemblée."
-    },
-    {
-     "type": "article",
-     "title": "\"Je crains que la candidature de Fabien Roussel ajoute de la division\", estime Stéphane Peu - Mardi politique",
-     "source": "France 24",
-     "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNRElDUm5KbkpsdVpUT3dOaU5yaGlhQnFPZ21LeDhIQ2hYYWdfYUp4VlFtdlRWdThuem5TcWV2cTVLR09SLU12OG1fMUcyM0pVQmhmeFBTU0J1U2hvNVE4dkpIbF84Z1FmYzVyTmZ1VXFXR1pwUUxWMklGWnNrNE9ic2dNcnh3cENWUksteklIX3VnNmxfUUxHYVV4UXRlUWdITDJ2dnRfQnJDLW1wc1kteHZheV96a1Z4VlBUc0ZMekwtQkZlZ0wta21CZWhwaTlvbG1kUkR3OV9wcXo1eUUyMTAtZ2wwS05uRGRTY2NxOGJYSjQ?oc=5",
-     "date": "2026-11-11",
-     "context": "Stéphane Peu, figure de la gauche, exprime la crainte que la candidature Roussel ajoute de la division à gauche."
-    },
-    {
-     "type": "article",
-     "title": "\"Je crains que la candidature de Fabien Roussel ajoute de la division\", estime Stéphane Peu",
-     "source": "Boursorama",
-     "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxQNVFFekdaY2JnUnpfa2dzN1I1OFNQNlVBeFZUR0hTWkllWUljdnE1T0xuM25RcENScmk3VGU1MHpVM2FUaW5Ub0daV3JoSTFwcTh1TGg0WS1SNXRVOWVyVTRzTEU3RncyS1pZM0dTckxoVmxMWURrcUpwdXdKc2dFT1RxMGplZk1ST3BHRmNLUzBnRVZpdEJTSGpLMHlnRXBqOG9TaUxhVXRONmFmeTJOSmhjR0MwNnhOc2UtdnJxTkpiQk5fREpnNDB6UXBVb3o5enc0cktEQW80cG50dG1yVmdRdVJUeDByVDZReFRfekJyUktfdFlVdTNn0gH_AUFVX3lxTE4yai15el96bXJTS1VFbmVGUmx3ZlEtTEdpUmhpbTBvODlOYlluN1pYb1JqWU9rNzgxOTJvc09HNWU2TVdoSEdTQlV4TkRCZ2Q2STBocWxoODBsWTBUYmVKYlZRUXFDT20tcnBSdzhBMWpwUmdaQnl4QVo4UUdyeEV0U1BRWDBXU3Fvb0xpcC1JWEhWakRBVzQ1a3Q4NGsyUGZtUVcwV2V0aFFCUDlqLWc0NEwyNmMyNmZjdnRuRXdDeDJ1V29KSFg5MGhLYi0yUUdMcWppVWo5MFJoQnBjWjRqcFZQQ1BhZDJLdHc2a00zUWVwY1otcUxLNVhhWmNlMA?oc=5",
-     "date": "2026-11-11",
-     "context": "Le député Stéphane Peu exprime la crainte que la candidature ajoute de la division à gauche."
+     "context": "Vérification de plusieurs chiffres avancés lors d'une interview sur franceinfo."
     },
     {
      "type": "video",
@@ -1830,8 +1693,8 @@
      "source": "Isoloir2027",
      "url": "https://www.youtube.com/watch?v=uIzvmPTrY4g",
      "youtube_id": "uIzvmPTrY4g",
-     "published": "il y a 4 j",
-     "views": 547,
+     "published": "il y a 5 j",
+     "views": 549,
      "context": "Vérification d'une affirmation de Fabien Roussel sur la hausse du SMIC."
     },
     {
@@ -1840,68 +1703,104 @@
      "source": "CANAL+",
      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOVXdSZGVGeFpUbkNnQ2FtN0JOSFBOLWRxeHROblJpS1poclIxZC1ENV9nWUNfSlpOWVV0aHFPS1U4NHRDeWRDYndxX3hMWDFfLW40d3ZhWXk5djRSMDRRaFpDUHVmdm1kZlBrcFAtbm9ybFJoSEpLVDNNNjluOV9jcXVEU0RjSHpZMnY5Z3ptNXBPUXRSdmw0X0QtVDVrTW9zMVctUVdQbWxhOGxabmhCQjZzV1RONWxCQmg0RVZySVdfdEFwT3I2alN3REYxZnpJQ2VLd3dlSC1vbkVQaWhEbzI4SXh2STR4REdTMlQwMA?oc=5",
      "date": "2026-11-11",
-     "context": "Le député Stéphane Peu exprime la crainte que la candidature ajoute de la division à gauche."
+     "context": "Le député Stéphane Peu, issu du même camp, craint que sa candidature ajoute de la division."
+    },
+    {
+     "type": "article",
+     "title": "Fabien Roussel veut aller prendre Macron par les pieds, Michel Sardou est fan de Christine Lagarde : mieux vaut en rire",
+     "source": "Marianne",
+     "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPb0VfQmMyMXVxRnFwMVcxOTAxTjdSOWxUWEJ6THFuSERMdzZrdWN5dmhONVhGNUhuSmlqaUN2LTFJNktUUEhoWERNMnJ2c3lNSkVycWhHWGVhSzhWcTFZdmJvTHNaRmJFeG5sTmZCZDdkTjE0cEhFYXFXM1F4bmsxVGkxcHF2SXZ2aUtfdDJZSnFRR3VzRlZGXy1ZdkIzWlFlMExoTEpvdWNNNHdCMG92eWN6OHQycUExVXZ5Vjl5cWVlVXhCdDJ3SzlmMktXSi1Rdkw2NHZhLVhQTTN0MHIxdUkzNFNzUQ?oc=5",
+     "date": "2026-11-12",
+     "context": "Chronique moqueuse de Marianne reprenant ses propos sur Emmanuel Macron."
+    },
+    {
+     "type": "article",
+     "title": "Teddy Riner devant Fabien Roussel selon un sondage Elabe: \"Je vais me mettre au judo\", ironise le candidat PCF à l'élection présidentielle",
+     "source": "BFM",
+     "url": "https://news.google.com/rss/articles/CBMivwJBVV95cUxNck44S3dnLUpNQXZMZ0N4RFJiYVdOVzB3djNObWhNcC1GMThwRlRpY3RtZEprR284ekttNVd5enB4RkRpNUhvVkdlX1BnaFhVVXlIM0tXQi03aFJxOHkxVW4wV0Z3NGdYaG5RUFN6U3lLTnN0SFRITlBEWWhpajRlSXhPZ3hRRi1JYkRRWjZVV0NwTzEzS01Ba0VYSnNVT1IzM0dFRllZUUtEbXNnYldLcl9PdHcwWHRhUXkzTmU3SmxoTXc1ZmFQT1hLMHNMdEdxMXpyaG85QUNTYjhMbGVTWmw3UktqU1hJdHJlZDY2OGRkQVFsSGsxMjFCUHV2TEZaOEQwWlFLdlVjQ1ZYRFV4TmhkM2NmbHJaQm5EZ29PdVNKa1pNeEo2UnpueUs1TDlpOUxabkJzQVhpVUtWZWNJ?oc=5",
+     "date": "2026-11-16",
+     "context": "Sondage Elabe le place derrière Teddy Riner dans un classement de popularité."
+    },
+    {
+     "type": "article",
+     "title": "Teddy Riner devant Fabien Roussel selon un sondage Elabe: \"Je vais me mettre au judo\", ironise le candidat PCF à l'élection présidentielle",
+     "source": "Orange Actualités",
+     "url": "https://news.google.com/rss/articles/CBMimwJBVV95cUxQMlZuLVJ5b1hud1dvaXA0QWFuZkVNM2E0cExrazc0VGV4cF92ajYyb1ZKY1FlRGx6Z2R1aHZaZjNQbHJ1RnlFS1RfYXpDMk5iMGxfZUhOS3NVQzZsdVN5N3BfVVgtaGlPclBxVTFVLUhMMGtPa2IwanphbG5wT2kzUUJvRGxiLUoxcjl1MEJwYjhmNnQzWU9sdC1GYnZremNwNF9kRFg4R1pUZnRiU1VZUVhIdzdGNlNzTkVyT0RxZXM2QTl4ckt1azhlTW9OZFpQb0ZyQm14TUwtd0IzOFo2ZTlFejlNNkdjLVRqRlBaRTN4UUdyUDdXUWRKRlI0OS1WcDEwY2dfbERRMFBLenEzZ2RxRExmUG1tQldV?oc=5",
+     "date": "2026-11-16",
+     "context": "Sondage Elabe le place derrière Teddy Riner dans un classement de popularité."
+    },
+    {
+     "type": "article",
+     "title": "«C’est extrêmement grave» Fabien Roussel s'oppose à la présence de soldats français en Ukraine",
+     "source": "Gentside",
+     "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQZGg0aVp0WjNiWjRreXlnYVV2aEVodnFpVmtJOFF1dk44MjdiWDZTcXMtb2lWVTJNck9aQU50S001WjBydGl2UE9IdHpNMmt5SDl5ZDctOW1WUE9CUXNlbldBam5YWEo4RjR5NGQzUm9LczhZakJ2cFhTTW9KSy1pMkRXYjJYdENUckptSS1ibWJ4X2hoVThQX2Z6UUQteDlTdXVFN2g0Qm1XV3FSS2ZwYUtpdW1zRm5vbmltZjUxRGZMc2JkY2x1VldhM0NuVVV0YU81VTZtQWpNblE?oc=5",
+     "date": "2026-11-18",
+     "context": "Prise de position sur l'envoi de soldats français en Ukraine, présentée comme contestée."
     }
    ],
    "positive": [
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "\"Au revoir\": Fabien Roussel, candidat PCF à l'élection présidentielle, réagit au tweet d'Emmanuel Macron sur les 10 ans de sa candidature #politique #macron #roussel #aurevoir",
-     "source": "@bfmtv",
-     "url": "https://www.tiktok.com/@bfmtv/video/7708870606225198339",
-     "tiktok_id": "7708870606225198339",
-     "views": 51745,
-     "likes": 1231,
-     "date": "2026-11-16",
-     "context": "« Au revoir » : sa réaction au message d'Emmanuel Macron, relayée par BFMTV."
-    },
     {
      "type": "video",
      "title": "\"Au revoir\": Fabien Roussel réagit au tweet d'Emmanuel Macron sur les 10 ans de sa candidature",
      "source": "BFMTV",
      "url": "https://www.youtube.com/watch?v=COV1xyKywDg",
      "youtube_id": "COV1xyKywDg",
-     "published": "il y a 17 h",
-     "views": 12138,
-     "context": "Il réagit avec humour au tweet d'Emmanuel Macron sur les dix ans de sa candidature, ce qui fait circuler la séquence."
+     "published": "il y a 1 j",
+     "views": 14175,
+     "context": "Réaction de Fabien Roussel à un tweet d'Emmanuel Macron sur les dix ans de sa candidature, relayée largement."
+    },
+    {
+     "type": "video",
+     "title": "Salon du Made in France : le slip \"français\" de Fabien Roussel",
+     "source": "Marianne",
+     "url": "https://www.youtube.com/watch?v=Qwv4Fsom1xw",
+     "youtube_id": "Qwv4Fsom1xw",
+     "published": "il y a 1 j",
+     "views": 1745,
+     "context": "Séquence remarquée au Salon du Made in France autour d'un slip présenté comme « français »."
     },
     {
      "type": "article",
      "title": "Présidentielle 2027 : Fabien Roussel propose la mise en place de 60 000 \"policiers, gendarmes et douaniers\" de proximité",
-     "source": "franceinfo",
+     "source": "Franceinfo",
      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxPdkR4VG1iOGQxMkMzM1Roc3dtd2Z4XzZaMlRwTnU3Z1EwNTJzZ0NITWdkWGJ0em9GWjBSaTNDSEs0MGQ1NkY4aGVLRm1SNDhpUHhRd18wbHhCbFR1UzJ3aVJkNGlDb0tPdDVxNmp2a2NTanZjUmZxdHVFZ3YwdEVQOEFZVVgtZi1uai1ESVV1UzUtcTV3aUd5ZEtxNWRHck5abHdwRWRpbFVPTm9PWlo4cVg1OUhZRUxrYnAtR3gyMVJ2dmJ1cXBnLVBMV2xTOUhaWnUxZEprU3dvSlFrRlBmZDd6RlYwcnRaU0tfME0zRkFXOWd0cXMtSnlfdWdTRTYyTXVZUQ?oc=5",
      "date": "2026-11-12",
-     "context": "Proposition chiffrée de 60 000 policiers, gendarmes et douaniers de proximité, présentée comme un axe de campagne sur la sécurité."
-    },
-    {
-     "type": "article",
-     "title": "À Avion, Fabien Roussel lancera son premier grand meeting de campagne présidentielle",
-     "source": "Nord Littoral",
-     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOTEM4Qk5HYy0xQkw1Q3NYVzNpMTJkMGk4OUNyTVc5ajZ4dE5jbE1LdFJ6TWZRaDE4Q1FnNlBWTXNweGdYSlJiRmNRTFl1STVRT0laT04zdm9zNEFmWFlKSkdvakhPQjNWck8taFJUSS01R2pRT0ZqQVkxaURZYUpXcnV3ZEpCODdKNXFxZzRpbUYtZGl4amJOWl9JbFhkcDZ5aHRINGJGN2F0eTVwbGhMOGJLWnM1U1c4SFJCeA?oc=5",
-     "date": "2026-11-15",
-     "context": "Annonce de la tenue à Avion de son premier grand meeting de campagne pour la présidentielle."
-    },
-    {
-     "type": "article",
-     "title": "\"Au revoir\": Fabien Roussel, candidat PCF à l'élection présidentielle, réagit au tweet d'Emmanuel Macron sur les 10 ans de sa candidature",
-     "source": "BFM",
-     "url": "https://news.google.com/rss/articles/CBMivAJBVV95cUxOdDdlZnF2UlZuT3Bzd0p1ek4xU05BVVIxSkE0bWhJVnFEcC1QcG5xLWgxbVNWRE5sM1dkam9hQmN4SXpwck1PU1dER2tkNGg1WEk3R1E3c1ZuTjF5NHlDOXlnblFOMXJPczVXUFRCak5kMWhUa3FOZGtZZmpieHJyNC16LVFNQnRwd216T0VwYk14LXFjX3FUT0MzWjlEODR4SWtEYTNfRXVxVnk3YS1OU1NRTGh4XzNtaERsMy1WTzBXTElENVFTclA0Szh0T0U2NE1mX1hzZS1nUFVjcjkxbndTMlQzdjA4RmR2Nm93RE5udGQ3MGRUdWh0d21rc21xbk9UQzl2dGFvWXNlOGdyTVZIai1QUnBxODdyWGpIWGwweDI3MjU4bVI1cF95Y0ZNVThtRVI4Q0ljdXFL?oc=5",
-     "date": "2026-11-16",
-     "context": "Réplique remarquée au tweet d'Emmanuel Macron évoquant les dix ans de sa candidature."
+     "context": "Annonce d'une proposition de 60 000 policiers, gendarmes et douaniers de proximité."
     }
    ],
-   "volume": 60
+   "volume": 57
   },
   "villepin": {
    "negative": [
     {
-     "type": "article",
-     "title": "Dominique de Villepin entendu par le parquet national financier dans l’affaire des statuettes",
-     "source": "Frontières",
-     "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPRHdXZUZacl9rcXlDUmZTNUR5aGhsMXl1cW1PeVlZczEwdmhfMUhDVnBJSkx4c1luaVFXVkIzNlMwekg4Y0swOERONEttQUhieERFTFZJNGszb1pWZ1QyekVHazBLOFZUcVRmOFdzLTJuS18tR1pKNnlEWHBJVFlvbFNZV0JSSnVkNFJLckxSbHgyQnFGWEtVSVhBZElVZm5DeXRrREdDOUdDR3RIM0JDaUtLMzRmc1VyOWdXV1VBdEZpem9ZT05jZEVFNERXNXdTTTNRNjZDZ1c?oc=5",
-     "date": "2026-11-13",
-     "context": "Audition par le parquet national financier dans l'affaire des statuettes."
+     "type": "video",
+     "title": "Villepin sur TF1 : 5 affirmations vérifiées",
+     "source": "SlowMo",
+     "url": "https://www.youtube.com/watch?v=Sep5FhUg9m4",
+     "youtube_id": "Sep5FhUg9m4",
+     "published": "il y a 20 h",
+     "views": 679,
+     "context": "Vérification de cinq affirmations formulées lors de son passage sur TF1, avec un risque de mise en cause de ses propos."
+    },
+    {
+     "type": "video",
+     "title": "🎯 Augmenter la CSG pour augmenter vos salaires ? Villepin s’explique",
+     "source": "Le Contradicteur",
+     "url": "https://www.youtube.com/watch?v=Hgf3xcNX0z4",
+     "youtube_id": "Hgf3xcNX0z4",
+     "published": "il y a 5 j",
+     "views": 63,
+     "context": "Polémique autour de sa proposition d'augmenter la CSG pour financer des hausses de salaires, qu'il doit expliquer."
+    },
+    {
+     "type": "video",
+     "title": "Dominique de Villepin sur LCI : 1'500€ pour chaque salarié ?",
+     "source": "Matthieu Gariel",
+     "url": "https://www.youtube.com/watch?v=VXShU1iLmfU",
+     "youtube_id": "VXShU1iLmfU",
+     "published": "il y a 6 j",
+     "views": 11,
+     "context": "Questionnement sur une proposition de versement de 1 500 € par salarié, formulée sur LCI."
     },
     {
      "type": "article",
@@ -1909,89 +1808,7 @@
      "source": "u-Trail",
      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1EWTczUF83VkVGVmpVSng5Wm9xRUxYSy1jWVdKaFY0bGI2UUtodXlyMVBlZU1aVG1lQ3RERkItb0RBXzJMem1TZWJ4RjRwRXRpaTBaV0ZFRUN4aXVrcWhhRzFaR3FJRFlYZXhINU9Jd0NzTWpBdkd4cXlXVTZiVUU?oc=5",
      "date": "2026-11-16",
-     "context": "Contestation de la performance de son marathon de 2h57 mise en cause par un média spécialisé trail."
-    },
-    {
-     "type": "article",
-     "title": "Après Nicolas Sarkozy chez Hugo Clément, le running club de LFI et Teddy Riner candidat, voici Dominique de Villepin et son marathon en 2 h 57 : ont-ils le droit de mêler sport et politique",
-     "source": "u-Trail",
-     "url": "https://news.google.com/rss/articles/CBMitgJBVV95cUxPcUVfMmZscDBaeHdrWnBrT3AxY2FUbXAxV3hZYWZOV1NHM0ZEVWtJRE9HT0RoUkw1SkduN2FFNnN5QkR2Z21aWjRXZzZIcXJhMk1KRlZHZUdRMHZZeFB1bkpKc0VneEZSdmlHRmdjb1BJVDNGU0hBd3hrX3FNYl9sd0xqd2M3S2d2QWR5cDRVbTFXWHNrNV9yaFdZSDFVSnZOMDIybWhFVGZyYWVCQUdEX1hVTU1hWFNaRG8wNm0yN1pRMVdkc2dxdUhwb0hvSThBZzhpODk4blQwX3oyLW0yX09hVV9zTGRRbmdSUUx4VmdkcGJpWDFrNURtXzFzaEp5cV9qXzNuWFM1RUc2dUFWbWtIeC0wbVN6Z19FbkpUcDlNb1pTamNLUEwzSWcyYkFRZEE0RkFR?oc=5",
-     "date": "2026-11-16",
-     "context": "Débat sur l'utilisation du sport comme outil politique, visant son marathon et d'autres candidats."
-    },
-    {
-     "type": "article",
-     "title": "Dominique de Villepin : manoir classé, duplex princier, toiles de maîtres... ce patrimoine caché à 15M€ donne le vertige",
-     "source": "melty.fr",
-     "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQekhya1VmUWNrVk13aTJtQUFwWlRnMGlNUFlUdGFuN2RFNlJybWYyNE0yZHBpSjVZVFVfMExfaTVtRmhUU1ZoUGpvVmJNSW9NRXFvVnlZejkxb1l3UTlkMW52el9rd3RJb3ZSNjVscTNJX1Fzb25OY1JWVjA2SmZsZmUtdlVYRFBjaFdyM0x3cTBLQndfQzZEdE1oRmJCSTYzMU9WTjlwME9xYmFsMWJZVGU0R1ItVGNHczh4ZUtNYTJ2WmM0YmtId3lGRTVwalU1ZFA2ZS1xSEVOYmxUTndhWm5PejBQa0VJNVBycEYyQQ?oc=5",
-     "date": "2026-11-16",
-     "context": "Article au ton sensationnaliste sur son patrimoine, présenté comme un « patrimoine caché » de 15 M€, ce qui peut alimenter une critique sur son train de vie."
-    }
-   ],
-   "positive": [
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "@dominiquedevillepin, notre invité politique de cette semaine, ne croit pas aux programmes de la France insoumise et du Rassemblement national. 👆 #villepin #dominiquedevillepin #RN #LFI #l",
-     "source": "@backseat_fr",
-     "url": "https://www.tiktok.com/@backseat_fr/video/7707700523276766486",
-     "tiktok_id": "7707700523276766486",
-     "views": 106546,
-     "likes": 4297,
-     "date": "2026-11-13",
-     "context": "Invité de l'émission Backseat, plus de 100 000 vues."
-    },
-    {
-     "type": "video",
-     "platform": "tiktok",
-     "title": "Toujours team @Dominique de Villepin pour 2027 🇫🇷 mais j’avoue que @Gabriel Attal m’a agréablement surprise. Je ne pensais pas trouver ses propositions aussi intéressantes. #pol",
-     "source": "@souk.dos",
-     "url": "https://www.tiktok.com/@souk.dos/video/7708933320532315425",
-     "tiktok_id": "7708933320532315425",
-     "views": 70087,
-     "likes": 4041,
-     "date": "2026-11-17",
-     "context": "Vidéo de soutien à sa candidature, très vue."
-    },
-    {
-     "type": "video",
-     "title": "Dominique De Villepin s'en prend à CNEWS et il ne mâche pas ses mots...",
-     "source": "Les Idées Claires",
-     "url": "https://www.youtube.com/watch?v=zQCdDsBKO58",
-     "youtube_id": "zQCdDsBKO58",
-     "published": "il y a 1 j",
-     "views": 55982,
-     "context": "Il critique ouvertement la chaîne CNEWS dans un contenu relayé en ligne, ce qui peut être perçu comme une prise de parole marquante."
-    },
-    {
-     "type": "video",
-     "platform": "dailymotion",
-     "title": "Dominique de Villepin en 2027 ? L'ancien Premier ministre «se prépare»",
-     "source": "Europe 1",
-     "url": "https://www.dailymotion.com/video/xbw1616",
-     "dailymotion_id": "xbw1616",
-     "views": 243,
-     "date": "2026-11-12",
-     "context": "Il indique qu'il « se prépare » à une candidature à la présidentielle de 2027, annonce relayée par Europe 1."
-    },
-    {
-     "type": "video",
-     "platform": "dailymotion",
-     "title": "“Je veux être prêt”: Dominique de Villepin, fondateur du mouvement La France Humaniste, réagit à l’annonce de sa potentielle candidature à la présidentielle",
-     "source": "BFM",
-     "url": "https://www.dailymotion.com/video/xbve9l2",
-     "dailymotion_id": "xbve9l2",
-     "views": 222,
-     "date": "2026-11-10",
-     "context": "Réaction de Villepin à l'annonce de sa potentielle candidature à la présidentielle de 2027."
-    },
-    {
-     "type": "article",
-     "title": "Dominique de Villepin propose une refonte majeure de la fiscalité pour limiter l’optimisation des plus riches",
-     "source": "Traders Union",
-     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQU0RwZW5md1hVNElTMTNPbS1aMGo2YmdrRmdnZDVlX3c1cXhNbEVLSE5Oa0hVN0JkYkRnQXlXWHZyUHZRem5LNEs4SXpYQWFybzVXNzlick9KLWhhYWFzTi1Ccm41eVBGWXBOdUxzTWN5WWhSbURfRmVQY19IMDFUdXFJb3ZiYWlEWGM0ZzhZRzBmS3o0M3FITA?oc=5",
-     "date": "2026-11-14",
-     "context": "Proposition de refonte majeure de la fiscalité pour limiter l'optimisation des plus riches."
+     "context": "Polémique sur son temps de marathon, qualifié de mensonge par un média spécialisé trail."
     },
     {
      "type": "article",
@@ -1999,26 +1816,98 @@
      "source": "Reference Trail",
      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPbmpTaVY0Q0JPT2dLVXlfdWZqU1NJVXdjTEV1a0I5MjR1OEl4M292a05HRnozelBlWmNqRHFuekwxVzhFNDRXWkZhTG9zdmN4eG9jUzZlRUp0b0NDakR4TnJDcU9pNC1RWmNoM0lOeTlkQmVTckxlUzZHOS14Q2VnamIyb3hNbGtpVVQ1U0pLbzV1YmZoQnR4Z1AzSmlsVC1ndFZ1YVlmNm5oSWw0Uzlr?oc=5",
      "date": "2026-11-16",
-     "context": "Performance sportive de son marathon en 2h57'06 mise en avant et comparée favorablement à celles d'autres personnalités politiques."
+     "context": "Comparaison critique de son marathon en 2h57 avec ceux d'autres responsables politiques."
     },
     {
      "type": "article",
-     "title": "Présidentielle : Dominique de Villepin devrait annoncer sa candidature d’ici quelques heures",
-     "source": "La Voix du Nord",
-     "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQNTZRaUdPLXVjN2xjdHFvVGh2ZFg4cHVibVJ4eTlSeG8wOUptNzgwY3c3YUhHUGNHUzEtVGdBRXNhZzc4SWRibThDM25RQ3NIV3JBcDFIeEh0ak9NMXhWSGZJVDR3eGtMY3lha0xxMVREaU9HekUyZ1RNQ2stVXBJV3ZReFpPMTlmZk4xRm1WUkFfTWJRa1FkWkFITGRKb2FSeVJnUU8td2JTcTlIMmFOOWJOSUJFV1JibG8wVlI4MTBCZ2l1?oc=5",
-     "date": "2026-11-17",
-     "context": "Annonce de candidature attendue dans les heures qui suivent, qui suscite une forte couverture médiatique."
+     "title": "Après Nicolas Sarkozy chez Hugo Clément, le running club de LFI et Teddy Riner candidat, voici Dominique de Villepin et son marathon en 2 h 57 : ont-ils le droit de mêler sport et politique",
+     "source": "u-Trail",
+     "url": "https://news.google.com/rss/articles/CBMitgJBVV95cUxPcUVfMmZscDBaeHdrWnBrT3AxY2FUbXAxV3hZYWZOV1NHM0ZEVWtJRE9HT0RoUkw1SkduN2FFNnN5QkR2Z21aWjRXZzZIcXJhMk1KRlZHZUdRMHZZeFB1bkpKc0VneEZSdmlHRmdjb1BJVDNGU0hBd3hrX3FNYl9sd0xqd2M3S2d2QWR5cDRVbTFXWHNrNV9yaFdZSDFVSnZOMDIybWhFVGZyYWVCQUdEX1hVTU1hWFNaRG8wNm0yN1pRMVdkc2dxdUhwb0hvSThBZzhpODk4blQwX3oyLW0yX09hVV9zTGRRbmdSUUx4VmdkcGJpWDFrNURtXzFzaEp5cV9qXzNuWFM1RUc2dUFWbWtIeC0wbVN6Z19FbkpUcDlNb1pTamNLUEwzSWcyYkFRZEE0RkFR?oc=5",
+     "date": "2026-11-16",
+     "context": "Critique sur le fait de mêler sport et politique à propos de son marathon en 2h57."
+    },
+    {
+     "type": "video",
+     "title": "On vérifie : Dominique de Villepin et les dividendes distribués en 2025",
+     "source": "Isoloir2027",
+     "url": "https://www.youtube.com/watch?v=hpjbXtUY2N4",
+     "youtube_id": "hpjbXtUY2N4",
+     "published": "il y a 2 j",
+     "views": 2,
+     "context": "Vérification d'un point sur les dividendes distribués en 2025, mise en cause de ses positions sur la fiscalité."
+    },
+    {
+     "type": "article",
+     "title": "Dominique de Villepin : manoir classé, duplex princier, toiles de maîtres... ce patrimoine caché à 15M€ donne le vertige",
+     "source": "melty.fr",
+     "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQekhya1VmUWNrVk13aTJtQUFwWlRnMGlNUFlUdGFuN2RFNlJybWYyNE0yZHBpSjVZVFVfMExfaTVtRmhUU1ZoUGpvVmJNSW9NRXFvVnlZejkxb1l3UTlkMW52el9rd3RJb3ZSNjVscTNJX1Fzb25OY1JWVjA2SmZsZmUtdlVYRFBjaFdyM0x3cTBLQndfQzZEdE1oRmJCSTYzMU9WTjlwME9xYmFsMWJZVGU0R1ItVGNHczh4ZUtNYTJ2WmM0YmtId3lGRTVwalU1ZFA2ZS1xSEVOYmxUTndhWm5PejBQa0VJNVBycEYyQQ?oc=5",
+     "date": "2026-11-16",
+     "context": "Mise en avant de son patrimoine immobilier et artistique estimé à 15 M€, en décalage avec un discours sur la fiscalité des plus riches."
     }
    ],
-   "volume": 55
+   "positive": [
+    {
+     "type": "video",
+     "title": "Dominique de Villepin : discussion sans filtre avec François Lenglet (Présidentielle 2027)",
+     "source": "TF1 INFO et LCI",
+     "url": "https://www.youtube.com/watch?v=Tp_n25Atzys",
+     "youtube_id": "Tp_n25Atzys",
+     "published": "il y a 1 j",
+     "views": 68953,
+     "context": "Long entretien sans filtre diffusé sur TF1 et LCI dans le cadre de la présidentielle 2027, séquence largement reprise."
+    },
+    {
+     "type": "article",
+     "title": "Dominique de Villepin propose une refonte majeure de la fiscalité pour limiter l’optimisation des plus riches",
+     "source": "Traders Union",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQU0RwZW5md1hVNElTMTNPbS1aMGo2YmdrRmdnZDVlX3c1cXhNbEVLSE5Oa0hVN0JkYkRnQXlXWHZyUHZRem5LNEs4SXpYQWFybzVXNzlick9KLWhhYWFzTi1Ccm41eVBGWXBOdUxzTWN5WWhSbURfRmVQY19IMDFUdXFJb3ZiYWlEWGM0ZzhZRzBmS3o0M3FITA?oc=5",
+     "date": "2026-11-14",
+     "context": "Présentation d'une proposition de refonte fiscale visant à limiter l'optimisation des plus hauts revenus."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : Dominique de Villepin pourrait officialiser sa candidature vendredi, quatorze ans après son échec de 2012",
+     "source": "RTL",
+     "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxNV3lURU1FeVNUTm1sUmRUNjZoN2Z5aHVLWVg4M2ZRcUg1UGQ0dUxwX21TcWpibXdSUW9nVGV3S1c4bjFkZVZkQTFqV1RKUVBab0pXNEd4OVVSN0stOS1vcE43MkpKUUNHcjBXaHJ5RWV5b1BlUkYzeHE2bWJvczkyX3ZJVWFjdmRzTzU0Z2ZsXzRQbmJZNk14YnFmUWFOYzB4S0c0aFQ1UEpvd2pCemdFTFRrR2ZTdDNVT05nYmtkRGVQN1d3c2xicU9tOGNoY05zdXhIdU00emlQN3BEMzF3RkFqWnlYNE5ZbENjY0Qzc2hQaDBoNlFwZG1VRlJBUQ?oc=5",
+     "date": "2026-11-17",
+     "context": "Candidature possiblement officialisée vendredi, annonce très attendue par les médias."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : Dominique de Villepin candidat ? La fin du suspense annoncée vendredi lors d’une conférence de presse",
+     "source": "Le Parisien",
+     "url": "https://news.google.com/rss/articles/CBMitgJBVV95cUxPdVNXazhBZF92eV8yTGxaalNaWEViSHEtSlgtU1lUMzRPX0R3TUIwTmFMYXFOelF6Mk1XY1c1RkxJUHQ4REF6ZkY0TWdWS0pNcHV0MWFxYzhUQUVnOHRJQUlaLWxHQzE5Z3NBZ29XUUlfZGhPZWZPZUEzOFNkV0p0ckpZNmcyVTVURmxpLUtPdmFoRUF5Zldwd3FOUWJvQVNwcGVzNkhYSGNHd04ySjBOeFZtRjBiZWpPdlp4Yl9PaE1NYU5KenpUVHB6TXRjeml5YkQ3VFhCbW1zUmRFdC1KYTdaSFNIOEZjN3I1VllaSnRGMHRKSzlSTFlOUlZKTUVUQzM3NFl5bFJIS2NoOTZNTFlSd3JybmtNQXdWbDhsNG5ZOUJkQmllaEZla3M0bVB0Ykp3dm93?oc=5",
+     "date": "2026-11-17",
+     "context": "Annonce d'une conférence de presse vendredi pour lever le suspense sur sa candidature."
+    },
+    {
+     "type": "article",
+     "title": "Présidentielle 2027 : une prise de parole \"exceptionnelle\" bientôt prévue... Dominique de Villepin, bientôt candidat déclaré à l'élection",
+     "source": "ladepeche.fr",
+     "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNSUItdmpXQTNubmNXejR6YVZ3OU4yQmRUU3ZBdWNtaTRBb1NNVGxPMEV6NDJONFpjY2FGQkhHVE4wVktJdE4wU0lmVDZ1MFUxOWY2UnR4RTNVSzN0QlRHQno4WnV1bTVlMHNUV0xJVWtsUzNwTlM3WXdicjM1aEllWnJVYUV1c0NvVlJHblVRRlpjR0R3b0V1THpkdTlWVl9LVl9GLXVxX3BqYnI5UWFraHBISm1JVHhNWHVEVkNTWGlydTRJdGp3MThPcTY3Mnk1NURtWnk5MnZPaF95MHJ2YXNMT1RSNzg2dWl5czlUXzNMNl82U1UzU2g3ejRoYWlya1M3dTBnX3A?oc=5",
+     "date": "2026-11-17",
+     "context": "Annonce d'une prise de parole présentée comme exceptionnelle avant sa déclaration de candidature."
+    },
+    {
+     "type": "article",
+     "title": "Dominique de Villepin promet d’entrer un tirailleur sénégalais au Panthéon s’il est élu",
+     "source": "Frontières",
+     "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQWGxYcXpVR1poRlpxN05ZTnpFLXZ1cU1OOTRET1FiNFlQUHdyejBlMGVJTks0bFNkeXpjYTAxTnA5STNmUWtuMzlCb0VnUVJxOVRWdE5tLVFaWndzTjlyTy1rNjVHSmo2dENOM0ZGV1o0OFBzcUk2WXRyWDQwYk8wSzh5Y0k3YjViRXNRbDJsZ3ROQWwtZkJuQVZManpkUVRIdmN2MTN2ZkNJYVJfRXlRZlljM1diazItaXhyMTY1cHI1YXh2N3NqSTZSNmtOTGc?oc=5",
+     "date": "2026-11-17",
+     "context": "Promesse de campagne d'entrer un tirailleur sénégalais au Panthéon s'il est élu."
+    }
+   ],
+   "volume": 51
   }
  },
  "sources": [
-  "presse",
-  "youtube",
   "dailymotion",
-  "tiktok",
-  "instagram",
-  "x"
+  "presse",
+  "youtube"
+ ],
+ "errors": [
+  "apify~instagram-scraper : HTTP 401 {\n  \"error\": {\n    \"type\": \"user-or-token-not-found\",\n    \"message\": \"User was not found or authentication token is not valid\"\n  }\n}",
+  "clockworks~tiktok-scraper : HTTP 401 {\n  \"error\": {\n    \"type\": \"user-or-token-not-found\",\n    \"message\": \"User was not found or authentication token is not valid\"\n  }\n}",
+  "apidojo~tweet-scraper : HTTP 401 {\n  \"error\": {\n    \"type\": \"user-or-token-not-found\",\n    \"message\": \"User was not found or authentication token is not valid\"\n  }\n}"
  ]
 }
