@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T18:56+00:00",
+ "updated": "2026-11-21T02:57+00:00",
  "source": "Wikipédia — Liste de sondages sur l'élection présidentielle française de 2027",
  "source_url": "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027",
  "window_days": 15,
@@ -25,21 +25,19 @@
   "arthaud": 0.7
  },
  "previous_average": {
-  "arthaud": 0.7,
-  "melenchon": 17.7,
-  "roussel": 2.0,
-  "tondelier": 2.5,
-  "glucksmann": 13.3,
-  "philippe": 14.5,
-  "retailleau": 8.2,
-  "lisnard": 8.6,
+  "arthaud": 0.8,
+  "melenchon": 18.1,
+  "roussel": 2.2,
+  "tondelier": 2.9,
+  "glucksmann": 13.1,
+  "philippe": 14.8,
+  "retailleau": 8.8,
+  "lisnard": 10.3,
   "dupontaignan": 1.9,
-  "lepen": 35.0,
+  "lepen": 36.3,
   "zemmour": 4.1,
   "villepin": 2.0,
-  "attal": 8.5,
-  "bouamrane": 1.0,
-  "hollande": 6.5
+  "attal": 9.4
  },
  "polls_in_window": [
   {
@@ -306,64 +304,61 @@
     "asselineau": 1.0
    },
    "previous": {
-    "arthaud": 0.7,
-    "melenchon": 17.7,
-    "roussel": 2.0,
-    "tondelier": 2.5,
-    "glucksmann": 13.3,
-    "philippe": 14.5,
-    "retailleau": 8.2,
-    "lisnard": 8.6,
+    "arthaud": 0.8,
+    "melenchon": 18.1,
+    "roussel": 2.2,
+    "tondelier": 2.9,
+    "glucksmann": 13.1,
+    "philippe": 14.8,
+    "retailleau": 8.8,
+    "lisnard": 10.3,
     "dupontaignan": 1.9,
-    "lepen": 35.0,
+    "lepen": 36.3,
     "zemmour": 4.1,
     "villepin": 2.0,
-    "attal": 8.5,
-    "bouamrane": 1.0,
-    "hollande": 6.5
+    "attal": 9.4
    }
   },
   "30": {
-   "polls": 12,
+   "polls": 9,
    "average": {
-    "arthaud": 0.7,
-    "melenchon": 17.8,
-    "roussel": 1.9,
-    "tondelier": 2.7,
-    "glucksmann": 12.1,
-    "attal": 7.2,
-    "philippe": 13.0,
-    "retailleau": 6.7,
-    "lisnard": 9.2,
+    "arthaud": 0.8,
+    "melenchon": 18.0,
+    "roussel": 2.0,
+    "tondelier": 2.9,
+    "glucksmann": 11.7,
+    "attal": 7.1,
+    "philippe": 12.6,
+    "retailleau": 6.5,
+    "lisnard": 9.9,
     "dupontaignan": 2.0,
     "lepen": 33.9,
-    "zemmour": 3.6,
+    "zemmour": 3.4,
     "riner": 4.0,
     "polony": 1.7,
     "ruffin": 2.2,
     "villepin": 3.2,
     "bouamrane": 1.0,
-    "asselineau": 1.0,
-    "hollande": 6.5
+    "asselineau": 1.0
    },
    "previous": {
     "arthaud": 0.7,
-    "melenchon": 16.6,
+    "melenchon": 16.8,
     "roussel": 2.1,
-    "tondelier": 3.1,
-    "glucksmann": 12.7,
-    "philippe": 15.2,
+    "tondelier": 2.9,
+    "glucksmann": 12.8,
+    "attal": 9.0,
+    "philippe": 15.0,
     "retailleau": 7.7,
-    "lisnard": 6.2,
     "dupontaignan": 2.0,
-    "lepen": 35.1,
-    "zemmour": 4.2,
+    "lepen": 34.8,
+    "zemmour": 4.1,
+    "lisnard": 6.3,
+    "bouamrane": 1.0,
+    "hollande": 8.0,
     "villepin": 3.2,
-    "attal": 9.3,
-    "hollande": 8.3,
     "ruffin": 2.1,
-    "polony": 1.2,
-    "bouamrane": 1.0
+    "polony": 1.2
    }
   }
  },
@@ -427,9 +422,9 @@
    "b": "lepen",
    "last": "2026-11-17",
    "window": "15 jours",
-   "n": 4,
-   "avg_a": 42.2,
-   "avg_b": 57.8,
+   "n": 3,
+   "avg_a": 43.0,
+   "avg_b": 57.0,
    "polls": [
     {
      "pollster": "YouGov",
@@ -480,9 +475,9 @@
    "b": "lepen",
    "last": "2026-11-17",
    "window": "15 jours",
-   "n": 4,
-   "avg_a": 33.1,
-   "avg_b": 66.9,
+   "n": 3,
+   "avg_a": 33.5,
+   "avg_b": 66.5,
    "polls": [
     {
      "pollster": "YouGov",
@@ -533,9 +528,9 @@
    "b": "lepen",
    "last": "2026-11-17",
    "window": "15 jours",
-   "n": 4,
-   "avg_a": 44.2,
-   "avg_b": 55.8,
+   "n": 3,
+   "avg_a": 45.0,
+   "avg_b": 55.0,
    "polls": [
     {
      "pollster": "YouGov",
@@ -2394,7 +2389,7 @@
    }
   ],
   "current": {
-   "date": "2026-11-20",
+   "date": "2026-11-21",
    "window": 7,
    "n": 2,
    "scores": {
