@@ -11,8 +11,8 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0b1030">
   <link rel="preconnect" href="https://fonts.bunny.net">
-  <link href="https://fonts.bunny.net/css?family=barlow-condensed:600,700,800|inter:400,500,600,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=202611171010">
+  <link href="https://fonts.bunny.net/css?family=barlow-condensed:600,700,800|inter:400,500,600,700|space-grotesk:500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css?v=202611241200">
 </head>
 <body>
   <header class="top">
@@ -52,6 +52,20 @@
     <!-- 1. SONDAGES -->
     <section id="sondages" class="panel">
       <div class="freeze-note" id="freeze-note" hidden>🔒 <b>Période de réserve électorale.</b> Conformément à la loi, aucun sondage ni résultat n'est affiché la veille et le jour du scrutin, jusqu'à la fermeture des derniers bureaux de vote (20 h). Rendez-vous après 20 h.</div>
+      <div class="hero" id="hero" hidden>
+        <div class="hero-text">
+          <p class="hero-live"><span class="hero-dot" aria-hidden="true"></span><span id="hero-updated">Moyenne des sondages</span></p>
+          <a class="hero-cd" href="#jevote" id="hero-cd" aria-label="Préparer mon vote"><span class="hero-j">J-</span><span class="hero-days" id="hero-days"></span></a>
+          <p class="hero-cd-label" id="hero-cd-label">avant le 1er tour</p>
+          <h2 class="hero-title" id="hero-title"></h2>
+          <p class="hero-sub" id="hero-sub"></p>
+          <div class="hero-ctas">
+            <button type="button" class="hero-btn primary" data-scroll="poll-card">Voir le classement complet</button>
+            <button type="button" class="hero-btn" data-scroll="duels-title">Les duels du 2nd tour</button>
+          </div>
+        </div>
+        <div class="hero-podium" id="hero-podium"></div>
+      </div>
       <figure class="hero-cands" hidden>
         <img src="assets/candidats-2027.jpg" srcset="assets/candidats-2027-800.jpg 800w, assets/candidats-2027.jpg 1572w" sizes="(max-width: 900px) 100vw, 1100px" alt="Les principaux candidats à l'élection présidentielle 2027" width="1572" height="1001">
       </figure>
@@ -67,7 +81,7 @@
         </div>
         </div>
       </div>
-      <div class="poll-card">
+      <div class="poll-card" id="poll-card">
         <div class="poll-card-title"><span>Présidentielle 2027 :</span> moyenne des sondages</div>
         <div id="poll-bars"></div>
         <div id="poll-evo" hidden>
@@ -82,7 +96,7 @@
         <div class="poll-card-foot" id="poll-sources"></div>
       </div>
       <p class="muted small poll-meta" id="poll-meta"></p>
-      <h2>Duels du 2<sup>nd</sup> tour</h2>
+      <h2 id="duels-title">Duels du 2<sup>nd</sup> tour</h2>
       <p class="muted small" id="duel-meta"></p>
       <div class="duels" id="duels"></div>
       <h2>Évolution du 1<sup>er</sup> tour depuis l'automne 2025 <span class="muted small">(moyenne glissante 14 jours)</span></h2>
@@ -432,7 +446,7 @@
   <script src="assets/fun.js?v=202611161400"></script>
   <script src="assets/jevote.js?v=202611101700"></script>
   <script src="assets/extras.js?v=202611101700"></script>
-  <script src="assets/app.js?v=202611161400"></script>
+  <script src="assets/app.js?v=202611241200"></script>
   <script src="assets/anim.js?v=202611121720"></script>
 </body>
 </html>

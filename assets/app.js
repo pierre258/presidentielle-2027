@@ -71,6 +71,13 @@
     const when = next.date.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
     box.textContent = days === 0 ? "Aujourd'hui !" : `J-${days}`;
     box.title = `${next.label} : ${when} — cliquez pour préparer votre vote`;
+    // grand compte à rebours de l'accueil
+    const hd = $("#hero-days");
+    if (hd) {
+      hd.textContent = days === 0 ? "0" : String(days);
+      $("#hero-cd-label").textContent = days === 0 ? `${next.label} : c'est aujourd'hui` : `avant le ${next.label} · ${when}`;
+      $("#hero-cd").title = `${next.label} : ${when} — préparer mon vote`;
+    }
   }
   // le compte à rebours est dans le lien du logo : il ouvre « Prêt à voter ? » au lieu de l'accueil
   const goVote = (e) => { if (e.target.closest("#countdown") && (e.type === "click" || e.key === "Enter")) { e.preventDefault(); e.stopPropagation(); location.hash = "#jevote"; } };
@@ -154,6 +161,65 @@
     $("#poll-table").innerHTML = `<thead><tr><th>Institut</th><th>Terrain</th><th>Échantillon</th><th>Hyp.</th>${rows.slice(0, 7).map(([id]) => `<th>${esc(C[id].short)}</th>`).join("")}</tr></thead><tbody>`
       + POLLS.polls.slice(0, 20).map((p) => `<tr style="${sel.includes(p) ? "" : "opacity:.55"}"><td>${esc(p.pollster)}</td><td>${esc(p.fieldwork)} ${new Date(p.end).getFullYear()}</td><td>${esc(Number(p.sample).toLocaleString("fr-FR"))}</td><td>${p.hypotheses}</td>${rows.slice(0, 7).map(([id]) => `<td>${p.scores[id] != null ? fmtPct(p.scores[id]) : "—"}</td>`).join("")}</tr>`).join("")
       + "</tbody>";
+  }
+
+  /* Accueil « soirée électorale » : titre du moment + podium des 4 premiers (fenêtre 7 jours) */
+  function renderHero() {
+    const hero = $("#hero"), win = POLLS.windows?.["7"];
+    if (!hero || !win) return;
+    const rows = Object.entries(win.average).filter(([id]) => C[id]).sort((a, b) => b[1] - a[1]);
+    if (rows.length < 2) return;
+    const delta = (id, v) => (win.previous[id] == null ? null : Math.round((v - win.previous[id]) * 10) / 10);
+    const deltaHtml = (d) => d == null ? "" : `<span class="delta ${d > 0 ? "up" : d < 0 ? "down" : "eq"}">${d > 0 ? "▲ +" : d < 0 ? "▼ " : "= stable"}${d ? fmtPct(d) + " pt" : ""}</span>`;
+    const short = (id) => C[id].short || C[id].name;
+    const [[id1, v1], [id2, v2]] = rows;
+    const gap = Math.round((v1 - v2) * 10) / 10;
+    // le mouvement le plus marquant de la semaine parmi les 6 premiers
+    const mover = rows.slice(0, 6).map(([id, v]) => [id, delta(id, v)]).filter(([, d]) => d != null && Math.abs(d) >= 0.5)
+      .sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]))[0];
+    const line1 = `${esc(short(id1))} ${gap >= 8 ? "loin devant" : gap >= 3 ? "en tête" : "au coude-à-coude avec " + esc(short(id2))}.`;
+    const line2 = mover ? `${esc(short(mover[0]))} ${mover[1] > 0 ? "remonte" : "recule"}.` : "La course se fige.";
+    $("#hero-title").innerHTML = `${line1}<br>${line2}`;
+    let sub = `${esc(C[id1].name)} compte ${fmtPct(gap)} point${gap >= 2 ? "s" : ""} d'avance sur ${esc(C[id2].name)}.`;
+    if (mover) sub += ` ${esc(C[mover[0]].name)} ${mover[1] > 0 ? "gagne" : "perd"} ${fmtPct(Math.abs(mover[1]))} pt en une semaine.`;
+    $("#hero-sub").innerHTML = sub;
+    $("#hero-updated").textContent = `Moyenne de ${win.polls} sondage${win.polls > 1 ? "s" : ""} · mise à jour le ${fmtDate(POLLS.updated, { day: "numeric", month: "long" })}`;
+    const max = rows[0][1];
+    $("#hero-podium").innerHTML = rows.slice(0, 4).map(([id, v], i) => {
+      const c = C[id];
+      return `<button type="button" class="hp-card${i === 0 ? " lead" : ""}" data-cand="${id}" style="--c:${c.color};--i:${i}" title="Voir la fiche de ${esc(c.name)}">
+        <span class="hp-head">${avatar(id, i === 0 ? 72 : 48)}
+          <span class="hp-who">${i === 0 ? `<small>En tête · ${esc(c.party)}</small>` : ""}<b>${esc(c.name)}</b>${i === 0 ? "" : `<small>${esc(c.party)}</small>`}</span></span>
+        <span class="hp-num"><span class="hp-score">${fmtPct(v)}<sup>%</sup></span>${deltaHtml(delta(id, v))}</span>
+        <span class="hp-bar"><i style="--w:${(v / max) * 100}%"></i></span>
+      </button>`;
+    }).join("");
+    hero.hidden = false;
+    if (!hero.dataset.bound) {
+      hero.dataset.bound = "1";
+      hero.addEventListener("click", (e) => {
+        const card = e.target.closest(".hp-card[data-cand]");
+        if (card && window.ProgSelect) return window.ProgSelect(card.dataset.cand);
+        const s = e.target.closest("[data-scroll]");
+        if (s) document.getElementById(s.dataset.scroll)?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+      });
+    }
+    countdown();
+  }
+
+  /* Fond sombre : les couleurs de parti trop foncées (bleu marine, noir…) sont éclaircies pour rester lisibles */
+  // teintes choisies à la main pour que les partis proches (bleus de droite) restent distincts sur bleu nuit
+  const DARK_COLORS = { lepen: "#6f8bff", bardella: "#9db0ff", philippe: "#b596ff", lisnard: "#3dd6c6", retailleau: "#5ec8ff",
+    riner: "#c8cee0", zemmour: "#c9a27a", roussel: "#ff6b5b", arthaud: "#e26b7e", dupontaignan: "#4fb3e8", melenchon: "#ff5a6a" };
+  function forDark(hex, id) {
+    if (DARK_COLORS[id]) return DARK_COLORS[id];
+    const m = /^#?([0-9a-f]{6})$/i.exec(hex || "");
+    if (!m) return hex;
+    let rgb = [0, 2, 4].map((i) => parseInt(m[1].slice(i, i + 2), 16));
+    const lum = (c) => c.map((x) => { x /= 255; return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4; })
+      .reduce((s, x, i) => s + x * [0.2126, 0.7152, 0.0722][i], 0);
+    for (let k = 0; k < 12 && lum(rgb) < 0.16; k++) rgb = rgb.map((x) => Math.round(x + (255 - x) * 0.12));
+    return "#" + rgb.map((x) => x.toString(16).padStart(2, "0")).join("");
   }
 
   function renderDuels() {
@@ -776,7 +842,7 @@
     const get = (f) => fetch(`data/${f}.json`, { cache: "no-cache" }).then((r) => { if (!r.ok) throw new Error(f); return r.json(); });
     try {
       const [cands, photos, polls, social, buzz, prog, pdet, sim, hist] = await Promise.all(["candidates", "photos", "polls", "social", "buzz", "programmes", "programmes_details", "simulateur", "historique"].map(get));
-      cands.candidates.forEach((c) => (C[c.id] = { ...c, photo: photos[c.id]?.url }));
+      cands.candidates.forEach((c) => (C[c.id] = { ...c, color: forDark(c.color, c.id), photo: photos[c.id]?.url }));
       POLLS = polls; SOCIAL = social; BUZZ = buzz; PROG = prog; PDET = pdet; SIM = sim; HIST = hist;
     } catch (e) {
       document.querySelector("main").innerHTML = `<p class="warn">Impossible de charger les données (${esc(e.message)}). Ouvrez le site via un serveur web (voir README).</p>`;
@@ -790,7 +856,7 @@
     if (window.MDS_FREEZE) {
       $("#freeze-note").hidden = false;
       $$("#sondages > :not(.panel-head):not(.hero-cands):not(#freeze-note)").forEach((n) => (n.hidden = true));
-    } else { renderPolls("7"); renderTrend(); renderDuels(); }
+    } else { renderPolls("7"); renderHero(); renderTrend(); renderDuels(); }
     $("#poll-window").addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
       $$("#poll-window button").forEach((x) => x.classList.toggle("on", x === b));

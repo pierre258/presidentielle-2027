@@ -1375,3 +1375,202 @@ input::placeholder, textarea::placeholder { color: #a1a1a6; }
 }
 .consent-btns button { background: #fff; color: #1d1d1f; border: 1px solid rgba(29,29,31,.18); }
 .consent-btns button[data-c="all"] { background: var(--apple-blue, #0066cc); color: #fff; border-color: transparent; }
+
+/* =====================================================================
+   Habillage « soirée électorale » (nov. 2026) : bleu nuit, chiffres en
+   Space Grotesk, liseré tricolore, accueil avec compte à rebours et podium.
+   Couche finale : elle remplace la variante claire ci-dessus.
+   ===================================================================== */
+:root {
+  --bg: #0a0f24;
+  --bg2: #0e1430;
+  --surface: #121a36;
+  --surface-rgb: 18, 26, 54;
+  --ink: #eef1fa;
+  --ink-rgb: 238, 241, 250;
+  --card: #121a36;
+  --card-solid: #121a36;
+  --line: #222c52;
+  --text: #eef1fa;
+  --muted: #a3abc7;
+  --accent: #ff4d5e;
+  --pos: #5be49b;
+  --neg: #ff8a95;
+  --apple-blue: #4c7dff;
+  --radius: 20px;
+  --num: "Space Grotesk", var(--head);
+  color-scheme: dark;
+}
+body { color: var(--text); background: var(--bg); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: 4px; z-index: 40; pointer-events: none;
+  background: linear-gradient(90deg, #2f5bff 0 33.34%, #f4f6fb 33.34% 66.67%, #ff4d5e 66.67%); }
+::selection { background: rgba(76,125,255,.4); }
+a:not(.tab):not(.brand):not(.friends-btn):hover { text-decoration-color: var(--accent); }
+
+/* titres et chiffres */
+h1, h2 { font-family: var(--num); letter-spacing: -0.02em; }
+.score, .prow .score, .duel-pct, .hp-score, .hero-days, .hero-j { font-family: var(--num); }
+
+/* en-tête */
+.top { top: 4px; background: rgba(10, 15, 36, .82); border-bottom: 1px solid var(--line); }
+.brand-mark { background: var(--accent); }
+.tab.on, .tabs .more-btn.on { color: var(--text); }
+.tabs .more-btn { background: transparent; border: 1px solid #2e3a66; color: var(--text); }
+.tabs .more-btn:hover { background: #18213f; }
+.hdr-acct button, .hdr-acct a { color: var(--muted); border-color: #2e3a66; }
+.hdr-acct [data-auth="up"] { color: #0a0f24; background: #fff; border-color: #fff; }
+
+/* « Que votent mes amis ? » : bouton plein, sobre (le drapeau animé écrasait la page) */
+.tabs > .friends-btn, .tabs > .friends-btn.on {
+  background: var(--accent) !important; color: #fff !important; text-shadow: none !important; text-transform: none;
+  font-weight: 700; letter-spacing: 0; border-radius: 999px !important; padding: 9px 18px !important;
+  box-shadow: 0 8px 24px -10px rgba(255,77,94,.7) !important; animation: none !important; transform: none !important;
+}
+.tabs > .friends-btn::before, .tabs > .friends-btn::after { display: none !important; }
+.tabs > .friends-btn:hover { filter: brightness(1.08); }
+.tabs > .friends-btn.on { box-shadow: 0 0 0 3px rgba(255,77,94,.3) !important; }
+
+/* menus et fenêtres */
+.more-menu, .share-menu { background: rgba(18,26,54,.96) !important; border-color: #2e3a66 !important; box-shadow: 0 24px 60px -12px rgba(0,0,0,.7) !important; }
+.more-menu a { color: var(--text); }
+.more-menu a:hover, .more-menu a.on { background: rgba(255,255,255,.06); }
+.am { background: rgba(5,8,20,.6); }
+.am-box { background: rgba(18,26,54,.98) !important; color: var(--text); box-shadow: 0 30px 80px -20px rgba(0,0,0,.8); }
+
+/* cartes */
+.poll-card, .fun-card, .race-card, .grp, .dcard {
+  background: var(--surface); border: 1px solid var(--line);
+  box-shadow: 0 24px 60px -30px rgba(0,0,0,.8);
+}
+.bcard, .pick, .tp-row, .plat-cards > *, .duel { background: var(--surface); border-color: var(--line); }
+.poll-card-title { font-family: var(--num); }
+.bar, .duel-bar { background: #1e2748; }
+.av { box-shadow: 0 0 0 2px var(--bg); background: #1a2346; }
+
+/* contrôles */
+.seg { background: #0e1430; border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+.seg button { color: #c3c9de; border-radius: 999px; }
+.seg button.on { background: #fff; color: #0a0f24; box-shadow: none; }
+.seg .evo-btn { color: #ff9aa4; }
+.seg .evo-btn.on { background: var(--accent); color: #fff; }
+.cta { background: var(--accent); }
+.cta:hover { background: #ff6371; box-shadow: 0 8px 22px rgba(255,77,94,.35) !important; }
+input:not([type=checkbox]):not([type=radio]), select, textarea { background: #0e1430 !important; border: 1px solid #2e3a66 !important; color: var(--text); }
+input::placeholder, textarea::placeholder { color: #8a93b4; }
+.warn { color: #ffd27a; background: rgba(255,196,0,.1); }
+.pv.on small { color: rgba(10,15,36,.75); }
+
+/* tableau des sondages */
+.tbl th { color: var(--muted); }
+.tbl tr { border-color: var(--line); }
+
+/* duels */
+.duel { border-radius: 18px; padding: 20px; }
+.duel-pct { font-weight: 700; font-size: 40px; letter-spacing: -0.03em; }
+
+/* bandeau cookies */
+.consent-bar { background: #121a36; border-color: #2e3a66; color: var(--text); }
+.consent-btns button { background: transparent; color: var(--text); border: 1px solid #2e3a66; }
+.consent-btns button[data-c="all"] { background: #fff; color: #0a0f24; border-color: #fff; }
+
+/* pied de page : texte lisible (avant : gris clair sur beige) */
+.site-foot { background: #070b1c; border-top: 1px solid var(--line); color: var(--muted); }
+.site-foot h4 { color: var(--text); }
+.site-foot a { color: #c9d3ff; }
+.site-foot a:hover { color: #fff; }
+
+/* ---------- Accueil : compte à rebours + podium ---------- */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 48px; align-items: center; padding: 24px 0 56px; }
+.hero + .hero-cands + .panel-head { margin-top: 8px; }
+.hero-live { display: flex; align-items: center; gap: 10px; margin: 0 0 18px; font-size: 14px; font-weight: 500; color: var(--muted); }
+.hero-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pos); box-shadow: 0 0 0 0 rgba(91,228,155,.6); }
+.hero-cd { display: inline-flex; align-items: baseline; gap: 12px; text-decoration: none; color: #fff; line-height: .82; font-weight: 700; }
+.hero-j { font-size: 64px; color: var(--accent); }
+.hero-days { font-size: clamp(120px, 15vw, 200px); letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
+.hero-cd:hover .hero-days { color: #ffd6da; }
+.hero-cd-label { margin: 14px 0 0; font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.hero-title { margin: 28px 0 12px; font-size: clamp(34px, 4.2vw, 50px); line-height: 1.04; letter-spacing: -0.025em; color: #fff; text-transform: none; }
+.hero-sub { margin: 0; max-width: 480px; font-size: 18px; color: #c3c9de; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero-btn { min-height: 48px; padding: 0 22px; border-radius: 999px; border: 1px solid #2e3a66; background: transparent; color: var(--text); font-weight: 600; font-size: 15px; }
+.hero-btn:hover { background: #18213f; }
+.hero-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.hero-btn.primary:hover { background: #ff6371; }
+
+.hero-podium { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.hp-card { display: flex; flex-direction: column; gap: 14px; text-align: left; padding: 20px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); color: var(--text); transition: border-color .2s, transform .2s; }
+.hp-card:hover { border-color: var(--c); }
+.hp-card.lead { grid-column: 1 / -1; padding: 28px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 20px 24px; }
+.hp-head { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.hp-card.lead .hp-head { flex-direction: row; align-items: center; gap: 16px; }
+.hp-head .av { border-width: 3px; }
+.hp-who { display: flex; flex-direction: column; min-width: 0; }
+.hp-who b { font-size: 16px; font-weight: 600; color: #fff; }
+.hp-card.lead .hp-who b { font: 700 28px/1.1 var(--num); letter-spacing: -0.01em; }
+.hp-who small { font-size: 13px; color: var(--muted); }
+.hp-card.lead .hp-who small { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.hp-num { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.hp-num .delta { white-space: nowrap; }
+.hp-card.lead .hp-num { flex-direction: column; align-items: flex-end; gap: 4px; }
+.hp-score { font-weight: 700; font-size: 40px; line-height: 1; letter-spacing: -0.04em; color: #fff; }
+.hp-card.lead .hp-score { font-size: 80px; line-height: .9; }
+.hp-score sup { font-size: .42em; vertical-align: top; position: relative; top: .25em; margin-left: 2px; }
+.hp-num .delta { display: inline; margin: 0; font-size: 13px; }
+.hp-bar { display: block; height: 6px; border-radius: 999px; background: #1e2748; overflow: hidden; }
+.hp-card.lead .hp-bar { grid-column: 1 / -1; height: 12px; }
+.hp-bar i { display: block; height: 100%; width: var(--w); border-radius: inherit; background: var(--c); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-dot { animation: mds-live 2.4s ease-out infinite; }
+  @keyframes mds-live { 0% { box-shadow: 0 0 0 0 rgba(91,228,155,.55); } 70%, 100% { box-shadow: 0 0 0 10px rgba(91,228,155,0); } }
+  .hero-text > * { animation: mds-rise .6s cubic-bezier(.2,.8,.2,1) both; }
+  .hero-text > :nth-child(2) { animation-delay: .06s; } .hero-text > :nth-child(3) { animation-delay: .12s; }
+  .hero-text > :nth-child(4) { animation-delay: .18s; } .hero-text > :nth-child(5) { animation-delay: .24s; } .hero-text > :nth-child(6) { animation-delay: .3s; }
+  .hp-card { animation: mds-rise .6s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(.15s + var(--i) * .08s); }
+  .hp-card:hover { transform: translateY(-3px); }
+  .hp-bar i { animation: mds-grow 1.1s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(.35s + var(--i) * .08s); transform-origin: left; }
+  @keyframes mds-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes mds-grow { from { transform: scaleX(0); } to { transform: none; } }
+  /* apparitions au défilement plus rapides : le contenu n'est plus invisible pendant 2 s sur mobile */
+  .anim .rv { transform: translateY(12px); transition: opacity .35s ease, transform .35s cubic-bezier(.2,.8,.2,1); }
+  .cd-mini { animation: none; }
+}
+
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; padding-bottom: 40px; }
+}
+@media (max-width: 760px) {
+  .hero { padding-top: 8px; }
+  .hero-j { font-size: 44px; }
+  .hero-days { font-size: 128px; }
+  .hero-title { margin-top: 22px; font-size: 34px; }
+  .hero-sub { font-size: 16px; }
+  .hero-ctas { display: none; }
+  .hero-podium { grid-template-columns: 1fr; }
+  .hp-card:not(.lead) { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 10px 14px; padding: 16px; }
+  .hp-card:not(.lead) .hp-head { flex-direction: row; align-items: center; }
+  .hp-card:not(.lead) .hp-num { flex-direction: column; align-items: flex-end; gap: 2px; }
+  .hp-card:not(.lead) .hp-score { font-size: 30px; }
+  .hp-card:not(.lead) .hp-bar { grid-column: 1 / -1; }
+  .hp-card.lead { padding: 20px; gap: 14px; }
+  .hp-card.lead .hp-who b { font-size: 21px; }
+  .hp-card.lead .hp-score { font-size: 52px; }
+  .hp-card.lead .av { width: 56px !important; height: 56px !important; }
+  .duel-pct { font-size: 34px; }
+}
+@media (max-width: 380px) { .hero-days { font-size: 108px; } }
+
+/* le grand compte à rebours de l'accueil remplace le badge de l'en-tête sur la page Sondages */
+body[data-tab="sondages"] .cd-mini { display: none; }
+
+/* mobile : en-tête compact, les deux boutons sur une même ligne */
+@media (max-width: 760px) {
+  .brand-mark { padding: 5px 9px; }
+  .brand-mark small { display: none; }
+  .brand-mark b { font-size: 18px; }
+  .brand-title { font-size: 16px; white-space: nowrap; }
+  .tabs { flex-wrap: nowrap !important; gap: 8px; }
+  .tabs > .friends-btn, .tabs > .friends-btn.on { flex: 1.5 1 0 !important; min-width: 0; padding: 11px 10px !important; font-size: 14px !important; white-space: nowrap; text-align: center; }
+  .tabs > .more-dd { flex: 1 1 0; min-width: 0; }
+  .tabs > .more-dd > .more-btn { width: 100%; min-height: 44px; }
+}
