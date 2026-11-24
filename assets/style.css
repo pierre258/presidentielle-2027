@@ -1653,3 +1653,8 @@ body[data-tab="sondages"] .cd-mini { display: none; }
   .tabs > .cd-tab b { font-size: 16px; }
   .tabs > .more-dd > .more-btn { padding-left: 8px; padding-right: 8px; white-space: nowrap; }
 }
+
+/* podium : les scores des poursuivants restent alignés quelle que soit la longueur du nom
+   (un nom sur deux lignes ne décale plus le chiffre) */
+.hp-card:not(.lead) .hp-num { margin-top: auto; }
+.hp-num .delta { display: block; height: 18px; line-height: 18px; overflow: hidden; }
