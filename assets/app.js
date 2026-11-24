@@ -71,12 +71,12 @@
     const when = next.date.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
     box.textContent = days === 0 ? "Aujourd'hui !" : `J-${days}`;
     box.title = `${next.label} : ${when} — cliquez pour préparer votre vote`;
-    // grand compte à rebours de l'accueil
-    const hd = $("#hero-days");
-    if (hd) {
-      hd.textContent = days === 0 ? "0" : String(days);
-      $("#hero-cd-label").textContent = days === 0 ? `${next.label} : c'est aujourd'hui` : `avant le ${next.label} · ${when}`;
-      $("#hero-cd").title = `${next.label} : ${when} — préparer mon vote`;
+    // compte à rebours de la barre de menu (ouvre « Prêt à voter ? »)
+    const ct = $("#cd-tab");
+    if (ct) {
+      $("#cd-tab-days").textContent = days === 0 ? "Jour J" : `J-${days}`;
+      $("#cd-tab-label").textContent = days === 0 ? `${next.label} aujourd'hui` : `avant le ${next.label}`;
+      ct.title = `${next.label} : ${when} — préparer mon vote`;
     }
   }
   // le compte à rebours est dans le lien du logo : il ouvre « Prêt à voter ? » au lieu de l'accueil
