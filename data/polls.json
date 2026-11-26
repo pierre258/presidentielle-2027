@@ -1,22 +1,22 @@
 {
- "updated": "2026-11-26T14:36+00:00",
+ "updated": "2026-11-26T19:56+00:00",
  "source": "Wikipédia — Liste de sondages sur l'élection présidentielle française de 2027",
  "source_url": "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027",
  "window_days": 15,
  "window_extended": false,
  "average": {
-  "lepen": 32.6,
-  "melenchon": 18.0,
-  "philippe": 11.3,
-  "glucksmann": 11.0,
-  "lisnard": 9.9,
-  "attal": 5.4,
-  "retailleau": 5.2,
+  "lepen": 32.7,
+  "melenchon": 17.7,
+  "glucksmann": 10.8,
+  "philippe": 10.7,
+  "lisnard": 10.2,
+  "attal": 5.2,
+  "retailleau": 5.0,
   "riner": 4.1,
-  "villepin": 3.9,
-  "zemmour": 3.3,
-  "tondelier": 2.9,
+  "zemmour": 3.2,
+  "tondelier": 2.6,
   "ruffin": 2.5,
+  "villepin": 2.0,
   "dupontaignan": 1.9,
   "roussel": 1.8,
   "polony": 1.2,
@@ -36,12 +36,45 @@
   "dupontaignan": 1.9,
   "lepen": 34.5,
   "zemmour": 3.6,
+  "villepin": 1.5,
   "asselineau": 1.0,
   "polony": 2.5,
-  "ruffin": 1.5,
-  "villepin": 2.0
+  "ruffin": 1.5
  },
  "polls_in_window": [
+  {
+   "pollster": "OpinonWay",
+   "fieldwork": "25-26 novembre",
+   "end": "2026-11-26",
+   "sample": "912",
+   "hypotheses": 1,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 16.0,
+    "roussel": 2.0,
+    "tondelier": 1.0,
+    "glucksmann": 10.0,
+    "attal": 4.0,
+    "philippe": 8.0,
+    "villepin": 2.0,
+    "retailleau": 4.0,
+    "lisnard": 12.0,
+    "dupontaignan": 2.0,
+    "lepen": 33.0,
+    "zemmour": 3.0,
+    "bouamrane": 1.0
+   },
+   "families": {
+    "eg": 1.02,
+    "gr": 18.37,
+    "eco": 1.02,
+    "sd": 10.2,
+    "ce": 14.29,
+    "dr": 16.33,
+    "sv": 2.04,
+    "ed": 36.73
+   }
+  },
   {
    "pollster": "Harris",
    "fieldwork": "18-19 novembre",
@@ -56,6 +89,7 @@
     "glucksmann": 11.0,
     "attal": 5.5,
     "philippe": 9.5,
+    "villepin": 1.67,
     "retailleau": 4.33,
     "lisnard": 11.33,
     "dupontaignan": 1.0,
@@ -64,14 +98,14 @@
     "riner": 4.33
    },
    "families": {
-    "eg": 1.02,
-    "gr": 20.0,
-    "eco": 1.36,
-    "sd": 11.19,
-    "ce": 14.57,
-    "dr": 15.93,
-    "sv": 1.02,
-    "ed": 34.92
+    "eg": 1.0,
+    "gr": 19.67,
+    "eco": 1.33,
+    "sd": 11.0,
+    "ce": 16.0,
+    "dr": 15.67,
+    "sv": 1.0,
+    "ed": 34.33
    }
   },
   {
@@ -93,17 +127,18 @@
     "dupontaignan": 1.8,
     "lepen": 34.2,
     "zemmour": 3.2,
+    "villepin": 2.0,
     "riner": 3.0
    },
    "families": {
-    "eg": 1.0,
-    "gr": 21.51,
-    "eco": 3.78,
-    "sd": 9.96,
-    "ce": 11.77,
-    "dr": 12.93,
+    "eg": 0.99,
+    "gr": 21.44,
+    "eco": 3.76,
+    "sd": 9.93,
+    "ce": 12.11,
+    "dr": 12.87,
     "sv": 1.79,
-    "ed": 37.26
+    "ed": 37.12
    }
   },
   {
@@ -120,24 +155,24 @@
     "glucksmann": 10.25,
     "attal": 5.83,
     "philippe": 12.4,
+    "villepin": 1.5,
     "retailleau": 4.8,
     "lisnard": 10.0,
     "dupontaignan": 1.83,
     "lepen": 34.33,
     "zemmour": 3.08,
     "polony": 1.0,
-    "ruffin": 2.0,
-    "villepin": 5.0
+    "ruffin": 2.0
    },
    "families": {
     "eg": 0.33,
-    "gr": 21.18,
-    "eco": 2.5,
-    "sd": 10.25,
-    "ce": 14.11,
-    "dr": 12.35,
-    "sv": 1.83,
-    "ed": 37.44
+    "gr": 21.31,
+    "eco": 2.51,
+    "sd": 10.3,
+    "ce": 13.62,
+    "dr": 12.43,
+    "sv": 1.84,
+    "ed": 37.66
    }
   },
   {
@@ -153,11 +188,11 @@
     "tondelier": 3.12,
     "glucksmann": 13.08,
     "philippe": 12.38,
+    "villepin": 2.75,
     "retailleau": 5.83,
     "dupontaignan": 2.67,
     "lepen": 32.42,
     "zemmour": 3.92,
-    "villepin": 2.75,
     "attal": 7.0,
     "lisnard": 9.17,
     "ruffin": 3.0,
@@ -210,8 +245,23 @@
  ],
  "windows": {
   "7": {
-   "polls": 0,
-   "average": {},
+   "polls": 1,
+   "average": {
+    "arthaud": 1.0,
+    "melenchon": 16.0,
+    "roussel": 2.0,
+    "tondelier": 1.0,
+    "glucksmann": 10.0,
+    "attal": 4.0,
+    "philippe": 8.0,
+    "villepin": 2.0,
+    "retailleau": 4.0,
+    "lisnard": 12.0,
+    "dupontaignan": 2.0,
+    "lepen": 33.0,
+    "zemmour": 3.0,
+    "bouamrane": 1.0
+   },
    "previous": {
     "arthaud": 0.7,
     "melenchon": 18.6,
@@ -220,6 +270,7 @@
     "glucksmann": 11.1,
     "attal": 5.9,
     "philippe": 11.1,
+    "villepin": 2.0,
     "retailleau": 5.4,
     "lisnard": 10.0,
     "dupontaignan": 1.8,
@@ -227,30 +278,29 @@
     "zemmour": 3.5,
     "riner": 4.1,
     "polony": 1.2,
-    "ruffin": 2.5,
-    "villepin": 3.9
+    "ruffin": 2.5
    }
   },
   "15": {
-   "polls": 5,
+   "polls": 6,
    "average": {
     "arthaud": 0.8,
-    "melenchon": 18.0,
+    "melenchon": 17.7,
     "roussel": 1.8,
-    "tondelier": 2.9,
-    "glucksmann": 11.0,
-    "attal": 5.4,
-    "philippe": 11.3,
-    "retailleau": 5.2,
-    "lisnard": 9.9,
+    "tondelier": 2.6,
+    "glucksmann": 10.8,
+    "attal": 5.2,
+    "philippe": 10.7,
+    "villepin": 2.0,
+    "retailleau": 5.0,
+    "lisnard": 10.2,
     "dupontaignan": 1.9,
-    "lepen": 32.6,
-    "zemmour": 3.3,
+    "lepen": 32.7,
+    "zemmour": 3.2,
+    "bouamrane": 1.0,
     "riner": 4.1,
     "polony": 1.2,
-    "ruffin": 2.5,
-    "villepin": 3.9,
-    "bouamrane": 1.0
+    "ruffin": 2.5
    },
    "previous": {
     "arthaud": 0.8,
@@ -265,32 +315,32 @@
     "dupontaignan": 1.9,
     "lepen": 34.5,
     "zemmour": 3.6,
+    "villepin": 1.5,
     "asselineau": 1.0,
     "polony": 2.5,
-    "ruffin": 1.5,
-    "villepin": 2.0
+    "ruffin": 1.5
    }
   },
   "30": {
-   "polls": 10,
+   "polls": 11,
    "average": {
     "arthaud": 0.8,
-    "melenchon": 18.1,
+    "melenchon": 17.9,
     "roussel": 1.9,
-    "tondelier": 2.8,
-    "glucksmann": 11.6,
-    "attal": 6.9,
-    "philippe": 12.3,
-    "retailleau": 6.3,
-    "lisnard": 10.1,
+    "tondelier": 2.6,
+    "glucksmann": 11.5,
+    "attal": 6.6,
+    "philippe": 11.9,
+    "villepin": 1.8,
+    "retailleau": 6.1,
+    "lisnard": 10.3,
     "dupontaignan": 1.9,
-    "lepen": 33.6,
+    "lepen": 33.5,
     "zemmour": 3.4,
+    "bouamrane": 1.0,
     "riner": 4.1,
     "polony": 1.7,
     "ruffin": 2.2,
-    "villepin": 3.2,
-    "bouamrane": 1.0,
     "asselineau": 1.0
    },
    "previous": {
@@ -308,7 +358,7 @@
     "lisnard": 6.3,
     "bouamrane": 1.0,
     "hollande": 8.1,
-    "villepin": 3.2,
+    "villepin": 1.7,
     "ruffin": 2.1,
     "polony": 1.2
    }
@@ -317,14 +367,92 @@
  "default_window": 7,
  "second_round": [
   {
-   "a": "melenchon",
+   "a": "glucksmann",
    "b": "lepen",
-   "last": "2026-11-19",
+   "last": "2026-11-26",
    "window": "15 jours",
    "n": 4,
-   "avg_a": 33.9,
-   "avg_b": 66.1,
+   "avg_a": 42.8,
+   "avg_b": 57.2,
    "polls": [
+    {
+     "pollster": "OpinonWay",
+     "fieldwork": "25-26 novembre 2026",
+     "end": "2026-11-26",
+     "a": 42.0,
+     "b": 58.0
+    },
+    {
+     "pollster": "YouGov",
+     "fieldwork": "12-17 novembre 2026",
+     "end": "2026-11-17",
+     "a": 42.0,
+     "b": 58.0
+    },
+    {
+     "pollster": "Elabe",
+     "fieldwork": "12-13 novembre 2026",
+     "end": "2026-11-13",
+     "a": 45.0,
+     "b": 55.0
+    },
+    {
+     "pollster": "OpinionWay",
+     "fieldwork": "10-12 novembre 2026",
+     "end": "2026-11-12",
+     "a": 42.0,
+     "b": 58.0
+    },
+    {
+     "pollster": "Harris",
+     "fieldwork": "3-5 novembre 2026",
+     "end": "2026-11-05",
+     "a": 40.0,
+     "b": 60.0
+    },
+    {
+     "pollster": "OpinionWay",
+     "fieldwork": "21-22 octobre 2026",
+     "end": "2026-10-22",
+     "a": 44.0,
+     "b": 56.0
+    }
+   ]
+  },
+  {
+   "a": "lisnard",
+   "b": "lepen",
+   "last": "2026-11-26",
+   "window": "15 jours",
+   "n": 1,
+   "avg_a": 45.0,
+   "avg_b": 55.0,
+   "polls": [
+    {
+     "pollster": "OpinonWay",
+     "fieldwork": "25-26 novembre 2026",
+     "end": "2026-11-26",
+     "a": 45.0,
+     "b": 55.0
+    }
+   ]
+  },
+  {
+   "a": "melenchon",
+   "b": "lepen",
+   "last": "2026-11-26",
+   "window": "15 jours",
+   "n": 5,
+   "avg_a": 33.3,
+   "avg_b": 66.7,
+   "polls": [
+    {
+     "pollster": "OpinonWay",
+     "fieldwork": "25-26 novembre 2026",
+     "end": "2026-11-26",
+     "a": 31.0,
+     "b": 69.0
+    },
     {
      "pollster": "Harris",
      "fieldwork": "18-19 novembre 2026",
@@ -359,13 +487,59 @@
      "end": "2026-11-05",
      "a": 32.0,
      "b": 68.0
+    }
+   ]
+  },
+  {
+   "a": "philippe",
+   "b": "lepen",
+   "last": "2026-11-26",
+   "window": "15 jours",
+   "n": 4,
+   "avg_a": 44.0,
+   "avg_b": 56.0,
+   "polls": [
+    {
+     "pollster": "OpinonWay",
+     "fieldwork": "25-26 novembre 2026",
+     "end": "2026-11-26",
+     "a": 41.0,
+     "b": 59.0
+    },
+    {
+     "pollster": "YouGov",
+     "fieldwork": "12-17 novembre 2026",
+     "end": "2026-11-17",
+     "a": 46.0,
+     "b": 54.0
+    },
+    {
+     "pollster": "Elabe",
+     "fieldwork": "12-13 novembre 2026",
+     "end": "2026-11-13",
+     "a": 45.0,
+     "b": 55.0
+    },
+    {
+     "pollster": "OpinionWay",
+     "fieldwork": "10-12 novembre 2026",
+     "end": "2026-11-12",
+     "a": 44.0,
+     "b": 56.0
+    },
+    {
+     "pollster": "Harris",
+     "fieldwork": "3-5 novembre 2026",
+     "end": "2026-11-05",
+     "a": 42.0,
+     "b": 58.0
     },
     {
      "pollster": "OpinionWay",
      "fieldwork": "21-22 octobre 2026",
      "end": "2026-10-22",
-     "a": 31.0,
-     "b": 69.0
+     "a": 44.0,
+     "b": 56.0
     }
    ]
   },
@@ -419,112 +593,6 @@
      "end": "2026-09-03",
      "a": 45.0,
      "b": 55.0
-    }
-   ]
-  },
-  {
-   "a": "glucksmann",
-   "b": "lepen",
-   "last": "2026-11-17",
-   "window": "15 jours",
-   "n": 3,
-   "avg_a": 43.0,
-   "avg_b": 57.0,
-   "polls": [
-    {
-     "pollster": "YouGov",
-     "fieldwork": "12-17 novembre 2026",
-     "end": "2026-11-17",
-     "a": 42.0,
-     "b": 58.0
-    },
-    {
-     "pollster": "Elabe",
-     "fieldwork": "12-13 novembre 2026",
-     "end": "2026-11-13",
-     "a": 45.0,
-     "b": 55.0
-    },
-    {
-     "pollster": "OpinionWay",
-     "fieldwork": "10-12 novembre 2026",
-     "end": "2026-11-12",
-     "a": 42.0,
-     "b": 58.0
-    },
-    {
-     "pollster": "Harris",
-     "fieldwork": "3-5 novembre 2026",
-     "end": "2026-11-05",
-     "a": 40.0,
-     "b": 60.0
-    },
-    {
-     "pollster": "OpinionWay",
-     "fieldwork": "21-22 octobre 2026",
-     "end": "2026-10-22",
-     "a": 44.0,
-     "b": 56.0
-    },
-    {
-     "pollster": "Harris",
-     "fieldwork": "19-21 octobre 2026",
-     "end": "2026-10-21",
-     "a": 41.0,
-     "b": 59.0
-    }
-   ]
-  },
-  {
-   "a": "philippe",
-   "b": "lepen",
-   "last": "2026-11-17",
-   "window": "15 jours",
-   "n": 3,
-   "avg_a": 45.0,
-   "avg_b": 55.0,
-   "polls": [
-    {
-     "pollster": "YouGov",
-     "fieldwork": "12-17 novembre 2026",
-     "end": "2026-11-17",
-     "a": 46.0,
-     "b": 54.0
-    },
-    {
-     "pollster": "Elabe",
-     "fieldwork": "12-13 novembre 2026",
-     "end": "2026-11-13",
-     "a": 45.0,
-     "b": 55.0
-    },
-    {
-     "pollster": "OpinionWay",
-     "fieldwork": "10-12 novembre 2026",
-     "end": "2026-11-12",
-     "a": 44.0,
-     "b": 56.0
-    },
-    {
-     "pollster": "Harris",
-     "fieldwork": "3-5 novembre 2026",
-     "end": "2026-11-05",
-     "a": 42.0,
-     "b": 58.0
-    },
-    {
-     "pollster": "OpinionWay",
-     "fieldwork": "21-22 octobre 2026",
-     "end": "2026-10-22",
-     "a": 44.0,
-     "b": 56.0
-    },
-    {
-     "pollster": "Harris",
-     "fieldwork": "19-21 octobre 2026",
-     "end": "2026-10-21",
-     "a": 43.0,
-     "b": 57.0
     }
    ]
   },
@@ -1435,8 +1503,8 @@
     "lepen": 35.7,
     "zemmour": 4.2,
     "bouamrane": 1.0,
+    "villepin": 1.5,
     "ruffin": 2.0,
-    "villepin": 5.0,
     "hollande": 7.0
    }
   },
@@ -1449,12 +1517,12 @@
     "tondelier": 2.9,
     "glucksmann": 13.4,
     "philippe": 14.4,
+    "villepin": 1.6,
     "retailleau": 7.6,
     "lisnard": 6.5,
     "dupontaignan": 2.0,
     "lepen": 34.9,
     "zemmour": 4.1,
-    "villepin": 3.5,
     "attal": 8.8,
     "hollande": 8.7,
     "ruffin": 2.1,
@@ -1479,7 +1547,7 @@
     "lisnard": 7.0,
     "bouamrane": 1.0,
     "hollande": 8.5,
-    "villepin": 3.0,
+    "villepin": 1.6,
     "ruffin": 2.2,
     "polony": 1.2
    }
@@ -1518,10 +1586,10 @@
     "dupontaignan": 1.9,
     "lepen": 34.5,
     "zemmour": 3.6,
+    "villepin": 1.5,
     "asselineau": 1.0,
     "polony": 2.5,
-    "ruffin": 1.5,
-    "villepin": 2.0
+    "ruffin": 1.5
    }
   },
   {
@@ -1539,10 +1607,10 @@
     "dupontaignan": 2.0,
     "lepen": 33.1,
     "zemmour": 3.1,
+    "villepin": 1.9,
     "riner": 4.0,
     "polony": 1.7,
     "ruffin": 2.2,
-    "villepin": 3.2,
     "bouamrane": 1.0,
     "asselineau": 1.0
    }
@@ -1557,6 +1625,7 @@
     "glucksmann": 11.0,
     "attal": 5.4,
     "philippe": 11.3,
+    "villepin": 2.0,
     "retailleau": 5.2,
     "lisnard": 9.9,
     "dupontaignan": 1.9,
@@ -1565,7 +1634,6 @@
     "riner": 4.1,
     "polony": 1.2,
     "ruffin": 2.5,
-    "villepin": 3.9,
     "bouamrane": 1.0
    }
   }
@@ -2312,7 +2380,7 @@
      "zemmour": 4.1,
      "bouamrane": 1.0,
      "hollande": 8.1,
-     "villepin": 3.5,
+     "villepin": 1.6,
      "ruffin": 2.1,
      "polony": 1.2
     },
@@ -2321,83 +2389,113 @@
      "gr": 18.9,
      "eco": 2.7,
      "sd": 12.7,
-     "ce": 15.0,
-     "dr": 9.1,
+     "ce": 14.9,
+     "dr": 9.2,
      "sv": 2.0,
-     "ed": 39.0
+     "ed": 39.1
     }
    },
    {
     "month": "2026-11",
-    "n": 9,
+    "n": 10,
     "scores": {
      "arthaud": 0.8,
-     "melenchon": 18.1,
+     "melenchon": 17.9,
      "roussel": 1.9,
-     "tondelier": 2.7,
-     "glucksmann": 11.6,
-     "attal": 6.9,
-     "philippe": 12.2,
-     "retailleau": 6.4,
-     "lisnard": 10.3,
+     "tondelier": 2.6,
+     "glucksmann": 11.5,
+     "attal": 6.6,
+     "philippe": 11.8,
+     "villepin": 1.8,
+     "retailleau": 6.1,
+     "lisnard": 10.5,
      "dupontaignan": 1.9,
      "lepen": 33.3,
-     "zemmour": 3.4,
+     "zemmour": 3.3,
+     "bouamrane": 1.0,
      "riner": 4.1,
      "polony": 1.7,
      "ruffin": 2.2,
-     "villepin": 3.2,
-     "bouamrane": 1.0,
      "asselineau": 1.0
     },
     "families": {
      "eg": 0.8,
-     "gr": 20.3,
-     "eco": 2.5,
-     "sd": 11.7,
-     "ce": 13.0,
-     "dr": 12.8,
+     "gr": 20.1,
+     "eco": 2.4,
+     "sd": 11.6,
+     "ce": 13.3,
+     "dr": 13.1,
      "sv": 1.9,
-     "ed": 37.0
+     "ed": 36.9
     }
    }
   ],
   "current": {
    "date": "2026-11-26",
-   "window": 15,
-   "n": 5,
+   "window": 7,
+   "n": 1,
    "scores": {
-    "arthaud": 0.8,
-    "melenchon": 18.0,
-    "roussel": 1.8,
-    "tondelier": 2.9,
-    "glucksmann": 11.0,
-    "attal": 5.4,
-    "philippe": 11.3,
-    "retailleau": 5.2,
-    "lisnard": 9.9,
-    "dupontaignan": 1.9,
-    "lepen": 32.6,
-    "zemmour": 3.3,
-    "riner": 4.1,
-    "polony": 1.2,
-    "ruffin": 2.5,
-    "villepin": 3.9,
+    "arthaud": 1.0,
+    "melenchon": 16.0,
+    "roussel": 2.0,
+    "tondelier": 1.0,
+    "glucksmann": 10.0,
+    "attal": 4.0,
+    "philippe": 8.0,
+    "villepin": 2.0,
+    "retailleau": 4.0,
+    "lisnard": 12.0,
+    "dupontaignan": 2.0,
+    "lepen": 33.0,
+    "zemmour": 3.0,
     "bouamrane": 1.0
    },
    "families": {
-    "eg": 0.8,
-    "gr": 20.1,
-    "eco": 2.6,
-    "sd": 11.1,
-    "ce": 14.2,
-    "dr": 13.2,
-    "sv": 1.9,
-    "ed": 36.2
+    "eg": 1.0,
+    "gr": 18.4,
+    "eco": 1.0,
+    "sd": 10.2,
+    "ce": 14.3,
+    "dr": 16.3,
+    "sv": 2.0,
+    "ed": 36.7
    }
   }
  },
  "polls": [
+  {
+   "pollster": "OpinonWay",
+   "fieldwork": "25-26 novembre",
+   "end": "2026-11-26",
+   "sample": "912",
+   "hypotheses": 1,
+   "scores": {
+    "arthaud": 1.0,
+    "melenchon": 16.0,
+    "roussel": 2.0,
+    "tondelier": 1.0,
+    "glucksmann": 10.0,
+    "attal": 4.0,
+    "philippe": 8.0,
+    "villepin": 2.0,
+    "retailleau": 4.0,
+    "lisnard": 12.0,
+    "dupontaignan": 2.0,
+    "lepen": 33.0,
+    "zemmour": 3.0,
+    "bouamrane": 1.0
+   },
+   "families": {
+    "eg": 1.02,
+    "gr": 18.37,
+    "eco": 1.02,
+    "sd": 10.2,
+    "ce": 14.29,
+    "dr": 16.33,
+    "sv": 2.04,
+    "ed": 36.73
+   }
+  },
   {
    "pollster": "Harris",
    "fieldwork": "18-19 novembre",
@@ -2412,6 +2510,7 @@
     "glucksmann": 11.0,
     "attal": 5.5,
     "philippe": 9.5,
+    "villepin": 1.67,
     "retailleau": 4.33,
     "lisnard": 11.33,
     "dupontaignan": 1.0,
@@ -2420,14 +2519,14 @@
     "riner": 4.33
    },
    "families": {
-    "eg": 1.02,
-    "gr": 20.0,
-    "eco": 1.36,
-    "sd": 11.19,
-    "ce": 14.57,
-    "dr": 15.93,
-    "sv": 1.02,
-    "ed": 34.92
+    "eg": 1.0,
+    "gr": 19.67,
+    "eco": 1.33,
+    "sd": 11.0,
+    "ce": 16.0,
+    "dr": 15.67,
+    "sv": 1.0,
+    "ed": 34.33
    }
   },
   {
@@ -2449,17 +2548,18 @@
     "dupontaignan": 1.8,
     "lepen": 34.2,
     "zemmour": 3.2,
+    "villepin": 2.0,
     "riner": 3.0
    },
    "families": {
-    "eg": 1.0,
-    "gr": 21.51,
-    "eco": 3.78,
-    "sd": 9.96,
-    "ce": 11.77,
-    "dr": 12.93,
+    "eg": 0.99,
+    "gr": 21.44,
+    "eco": 3.76,
+    "sd": 9.93,
+    "ce": 12.11,
+    "dr": 12.87,
     "sv": 1.79,
-    "ed": 37.26
+    "ed": 37.12
    }
   },
   {
@@ -2476,24 +2576,24 @@
     "glucksmann": 10.25,
     "attal": 5.83,
     "philippe": 12.4,
+    "villepin": 1.5,
     "retailleau": 4.8,
     "lisnard": 10.0,
     "dupontaignan": 1.83,
     "lepen": 34.33,
     "zemmour": 3.08,
     "polony": 1.0,
-    "ruffin": 2.0,
-    "villepin": 5.0
+    "ruffin": 2.0
    },
    "families": {
     "eg": 0.33,
-    "gr": 21.18,
-    "eco": 2.5,
-    "sd": 10.25,
-    "ce": 14.11,
-    "dr": 12.35,
-    "sv": 1.83,
-    "ed": 37.44
+    "gr": 21.31,
+    "eco": 2.51,
+    "sd": 10.3,
+    "ce": 13.62,
+    "dr": 12.43,
+    "sv": 1.84,
+    "ed": 37.66
    }
   },
   {
@@ -2509,11 +2609,11 @@
     "tondelier": 3.12,
     "glucksmann": 13.08,
     "philippe": 12.38,
+    "villepin": 2.75,
     "retailleau": 5.83,
     "dupontaignan": 2.67,
     "lepen": 32.42,
     "zemmour": 3.92,
-    "villepin": 2.75,
     "attal": 7.0,
     "lisnard": 9.17,
     "ruffin": 3.0,
@@ -2613,19 +2713,20 @@
     "lepen": 29.75,
     "zemmour": 2.75,
     "attal": 6.5,
+    "villepin": 1.0,
     "asselineau": 1.0,
     "polony": 2.5,
     "ruffin": 1.5
    },
    "families": {
     "eg": 0.52,
-    "gr": 23.31,
-    "eco": 1.42,
-    "sd": 10.46,
-    "ce": 12.55,
-    "dr": 15.43,
+    "gr": 23.23,
+    "eco": 1.41,
+    "sd": 10.44,
+    "ce": 12.8,
+    "dr": 15.38,
     "sv": 2.58,
-    "ed": 33.73
+    "ed": 33.63
    }
   },
   {
@@ -2641,12 +2742,12 @@
     "tondelier": 2.2,
     "glucksmann": 11.8,
     "philippe": 12.33,
+    "villepin": 2.0,
     "retailleau": 7.2,
     "lisnard": 9.0,
     "dupontaignan": 1.6,
     "lepen": 35.4,
     "zemmour": 3.6,
-    "villepin": 2.0,
     "attal": 8.33
    },
    "families": {
@@ -2828,12 +2929,12 @@
     "tondelier": 2.0,
     "glucksmann": 12.8,
     "philippe": 14.67,
+    "villepin": 1.5,
     "retailleau": 6.2,
     "lisnard": 7.5,
     "dupontaignan": 1.6,
     "lepen": 34.2,
     "zemmour": 5.4,
-    "villepin": 1.5,
     "attal": 8.67
    },
    "families": {
@@ -2866,20 +2967,20 @@
     "lepen": 36.25,
     "zemmour": 3.25,
     "hollande": 10.0,
+    "villepin": 1.5,
     "lisnard": 6.25,
     "ruffin": 1.5,
-    "villepin": 5.0,
     "polony": 1.0
    },
    "families": {
     "eg": 0.44,
-    "gr": 18.43,
-    "eco": 2.19,
-    "sd": 13.31,
-    "ce": 17.29,
-    "dr": 6.98,
+    "gr": 18.5,
+    "eco": 2.2,
+    "sd": 13.36,
+    "ce": 16.94,
+    "dr": 7.02,
     "sv": 1.88,
-    "ed": 39.49
+    "ed": 39.65
    }
   },
   {
@@ -2895,11 +2996,11 @@
     "tondelier": 2.6,
     "glucksmann": 15.83,
     "philippe": 15.5,
+    "villepin": 2.5,
     "retailleau": 7.83,
     "dupontaignan": 2.58,
     "lepen": 32.42,
     "zemmour": 3.33,
-    "villepin": 2.5,
     "attal": 8.17,
     "lisnard": 6.0,
     "ruffin": 3.0,
@@ -2966,18 +3067,19 @@
     "lepen": 36.2,
     "zemmour": 3.6,
     "hollande": 9.0,
+    "villepin": 1.0,
     "lisnard": 4.0,
     "ruffin": 2.0
    },
    "families": {
     "eg": 0.2,
-    "gr": 18.03,
-    "eco": 5.81,
-    "sd": 12.03,
-    "ce": 13.63,
-    "dr": 7.62,
+    "gr": 18.0,
+    "eco": 5.8,
+    "sd": 12.0,
+    "ce": 13.81,
+    "dr": 7.6,
     "sv": 2.8,
-    "ed": 39.88
+    "ed": 39.8
    }
   },
   {
@@ -3056,23 +3158,23 @@
     "glucksmann": 13.75,
     "attal": 8.0,
     "philippe": 15.0,
+    "villepin": 1.5,
     "retailleau": 6.5,
     "lisnard": 6.0,
     "dupontaignan": 1.75,
     "lepen": 34.25,
     "zemmour": 3.0,
-    "ruffin": 2.0,
-    "villepin": 5.0
+    "ruffin": 2.0
    },
    "families": {
     "eg": 0.25,
-    "gr": 19.08,
-    "eco": 2.11,
-    "sd": 13.65,
-    "ce": 18.31,
-    "dr": 7.91,
-    "sv": 1.74,
-    "ed": 36.95
+    "gr": 19.25,
+    "eco": 2.12,
+    "sd": 13.75,
+    "ce": 17.62,
+    "dr": 8.0,
+    "sv": 1.75,
+    "ed": 37.25
    }
   },
   {
